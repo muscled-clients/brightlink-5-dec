@@ -1,10 +1,8 @@
-/* Hero Video Wall Section - Custom CSS Class: hero-video-wall-section */
+/* Hero Video Wall Section */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-/* Import Fonts - Roboto and Playfair Display for italic subheading */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Roboto:wght@400;500;700&display=swap');
-
-/* Main Section Container */
-.hero-video-wall-section {
+/* Main Container */
+.hvw {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -12,14 +10,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: 'Roboto', Arial, sans-serif;
   overflow: hidden;
-  font-family: 'Roboto', 'Arial', sans-serif;
-  padding: 0;
-  margin: 0;
 }
 
 /* Video Container */
-.hero-video-wall__video-container {
+.hvw__video-wrap {
   position: absolute;
   top: 0;
   left: 0;
@@ -28,394 +24,237 @@
   z-index: 1;
 }
 
-/* Background Video */
-.hero-video-wall__video {
+.hvw__video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
 }
 
-/* Fallback Background Image */
-.hero-video-wall__fallback-bg {
+.hvw__fallback {
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
 }
 
-/* Dark Overlay */
-.hero-video-wall__overlay {
+.hvw__overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-/* Content Container */
-.hero-video-wall__content {
+/* Content */
+.hvw__content {
   position: relative;
-  z-index: 3;
+  z-index: 2;
   text-align: center;
-  padding: 40px 20px 120px;
-  max-width: 1200px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  padding: 60px 20px 180px;
+  max-width: 800px;
 }
 
 /* Series Label */
-.hero-video-wall__series-label {
+.hvw__label {
+  display: inline-block;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--hero-series-color, #FFD700);
-  margin: 0 0 5px 0;
+  color: #FFD700;
+  margin-bottom: 15px;
 }
 
 /* Main Heading */
-.hero-video-wall__main-heading {
-  font-size: 56px;
+.hvw__heading {
+  font-size: 64px;
   font-weight: 700;
   color: #ffffff;
-  margin: 0;
+  margin: 0 0 15px;
   line-height: 1.1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: 1px;
 }
 
-/* Subheading - Italic Serif Style */
-.hero-video-wall__subheading {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 28px;
+/* Subheading */
+.hvw__subheading {
+  font-size: 24px;
   font-weight: 400;
   font-style: italic;
   color: #ffffff;
-  margin: 5px 0 0 0;
-  line-height: 1.3;
+  margin: 0 0 15px;
 }
 
 /* Description */
-.hero-video-wall__description {
+.hvw__desc {
   font-size: 14px;
-  font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
-  margin: 8px 0 0 0;
-  max-width: 500px;
-  line-height: 1.5;
+  margin: 0 0 25px;
+  line-height: 1.6;
 }
 
-/* Buttons Container */
-.hero-video-wall__buttons {
+/* Buttons */
+.hvw__buttons {
   display: flex;
-  flex-direction: row;
-  gap: 12px;
-  margin-top: 20px;
-  flex-wrap: wrap;
   justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-/* Button Base Styles */
-.hero-video-wall__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 24px;
-  font-size: 13px;
+.hvw__btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  border-radius: 25px;
+  border-radius: 30px;
   transition: all 0.3s ease;
-  cursor: pointer;
+  min-width: 180px;
+  text-align: center;
+}
+
+.hvw__btn--primary {
+  background-color: #FF6200;
+  color: #ffffff;
   border: none;
 }
 
-/* Primary Button */
-.hero-video-wall__btn--primary {
-  background-color: var(--hero-btn-bg, #FF6200);
-  color: #ffffff;
-}
-
-.hero-video-wall__btn--primary:hover {
-  background-color: var(--hero-btn-hover, #e55b00);
+.hvw__btn--primary:hover {
+  background-color: #e55b00;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(255, 98, 0, 0.4);
 }
 
-/* Secondary Button */
-.hero-video-wall__btn--secondary {
-  background-color: rgba(0, 0, 0, 0.6);
+.hvw__btn--secondary {
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-.hero-video-wall__btn--secondary:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+.hvw__btn--secondary:hover {
+  background-color: rgba(0, 0, 0, 0.7);
   transform: translateY(-2px);
 }
 
-/* Feature Boxes Container - Positioned at Bottom with Dark Background */
-.hero-video-wall__features {
+/* Feature Boxes - Bottom Bar */
+.hvw__features {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 3;
+  z-index: 2;
   display: flex;
-  flex-direction: row;
-  gap: 60px;
   justify-content: center;
   align-items: center;
-  background-color: rgba(45, 45, 50, 0.95);
-  padding: 35px 0;
+  background-color: rgba(40, 40, 45, 0.95);
+  padding: 30px 20px;
+  gap: 80px;
 }
 
-/* Individual Feature Box */
-.hero-video-wall__feature-box {
+.hvw__feature {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  min-width: 120px;
-  transition: transform 0.3s ease;
+  text-align: center;
 }
 
-.hero-video-wall__feature-box:hover {
-  transform: translateY(-2px);
-}
-
-/* Feature Value */
-.hero-video-wall__feature-value {
-  font-size: 42px;
+.hvw__feature-value {
+  font-size: 36px;
   font-weight: 600;
   color: #ffffff;
   line-height: 1.2;
 }
 
-/* Feature Label */
-.hero-video-wall__feature-label {
-  font-size: 13px;
+.hvw__feature-label {
+  font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.75);
-  text-transform: capitalize;
-  margin-top: 8px;
-  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 5px;
 }
 
-/* ==================== RESPONSIVE STYLES ==================== */
+/* ========== RESPONSIVE ========== */
 
-/* Tablet and below (max-width: 1024px) */
 @media screen and (max-width: 1024px) {
-  .hero-video-wall__main-heading {
-    font-size: 46px;
+  .hvw__heading {
+    font-size: 48px;
   }
 
-  .hero-video-wall__subheading {
-    font-size: 24px;
-  }
-
-  .hero-video-wall__features {
-    gap: 40px;
-    padding: 30px 0;
-  }
-
-  .hero-video-wall__feature-box {
-    padding: 10px 15px;
-    min-width: 100px;
-  }
-
-  .hero-video-wall__feature-value {
-    font-size: 32px;
-  }
-
-  .hero-video-wall__feature-label {
-    font-size: 12px;
-  }
-}
-
-/* Mobile (max-width: 768px) */
-@media screen and (max-width: 768px) {
-  .hero-video-wall-section {
-    min-height: auto;
-    padding: 60px 0 140px;
-  }
-
-  .hero-video-wall__content {
-    padding: 30px 15px 60px;
-    gap: 10px;
-  }
-
-  .hero-video-wall__series-label {
-    font-size: 10px;
-  }
-
-  .hero-video-wall__main-heading {
-    font-size: 32px;
-  }
-
-  .hero-video-wall__subheading {
+  .hvw__subheading {
     font-size: 20px;
   }
 
-  .hero-video-wall__description {
-    font-size: 13px;
-    padding: 0 10px;
+  .hvw__features {
+    gap: 50px;
+    padding: 25px 15px;
   }
 
-  /* Stack buttons vertically on mobile */
-  .hero-video-wall__buttons {
-    flex-direction: column;
-    width: 100%;
-    max-width: 240px;
-    gap: 10px;
-  }
-
-  .hero-video-wall__btn {
-    width: 100%;
-  }
-
-  /* Features remain horizontal but smaller */
-  .hero-video-wall__features {
-    gap: 20px;
-    padding: 25px 10px;
-  }
-
-  .hero-video-wall__feature-box {
-    padding: 8px 15px;
-    min-width: auto;
-    flex: 1;
-  }
-
-  .hero-video-wall__feature-value {
-    font-size: 26px;
-  }
-
-  .hero-video-wall__feature-label {
-    font-size: 10px;
+  .hvw__feature-value {
+    font-size: 28px;
   }
 }
 
-/* Small Mobile (max-width: 480px) */
-@media screen and (max-width: 480px) {
-  .hero-video-wall__main-heading {
-    font-size: 26px;
+@media screen and (max-width: 768px) {
+  .hvw {
+    min-height: auto;
   }
 
-  .hero-video-wall__subheading {
+  .hvw__content {
+    padding: 80px 20px 200px;
+  }
+
+  .hvw__heading {
+    font-size: 32px;
+  }
+
+  .hvw__subheading {
     font-size: 18px;
   }
 
-  .hero-video-wall__features {
-    gap: 10px;
-    padding: 20px 5px;
+  .hvw__desc {
+    font-size: 13px;
   }
 
-  .hero-video-wall__feature-box {
-    padding: 5px 8px;
+  .hvw__buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero-video-wall__feature-value {
-    font-size: 20px;
+  .hvw__btn {
+    width: 100%;
+    max-width: 250px;
   }
 
-  .hero-video-wall__feature-label {
+  .hvw__features {
+    gap: 30px;
+    padding: 20px 10px;
+  }
+
+  .hvw__feature-value {
+    font-size: 24px;
+  }
+
+  .hvw__feature-label {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hvw__heading {
+    font-size: 28px;
+  }
+
+  .hvw__subheading {
+    font-size: 16px;
+  }
+
+  .hvw__features {
+    gap: 15px;
+    padding: 15px 5px;
+  }
+
+  .hvw__feature-value {
+    font-size: 18px;
+  }
+
+  .hvw__feature-label {
     font-size: 9px;
-  }
-}
-
-/* ==================== ANIMATION ENHANCEMENTS ==================== */
-
-/* Fade-in animation for content */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUpFeatures {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-video-wall__content > * {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.hero-video-wall__series-label {
-  animation-delay: 0.1s;
-}
-
-.hero-video-wall__main-heading {
-  animation-delay: 0.2s;
-}
-
-.hero-video-wall__subheading {
-  animation-delay: 0.3s;
-}
-
-.hero-video-wall__description {
-  animation-delay: 0.4s;
-}
-
-.hero-video-wall__buttons {
-  animation-delay: 0.5s;
-}
-
-.hero-video-wall__features {
-  animation: fadeInUpFeatures 0.8s ease-out 0.6s forwards;
-  opacity: 0;
-}
-
-/* ==================== ACCESSIBILITY ==================== */
-
-.hero-video-wall__btn:focus {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-}
-
-.hero-video-wall__btn:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-}
-
-/* Reduce motion for users who prefer it */
-@media (prefers-reduced-motion: reduce) {
-  .hero-video-wall__video {
-    animation: none;
-  }
-
-  .hero-video-wall__content > * {
-    animation: none;
-  }
-
-  .hero-video-wall__features {
-    animation: none;
-    opacity: 1;
-  }
-
-  .hero-video-wall__btn,
-  .hero-video-wall__feature-box {
-    transition: none;
   }
 }
