@@ -161,6 +161,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "217\" COB LED Video Wall",
@@ -170,9 +171,9 @@
         "button_1_link": "",
         "button_2_text": "Explore Specifications",
         "button_2_link": "",
-        "button_bg_color": "#FF6200",
+        "button_bg_color": "#ff6200",
         "button_hover_color": "#e55b00",
-        "series_label_color": "#FFD700",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     }
