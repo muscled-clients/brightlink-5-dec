@@ -111,6 +111,7 @@
         "4cbfbd00-6e6d-4e13-b31c-d7e42dbd0221",
         "eab05bef-0682-4859-81b0-d4f19f2aa1c8"
       ],
+      "disabled": true,
       "settings": {
         "image_size": "small",
         "enable_video_looping": true,
@@ -118,148 +119,9 @@
         "zoom_effect": "outside",
         "carousel_effect": "slide"
       }
-    },
-    "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b": {
-      "type": "custom-bundle",
-      "settings": {
-        "title": "",
-        "textarea": "{{ product.metafields.my_fields.bundle_embed_code.value }}"
-      }
-    },
-    "f0ca6104-5e4c-461c-8028-a943a7e8d207": {
-      "type": "product-recommendations",
-      "blocks": {
-        "5afc3823-ceff-44c6-b46d-505456188783": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "5afc3823-ceff-44c6-b46d-505456188783"
-      ],
-      "settings": {
-        "heading": "Usually Bought with",
-        "show_quick_buy": false
-      }
-    },
-    "1aa828bf-92b5-4f6e-89b0-3326d967d40b": {
-      "type": "promotion-list",
-      "blocks": {
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-1": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/BL-EXT-IP-4KVW-TX-Back-angle_7.png",
-            "show_overlay": false,
-            "overlay_opacity": 35,
-            "stretch_image": false,
-            "background": "#ececec",
-            "text_color": "#000000",
-            "title": "NEW IN",
-            "content": "",
-            "content_position": "middle_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#6f42ef",
-            "button_text": "",
-            "button_link": "shopify://collections/new-in"
-          }
-        },
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-2": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/32X32-FRONT-ANGLE_1.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "stretch_image": false,
-            "background": "#ffffff",
-            "text_color": "#000000",
-            "title": "SALE",
-            "content": "",
-            "content_position": "middle_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#fc2a68",
-            "button_text": "",
-            "button_link": "shopify://collections/sale"
-          }
-        },
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-3": {
-          "type": "item",
-          "settings": {
-            "image": "shopify://shop_images/49-img_1.png",
-            "show_overlay": false,
-            "overlay_opacity": 50,
-            "stretch_image": false,
-            "background": "#ececec",
-            "text_color": "#000000",
-            "title": "MUST HAVE",
-            "content": "",
-            "content_position": "middle_left",
-            "button_background": "#ffffff",
-            "button_text_color": "#26c1ce",
-            "button_text": "",
-            "button_link": "shopify://collections/featured-collection"
-          }
-        }
-      },
-      "block_order": [
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-1",
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-2",
-        "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-3"
-      ],
-      "settings": {
-        "expand_items": false,
-        "section_size": "medium",
-        "stack_mobile": false
-      }
-    },
-    "b8deed9e-0e81-4c1b-806c-3c7469277430": {
-      "type": "custom_text-with-icons",
-      "blocks": {
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-delivery",
-            "custom_icon": "shopify://shop_images/Shipping.png",
-            "title": "Fast free shipping*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-returns",
-            "custom_icon": "shopify://shop_images/Returns.png",
-            "title": "30 Days Returns*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-customer-support",
-            "custom_icon": "shopify://shop_images/Secure_Payments.png",
-            "title": "Secure Payment*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3"
-      ],
-      "settings": {
-        "stack_mobile": false,
-        "title": "Why choose us"
-      }
     }
   },
   "order": [
-    "main",
-    "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
-    "f0ca6104-5e4c-461c-8028-a943a7e8d207",
-    "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "b8deed9e-0e81-4c1b-806c-3c7469277430"
+    "main"
   ]
 }
