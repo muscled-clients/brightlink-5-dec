@@ -1,0 +1,259 @@
+{{ 'hero-video-wall.css' | asset_url | stylesheet_tag }}
+
+<section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
+  <!-- Background Video -->
+  <div class="hero-video-wall__video-container">
+    {% if section.settings.video_url != blank %}
+      <video class="hero-video-wall__video" autoplay muted loop playsinline>
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.video_file != blank %}
+      {{ section.settings.video_file | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video' }}
+    {% else %}
+      <!-- Fallback background image -->
+      <div class="hero-video-wall__fallback-bg" style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"></div>
+    {% endif %}
+    <!-- Dark Overlay -->
+    <div class="hero-video-wall__overlay" style="background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-video-wall__content">
+    <!-- Series Label -->
+    {% if section.settings.series_label != blank %}
+      <p class="hero-video-wall__series-label">{{ section.settings.series_label }}</p>
+    {% endif %}
+
+    <!-- Main Heading -->
+    {% if section.settings.main_heading != blank %}
+      <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+    {% endif %}
+
+    <!-- Subheading -->
+    {% if section.settings.subheading != blank %}
+      <p class="hero-video-wall__subheading">{{ section.settings.subheading }}</p>
+    {% endif %}
+
+    <!-- Description -->
+    {% if section.settings.description != blank %}
+      <p class="hero-video-wall__description">{{ section.settings.description }}</p>
+    {% endif %}
+
+    <!-- CTA Buttons -->
+    <div class="hero-video-wall__buttons">
+      {% if section.settings.button_1_text != blank %}
+        <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+          {{ section.settings.button_1_text }}
+        </a>
+      {% endif %}
+      {% if section.settings.button_2_text != blank %}
+        <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
+          {{ section.settings.button_2_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- Feature Boxes -->
+    <div class="hero-video-wall__features">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Video Wall",
+  "tag": "section",
+  "class": "hero-video-wall-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (MP4)",
+      "info": "Enter a direct link to an MP4 video file"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Or Upload Video",
+      "info": "Upload a video from Shopify's file storage"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback Background Image",
+      "info": "Displayed if no video is provided"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "%",
+      "label": "Overlay Opacity"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "series_label",
+      "label": "Series Label",
+      "default": "PRO SPECTRUM SERIES"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "217\" COB LED Video Wall"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The Pinnacle of Visual Excellence"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology."
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Configure Your System"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Explore Specifications"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#FF6200"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Color",
+      "default": "#e55b00"
+    },
+    {
+      "type": "color",
+      "id": "series_label_color",
+      "label": "Series Label Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class",
+      "info": "Add custom class for additional styling"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_value",
+          "label": "Feature Value",
+          "default": "217\""
+        },
+        {
+          "type": "text",
+          "id": "feature_label",
+          "label": "Feature Label",
+          "default": "Diagonal Display"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video Wall",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "217\"",
+            "feature_label": "Diagonal Display"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "8.3M",
+            "feature_label": "Total Pixels"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "1.25mm",
+            "feature_label": "Pixel Pitch"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "2hrs",
+            "feature_label": "Installation Time"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  :root {
+    --hero-btn-bg: {{ section.settings.button_bg_color }};
+    --hero-btn-hover: {{ section.settings.button_hover_color }};
+    --hero-series-color: {{ section.settings.series_label_color }};
+  }
+</style>
