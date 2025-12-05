@@ -119,9 +119,66 @@
         "zoom_effect": "outside",
         "carousel_effect": "slide"
       }
+    },
+    "hero_video_wall_WfXNgE": {
+      "type": "hero-video-wall",
+      "blocks": {
+        "feature_T7AQK7": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "217\"",
+            "feature_label": "Diagonal Display"
+          }
+        },
+        "feature_qM6rjw": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "8.3M",
+            "feature_label": "Total Pixels"
+          }
+        },
+        "feature_JV4hDU": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "1.25mm",
+            "feature_label": "Pixel Pitch"
+          }
+        },
+        "feature_Ye4fGQ": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "2hrs",
+            "feature_label": "Installation Time"
+          }
+        }
+      },
+      "block_order": [
+        "feature_T7AQK7",
+        "feature_qM6rjw",
+        "feature_JV4hDU",
+        "feature_Ye4fGQ"
+      ],
+      "name": "Hero Video Wall",
+      "settings": {
+        "video_url": "",
+        "overlay_opacity": 60,
+        "series_label": "PRO SPECTRUM SERIES",
+        "main_heading": "217\" COB LED Video Wall",
+        "subheading": "The Pinnacle of Visual Excellence",
+        "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
+        "button_1_text": "Configure Your System",
+        "button_1_link": "",
+        "button_2_text": "Explore Specifications",
+        "button_2_link": "",
+        "button_bg_color": "#FF6200",
+        "button_hover_color": "#e55b00",
+        "series_label_color": "#FFD700",
+        "custom_class": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "hero_video_wall_WfXNgE"
   ]
 }
