@@ -134,31 +134,41 @@
   transform: translateY(-2px);
 }
 
-/* Feature Boxes - Bottom Bar */
+/* Feature Boxes Container */
 .hvw__features {
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   left: 0;
   right: 0;
   z-index: 2;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-color: rgba(40, 40, 45, 0.95);
-  padding: 30px 20px;
-  gap: 80px;
+  align-items: stretch;
+  padding: 0 20px;
+  gap: 20px;
 }
 
+/* Individual Feature Box */
 .hvw__feature {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  background-color: rgba(30, 30, 35, 0.85);
+  border-radius: 12px;
+  padding: 25px 40px;
+  min-width: 140px;
+  transition: transform 0.3s ease;
+}
+
+.hvw__feature:hover {
+  transform: translateY(-3px);
 }
 
 .hvw__feature-value {
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
 }
@@ -166,8 +176,8 @@
 .hvw__feature-label {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 5px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 8px;
 }
 
 /* ========== RESPONSIVE ========== */
@@ -182,12 +192,16 @@
   }
 
   .hvw__features {
-    gap: 50px;
-    padding: 25px 15px;
+    gap: 15px;
+  }
+
+  .hvw__feature {
+    padding: 20px 30px;
+    min-width: 120px;
   }
 
   .hvw__feature-value {
-    font-size: 28px;
+    font-size: 26px;
   }
 }
 
@@ -197,7 +211,7 @@
   }
 
   .hvw__content {
-    padding: 80px 20px 200px;
+    padding: 80px 20px 220px;
   }
 
   .hvw__heading {
@@ -223,16 +237,24 @@
   }
 
   .hvw__features {
-    gap: 30px;
-    padding: 20px 10px;
+    bottom: 20px;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .hvw__feature {
+    padding: 15px 20px;
+    min-width: auto;
+    flex: 1;
+    border-radius: 10px;
   }
 
   .hvw__feature-value {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .hvw__feature-label {
-    font-size: 10px;
+    font-size: 9px;
   }
 }
 
@@ -246,15 +268,21 @@
   }
 
   .hvw__features {
-    gap: 15px;
-    padding: 15px 5px;
+    gap: 8px;
+    padding: 0 8px;
+  }
+
+  .hvw__feature {
+    padding: 12px 10px;
+    border-radius: 8px;
   }
 
   .hvw__feature-value {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .hvw__feature-label {
-    font-size: 9px;
+    font-size: 8px;
+    margin-top: 4px;
   }
 }
