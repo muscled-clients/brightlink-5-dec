@@ -52,18 +52,18 @@
         </a>
       {% endif %}
     </div>
+  </div>
 
-    <!-- Feature Boxes -->
-    <div class="hero-video-wall__features">
-      {% for block in section.blocks %}
-        {% if block.type == 'feature' %}
-          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
-            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
-            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
+  <!-- Feature Boxes - Positioned at Bottom -->
+  <div class="hero-video-wall__features">
+    {% for block in section.blocks %}
+      {% if block.type == 'feature' %}
+        <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+          <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+          <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+        </div>
+      {% endif %}
+    {% endfor %}
   </div>
 </section>
 
