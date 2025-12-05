@@ -160,18 +160,20 @@
   transform: translateY(-2px);
 }
 
-/* Feature Boxes Container - Positioned at Bottom */
+/* Feature Boxes Container - Positioned at Bottom with Dark Background */
 .hero-video-wall__features {
   position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 0;
+  left: 0;
+  right: 0;
   z-index: 3;
   display: flex;
   flex-direction: row;
   gap: 0;
   justify-content: center;
   align-items: stretch;
+  background-color: rgba(30, 30, 35, 0.85);
+  padding: 20px 0;
 }
 
 /* Individual Feature Box */
@@ -180,11 +182,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 15px 40px;
+  padding: 10px 50px;
   background-color: transparent;
   border: none;
   border-radius: 0;
-  min-width: 120px;
+  min-width: 140px;
   position: relative;
   transition: transform 0.3s ease;
 }
@@ -196,9 +198,9 @@
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  height: 40px;
+  height: 50px;
   width: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .hero-video-wall__feature-box:hover {
@@ -288,13 +290,15 @@
 
   /* Features remain horizontal but smaller */
   .hero-video-wall__features {
-    bottom: 20px;
-    width: 95%;
-    justify-content: space-around;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 15px 0;
   }
 
   .hero-video-wall__feature-box {
-    padding: 10px 15px;
+    padding: 8px 20px;
     min-width: auto;
     flex: 1;
   }
@@ -308,7 +312,7 @@
   }
 
   .hero-video-wall__feature-box:not(:last-child)::after {
-    height: 30px;
+    height: 35px;
   }
 }
 
@@ -352,11 +356,11 @@
 @keyframes fadeInUpFeatures {
   from {
     opacity: 0;
-    transform: translateX(-50%) translateY(30px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
   }
 }
 
