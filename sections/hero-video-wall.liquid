@@ -1,63 +1,69 @@
 {{ 'hero-video-wall.css' | asset_url | stylesheet_tag }}
 
-<section class="hvw {{ section.settings.custom_class }}" id="hvw-{{ section.id }}">
+<section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
   <!-- Background Video -->
-  <div class="hvw__video-wrap">
+  <div class="hero-video-wall__video-container">
     {% if section.settings.video_url != blank %}
-      <video class="hvw__video" autoplay muted loop playsinline>
+      <video class="hero-video-wall__video" autoplay muted loop playsinline>
         <source src="{{ section.settings.video_url }}" type="video/mp4">
       </video>
     {% elsif section.settings.video_file != blank %}
-      {{ section.settings.video_file | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hvw__video' }}
+      {{ section.settings.video_file | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video' }}
     {% else %}
-      <div class="hvw__fallback" style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"></div>
+      <!-- Fallback background image -->
+      <div class="hero-video-wall__fallback-bg" style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"></div>
     {% endif %}
-    <div class="hvw__overlay"></div>
+    <!-- Dark Overlay -->
+    <div class="hero-video-wall__overlay" style="background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
   </div>
 
   <!-- Content -->
-  <div class="hvw__content">
+  <div class="hero-video-wall__content">
+    <!-- Series Label -->
     {% if section.settings.series_label != blank %}
-      <span class="hvw__label">{{ section.settings.series_label }}</span>
+      <p class="hero-video-wall__series-label">{{ section.settings.series_label }}</p>
     {% endif %}
 
+    <!-- Main Heading -->
     {% if section.settings.main_heading != blank %}
-      <h1 class="hvw__heading">{{ section.settings.main_heading }}</h1>
+      <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
     {% endif %}
 
+    <!-- Subheading -->
     {% if section.settings.subheading != blank %}
-      <p class="hvw__subheading">{{ section.settings.subheading }}</p>
+      <p class="hero-video-wall__subheading">{{ section.settings.subheading }}</p>
     {% endif %}
 
+    <!-- Description -->
     {% if section.settings.description != blank %}
-      <p class="hvw__desc">{{ section.settings.description }}</p>
+      <p class="hero-video-wall__description">{{ section.settings.description }}</p>
     {% endif %}
 
-    <!-- Buttons -->
-    <div class="hvw__buttons">
+    <!-- CTA Buttons -->
+    <div class="hero-video-wall__buttons">
       {% if section.settings.button_1_text != blank %}
-        <a href="{{ section.settings.button_1_link }}" class="hvw__btn hvw__btn--primary">
+        <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
           {{ section.settings.button_1_text }}
         </a>
       {% endif %}
       {% if section.settings.button_2_text != blank %}
-        <a href="{{ section.settings.button_2_link }}" class="hvw__btn hvw__btn--secondary">
+        <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
           {{ section.settings.button_2_text }}
         </a>
       {% endif %}
     </div>
-  </div>
 
-  <!-- Feature Boxes at Bottom -->
-  <div class="hvw__features">
-    {% for block in section.blocks %}
-      {% if block.type == 'feature' %}
-        <div class="hvw__feature" {{ block.shopify_attributes }}>
-          <span class="hvw__feature-value">{{ block.settings.feature_value }}</span>
-          <span class="hvw__feature-label">{{ block.settings.feature_label }}</span>
-        </div>
-      {% endif %}
-    {% endfor %}
+    <!-- Feature Boxes -->
+    <div class="hero-video-wall__features">
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
 </section>
 
@@ -65,7 +71,7 @@
 {
   "name": "Hero Video Wall",
   "tag": "section",
-  "class": "hvw-wrapper",
+  "class": "hero-video-wall-wrapper",
   "settings": [
     {
       "type": "header",
@@ -95,7 +101,7 @@
       "min": 0,
       "max": 100,
       "step": 5,
-      "default": 40,
+      "default": 60,
       "unit": "%",
       "label": "Overlay Opacity"
     },
@@ -159,47 +165,48 @@
     },
     {
       "type": "header",
-      "content": "Colors"
+      "content": "Styling"
     },
     {
       "type": "color",
-      "id": "label_color",
-      "label": "Series Label Color",
-      "default": "#FFD700"
-    },
-    {
-      "type": "color",
-      "id": "btn_primary_bg",
-      "label": "Primary Button Background",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
       "default": "#FF6200"
     },
     {
       "type": "color",
-      "id": "btn_primary_hover",
-      "label": "Primary Button Hover",
+      "id": "button_hover_color",
+      "label": "Button Hover Color",
       "default": "#e55b00"
+    },
+    {
+      "type": "color",
+      "id": "series_label_color",
+      "label": "Series Label Color",
+      "default": "#FFD700"
     },
     {
       "type": "text",
       "id": "custom_class",
-      "label": "Custom CSS Class"
+      "label": "Custom CSS Class",
+      "info": "Add custom class for additional styling"
     }
   ],
   "blocks": [
     {
       "type": "feature",
-      "name": "Feature",
+      "name": "Feature Box",
       "settings": [
         {
           "type": "text",
           "id": "feature_value",
-          "label": "Value",
+          "label": "Feature Value",
           "default": "217\""
         },
         {
           "type": "text",
           "id": "feature_label",
-          "label": "Label",
+          "label": "Feature Label",
           "default": "Diagonal Display"
         }
       ]
@@ -244,16 +251,9 @@
 {% endschema %}
 
 <style>
-  #hvw-{{ section.id }} .hvw__overlay {
-    background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
-  }
-  #hvw-{{ section.id }} .hvw__label {
-    color: {{ section.settings.label_color }};
-  }
-  #hvw-{{ section.id }} .hvw__btn--primary {
-    background-color: {{ section.settings.btn_primary_bg }};
-  }
-  #hvw-{{ section.id }} .hvw__btn--primary:hover {
-    background-color: {{ section.settings.btn_primary_hover }};
+  :root {
+    --hero-btn-bg: {{ section.settings.button_bg_color }};
+    --hero-btn-hover: {{ section.settings.button_hover_color }};
+    --hero-series-color: {{ section.settings.series_label_color }};
   }
 </style>
