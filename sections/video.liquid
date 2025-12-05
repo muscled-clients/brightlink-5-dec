@@ -1,0 +1,215 @@
+
+  {% if template.name == "product" and product.metafields.custom.section_video == blank or product.metafields.custom.section_video.value.link.value == blank %}
+    <style>
+      #shopify-section-{{ section.id }} {
+        display: none !important;
+      }
+    </style>
+  {% endif %}
+
+{% if section.settings.txt_center %}
+  <style>
+    #shopify-section-{{ section.id }} .d8-heading,
+    #shopify-section-{{ section.id }} .d8-description {
+      text-align: center;
+      max-width: 900px;
+      margin: auto;
+    }
+  </style>
+{% endif %}
+
+<style>
+  #shopify-section-{{ section.id }} .d8-heading {
+    color: #333;
+    font-family: Montserrat;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  #shopify-section-{{ section.id }} .d8-description p {
+    margin-top: 10px;
+    color: #757575;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%;
+  }
+
+  #shopify-section-{{ section.id }} .d8-video-item {
+    max-width: 900px
+  }
+
+  #shopify-section-{{ section.id }} .d8-video-item img, 
+  #shopify-section-{{ section.id }} .d8-video-item iframe {
+    border-radius: 15px;
+  }
+
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .d8-heading {
+      width: 100%;
+      color: #000;
+      font-size: 27px;
+      line-height: 35px; /* 129.63% */
+    }
+
+    #shopify-section-{{ section.id }} .d8-description p {
+      margin-top: 20px;
+      color: #000;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .d8-icon-play {
+      width: 40px;
+      height: 40px;
+      left: calc(50% - 20px);
+      top: calc(50% - 20px);
+    }
+  }
+</style>
+
+<section class="section section--text-centered" data-section-id="{{ section.id }}" data-section-type="video">
+  <div class="container">
+    {% if product.metafields.custom.section_video.value.link.value != blank %}
+      {%- if product.metafields.custom.section_video.value.title.value != blank -%}
+        <h2 class="d8-heading heading h3">{{ product.metafields.custom.section_video.value.title.value | escape }}</h2>
+      {%- endif -%}
+      {%- if product.metafields.custom.section_video.value.description.value != blank -%}
+        <div class="d8-description">
+            <p>{{ product.metafields.custom.section_video.value.description | metafield_tag }}</p>
+        </div>
+      {%- endif -%}
+    {% else %}
+      {%- if section.settings.title != blank -%}
+        <h2 class="d8-heading heading h3">{{ section.settings.title | escape }}</h2>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <div class="d8-description">
+          <p>{{ section.settings.description }}</p>
+        </div>
+      {%- endif -%}
+    {% endif %}
+
+    <div class="d8-video-item video-item" data-action="play-video">
+      <div class="video-wrapper">
+        <div class="video-wrapper__image-wrapper">
+        {% if product.metafields.custom.section_video.value.link.value != blank %}
+          {%- if product.metafields.custom.section_video.value.video_thumbnail.value != blank -%}
+            {%- capture supported_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1200', image: product.metafields.custom.section_video.value.video_thumbnail.value -%}{%- endcapture -%}
+            {%- assign image_url = product.metafields.custom.section_video.value.video_thumbnail.value | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+            <img class="video-wrapper__image lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ product.metafields.custom.section_video.value.title.value | escape }}">
+
+            <noscript>
+              <img class="video-wrapper__image" src="{{ product.metafields.custom.section_video.value.video_thumbnail.value | img_url: '800x' }}" alt="{{ product.metafields.custom.section_video.value.title.value | escape }}">
+            </noscript>
+          {%- elsif product.metafields.custom.section_video.value.link.value contains 'youtube.com' or product.metafields.custom.section_video.value.link.value contains 'youtu.be' -%}
+            {% if product.metafields.custom.section_video.value.link.value contains 'youtu.be' %}
+              <img class="video-wrapper__image lazyload image--fade-in" data-src="https://img.youtube.com/vi/{{ product.metafields.custom.section_video.value.link.value | strip | split: '/' | last }}/maxresdefault.jpg" alt="{{ product.metafields.custom.section_video.value.title.value | escape }}">
+              {% else %}
+              <img class="video-wrapper__image lazyload image--fade-in" data-src="https://img.youtube.com/vi/{{ product.metafields.custom.section_video.value.link.value | strip | split: '=' | last }}/maxresdefault.jpg" alt="{{ product.metafields.custom.section_video.value.title.value | escape }}">
+            {% endif %}
+          {% endif %}
+          <svg class="icon icon--play d8-icon-play" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
+            <g opacity="0.8">
+              <path d="M91.0053 46.2246C91.0053 71.0708 70.8636 91.2126 46.0176 91.2126C21.1715 91.2126 1.02977 71.0708 1.02977 46.2246C1.02977 21.3784 21.1715 1.23658 46.0176 1.23658C70.8636 1.23658 91.0053 21.3784 91.0053 46.2246Z" fill="#F2F4F7" stroke="#344054" stroke-width="1.52439"/>
+              <path d="M64.9847 45.6545C66.0285 46.2356 66.0285 47.7371 64.9847 48.3182L37.6032 63.5629C36.5872 64.1286 35.3373 63.3939 35.3373 62.231V31.7417C35.3373 30.5787 36.5872 29.8441 37.6033 30.4098L64.9847 45.6545Z" fill="#4190D2"/>
+            </g>
+          </svg>
+        {% else %}
+          {%- if section.settings.image -%}
+            {%- capture supported_sizes -%}{%- render 'image-size', sizes: '300,400,500,600,700,800,900,1000,1200', image: section.settings.image -%}{%- endcapture -%}
+            {%- assign image_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+            <img class="video-wrapper__image lazyload image--fade-in" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto" alt="{{ section.settings.image.alt | escape }}">
+
+            <noscript>
+              <img class="video-wrapper__image" src="{{ section.settings.image | img_url: '800x' }}" alt="{{ section.settings.image.alt | escape }}">
+            </noscript>
+          {%- elsif bsectionlock.settings.video_url.type == 'youtube' -%}
+            <img class="video-wrapper__image lazyload image--fade-in" data-src="https://img.youtube.com/vi/{{ section.settings.video_url.id }}/maxresdefault.jpg" alt="">
+          {%- else -%}
+            <div class="placeholder-background">
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            </div>
+          {%- endif -%}
+
+          <svg class="icon icon--play d8-icon-play" xmlns="http://www.w3.org/2000/svg" width="92" height="92" viewBox="0 0 92 92" fill="none">
+            <g opacity="0.8">
+              <path d="M91.0053 46.2246C91.0053 71.0708 70.8636 91.2126 46.0176 91.2126C21.1715 91.2126 1.02977 71.0708 1.02977 46.2246C1.02977 21.3784 21.1715 1.23658 46.0176 1.23658C70.8636 1.23658 91.0053 21.3784 91.0053 46.2246Z" fill="#F2F4F7" stroke="#344054" stroke-width="1.52439"/>
+              <path d="M64.9847 45.6545C66.0285 46.2356 66.0285 47.7371 64.9847 48.3182L37.6032 63.5629C36.5872 64.1286 35.3373 63.3939 35.3373 62.231V31.7417C35.3373 30.5787 36.5872 29.8441 37.6033 30.4098L64.9847 45.6545Z" fill="#4190D2"/>
+            </g>
+          </svg>
+        {% endif %}
+          {% comment %} {% render 'icon', icon: 'play' %} {% endcomment %}
+        </div>
+
+        {% if product.metafields.custom.section_video.value.link.value != blank %}
+          {% if product.metafields.custom.section_video.value.link.value != blank and product.metafields.custom.section_video.value.link.value contains 'youtube.com' or product.metafields.custom.section_video.value.link.value contains 'youtu.be' %}
+            {% if product.metafields.custom.section_video.value.link.value contains 'youtu.be' %}
+              {% assign videoId = product.metafields.custom.section_video.value.link.value | strip | split: '/' | last %}
+              {% else %}
+              {% assign videoId = product.metafields.custom.section_video.value.link.value | strip | split: '=' | last %}
+            {% endif %}
+            <iframe data-src="https://www.youtube.com/embed/{{ videoId }}?autoplay=1&showinfo=0&controls=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          {% elsif product.metafields.custom.section_video.value.link.value != blank and product.metafields.custom.section_video.value.link.value contains 'vimeo.com' %}
+          {% assign videoId = product.metafields.custom.section_video.value.link.value | strip | split: '/' | last %}
+            <iframe data-src="https://player.vimeo.com/video/{{ videoId }}?autoplay=1&portrait=0&byline=0&color={{ settings.accent_color | remove_first: '#' }}" frameborder="0" allow="autoplay;"></iframe>
+          {% endif %}
+        {% else %}
+          {% if section.settings.video_url.type == 'youtube' %}
+            <iframe data-src="https://www.youtube.com/embed/{{ section.settings.video_url.id }}?autoplay=1&showinfo=0&controls=1&rel=0&modestbranding=1" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
+          {% elsif section.settings.video_url.type == 'vimeo' %}
+            <iframe data-src="https://player.vimeo.com/video/{{ section.settings.video_url.id }}?autoplay=1&portrait=0&byline=0&color={{ settings.accent_color | remove_first: '#' }}" frameborder="0"></iframe>
+          {% endif %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Videos"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "checkbox",
+      "id": "txt_center",
+      "label": "Content alignment center",
+      "default": true
+    },
+    {
+      "type": "video_url",
+      "id": "video_url",
+      "accept": ["vimeo", "youtube"],
+      "label": "Video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image",
+      "info": "1200 x 700px .jpg recommended. Used when video is not loaded (required for Vimeo)."
+    }
+  ],
+  "presets": [
+    {
+      "category": "Video",
+      "name": "Video"
+    }
+  ]
+}
+{% endschema %}

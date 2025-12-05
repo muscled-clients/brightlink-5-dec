@@ -1,0 +1,315 @@
+{% if template.name == 'product' %}
+  {% if product.metafields.custom.section_product_cards.value.product_title_1.value == blank and product.metafields.custom.section_product_cards.value.product_description_1.value == blank %}
+    <style>
+      #shopify-section-{{ section.id }} {
+        display: none;
+      }
+    </style>
+  {% endif %}
+  {% endif %}
+
+<style>
+/* code for hover effect on images and black shadow by placing an empty div */
+
+#section--{{ section.id }} .vendor-shop-now-h {
+  overflow:hidden;
+  border-radius: 20px;
+}  
+#section--{{ section.id }}  .vendor-shop-now-h img {
+  transition: transform 0.5s ease !important;
+}
+         
+#section--{{ section.id }}  .vendor-shop-now-h:hover img {
+    transform: scale(1.03);
+  }
+#section--{{ section.id }}  .vendor-shop-now-h:hover  .image-overlay {
+    opacity:0.3;
+  }
+
+#section--{{ section.id }}  .vendor-shop-now-h .image-overlay{
+      background: rgba(0, 0, 0);
+      opacity:0;
+      position:absolute;
+      left:0;
+      top:0;
+      transition: opacity 0.5s ease !important;
+      z-index:4;
+      width:100%;
+      height:100%;
+      display:block !important;
+      border-radius: 20px;
+  }
+/* =================================== */
+
+
+
+
+
+  
+#section--{{ section.id }} .frame-child {
+  	position: relative;
+  	border-radius: 20px;
+  	width: 373px;
+  	height: 500px;
+  	object-fit: cover;
+}
+#section--{{ section.id }} .lorem-ipsum-dolor {
+  	position: relative;
+  	display: inline-block;
+  	width: 373px;
+    font-weight: 500;
+}
+#section--{{ section.id }} .lorem-ipsum-dolor1 {
+  	position: relative;
+  	font-size: 14px;
+  	display: inline-block;
+  	width: 373px;
+}
+#section--{{ section.id }} .lorem-ipsum-dolor-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .rectangle-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 20px;
+    position: relative;
+}
+#section--{{ section.id }}.frame-parent {
+  	position: relative;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	text-align: left;
+  	font-size: 24px;
+  	color: #000;
+  	font-family: Montserrat;
+    max-width: 1200px;
+    margin: auto;
+    margin-top:{{ section.settings.margin-top-d }}px;
+    margin-bottom:{{ section.settings.margin-bottom-d }}px;
+}
+
+
+
+@media screen and (max-width:1000px){
+ 
+  #section--{{ section.id }} .frame-child {
+    position: relative;
+    border-radius: 10px;
+    width: 100%;
+    height: 449.06px;
+    object-fit: cover;
+}
+#section--{{ section.id }} .lorem-ipsum-dolor {
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: Lato;
+    font-family: Montserrat;
+    color: #000;
+    text-align: left;
+    display: inline-block;
+    width: 373px;
+
+}
+#section--{{ section.id }} .lorem-ipsum-dolor1 {
+    width: 100%;
+    position: relative;
+    font-size: 14px;
+    font-family: Montserrat;
+    color: #000;
+    text-align: left;
+    display: inline-block;
+    font-weight: 300;
+}
+#section--{{ section.id }} .lorem-ipsum-dolor-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 5px;
+    width: 100%;
+}
+#section--{{ section.id }} .rectangle-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 10px;
+    max-width: 335px;
+    position: relative;
+}
+  
+  #section--{{ section.id }}.frame-parent {
+  	position: relative;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: space-between;
+    gap:40px;
+  	text-align: left;
+  	font-size: 24px;
+  	color: #000;
+  	font-family: Montserrat;
+    margin: auto;
+    margin-top:{{ section.settings.margin-top-m }}px;
+    margin-bottom:{{ section.settings.margin-bottom-m }}px;
+}
+}
+  .custom-D8 {
+    text-align: center;
+  }
+</style>
+
+	
+  	<div class="frame-parent" id="section--{{ section.id }}">
+    		<div class="rectangle-parent">
+                <div class="vendor-shop-now-h" style="position:relative;">
+                <div class="image-overlay"></div>
+      			<img class="frame-child" alt="" src="{{ section.settings.product1 | img_url:"1440x" }}">
+      			</div>
+      			
+      			<div class="lorem-ipsum-dolor-parent custom-D8">
+        				<b class="lorem-ipsum-dolor" style="line-height: 1;">{{ section.settings.product1-title }}</b>
+        				<div class="lorem-ipsum-dolor1">{{ section.settings.product1-desc }} </div>
+      			</div>
+    		</div>
+    		<div class="rectangle-parent">
+                <div class="vendor-shop-now-h" style="position:relative;">
+                <div class="image-overlay"></div>
+      			<img class="frame-child" alt="" src="{{ section.settings.product2 | img_url:"1440x" }}">
+      			</div>
+      			
+      			<div class="lorem-ipsum-dolor-parent custom-D8">
+        				<b class="lorem-ipsum-dolor" style="line-height: 1;">{{ section.settings.product2-title }}</b>
+        				<div class="lorem-ipsum-dolor1">{{ section.settings.product2-desc }} </div>
+      			</div>
+    		</div>
+    		<div class="rectangle-parent">
+              
+                <div class="vendor-shop-now-h" style="position:relative;">
+                <div class="image-overlay"></div>
+      			<img class="frame-child" alt="" src="{{ section.settings.product3 | img_url:"1440x" }}">
+      			</div>
+      			<div class="lorem-ipsum-dolor-parent custom-D8">
+        				<b class="lorem-ipsum-dolor" style="line-height: 1;">{{ section.settings.product3-title }}</b>
+        				<div class="lorem-ipsum-dolor1">{{ section.settings.product3-desc }} </div>
+      			</div>
+    		</div>
+  	</div>
+  	
+
+
+
+{% schema %}
+  {
+    "name": "Product Cards",
+    "settings": [
+      {
+        "type":"image_picker",
+        "id":"product1",
+        "label":"Product 1 Image"
+      },
+            {
+        "type":"text",
+        "id":"product1-title",
+        "label":"Product 1 Title"
+      },
+      {
+        "type":"richtext",
+        "id":"product1-desc",
+        "label":"Product 1 Description"
+      },
+      {
+        "type":"image_picker",
+        "id":"product2",
+        "label":"Product 2 Image"
+      },
+      {
+        "type":"text",
+        "id":"product2-title",
+        "label":"Product 2 Title"
+      },
+      {
+        "type":"richtext",
+        "id":"product2-desc",
+        "label":"Product 2 Description"
+      },
+      {
+        "type":"image_picker",
+        "id":"product3",
+        "label":"Product 3 Image"
+      },
+      {
+        "type":"text",
+        "id":"product3-title",
+        "label":"Product 3 Title"
+      },
+     {
+        "type":"richtext",
+        "id":"product3-desc",
+        "label":"Product 3 Description"
+      },
+      {
+        "type":"range",
+        "id":"margin-top-d",
+        "label":"Margin Top Desktop",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      },
+      {
+        "type":"range",
+        "id":"margin-bottom-d",
+        "label":"Margin Bottom Desktop",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":40,
+       "unit":"px"
+      },
+     {
+        "type":"range",
+        "id":"margin-top-m",
+        "label":"Margin Top Mobile",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      },
+      {
+        "type":"range",
+        "id":"margin-bottom-m",
+        "label":"Margin Bottom Mobile",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      }
+    ],
+    "presets":[
+      {
+        "name": "Product Cards"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

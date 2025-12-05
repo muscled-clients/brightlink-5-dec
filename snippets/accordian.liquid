@@ -1,0 +1,293 @@
+{%- comment -%}
+  ----------------------------------------------------------------------------------------------------------------------
+  ACCORDION COMPONENT
+  ----------------------------------------------------------------------------------------------------------------------
+
+  This component is used to create an accordion (also called as collapsible). It internally uses the "details" HTML
+  tag so that it can also be used without any JavaScript.
+
+  ********************************************
+  Supported parameters
+  ********************************************
+
+  * title: the title to use for the toggle button
+  * icon: an optional icon attached to the title
+  * content: the hidden content inside the accordion
+  * open: if set to true the accordion is open by default
+  * size: if set to "lg", the font is and spacing is bigger
+  * class: any additional class
+  * id: an optional ID for the accordion
+{%- endcomment -%}
+<style>
+      li.download-li-d6 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-bottom: 1px solid #D9D9D9;
+        padding: 16px 8px;
+    }
+   li.download-li-d6:last-child {
+     border: none;
+   }
+    .li-title-d6 {
+      color: #000;
+      font-family: Montserrat;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+  }
+</style>
+{% style %}
+  #shopify-section-{{ section.id }} .accordion__content p{
+    font-size: var(--content-font-size);
+  }
+
+  #shopify-section-{{ section.id }} .accordion-title{
+    font-size: var(--title-font-size);
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion a {
+    color: var(--link-color);
+    text-decoration: var(--text-link-decoration);
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion {
+    border-bottom: 1px solid #ECECEC;
+  }
+  #shopify-section-{{ section.id }} .d8-product-info__accordion:nth-of-type(1) {
+    border-top: 1px solid #ECECEC;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .accordion__toggle {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .accordion-title {
+    color: #000;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .accordion__content p{
+    color: #000;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 150%; /* 24px */
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .accordion__content p:last-child {
+    padding-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-icon-open {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-show-readless {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-readless-btn,
+  #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-readmore-btn {
+    color: #4190D2;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-decoration-line: underline;
+    cursor: pointer;
+  }
+
+  @media only screen and (max-width: 768px){
+    #shopify-section-{{ section.id }} .accordion__content p{
+      font-size: var(--content-font-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .accordion-title{
+      font-size: var(--title-font-size-mobile);
+    }
+
+    #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-icon-close,
+    #shopify-section-{{ section.id }} .d8-product-info__accordion .d8-icon-open {
+      width: 20px;
+      height: 20px;
+  }
+  }
+{% endstyle %}
+
+{% assign dataSource = block.settings['data-type'] %}
+{% assign metafield = product.metafields.custom.block_product_information.value %}
+{% assign metaTitle = block.settings['title-name-space'] %}
+{% assign metaContent = block.settings['content-name-space'] %}
+{% assign metaImage = block.settings['meta-content-image'] %}
+
+<details
+  data-loop="{{ index }}"
+  {% if id %}
+    id="{{ id | escape }}"
+  {% else %}
+    id="first-accordion-{{ block.id }}"
+  {% endif %}
+  class="{{ class }} accordion {% if size %}accordion--{{ size }}{% endif %} group"
+  aria-expanded="{% if open %}true{% else %}false{% endif %}"
+  is="accordion-disclosure"
+  {% if open %}
+    open
+  {% endif %}
+  {{ block.shopify_attributes }}
+>
+  <summary>
+    {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
+    <div class="accordion__toggle bold">
+      {%- if icon -%}
+        <div class="text-with-icon">
+          <span
+            class="accordion-title"
+            {% if size == 'lg' %}
+              class="h6"
+            {% endif %}
+            style="
+              --title-font-size: {{ block.settings.title-font-size }}px;
+              --title-font-size-mobile: {{ block.settings.title-font-size-mobile }}px;
+            "
+          >
+            {%- if dataSource == 'metafield' and metafield and metafield[metaTitle] != blank -%}
+              {{- metafield[metaTitle] -}}
+            {%- else %}
+              {{- title | escape -}}
+            {% endif -%}
+          </span>
+        </div>
+      {%- else -%}
+        <span
+          class="accordion-title test1"
+          {% if size == 'lg' %}
+            class="h6"
+          {% endif %}
+          style="
+            --title-font-size: {{ block.settings.title-font-size }}px;
+            --title-font-size-mobile: {{ block.settings.title-font-size-mobile }}px;
+          "
+        >
+          {%- if dataSource == 'metafield' and metafield and metafield[metaTitle] != blank -%}
+            {{- metafield[metaTitle] -}}
+          {%- else %}
+            {{- title | escape -}}
+          {% endif -%}
+        </span>
+      {%- endif -%}
+
+      <span class="circle-chevron group-hover:colors group-expanded:colors group-expanded:rotate">
+        <svg
+          class="d8-icon-open"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path d="M12.3327 21.1211C7.18768 21.1211 2.99935 16.9328 2.99935 11.7878C2.99935 6.64276 7.18768 2.45443 12.3327 2.45443C17.4777 2.45443 21.666 6.64276 21.666 11.7878C21.666 16.9328 17.4777 21.1211 12.3327 21.1211ZM12.3327 0.121094C10.8006 0.121094 9.28351 0.422861 7.86804 1.00917C6.45258 1.59547 5.16645 2.45483 4.0831 3.53818C1.89518 5.72611 0.666016 8.69357 0.666016 11.7878C0.666016 14.882 1.89518 17.8494 4.0831 20.0373C5.16645 21.1207 6.45258 21.9801 7.86804 22.5664C9.28351 23.1527 10.8006 23.4544 12.3327 23.4544C15.4269 23.4544 18.3943 22.2253 20.5823 20.0373C22.7702 17.8494 23.9993 14.882 23.9993 11.7878C23.9993 10.2557 23.6976 8.73858 23.1113 7.32312C22.525 5.90765 21.6656 4.62153 20.5823 3.53818C19.4989 2.45483 18.2128 1.59547 16.7973 1.00917C15.3819 0.422861 13.8648 0.121094 12.3327 0.121094ZM6.49935 12.9544H18.166V10.6211H6.49935" fill="black" fill-opacity="0.5"/>
+        </svg>
+        <svg
+          class="d8-icon-close"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+        >
+          <path d="M12.3327 21.4543C7.18768 21.4543 2.99935 17.266 2.99935 12.121C2.99935 6.97601 7.18768 2.78768 12.3327 2.78768C17.4777 2.78768 21.666 6.97601 21.666 12.121C21.666 17.266 17.4777 21.4543 12.3327 21.4543ZM12.3327 0.454346C10.8006 0.454346 9.2835 0.756113 7.86804 1.34242C6.45257 1.92872 5.16645 2.78808 4.0831 3.87143C1.89518 6.05936 0.666016 9.02682 0.666016 12.121C0.666016 15.2152 1.89518 18.1827 4.0831 20.3706C5.16645 21.4539 6.45257 22.3133 7.86804 22.8996C9.2835 23.4859 10.8006 23.7877 12.3327 23.7877C15.4269 23.7877 18.3943 22.5585 20.5823 20.3706C22.7702 18.1827 23.9993 15.2152 23.9993 12.121C23.9993 10.5889 23.6976 9.07183 23.1113 7.65637C22.525 6.2409 21.6656 4.95478 20.5823 3.87143C19.4989 2.78808 18.2128 1.92872 16.7973 1.34242C15.3819 0.756113 13.8648 0.454346 12.3327 0.454346ZM13.4993 6.28768H11.166V10.9543H6.49935V13.2877H11.166V17.9543H13.4993V13.2877H18.166V10.9543H13.4993V6.28768Z" fill="black" fill-opacity="0.5"/>
+        </svg>
+      </span>
+    </div>
+  </summary>
+  {% unless downloads-d6 %}
+    {% if readBtn %}
+      <div
+        class="accordion__content d8-show-readmore"
+        style="
+          --content-font-size: {{ block.settings.content-font-size }}px;
+          --content-font-size-mobile: {{ block.settings.content-font-size-mobile }}px;
+        "
+      >
+        <div>
+          {% if dataSource == 'metafield' and metafield and metafield[metaContent] != blank -%}
+            {{- metafield[metaContent] | metafield_tag -}}
+          {%- else %}
+            {{- content | truncatewords: 20, '...' -}}
+          {% endif %}
+        </div>
+
+        <a class="d8-readmore-btn d8-read-btn">See More</a>
+      </div>
+      <div
+        class="accordion__content d8-show-readless"
+        style="
+          --content-font-size: {{ block.settings.content-font-size }}px;
+          --content-font-size-mobile: {{ block.settings.content-font-size-mobile }}px;
+        "
+      >
+        <div>
+          {% if dataSource == 'metafield' and metafield and metafield[metaContent] != blank -%}
+            {{- metafield[metaContent] | metafield_tag -}}
+          {%- else %}
+            {{- content -}}
+          {% endif %}
+        </div>
+        <a class="d8-readless-btn d8-read-btn">See Less</a>
+      </div>
+    {% else %}
+      <div
+        class="accordion__content test-meta-content {% if readBtn %}d8-show-readmore {% endif %}"
+        style="
+          --content-font-size: {{ block.settings.content-font-size }}px;
+          --content-font-size-mobile: {{ block.settings.content-font-size-mobile }}px;
+        "
+      >
+        {% if dataSource == 'metafield' and metafield and metafield[metaContent] != blank -%}
+          {{- metafield[metaContent] | metafield_tag -}}
+        {%- else %}
+          {{- content -}}
+        {% endif %}
+        {% if metaImage != blank %}
+         <img src="{{- metaImage | image_url -}}" height="auto" width="200">
+        {% endif %}
+      </div>
+    {% endif %}
+  {% else %}
+    <div class="accordion-downloads-wrapper" id="scroll-{{ block.id }}">
+      {% if product.metafields.custom.accordion_downloads.value %}
+        <div class="accordion-downloads">
+          <ul>
+            {% for item in product.metafields.custom.accordion_downloads.value %}
+              <li class="download-li-d6">
+                <div class="li-title-d6">
+                  {{ item.svg }}
+                  {{ item.name }}
+                </div>
+                <a href="{{ item.url }}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path d="M20.3103 13.2821C20.6912 13.2821 20.9999 13.5908 20.9999 13.9717V16.4545C20.9999 18.6636 19.2091 20.4545 16.9999 20.4545H4.03442C1.82528 20.4545 0.0344238 18.6636 0.0344238 16.4545V13.9717C0.0344238 13.5908 0.343193 13.2821 0.724079 13.2821C1.10497 13.2821 1.41373 13.5908 1.41373 13.9717V16.4545C1.41373 17.9018 2.58706 19.0752 4.03442 19.0752H16.9999C18.4473 19.0752 19.6206 17.9018 19.6206 16.4545V13.9717C19.6206 13.5908 19.9294 13.2821 20.3103 13.2821ZM10.5172 0.454468C10.8828 0.454468 11.182 0.739029 11.2054 1.09878L11.2068 1.14412L11.2068 12.5223L14.1846 9.74339C14.4509 9.49481 14.8618 9.49777 15.1244 9.74218L15.1593 9.77701C15.4079 10.0433 15.4049 10.4542 15.1605 10.7169L15.1257 10.7517L10.9919 14.6099C10.9795 14.6217 10.9666 14.6331 10.9533 14.6439C10.9498 14.6468 10.9462 14.6496 10.9426 14.6525C10.9345 14.6589 10.9262 14.6651 10.9177 14.6711C10.9118 14.6754 10.906 14.6794 10.9 14.6834C10.894 14.6874 10.8878 14.6914 10.8816 14.6953C10.8757 14.699 10.8698 14.7025 10.8639 14.706C10.8547 14.7113 10.8455 14.7164 10.836 14.7213L10.825 14.727C10.8166 14.7312 10.808 14.7352 10.7994 14.7391C10.7935 14.7418 10.7875 14.7444 10.7814 14.7469C10.7738 14.75 10.7661 14.753 10.7585 14.7559L10.7386 14.763C10.7325 14.765 10.7265 14.767 10.7204 14.7689C10.712 14.7714 10.7037 14.7738 10.6952 14.7761C10.6725 14.7821 10.6494 14.7871 10.6259 14.7908C10.62 14.7917 10.6142 14.7925 10.6084 14.7933L10.5625 14.7978L10.5172 14.7993H10.5169C10.4818 14.7993 10.4467 14.7966 10.4119 14.7912L10.3794 14.7854C10.1683 14.8283 9.94025 14.772 9.77076 14.6138L5.63283 10.7517C5.35438 10.4919 5.33933 10.0555 5.59922 9.77701C5.8591 9.49856 6.29551 9.48351 6.57396 9.74339L9.82753 12.7803L9.82753 1.14412C9.82753 0.763237 10.1363 0.454468 10.5172 0.454468Z" fill="#4190D2"/>
+                  </svg>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
+  {% endunless %}
+</details>

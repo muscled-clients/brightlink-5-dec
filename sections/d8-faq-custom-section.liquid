@@ -1,0 +1,376 @@
+{% if template.name == 'product' %}
+  {% if product.metafields.custom.section_custom_faq_dropdown_list.value.faq_title.value[0] == blank
+    and product.metafields.custom.section_custom_faq_dropdown_list.value.faq_description.value[0] == blank
+  %}
+    <style>
+      #shopify-section-{{ section.id }} {
+        display: none;
+      }
+    </style>
+  {% endif %}
+{% endif %}
+
+
+
+<style>
+  /* Updated CSS Styles */
+#shopify-section-{{ section.id }} .faq-container-ss {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0px;
+    max-width: 900px;
+    margin: auto;
+  }
+#shopify-section-{{ section.id }}  details > summary {
+    cursor: pointer;
+    padding: 35px 0px;
+    position: relative;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+#shopify-section-{{ section.id }}  details[open] > summary .icon.plus-icon  {
+    display:none;
+  }
+#shopify-section-{{ section.id }}  details[open] > summary .icon.minus-icon  {
+    display:inline;
+  }
+#shopify-section-{{ section.id }}  details > summary .icon.plus-icon  {
+    display:inline;
+  }
+#shopify-section-{{ section.id }}  details > summary .icon.minus-icon  {
+    display:none;
+  }
+#shopify-section-{{ section.id }}  details > summary .icon  {
+    position: absolute;
+    right: 10px;
+  }
+#shopify-section-{{ section.id }}  details[open] > summary .icon  {
+    position: absolute;
+    right: 10px;
+  }
+
+
+#shopify-section-{{ section.id }}  details > summary::-webkit-details-marker {
+    display: none;
+  }
+#shopify-section-{{ section.id }}  .faq-item {
+    width:100%;
+    border-top: 1px solid;
+  }
+#shopify-section-{{ section.id }}  .faq-item:first-child {
+    border-top: 0px solid;
+  }
+#shopify-section-{{ section.id }}  .faq-item:last-child {
+    border-bottom: 1px solid;
+  }
+#shopify-section-{{ section.id }}  .faq-content {
+    color: #636363;
+    font-size: 16px !important;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+#shopify-section-{{ section.id }}  .faq-content img {
+   padding-top:12px;
+  }
+
+
+
+@media screen and (max-width:800px){
+  #shopify-section-{{ section.id }} .faq-container-ss {
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0px;
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+  }
+#shopify-section-{{ section.id }}  details > summary {
+    cursor: pointer;
+    padding: 25px 0px;
+    position: relative;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+#shopify-section-{{ section.id }}  details > summary .icon  {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-5px);
+  }
+#shopify-section-{{ section.id }}  details[open] > summary .icon.minus-icon svg  {
+    width:22px;
+  }
+#shopify-section-{{ section.id }}  details > summary .icon.plus-icon svg  {
+    width:22px;
+}
+
+
+#shopify-section-{{ section.id }}  .faq-content {
+    color: #636363;
+    font-size: 16px !important;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    padding-right: 20px;
+  }
+#shopify-section-{{ section.id }}  .faq-content img {
+   padding-top:12px;
+  }
+#shopify-section-{{ section.id }} {
+  margin-block: 50px;
+}
+
+}
+
+
+  
+</style>
+
+
+
+
+
+
+
+<div class="slideshow-container-{{ section.id }} section-standard">
+  <!-- ... -->
+  <div class="faq-container-ss">
+    {% assign metaobject = product.metafields.custom.section_custom_faq_dropdown_list.value %}
+    {% for faqtitle in metaobject.faq_title.value %}
+      <details class="faq-item" role="group" id="second-accordion-{{ section.id }}-{{ forloop.index }}">
+        <summary role="button" aria-expanded="false">{{ faqtitle | escape }}
+       <span class="icon plus-icon">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_842_6208)">
+                            <path d="M12.3337 21.8334C7.18866 21.8334 3.00032 17.645 3.00032 12.5C3.00032 7.35504 7.18866 3.16671 12.3337 3.16671C17.4787 3.16671 21.667 7.35504 21.667 12.5C21.667 17.645 17.4787 21.8334 12.3337 21.8334ZM12.3337 0.833374C10.8016 0.833374 9.28448 1.13514 7.86902 1.72145C6.45355 2.30775 5.16743 3.16711 4.08408 4.25046C1.89615 6.43838 0.666992 9.40585 0.666992 12.5C0.666992 15.5942 1.89615 18.5617 4.08408 20.7496C5.16743 21.833 6.45355 22.6923 7.86902 23.2786C9.28448 23.8649 10.8016 24.1667 12.3337 24.1667C15.4278 24.1667 18.3953 22.9375 20.5832 20.7496C22.7712 18.5617 24.0003 15.5942 24.0003 12.5C24.0003 10.9679 23.6986 9.45086 23.1122 8.0354C22.5259 6.61993 21.6666 5.33381 20.5832 4.25046C19.4999 3.16711 18.2138 2.30775 16.7983 1.72145C15.3828 1.13514 13.8657 0.833374 12.3337 0.833374ZM13.5003 6.66671H11.167V11.3334H6.50032V13.6667H11.167V18.3334H13.5003V13.6667H18.167V11.3334H13.5003V6.66671Z" fill="black" fill-opacity="0.5"></path>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_842_6208">
+                            <rect width="23.3333" height="23.3333" fill="white" transform="translate(0.666992 0.833374)"></rect>
+                            </clipPath>
+                            </defs>
+                            </svg>
+          </span>
+          <span class="icon minus-icon">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_842_6199)">
+                            <path d="M12.3337 21.8334C7.18866 21.8334 3.00033 17.645 3.00033 12.5C3.00033 7.35504 7.18866 3.16671 12.3337 3.16671C17.4787 3.16671 21.667 7.35504 21.667 12.5C21.667 17.645 17.4787 21.8334 12.3337 21.8334ZM12.3337 0.833374C10.8016 0.833374 9.28448 1.13514 7.86902 1.72145C6.45355 2.30775 5.16743 3.16711 4.08408 4.25046C1.89616 6.43839 0.666992 9.40585 0.666992 12.5C0.666992 15.5942 1.89616 18.5617 4.08408 20.7496C5.16743 21.833 6.45355 22.6923 7.86902 23.2786C9.28448 23.8649 10.8016 24.1667 12.3337 24.1667C15.4279 24.1667 18.3953 22.9375 20.5832 20.7496C22.7712 18.5617 24.0003 15.5942 24.0003 12.5C24.0003 10.968 23.6986 9.45086 23.1123 8.0354C22.5259 6.61994 21.6666 5.33381 20.5832 4.25046C19.4999 3.16711 18.2138 2.30775 16.7983 1.72145C15.3828 1.13514 13.8657 0.833374 12.3337 0.833374ZM6.50033 13.6667H18.167V11.3334H6.50033" fill="black" fill-opacity="0.5"></path>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_842_6199">
+                            <rect width="23.3333" height="23.3333" fill="white" transform="translate(0.666992 0.833374)"></rect>
+                            </clipPath>
+                            </defs>
+                            </svg>
+          </span>
+        </summary>
+                 
+        {% assign data = forloop.index0 %}
+        {% for faqdescription in metaobject.faq_description.value[forloop.index0] %}
+          <div class="faq-content">
+
+          
+            {{ faqdescription }}
+            {% for faqimg in metaobject.faq_image.value %}
+              {% if forloop.index0 == data %}
+                {% if faqimg != blank %}
+                  <img src="{{ faqimg | image_url }}" loading="lazy">
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+            {% for faqdescription2 in metaobject.faq_description_2.value[data] %}
+              {% if faqdescription2 != blank %}
+                <div class="custom-faq-text">
+                  {{ faqdescription2 }}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </details>
+    {% endfor %}
+  </div>
+</div>
+
+
+{% schema %}
+{
+"name": "faq custom section",
+ "settings": [
+         {
+             "label": "Sub Heading",
+             "type":"text",
+             "id":"sub_heading"
+          },
+         {
+             "label": "Heading",
+             "type":"richtext",
+             "id":"headingS"
+
+          },
+          {
+             "label": "Sub Text",
+             "type":"richtext",
+             "id":"sub_text"
+          },
+           {
+            "label": "Description",
+             "type":"richtext",
+            "id":"desc"
+          },
+          {
+             "label": "Section Title",
+             "type":"text",
+             "id":"title"
+          },
+          {
+             "label": "Tabs Background Color",
+             "type":"color",
+             "id":"faq_h-bg"
+          },
+          {
+             "label": "Text color",
+             "type":"color",
+             "id":"faq-text-color"
+          },
+          {
+             "label": "Border Color",
+             "type":"color",
+             "id":"border_color"
+          },
+          {
+             "type": "range",
+             "id": "border_radius",
+             "label": "Border Radius",
+             "min": 1,
+             "max": 50,
+              "unit": "px",
+             "step": 1,
+             "default": 25
+          },
+
+          {
+            "type": "range",
+            "id": "faq_width_dsk",
+            "label": "Faq Section Width Desktop",
+            "min": 1,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 60
+          },
+          {
+           "type": "range",
+            "id": "faq_width_mob",
+            "label": "Faq Section Width Mobile",
+            "min": 1,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 90
+          }
+      ],
+"blocks": [
+    {
+      "type": "block",
+      "name": "FAQ's +",
+      "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "faqstext",
+            "label": "Text"
+          },
+          {
+             "type": "image_picker",
+             "id": "faqimg",
+             "label": "Faq image"
+          },
+          {
+             "type": "richtext",
+             "id": "faqstext2",
+             "label": "Text below the img"
+          }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "d8 faq custom section"
+    }
+  ]
+}
+{% endschema %}
+
+
+
+{% comment %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const allDetails = document.querySelectorAll('.faq-item');
+
+  allDetails.forEach(function(detail) {
+    detail.querySelector('summary').addEventListener('click', function() {
+      // Close all details that are not the current one
+      allDetails.forEach(function(d) {
+        if (d !== detail) {
+          d.removeAttribute('open');
+        }
+      });
+
+     
+    });
+  });
+});
+</script>
+{% endcomment %}
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  const allDetails = document.querySelectorAll('.faq-item');
+
+  allDetails.forEach(function(detail) {
+    const summary = detail.querySelector('summary');
+    summary.setAttribute('aria-expanded', detail.hasAttribute('open'));
+
+    summary.addEventListener('click', function() {
+      // Toggle aria-expanded attribute
+      let isOpen = detail.hasAttribute('open');
+      summary.setAttribute('aria-expanded', isOpen);
+
+      // Close all details that are not the current one
+      allDetails.forEach(function(d) {
+        if (d !== detail) {
+          d.removeAttribute('open');
+          d.querySelector('summary').setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+  });
+});
+</script>

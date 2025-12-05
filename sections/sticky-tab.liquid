@@ -1,0 +1,148 @@
+<style>
+  #shopify-section-{{ section.id }} .main-tabs-container{
+    padding: 15px;
+    background: lightgray;
+    margin: 40px 0;
+  }
+  #shopify-section-{{ section.id }} .tabs-wrapper {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button {
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 40px;
+    width: 210px;
+  }
+
+  input.tab-to-scroll:checked + label {
+      background: #00A7E1 !important;
+      color: #fff !important;
+  }
+
+  #shopify-section-{{ section.id }} .main-tabs-container.sticky{
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    top: 140px;
+    z-index: 999999;
+  }
+</style>
+
+<div class="main-tabs-container" sticky="shopify-section-{{ section.id }}" top="200">
+  <div class="tabs-wrapper">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when "tab" %}
+        <div scrollTo="{{ block.settings.scroll-to }}">
+          <input
+            class="hidden tab-to-scroll"
+            type="radio"
+            id="tab-{{ block.id }}"
+            name="tab"
+            hidden
+            {% if forloop.first %}
+            checked
+            {% endif %} />
+
+        <label for="tab-{{ block.id }}" class="tab-button">
+            {{ block.settings.title }}
+          </label>
+        </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+
+  document.querySelectorAll(`[scrollTo]`).forEach((elem) => {
+    elem.addEventListener("click", (event) => {
+      let id = event.currentTarget.getAttribute("scrollTo")
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if(rect.top <= 0){
+            window.scrollTo({
+              top: element.offsetTop - 250,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        }
+      }
+      const stickyEvent = new Event('update:sticky');
+      document.dispatchEvent(stickyEvent);
+    })
+  })
+
+  window.addEventListener('scroll', function() {
+    const stickyEvent = new Event('update:sticky');
+    document.dispatchEvent(stickyEvent);
+  });
+
+  document.addEventListener("update:sticky", ()=>{
+    document.querySelectorAll("[sticky]").forEach((elem)=>{
+      let top = 200
+      if(elem.getAttribute("top")){
+        top = elem.getAttribute("top") * 1
+      }
+      const id=elem.getAttribute("sticky") || null
+      if(!id)return
+      document.querySelectorAll(`#${id}`).forEach((sticky)=>{
+        const rect = sticky.getBoundingClientRect();
+        if(rect.top < top){
+          elem.classList.add("sticky")
+        }else{
+          elem.classList.remove("sticky")
+        }
+      })
+    })
+  })
+</script>
+
+{% schema %}
+  {
+    "name": "Sticky tab",
+    "settings": [
+      {
+        "type":"text",
+        "id":"title",
+        "label":"Section title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": "Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          }, {
+            "type": "text",
+            "id": "scroll-to",
+            "label": "Scroll to",
+            "info": "Please enter the element id where user will be scrolled to if they click on this button"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Sticky tab"
+      }
+    ]
+  }
+{% endschema %}

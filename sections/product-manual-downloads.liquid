@@ -1,0 +1,200 @@
+{% if product.metafields.custom.section_accordion_downloads.value.title_1.value == blank and product.metafields.custom.section_accordion_downloads.value.url_1.value == blank %}
+  <style>
+    #shopify-section-{{ section.id }} {
+      display: none;
+    }
+  </style>
+{% endif %}
+
+<style>
+#section--{{ section.id }}.product-downloads-s {
+  background: #F9F9FA;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+  
+#section--{{ section.id }} .product-downloads-heading-s {
+    text-align: center;
+    font-size: 32px;
+    font-family: Montserrat;
+  }
+
+#section--{{ section.id }} .my-downloads-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#section--{{ section.id }}  .download-card {
+    max-width: 900px;
+    margin: auto;
+    gap: 20px;
+    background: #FFFFFF;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    text-align: left;
+    font-size: 16px;
+    color: #000;
+    font-family: Montserrat;
+    box-shadow: none;
+}
+
+#section--{{ section.id }}  .download-card:hover {
+  border: 1px solid #4190d2;
+}
+#section--{{ section.id }} .download-card button {
+    border: none;
+    padding: 5px 15px;
+    background: #4190d2;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+}
+
+
+
+
+
+@media screen and (max-width:768px) {
+  #section--{{ section.id }}.product-downloads-s {
+  background: white;
+  padding: 20px 20px 40px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+  
+#section--{{ section.id }} .product-downloads-heading-s {
+    text-align: center;
+    font-size: 20px;
+    font-family: Montserrat;
+  }
+
+#section--{{ section.id }} .my-downloads-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#section--{{ section.id }}  .download-card {
+    max-width: 994px;
+    margin: auto;
+    gap: 20px;
+    background: #FFFFFF;
+    position: relative;
+    border-radius: 10px;
+    background-color: #fff;
+    border: 1px solid #c2c2c2;
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    text-align: left;
+    font-size: 14px;
+    color: #000;
+    font-family: Montserrat;
+    box-shadow: none;
+}
+
+#section--{{ section.id }}  .download-card:hover {
+  border: 1px solid #4190d2;
+}
+#section--{{ section.id }} .download-card button {
+    border: none;
+    padding: 5px 15px;
+    background: #4190d2;
+    border-radius: 50px;
+    color: white;
+    font-size: 12px;
+}
+
+  
+}
+
+
+
+
+
+
+
+  
+</style>
+
+<div id="section--{{ section.id }}" class="product-downloads-s">
+  {% for headings in shop.metaobjects.downloads.values %}
+    {% if headings.heading != blank %}
+  <div class="product-downloads-heading-s">{{ headings.heading }}</div>
+    {% endif %}
+  {% endfor %}
+    <div class="my-downloads-wrapper">
+      {% assign metaobject = product.metafields.custom.section_accordion_downloads.value %}
+         
+        {% if metaobject.title_1 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ metaobject.title_1 }}</h3>
+            </div>
+            <button onclick='redirect("{{ metaobject.url_1 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if metaobject.title_2 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ metaobject.title_2 }}</h3>
+            </div>
+            <button onclick='redirect("{{ metaobject.url_2 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if metaobject.title_3 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ metaobject.title_3 }}</h3>
+            </div>
+            <button onclick='redirect("{{ metaobject.url_3 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if metaobject.title_4 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ metaobject.title_4 }}</h3>
+            </div>
+            <button onclick='redirect("{{ metaobject.url_4 }}")'>Download</button>
+          </div>
+          {% endif %}
+
+        
+
+      </div>
+</div>
+
+
+
+
+{% schema %}
+  {
+    "name": "product-manual-downloads",
+    "presets":[
+      {
+        "name":"product-manual-downloads"
+      }
+    ]
+  }
+{% endschema %}

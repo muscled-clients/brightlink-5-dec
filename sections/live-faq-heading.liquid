@@ -1,0 +1,102 @@
+<style>
+
+.faq-parent-s .faq-s {
+    font-weight: 600;
+    font-size: 40px;
+    font-family: Lato;
+    color: #000;
+    text-align: center;
+    line-height: normal;
+}
+.faq-parent-s .have-questions-were {
+
+  	font-size: 24px;
+  	font-weight: 300;
+  	font-family: Montserrat;
+    line-height: normal;
+    color: #000;
+}
+.faq-parent-s {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 20px;
+    background-color: #f7f7f7;
+    min-height:250px;
+    margin-top: 85px;
+}
+
+@media screen and (max-width:1000px){
+  .faq-parent-s .faq-s {
+    font-weight: 600;
+    font-size: 16px;
+    font-family: Lato;
+    color: #000;
+    text-align: center;
+    line-height: normal;
+}
+.faq-parent-s .have-questions-were {
+
+  	font-size: 16px;
+  	font-weight: 300;
+  	font-family: Montserrat;
+    line-height: normal;
+    color: #000;
+}
+.faq-parent-s {
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	gap: 10px;
+    background-color: #f7f7f7;
+    min-height:125px;
+    margin-top: 80px;
+}
+}
+</style>
+
+
+ 
+
+  	<div class="faq-parent-s">
+      			<div class="faq-s">{{ section.settings.faq-heading }}</div>
+      			<div class="have-questions-were">{{ section.settings.faq-text }}</div>
+    </div>
+  
+
+
+
+
+
+{% schema %}
+  {
+    "name": "live faq heading",
+    "settings": [
+      {
+        "type":"liquid",
+        "id":"faq-heading",
+        "label":"Heading"
+      },
+      {
+        "type":"liquid",
+        "id":"faq-text",
+        "label":"Text"
+      }
+    ],
+    "presets":[
+      {
+        "name": "live faq heading"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

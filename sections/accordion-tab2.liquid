@@ -1,0 +1,897 @@
+{% assign product_specification = product.metafields.custom.specification_table2.value %}
+{% assign product_features = product.metafields.custom.accordion_features2.value %}
+
+
+{% if product_specification == blank and product_features == blank and product.metafields.custom.section_video.value == blank and product.metafields.custom.section_custom_faq_dropdown_list == blank and product.metafields.custom.accordion_downloads.value == blank %} 
+  <style>
+#shopify-section-{{ section.id }} {
+  display:none;
+}
+  </style>
+{% endif %}
+
+
+
+<style>
+  #shopify-section-{{ section.id }} a {
+    color: var(--link-color);
+    text-decoration: var(--text-link-decoration);
+  }
+
+  #shopify-section-{{ section.id }} {
+    background: #f9f9fa;
+  }
+  .mega-menu{
+    z-index: 9999;
+  }
+  #shopify-section-{{ section.id }} .scroll-arrow{
+    display: none;
+    position: absolute;
+    top: 50%;
+    translate: 0px -50%;
+  }
+  #shopify-section-{{ section.id }} .scroll-arrow.next{
+    right: 15px;
+  }
+  #shopify-section-{{ section.id }} .scroll-arrow.prev{
+    left: 15px;
+  }
+  #shopify-section-{{ section.id }} .tabs-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tabs-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  #shopify-section-{{ section.id }} .accordion{
+    padding: 40px 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    font-family: 'Montserrat';
+    color: #636363;
+
+    background-color: #f9f9fa;
+  }
+  #shopify-section-{{ section.id }} .accordion-spec{
+    width: 100%;
+    overflow-x: scroll;
+    text-align: center;
+    margin: 70px 0;
+  }
+  #shopify-section-{{ section.id }} .accordion-spec td {
+    vertical-align: text-top;
+  }
+  #shopify-section-{{ section.id }} .accordion-spec::-webkit-scrollbar{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .accordion h2{
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 50px 0;
+  }
+  #shopify-section-{{ section.id }} .accordion-spec table{
+    min-width: 700px;
+    max-width: 1200px;
+    width: 100%;
+    display: inline-table;
+    text-align: start;
+  }
+  #shopify-section-{{ section.id }} .accordion-features{
+    margin-top: 50px;
+  }
+  #shopify-section-{{ section.id }} .accordion-features ul{
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+    gap: 24px;
+    list-style: none;
+    padding-bottom: 35px;
+    margin: auto;
+  }
+  #shopify-section-{{ section.id }} .accordion-features li{
+    line-height: normal;
+    display: flex;
+    align-items: start;
+    font-weight: 400;
+  }
+  #shopify-section-{{ section.id }} .accordion-features svg{
+    margin-right: 10px;
+    min-width: 10px;
+    margin-top: 5px;
+  }
+  #shopify-section-{{ section.id }} .accordion-features .img-container{
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0;
+    gap: 20px;
+    text-align: center;
+    justify-content: center;
+    max-width: 900px;
+  }
+  #shopify-section-{{ section.id }} .accordion-features .img-container .label{
+    margin-top: 15px;
+    color: black;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads{
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads h2 {
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 40px 0;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 20px;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads li{
+    border-radius: 10px;
+    border: 1px solid #4190D2;
+    padding: 30px;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads svg{
+    margin-right: 10px;
+    min-width: 10px;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads a{
+    padding: 5px 15px;
+    border-radius: 50px;
+    background: #4190D2;
+    color: white;
+    text-decoration: none;
+    line-height: 150%;
+    margin-left: auto;
+    transition: opacity 0.25s ease-in-out;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads a:hover{
+    opacity: 0.8;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads-wrapper{
+    width: 100%;
+  }
+  #shopify-section-{{ section.id }} .accordion-spec.type-1 td,
+  #shopify-section-{{ section.id }} .accordion-spec.type-2 td,
+  #shopify-section-{{ section.id }} .accordion-spec.type-5 td {
+      padding: 20px 20px 20px 0;
+      font-weight: 400;
+      border-bottom: 1px solid #C2C2C2 !important;
+      word-wrap: break-word;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-1 tbody tr td:first-child,
+    #shopify-section-{{ section.id }} .accordion-spec.type-2 tbody tr td:first-child {
+      font-weight: 500;
+      color: black;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-1 tbody tr:first-child td,
+    #shopify-section-{{ section.id }} .accordion-spec.type-5 tbody tr:first-child td{
+      font-weight: 600;
+      color: black;
+      font-size: 18px;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 td,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 td {
+      min-width: 100px;
+      max-width: 100px;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 .special,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 .special{
+
+      font-weight: 400;
+      color: black;
+      font-size: 20px;
+      text-transform: uppercase;
+      max-width: 300px;
+      padding-right: 30px;
+      width: 100%;
+      display: inline-block;
+      transform: translateY(4px);
+      text-align: start;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 td,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 td {
+      padding: 5px 10px;
+      font-weight: 400;
+      word-wrap: break-word;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 hr,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 hr{
+      max-width: 1400px;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 .table-container,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 .table-container{
+      display: flex;
+      border-bottom: 1px solid #C2C2C2 !important;
+      justify-content: center;
+      padding: 35px 0 10px 0;
+      max-width: 900px;
+      width: 100%;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 table,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 table{
+      max-width: 700px;
+      min-width: fit-content;
+    }
+    #shopify-section-{{ section.id }} .accordion-spec.type-2 table{
+      max-width: 1200px;
+      min-width: fit-content;
+    }
+
+    #shopify-section-{{ section.id }} .accordion-spec.type-3 .table-wrapper,
+    #shopify-section-{{ section.id }} .accordion-spec.type-4 .table-wrapper{
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    #shopify-section-{{ section.id }} .margin-bottom{
+      margin-bottom: 40px;
+    }
+    @media screen and (max-width: 750px) {
+      #shopify-section-{{ section.id }} .scroll-arrow{
+        display: flex;
+      }
+      #shopify-section-{{ section.id }} .accordion-downloads{
+        font-size: 14px;
+      }
+      #shopify-section-{{ section.id }} .accordion{
+        padding: 20px;
+      }
+      #shopify-section-{{ section.id }} .accordion-features .features-container{
+        font-size: 14px;
+      }
+      #shopify-section-{{ section.id }} .accordion-features .img-container{
+        flex-direction: column;
+        gap: 15px;
+      }
+      #shopify-section-{{ section.id }} .accordion-features .img-container .label{
+        margin-top: 10px;
+      }
+      #shopify-section-{{ section.id }} .accordion-spec.type-3 .table-container,
+      #shopify-section-{{ section.id }} .accordion-spec.type-4 .table-container{
+        flex-direction: column;
+        padding: 40px 0 0 0;
+        width: 100%;
+      }
+      #shopify-section-{{ section.id }} .accordion-spec.type-3 .special,
+      #shopify-section-{{ section.id }} .accordion-spec.type-4 .special{
+        max-width: fit-content;
+        margin-bottom: 10px;
+        padding-right: 0;
+      }
+      #shopify-section-{{ section.id }} .accordion-spec.type-3 td,
+      #shopify-section-{{ section.id }} .accordion-spec.type-4 td {
+        border-top: 1px solid #C2C2C2 !important;
+        padding: 10px 2px 10px ;
+        min-width: auto;
+        max-width: 150px;
+      }
+    }
+</style>
+
+{% assign tabTitlesExist = false %}
+<div class="main-tabs-container" sticky="shopify-section-{{ section.id }}" top="150">
+  <button class="scroll-arrow prev" scroll="scroll-wrapper-{{ section.id }}" prev>
+    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.7765 16.8085C10.4785 17.0638 9.99527 17.0638 9.69725 16.8085L-2.56343e-07 8.5L9.69725 0.191507C9.99527 -0.0638357 10.4785 -0.0638357 10.7765 0.191507C11.0745 0.446851 11.0745 0.860842 10.7765 1.11619L2.15847 8.5L10.7765 15.8838C11.0745 16.1392 11.0745 16.5532 10.7765 16.8085Z" fill="#C2C2C2"/>
+    </svg>
+  </button>
+  <button class="scroll-arrow next" scroll="scroll-wrapper-{{ section.id }}" next>
+    <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M0.223517 0.191507C0.52154 -0.0638357 1.00473 -0.0638357 1.30275 0.191507L11 8.5L1.30275 16.8085C1.00473 17.0638 0.52154 17.0638 0.223517 16.8085C-0.0745058 16.5532 -0.0745058 16.1392 0.223517 15.8838L8.84153 8.5L0.223517 1.11619C-0.0745058 0.860842 -0.0745058 0.44685 0.223517 0.191507Z" fill="#C2C2C2"/>
+    </svg>
+  </button>
+
+  <div id="scroll-wrapper-{{ section.id }}" class="tabs-wrapper">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'specification' %}
+          {% if block.settings.title and block.settings.title != blank and product_specification != blank %}
+            {% assign tabTitlesExist = true %}
+            <div scrollTo="scroll-{{ block.id }}">
+              <input
+                class="hidden tab-to-scroll"
+                type="radio"
+                id="tab-{{ block.id }}"
+                name="tab"
+                hidden
+                {% if forloop.first %}
+                  checked
+                {% endif %}
+              >
+
+              <label for="tab-{{ block.id }}" class="tab-button">
+                {{ block.settings.title }}
+              </label>
+            </div>
+          {% endif %}
+        {% when 'feaures' %}
+          {% if block.settings.title and block.settings.title != blank and product_features != blank %}
+            {% assign tabTitlesExist = true %}
+            <div scrollTo="scroll-{{ block.id }}">
+              <input
+                class="hidden tab-to-scroll"
+                type="radio"
+                id="tab-{{ block.id }}"
+                name="tab"
+                hidden
+                {% if forloop.first %}
+                  checked
+                {% endif %}
+              >
+
+              <label for="tab-{{ block.id }}" class="tab-button">
+                {{ block.settings.title }}
+              </label>
+            </div>
+          {% endif %}
+        {% when 'video' %}
+          {% if product.metafields.custom.section_video.value.link.value != blank %}
+            <div scrollTo="{{ block.settings["section-id"] }}">
+              <input
+                class="hidden tab-to-scroll"
+                type="radio"
+                id="tab-{{ block.id }}"
+                name="tab"
+                hidden
+                {% if forloop.first %}
+                  checked
+                {% endif %}
+              >
+
+              <label for="tab-{{ block.id }}" class="tab-button">
+                {{ block.settings.title }}
+              </label>
+            </div>
+          {% endif %}
+        {% when "static" %}
+          {% if block.settings.title != blank %}
+              <div scrollTo="{{ block.settings["section-id"] }}">
+                <input
+                  class="hidden tab-to-scroll"
+                  type="radio"
+                  id="tab-{{ block.id }}"
+                  name="tab"
+                  hidden
+                  {% if forloop.first %}
+                    checked
+                  {% endif %}
+                >
+  
+                <label for="tab-{{ block.id }}" class="tab-button">
+                  {{ block.settings.title }}
+                </label>
+              </div>
+            {% endif %}
+        {% when 'faq' %}
+          {% if product.metafields.custom.section_custom_faq_dropdown_list != blank %}
+            <div scrollTo="{{ block.settings["section-id"] }}">
+              <input
+                class="hidden tab-to-scroll"
+                type="radio"
+                id="tab-{{ block.id }}"
+                name="tab"
+                hidden
+                {% if forloop.first %}
+                  checked
+                {% endif %}
+              >
+
+              <label for="tab-{{ block.id }}" class="tab-button">
+                {{ block.settings.title }}
+              </label>
+            </div>
+          {% endif %}
+        {% when 'downloads' %}
+          {% if block.settings.title
+            and block.settings.title != blank
+            and product.metafields.custom.accordion_downloads.value != blank
+          %}
+            {% assign tabTitlesExist = true %}
+
+            <div scrollTo="scroll-{{ block.id }}">
+              <input
+                class="hidden tab-to-scroll"
+                type="radio"
+                id="tab-{{ block.id }}"
+                name="tab"
+                hidden
+                {% if forloop.first %}
+                  checked
+                {% endif %}
+              >
+
+              <label for="tab-{{ block.id }}" class="tab-button">
+                {{ block.settings.title }}
+              </label>
+            </div>
+          {% endif %}
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  #shopify-section-{{ section.id }} .main-tabs-container{
+    padding: 0px 15px;
+    background: #F2F2F2;
+    margin: 40px 0;
+    position: relative;
+  }
+  #shopify-section-{{ section.id }}  [scrollto]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  #shopify-section-{{ section.id }} .tabs-wrapper {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button {
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    padding: 16px 20px;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 120%;
+    text-transform: uppercase;
+    border-radius: 40px;
+    width: 210px;
+  }
+
+  #shopify-section-{{ section.id }} input.tab-to-scroll:checked + label {
+      background: #4190D2 !important;
+      color: #fff !important;
+  }
+
+  #shopify-section-{{ section.id }} .main-tabs-container.sticky{
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    top: 137.33px;
+    z-index: 999999;
+  }
+  {% unless tabTitlesExist %}
+    #shopify-section-{{ section.id }} .main-tabs-container{
+      display: none !important;
+    }
+  {% endunless %}
+
+  @media only screen and (max-width: 768px)  {
+    #shopify-section-{{ section.id }} .tabs-wrapper {
+      overflow: auto;
+      justify-content: flex-start;
+      gap: 10px;
+    }
+    #shopify-section-{{ section.id }} .main-tabs-container.sticky{
+      top: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .tab-button{
+      font-size: 12px;
+      line-height: normal;
+      width: 150px;
+    }
+
+  }
+</style>
+
+<section class="accordion">
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'specification' %}
+        {% for spec_table in product_specification %}
+          <div class="accordion-spec type-{{ spec_table.type }}" id="scroll-{{ block.id }}">
+            {% if product_specification != blank %}
+              <div class="table-wrapper {% unless forloop.last %} margin-bottom{% endunless %}">
+                <h2>{{ spec_table.title }}</h2>
+
+                {% if spec_table.type == '3' or spec_table.type == 3 or spec_table.type == '4' or spec_table.type == 4 %}
+                  {% assign tables = spec_table.body | split: '$' %}
+
+                  {% for table in tables %}
+                    {% assign table_data = table | newline_to_br | split: '<br />' %}
+                    <div class="table-container">
+                      <table>
+                        {% for row in table_data %}
+                          {% assign temp = row | split: ';' %}
+                          {% if spec_table.type == '3' %}
+                            {% assign no_of_col = 2 %}
+                          {% else %}
+                            {% assign no_of_col = 1 %}
+                          {% endif %}
+                          {% if temp.size > no_of_col %}
+                            <span class="special">{{ temp[0] }}</span>
+                          {% endif %}
+                          <tr>
+                            {% for col in temp %}
+                              {% if forloop.index == 1 and temp.size > no_of_col %}
+                              {% else %}
+                                <td>{{ col }}</td>
+                              {% endif %}
+                            {% endfor %}
+                          </tr>
+                        {% endfor %}
+                      </table>
+                    </div>
+                  {% endfor %}
+
+                {% else %}
+                  <table>
+                    <tbody>
+                      {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
+                      {% for row in table_data %}
+                        <tr>
+                          {% assign temp = row | split: ';' %}
+                          {% for col in temp %}
+                            <td>
+                              {{ col }}
+                            </td>
+                          {% endfor %}
+                        </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                {% endif %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+
+      {% when 'downloads' %}
+        <div class="accordion-downloads-wrapper" id="scroll-{{ block.id }}">
+          {% if product.metafields.custom.accordion_downloads.value %}
+            <div class="accordion-downloads">
+              <h2>Product Downloads</h2>
+              <ul>
+                {% for item in product.metafields.custom.accordion_downloads.value %}
+                  <li>
+                    {{ item.svg }}
+                    {{ item.name }}
+                    <a href="{{ item.url }}"> Download </a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
+          {% endif %}
+        </div>
+      {% when 'feaures' %}
+        <div class="accordion-features" id="scroll-{{ block.id }}">
+          {% if product_features != blank %}
+            {% for newfeatures in product_features %}
+              <div class="table-wrapper {% unless forloop.last %} margin-bottom{% endunless %}">
+                <h2>
+                  {% if newfeatures.title != blank -%}
+                    {{ newfeatures.title }}
+                  {%- else -%}
+                    Features
+                  {%- endif %}
+                </h2>
+                <ul class="features-container">
+                  {% assign features = newfeatures.list | newline_to_br | split: '<br />' %}
+                  {% for feature in features %}
+                    <li>
+                      {% comment %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="11" viewBox="0 0 10 11" fill="none">
+                          <circle cx="5" cy="5.85156" r="5" fill="black"/>
+                        </svg>
+                      {% endcomment %}
+                      <svg width="7" height="8" viewBox="0 0 7 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="3.5" cy="4" r="3.5" fill="#C2C2C2"/>
+                      </svg>
+                      {{ feature }}
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="img-container">
+                {% if newfeatures.feature_images.value %}
+                  {% for item in newfeatures.feature_images.value %}
+                    <div>
+                      <div class="label">{{ newfeatures.feature_image_labels.value[forloop.index0] }}</div>
+                      <img
+                        src="{{ item |  image_url: width: item.width, height: item.height  }}"
+                        loading="lazy"
+                        width="{{ item.width }}"
+                        height="{{ item.height }}"
+                        alt="{{ item.alt }}"
+                      >
+                    </div>
+                  {% endfor %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+    {% endcase %}
+  {% endfor %}
+</section>
+
+<script>
+  
+  
+
+  document.querySelectorAll(`[scrollTo]`).forEach((elem) => {
+    
+    elem.addEventListener("click", (event) => {
+      
+      sessionStorage.setItem('tabclick', true);
+
+      setTimeout(()=>{
+        sessionStorage.setItem('tabclick', false);
+      }, 1000)
+
+      let adjustment = 250
+      if(window.innerWidth<768){
+        adjustment = 120
+      }
+      
+      let id = event.currentTarget.getAttribute("scrollTo")
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if(rect.top <= 0 || rect.bottom >= 0){
+            window.scrollTo({
+              top: element.offsetTop - adjustment,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        }
+      }
+      const stickyEvent = new Event('update:sticky');
+      document.dispatchEvent(stickyEvent);
+    })
+  })
+
+  window.addEventListener('scroll', function() {
+
+    if(sessionStorage.getItem('tabclick') && sessionStorage.getItem('tabclick') == "true"){
+      const stickyEvent = new Event('update:sticky');
+      document.dispatchEvent(stickyEvent);
+      return
+    }
+
+    const elements = [...document.querySelectorAll('[scrollTo]')];
+    elements.some((elem) => {
+      if (elem.getAttribute("scrollTo")) {
+        const items = document.querySelector(`#${elem.getAttribute("scrollTo")}`);
+        const viewportHeight = window.innerHeight;
+        const elementRect = items.getBoundingClientRect();
+    
+        const elementTop = elementRect.top;
+        const viewportTop = 0;
+        const viewportBottom = viewportHeight;
+        const isTopInsideViewport = elementTop >= viewportTop && elementTop <= viewportBottom;
+    
+        if (isTopInsideViewport) {
+          let tab = elem.querySelector(`[type="radio"]`)
+          if(tab && !tab.checked){
+            tab.checked = true
+          }
+          return true;
+        }
+      }
+    
+      return false;
+    });
+
+    const stickyEvent = new Event('update:sticky');
+    document.dispatchEvent(stickyEvent);
+  });
+
+  document.addEventListener("update:sticky", ()=>{
+    document.querySelectorAll("[sticky]").forEach((elem)=>{
+      if(elem.getAttribute("sticky")){
+
+        const lastSection = document.querySelectorAll(`#${elem.getAttribute("sticky")} [scrollto]`)
+        if(lastSection.length>0){
+          const lastelem = lastSection[lastSection.length - 1]
+          if(lastelem.getAttribute("scrollto")){
+            const main_section = document.querySelector(`#${lastelem.getAttribute("scrollto")}`)
+            if(main_section) {
+              const viewportHeight = window.innerHeight;
+              const elementRect = main_section.getBoundingClientRect();
+              const elementBottom = elementRect.bottom;
+              const viewportTop = 0;
+              const isBottomCrossingTop = elementBottom < viewportTop;
+              if (isBottomCrossingTop) {
+                elem.style.opacity = "0"
+                elem.style.zIndex = "-100"
+              }else{
+                elem.style.opacity = "1"
+                elem.style.zIndex = "1"
+              }
+            }
+          }
+        }
+      }
+      
+      let top = 200
+      if(elem.getAttribute("top")){
+        top = elem.getAttribute("top") * 1
+      }
+      if(window.innerWidth<768){
+        top = 150
+      }
+      const id=elem.getAttribute("sticky") || null
+      if(!id)return
+      document.querySelectorAll(`#${id}`).forEach((sticky)=>{
+        const rect = sticky.getBoundingClientRect();
+        if(rect.top < top){
+          elem.classList.add("sticky")
+        }else{
+          elem.classList.remove("sticky")
+        }
+      })
+    })
+  })
+
+  document.querySelectorAll("[scroll]").forEach((elem)=>{
+    elem.addEventListener("click", (e)=>{
+      let current = e.currentTarget
+      let scroller = document.querySelector(`#${current.getAttribute("scroll")}`)
+
+      if(scroller){
+        let scrollerWidth = scroller.offsetWidth
+        let scrollerCurrent = scroller.scrollLeft
+        let scrollerGap = parseInt(getComputedStyle(scroller).gap, 10);
+        let itemsWidth = 150
+        let itemsLength = scroller.children.length
+        
+        if(itemsLength>0){
+          itemsWidth = scroller.children[0].offsetWidth
+        }
+
+        let result = Math.ceil(scrollerCurrent / (itemsWidth + scrollerGap))
+
+        if(current.hasAttribute("next")){
+          result++
+        }else if(current.hasAttribute("prev")){
+          result--
+        }
+        scroller.scrollTo({
+          left: result * (itemsWidth + scrollerGap),
+          behavior: "smooth",
+        })
+      }
+    })
+  })
+</script>
+
+{% schema %}
+{
+  "name": "Accordion tab2",
+  "settings": [
+    {
+      "type":"text",
+      "id":"title",
+      "label":"Section tiltle"
+    }
+  ],
+  "blocks":[
+    {
+      "type":"video",
+      "name":"Video",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        },
+        {
+          "type":"text",
+          "id":"section-id",
+          "label":"Enter section id"
+        }
+      ]
+    },
+    {
+      "type":"faq",
+      "name":"FAQ",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        },
+        {
+          "type":"text",
+          "id":"section-id",
+          "label":"Enter section id"
+        }
+      ]
+    },
+    {
+      "type":"static",
+      "name":"Static",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        },
+        {
+          "type":"text",
+          "id":"section-id",
+          "label":"Enter section id"
+        }
+      ]
+    },
+    {
+      "type":"specification",
+      "name":"Specification",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        }
+      ]
+    },
+    {
+      "type":"feaures",
+      "name":"Feaures",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        }
+      ]
+    },
+    {
+      "type":"downloads",
+      "name":"Downloads",
+      "settings":[
+        {
+          "type":"text",
+          "id":"title",
+          "label":"Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordion tab2"
+    }
+  ]
+}
+{% endschema %}

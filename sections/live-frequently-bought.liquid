@@ -1,0 +1,631 @@
+<style>
+@media screen and (min-width:1001px){
+.frame-parent-m.mobile-version-s {
+    display:none;
+  }
+#section--{{ section.id }} .frequently-bought-together {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 40px;
+  	font-weight: 500;
+  	font-family: Lato;
+    line-height: 48px;
+}
+#section--{{ section.id }} .frame-child {
+  	position: relative;
+  	width: 80px;
+  	height: 80px;
+  	object-fit: cover;
+}
+#section--{{ section.id }} .herb-seeds {
+  	align-self: stretch;
+  	position: relative;
+  	font-weight: 600;
+}
+#section--{{ section.id }} .rectangle-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .vector-icon {
+  	position: relative;
+  	width: 30px;
+  	height: 30px;
+}
+#section--{{ section.id }} .frame-inner {
+  	position: relative;
+  	width: 100px;
+  	height: 80px;
+  	object-fit: cover;
+}
+#section--{{ section.id }} .frame-group {
+  	width: 454px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	text-align: center;
+  	font-size: 16px;
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur {
+  	font-weight: 300;
+    font-size: 14px;
+    display: list-item;
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur-container {
+  	align-self: stretch;
+  	position: relative;
+    line-height: 22px;
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur-adipis-parent {
+  	width: 620px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 5px;
+}
+#section--{{ section.id }} .add-to-cart {
+  	position: relative;
+    line-height: 24px;
+}
+#section--{{ section.id }} .add-to-cart-8900-wrapper {
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: row;
+  	padding: 10px 27px;
+  	align-items: center;
+  	justify-content: center;
+  	color: #4190d2;
+    cursor:pointer;
+    border-radius: 5px;
+}
+#section--{{ section.id }} .frequently-bought-together-parent {
+  	width: 620px;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: center;
+  	gap: 20px;
+}
+#section--{{ section.id }} .frame-wrapper {
+  	position: absolute;
+  	top: 150px;
+  	left: 0px;
+  	border-radius: 20px;
+  	background-color: #4190d2;
+  	width: 1200px;
+  	height: 500px;
+  	display: flex;
+  	flex-direction: column;
+  	padding: 0px 40px 0px 103px;
+  	box-sizing: border-box;
+  	align-items: flex-start;
+  	justify-content: center;
+}
+#section--{{ section.id }} .group-child {
+  	position: absolute;
+  	top: 0px;
+  	right: 0px;
+  	width: 517px;
+  	height: 650px;
+  	object-fit: cover;
+}
+#section--{{ section.id }}.frame-parent-d {
+  	position: relative;
+  	width: 100%;
+  	height: 650px;
+  	text-align: left;
+  	font-size: 20px;
+  	color: #fff;
+  	font-family: Montserrat;
+    margin: auto;
+    max-width: 1200px;
+    margin-top:{{ section.settings.margin-top-d }}px;
+    margin-bottom:{{ section.settings.margin-bottom-d }}px;
+}
+}
+
+@media screen and (max-width:1000px){
+  .desktop-version-s {
+    display:none;
+  }
+  .mobile-version-s {
+    display:flex;
+  }
+#section--{{ section.id }} .frequently-bought-together {
+  	align-self: stretch;
+  	position: relative;
+  	font-size: 16px;
+  	font-weight: 500;
+  	font-family: Lato;
+    text-align: left;
+    line-height: 19px;
+}
+#section--{{ section.id }} .frame-child {
+  	position: relative;
+  	width: 50px;
+  	height: 50px;
+  	object-fit: cover;
+}
+#section--{{ section.id }} .herb-seeds {
+  	align-self: stretch;
+  	position: relative;
+  	font-weight: 600;
+    font-size: 11px;
+    line-height: 13px;
+}
+#section--{{ section.id }} .rectangle-parent {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .vector-icon {
+  	position: relative;
+  	width: 20px;
+  	height: 20px;
+}
+#section--{{ section.id }} .frame-group {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: space-between;
+  	text-align: center;
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur {
+  	font-weight: 300;
+    font-size: 12px;
+
+  display: list-item;
+    
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur-container {
+  	align-self: stretch;
+  	position: relative;
+    line-height: 15px;
+}
+#section--{{ section.id }} .lorem-ipsum-consectetur-1950-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 5px;
+
+    padding-left: 15px;
+}
+#section--{{ section.id }} .add-to-cart {
+  	position: relative;
+    line-height: 24px;
+}
+#section--{{ section.id }} .add-to-cart-8900-wrapper {
+  	align-self: stretch;
+  	border-radius: 10px;
+  	background-color: #fff;
+  	display: flex;
+  	flex-direction: row;
+  	padding: 10px 27px;
+  	align-items: center;
+  	justify-content: center;
+  	font-size: 20px;
+  	color: #4190d2;
+    cursor:pointer;
+    border-radius: 10px;
+}
+#section--{{ section.id }} .frequently-bought-together-parent {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: center;
+  	gap: 20px;
+}
+#section--{{ section.id }} .frame-wrapper {
+/*   	position: absolute;
+  	top: 200px;
+  	left: calc(50% - 167.5px);
+  	border-radius: 10px;
+  	background-color: #4190d2;
+  	width: 335px;
+  	height: 580px;
+  	display: flex;
+  	flex-direction: column;
+  	padding: 15px 20px;
+  	box-sizing: border-box;
+  	align-items: center;
+  	justify-content: flex-end; */
+
+      top: 200px;
+    /* left: calc(50% - 167.5px); */
+    border-radius: 10px;
+    background-color: #4190d2;
+    width: 335px;
+    height: 580px;
+    display: flex;
+    flex-direction: column;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 335px;
+    margin: auto;
+}
+#section--{{ section.id }} .group-child {
+  	position: relative;
+  	top: 0px;
+  	left: 7px;
+  	width: 305px;
+  	height: 383.46px;
+  	object-fit: cover;
+}
+#section--{{ section.id }} .my-img-s {
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: -218px;
+}
+#section--{{ section.id }}.frame-parent-m {  
+  	position: relative;
+  	width: 100%;
+ /* 	height: 792px; */
+  	text-align: left;
+  	font-size: 14px;
+  	color: #fff;
+  	font-family: Montserrat;
+
+    display: flex;
+    flex-direction: column-reverse;
+    margin-top:{{ section.settings.margin-top-m }}px;
+    margin-bottom:{{ section.settings.margin-bottom-m }}px;
+}
+
+
+}
+</style>
+
+  	<div class="frame-parent-d desktop-version-s" id="section--{{ section.id }}" >
+    		<div class="frame-wrapper">
+      			<div class="frequently-bought-together-parent">
+                  {% assign total_price = 0 %}
+        				<div class="frequently-bought-together">{{ section.settings.min-heading }}</div>
+        				<div class="frame-group">
+          					 {% for x in section.settings.my-product %}
+                               {% assign total_price = total_price | plus: x.price %}
+                            {% unless forloop.last %}
+                              {% unless forloop.first %}
+                            <img class="vector-icon" alt="" src="https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Vector.svg?v=1689360259">
+          					{% endunless %}
+                          <div class="rectangle-parent">
+                               
+            						<img class="frame-child" alt="" src="{{ x.metafields.custom.fbt_product_images | img_url: '1440x' }}">
+            						
+            						<div class="herb-seeds">{{ x.metafields.custom.fbt_product_short_title }}</div>
+          					</div>
+                              {% endunless %}
+                            {% endfor %}
+        				</div>
+
+  
+        				<div class="lorem-ipsum-consectetur-adipis-parent">
+
+                      {% for x in section.settings.my-product %}
+                        {% unless forloop.last %}
+                          
+          					<div class="lorem-ipsum-consectetur-container">
+                                    
+            						<span class="lorem-ipsum-consectetur">{{ x.title }}   </span>
+            						<b>{{ x.price | money }}</b>
+          					</div>
+          				
+                          {% endunless %}
+                        {% endfor %}
+                          
+        				</div>
+            <div id="container-form-{{ section.id }}" style="display:none;">
+            {% for fbtProduct in section.settings.my-product %}
+             
+                        <form {% unless fbtProduct.available %} disabled {% endunless %} id="fbt-form-{{ fbtProduct.id }}" action="/cart/add" method="post" style="display:none;">
+                          
+                            <input id="fbt-id-{{ fbtProduct.id }}" type="text" name="id" value="{% if fbtProduct.first_available_variant != blank %}{{ fbtProduct.first_available_variant.id }}{% else %}{{ fbtProduct.variants.first.id }}{% endif %}" />                                           
+                          <input id="fbt-quantity-{{ fbtProduct.id }}" type="number" name="quantity" value="1" />
+                        </form>
+              {% endfor %}
+            </div>
+                        
+
+        				<button forms-container="container-form-{{ section.id }}" class="add-to-cart-8900-wrapper">
+          					<b id="my-atc-btn-sd" class="add-to-cart" >
+                              ADD TO CART - {{ total_price | money }} 
+                            </b>
+        				</button>
+      			</div>
+    		</div>
+            {% for x in section.settings.my-product %}
+              {% if forloop.last %}
+    		<img class="group-child" alt="" src="{{ x.metafields.custom.fbt_product_images | img_url:"1440x" }}">
+              {% endif %}
+            {% endfor %}
+  	</div>
+
+
+{% comment %} ===================== mobile view ==================== {% endcomment %}
+
+	<div class="frame-parent-m mobile-version-s" id="section--{{ section.id }}">
+    		<div class="frame-wrapper">
+              {% assign total_price = 0 %}
+      			<div class="frequently-bought-together-parent">
+        				<div class="frequently-bought-together">{{ section.settings.min-heading }}</div>
+        				<div class="frame-group">
+                        {% for x in section.settings.my-product %}
+                          {% assign total_price = total_price | plus: x.price %}
+                          {% unless forloop.last %}
+                          {% unless forloop.first %}
+                          <img class="vector-icon" alt="" src="https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Vector.svg?v=1689360259">
+                          {% endunless %}
+          					<div class="rectangle-parent">
+            						<img class="frame-child" alt="" src="{{  x.metafields.custom.fbt_product_images | img_url:"1440x" }}">
+            						
+            						<div class="herb-seeds">{{ x.metafields.custom.fbt_product_short_title }}</div>
+          					</div>
+                          {% endunless %}
+                          {% endfor %}
+          					
+          					
+        				</div>
+        				<div class="lorem-ipsum-consectetur-1950-parent">
+                      {% for x in section.settings.my-product %}
+                        {% unless forloop.last %}
+          					<div class="lorem-ipsum-consectetur-container">
+            						<span class="lorem-ipsum-consectetur">{{ x.title }}   </span>
+            						<b>{{ x.price | money }}</b>
+          					</div>
+          					{% endunless %}
+                        {% endfor %}
+        				</div>
+
+
+                  
+        				<button  forms-container="container-form-{{ section.id }}" class="add-to-cart-8900-wrapper">
+          					<b id="my-atc-btn-sm" class="add-to-cart">ADD TO CART - ${{ total_price }}</b>
+        				</button>
+      			</div>
+    		</div>
+            {% for x in section.settings.my-product %}
+              {% if forloop.last %}
+            <div class="my-img-s">
+    		<img class="group-child" alt="" src="{{ x.metafields.custom.fbt_product_images | img_url:"1440x" }}">
+            </div>
+    		{% endif %}
+          {% endfor %}
+  	</div>
+ 
+
+ 	
+
+
+
+{% schema %}
+  {
+    "name": "Live Frequently Bought",
+    "settings": [
+      {
+        "type":"product_list",
+        "id":"my-product",
+        "label":"Select a product"
+      },      
+      {
+        "type":"liquid",
+        "id":"min-heading",
+        "label":"Main Heading"
+      },
+      {
+        "type":"image_picker",
+        "id":"img1",
+        "label":"Image 1"
+      },
+      {
+        "type":"liquid",
+        "id":"img1-title",
+        "label":"Image 1 Title"
+      },
+      {
+        "type":"liquid",
+        "id":"img1-desc",
+        "label":"Image 1 Description"
+      },
+      {
+        "type":"text",
+        "id":"img1-price",
+        "label":"Image 1 Price"
+      },
+      {
+        "type":"image_picker",
+        "id":"img2",
+        "label":"Image 2"
+      },
+      {
+        "type":"liquid",
+        "id":"img2-title",
+        "label":"Image 2 Title"
+      },
+      {
+        "type":"liquid",
+        "id":"img2-desc",
+        "label":"Image 2 Description"
+      },
+      {
+        "type":"text",
+        "id":"img2-price",
+        "label":"Image 2 Price"
+      },
+      {
+        "type":"image_picker",
+        "id":"img3",
+        "label":"Image 3"
+      },
+      {
+        "type":"liquid",
+        "id":"img3-title",
+        "label":"Image 3 Title"
+      },
+      {
+        "type":"liquid",
+        "id":"img3-desc",
+        "label":"Image 3 Description"
+      },
+      {
+        "type":"text",
+        "id":"img3-price",
+        "label":"Image 3 Price"
+      },
+      {
+        "type":"text",
+        "id":"atc-price",
+        "label":"Add To Cart Price"
+      },
+      {
+        "type":"image_picker",
+        "id":"img4",
+        "label":"Image 4"
+      },
+        {
+        "type":"range",
+        "id":"margin-top-d",
+        "label":"Margin Top Desktop",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      },
+      {
+        "type":"range",
+        "id":"margin-bottom-d",
+        "label":"Margin Bottom Desktop",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":40,
+       "unit":"px"
+      },
+     {
+        "type":"range",
+        "id":"margin-top-m",
+        "label":"Margin Top Mobile",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      },
+      {
+        "type":"range",
+        "id":"margin-bottom-m",
+        "label":"Margin Bottom Mobile",
+       "min":0,
+       "max":200,
+       "step":5,
+       "default":150,
+       "unit":"px"
+      }
+    ],
+    "presets":[
+      {
+        "name": "Live Frequently Bought"
+      }
+    ]
+  }
+{% endschema %}
+
+
+<!-- for desktop add too cart button -->
+<script>
+
+// Function to update the cart count
+function updateCartCount(count) {
+  const cartCountElement = document.querySelectorAll('.header__cart-count');
+  console.log("cartCountElement:",cartCountElement)
+  if (cartCountElement) {
+    cartCountElement[0].textContent = count;
+  }
+}
+
+// Function to fetch cart data and update the cart count
+async function fetchCartDataAndUpdateCount() {
+  try {
+    const response = await fetch('/cart.js', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    if (response.ok) {
+      const cartData = await response.json();
+      console.log('Fetched cart data:', cartData);
+
+      if (cartData) {
+        updateCartCount(cartData.item_count);
+      } else {
+        console.log('Invalid or missing item_count:', cartData.item_count);
+      }
+
+    } else {
+      console.log('Failed to fetch cart data. Server responded with:', response.status);
+    }
+
+  } catch (error) {
+    console.log('Error fetching cart data:', error);
+  }
+}
+
+// Your existing code to handle form submissions
+document.querySelectorAll('[forms-container]').forEach((elem) => {
+  elem.addEventListener('click', async (event) => {
+    event.preventDefault();
+    let id = event.currentTarget.getAttribute('forms-container');
+    let items = [];
+    document.querySelectorAll(`#${id} [action="/cart/add"]`).forEach((form) => {
+      if (!form.hasAttribute("disabled")) {
+        const formData = new FormData(form);
+        const inputs = Object.fromEntries(formData.entries());
+        items.push(inputs);
+      }
+    });
+
+    try {
+      let formData = {
+        'items': items
+      };
+      console.log("formData:", formData);
+      let res = await fetch(window.Shopify.routes.root + 'cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+      let data = await res.json();
+      console.log("res:", res);
+      console.log("data:", data);
+
+      // Fetch cart data and update cart count after successfully adding items to cart
+      fetchCartDataAndUpdateCount();
+
+    } catch (error) {
+      console.log("error:", error);
+    }
+  });
+});
+</script>

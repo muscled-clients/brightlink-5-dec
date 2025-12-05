@@ -1,0 +1,126 @@
+<div class="d8-custom-fbt-container">
+    <div class="title-arrows">
+        <h2>{{ title }}</h2>
+        {% if products.count > 1 %}
+        <div class="arrows">
+            <svg class="d8-arrow arrow-left" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+                <rect width="10" height="11.25" transform="matrix(-1 0 0 1 17.5 6.37109)" fill="black" fill-opacity="0.3"/>
+                <path d="M12.5 0.121094C14.9723 0.121094 17.389 0.854206 19.4446 2.22772C21.5002 3.60124 23.1024 5.55347 24.0485 7.83755C24.9946 10.1216 25.2421 12.635 24.7598 15.0597C24.2775 17.4845 23.087 19.7118 21.3388 21.4599C19.5907 23.2081 17.3634 24.3986 14.9386 24.8809C12.5139 25.3632 10.0005 25.1157 7.71645 24.1696C5.43237 23.2235 3.48014 21.6213 2.10663 19.5657C0.733109 17.5101 -3.8147e-06 15.0934 -3.8147e-06 12.6211C-3.8147e-06 10.9796 0.323317 9.35412 0.9515 7.83755C1.57968 6.32098 2.50043 4.94299 3.66116 3.78226C4.82189 2.62153 6.19988 1.70078 7.71645 1.0726C9.23302 0.444416 10.8585 0.121094 12.5 0.121094ZM9.11249 13.5086L12.8625 17.2586C12.9746 17.3894 13.1125 17.4957 13.2675 17.5708C13.4226 17.6458 13.5915 17.6879 13.7637 17.6946C13.9358 17.7012 14.1075 17.6722 14.2679 17.6094C14.4283 17.5465 14.574 17.4512 14.6958 17.3294C14.8176 17.2076 14.9129 17.0619 14.9758 16.9015C15.0386 16.7411 15.0676 16.5694 15.061 16.3973C15.0543 16.2251 15.0122 16.0562 14.9372 15.9011C14.8621 15.7461 14.7558 15.6082 14.625 15.4961L11.7625 12.6211L14.6375 9.75859C14.8423 9.51947 14.9493 9.21187 14.9371 8.89728C14.925 8.58268 14.7946 8.28426 14.5719 8.06164C14.3493 7.83902 14.0509 7.70861 13.7363 7.69645C13.4217 7.6843 13.1141 7.79131 12.875 7.99609L9.12499 11.7461C8.89051 11.9786 8.75758 12.2945 8.75524 12.6248C8.7529 12.955 8.88133 13.2727 9.11249 13.5086Z" fill="#F2F2F2"/>
+            </svg>
+
+            <svg class="d8-arrow arrow-right" xmlns="http://www.w3.org/2000/svg" width="25" height="26" viewBox="0 0 25 26" fill="none">
+                <rect x="7.5" y="6.37109" width="10" height="11.25" fill="black"/>
+                <path d="M12.5 0.121094C10.0277 0.121094 7.61099 0.854206 5.55538 2.22772C3.49976 3.60124 1.89761 5.55347 0.951512 7.83755C0.00541604 10.1216 -0.242126 12.635 0.24019 15.0597C0.722505 17.4845 1.91301 19.7118 3.66117 21.4599C5.40933 23.2081 7.63661 24.3986 10.0614 24.8809C12.4861 25.3632 14.9995 25.1157 17.2835 24.1696C19.5676 23.2235 21.5199 21.6213 22.8934 19.5657C24.2669 17.5101 25 15.0934 25 12.6211C25 10.9796 24.6767 9.35412 24.0485 7.83755C23.4203 6.32098 22.4996 4.94299 21.3388 3.78226C20.1781 2.62153 18.8001 1.70078 17.2835 1.0726C15.767 0.444416 14.1415 0.121094 12.5 0.121094ZM15.8875 13.5086L12.1375 17.2586C12.0254 17.3894 11.8875 17.4957 11.7325 17.5708C11.5774 17.6458 11.4085 17.6879 11.2363 17.6946C11.0642 17.7012 10.8925 17.6722 10.7321 17.6094C10.5717 17.5465 10.426 17.4512 10.3042 17.3294C10.1824 17.2076 10.0871 17.0619 10.0242 16.9015C9.96137 16.7411 9.93236 16.5694 9.93901 16.3973C9.94566 16.2251 9.98782 16.0562 10.0628 15.9011C10.1379 15.7461 10.2442 15.6082 10.375 15.4961L13.2375 12.6211L10.3625 9.75859C10.1577 9.51947 10.0507 9.21187 10.0629 8.89728C10.075 8.58268 10.2054 8.28426 10.4281 8.06164C10.6507 7.83902 10.9491 7.70861 11.2637 7.69645C11.5783 7.6843 11.8859 7.79131 12.125 7.99609L15.875 11.7461C16.1095 11.9786 16.2424 12.2945 16.2448 12.6248C16.2471 12.955 16.1187 13.2727 15.8875 13.5086Z" fill="#F2F2F2"/>
+            </svg>
+        </div>
+        {% endif %}
+    </div>
+        {% assign metaobjectList = product.metafields.custom.block_frequently_bought_together.value.product_list.value %}
+        {% for product in metaobjectList %}
+            <div class="product-content {% if forloop.index > 1 %}d8-hide-products{% else %}d8-show{% endif %}">
+            <div class="product-img">
+                <img src="{{ product.featured_image | image_url: width: 100, height: 80 }}" alt="{{ product.featured_image.alt }}">
+            </div>
+            <div class="product">
+                <a href="{{ product.url }}" style="text-decoration: none;"><h3>{{ product.title }}</h3></a>
+                <h4>{{ product.price | money_with_currency }}</h4>
+                {% form 'product', product %}
+                    <div class="product-form__info-content">
+                        <div class="quantity-selector quantity-selector--product">
+                            <button type="button" data-d8-input="{{ forloop.index }}" data-d8-btn="minus" class="quantity-selector__button" aria-label="{{ 'cart.items.decrease_quantity' | t }}" title="{{ 'cart.items.decrease_quantity' | t }}">{% render 'icon', icon: 'minus' %}</button>
+                            <input name="quantity" data-d8-input="{{ forloop.index }}" aria-label="{{ 'product.form.quantity' | t }}" class="quantity-selector__value" inputmode="numeric" value="1" size="1">
+                            <button type="button" data-d8-input="{{ forloop.index }}" data-d8-btn="plus" class="quantity-selector__button" aria-label="{{ 'cart.items.increase_quantity' | t }}" title="{{ 'cart.items.increase_quantity' | t }}">{% render 'icon', icon: 'plus' %}</button>
+                        </div>
+                    </div>
+                    <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                    <input type="submit" value="{{ 'product.form.add_to_cart' | t }}">
+                {% endform %}
+            </div>
+        </div>
+        {% endfor %}
+</div>
+
+
+<script>
+    function d8HandleQuantity() {
+        const btns = document.querySelectorAll('.d8-custom-fbt-container .product form .quantity-selector__button');
+        const inputs = document.querySelectorAll('.d8-custom-fbt-container .product form input[name="quantity"]');
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if(e.target.dataset.d8Btn == 'minus' && e.target.parentElement.querySelector('input[name="quantity"]').getAttribute('value') > 1) {
+                    const input = e.target.parentElement.querySelector('input[name="quantity"]')
+                    let value = input.getAttribute('value');
+                    value--;
+                    input.setAttribute('value', value);
+                } else if(e.target.dataset.d8Btn == 'plus') {
+                    const input = e.target.parentElement.querySelector('input[name="quantity"]')
+                    let value = input.getAttribute('value');
+                    value++;
+                    input.setAttribute('value', value);
+                }
+            })
+        })
+
+        for(let input of inputs) {
+            input.addEventListener('input', () => {
+                const sanitizedValue = input.value.replace(/^0+|[^0-9]+/g, '');
+                input.value = sanitizedValue;
+            })
+        }
+    }
+
+    function handleProductsSlider() {
+        const arrows = document.querySelectorAll('.d8-custom-fbt-container .d8-arrow');
+        const products = document.querySelectorAll('.d8-custom-fbt-container .product-content');
+        let arrowNum = 1;
+        arrows.forEach(arrow => {
+            arrow.addEventListener('click', (e) => {
+                if(e.target.closest('.d8-arrow').classList.contains('arrow-left')) {
+                    const current = document.querySelector('.d8-custom-fbt-container .product-content.d8-show');
+                    if(current.previousElementSibling && current.previousElementSibling.classList.contains('product-content')) {
+                        current.classList.add('d8-hide-products');
+                        current.classList.remove('d8-show');
+                        current.previousElementSibling.classList.add('d8-show');
+                        current.previousElementSibling.classList.remove('d8-hide-products');
+                        arrowNum--;
+                        if(arrowNum > 1) {
+                            arrows[0].querySelector('rect').setAttribute('fill-opacity', '1');
+                        } else {
+                            arrows[0].querySelector('rect').setAttribute('fill-opacity', '0.3');
+                        }
+
+                        if(arrowNum == products.length) {
+                            arrows[1].querySelector('rect').setAttribute('fill-opacity', '0.3');
+                        } else {
+                            arrows[1].querySelector('rect').setAttribute('fill-opacity', '1');
+                        }
+                    }
+                } else if(e.target.closest('.d8-arrow').classList.contains('arrow-right')) {
+                    const current = document.querySelector('.d8-custom-fbt-container .product-content.d8-show');
+                    if(current.nextElementSibling && current.nextElementSibling.classList.contains('product-content')) {
+                        current.classList.add('d8-hide-products');
+                        current.classList.remove('d8-show');
+                        current.nextElementSibling.classList.add('d8-show');
+                        current.nextElementSibling.classList.remove('d8-hide-products');
+                        arrowNum++;
+                        if(arrowNum > 1) {
+                            arrows[0].querySelector('rect').setAttribute('fill-opacity', '1');
+                        } else {
+                            arrows[0].querySelector('rect').setAttribute('fill-opacity', '0.3');
+                            arrows[1].querySelector('rect').setAttribute('fill-opacity', '1');
+                        }
+
+                        if(arrowNum == products.length) {
+                            arrows[1].querySelector('rect').setAttribute('fill-opacity', '0.3');
+                        } else {
+                            arrows[1].querySelector('rect').setAttribute('fill-opacity', '1');
+                        }
+                    }
+                }
+            })
+        })
+    }
+
+    d8HandleQuantity();
+    handleProductsSlider();
+</script>

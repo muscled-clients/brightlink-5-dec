@@ -1,0 +1,87 @@
+<style>
+  .accordion-downloads{
+    width: 100%;
+    max-width: 900px;
+  }
+  .accordion-downloads a {
+    color: var(--link-color);
+    text-decoration: var(--text-link-decoration);
+  }
+  .accordion-downloads h2 {
+    color: #333;
+    text-align: center;
+    line-height: normal;
+    font-size: 32px;
+    font-weight: 400;
+    margin: 0 0 40px 0;
+  }
+  .accordion-downloads ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 20px;
+  }
+  .accordion-downloads li{
+    border-radius: 10px;
+    border: 1px solid #4190D2;
+    padding: 30px;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    background-color: white;
+  }
+  .accordion-downloads svg{
+    margin-right: 10px;
+    min-width: 10px;
+  }
+  .accordion-downloads a{
+    padding: 5px 15px;
+    border-radius: 50px;
+    background: #4190D2;
+    color: white;
+    text-decoration: none;
+    line-height: 150%;
+    margin-left: auto;
+    transition: opacity 0.25s ease-in-out;
+  }
+  .accordion-downloads a:hover{
+    opacity: 0.8;
+  }
+  @media screen and (max-width: 750px) {
+    .accordion-downloads{
+      font-size: 14px;
+    }
+  }
+</style>
+
+<section class="accordion">
+  {% if product.metafields.custom.accordion_downloads.value %}
+    <div class="accordion-downloads">
+      <h2>Product Downloads</h2>
+      <ul>
+        {% for item in product.metafields.custom.accordion_downloads.value %}
+          <li>
+            {{ item.svg }}
+            {{ item.name }}
+            <a href="{{ item.url }}">
+              Download
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</section>
+{% schema %}
+  {
+    "name": "Accordion downloads",
+    "settings": [
+      
+    ],
+    "presets": [
+      {
+        "name": "Accordion downloads"
+      }
+    ]
+  }
+  {% endschema %}
