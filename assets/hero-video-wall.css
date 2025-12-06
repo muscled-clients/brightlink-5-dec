@@ -135,14 +135,14 @@
   transition: all 0.3s ease;
   cursor: pointer;
   background-color: rgba(20, 25, 30, 0.8);
-  border: 1px solid #3a4a5e;
+  border: 2px solid #4a5d75;
   color: #ffffff;
 }
 
 /* Primary Button */
 .hero-video-wall__btn--primary {
   background-color: rgba(20, 25, 30, 0.8);
-  border: 1px solid #3a4a5e;
+  border: 2px solid #4a5d75;
   color: #ffffff;
 }
 
@@ -155,7 +155,7 @@
 /* Secondary Button */
 .hero-video-wall__btn--secondary {
   background-color: rgba(20, 25, 30, 0.8);
-  border: 1px solid #3a4a5e;
+  border: 2px solid #4a5d75;
   color: #ffffff;
 }
 
