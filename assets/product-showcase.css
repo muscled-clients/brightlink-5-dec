@@ -1,0 +1,315 @@
+/* Product Showcase Section */
+
+/* Main Container */
+.product-showcase {
+  position: relative;
+  width: 100%;
+  background-color: var(--ps-bg-color, #0a0f14);
+  padding-top: var(--ps-padding-top, 60px);
+  padding-bottom: var(--ps-padding-bottom, 60px);
+  overflow: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Hexagonal Pattern Overlay */
+.product-showcase__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.15;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234a6080' fill-opacity='0.4'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Container */
+.product-showcase__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Section Label */
+.product-showcase__label {
+  display: inline-block;
+  font-size: var(--ps-label-size, 12px);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ps-label-color, #FFD700);
+  margin-bottom: 20px;
+}
+
+/* Main Heading */
+.product-showcase__heading {
+  font-size: var(--ps-heading-size, 40px);
+  font-weight: 600;
+  color: var(--ps-heading-color, #ffffff);
+  letter-spacing: 0.5px;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+/* Subheading */
+.product-showcase__subheading {
+  font-size: var(--ps-subheading-size, 16px);
+  font-weight: 400;
+  color: var(--ps-subheading-color, #a0a0a0);
+  margin: 0 0 40px 0;
+  line-height: 1.5;
+}
+
+/* Carousel Container */
+.product-showcase__carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+}
+
+/* Slides Container */
+.product-showcase__slides {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+/* Individual Slide */
+.product-showcase__slide {
+  display: none;
+  position: relative;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.product-showcase__slide--active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide Image */
+.product-showcase__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* Image Placeholder */
+.product-showcase__placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 18px;
+}
+
+/* Slide Caption */
+.product-showcase__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px 25px 25px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+  border-radius: 0 0 12px 12px;
+  text-align: left;
+}
+
+.product-showcase__slide-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.product-showcase__slide-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Arrow Buttons */
+.product-showcase__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.product-showcase__arrow:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.product-showcase__arrow--left {
+  left: -70px;
+}
+
+.product-showcase__arrow--right {
+  right: -70px;
+}
+
+/* Navigation Dots */
+.product-showcase__dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-showcase__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--ps-dot-color, #4a5d75);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.product-showcase__dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.product-showcase__dot--active {
+  background-color: var(--ps-dot-active-color, #ffffff);
+  transform: scale(1.2);
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media screen and (max-width: 1200px) {
+  .product-showcase__arrow--left {
+    left: 10px;
+  }
+
+  .product-showcase__arrow--right {
+    right: 10px;
+  }
+
+  .product-showcase__arrow {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-showcase__heading {
+    font-size: calc(var(--ps-heading-size, 40px) * 0.75);
+  }
+
+  .product-showcase__subheading {
+    font-size: calc(var(--ps-subheading-size, 16px) * 0.9);
+    margin-bottom: 30px;
+  }
+
+  .product-showcase__arrow {
+    width: 40px;
+    height: 40px;
+  }
+
+  .product-showcase__arrow--left {
+    left: 5px;
+  }
+
+  .product-showcase__arrow--right {
+    right: 5px;
+  }
+
+  .product-showcase__arrow svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .product-showcase__caption {
+    padding: 25px 20px 20px;
+  }
+
+  .product-showcase__slide-title {
+    font-size: 18px;
+  }
+
+  .product-showcase__slide-desc {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-showcase__label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .product-showcase__heading {
+    font-size: calc(var(--ps-heading-size, 40px) * 0.6);
+  }
+
+  .product-showcase__subheading {
+    font-size: 14px;
+    margin-bottom: 25px;
+  }
+
+  .product-showcase__arrow {
+    width: 35px;
+    height: 35px;
+  }
+
+  .product-showcase__arrow svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .product-showcase__slide-title {
+    font-size: 16px;
+  }
+
+  .product-showcase__slide-desc {
+    font-size: 12px;
+  }
+
+  .product-showcase__dot {
+    width: 8px;
+    height: 8px;
+  }
+
+  .product-showcase__dots {
+    gap: 8px;
+  }
+}
