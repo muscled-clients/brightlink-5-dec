@@ -1,0 +1,277 @@
+/* Technical Specifications Section */
+
+/* Main Container */
+.technical-specs {
+  position: relative;
+  width: 100%;
+  background-color: var(--ts-bg-color, #0a0f14);
+  padding-top: var(--ts-padding-top, 80px);
+  padding-bottom: var(--ts-padding-bottom, 80px);
+  overflow: hidden;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* Hexagonal Pattern Overlay */
+.technical-specs__pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234a6080' fill-opacity='0.4'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Container */
+.technical-specs__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header Section */
+.technical-specs__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Section Label */
+.technical-specs__label {
+  display: inline-block;
+  font-size: var(--ts-label-size, 12px);
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--ts-label-color, #FFD700);
+  margin-bottom: 20px;
+}
+
+/* Main Heading */
+.technical-specs__heading {
+  font-size: var(--ts-heading-size, 42px);
+  font-weight: 700;
+  color: var(--ts-heading-color, #ffffff);
+  letter-spacing: 0.5px;
+  margin: 0 0 15px 0;
+  line-height: 1.2;
+}
+
+/* Subheading */
+.technical-specs__subheading {
+  font-size: var(--ts-subheading-size, 16px);
+  font-weight: 400;
+  color: var(--ts-subheading-color, #a0a0a0);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Cards Grid */
+.technical-specs__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Individual Card */
+.technical-specs__card {
+  position: relative;
+  background: rgba(8, 14, 22, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(60, 100, 140, 0.4);
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: left;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow:
+    0 0 15px rgba(50, 120, 180, 0.1),
+    0 0 30px rgba(50, 120, 180, 0.05);
+}
+
+/* Card inner pattern overlay */
+.technical-specs__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.06;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234a6080' fill-opacity='0.4'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.technical-specs__card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(80, 130, 180, 0.5);
+  box-shadow:
+    0 0 20px rgba(50, 120, 180, 0.2),
+    0 0 40px rgba(50, 120, 180, 0.1),
+    0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Icon */
+.technical-specs__icon {
+  position: relative;
+  z-index: 1;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 15px rgba(52, 152, 219, 0.5),
+    0 0 30px rgba(52, 152, 219, 0.25);
+}
+
+.technical-specs__icon svg {
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+}
+
+.technical-specs__icon-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+/* Card Title */
+.technical-specs__card-title {
+  position: relative;
+  z-index: 1;
+  font-size: var(--ts-card-title-size, 24px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Card Subtitle */
+.technical-specs__card-subtitle {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+/* Card Description */
+.technical-specs__card-desc {
+  position: relative;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media screen and (max-width: 1024px) {
+  .technical-specs__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .technical-specs__card {
+    padding: 25px 20px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .technical-specs__container {
+    padding: 0 20px;
+  }
+
+  .technical-specs__heading {
+    font-size: calc(var(--ts-heading-size, 42px) * 0.75);
+  }
+
+  .technical-specs__subheading {
+    font-size: calc(var(--ts-subheading-size, 16px) * 0.9);
+  }
+
+  .technical-specs__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .technical-specs__card {
+    padding: 22px 18px;
+  }
+
+  .technical-specs__icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
+
+  .technical-specs__icon svg,
+  .technical-specs__icon-img {
+    width: 18px;
+    height: 18px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 20px;
+  }
+
+  .technical-specs__card-subtitle {
+    font-size: 13px;
+  }
+
+  .technical-specs__card-desc {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .technical-specs__label {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .technical-specs__heading {
+    font-size: calc(var(--ts-heading-size, 42px) * 0.6);
+  }
+
+  .technical-specs__subheading {
+    font-size: 14px;
+  }
+
+  .technical-specs__grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+
+  .technical-specs__card {
+    padding: 25px 20px;
+  }
+
+  .technical-specs__icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 22px;
+  }
+}
