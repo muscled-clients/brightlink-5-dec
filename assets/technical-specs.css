@@ -36,44 +36,45 @@
 /* Header Section */
 .technical-specs__header {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 /* Section Label */
 .technical-specs__label {
   display: inline-block;
-  font-size: var(--ts-label-size, 12px);
+  font-size: var(--ts-label-size, 13px);
   font-weight: 500;
-  letter-spacing: 3px;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--ts-label-color, #FFD700);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 /* Main Heading */
 .technical-specs__heading {
-  font-size: var(--ts-heading-size, 42px);
+  font-size: var(--ts-heading-size, 46px);
   font-weight: 700;
+  font-style: italic;
   color: var(--ts-heading-color, #ffffff);
   letter-spacing: 0.5px;
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   line-height: 1.2;
 }
 
 /* Subheading */
 .technical-specs__subheading {
-  font-size: var(--ts-subheading-size, 16px);
+  font-size: var(--ts-subheading-size, 17px);
   font-weight: 400;
-  color: var(--ts-subheading-color, #a0a0a0);
+  color: var(--ts-subheading-color, rgba(255, 255, 255, 0.6));
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Cards Grid */
 .technical-specs__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 25px;
 }
 
 /* Individual Card */
