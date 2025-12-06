@@ -256,6 +256,7 @@
         "slide_e3dKLM": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
             "slide_title": "Immersive Entertainment",
             "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
@@ -284,7 +285,7 @@
         "heading_font_size": 40,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "dot_color": "#4a5d75",
