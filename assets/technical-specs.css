@@ -28,7 +28,7 @@
 .technical-specs__container {
   position: relative;
   z-index: 2;
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 40px;
 }
@@ -74,6 +74,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 /* Individual Card */
