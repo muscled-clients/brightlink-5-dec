@@ -237,7 +237,7 @@
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--ca-footer-label-color, #3498db);
+  color: #3498db;
   margin-bottom: 10px;
 }
 
