@@ -221,22 +221,28 @@
 
 /* Card Footer/CTA */
 .competitive-advantages__card-footer {
+  position: relative;
+  z-index: 1;
   margin-top: auto;
-  padding-top: 20px;
+  padding: 20px 25px;
+  background: rgba(20, 60, 100, 0.25);
+  border: 1px solid rgba(60, 100, 140, 0.4);
+  border-radius: 12px;
+  text-align: center;
 }
 
 .competitive-advantages__card-label {
   display: inline-block;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--ca-footer-label-color, #FFD700);
-  margin-bottom: 8px;
+  color: var(--ca-footer-label-color, #3498db);
+  margin-bottom: 10px;
 }
 
 .competitive-advantages__card-desc {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
