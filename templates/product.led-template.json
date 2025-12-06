@@ -361,10 +361,115 @@
         "subheading_font_size": 16,
         "card_title_font_size": 28,
         "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "footer_label_color": "#ffd700",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_pattern": true,
+        "custom_class": ""
+      }
+    },
+    "technical_specs_PMdgbW": {
+      "type": "technical-specs",
+      "blocks": {
+        "spec_card_kY9zAj": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "grid",
+            "card_title": "8.2M PIXELS",
+            "card_subtitle": "True 4K Resolution",
+            "card_desc": "3840 x 2160 active pixels"
+          }
+        },
+        "spec_card_cdiK8H": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "ruler",
+            "card_title": "1.25MM",
+            "card_subtitle": "Ultra-Fine Pitch",
+            "card_desc": "Cinema-grade clarity"
+          }
+        },
+        "spec_card_FDceMG": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "refresh",
+            "card_title": "3840HZ",
+            "card_subtitle": "High Refresh Rate",
+            "card_desc": "Zero flicker, smooth motion"
+          }
+        },
+        "spec_card_ibTQRU": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "brightness",
+            "card_title": "600-1000",
+            "card_subtitle": "Nits Brightness",
+            "card_desc": "HDR-capable, adjustable"
+          }
+        },
+        "spec_card_3yG4hy": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "contrast",
+            "card_title": "8000:1",
+            "card_subtitle": "Contrast Ratio",
+            "card_desc": "Deep blacks, vivid colors"
+          }
+        },
+        "spec_card_dipHR8": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "view",
+            "card_title": "170°",
+            "card_subtitle": "Wide Viewing Angle",
+            "card_desc": "Consistent from all positions"
+          }
+        },
+        "spec_card_P6gUEW": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "layers",
+            "card_title": "25MM",
+            "card_subtitle": "Ultra-Slim Profile",
+            "card_desc": "Industry's thinnest at 1 inch"
+          }
+        },
+        "spec_card_xqjVTV": {
+          "type": "spec_card",
+          "settings": {
+            "icon_type": "weight",
+            "card_title": "3.78KG / 8.3LB",
+            "card_subtitle": "Lightweight Design",
+            "card_desc": "Size per cabinet"
+          }
+        }
+      },
+      "block_order": [
+        "spec_card_kY9zAj",
+        "spec_card_cdiK8H",
+        "spec_card_FDceMG",
+        "spec_card_ibTQRU",
+        "spec_card_3yG4hy",
+        "spec_card_dipHR8",
+        "spec_card_P6gUEW",
+        "spec_card_xqjVTV"
+      ],
+      "name": "Technical Specs",
+      "settings": {
+        "section_label": "TECHNICAL SPECIFICATIONS",
+        "heading": "Engineering Excellence",
+        "subheading": "Every specification designed for uncompromising performance",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "card_title_font_size": 24,
+        "bg_color": "#0a0f14",
         "label_color": "#FFD700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
-        "footer_label_color": "#FFD700",
         "padding_top": 80,
         "padding_bottom": 80,
         "show_pattern": true,
@@ -377,6 +482,7 @@
     "hero_video_wall_WfXNgE",
     "trusted_leaders_bprKmk",
     "product_showcase_bjYF7g",
-    "competitive_advantages_i6KCgz"
+    "competitive_advantages_i6KCgz",
+    "technical_specs_PMdgbW"
   ]
 }
