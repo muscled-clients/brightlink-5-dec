@@ -264,6 +264,7 @@
         "slide_8i3igX": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene1_Cam2.jpg",
             "slide_title": "Corporate Communications",
             "slide_description": "Professional displays for boardrooms and lobbies"
           }
