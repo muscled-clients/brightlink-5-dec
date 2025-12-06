@@ -36,45 +36,44 @@
 /* Header Section */
 .technical-specs__header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 /* Section Label */
 .technical-specs__label {
   display: inline-block;
-  font-size: var(--ts-label-size, 13px);
+  font-size: var(--ts-label-size, 12px);
   font-weight: 500;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--ts-label-color, #FFD700);
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 /* Main Heading */
 .technical-specs__heading {
-  font-size: var(--ts-heading-size, 46px);
+  font-size: var(--ts-heading-size, 42px);
   font-weight: 700;
-  font-style: italic;
   color: var(--ts-heading-color, #ffffff);
   letter-spacing: 0.5px;
-  margin: 0 0 20px 0;
+  margin: 0 0 15px 0;
   line-height: 1.2;
 }
 
 /* Subheading */
 .technical-specs__subheading {
-  font-size: var(--ts-subheading-size, 17px);
+  font-size: var(--ts-subheading-size, 16px);
   font-weight: 400;
-  color: var(--ts-subheading-color, rgba(255, 255, 255, 0.6));
+  color: var(--ts-subheading-color, #a0a0a0);
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Cards Grid */
 .technical-specs__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 25px;
+  gap: 20px;
 }
 
 /* Individual Card */
@@ -120,26 +119,23 @@
 .technical-specs__icon {
   position: relative;
   z-index: 1;
-  width: 55px;
-  height: 55px;
+  width: 45px;
+  height: 45px;
   margin-bottom: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #2a5a8a 0%, #1a3a5c 60%, #0f2540 100%);
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
   border-radius: 50%;
-  color: #4db8ff;
   box-shadow:
-    0 0 20px rgba(50, 160, 255, 0.6),
-    0 0 40px rgba(50, 160, 255, 0.4),
-    0 0 60px rgba(50, 160, 255, 0.2);
+    0 0 15px rgba(52, 152, 219, 0.5),
+    0 0 30px rgba(52, 152, 219, 0.25);
 }
 
 .technical-specs__icon svg {
-  width: 22px;
-  height: 22px;
-  fill: #4db8ff;
-  filter: drop-shadow(0 0 3px rgba(77, 184, 255, 0.8));
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
 }
 
 .technical-specs__icon-img {
