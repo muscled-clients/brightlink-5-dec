@@ -467,6 +467,150 @@
         "subheading_font_size": 16,
         "card_title_font_size": 24,
         "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_pattern": true,
+        "custom_class": ""
+      }
+    },
+    "product_intelligence_J64aNM": {
+      "type": "product-intelligence",
+      "blocks": {
+        "tab_3j7HQh": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "tab_content": "<p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217\" Diagonal configuration. This 15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p><p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>",
+            "read_more_link": "",
+            "show_features": true,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        },
+        "tab_fyqefD": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs",
+            "tab_content": "<p><strong>Display Specifications:</strong></p><p>• Resolution: 3840 x 2160 (4K UHD)<br>• Pixel Pitch: 1.25mm<br>• Brightness: 600-1000 nits<br>• Contrast Ratio: 8000:1<br>• Refresh Rate: 3840Hz<br>• Viewing Angle: 170°</p><p><strong>Physical Specifications:</strong></p><p>• Panel Size: 600mm x 337.5mm<br>• Cabinet Material: Die-cast Aluminum<br>• Weight: 3.78kg per cabinet<br>• Depth: 25mm</p>",
+            "read_more_link": "",
+            "show_features": false,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        },
+        "tab_7KXWh3": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features",
+            "tab_content": "<p><strong>COB Technology Advantages:</strong></p><p>• Superior heat dissipation for longer lifespan<br>• 100% flat surface with no visible seams<br>• Enhanced durability and moisture resistance<br>• Wider viewing angles with consistent colors</p><p><strong>Smart Features:</strong></p><p>• Auto-brightness adjustment<br>• Remote management capability<br>• Built-in diagnostics<br>• Energy-efficient operation</p>",
+            "read_more_link": "",
+            "show_features": false,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        },
+        "tab_APzBgK": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included",
+            "tab_content": "<p><strong>Complete Package Contents:</strong></p><p>• LED Display Cabinets (quantity varies by configuration)<br>• Mounting Frame System<br>• Power Distribution Units<br>• Video Processor<br>• All necessary cabling<br>• 5% Spare Parts Kit<br>• Installation Manual<br>• Calibration Certificate</p>",
+            "read_more_link": "",
+            "show_features": false,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        },
+        "tab_UQURXX": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "tab_content": "<p><strong>Quick Installation Process:</strong></p><p>1. Assemble the mounting frame structure<br>2. Install power distribution system<br>3. Mount LED cabinets using quick-connect system<br>4. Connect signal and power cables<br>5. Run initial calibration<br>6. Final adjustment and testing</p><p><strong>Installation Time:</strong> 2-4 hours with our modular design</p>",
+            "read_more_link": "",
+            "show_features": false,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        },
+        "tab_JgKfjx": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support",
+            "tab_content": "<p><strong>Customer Support:</strong></p><p>• Phone: 855-449-4733<br>• Email: support@brightlink.com<br>• Live Chat: Available 24/7</p><p><strong>Resources:</strong></p><p>• Download User Manual (PDF)<br>• Video Tutorials<br>• FAQ Section<br>• Warranty Registration</p>",
+            "read_more_link": "",
+            "show_features": false,
+            "feature_1_title": "4-Year Warranty",
+            "feature_1_desc": "Comprehensive coverage",
+            "feature_1_icon": "warranty",
+            "feature_2_title": "Lifetime Support",
+            "feature_2_desc": "855-449-4733",
+            "feature_2_icon": "support",
+            "feature_3_title": "5% Spare Parts",
+            "feature_3_desc": "Included standard",
+            "feature_3_icon": "parts"
+          }
+        }
+      },
+      "block_order": [
+        "tab_3j7HQh",
+        "tab_fyqefD",
+        "tab_7KXWh3",
+        "tab_APzBgK",
+        "tab_UQURXX",
+        "tab_JgKfjx"
+      ],
+      "name": "Product Intelligence",
+      "settings": {
+        "section_label": "PRODUCT INTELLIGENCE CENTER",
+        "heading": "Complete Product Intelligence",
+        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
         "label_color": "#FFD700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
@@ -483,6 +627,7 @@
     "trusted_leaders_bprKmk",
     "product_showcase_bjYF7g",
     "competitive_advantages_i6KCgz",
-    "technical_specs_PMdgbW"
+    "technical_specs_PMdgbW",
+    "product_intelligence_J64aNM"
   ]
 }
