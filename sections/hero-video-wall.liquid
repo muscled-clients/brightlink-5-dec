@@ -289,6 +289,40 @@
     },
     {
       "type": "header",
+      "content": "Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "label_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Series Label Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "button_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Buttons Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "feature_box_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Feature Boxes Background Opacity"
+    },
+    {
+      "type": "header",
       "content": "Colors"
     },
     {
@@ -383,10 +417,14 @@
     --hero-btn-bg: {{ section.settings.button_bg_color }};
     --hero-btn-hover: {{ section.settings.button_hover_color }};
     --hero-series-color: {{ section.settings.series_label_color }};
+    --hero-label-bg-opacity: {{ section.settings.label_bg_opacity | divided_by: 100.0 }};
+    --hero-button-bg-opacity: {{ section.settings.button_bg_opacity | divided_by: 100.0 }};
+    --hero-feature-bg-opacity: {{ section.settings.feature_box_bg_opacity | divided_by: 100.0 }};
   }
 
   #hero-video-wall-{{ section.id }} .hero-video-wall__series-label {
     font-size: {{ section.settings.label_font_size }}px;
+    background-color: rgba(0, 0, 0, var(--hero-label-bg-opacity));
   }
 
   #hero-video-wall-{{ section.id }} .hero-video-wall__main-heading {
@@ -416,5 +454,14 @@
 
   #hero-video-wall-{{ section.id }} .hero-video-wall__btn {
     font-size: {{ section.settings.button_font_size }}px;
+    background-color: rgba(0, 0, 0, var(--hero-button-bg-opacity));
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn:hover {
+    background-color: rgba(0, 0, 0, calc(var(--hero-button-bg-opacity) + 0.2));
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__feature-box {
+    background-color: rgba(0, 0, 0, var(--hero-feature-bg-opacity));
   }
 </style>
