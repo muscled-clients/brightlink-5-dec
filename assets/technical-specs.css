@@ -126,9 +126,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, #1E90FF 0%, #1a7edc 50%, rgba(30, 100, 180, 0.6) 70%, rgba(20, 60, 120, 0.3) 85%, transparent 100%);
+  background: linear-gradient(135deg, #3aa3ff 0%, #1E90FF 100%);
   border-radius: 50%;
-  color: #1E90FF;
+  color: #ffffff;
   box-shadow:
     0 0 25px rgba(30, 144, 255, 0.5),
     0 0 50px rgba(30, 144, 255, 0.3),
@@ -138,7 +138,7 @@
 .technical-specs__icon svg {
   width: 20px;
   height: 20px;
-  fill: #1E90FF;
+  fill: #ffffff;
 }
 
 .technical-specs__icon-img {
