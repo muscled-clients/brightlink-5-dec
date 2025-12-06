@@ -181,15 +181,71 @@
         "feature_value_font_size": 28,
         "feature_label_font_size": 12,
         "button_font_size": 14,
+        "label_bg_opacity": 40,
+        "button_bg_opacity": 40,
+        "feature_box_bg_opacity": 40,
         "button_bg_color": "#ff6200",
         "button_hover_color": "#e55b00",
         "series_label_color": "#ffd700",
+        "custom_class": ""
+      }
+    },
+    "trusted_leaders_bprKmk": {
+      "type": "trusted-leaders",
+      "blocks": {
+        "company_EcQfgN": {
+          "type": "company",
+          "settings": {
+            "company_name": "SpaceX",
+            "company_link": ""
+          }
+        },
+        "company_AgdHix": {
+          "type": "company",
+          "settings": {
+            "company_name": "University of Hawaii",
+            "company_link": ""
+          }
+        },
+        "company_EdhRCa": {
+          "type": "company",
+          "settings": {
+            "company_name": "Epic Games",
+            "company_link": ""
+          }
+        },
+        "company_MmQ7Tz": {
+          "type": "company",
+          "settings": {
+            "company_name": "City of Mesa",
+            "company_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "company_EcQfgN",
+        "company_AgdHix",
+        "company_EdhRCa",
+        "company_MmQ7Tz"
+      ],
+      "name": "Trusted Leaders",
+      "settings": {
+        "heading": "Trusted By Industry Leaders",
+        "heading_font_size": 24,
+        "company_font_size": 18,
+        "bg_color": "#0a0f14",
+        "text_color": "#ffffff",
+        "separator_color": "#3a4a5e",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "show_pattern": true,
         "custom_class": ""
       }
     }
   },
   "order": [
     "main",
-    "hero_video_wall_WfXNgE"
+    "hero_video_wall_WfXNgE",
+    "trusted_leaders_bprKmk"
   ]
 }
