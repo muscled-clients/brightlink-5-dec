@@ -70,12 +70,16 @@
 
 /* Series Label */
 .hero-video-wall__series-label {
-  font-size: 14px;
+  display: inline-block;
+  font-size: 12px;
   font-weight: 500;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--hero-series-color, #FFD700);
-  margin: 0 0 10px 0;
+  background-color: rgba(30, 30, 35, 0.7);
+  padding: 10px 25px;
+  border-radius: 30px;
+  margin: 0 0 15px 0;
 }
 
 /* Main Heading */
