@@ -165,7 +165,131 @@
     },
     {
       "type": "header",
-      "content": "Styling"
+      "content": "Typography - Series Label"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Series Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Main Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 32,
+      "max": 100,
+      "step": 2,
+      "default": 64,
+      "unit": "px",
+      "label": "Heading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Subheading"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 16,
+      "max": 50,
+      "step": 2,
+      "default": 36,
+      "unit": "px",
+      "label": "Subheading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Subheading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "subheading_italic",
+      "label": "Subheading Italic",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography - Description"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Description Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Feature Boxes"
+    },
+    {
+      "type": "range",
+      "id": "feature_value_font_size",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Feature Value Font Size"
+    },
+    {
+      "type": "range",
+      "id": "feature_label_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Feature Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Buttons"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px",
+      "label": "Button Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
     },
     {
       "type": "color",
@@ -184,6 +308,10 @@
       "id": "series_label_color",
       "label": "Series Label Color",
       "default": "#FFD700"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
     },
     {
       "type": "text",
@@ -251,9 +379,42 @@
 {% endschema %}
 
 <style>
-  :root {
+  #hero-video-wall-{{ section.id }} {
     --hero-btn-bg: {{ section.settings.button_bg_color }};
     --hero-btn-hover: {{ section.settings.button_hover_color }};
     --hero-series-color: {{ section.settings.series_label_color }};
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__series-label {
+    font-size: {{ section.settings.label_font_size }}px;
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__main-heading {
+    font-size: {{ section.settings.heading_font_size }}px;
+    font-weight: {{ section.settings.heading_font_weight }};
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__subheading {
+    font-size: {{ section.settings.subheading_font_size }}px;
+    font-weight: {{ section.settings.subheading_font_weight }};
+    {% if section.settings.subheading_italic %}
+    font-style: italic;
+    {% endif %}
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__description {
+    font-size: {{ section.settings.description_font_size }}px;
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__feature-value {
+    font-size: {{ section.settings.feature_value_font_size }}px;
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__feature-label {
+    font-size: {{ section.settings.feature_label_font_size }}px;
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn {
+    font-size: {{ section.settings.button_font_size }}px;
   }
 </style>
