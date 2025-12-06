@@ -296,12 +296,87 @@
         "show_pattern": true,
         "custom_class": ""
       }
+    },
+    "competitive_advantages_i6KCgz": {
+      "type": "competitive-advantages",
+      "blocks": {
+        "card_3qiYyt": {
+          "type": "card",
+          "settings": {
+            "icon_type": "clock",
+            "card_title": "2-4 HOURS",
+            "card_subtitle": "Complete Installation",
+            "card_meta": "Industry Standard: 3 Days",
+            "feature_1": "Modular panel system with quick-connect technology",
+            "feature_2": "Pre-calibrated modules eliminate setup time",
+            "feature_3": "Integrated cable management reduces complexity",
+            "feature_4": "Single-person installation capability",
+            "footer_label": "BUSINESS IMPACT",
+            "footer_desc": "Minimize operational disruption and reduce installation costs by 70%"
+          }
+        },
+        "card_WMMYCh": {
+          "type": "card",
+          "settings": {
+            "icon_type": "layers",
+            "card_title": "100% FLAT",
+            "card_subtitle": "True Flat Surface",
+            "card_meta": "Zero Warping vs SMD/GOB",
+            "feature_1": "COB technology eliminates thermal expansion issues",
+            "feature_2": "Sub-millimeter panel alignment tolerance",
+            "feature_3": "Maintains perfect geometry across entire surface",
+            "feature_4": "No visible seams or panel separation",
+            "footer_label": "VISUAL QUALITY",
+            "footer_desc": "Perfect image integrity for mission-critical applications and premium presentations"
+          }
+        },
+        "card_gVhDqe": {
+          "type": "card",
+          "settings": {
+            "icon_type": "infinity",
+            "card_title": "100,000 HRS",
+            "card_subtitle": "Lifespan Guarantee",
+            "card_meta": "10+ Years Reliability",
+            "feature_1": "Advanced thermal management extends component life",
+            "feature_2": "Maintains 90% brightness after 50,000 hours",
+            "feature_3": "Redundant power systems prevent failures",
+            "feature_4": "Front-serviceable modules minimize downtime",
+            "footer_label": "TOTAL COST OF OWNERSHIP",
+            "footer_desc": "Lower replacement frequency and maintenance costs over system lifetime"
+          }
+        }
+      },
+      "block_order": [
+        "card_3qiYyt",
+        "card_WMMYCh",
+        "card_gVhDqe"
+      ],
+      "name": "Competitive Advantages",
+      "settings": {
+        "section_label": "COMPETITIVE ADVANTAGES",
+        "heading": "Why Brightlink Pro Leads the Industry",
+        "subheading": "Three critical differentiators that set us apart from traditional display technologies",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "card_title_font_size": 28,
+        "bg_color": "#0a0f14",
+        "label_color": "#FFD700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "footer_label_color": "#FFD700",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "show_pattern": true,
+        "custom_class": ""
+      }
     }
   },
   "order": [
     "main",
     "hero_video_wall_WfXNgE",
     "trusted_leaders_bprKmk",
-    "product_showcase_bjYF7g"
+    "product_showcase_bjYF7g",
+    "competitive_advantages_i6KCgz"
   ]
 }
