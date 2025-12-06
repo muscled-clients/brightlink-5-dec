@@ -22,13 +22,6 @@
 
     <!-- Image Carousel -->
     <div class="product-showcase__carousel">
-      <!-- Arrow Left -->
-      <button class="product-showcase__arrow product-showcase__arrow--left" aria-label="Previous slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-      </button>
-
       <!-- Slides Container -->
       <div class="product-showcase__slides">
         {% for block in section.blocks %}
@@ -61,23 +54,16 @@
             </div>
           {% endif %}
         {% endfor %}
+
+        <!-- Navigation Dots - Inside Slides -->
+        <div class="product-showcase__dots">
+          {% for block in section.blocks %}
+            {% if block.type == 'slide' %}
+              <button class="product-showcase__dot {% if forloop.first %}product-showcase__dot--active{% endif %}" data-dot-index="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}"></button>
+            {% endif %}
+          {% endfor %}
+        </div>
       </div>
-
-      <!-- Arrow Right -->
-      <button class="product-showcase__arrow product-showcase__arrow--right" aria-label="Next slide">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Navigation Dots -->
-    <div class="product-showcase__dots">
-      {% for block in section.blocks %}
-        {% if block.type == 'slide' %}
-          <button class="product-showcase__dot {% if forloop.first %}product-showcase__dot--active{% endif %}" data-dot-index="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}"></button>
-        {% endif %}
-      {% endfor %}
     </div>
   </div>
 </section>
@@ -89,8 +75,6 @@
 
     const slides = section.querySelectorAll('.product-showcase__slide');
     const dots = section.querySelectorAll('.product-showcase__dot');
-    const prevBtn = section.querySelector('.product-showcase__arrow--left');
-    const nextBtn = section.querySelector('.product-showcase__arrow--right');
 
     if (slides.length === 0) return;
 
@@ -123,10 +107,6 @@
       showSlide(currentIndex + 1);
     }
 
-    function prevSlide() {
-      showSlide(currentIndex - 1);
-    }
-
     function startAutoSlide() {
       if ({{ section.settings.autoplay | json }}) {
         autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
@@ -137,23 +117,7 @@
       clearInterval(autoSlideInterval);
     }
 
-    // Event Listeners
-    if (prevBtn) {
-      prevBtn.addEventListener('click', function() {
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', function() {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide();
-      });
-    }
-
+    // Dot click events
     dots.forEach((dot, index) => {
       dot.addEventListener('click', function() {
         stopAutoSlide();
