@@ -25,7 +25,7 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' or block.type == 'specs_tab' %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -150,6 +150,76 @@
                       {% endif %}
                     </div>
                   {% endif %}
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="product-intelligence__right">
+                  {% if block.settings.tab_image != blank %}
+                    <img
+                      src="{{ block.settings.tab_image | image_url: width: 600 }}"
+                      alt="{{ block.settings.tab_title }}"
+                      class="product-intelligence__image"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <div class="product-intelligence__image-placeholder">
+                      <span>Add Image</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'overview_tab' %}
+            <div
+              class="product-intelligence__panel {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <div class="product-intelligence__panel-content">
+                <!-- Left Side: Text + Feature Cards -->
+                <div class="product-intelligence__left">
+                  <div class="product-intelligence__text">
+                    <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p>
+                    <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>
+                    <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                  </div>
+
+                  <!-- Feature Cards -->
+                  <div class="product-intelligence__features">
+                    <!-- Feature 1: 4-Year Warranty -->
+                    <div class="product-intelligence__feature-card">
+                      <div class="product-intelligence__feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                        </svg>
+                      </div>
+                      <h4 class="product-intelligence__feature-title">4-Year Warranty</h4>
+                      <p class="product-intelligence__feature-desc">Comprehensive coverage</p>
+                    </div>
+
+                    <!-- Feature 2: Lifetime Support -->
+                    <div class="product-intelligence__feature-card">
+                      <div class="product-intelligence__feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                        </svg>
+                      </div>
+                      <h4 class="product-intelligence__feature-title">Lifetime Support</h4>
+                      <p class="product-intelligence__feature-desc">855-449-4733</p>
+                    </div>
+
+                    <!-- Feature 3: 5% Spare Parts -->
+                    <div class="product-intelligence__feature-card">
+                      <div class="product-intelligence__feature-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                        </svg>
+                      </div>
+                      <h4 class="product-intelligence__feature-title">5% Spare Parts</h4>
+                      <p class="product-intelligence__feature-desc">Included standard</p>
+                    </div>
+                  </div>
                 </div>
 
                 <!-- Right Side: Image -->
@@ -694,6 +764,50 @@
       ]
     },
     {
+      "type": "overview_tab",
+      "name": "Overview Tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Settings"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Overview"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "overview",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
+        }
+      ]
+    },
+    {
       "type": "specs_tab",
       "name": "Specifications Tab",
       "settings": [
@@ -738,21 +852,10 @@
       "name": "Product Intelligence",
       "blocks": [
         {
-          "type": "tab",
+          "type": "overview_tab",
           "settings": {
             "tab_title": "Overview",
-            "tab_icon": "overview",
-            "tab_content": "<p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217\" Diagonal configuration. This 15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p><p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>",
-            "show_features": true,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "855-449-4733",
-            "feature_2_icon": "support",
-            "feature_3_title": "5% Spare Parts",
-            "feature_3_desc": "Included standard",
-            "feature_3_icon": "parts"
+            "tab_icon": "overview"
           }
         },
         {
