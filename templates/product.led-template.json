@@ -495,23 +495,11 @@
             "download_link": ""
           }
         },
-        "tab_7KXWh3": {
-          "type": "tab",
+        "features_tab_Pr9hhX": {
+          "type": "features_tab",
           "settings": {
             "tab_title": "Features & Benefits",
-            "tab_icon": "features",
-            "tab_content": "<p><strong>COB Technology Advantages:</strong></p><p>• Superior heat dissipation for longer lifespan<br>• 100% flat surface with no visible seams<br>• Enhanced durability and moisture resistance<br>• Wider viewing angles with consistent colors</p><p><strong>Smart Features:</strong></p><p>• Auto-brightness adjustment<br>• Remote management capability<br>• Built-in diagnostics<br>• Energy-efficient operation</p>",
-            "read_more_link": "",
-            "show_features": false,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "855-449-4733",
-            "feature_2_icon": "support",
-            "feature_3_title": "5% Spare Parts",
-            "feature_3_desc": "Included standard",
-            "feature_3_icon": "parts"
+            "tab_icon": "features"
           }
         },
         "tab_APzBgK": {
@@ -575,7 +563,7 @@
       "block_order": [
         "overview_tab_gEKTL9",
         "specs_tab_UQFkFR",
-        "tab_7KXWh3",
+        "features_tab_Pr9hhX",
         "tab_APzBgK",
         "tab_UQURXX",
         "tab_JgKfjx"
