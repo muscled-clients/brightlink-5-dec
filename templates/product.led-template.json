@@ -517,6 +517,13 @@
             "installer_link": ""
           }
         },
+        "support_tab_KKHkKq": {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        },
         "tab_JgKfjx": {
           "type": "tab",
           "settings": {
@@ -543,6 +550,7 @@
         "features_tab_Pr9hhX",
         "included_tab_JVPfy4",
         "installation_tab_YqJpyX",
+        "support_tab_KKHkKq",
         "tab_JgKfjx"
       ],
       "name": "Product Intelligence",
