@@ -336,6 +336,165 @@
   color: #ffffff;
 }
 
+/* ========== SPECIFICATIONS TAB ========== */
+
+.product-intelligence__panel--specs {
+  padding: 0;
+}
+
+.specs-content {
+  padding: 0;
+}
+
+/* Accordion Styles */
+.specs-accordion {
+  border-bottom: 1px solid rgba(60, 100, 140, 0.2);
+}
+
+.specs-accordion:first-child {
+  border-top: none;
+}
+
+.specs-accordion__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.specs-accordion__header:hover {
+  background: rgba(52, 152, 219, 0.05);
+}
+
+.specs-accordion__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.specs-accordion__icon {
+  width: 20px;
+  height: 20px;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.specs-accordion--open .specs-accordion__icon {
+  transform: rotate(180deg);
+}
+
+.specs-accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.specs-accordion--open .specs-accordion__content {
+  max-height: 1000px;
+}
+
+/* Specs Table */
+.specs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0 30px 20px 30px;
+}
+
+.specs-table tbody {
+  display: block;
+  padding: 0 30px 20px 30px;
+}
+
+.specs-table tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid rgba(60, 100, 140, 0.15);
+}
+
+.specs-table tr:last-child {
+  border-bottom: none;
+}
+
+.specs-table td {
+  padding: 12px 15px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.specs-table__label {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+}
+
+.specs-table__value {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+/* Download Section */
+.specs-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+  margin: 20px 30px 30px 30px;
+  background: linear-gradient(135deg, rgba(52, 152, 219, 0.15) 0%, rgba(41, 128, 185, 0.1) 100%);
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  border-radius: 12px;
+}
+
+.specs-download__content {
+  flex: 1;
+}
+
+.specs-download__title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 5px 0;
+}
+
+.specs-download__text {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.specs-download__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.specs-download__btn:hover {
+  background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+.specs-download__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
 /* ========== RESPONSIVE ========== */
 
 @media screen and (max-width: 1024px) {
@@ -395,6 +554,27 @@
 
   .product-intelligence__panels {
     min-height: 300px;
+  }
+
+  /* Specs Tab Responsive */
+  .specs-table tr {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .specs-accordion__header {
+    padding: 15px 20px;
+  }
+
+  .specs-table tbody {
+    padding: 0 20px 15px 20px;
+  }
+
+  .specs-download {
+    flex-direction: column;
+    gap: 20px;
+    margin: 15px 20px 20px 20px;
+    padding: 20px;
+    text-align: center;
   }
 }
 

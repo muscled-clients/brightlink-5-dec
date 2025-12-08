@@ -25,7 +25,7 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -169,6 +169,208 @@
                 </div>
               </div>
             </div>
+          {% elsif block.type == 'specs_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--specs {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Specifications Content -->
+              <div class="specs-content">
+                <!-- Display Specifications Accordion -->
+                <div class="specs-accordion specs-accordion--open" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">Display Specifications</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Pixel Pitch</td>
+                          <td class="specs-table__value">1.25mm</td>
+                          <td class="specs-table__label">LED Type</td>
+                          <td class="specs-table__value">COB (Chip-on-Board)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">LED Packaging</td>
+                          <td class="specs-table__value">TOP</td>
+                          <td class="specs-table__label">LED Configuration</td>
+                          <td class="specs-table__value">1R 1G 1B</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Module Resolution</td>
+                          <td class="specs-table__value">320 x 270 pixels (W×H)</td>
+                          <td class="specs-table__label">Cabinet Resolution</td>
+                          <td class="specs-table__value">480 × 270 pixels (W×H)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Screen Resolution</td>
+                          <td class="specs-table__value">3840 × 2160 pixels (Full 4K)</td>
+                          <td class="specs-table__label">Total Pixels</td>
+                          <td class="specs-table__value">8,294,400</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Scanning Method</td>
+                          <td class="specs-table__value">S45</td>
+                          <td class="specs-table__label">Refresh Rate</td>
+                          <td class="specs-table__value">≥3840Hz</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Drive Mode</td>
+                          <td class="specs-table__value">1/43s</td>
+                          <td class="specs-table__label">Brightness</td>
+                          <td class="specs-table__value">600cd/m² (Standard), 1000cd/m² (Optional)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Contrast Ratio</td>
+                          <td class="specs-table__value">≥8000:1</td>
+                          <td class="specs-table__label">Colors</td>
+                          <td class="specs-table__value">281 Trillion</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Gray Scale</td>
+                          <td class="specs-table__value">16-bit</td>
+                          <td class="specs-table__label">Color Temperature</td>
+                          <td class="specs-table__value">3000~9500K (Adjustable)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Luminance Uniformity</td>
+                          <td class="specs-table__value">≥98%</td>
+                          <td class="specs-table__label">Chromatic Uniformity</td>
+                          <td class="specs-table__value">±0.003Cx,Cy</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Viewing Angle</td>
+                          <td class="specs-table__value">170° Horizontal / 160° Vertical (>50%)</td>
+                          <td class="specs-table__label">View Distance</td>
+                          <td class="specs-table__value">2m ~ 50m (6' ~ 165')</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Frame Rate</td>
+                          <td class="specs-table__value">50/60Hz</td>
+                          <td class="specs-table__label"></td>
+                          <td class="specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Physical Specifications Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">Physical Specifications</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Cabinet Size</td>
+                          <td class="specs-table__value">600mm × 337.5mm × 42mm</td>
+                          <td class="specs-table__label">Cabinet Weight</td>
+                          <td class="specs-table__value">5.8kg</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Screen Size</td>
+                          <td class="specs-table__value">4800mm × 2700mm (189" × 106")</td>
+                          <td class="specs-table__label">Screen Diagonal</td>
+                          <td class="specs-table__value">217" (5.51m)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Total Cabinets</td>
+                          <td class="specs-table__value">64 (8W × 8H)</td>
+                          <td class="specs-table__label">Total Weight</td>
+                          <td class="specs-table__value">~371kg (~818lbs)</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Electrical Specifications Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">Electrical Specifications</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Input Voltage</td>
+                          <td class="specs-table__value">AC 100-240V, 50/60Hz</td>
+                          <td class="specs-table__label">Power Consumption (Max)</td>
+                          <td class="specs-table__value">~150W per cabinet</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Power Consumption (Avg)</td>
+                          <td class="specs-table__value">~50W per cabinet</td>
+                          <td class="specs-table__label">Total Max Power</td>
+                          <td class="specs-table__value">~9,600W</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Environmental & Durability Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">Environmental & Durability</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Operating Temperature</td>
+                          <td class="specs-table__value">-20°C ~ 50°C</td>
+                          <td class="specs-table__label">Storage Temperature</td>
+                          <td class="specs-table__value">-40°C ~ 60°C</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Operating Humidity</td>
+                          <td class="specs-table__value">10% ~ 90% RH</td>
+                          <td class="specs-table__label">IP Rating</td>
+                          <td class="specs-table__value">IP30 (Front) / IP21 (Rear)</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">LED Lifespan</td>
+                          <td class="specs-table__value">>100,000 hours</td>
+                          <td class="specs-table__label">MTBF</td>
+                          <td class="specs-table__value">>50,000 hours</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Download Section -->
+                <div class="specs-download">
+                  <div class="specs-download__content">
+                    <h3 class="specs-download__title">Download Complete Specifications</h3>
+                    <p class="specs-download__text">Access detailed technical documentation, CAD files, and integration guides</p>
+                  </div>
+                  <a href="{{ block.settings.download_link }}" class="specs-download__btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                    </svg>
+                    DOWNLOAD PDF
+                  </a>
+                </div>
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -185,6 +387,7 @@
     const panels = section.querySelectorAll('.product-intelligence__panel');
     let currentIndex = 0;
 
+    // Tab switching
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', function() {
         if (index === currentIndex) return;
@@ -212,6 +415,17 @@
         // Update current index
         currentIndex = index;
       });
+    });
+
+    // Accordion functionality for specs tab
+    const accordions = section.querySelectorAll('[data-accordion]');
+    accordions.forEach(accordion => {
+      const header = accordion.querySelector('.specs-accordion__header');
+      if (header) {
+        header.addEventListener('click', function() {
+          accordion.classList.toggle('specs-accordion--open');
+        });
+      }
     });
   });
 </script>
@@ -478,6 +692,45 @@
           ]
         }
       ]
+    },
+    {
+      "type": "specs_tab",
+      "name": "Specifications Tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Settings"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Specifications"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "specs",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Download Section"
+        },
+        {
+          "type": "url",
+          "id": "download_link",
+          "label": "PDF Download Link"
+        }
+      ]
     }
   ],
   "presets": [
@@ -503,12 +756,10 @@
           }
         },
         {
-          "type": "tab",
+          "type": "specs_tab",
           "settings": {
             "tab_title": "Specifications",
-            "tab_icon": "specs",
-            "tab_content": "<p><strong>Display Specifications:</strong></p><p>• Resolution: 3840 x 2160 (4K UHD)<br>• Pixel Pitch: 1.25mm<br>• Brightness: 600-1000 nits<br>• Contrast Ratio: 8000:1<br>• Refresh Rate: 3840Hz<br>• Viewing Angle: 170°</p><p><strong>Physical Specifications:</strong></p><p>• Panel Size: 600mm x 337.5mm<br>• Cabinet Material: Die-cast Aluminum<br>• Weight: 3.78kg per cabinet<br>• Depth: 25mm</p>",
-            "show_features": false
+            "tab_icon": "specs"
           }
         },
         {
