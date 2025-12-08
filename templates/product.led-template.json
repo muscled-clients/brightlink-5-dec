@@ -509,25 +509,6 @@
             "tab_icon": "included"
           }
         },
-        "tab_APzBgK": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "What's Included",
-            "tab_icon": "included",
-            "tab_content": "<p><strong>Complete Package Contents:</strong></p><p>• LED Display Cabinets (quantity varies by configuration)<br>• Mounting Frame System<br>• Power Distribution Units<br>• Video Processor<br>• All necessary cabling<br>• 5% Spare Parts Kit<br>• Installation Manual<br>• Calibration Certificate</p>",
-            "read_more_link": "",
-            "show_features": false,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "855-449-4733",
-            "feature_2_icon": "support",
-            "feature_3_title": "5% Spare Parts",
-            "feature_3_desc": "Included standard",
-            "feature_3_icon": "parts"
-          }
-        },
         "tab_UQURXX": {
           "type": "tab",
           "settings": {
@@ -572,7 +553,6 @@
         "specs_tab_UQFkFR",
         "features_tab_Pr9hhX",
         "included_tab_JVPfy4",
-        "tab_APzBgK",
         "tab_UQURXX",
         "tab_JgKfjx"
       ],
