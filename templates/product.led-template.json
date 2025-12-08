@@ -503,7 +503,7 @@
           "settings": {
             "tab_title": "Specifications",
             "tab_icon": "specs",
-            "tab_content": "<p><strong>Display Specifications:</strong></p><p>• Resolution: 3840 x 2160 (4K UHD)<br>• Pixel Pitch: 1.25mm<br>• Brightness: 600-1000 nits<br>• Contrast Ratio: 8000:1<br>• Refresh Rate: 3840Hz<br>• Viewing Angle: 170°</p><p><strong>Physical Specifications:</strong></p><p>• Panel Size: 600mm x 337.5mm<br>• Cabinet Material: Die-cast Aluminum<br>• Weight: 3.78kg per cabinet<br>• Depth: 25mm</p>",
+            "tab_content": "<p><strong>Display Specifications:</strong></p><p>• Resolution: 3840 x 2160 (4K UHD)<br/>• Pixel Pitch: 1.25mm<br/>• Brightness: 600-1000 nits<br/>• Contrast Ratio: 8000:1<br/>• Refresh Rate: 3840Hz<br/>• Viewing Angle: 170°</p><p><strong>Physical Specifications:</strong></p><p>• Panel Size: 600mm x 337.5mm<br/>• Cabinet Material: Die-cast Aluminum<br/>• Weight: 3.78kg per cabinet<br/>• Depth: 25mm</p>",
             "read_more_link": "",
             "show_features": false,
             "feature_1_title": "4-Year Warranty",
@@ -515,6 +515,14 @@
             "feature_3_title": "5% Spare Parts",
             "feature_3_desc": "Included standard",
             "feature_3_icon": "parts"
+          }
+        },
+        "specs_tab_PpPENp": {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs",
+            "download_link": ""
           }
         },
         "tab_7KXWh3": {
@@ -597,6 +605,7 @@
       "block_order": [
         "tab_3j7HQh",
         "tab_fyqefD",
+        "specs_tab_PpPENp",
         "tab_7KXWh3",
         "tab_APzBgK",
         "tab_UQURXX",
@@ -611,7 +620,7 @@
         "heading_font_size": 42,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
