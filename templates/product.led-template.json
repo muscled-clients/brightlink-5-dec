@@ -502,6 +502,13 @@
             "tab_icon": "features"
           }
         },
+        "included_tab_kLbfgx": {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
         "tab_APzBgK": {
           "type": "tab",
           "settings": {
@@ -564,6 +571,7 @@
         "overview_tab_gEKTL9",
         "specs_tab_UQFkFR",
         "features_tab_Pr9hhX",
+        "included_tab_kLbfgx",
         "tab_APzBgK",
         "tab_UQURXX",
         "tab_JgKfjx"
