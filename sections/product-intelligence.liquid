@@ -25,7 +25,7 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' or block.type == 'support_tab' %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -901,6 +901,254 @@
                 </div>
               </div>
             </div>
+          {% elsif block.type == 'support_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--support {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Support & Resources Content -->
+              <div class="support-content">
+                <!-- Section Header -->
+                <div class="support-header">
+                  <div class="support-header__icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
+                    </svg>
+                  </div>
+                  <h3 class="support-header__title">Support & Resources</h3>
+                </div>
+
+                <!-- Resources Grid -->
+                <div class="support-resources">
+                  <div class="support-resources__grid">
+                    <!-- Row 1 -->
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">PRO SPECTRUM SPEC SHEET</h4>
+                      <p class="resource-card__desc">Complete technical specifications for Pro Spectrum COB LED series. Includes display, electrical, and environmental specs.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">2.4 MB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">LED VIEWING DISTANCE GUIDE</h4>
+                      <p class="resource-card__desc">Comprehensive guide for calculating optimal viewing distances and pixel pitch selection for LED video walls.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">1.8 MB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">MOUNTING FRAME DRAWINGS</h4>
+                      <p class="resource-card__desc">Detailed CAD drawings for BL-PS-COB-LED-217 8×8 configuration. Includes dimensions and mounting specifications.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge resource-card__badge--dwg">DWG</span>
+                        <span class="resource-card__size">856 KB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">POWER & NETWORK DIAGRAMS</h4>
+                      <p class="resource-card__desc">Complete wiring diagrams for power distribution and network connections in 8×8 cabinet array configuration.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge resource-card__badge--dwg">DWG</span>
+                        <span class="resource-card__size">743 KB</span>
+                      </div>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">NOVASTAR H2 QUICK START</h4>
+                      <p class="resource-card__desc">Quick start guide for NovaStar H2 controller setup, initial configuration, and basic operation.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">3.1 MB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">NOVASTAR H2 USER MANUAL</h4>
+                      <p class="resource-card__desc">Complete user manual for NovaStar H2 video processor. Covers advanced features, troubleshooting, and specifications.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">12.5 MB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">NOVASTAR H2 SPECIFICATIONS</h4>
+                      <p class="resource-card__desc">Detailed technical specifications for NovaStar H2 including I/O configurations, processing capacity, and features.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">1.2 MB</span>
+                      </div>
+                    </div>
+
+                    <div class="resource-card">
+                      <div class="resource-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                      </div>
+                      <h4 class="resource-card__title">COB vs GOB COMPARISON CHART</h4>
+                      <p class="resource-card__desc">Side-by-side comparison of COB and GOB LED technologies. Understand the advantages of COB for professional applications.</p>
+                      <div class="resource-card__footer">
+                        <span class="resource-card__badge">PDF</span>
+                        <span class="resource-card__size">892 KB</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Contact Support Section -->
+                <div class="support-contact">
+                  <div class="support-contact__card support-contact__card--phone">
+                    <div class="support-contact__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__number">855-449-4733</h4>
+                    <p class="support-contact__hours">Monday - Friday: 7AM - 5PM PST</p>
+                    <p class="support-contact__note">Press 2 for Technical Support</p>
+                    <a href="tel:855-449-4733" class="support-contact__btn">CALL NOW</a>
+                  </div>
+
+                  <div class="support-contact__card support-contact__card--email">
+                    <div class="support-contact__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__email">support@brightlinkav.com</h4>
+                    <p class="support-contact__response">Response within 1-2 hours during business hours</p>
+                    <a href="mailto:support@brightlinkav.com" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                  </div>
+
+                  <div class="support-contact__card support-contact__card--lifetime">
+                    <div class="support-contact__icon support-contact__icon--gold">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__title">Lifetime Technical Support</h4>
+                    <p class="support-contact__desc">Even after warranty expires, full support continues.</p>
+                    <span class="support-contact__badge">INCLUDED</span>
+                  </div>
+                </div>
+
+                <!-- Use Case Section -->
+                <div class="support-usecase">
+                  <div class="support-usecase__image">
+                    <div class="support-usecase__placeholder"></div>
+                    <div class="support-usecase__specs">
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">View Distance</span>
+                        <span class="support-usecase__spec-value">6-15 feet</span>
+                      </div>
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">Typical Size</span>
+                        <span class="support-usecase__spec-value">180-250"</span>
+                      </div>
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">Use Case</span>
+                        <span class="support-usecase__spec-value">Premium</span>
+                      </div>
+                    </div>
+                    <div class="support-usecase__config">
+                      <h5 class="support-usecase__config-title">Common Configuration</h5>
+                      <div class="support-usecase__config-grid">
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Size:</span>
+                          <span class="support-usecase__config-value">6×4 to 10×6 arrays</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Resolution:</span>
+                          <span class="support-usecase__config-value">2.88M to 7.2M pixels</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Brightness:</span>
+                          <span class="support-usecase__config-value">600 nits</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Controller:</span>
+                          <span class="support-usecase__config-value">NovaStar H2/H5</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Mounting:</span>
+                          <span class="support-usecase__config-value">Flush wall mount</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Integration:</span>
+                          <span class="support-usecase__config-value">Corporate AV systems</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="support-usecase__content">
+                    <h3 class="support-usecase__title">Executive Boardrooms & Conference Centers</h3>
+                    <p class="support-usecase__text">Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim 25mm profile creates a seamless, architectural presence that complements high-end interiors.</p>
+                    <p class="support-usecase__text">Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content regardless of seating position.</p>
+
+                    <div class="support-usecase__features">
+                      <h4 class="support-usecase__features-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        Why Pro Spectrum?
+                      </h4>
+                      <ul class="support-usecase__list">
+                        <li>Crystal-clear text readability at 6+ feet</li>
+                        <li>Professional aesthetic matches premium spaces</li>
+                        <li>Silent operation (no fan noise)</li>
+                        <li>4K content support for presentations</li>
+                        <li>HDR for realistic video conferencing</li>
+                        <li>Zero flicker for comfortable extended viewing</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -1404,6 +1652,36 @@
           "label": "Find Installer Link"
         }
       ]
+    },
+    {
+      "type": "support_tab",
+      "name": "Support & Resources Tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Settings"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Support & Resources"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "support",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        }
+      ]
     }
   ],
   "presets": [
@@ -1446,12 +1724,10 @@
           }
         },
         {
-          "type": "tab",
+          "type": "support_tab",
           "settings": {
             "tab_title": "Support & Resources",
-            "tab_icon": "support",
-            "tab_content": "<p><strong>Customer Support:</strong></p><p>• Phone: 855-449-4733<br>• Email: support@brightlink.com<br>• Live Chat: Available 24/7</p><p><strong>Resources:</strong></p><p>• Download User Manual (PDF)<br>• Video Tutorials<br>• FAQ Section<br>• Warranty Registration</p>",
-            "show_features": false
+            "tab_icon": "support"
           }
         }
       ]
