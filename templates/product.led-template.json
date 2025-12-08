@@ -509,23 +509,11 @@
             "tab_icon": "included"
           }
         },
-        "tab_UQURXX": {
-          "type": "tab",
+        "included_tab_RhAkhW": {
+          "type": "included_tab",
           "settings": {
-            "tab_title": "Installation Guide",
-            "tab_icon": "installation",
-            "tab_content": "<p><strong>Quick Installation Process:</strong></p><p>1. Assemble the mounting frame structure<br>2. Install power distribution system<br>3. Mount LED cabinets using quick-connect system<br>4. Connect signal and power cables<br>5. Run initial calibration<br>6. Final adjustment and testing</p><p><strong>Installation Time:</strong> 2-4 hours with our modular design</p>",
-            "read_more_link": "",
-            "show_features": false,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "855-449-4733",
-            "feature_2_icon": "support",
-            "feature_3_title": "5% Spare Parts",
-            "feature_3_desc": "Included standard",
-            "feature_3_icon": "parts"
+            "tab_title": "What's Included",
+            "tab_icon": "included"
           }
         },
         "tab_JgKfjx": {
@@ -553,7 +541,7 @@
         "specs_tab_UQFkFR",
         "features_tab_Pr9hhX",
         "included_tab_JVPfy4",
-        "tab_UQURXX",
+        "included_tab_RhAkhW",
         "tab_JgKfjx"
       ],
       "name": "Product Intelligence",
