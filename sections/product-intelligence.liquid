@@ -25,7 +25,7 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -707,6 +707,101 @@
                 </div>
               </div>
             </div>
+          {% elsif block.type == 'included_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--included {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- What's Included Content -->
+              <div class="included-content">
+                <div class="included-grid">
+                  <!-- Row 1 -->
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Complete Cabinet Array</h4>
+                      <p class="included-card__desc">64 precision-engineered COB LED cabinets (8×8 configuration) with full HD support, includes 256 modules providing complete visual coverage with seamless integration.</p>
+                    </div>
+                  </div>
+
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">NovaStar HD Controller</h4>
+                      <p class="included-card__desc">4K video processor with advanced color calibration and HDR support, 3D video capability with dedicated AV control for professional-grade video processing.</p>
+                    </div>
+                  </div>
+
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Wall Mounting System</h4>
+                      <p class="included-card__desc">Professional-grade aluminum frame and mounting brackets. Engineered for easy installation with integrated cable management for clean aesthetics.</p>
+                    </div>
+                  </div>
+
+                  <!-- Row 2 -->
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Power & Network Cables</h4>
+                      <p class="included-card__desc">Complete cabling solution including power distribution cables and network cables for full led wall connectivity. All connectors are pre-terminated for quick installation.</p>
+                    </div>
+                  </div>
+
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Installation & Service Kit</h4>
+                      <p class="included-card__desc">Professional toolkit including specialized tools, spare LED modules, vacuum service tool for precision handling, detailed step-by-step installation instructions.</p>
+                    </div>
+                  </div>
+
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Interlocking Connectors</h4>
+                      <p class="included-card__desc">Quick-connect system for cabinet-to-cabinet data and power connection simplifies. Provides robust, tool-free assembly with a precise fit (over 1,000 uses).</p>
+                    </div>
+                  </div>
+
+                  <!-- Row 3 -->
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Technical Documentation</h4>
+                      <p class="included-card__desc">Full user guide, detailed troubleshooting guide, safety certifications, CAD templates, system documentation and architecture specifications, white papers.</p>
+                    </div>
+                  </div>
+
+                  <div class="included-card">
+                    <div class="included-card__image">
+                      <div class="included-card__placeholder"></div>
+                    </div>
+                    <div class="included-card__content">
+                      <h4 class="included-card__title">Comprehensive Warranty</h4>
+                      <p class="included-card__desc">4-year comprehensive warranty covering all components with dedicated technical support. Includes 5% spare parts allocation and lifetime phone support.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -1141,6 +1236,36 @@
           ]
         }
       ]
+    },
+    {
+      "type": "included_tab",
+      "name": "What's Included Tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Settings"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "What's Included"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "included",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        }
+      ]
     }
   ],
   "presets": [
@@ -1169,12 +1294,10 @@
           }
         },
         {
-          "type": "tab",
+          "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
-            "tab_icon": "included",
-            "tab_content": "<p><strong>Complete Package Contents:</strong></p><p>• LED Display Cabinets (quantity varies by configuration)<br>• Mounting Frame System<br>• Power Distribution Units<br>• Video Processor<br>• All necessary cabling<br>• 5% Spare Parts Kit<br>• Installation Manual<br>• Calibration Certificate</p>",
-            "show_features": false
+            "tab_icon": "included"
           }
         },
         {
