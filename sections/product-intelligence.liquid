@@ -179,20 +179,34 @@
 
     const tabs = section.querySelectorAll('.product-intelligence__tab');
     const panels = section.querySelectorAll('.product-intelligence__panel');
+    let currentIndex = 0;
 
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', function() {
+        if (index === currentIndex) return;
+
+        // Determine slide direction
+        const slideDirection = index > currentIndex ? 'slide-right' : 'slide-left';
+
         // Remove active class from all tabs and panels
         tabs.forEach(t => {
           t.classList.remove('product-intelligence__tab--active');
           t.setAttribute('aria-selected', 'false');
         });
-        panels.forEach(p => p.classList.remove('product-intelligence__panel--active'));
+        panels.forEach(p => {
+          p.classList.remove('product-intelligence__panel--active');
+          p.classList.remove('product-intelligence__panel--slide-right');
+          p.classList.remove('product-intelligence__panel--slide-left');
+        });
 
         // Add active class to clicked tab and corresponding panel
         tab.classList.add('product-intelligence__tab--active');
         tab.setAttribute('aria-selected', 'true');
         panels[index].classList.add('product-intelligence__panel--active');
+        panels[index].classList.add('product-intelligence__panel--' + slideDirection);
+
+        // Update current index
+        currentIndex = index;
       });
     });
   });
