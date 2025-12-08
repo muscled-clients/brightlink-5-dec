@@ -517,6 +517,14 @@
             "feature_3_icon": "parts"
           }
         },
+        "overview_tab_gEKTL9": {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "read_more_link": ""
+          }
+        },
         "specs_tab_PpPENp": {
           "type": "specs_tab",
           "settings": {
@@ -605,6 +613,7 @@
       "block_order": [
         "tab_3j7HQh",
         "tab_fyqefD",
+        "overview_tab_gEKTL9",
         "specs_tab_PpPENp",
         "tab_7KXWh3",
         "tab_APzBgK",
