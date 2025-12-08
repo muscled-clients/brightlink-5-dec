@@ -585,6 +585,7 @@
   border-radius: 10px;
   overflow: hidden;
   transition: all 0.3s ease;
+  padding: 20px 20px 25px 20px;
 }
 
 .included-card:hover {
@@ -596,33 +597,38 @@
   width: 100%;
   aspect-ratio: 16/10;
   overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: 15px;
 }
 
 .included-card__placeholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(139, 0, 0, 0.4) 0%, rgba(80, 0, 0, 0.6) 100%);
+  background: linear-gradient(135deg, rgba(120, 20, 30, 0.7) 0%, rgba(60, 10, 15, 0.9) 100%);
   position: relative;
 }
 
-.included-card__placeholder::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+.included-card__content {
+  padding: 0;
+  text-align: center;
 }
 
-.included-card__content {
-  padding: 20px;
+.included-card__badge {
+  display: inline-block;
+  padding: 5px 12px;
+  background: rgba(52, 152, 219, 0.2);
+  border: 1px solid rgba(52, 152, 219, 0.4);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #3498db;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 .included-card__title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 10px 0;
@@ -632,7 +638,7 @@
 .included-card__desc {
   font-size: 13px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
   line-height: 1.6;
 }
