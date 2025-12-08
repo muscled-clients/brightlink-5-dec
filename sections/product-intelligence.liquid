@@ -25,7 +25,7 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -810,6 +810,97 @@
                 </div>
               </div>
             </div>
+          {% elsif block.type == 'installation_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--installation {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Installation Guide Content -->
+              <div class="installation-content">
+                <!-- Installation Steps -->
+                <div class="installation-steps">
+                  <div class="installation-step">
+                    <div class="installation-step__number">1</div>
+                    <h4 class="installation-step__title">Preparation</h4>
+                    <span class="installation-step__time">15 MINUTES</span>
+                    <p class="installation-step__desc">Site preparation, wall mounting rail installation, power/data infrastructure verification.</p>
+                  </div>
+
+                  <div class="installation-step">
+                    <div class="installation-step__number">2</div>
+                    <h4 class="installation-step__title">Cabinet Assembly</h4>
+                    <span class="installation-step__time">75 MINUTES</span>
+                    <p class="installation-step__desc">Quick Connect cabinet linking in 8×8 configuration. Lock mechanisms engage with simple turns.</p>
+                  </div>
+
+                  <div class="installation-step">
+                    <div class="installation-step__number">3</div>
+                    <h4 class="installation-step__title">Connections</h4>
+                    <span class="installation-step__time">20 MINUTES</span>
+                    <p class="installation-step__desc">Integrated power and network hub connections. Organized cable routing through cabinet management.</p>
+                  </div>
+
+                  <div class="installation-step">
+                    <div class="installation-step__number">4</div>
+                    <h4 class="installation-step__title">Calibration</h4>
+                    <span class="installation-step__time">10 MINUTES</span>
+                    <p class="installation-step__desc">NovaStar H2 configuration, color calibration, brightness uniformity adjustment.</p>
+                  </div>
+                </div>
+
+                <!-- Installation Requirements -->
+                <div class="installation-requirements">
+                  <h3 class="installation-requirements__title">Installation Requirements</h3>
+                  <div class="installation-requirements__grid">
+                    <div class="installation-requirement">
+                      <div class="installation-requirement__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
+                        </svg>
+                      </div>
+                      <h4 class="installation-requirement__title">Power Requirements</h4>
+                      <p class="installation-requirement__desc">Standard AC 100-240V, 50/60Hz. Maximum draw: 5.6kW (peak). Average consumption: 2.7kW. Dedicated 30A circuit recommended.</p>
+                    </div>
+
+                    <div class="installation-requirement">
+                      <div class="installation-requirement__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                        </svg>
+                      </div>
+                      <h4 class="installation-requirement__title">Space Requirements</h4>
+                      <p class="installation-requirement__desc">Display: 15.75' × 8.86' (4.8m × 2.7m). Depth: 1" (25mm) + mounting rail. Clearance: 6" front access minimum. Weight: 242kg (534 lbs) total.</p>
+                    </div>
+
+                    <div class="installation-requirement">
+                      <div class="installation-requirement__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                      </div>
+                      <h4 class="installation-requirement__title">Environmental</h4>
+                      <p class="installation-requirement__desc">Temperature: -20°C to +50°C. Humidity: 10-95% RH (non-condensing). Ventilation: Standard room airflow. Indoor installation recommended.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Professional Support CTA -->
+                <div class="installation-support">
+                  <div class="installation-support__content">
+                    <h3 class="installation-support__title">Need Professional Installation Support?</h3>
+                    <p class="installation-support__desc">Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.</p>
+                  </div>
+                  <a href="{{ block.settings.installer_link }}" class="installation-support__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                    FIND AN INSTALLER
+                  </a>
+                </div>
+              </div>
+            </div>
           {% endif %}
         {% endfor %}
       </div>
@@ -1274,6 +1365,45 @@
           ]
         }
       ]
+    },
+    {
+      "type": "installation_tab",
+      "name": "Installation Guide Tab",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Tab Settings"
+        },
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Installation Guide"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "installation",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Support Section"
+        },
+        {
+          "type": "url",
+          "id": "installer_link",
+          "label": "Find Installer Link"
+        }
+      ]
     }
   ],
   "presets": [
@@ -1309,12 +1439,10 @@
           }
         },
         {
-          "type": "tab",
+          "type": "installation_tab",
           "settings": {
             "tab_title": "Installation Guide",
-            "tab_icon": "installation",
-            "tab_content": "<p><strong>Quick Installation Process:</strong></p><p>1. Assemble the mounting frame structure<br>2. Install power distribution system<br>3. Mount LED cabinets using quick-connect system<br>4. Connect signal and power cables<br>5. Run initial calibration<br>6. Final adjustment and testing</p><p><strong>Installation Time:</strong> 2-4 hours with our modular design</p>",
-            "show_features": false
+            "tab_icon": "installation"
           }
         },
         {
