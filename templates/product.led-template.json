@@ -509,11 +509,12 @@
             "tab_icon": "included"
           }
         },
-        "included_tab_RhAkhW": {
-          "type": "included_tab",
+        "installation_tab_YqJpyX": {
+          "type": "installation_tab",
           "settings": {
-            "tab_title": "What's Included",
-            "tab_icon": "included"
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "installer_link": ""
           }
         },
         "tab_JgKfjx": {
@@ -541,7 +542,7 @@
         "specs_tab_UQFkFR",
         "features_tab_Pr9hhX",
         "included_tab_JVPfy4",
-        "included_tab_RhAkhW",
+        "installation_tab_YqJpyX",
         "tab_JgKfjx"
       ],
       "name": "Product Intelligence",
