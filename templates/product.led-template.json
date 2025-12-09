@@ -820,6 +820,35 @@
         "feature4_text": "CE, RoHS, FCC, ISO9001",
         "footer_text": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
       }
+    },
+    "investment_config_DBAy9F": {
+      "type": "investment-config",
+      "name": "Investment Config",
+      "settings": {
+        "label": "INVESTMENT",
+        "title": "Configure Your System",
+        "subtitle": "Transparent pricing for professional installations",
+        "card_label": "COMPLETE SYSTEM",
+        "product_name": "Brightlink Pro Spectrum 217\"",
+        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
+        "original_price": "$179,000",
+        "current_price": "$149,000",
+        "discount_text": "SAVE 17%",
+        "price_note": "USD | Shipping: 10-12 weeks",
+        "includes_title": "Complete System Includes:",
+        "include_1": "64 premium cabinets (8×8 array)",
+        "include_2": "Complete cable package + spares",
+        "include_3": "Service tools (suction + vacuum)",
+        "include_4": "4-year comprehensive warranty",
+        "include_5": "NovaStar H2 controller ($8,500 value)",
+        "include_6": "Professional mounting system",
+        "include_7": "5% spare modules included",
+        "include_8": "Lifetime technical support",
+        "primary_button_text": "CALCULATE MY PROJECT",
+        "primary_button_link": "",
+        "secondary_button_text": "SCHEDULE CONSULTATION",
+        "secondary_button_link": ""
+      }
     }
   },
   "order": [
@@ -831,6 +860,7 @@
     "technical_specs_PMdgbW",
     "product_intelligence_J64aNM",
     "system_configuration_dkfCXB",
+    "investment_config_DBAy9F",
     "knowledge_center_tRneHb",
     "contact_discussion_dimQrt"
   ]
