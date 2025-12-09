@@ -1,0 +1,586 @@
+{{ 'knowledge-center.css' | asset_url | stylesheet_tag }}
+
+<section class="knowledge-center" id="knowledge-center">
+  <div class="knowledge-center__background">
+    <div class="knowledge-center__hex-pattern"></div>
+  </div>
+
+  <div class="knowledge-center__container">
+    <div class="knowledge-center__header">
+      <span class="knowledge-center__label">{{ section.settings.label | default: 'KNOWLEDGE CENTER' }}</span>
+      <h2 class="knowledge-center__title">{{ section.settings.title | default: 'Knowledge Center' }}</h2>
+      <p class="knowledge-center__subtitle">{{ section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' }}</p>
+    </div>
+
+    <div class="knowledge-center__search-wrapper">
+      <div class="knowledge-center__search-box">
+        <svg class="knowledge-center__search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+        <input type="text" class="knowledge-center__search-input" placeholder="{{ section.settings.search_placeholder | default: 'Search for answers...' }}">
+      </div>
+    </div>
+
+    <div class="knowledge-center__filters">
+      <button class="knowledge-center__filter-btn active" data-filter="all">{{ section.settings.filter_all | default: 'All' }}</button>
+      <button class="knowledge-center__filter-btn" data-filter="product">{{ section.settings.filter_product | default: 'Product' }}</button>
+      <button class="knowledge-center__filter-btn" data-filter="support">{{ section.settings.filter_support | default: 'Support' }}</button>
+      <button class="knowledge-center__filter-btn" data-filter="shipping">{{ section.settings.filter_shipping | default: 'Shipping' }}</button>
+      <button class="knowledge-center__filter-btn" data-filter="payment">{{ section.settings.filter_payment | default: 'Payment' }}</button>
+      <button class="knowledge-center__filter-btn" data-filter="partnerships">{{ section.settings.filter_partnerships | default: 'Partnerships' }}</button>
+    </div>
+
+    <div class="knowledge-center__faq-list">
+      {% for block in section.blocks %}
+        {% if block.type == 'faq_category' %}
+          <div class="knowledge-center__accordion" data-category="{{ block.settings.category }}" {{ block.shopify_attributes }}>
+            <button class="knowledge-center__accordion-header" aria-expanded="false">
+              <div class="knowledge-center__accordion-title-wrapper">
+                <div class="knowledge-center__accordion-icon">
+                  {% case block.settings.icon %}
+                    {% when 'info' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M12 16v-4"></path>
+                        <path d="M12 8h.01"></path>
+                      </svg>
+                    {% when 'monitor' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="3" rx="2"></rect>
+                        <line x1="8" x2="16" y1="21" y2="21"></line>
+                        <line x1="12" x2="12" y1="17" y2="21"></line>
+                      </svg>
+                    {% when 'tool' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+                      </svg>
+                    {% when 'headphones' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path>
+                      </svg>
+                    {% when 'truck' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 18H3c-.6 0-1-.4-1-1V7c0-.6.4-1 1-1h10c.6 0 1 .4 1 1v11"></path>
+                        <path d="M14 9h4l4 4v4c0 .6-.4 1-1 1h-2"></path>
+                        <circle cx="7" cy="18" r="2"></circle>
+                        <path d="M15 18H9"></path>
+                        <circle cx="17" cy="18" r="2"></circle>
+                      </svg>
+                    {% when 'credit-card' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+                        <line x1="2" x2="22" y1="10" y2="10"></line>
+                      </svg>
+                    {% when 'handshake' %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m11 17 2 2a1 1 0 1 0 3-3"></path>
+                        <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"></path>
+                        <path d="m21 3 1 11h-2"></path>
+                        <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"></path>
+                        <path d="M3 4h8"></path>
+                      </svg>
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                        <path d="M12 17h.01"></path>
+                      </svg>
+                    {% endcase %}
+                </div>
+                <span class="knowledge-center__accordion-title">{{ block.settings.title }}</span>
+              </div>
+              <svg class="knowledge-center__accordion-arrow" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"></path>
+              </svg>
+            </button>
+            <div class="knowledge-center__accordion-content">
+              <div class="knowledge-center__questions-list">
+                {% if block.settings.question_1 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_1 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_1 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.question_2 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_2 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_2 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.question_3 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_3 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_3 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.question_4 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_4 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_4 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.question_5 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_5 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_5 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.question_6 != blank %}
+                  <div class="knowledge-center__question-item">
+                    <button class="knowledge-center__question-header" aria-expanded="false">
+                      <span>{{ block.settings.question_6 }}</span>
+                      <svg class="knowledge-center__question-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m6 9 6 6 6-6"></path>
+                      </svg>
+                    </button>
+                    <div class="knowledge-center__answer">
+                      <p>{{ block.settings.answer_6 }}</p>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionHeaders = document.querySelectorAll('.knowledge-center__accordion-header');
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const accordion = this.closest('.knowledge-center__accordion');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+      accordionHeaders.forEach(h => {
+        h.setAttribute('aria-expanded', 'false');
+        h.closest('.knowledge-center__accordion').classList.remove('active');
+      });
+
+      if (!isExpanded) {
+        this.setAttribute('aria-expanded', 'true');
+        accordion.classList.add('active');
+      }
+    });
+  });
+
+  const questionHeaders = document.querySelectorAll('.knowledge-center__question-header');
+  questionHeaders.forEach(header => {
+    header.addEventListener('click', function() {
+      const questionItem = this.closest('.knowledge-center__question-item');
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+      this.setAttribute('aria-expanded', !isExpanded);
+      questionItem.classList.toggle('active');
+    });
+  });
+
+  const filterBtns = document.querySelectorAll('.knowledge-center__filter-btn');
+  const accordions = document.querySelectorAll('.knowledge-center__accordion');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+
+      const filter = this.dataset.filter;
+
+      accordions.forEach(accordion => {
+        if (filter === 'all' || accordion.dataset.category === filter) {
+          accordion.style.display = 'block';
+        } else {
+          accordion.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  const searchInput = document.querySelector('.knowledge-center__search-input');
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const questionItems = document.querySelectorAll('.knowledge-center__question-item');
+
+      if (searchTerm.length > 0) {
+        accordions.forEach(accordion => {
+          accordion.classList.add('active');
+          accordion.querySelector('.knowledge-center__accordion-header').setAttribute('aria-expanded', 'true');
+        });
+
+        questionItems.forEach(item => {
+          const questionText = item.querySelector('.knowledge-center__question-header span').textContent.toLowerCase();
+          if (questionText.includes(searchTerm)) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      } else {
+        accordions.forEach(accordion => {
+          accordion.classList.remove('active');
+          accordion.querySelector('.knowledge-center__accordion-header').setAttribute('aria-expanded', 'false');
+        });
+        questionItems.forEach(item => {
+          item.style.display = 'block';
+        });
+      }
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Knowledge Center",
+  "tag": "section",
+  "class": "knowledge-center-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "KNOWLEDGE CENTER"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Knowledge Center"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Everything you need to know about Pro Spectrum"
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search Placeholder",
+      "default": "Search for answers..."
+    },
+    {
+      "type": "header",
+      "content": "Filter Buttons"
+    },
+    {
+      "type": "text",
+      "id": "filter_all",
+      "label": "All Filter Label",
+      "default": "All"
+    },
+    {
+      "type": "text",
+      "id": "filter_product",
+      "label": "Product Filter Label",
+      "default": "Product"
+    },
+    {
+      "type": "text",
+      "id": "filter_support",
+      "label": "Support Filter Label",
+      "default": "Support"
+    },
+    {
+      "type": "text",
+      "id": "filter_shipping",
+      "label": "Shipping Filter Label",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "filter_payment",
+      "label": "Payment Filter Label",
+      "default": "Payment"
+    },
+    {
+      "type": "text",
+      "id": "filter_partnerships",
+      "label": "Partnerships Filter Label",
+      "default": "Partnerships"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_category",
+      "name": "FAQ Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "About Brightlink"
+        },
+        {
+          "type": "select",
+          "id": "category",
+          "label": "Filter Category",
+          "options": [
+            { "value": "all", "label": "All" },
+            { "value": "product", "label": "Product" },
+            { "value": "support", "label": "Support" },
+            { "value": "shipping", "label": "Shipping" },
+            { "value": "payment", "label": "Payment" },
+            { "value": "partnerships", "label": "Partnerships" }
+          ],
+          "default": "all"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Category Icon",
+          "options": [
+            { "value": "info", "label": "Info" },
+            { "value": "monitor", "label": "Monitor" },
+            { "value": "tool", "label": "Tool" },
+            { "value": "headphones", "label": "Headphones" },
+            { "value": "truck", "label": "Truck" },
+            { "value": "credit-card", "label": "Credit Card" },
+            { "value": "handshake", "label": "Handshake" },
+            { "value": "question", "label": "Question" }
+          ],
+          "default": "info"
+        },
+        {
+          "type": "header",
+          "content": "Question 1"
+        },
+        {
+          "type": "text",
+          "id": "question_1",
+          "label": "Question 1",
+          "default": "How long has Brightlink been in business?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_1",
+          "label": "Answer 1",
+          "default": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions to customers worldwide."
+        },
+        {
+          "type": "header",
+          "content": "Question 2"
+        },
+        {
+          "type": "text",
+          "id": "question_2",
+          "label": "Question 2",
+          "default": "What makes Brightlink different from competitors?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_2",
+          "label": "Answer 2",
+          "default": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support."
+        },
+        {
+          "type": "header",
+          "content": "Question 3"
+        },
+        {
+          "type": "text",
+          "id": "question_3",
+          "label": "Question 3",
+          "default": "Where is Brightlink located and operated?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_3",
+          "label": "Answer 3",
+          "default": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better."
+        },
+        {
+          "type": "header",
+          "content": "Question 4"
+        },
+        {
+          "type": "text",
+          "id": "question_4",
+          "label": "Question 4"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_4",
+          "label": "Answer 4"
+        },
+        {
+          "type": "header",
+          "content": "Question 5"
+        },
+        {
+          "type": "text",
+          "id": "question_5",
+          "label": "Question 5"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_5",
+          "label": "Answer 5"
+        },
+        {
+          "type": "header",
+          "content": "Question 6"
+        },
+        {
+          "type": "text",
+          "id": "question_6",
+          "label": "Question 6"
+        },
+        {
+          "type": "textarea",
+          "id": "answer_6",
+          "label": "Answer 6"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Knowledge Center",
+      "blocks": [
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "About Brightlink",
+            "category": "all",
+            "icon": "info",
+            "question_1": "How long has Brightlink been in business?",
+            "answer_1": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions to customers worldwide.",
+            "question_2": "What makes Brightlink different from competitors?",
+            "answer_2": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support.",
+            "question_3": "Where is Brightlink located and operated?",
+            "answer_3": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better.",
+            "question_4": "Does Brightlink have a physical showroom?",
+            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action and speak with our experts.",
+            "question_5": "Who are Brightlink's typical customers?",
+            "answer_5": "Our customers range from small businesses to large corporations, including retail stores, event venues, churches, and entertainment facilities."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Product & Technical",
+            "category": "product",
+            "icon": "monitor",
+            "question_1": "What types of LED displays does Brightlink offer?",
+            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions for various applications.",
+            "question_2": "What is the pixel pitch and why does it matter?",
+            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality for closer viewing distances.",
+            "question_3": "How long do Brightlink LED displays last?",
+            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance and care."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Installation & Setup",
+            "category": "support",
+            "icon": "tool",
+            "question_1": "Do you provide installation services?",
+            "answer_1": "Yes, we offer professional installation services to ensure your LED display is set up correctly and optimally.",
+            "question_2": "What are the power requirements?",
+            "answer_2": "Power requirements vary by display size and model. Our team will provide specific requirements during the consultation process.",
+            "question_3": "How long does installation take?",
+            "answer_3": "Installation time depends on the project scope, but most standard installations can be completed within 1-3 days."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Support & Warranty",
+            "category": "support",
+            "icon": "headphones",
+            "question_1": "What warranty do you offer?",
+            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years depending on the product line.",
+            "question_2": "How do I get technical support?",
+            "answer_2": "Our technical support team is available via phone, email, and live chat to assist with any issues or questions.",
+            "question_3": "Do you offer on-site support?",
+            "answer_3": "Yes, we provide on-site support services for complex issues that cannot be resolved remotely."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Shipping & Delivery",
+            "category": "shipping",
+            "icon": "truck",
+            "question_1": "How long does shipping take?",
+            "answer_1": "Shipping times vary based on location and product availability. Standard delivery is typically 2-4 weeks for custom orders.",
+            "question_2": "Do you ship internationally?",
+            "answer_2": "Yes, we ship to most countries worldwide. International shipping times and costs vary by destination.",
+            "question_3": "How is the product packaged for shipping?",
+            "answer_3": "All products are carefully packaged in protective materials and custom crating to ensure safe delivery."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Payment & Financing",
+            "category": "payment",
+            "icon": "credit-card",
+            "question_1": "What payment methods do you accept?",
+            "answer_1": "We accept major credit cards, bank transfers, and various financing options for qualified customers.",
+            "question_2": "Do you offer financing options?",
+            "answer_2": "Yes, we offer flexible financing plans to help make your LED display investment more manageable.",
+            "question_3": "Is a deposit required?",
+            "answer_3": "A deposit is typically required for custom orders. The amount varies based on the project scope."
+          }
+        },
+        {
+          "type": "faq_category",
+          "settings": {
+            "title": "Business & Partnerships",
+            "category": "partnerships",
+            "icon": "handshake",
+            "question_1": "Do you offer reseller programs?",
+            "answer_1": "Yes, we have partnership programs for resellers and integrators. Contact us for more information.",
+            "question_2": "Can I become a Brightlink dealer?",
+            "answer_2": "We welcome qualified dealers to join our network. Please reach out to our partnership team for requirements.",
+            "question_3": "Do you offer bulk discounts?",
+            "answer_3": "Yes, we offer competitive pricing for bulk orders and long-term partnership agreements."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
