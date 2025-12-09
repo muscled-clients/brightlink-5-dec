@@ -392,13 +392,14 @@
 
 /* Image Box Container - dark rounded box for images */
 .system-configuration__card-image img {
-  max-width: 200px;
+  max-width: 100%;
   width: 100%;
   height: auto;
+  min-height: 220px;
   background: rgba(10, 18, 30, 0.8);
   border: 1px solid rgba(52, 152, 219, 0.2);
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px;
   margin-bottom: 15px;
   object-fit: contain;
 }
@@ -414,12 +415,12 @@
 
 /* Cabinet Visual Box - dark rounded container */
 .system-configuration__cabinet-visual {
-  width: 200px;
-  height: 220px;
+  width: 100%;
+  min-height: 220px;
   background: rgba(10, 18, 30, 0.8);
   border: 1px solid rgba(52, 152, 219, 0.2);
   border-radius: 12px;
-  padding: 20px;
+  padding: 25px;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -494,8 +495,8 @@
 /* Lock Icon Container - dark rounded box matching cabinet visual */
 .system-configuration__lock-icon-large {
   position: relative;
-  width: 200px;
-  height: 180px;
+  width: 100%;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -726,22 +727,15 @@
   }
 
   .system-configuration__cabinet-visual {
-    width: 180px;
-    height: 200px;
+    min-height: 180px;
   }
 
   .system-configuration__lock-icon-large {
-    width: 180px;
-    height: 160px;
-  }
-
-  .system-configuration__lock-icon-large svg {
-    width: 45px;
-    height: 45px;
+    min-height: 180px;
   }
 
   .system-configuration__card-image img {
-    max-width: 180px;
+    min-height: 180px;
   }
 
   .system-configuration__cta-heading {
