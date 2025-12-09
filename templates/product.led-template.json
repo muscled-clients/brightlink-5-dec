@@ -623,6 +623,58 @@
         "custom_class": ""
       }
     },
+    "investment_config_DBAy9F": {
+      "type": "investment-config",
+      "name": "Investment Config",
+      "settings": {
+        "label": "INVESTMENT",
+        "title": "Configure Your System",
+        "subtitle": "Transparent pricing for professional installations",
+        "card_label": "COMPLETE SYSTEM",
+        "product_name": "Brightlink Pro Spectrum 217\"",
+        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
+        "original_price": "$179,000",
+        "current_price": "$149,000",
+        "discount_text": "SAVE 17%",
+        "price_note": "USD | Shipping: 10-12 weeks",
+        "includes_title": "Complete System Includes:",
+        "include_1": "64 premium cabinets (8×8 array)",
+        "include_2": "Complete cable package + spares",
+        "include_3": "Service tools (suction + vacuum)",
+        "include_4": "4-year comprehensive warranty",
+        "include_5": "NovaStar H2 controller ($8,500 value)",
+        "include_6": "Professional mounting system",
+        "include_7": "5% spare modules included",
+        "include_8": "Lifetime technical support",
+        "primary_button_text": "CALCULATE MY PROJECT",
+        "primary_button_link": "",
+        "secondary_button_text": "SCHEDULE CONSULTATION",
+        "secondary_button_link": ""
+      }
+    },
+    "enhance_system_9EjYnN": {
+      "type": "enhance-system",
+      "name": "Enhance System",
+      "settings": {
+        "label": "OPTIONAL ADD-ONS",
+        "title": "Enhance Your System",
+        "card1_title": "BL-VT PRO VACUUM TOOL",
+        "card1_desc": "Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams.",
+        "card1_price": "$249",
+        "card1_button": "ADD TO ORDER",
+        "card1_link": "",
+        "card2_title": "EXTENDED WARRANTY",
+        "card2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
+        "card2_price": "+$4,500",
+        "card2_button": "ADD PROTECTION",
+        "card2_link": "",
+        "card3_title": "SPARE MODULE KIT",
+        "card3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
+        "card3_price": "+$8,900",
+        "card3_button": "ADD SPARES",
+        "card3_link": ""
+      }
+    },
     "knowledge_center_tRneHb": {
       "type": "knowledge-center",
       "blocks": {
@@ -820,35 +872,6 @@
         "feature4_text": "CE, RoHS, FCC, ISO9001",
         "footer_text": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
       }
-    },
-    "investment_config_DBAy9F": {
-      "type": "investment-config",
-      "name": "Investment Config",
-      "settings": {
-        "label": "INVESTMENT",
-        "title": "Configure Your System",
-        "subtitle": "Transparent pricing for professional installations",
-        "card_label": "COMPLETE SYSTEM",
-        "product_name": "Brightlink Pro Spectrum 217\"",
-        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
-        "original_price": "$179,000",
-        "current_price": "$149,000",
-        "discount_text": "SAVE 17%",
-        "price_note": "USD | Shipping: 10-12 weeks",
-        "includes_title": "Complete System Includes:",
-        "include_1": "64 premium cabinets (8×8 array)",
-        "include_2": "Complete cable package + spares",
-        "include_3": "Service tools (suction + vacuum)",
-        "include_4": "4-year comprehensive warranty",
-        "include_5": "NovaStar H2 controller ($8,500 value)",
-        "include_6": "Professional mounting system",
-        "include_7": "5% spare modules included",
-        "include_8": "Lifetime technical support",
-        "primary_button_text": "CALCULATE MY PROJECT",
-        "primary_button_link": "",
-        "secondary_button_text": "SCHEDULE CONSULTATION",
-        "secondary_button_link": ""
-      }
     }
   },
   "order": [
@@ -861,6 +884,7 @@
     "product_intelligence_J64aNM",
     "system_configuration_dkfCXB",
     "investment_config_DBAy9F",
+    "enhance_system_9EjYnN",
     "knowledge_center_tRneHb",
     "contact_discussion_dimQrt"
   ]
