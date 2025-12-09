@@ -412,11 +412,17 @@
 }
 
 .system-configuration__cabinet-images-row img {
-  width: auto;
   height: 200px;
   max-height: 220px;
   object-fit: contain;
-  margin: 0 -80px;
+}
+
+.system-configuration__cabinet-images-row img:first-child {
+  transform: translateX(30px);
+}
+
+.system-configuration__cabinet-images-row img:last-child {
+  transform: translateX(-30px);
 }
 
 /* Module Placeholder - when no images uploaded */
