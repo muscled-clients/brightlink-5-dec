@@ -1,10 +1,5 @@
 {{ 'enhance-system.css' | asset_url | stylesheet_tag }}
 
-<style>
-  .enhance-system__label {
-    color: #FFD700 !important;
-  }
-</style>
 
 <section class="enhance-system" id="enhance-system">
   <div class="enhance-system__background">
@@ -13,7 +8,6 @@
 
   <div class="enhance-system__container">
     <div class="enhance-system__header">
-      <span class="enhance-system__label">{{ section.settings.label | default: 'OPTIONAL ADD-ONS' }}</span>
       <h2 class="enhance-system__title">{{ section.settings.title | default: 'Enhance Your System' }}</h2>
     </div>
 
