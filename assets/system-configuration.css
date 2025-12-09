@@ -414,8 +414,8 @@
 }
 
 .system-configuration__cabinet-images-row img {
-  height: 180px;
-  max-height: 200px;
+  height: 220px;
+  max-height: 240px;
   object-fit: contain;
 }
 
