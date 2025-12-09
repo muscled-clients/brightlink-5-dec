@@ -41,11 +41,11 @@
 .knowledge-center__label {
   display: inline-block;
   font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 2px;
-  color: #3b82f6;
+  font-weight: 500;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  color: #FFD700;
+  margin-bottom: 15px;
 }
 
 .knowledge-center__title {
