@@ -406,7 +406,7 @@
 /* Images Row - two images side by side */
 .system-configuration__cabinet-images-row {
   display: flex;
-  gap: 15px;
+  gap: 5px;
   align-items: center;
   justify-content: center;
 }
