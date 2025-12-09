@@ -25,62 +25,59 @@
 
     <!-- Main Visual Area -->
     <div class="system-configuration__visual">
-      <!-- Blueprint Frame -->
-      <div class="system-configuration__blueprint">
-        <!-- Corner Markers -->
-        <div class="system-configuration__corner system-configuration__corner--tl"></div>
-        <div class="system-configuration__corner system-configuration__corner--tr"></div>
-        <div class="system-configuration__corner system-configuration__corner--bl"></div>
-        <div class="system-configuration__corner system-configuration__corner--br"></div>
-
-        <!-- Grid Lines -->
-        <div class="system-configuration__grid-lines"></div>
-      </div>
-
-      <!-- Top Metric - Width -->
+      <!-- Top Metric - Width (outside card) -->
       <div class="system-configuration__metric system-configuration__metric--top">
-        <div class="system-configuration__metric-bracket system-configuration__metric-bracket--left"></div>
-        <div class="system-configuration__metric-line"></div>
-        <div class="system-configuration__metric-bracket system-configuration__metric-bracket--right"></div>
         <div class="system-configuration__metric-info">
           <span class="system-configuration__metric-label">{{ section.settings.width_label }}</span>
           <span class="system-configuration__metric-value">{{ section.settings.width_value }}</span>
         </div>
       </div>
 
-      <!-- Right Metric - Height -->
-      <div class="system-configuration__metric system-configuration__metric--right">
-        <div class="system-configuration__metric-bracket system-configuration__metric-bracket--top"></div>
-        <div class="system-configuration__metric-line"></div>
-        <div class="system-configuration__metric-bracket system-configuration__metric-bracket--bottom"></div>
-        <div class="system-configuration__metric-info">
-          <span class="system-configuration__metric-label">{{ section.settings.height_label }}</span>
-          <span class="system-configuration__metric-value">{{ section.settings.height_value }}</span>
-        </div>
-      </div>
+      <!-- Blueprint Card Container -->
+      <div class="system-configuration__blueprint-wrapper">
+        <!-- Blueprint Card/Box with LED Wall inside -->
+        <div class="system-configuration__blueprint">
+          <!-- Corner Markers -->
+          <div class="system-configuration__corner system-configuration__corner--tl"></div>
+          <div class="system-configuration__corner system-configuration__corner--tr"></div>
+          <div class="system-configuration__corner system-configuration__corner--bl"></div>
+          <div class="system-configuration__corner system-configuration__corner--br"></div>
 
-      <!-- LED Wall Display -->
-      <div class="system-configuration__display">
-        {% if section.settings.display_image != blank %}
-          <img
-            src="{{ section.settings.display_image | image_url: width: 800 }}"
-            alt="LED Video Wall Configuration"
-            class="system-configuration__display-image"
-            loading="lazy"
-          >
-        {% else %}
-          <div class="system-configuration__display-placeholder">
-            <div class="system-configuration__led-grid">
-              {% for row in (1..8) %}
-                <div class="system-configuration__led-row">
-                  {% for col in (1..8) %}
-                    <div class="system-configuration__led-cabinet"></div>
+          <!-- Grid Lines -->
+          <div class="system-configuration__grid-lines"></div>
+
+          <!-- LED Wall Display (inside the card) -->
+          <div class="system-configuration__display">
+            {% if section.settings.display_image != blank %}
+              <img
+                src="{{ section.settings.display_image | image_url: width: 800 }}"
+                alt="LED Video Wall Configuration"
+                class="system-configuration__display-image"
+                loading="lazy"
+              >
+            {% else %}
+              <div class="system-configuration__display-placeholder">
+                <div class="system-configuration__led-grid">
+                  {% for row in (1..8) %}
+                    <div class="system-configuration__led-row">
+                      {% for col in (1..8) %}
+                        <div class="system-configuration__led-cabinet"></div>
+                      {% endfor %}
+                    </div>
                   {% endfor %}
                 </div>
-              {% endfor %}
-            </div>
+              </div>
+            {% endif %}
           </div>
-        {% endif %}
+        </div>
+
+        <!-- Right Metric - Height (positioned outside on the right) -->
+        <div class="system-configuration__metric system-configuration__metric--right">
+          <div class="system-configuration__metric-info">
+            <span class="system-configuration__metric-label">{{ section.settings.height_label }}</span>
+            <span class="system-configuration__metric-value">{{ section.settings.height_value }}</span>
+          </div>
+        </div>
       </div>
 
       <!-- Bottom Metric - Diagonal -->
