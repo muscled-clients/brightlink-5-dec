@@ -396,9 +396,10 @@
   background: rgba(10, 18, 30, 0.8);
   border: 1px solid rgba(52, 152, 219, 0.2);
   border-radius: 12px;
-  padding: 30px 40px;
+  padding: 30px 40px 20px;
   margin-bottom: 15px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -409,42 +410,53 @@
   gap: 0;
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 }
 
 .system-configuration__cabinet-images-row img {
-  height: 200px;
-  max-height: 220px;
+  height: 240px;
+  max-height: 260px;
   object-fit: contain;
 }
 
 .system-configuration__cabinet-images-row img:first-child {
-  transform: translateX(50px);
+  transform: translateX(60px);
 }
 
 .system-configuration__cabinet-images-row img:last-child {
-  transform: translateX(-50px);
+  transform: translateX(-60px);
 }
 
 /* Module Placeholder - when no images uploaded */
 .system-configuration__cabinet-module-placeholder {
   width: 70px;
-  height: 180px;
+  height: 200px;
   background: linear-gradient(135deg, rgba(20, 30, 50, 0.9) 0%, rgba(10, 15, 25, 0.9) 100%);
   border: 1px solid rgba(52, 152, 219, 0.25);
   border-radius: 4px;
 }
 
-/* Labels below image box */
-.system-configuration__cabinet-label {
+.system-configuration__cabinet-module-placeholder:first-child {
+  transform: translateX(60px);
+}
+
+.system-configuration__cabinet-module-placeholder:last-child {
+  transform: translateX(-60px);
+}
+
+/* Labels inside image box */
+.system-configuration__cabinet-images-box .system-configuration__cabinet-label {
   font-size: 13px;
   font-weight: 600;
   color: #3498db;
   margin-bottom: 4px;
+  text-align: center;
 }
 
-.system-configuration__cabinet-sublabel {
+.system-configuration__cabinet-images-box .system-configuration__cabinet-sublabel {
   font-size: 11px;
   color: rgba(255, 255, 255, 0.5);
+  text-align: center;
 }
 
 /* Specs Table */

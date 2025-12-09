@@ -105,20 +105,20 @@
 
         <div class="system-configuration__card-body">
           <div class="system-configuration__card-image">
-            <!-- Image Box Container -->
+            <!-- Image Box Container with labels inside -->
             <div class="system-configuration__cabinet-images-box">
               {% if section.settings.cabinet_image != blank or section.settings.cabinet_image_2 != blank %}
                 <div class="system-configuration__cabinet-images-row">
                   {% if section.settings.cabinet_image != blank %}
                     <img
-                      src="{{ section.settings.cabinet_image | image_url: width: 300 }}"
+                      src="{{ section.settings.cabinet_image | image_url: width: 400 }}"
                       alt="Individual Cabinet"
                       loading="lazy"
                     >
                   {% endif %}
                   {% if section.settings.cabinet_image_2 != blank %}
                     <img
-                      src="{{ section.settings.cabinet_image_2 | image_url: width: 300 }}"
+                      src="{{ section.settings.cabinet_image_2 | image_url: width: 400 }}"
                       alt="Individual Cabinet"
                       loading="lazy"
                     >
@@ -131,9 +131,10 @@
                   <div class="system-configuration__cabinet-module-placeholder"></div>
                 </div>
               {% endif %}
+              <!-- Labels inside the box -->
+              <span class="system-configuration__cabinet-label">{{ section.settings.cabinet_visual_label | default: '4 COB Modules' }}</span>
+              <span class="system-configuration__cabinet-sublabel">{{ section.settings.cabinet_visual_sublabel | default: '480 × 270 pixels per cabinet' }}</span>
             </div>
-            <span class="system-configuration__cabinet-label">{{ section.settings.cabinet_visual_label | default: '4 COB Modules' }}</span>
-            <span class="system-configuration__cabinet-sublabel">{{ section.settings.cabinet_visual_sublabel | default: '480 × 270 pixels per cabinet' }}</span>
           </div>
 
           <div class="system-configuration__specs-table">
