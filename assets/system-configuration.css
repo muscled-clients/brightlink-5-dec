@@ -406,7 +406,7 @@
 /* Images Row - two images side by side */
 .system-configuration__cabinet-images-row {
   display: flex;
-  gap: 5px;
+  gap: 0;
   align-items: center;
   justify-content: center;
 }
@@ -416,6 +416,7 @@
   height: 200px;
   max-height: 220px;
   object-fit: contain;
+  margin: 0 -5px;
 }
 
 /* Module Placeholder - when no images uploaded */
