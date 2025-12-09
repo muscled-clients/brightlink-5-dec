@@ -1,0 +1,302 @@
+.contact-discussion {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
+  overflow: hidden;
+}
+
+.contact-discussion__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-discussion__hex-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a3a5c' fill-opacity='0.08'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.contact-discussion__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-discussion__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.contact-discussion__label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.contact-discussion__title {
+  font-size: 38px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 15px;
+  line-height: 1.2;
+}
+
+.contact-discussion__subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.contact-discussion__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 60px;
+}
+
+.contact-discussion__card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.contact-discussion__card:hover {
+  background: rgba(20, 30, 50, 0.8);
+  border-color: rgba(59, 130, 246, 0.4);
+  transform: translateY(-3px);
+}
+
+.contact-discussion__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  background: rgba(59, 130, 246, 0.15);
+  border-radius: 50%;
+  color: #3b82f6;
+}
+
+.contact-discussion__card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 12px;
+}
+
+.contact-discussion__card-phone {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin: 0 0 8px;
+  text-decoration: underline;
+}
+
+.contact-discussion__card-email {
+  font-size: 15px;
+  font-weight: 500;
+  color: #3b82f6;
+  text-decoration: underline;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.contact-discussion__card-email:hover {
+  color: #60a5fa;
+}
+
+.contact-discussion__card-highlight {
+  font-size: 15px;
+  font-weight: 500;
+  color: #FFD700;
+  margin: 0 0 8px;
+}
+
+.contact-discussion__card-info {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 20px;
+}
+
+.contact-discussion__card-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-discussion__card-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.contact-discussion__features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 40px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 30px;
+}
+
+.contact-discussion__feature {
+  text-align: center;
+}
+
+.contact-discussion__feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin: 0 auto 15px;
+  color: #FFD700;
+}
+
+.contact-discussion__feature-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.contact-discussion__feature-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.contact-discussion__footer-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .contact-discussion__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact-discussion__cards .contact-discussion__card:last-child {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .contact-discussion__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-discussion {
+    padding: 60px 0;
+  }
+
+  .contact-discussion__title {
+    font-size: 30px;
+  }
+
+  .contact-discussion__subtitle {
+    font-size: 15px;
+  }
+
+  .contact-discussion__cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .contact-discussion__cards .contact-discussion__card:last-child {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .contact-discussion__card {
+    padding: 25px 20px;
+  }
+
+  .contact-discussion__features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-discussion {
+    padding: 40px 0;
+  }
+
+  .contact-discussion__container {
+    padding: 0 15px;
+  }
+
+  .contact-discussion__title {
+    font-size: 26px;
+  }
+
+  .contact-discussion__card-phone {
+    font-size: 20px;
+  }
+
+  .contact-discussion__features {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .contact-discussion__feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .contact-discussion__feature-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .contact-discussion__feature-title {
+    font-size: 12px;
+  }
+
+  .contact-discussion__feature-text {
+    font-size: 11px;
+  }
+
+  .contact-discussion__footer-text {
+    font-size: 12px;
+  }
+}

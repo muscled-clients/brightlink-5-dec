@@ -1,0 +1,317 @@
+{{ 'contact-discussion.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .contact-discussion__label {
+    color: #FFD700 !important;
+  }
+</style>
+
+<section class="contact-discussion" id="contact-discussion">
+  <div class="contact-discussion__background">
+    <div class="contact-discussion__hex-pattern"></div>
+  </div>
+
+  <div class="contact-discussion__container">
+    <div class="contact-discussion__header">
+      <span class="contact-discussion__label">{{ section.settings.label | default: 'READY TO TRANSFORM YOUR SPACE?' }}</span>
+      <h2 class="contact-discussion__title">{{ section.settings.title | default: "Let's Discuss Your Project" }}</h2>
+      <p class="contact-discussion__subtitle">{{ section.settings.subtitle | default: 'Talk to our LED specialists about your specific requirements' }}</p>
+    </div>
+
+    <div class="contact-discussion__cards">
+      <div class="contact-discussion__card">
+        <div class="contact-discussion__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+        </div>
+        <h3 class="contact-discussion__card-title">{{ section.settings.call_title | default: 'Call Us Now' }}</h3>
+        <p class="contact-discussion__card-phone">{{ section.settings.phone_number | default: '855-449-4733' }}</p>
+        <p class="contact-discussion__card-info">{{ section.settings.phone_availability | default: 'Mon-Fri 7AM-5PM PST' }}</p>
+        <a href="tel:{{ section.settings.phone_number | default: '855-449-4733' | remove: '-' }}" class="contact-discussion__card-btn">
+          {{ section.settings.call_button_text | default: 'CALL NOW' }}
+        </a>
+      </div>
+
+      <div class="contact-discussion__card">
+        <div class="contact-discussion__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+        </div>
+        <h3 class="contact-discussion__card-title">{{ section.settings.email_title | default: 'Email Our Team' }}</h3>
+        <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-email">{{ section.settings.email_address | default: 'support@brightlinkav.com' }}</a>
+        <p class="contact-discussion__card-info">{{ section.settings.email_response | default: 'Same day response time' }}</p>
+        <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-btn">
+          {{ section.settings.email_button_text | default: 'SEND EMAIL' }}
+        </a>
+      </div>
+
+      <div class="contact-discussion__card">
+        <div class="contact-discussion__card-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+            <line x1="16" x2="16" y1="2" y2="6"></line>
+            <line x1="8" x2="8" y1="2" y2="6"></line>
+            <line x1="3" x2="21" y1="10" y2="10"></line>
+          </svg>
+        </div>
+        <h3 class="contact-discussion__card-title">{{ section.settings.demo_title | default: 'Schedule Demo' }}</h3>
+        <p class="contact-discussion__card-highlight">{{ section.settings.demo_subtitle | default: 'See Pro Spectrum In Person' }}</p>
+        <p class="contact-discussion__card-info">{{ section.settings.demo_info | default: 'Virtual or in-person tours' }}</p>
+        <a href="{{ section.settings.demo_button_link | default: '#' }}" class="contact-discussion__card-btn">
+          {{ section.settings.demo_button_text | default: 'BOOK APPOINTMENT' }}
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-discussion__features">
+      <div class="contact-discussion__feature">
+        <div class="contact-discussion__feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+          </svg>
+        </div>
+        <h4 class="contact-discussion__feature-title">{{ section.settings.feature1_title | default: 'SINCE 2009' }}</h4>
+        <p class="contact-discussion__feature-text">{{ section.settings.feature1_text | default: 'Established Excellence' }}</p>
+      </div>
+
+      <div class="contact-discussion__feature">
+        <div class="contact-discussion__feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+            <path d="m9 12 2 2 4-4"></path>
+          </svg>
+        </div>
+        <h4 class="contact-discussion__feature-title">{{ section.settings.feature2_title | default: '4-YEAR WARRANTY' }}</h4>
+        <p class="contact-discussion__feature-text">{{ section.settings.feature2_text | default: 'Comprehensive Coverage' }}</p>
+      </div>
+
+      <div class="contact-discussion__feature">
+        <div class="contact-discussion__feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <circle cx="12" cy="12" r="6"></circle>
+            <circle cx="12" cy="12" r="2"></circle>
+          </svg>
+        </div>
+        <h4 class="contact-discussion__feature-title">{{ section.settings.feature3_title | default: 'LIFETIME SUPPORT' }}</h4>
+        <p class="contact-discussion__feature-text">{{ section.settings.feature3_text | default: 'Always Here to Help' }}</p>
+      </div>
+
+      <div class="contact-discussion__feature">
+        <div class="contact-discussion__feature-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+            <path d="m9 11 3 3L22 4"></path>
+          </svg>
+        </div>
+        <h4 class="contact-discussion__feature-title">{{ section.settings.feature4_title | default: 'CERTIFIED' }}</h4>
+        <p class="contact-discussion__feature-text">{{ section.settings.feature4_text | default: 'CE, RoHS, FCC, ISO9001' }}</p>
+      </div>
+    </div>
+
+    <p class="contact-discussion__footer-text">{{ section.settings.footer_text | default: 'Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions' }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Contact Discussion",
+  "tag": "section",
+  "class": "contact-discussion-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "READY TO TRANSFORM YOUR SPACE?"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Let's Discuss Your Project"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Talk to our LED specialists about your specific requirements"
+    },
+    {
+      "type": "header",
+      "content": "Call Us Card"
+    },
+    {
+      "type": "text",
+      "id": "call_title",
+      "label": "Call Card Title",
+      "default": "Call Us Now"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "855-449-4733"
+    },
+    {
+      "type": "text",
+      "id": "phone_availability",
+      "label": "Availability",
+      "default": "Mon-Fri 7AM-5PM PST"
+    },
+    {
+      "type": "text",
+      "id": "call_button_text",
+      "label": "Call Button Text",
+      "default": "CALL NOW"
+    },
+    {
+      "type": "header",
+      "content": "Email Card"
+    },
+    {
+      "type": "text",
+      "id": "email_title",
+      "label": "Email Card Title",
+      "default": "Email Our Team"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "support@brightlinkav.com"
+    },
+    {
+      "type": "text",
+      "id": "email_response",
+      "label": "Response Time",
+      "default": "Same day response time"
+    },
+    {
+      "type": "text",
+      "id": "email_button_text",
+      "label": "Email Button Text",
+      "default": "SEND EMAIL"
+    },
+    {
+      "type": "header",
+      "content": "Demo Card"
+    },
+    {
+      "type": "text",
+      "id": "demo_title",
+      "label": "Demo Card Title",
+      "default": "Schedule Demo"
+    },
+    {
+      "type": "text",
+      "id": "demo_subtitle",
+      "label": "Demo Subtitle",
+      "default": "See Pro Spectrum In Person"
+    },
+    {
+      "type": "text",
+      "id": "demo_info",
+      "label": "Demo Info",
+      "default": "Virtual or in-person tours"
+    },
+    {
+      "type": "text",
+      "id": "demo_button_text",
+      "label": "Demo Button Text",
+      "default": "BOOK APPOINTMENT"
+    },
+    {
+      "type": "url",
+      "id": "demo_button_link",
+      "label": "Demo Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature1_title",
+      "label": "Feature 1 Title",
+      "default": "SINCE 2009"
+    },
+    {
+      "type": "text",
+      "id": "feature1_text",
+      "label": "Feature 1 Text",
+      "default": "Established Excellence"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature2_title",
+      "label": "Feature 2 Title",
+      "default": "4-YEAR WARRANTY"
+    },
+    {
+      "type": "text",
+      "id": "feature2_text",
+      "label": "Feature 2 Text",
+      "default": "Comprehensive Coverage"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature3_title",
+      "label": "Feature 3 Title",
+      "default": "LIFETIME SUPPORT"
+    },
+    {
+      "type": "text",
+      "id": "feature3_text",
+      "label": "Feature 3 Text",
+      "default": "Always Here to Help"
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "feature4_title",
+      "label": "Feature 4 Title",
+      "default": "CERTIFIED"
+    },
+    {
+      "type": "text",
+      "id": "feature4_text",
+      "label": "Feature 4 Text",
+      "default": "CE, RoHS, FCC, ISO9001"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Discussion"
+    }
+  ]
+}
+{% endschema %}
