@@ -961,19 +961,13 @@
 .resource-card__badge {
   display: inline-block;
   padding: 4px 10px;
-  background: rgba(231, 76, 60, 0.2);
-  border: 1px solid rgba(231, 76, 60, 0.4);
+  background: rgba(52, 152, 219, 0.2);
+  border: 1px solid rgba(52, 152, 219, 0.4);
   border-radius: 4px;
   font-size: 10px;
   font-weight: 600;
-  color: #e74c3c;
-  letter-spacing: 0.5px;
-}
-
-.resource-card__badge--dwg {
-  background: rgba(52, 152, 219, 0.2);
-  border-color: rgba(52, 152, 219, 0.4);
   color: #3498db;
+  letter-spacing: 0.5px;
 }
 
 .resource-card__size {
