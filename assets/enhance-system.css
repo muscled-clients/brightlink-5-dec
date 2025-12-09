@@ -1,0 +1,209 @@
+.enhance-system {
+  position: relative;
+  padding: 80px 0;
+  background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
+  overflow: hidden;
+}
+
+.enhance-system__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.enhance-system__hex-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a3a5c' fill-opacity='0.08'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+.enhance-system__container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.enhance-system__header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.enhance-system__label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #FFD700;
+  margin-bottom: 15px;
+}
+
+.enhance-system__title {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.enhance-system__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.enhance-system__card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  border-radius: 12px;
+  padding: 30px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.enhance-system__card:hover {
+  background: rgba(20, 30, 50, 0.8);
+  border-color: rgba(59, 130, 246, 0.3);
+  transform: translateY(-3px);
+}
+
+.enhance-system__card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  margin-bottom: 20px;
+  color: #3b82f6;
+}
+
+.enhance-system__card-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin: 0 0 15px;
+  text-transform: uppercase;
+}
+
+.enhance-system__card-desc {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 20px;
+  flex-grow: 1;
+}
+
+.enhance-system__card-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+.enhance-system__card-btn {
+  display: inline-block;
+  width: 100%;
+  padding: 12px 24px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.enhance-system__card-btn:hover {
+  background: #3b82f6;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+@media (max-width: 992px) {
+  .enhance-system__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .enhance-system__cards .enhance-system__card:last-child {
+    grid-column: span 2;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .enhance-system {
+    padding: 60px 0;
+  }
+
+  .enhance-system__title {
+    font-size: 28px;
+  }
+
+  .enhance-system__cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .enhance-system__cards .enhance-system__card:last-child {
+    grid-column: span 1;
+    max-width: 100%;
+  }
+
+  .enhance-system__card {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .enhance-system {
+    padding: 40px 0;
+  }
+
+  .enhance-system__container {
+    padding: 0 15px;
+  }
+
+  .enhance-system__title {
+    font-size: 24px;
+  }
+
+  .enhance-system__card-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .enhance-system__card-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .enhance-system__card-price {
+    font-size: 24px;
+  }
+
+  .enhance-system__card-btn {
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+}
