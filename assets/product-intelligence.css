@@ -888,6 +888,13 @@
   border-color: rgba(52, 152, 219, 0.3);
 }
 
+.resource-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
 .resource-card__icon {
   width: 40px;
   height: 40px;
@@ -896,13 +903,34 @@
   justify-content: center;
   background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(41, 128, 185, 0.15) 100%);
   border-radius: 8px;
-  margin-bottom: 15px;
 }
 
 .resource-card__icon svg {
   width: 20px;
   height: 20px;
   fill: #3498db;
+}
+
+.resource-card__download {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resource-card__download svg {
+  width: 18px;
+  height: 18px;
+  fill: #3498db;
+}
+
+.resource-card__download:hover {
+  background: rgba(52, 152, 219, 0.15);
 }
 
 .resource-card__title {
@@ -925,8 +953,8 @@
 
 .resource-card__footer {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 15px;
   margin-top: auto;
 }
 
