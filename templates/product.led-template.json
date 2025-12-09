@@ -675,6 +675,36 @@
         "card3_link": ""
       }
     },
+    "custom_config_builder_XxJDdn": {
+      "type": "custom-config-builder",
+      "name": "Custom Config Builder",
+      "settings": {
+        "title": "Custom Configuration Builder",
+        "subtitle": "Need a different size? Configure a custom array",
+        "width_label": "CABINETS WIDE",
+        "height_label": "CABINETS HIGH",
+        "default_width": 8,
+        "default_height": 8,
+        "resolution_label": "Total Resolution:",
+        "default_resolution": "8,294,400 pixels",
+        "size_label": "Physical Size:",
+        "default_size": "15.75' × 8.86'",
+        "diagonal_label": "Diagonal:",
+        "default_diagonal": "217\"",
+        "cabinets_label": "Total Cabinets:",
+        "default_cabinets": "64 units",
+        "price_label": "Estimated Price:",
+        "default_price": "$148,000",
+        "quote_button_text": "GET CUSTOM QUOTE",
+        "quote_button_link": "",
+        "specs_button_text": "GET LED SPECIFICATIONS",
+        "specs_button_link": "",
+        "payment_title": "Flexible Payment Options Available",
+        "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
+        "payment_link_text": "DISCUSS PAYMENT OPTIONS",
+        "payment_link": ""
+      }
+    },
     "knowledge_center_tRneHb": {
       "type": "knowledge-center",
       "blocks": {
@@ -885,6 +915,7 @@
     "system_configuration_dkfCXB",
     "investment_config_DBAy9F",
     "enhance_system_9EjYnN",
+    "custom_config_builder_XxJDdn",
     "knowledge_center_tRneHb",
     "contact_discussion_dimQrt"
   ]
