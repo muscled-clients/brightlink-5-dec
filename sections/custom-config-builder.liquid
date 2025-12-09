@@ -1,0 +1,294 @@
+{{ 'custom-config-builder.css' | asset_url | stylesheet_tag }}
+
+<section class="custom-config" id="custom-config">
+  <div class="custom-config__background">
+    <div class="custom-config__hex-pattern"></div>
+  </div>
+
+  <div class="custom-config__container">
+    <div class="custom-config__header">
+      <h2 class="custom-config__title">{{ section.settings.title | default: 'Custom Configuration Builder' }}</h2>
+      <p class="custom-config__subtitle">{{ section.settings.subtitle | default: 'Need a different size? Configure a custom array' }}</p>
+    </div>
+
+    <div class="custom-config__card">
+      <div class="custom-config__inputs">
+        <div class="custom-config__input-group">
+          <label class="custom-config__input-label">{{ section.settings.width_label | default: 'CABINETS WIDE' }}</label>
+          <input type="number" class="custom-config__input" id="cabinets-wide" value="{{ section.settings.default_width | default: 8 }}" min="1" max="50">
+        </div>
+        <div class="custom-config__input-group">
+          <label class="custom-config__input-label">{{ section.settings.height_label | default: 'CABINETS HIGH' }}</label>
+          <input type="number" class="custom-config__input" id="cabinets-high" value="{{ section.settings.default_height | default: 8 }}" min="1" max="50">
+        </div>
+      </div>
+
+      <div class="custom-config__results">
+        <div class="custom-config__result-row">
+          <span class="custom-config__result-label">{{ section.settings.resolution_label | default: 'Total Resolution:' }}</span>
+          <span class="custom-config__result-value" id="total-resolution">{{ section.settings.default_resolution | default: '8,294,400 pixels' }}</span>
+        </div>
+        <div class="custom-config__result-row">
+          <span class="custom-config__result-label">{{ section.settings.size_label | default: 'Physical Size:' }}</span>
+          <span class="custom-config__result-value" id="physical-size">{{ section.settings.default_size | default: "15.75' × 8.86'" }}</span>
+        </div>
+        <div class="custom-config__result-row">
+          <span class="custom-config__result-label">{{ section.settings.diagonal_label | default: 'Diagonal:' }}</span>
+          <span class="custom-config__result-value" id="diagonal-size">{{ section.settings.default_diagonal | default: '217"' }}</span>
+        </div>
+        <div class="custom-config__result-row">
+          <span class="custom-config__result-label">{{ section.settings.cabinets_label | default: 'Total Cabinets:' }}</span>
+          <span class="custom-config__result-value" id="total-cabinets">{{ section.settings.default_cabinets | default: '64 units' }}</span>
+        </div>
+        <div class="custom-config__result-row custom-config__result-row--price">
+          <span class="custom-config__result-label">{{ section.settings.price_label | default: 'Estimated Price:' }}</span>
+          <span class="custom-config__result-value custom-config__result-value--price" id="estimated-price">{{ section.settings.default_price | default: '$148,000' }}</span>
+        </div>
+      </div>
+
+      <div class="custom-config__buttons">
+        <a href="{{ section.settings.quote_button_link | default: '#' }}" class="custom-config__btn custom-config__btn--primary">
+          {{ section.settings.quote_button_text | default: 'GET CUSTOM QUOTE' }}
+        </a>
+        <a href="{{ section.settings.specs_button_link | default: '#' }}" class="custom-config__btn custom-config__btn--secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          {{ section.settings.specs_button_text | default: 'GET LED SPECIFICATIONS' }}
+        </a>
+      </div>
+    </div>
+
+    <div class="custom-config__payment">
+      <div class="custom-config__payment-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        <span>{{ section.settings.payment_title | default: 'Flexible Payment Options Available' }}</span>
+      </div>
+      <p class="custom-config__payment-info">{{ section.settings.payment_info | default: 'NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted' }}</p>
+      <a href="{{ section.settings.payment_link | default: '#' }}" class="custom-config__payment-link">{{ section.settings.payment_link_text | default: 'DISCUSS PAYMENT OPTIONS' }}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const widthInput = document.getElementById('cabinets-wide');
+  const heightInput = document.getElementById('cabinets-high');
+  const totalResolution = document.getElementById('total-resolution');
+  const physicalSize = document.getElementById('physical-size');
+  const diagonalSize = document.getElementById('diagonal-size');
+  const totalCabinets = document.getElementById('total-cabinets');
+  const estimatedPrice = document.getElementById('estimated-price');
+
+  const cabinetWidth = 23.62;
+  const cabinetHeight = 13.29;
+  const pixelsPerCabinet = 129600;
+  const pricePerCabinet = 2312.5;
+
+  function updateCalculations() {
+    const wide = parseInt(widthInput.value) || 1;
+    const high = parseInt(heightInput.value) || 1;
+
+    const cabinets = wide * high;
+    const resolution = cabinets * pixelsPerCabinet;
+    const widthInches = wide * cabinetWidth;
+    const heightInches = high * cabinetHeight;
+    const widthFeet = (widthInches / 12).toFixed(2);
+    const heightFeet = (heightInches / 12).toFixed(2);
+    const diagonal = Math.sqrt(Math.pow(widthInches, 2) + Math.pow(heightInches, 2)).toFixed(0);
+    const price = cabinets * pricePerCabinet;
+
+    totalResolution.textContent = resolution.toLocaleString() + ' pixels';
+    physicalSize.textContent = widthFeet + "' × " + heightFeet + "'";
+    diagonalSize.textContent = diagonal + '"';
+    totalCabinets.textContent = cabinets + ' units';
+    estimatedPrice.textContent = '$' + price.toLocaleString();
+  }
+
+  if (widthInput && heightInput) {
+    widthInput.addEventListener('input', updateCalculations);
+    heightInput.addEventListener('input', updateCalculations);
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Config Builder",
+  "tag": "section",
+  "class": "custom-config-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Custom Configuration Builder"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Need a different size? Configure a custom array"
+    },
+    {
+      "type": "header",
+      "content": "Input Labels"
+    },
+    {
+      "type": "text",
+      "id": "width_label",
+      "label": "Width Input Label",
+      "default": "CABINETS WIDE"
+    },
+    {
+      "type": "text",
+      "id": "height_label",
+      "label": "Height Input Label",
+      "default": "CABINETS HIGH"
+    },
+    {
+      "type": "number",
+      "id": "default_width",
+      "label": "Default Width Value",
+      "default": 8
+    },
+    {
+      "type": "number",
+      "id": "default_height",
+      "label": "Default Height Value",
+      "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Result Labels"
+    },
+    {
+      "type": "text",
+      "id": "resolution_label",
+      "label": "Resolution Label",
+      "default": "Total Resolution:"
+    },
+    {
+      "type": "text",
+      "id": "default_resolution",
+      "label": "Default Resolution",
+      "default": "8,294,400 pixels"
+    },
+    {
+      "type": "text",
+      "id": "size_label",
+      "label": "Size Label",
+      "default": "Physical Size:"
+    },
+    {
+      "type": "text",
+      "id": "default_size",
+      "label": "Default Size",
+      "default": "15.75' × 8.86'"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_label",
+      "label": "Diagonal Label",
+      "default": "Diagonal:"
+    },
+    {
+      "type": "text",
+      "id": "default_diagonal",
+      "label": "Default Diagonal",
+      "default": "217\""
+    },
+    {
+      "type": "text",
+      "id": "cabinets_label",
+      "label": "Cabinets Label",
+      "default": "Total Cabinets:"
+    },
+    {
+      "type": "text",
+      "id": "default_cabinets",
+      "label": "Default Cabinets",
+      "default": "64 units"
+    },
+    {
+      "type": "text",
+      "id": "price_label",
+      "label": "Price Label",
+      "default": "Estimated Price:"
+    },
+    {
+      "type": "text",
+      "id": "default_price",
+      "label": "Default Price",
+      "default": "$148,000"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "quote_button_text",
+      "label": "Quote Button Text",
+      "default": "GET CUSTOM QUOTE"
+    },
+    {
+      "type": "url",
+      "id": "quote_button_link",
+      "label": "Quote Button Link"
+    },
+    {
+      "type": "text",
+      "id": "specs_button_text",
+      "label": "Specs Button Text",
+      "default": "GET LED SPECIFICATIONS"
+    },
+    {
+      "type": "url",
+      "id": "specs_button_link",
+      "label": "Specs Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Payment Section"
+    },
+    {
+      "type": "text",
+      "id": "payment_title",
+      "label": "Payment Title",
+      "default": "Flexible Payment Options Available"
+    },
+    {
+      "type": "text",
+      "id": "payment_info",
+      "label": "Payment Info",
+      "default": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted"
+    },
+    {
+      "type": "text",
+      "id": "payment_link_text",
+      "label": "Payment Link Text",
+      "default": "DISCUSS PAYMENT OPTIONS"
+    },
+    {
+      "type": "url",
+      "id": "payment_link",
+      "label": "Payment Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Config Builder"
+    }
+  ]
+}
+{% endschema %}
