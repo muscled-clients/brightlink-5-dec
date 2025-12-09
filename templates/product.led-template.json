@@ -789,6 +789,37 @@
         "filter_payment": "Payment",
         "filter_partnerships": "Partnerships"
       }
+    },
+    "contact_discussion_dimQrt": {
+      "type": "contact-discussion",
+      "name": "Contact Discussion",
+      "settings": {
+        "label": "READY TO TRANSFORM YOUR SPACE?",
+        "title": "Let's Discuss Your Project",
+        "subtitle": "Talk to our LED specialists about your specific requirements",
+        "call_title": "Call Us Now",
+        "phone_number": "855-449-4733",
+        "phone_availability": "Mon-Fri 7AM-5PM PST",
+        "call_button_text": "CALL NOW",
+        "email_title": "Email Our Team",
+        "email_address": "support@brightlinkav.com",
+        "email_response": "Same day response time",
+        "email_button_text": "SEND EMAIL",
+        "demo_title": "Schedule Demo",
+        "demo_subtitle": "See Pro Spectrum In Person",
+        "demo_info": "Virtual or in-person tours",
+        "demo_button_text": "BOOK APPOINTMENT",
+        "demo_button_link": "",
+        "feature1_title": "SINCE 2009",
+        "feature1_text": "Established Excellence",
+        "feature2_title": "4-YEAR WARRANTY",
+        "feature2_text": "Comprehensive Coverage",
+        "feature3_title": "LIFETIME SUPPORT",
+        "feature3_text": "Always Here to Help",
+        "feature4_title": "CERTIFIED",
+        "feature4_text": "CE, RoHS, FCC, ISO9001",
+        "footer_text": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
+      }
     }
   },
   "order": [
@@ -800,6 +831,7 @@
     "technical_specs_PMdgbW",
     "product_intelligence_J64aNM",
     "system_configuration_dkfCXB",
-    "knowledge_center_tRneHb"
+    "knowledge_center_tRneHb",
+    "contact_discussion_dimQrt"
   ]
 }
