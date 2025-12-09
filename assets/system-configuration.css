@@ -390,31 +390,8 @@
   text-align: center;
 }
 
-/* Image Box Container - dark rounded box for images */
-.system-configuration__card-image img {
-  max-width: 100%;
-  width: 100%;
-  height: auto;
-  min-height: 220px;
-  background: rgba(10, 18, 30, 0.8);
-  border: 1px solid rgba(52, 152, 219, 0.2);
-  border-radius: 12px;
-  padding: 25px;
-  margin-bottom: 15px;
-  object-fit: contain;
-}
-
-/* Cabinet Placeholder */
-.system-configuration__cabinet-placeholder {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-/* Cabinet Visual Box - dark rounded container */
-.system-configuration__cabinet-visual {
+/* Cabinet Images Box - dark rounded container for images */
+.system-configuration__cabinet-images-box {
   width: 100%;
   min-height: 220px;
   background: rgba(10, 18, 30, 0.8);
@@ -427,18 +404,28 @@
   justify-content: center;
 }
 
-.system-configuration__cabinet-module-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 6px;
-  width: 100%;
-  height: 100%;
+/* Images Row - two images side by side */
+.system-configuration__cabinet-images-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
-.system-configuration__cabinet-module {
+.system-configuration__cabinet-images-row img {
+  max-width: 120px;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+}
+
+/* Module Placeholder - when no images uploaded */
+.system-configuration__cabinet-module-placeholder {
+  width: 80px;
+  height: 160px;
   background: linear-gradient(135deg, rgba(20, 30, 50, 0.9) 0%, rgba(10, 15, 25, 0.9) 100%);
-  border: 1px solid rgba(52, 152, 219, 0.2);
-  border-radius: 3px;
+  border: 1px solid rgba(52, 152, 219, 0.25);
+  border-radius: 4px;
 }
 
 /* Labels below image box */

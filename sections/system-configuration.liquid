@@ -105,26 +105,35 @@
 
         <div class="system-configuration__card-body">
           <div class="system-configuration__card-image">
-            {% if section.settings.cabinet_image != blank %}
-              <img
-                src="{{ section.settings.cabinet_image | image_url: width: 300 }}"
-                alt="Individual Cabinet"
-                loading="lazy"
-              >
-            {% else %}
-              <div class="system-configuration__cabinet-placeholder">
-                <div class="system-configuration__cabinet-visual">
-                  <div class="system-configuration__cabinet-module-grid">
-                    <div class="system-configuration__cabinet-module"></div>
-                    <div class="system-configuration__cabinet-module"></div>
-                    <div class="system-configuration__cabinet-module"></div>
-                    <div class="system-configuration__cabinet-module"></div>
-                  </div>
+            <!-- Image Box Container -->
+            <div class="system-configuration__cabinet-images-box">
+              {% if section.settings.cabinet_image != blank or section.settings.cabinet_image_2 != blank %}
+                <div class="system-configuration__cabinet-images-row">
+                  {% if section.settings.cabinet_image != blank %}
+                    <img
+                      src="{{ section.settings.cabinet_image | image_url: width: 300 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                  {% if section.settings.cabinet_image_2 != blank %}
+                    <img
+                      src="{{ section.settings.cabinet_image_2 | image_url: width: 300 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
                 </div>
-                <span class="system-configuration__cabinet-label">4 COB Modules</span>
-                <span class="system-configuration__cabinet-sublabel">480 × 270 pixels per cabinet</span>
-              </div>
-            {% endif %}
+              {% else %}
+                <!-- Placeholder modules -->
+                <div class="system-configuration__cabinet-images-row">
+                  <div class="system-configuration__cabinet-module-placeholder"></div>
+                  <div class="system-configuration__cabinet-module-placeholder"></div>
+                </div>
+              {% endif %}
+            </div>
+            <span class="system-configuration__cabinet-label">{{ section.settings.cabinet_visual_label | default: '4 COB Modules' }}</span>
+            <span class="system-configuration__cabinet-sublabel">{{ section.settings.cabinet_visual_sublabel | default: '480 × 270 pixels per cabinet' }}</span>
           </div>
 
           <div class="system-configuration__specs-table">
@@ -347,7 +356,24 @@
     {
       "type": "image_picker",
       "id": "cabinet_image",
-      "label": "Cabinet Image"
+      "label": "Cabinet Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "cabinet_image_2",
+      "label": "Cabinet Image 2"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_visual_label",
+      "label": "Visual Label",
+      "default": "4 COB Modules"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_visual_sublabel",
+      "label": "Visual Sublabel",
+      "default": "480 × 270 pixels per cabinet"
     },
     {
       "type": "text",
