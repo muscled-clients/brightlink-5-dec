@@ -418,11 +418,11 @@
 }
 
 .system-configuration__cabinet-images-row img:first-child {
-  transform: translateX(30px);
+  transform: translateX(50px);
 }
 
 .system-configuration__cabinet-images-row img:last-child {
-  transform: translateX(-30px);
+  transform: translateX(-50px);
 }
 
 /* Module Placeholder - when no images uploaded */
