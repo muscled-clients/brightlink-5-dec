@@ -622,6 +622,173 @@
         "show_pattern": true,
         "custom_class": ""
       }
+    },
+    "knowledge_center_tRneHb": {
+      "type": "knowledge-center",
+      "blocks": {
+        "faq_category_VELwWJ": {
+          "type": "faq_category",
+          "settings": {
+            "title": "About Brightlink",
+            "category": "all",
+            "icon": "info",
+            "question_1": "How long has Brightlink been in business?",
+            "answer_1": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions to customers worldwide.",
+            "question_2": "What makes Brightlink different from competitors?",
+            "answer_2": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support.",
+            "question_3": "Where is Brightlink located and operated?",
+            "answer_3": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better.",
+            "question_4": "Does Brightlink have a physical showroom?",
+            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action and speak with our experts.",
+            "question_5": "Who are Brightlink's typical customers?",
+            "answer_5": "Our customers range from small businesses to large corporations, including retail stores, event venues, churches, and entertainment facilities.",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_kB4kAB": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Product & Technical",
+            "category": "product",
+            "icon": "monitor",
+            "question_1": "What types of LED displays does Brightlink offer?",
+            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions for various applications.",
+            "question_2": "What is the pixel pitch and why does it matter?",
+            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality for closer viewing distances.",
+            "question_3": "How long do Brightlink LED displays last?",
+            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance and care.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_tNq4Bc": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Installation & Setup",
+            "category": "support",
+            "icon": "tool",
+            "question_1": "Do you provide installation services?",
+            "answer_1": "Yes, we offer professional installation services to ensure your LED display is set up correctly and optimally.",
+            "question_2": "What are the power requirements?",
+            "answer_2": "Power requirements vary by display size and model. Our team will provide specific requirements during the consultation process.",
+            "question_3": "How long does installation take?",
+            "answer_3": "Installation time depends on the project scope, but most standard installations can be completed within 1-3 days.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_aN3jMn": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Support & Warranty",
+            "category": "support",
+            "icon": "headphones",
+            "question_1": "What warranty do you offer?",
+            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years depending on the product line.",
+            "question_2": "How do I get technical support?",
+            "answer_2": "Our technical support team is available via phone, email, and live chat to assist with any issues or questions.",
+            "question_3": "Do you offer on-site support?",
+            "answer_3": "Yes, we provide on-site support services for complex issues that cannot be resolved remotely.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_d4nnQy": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Shipping & Delivery",
+            "category": "shipping",
+            "icon": "truck",
+            "question_1": "How long does shipping take?",
+            "answer_1": "Shipping times vary based on location and product availability. Standard delivery is typically 2-4 weeks for custom orders.",
+            "question_2": "Do you ship internationally?",
+            "answer_2": "Yes, we ship to most countries worldwide. International shipping times and costs vary by destination.",
+            "question_3": "How is the product packaged for shipping?",
+            "answer_3": "All products are carefully packaged in protective materials and custom crating to ensure safe delivery.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_KXQCe9": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Payment & Financing",
+            "category": "payment",
+            "icon": "credit-card",
+            "question_1": "What payment methods do you accept?",
+            "answer_1": "We accept major credit cards, bank transfers, and various financing options for qualified customers.",
+            "question_2": "Do you offer financing options?",
+            "answer_2": "Yes, we offer flexible financing plans to help make your LED display investment more manageable.",
+            "question_3": "Is a deposit required?",
+            "answer_3": "A deposit is typically required for custom orders. The amount varies based on the project scope.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_dkXNzc": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Business & Partnerships",
+            "category": "partnerships",
+            "icon": "handshake",
+            "question_1": "Do you offer reseller programs?",
+            "answer_1": "Yes, we have partnership programs for resellers and integrators. Contact us for more information.",
+            "question_2": "Can I become a Brightlink dealer?",
+            "answer_2": "We welcome qualified dealers to join our network. Please reach out to our partnership team for requirements.",
+            "question_3": "Do you offer bulk discounts?",
+            "answer_3": "Yes, we offer competitive pricing for bulk orders and long-term partnership agreements.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_category_VELwWJ",
+        "faq_category_kB4kAB",
+        "faq_category_tNq4Bc",
+        "faq_category_aN3jMn",
+        "faq_category_d4nnQy",
+        "faq_category_KXQCe9",
+        "faq_category_dkXNzc"
+      ],
+      "name": "Knowledge Center",
+      "settings": {
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum",
+        "search_placeholder": "Search for answers...",
+        "filter_all": "All",
+        "filter_product": "Product",
+        "filter_support": "Support",
+        "filter_shipping": "Shipping",
+        "filter_payment": "Payment",
+        "filter_partnerships": "Partnerships"
+      }
     }
   },
   "order": [
@@ -632,6 +799,7 @@
     "competitive_advantages_i6KCgz",
     "technical_specs_PMdgbW",
     "product_intelligence_J64aNM",
-    "system_configuration_dkfCXB"
+    "system_configuration_dkfCXB",
+    "knowledge_center_tRneHb"
   ]
 }
