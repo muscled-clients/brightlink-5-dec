@@ -167,20 +167,29 @@
         </div>
 
         <div class="system-configuration__card-body">
-          <!-- Lock Visual -->
-          <div class="system-configuration__lock-visual">
-            <div class="system-configuration__lock-icon-large">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
-              </svg>
-              <span class="system-configuration__lock-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+          <!-- Connection Image/Visual Area -->
+          <div class="system-configuration__card-image">
+            {% if section.settings.connection_image != blank %}
+              <img
+                src="{{ section.settings.connection_image | image_url: width: 300 }}"
+                alt="Cabinet Connection"
+                loading="lazy"
+              >
+            {% else %}
+              <!-- Lock Visual Placeholder -->
+              <div class="system-configuration__lock-icon-large">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
                 </svg>
-              </span>
-            </div>
-            <span class="system-configuration__lock-label">Quick Connect Locking</span>
-            <span class="system-configuration__lock-sublabel">Tool-free installation system</span>
+                <span class="system-configuration__lock-badge">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+                    <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                  </svg>
+                </span>
+              </div>
+            {% endif %}
+            <span class="system-configuration__cabinet-label">{{ section.settings.connection_visual_label }}</span>
+            <span class="system-configuration__cabinet-sublabel">{{ section.settings.connection_visual_sublabel }}</span>
           </div>
 
           <!-- Features List -->
@@ -192,8 +201,8 @@
                 </svg>
               </div>
               <div class="system-configuration__feature-text">
-                <span class="system-configuration__feature-title">Precision Alignment</span>
-                <span class="system-configuration__feature-desc">Self-aligning mechanical system ensures perfect cabinet registration</span>
+                <span class="system-configuration__feature-title">{{ section.settings.feature_1_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_1_desc }}</span>
               </div>
             </div>
 
@@ -204,8 +213,8 @@
                 </svg>
               </div>
               <div class="system-configuration__feature-text">
-                <span class="system-configuration__feature-title">Secure Locking</span>
-                <span class="system-configuration__feature-desc">Patented quick-release mechanism with safety lock indicators</span>
+                <span class="system-configuration__feature-title">{{ section.settings.feature_2_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_2_desc }}</span>
               </div>
             </div>
 
@@ -216,8 +225,8 @@
                 </svg>
               </div>
               <div class="system-configuration__feature-text">
-                <span class="system-configuration__feature-title">Hot-Swappable</span>
-                <span class="system-configuration__feature-desc">Replace cabinets without powering down the entire system</span>
+                <span class="system-configuration__feature-title">{{ section.settings.feature_3_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_3_desc }}</span>
               </div>
             </div>
 
@@ -228,8 +237,8 @@
                 </svg>
               </div>
               <div class="system-configuration__feature-text">
-                <span class="system-configuration__feature-title">Cable Management</span>
-                <span class="system-configuration__feature-desc">Integrated routing channels for clean professional installations</span>
+                <span class="system-configuration__feature-title">{{ section.settings.feature_4_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_4_desc }}</span>
               </div>
             </div>
           </div>
@@ -387,6 +396,11 @@
       "content": "Connection Detail Card"
     },
     {
+      "type": "image_picker",
+      "id": "connection_image",
+      "label": "Connection Image"
+    },
+    {
       "type": "text",
       "id": "connection_title",
       "label": "Connection Title",
@@ -397,6 +411,70 @@
       "id": "connection_subtitle",
       "label": "Connection Subtitle",
       "default": "Quick Connect locking mechanism"
+    },
+    {
+      "type": "text",
+      "id": "connection_visual_label",
+      "label": "Visual Label",
+      "default": "Quick Connect Locking"
+    },
+    {
+      "type": "text",
+      "id": "connection_visual_sublabel",
+      "label": "Visual Sublabel",
+      "default": "Tool-free installation system"
+    },
+    {
+      "type": "header",
+      "content": "Connection Features"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "Precision Alignment"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_desc",
+      "label": "Feature 1 Description",
+      "default": "Self-aligning mechanical system ensures perfect cabinet registration"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Secure Locking"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_desc",
+      "label": "Feature 2 Description",
+      "default": "Patented quick-release mechanism with safety lock indicators"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "Hot-Swappable"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_desc",
+      "label": "Feature 3 Description",
+      "default": "Replace cabinets without powering down the entire system"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_title",
+      "label": "Feature 4 Title",
+      "default": "Cable Management"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_desc",
+      "label": "Feature 4 Description",
+      "default": "Integrated routing channels for clean professional installations"
     },
     {
       "type": "header",

@@ -478,18 +478,10 @@
 .system-configuration__card--connection .system-configuration__card-body {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
-/* Lock Visual */
-.system-configuration__lock-visual {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 10px 0;
-}
-
+/* Lock Icon Placeholder (for connection card when no image) */
 .system-configuration__lock-icon-large {
   position: relative;
   width: 80px;
@@ -526,18 +518,6 @@
   width: 14px;
   height: 14px;
   fill: #ffffff;
-}
-
-.system-configuration__lock-label {
-  font-size: 13px;
-  font-weight: 600;
-  color: #3498db;
-  margin-bottom: 4px;
-}
-
-.system-configuration__lock-sublabel {
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Features List */
