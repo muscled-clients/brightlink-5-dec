@@ -161,7 +161,7 @@
 .applications-tabs__left {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0;
 }
 
 .applications-tabs__image-wrapper {
@@ -181,7 +181,7 @@
   background: linear-gradient(135deg, #4a1a1a 0%, #2a0d0d 100%);
   border: 1px solid rgba(100, 60, 60, 0.3);
   border-radius: 8px;
-  min-height: 320px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -251,27 +251,27 @@
   border: none;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 0;
-  padding: 20px 0 0 0;
-  margin-top: 15px;
+  padding: 15px 0 0 0;
+  margin-top: 0;
 }
 
 .applications-tabs__config-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 18px;
+  margin: 0 0 12px;
 }
 
 .applications-tabs__config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px 30px;
+  gap: 10px 20px;
 }
 
 .applications-tabs__config-row {
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .applications-tabs__config-label {
