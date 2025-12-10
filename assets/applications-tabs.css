@@ -153,7 +153,7 @@
 
 .applications-tabs__panel-content {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1.3fr 1fr;
   gap: 50px;
   align-items: start;
 }
