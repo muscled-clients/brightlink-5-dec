@@ -153,8 +153,8 @@
 
 .applications-tabs__panel-content {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 40px;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
   align-items: start;
 }
 
@@ -181,7 +181,7 @@
   background: linear-gradient(135deg, #4a1a1a 0%, #2a0d0d 100%);
   border: 1px solid rgba(100, 60, 60, 0.3);
   border-radius: 8px;
-  min-height: 280px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
