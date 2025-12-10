@@ -523,25 +523,6 @@
             "tab_title": "Support & Resources",
             "tab_icon": "support"
           }
-        },
-        "tab_JgKfjx": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Support & Resources",
-            "tab_icon": "support",
-            "tab_content": "<p><strong>Customer Support:</strong></p><p>• Phone: 855-449-4733<br>• Email: support@brightlink.com<br>• Live Chat: Available 24/7</p><p><strong>Resources:</strong></p><p>• Download User Manual (PDF)<br>• Video Tutorials<br>• FAQ Section<br>• Warranty Registration</p>",
-            "read_more_link": "",
-            "show_features": false,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "855-449-4733",
-            "feature_2_icon": "support",
-            "feature_3_title": "5% Spare Parts",
-            "feature_3_desc": "Included standard",
-            "feature_3_icon": "parts"
-          }
         }
       },
       "block_order": [
@@ -550,8 +531,7 @@
         "features_tab_Pr9hhX",
         "included_tab_JVPfy4",
         "installation_tab_YqJpyX",
-        "support_tab_KKHkKq",
-        "tab_JgKfjx"
+        "support_tab_KKHkKq"
       ],
       "name": "Product Intelligence",
       "settings": {
