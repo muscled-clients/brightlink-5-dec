@@ -56,7 +56,8 @@
               <div class="applications-tabs__left">
                 {% if block.settings.image != blank %}
                   <div class="applications-tabs__image-wrapper">
-                    <img src="{{ block.settings.image | img_url: '600x' }}" alt="{{ block.settings.heading }}" class="applications-tabs__image" loading="lazy">
+                    {%- assign img_url = block.settings.image | img_url: '600x' -%}
+                    <img src="{{ img_url }}" alt="{{ block.settings.heading }}" class="applications-tabs__image" loading="lazy">
                     <div class="applications-tabs__stats-overlay">
                       <div class="applications-tabs__stat-item">
                         <span class="applications-tabs__stat-label">{{ block.settings.stat1_label | default: 'View Distance' }}</span>
