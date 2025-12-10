@@ -178,21 +178,44 @@
 
 .applications-tabs__image-placeholder {
   position: relative;
-  background: linear-gradient(135deg, #1a2a3a 0%, #0d1a2a 100%);
-  border: 1px solid rgba(60, 100, 140, 0.3);
-  border-radius: 10px;
-  min-height: 200px;
+  background: linear-gradient(135deg, #4a1a1a 0%, #2a0d0d 100%);
+  border: 1px solid rgba(100, 60, 60, 0.3);
+  border-radius: 8px;
+  min-height: 280px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.applications-tabs__image-placeholder::before {
+  content: '';
+  width: 60px;
+  height: 60px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff' opacity='0.15'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.15;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -70%);
 }
 
 .applications-tabs__stats-overlay {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 30px;
   width: 100%;
-  padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 10px 10px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 8px 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .applications-tabs__image-wrapper .applications-tabs__stats-overlay {
@@ -203,14 +226,14 @@
 }
 
 .applications-tabs__stat-item {
-  text-align: center;
+  text-align: left;
 }
 
 .applications-tabs__stat-label {
   display: block;
   font-size: 10px;
   font-weight: 500;
-  color: #3498db;
+  color: #e74c3c;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
@@ -218,47 +241,49 @@
 
 .applications-tabs__stat-value {
   display: block;
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   color: #ffffff;
 }
 
 .applications-tabs__config-card {
-  background: rgba(15, 25, 35, 0.8);
-  border: 1px solid rgba(60, 100, 140, 0.3);
-  border-radius: 10px;
-  padding: 20px;
+  background: transparent;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  padding: 20px 0 0 0;
+  margin-top: 15px;
 }
 
 .applications-tabs__config-title {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  margin: 0 0 15px;
+  margin: 0 0 18px;
 }
 
 .applications-tabs__config-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  gap: 16px 30px;
 }
 
 .applications-tabs__config-row {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
 }
 
 .applications-tabs__config-label {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .applications-tabs__config-value {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .applications-tabs__right {
@@ -375,8 +400,12 @@
   }
 
   .applications-tabs__stats-overlay {
-    flex-direction: row;
-    gap: 15px;
+    gap: 20px;
+  }
+
+  .applications-tabs__config-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
   }
 }
 
@@ -408,12 +437,20 @@
   }
 
   .applications-tabs__stats-overlay {
-    flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
+    padding: 12px 15px;
   }
 
-  .applications-tabs__stat-item {
-    flex: 1;
-    min-width: 80px;
+  .applications-tabs__stat-label {
+    font-size: 9px;
+  }
+
+  .applications-tabs__stat-value {
+    font-size: 12px;
+  }
+
+  .applications-tabs__config-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 15px;
   }
 }
