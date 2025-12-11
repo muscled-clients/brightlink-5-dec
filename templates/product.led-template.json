@@ -980,6 +980,23 @@
         "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
         "badge_text": "Authorized NovaStar Partner"
       }
+    },
+    "custom_config_builder_NULhPQ": {
+      "type": "custom-config-builder",
+      "name": "Custom Config Builder",
+      "settings": {
+        "label": "CONFIGURATION TOOL",
+        "title": "Custom Configuration Builder",
+        "subtitle": "Configure your perfect LED display setup",
+        "quote_button_text": "GET CUSTOM QUOTE",
+        "quote_button_link": "",
+        "specs_button_text": "GET LED SPECIFICATIONS",
+        "specs_button_link": "",
+        "payment_title": "Flexible Payment Options Available",
+        "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
+        "payment_link_text": "DISCUSS PAYMENT OPTIONS",
+        "payment_link": ""
+      }
     }
   },
   "order": [
@@ -992,6 +1009,7 @@
     "product_intelligence_J64aNM",
     "system_configuration_dkfCXB",
     "applications_tabs_7JFAjQ",
-    "controller_tabs_h78LxC"
+    "controller_tabs_h78LxC",
+    "custom_config_builder_NULhPQ"
   ]
 }
