@@ -25,66 +25,23 @@
 
     <!-- Main Visual Area -->
     <div class="system-configuration__visual">
-      <!-- Top Metric - Width (outside card) -->
-      <div class="system-configuration__metric system-configuration__metric--top">
-        <div class="system-configuration__metric-info">
-          <span class="system-configuration__metric-label">{{ section.settings.width_label }}</span>
-          <span class="system-configuration__metric-value">{{ section.settings.width_value }}</span>
+      {% if section.settings.display_image != blank %}
+        <img
+          src="{{ section.settings.display_image | image_url: width: 1200 }}"
+          alt="LED Video Wall Configuration"
+          class="system-configuration__display-image"
+          loading="lazy"
+        >
+      {% else %}
+        <div class="system-configuration__display-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>Upload Display Image</span>
         </div>
-      </div>
-
-      <!-- Blueprint Card Container -->
-      <div class="system-configuration__blueprint-wrapper">
-        <!-- Blueprint Card/Box with LED Wall inside -->
-        <div class="system-configuration__blueprint">
-          <!-- Corner Markers -->
-          <div class="system-configuration__corner system-configuration__corner--tl"></div>
-          <div class="system-configuration__corner system-configuration__corner--tr"></div>
-          <div class="system-configuration__corner system-configuration__corner--bl"></div>
-          <div class="system-configuration__corner system-configuration__corner--br"></div>
-
-          <!-- Grid Lines -->
-          <div class="system-configuration__grid-lines"></div>
-
-          <!-- LED Wall Display (inside the card) -->
-          <div class="system-configuration__display">
-            {% if section.settings.display_image != blank %}
-              <img
-                src="{{ section.settings.display_image | image_url: width: 800 }}"
-                alt="LED Video Wall Configuration"
-                class="system-configuration__display-image"
-                loading="lazy"
-              >
-            {% else %}
-              <div class="system-configuration__display-placeholder">
-                <div class="system-configuration__led-grid">
-                  {% for row in (1..8) %}
-                    <div class="system-configuration__led-row">
-                      {% for col in (1..8) %}
-                        <div class="system-configuration__led-cabinet"></div>
-                      {% endfor %}
-                    </div>
-                  {% endfor %}
-                </div>
-              </div>
-            {% endif %}
-          </div>
-        </div>
-
-        <!-- Right Metric - Height (positioned outside on the right) -->
-        <div class="system-configuration__metric system-configuration__metric--right">
-          <div class="system-configuration__metric-info">
-            <span class="system-configuration__metric-label">{{ section.settings.height_label }}</span>
-            <span class="system-configuration__metric-value">{{ section.settings.height_value }}</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Bottom Metric - Diagonal -->
-      <div class="system-configuration__metric system-configuration__metric--bottom">
-        <span class="system-configuration__metric-diagonal">{{ section.settings.diagonal_value }}</span>
-        <span class="system-configuration__metric-pixels">{{ section.settings.pixels_value }}</span>
-      </div>
+      {% endif %}
     </div>
 
     <!-- Detail Cards Section -->
@@ -317,42 +274,6 @@
       "type": "image_picker",
       "id": "display_image",
       "label": "LED Wall Image"
-    },
-    {
-      "type": "text",
-      "id": "width_label",
-      "label": "Width Label",
-      "default": "8 CABINETS WIDE"
-    },
-    {
-      "type": "text",
-      "id": "width_value",
-      "label": "Width Value",
-      "default": "4,800mm (15.75 feet)"
-    },
-    {
-      "type": "text",
-      "id": "height_label",
-      "label": "Height Label",
-      "default": "8 CABINETS HIGH"
-    },
-    {
-      "type": "text",
-      "id": "height_value",
-      "label": "Height Value",
-      "default": "2,700mm (8.86 feet)"
-    },
-    {
-      "type": "text",
-      "id": "diagonal_value",
-      "label": "Diagonal Value",
-      "default": "217\" DIAGONAL"
-    },
-    {
-      "type": "text",
-      "id": "pixels_value",
-      "label": "Pixels Value",
-      "default": "8,294,400 TOTAL PIXELS"
     },
     {
       "type": "header",
