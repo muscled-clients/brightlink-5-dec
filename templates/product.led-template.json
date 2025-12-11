@@ -603,6 +603,26 @@
         "custom_class": ""
       }
     },
+    "experience_scale_NBgJny": {
+      "type": "experience-scale",
+      "name": "Experience Scale",
+      "settings": {
+        "label": "IMMERSIVE DISPLAY",
+        "title": "Experience the Scale",
+        "subtitle": "217 inches of immersive visual excellence",
+        "metric1_value": "36x",
+        "metric1_label": "Larger",
+        "metric1_desc": "than a typical 65\" TV",
+        "metric2_value": "4x",
+        "metric2_label": "Equivalent",
+        "metric2_desc": "to 17' diagonal display",
+        "metric3_value": "141",
+        "metric3_label": "sq ft",
+        "metric3_desc": "of visual real estate",
+        "cta_text": "Configure Your Display",
+        "cta_link": ""
+      }
+    },
     "applications_tabs_7JFAjQ": {
       "type": "applications-tabs",
       "blocks": {
@@ -1008,6 +1028,7 @@
     "technical_specs_PMdgbW",
     "product_intelligence_J64aNM",
     "system_configuration_dkfCXB",
+    "experience_scale_NBgJny",
     "applications_tabs_7JFAjQ",
     "controller_tabs_h78LxC",
     "custom_config_builder_NULhPQ"
