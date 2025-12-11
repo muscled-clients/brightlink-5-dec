@@ -106,34 +106,6 @@
   font-weight: 500;
 }
 
-.experience-scale__tv-comparison {
-  position: absolute;
-  bottom: 60px;
-  left: 50px;
-}
-
-.experience-scale__tv-icon {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  padding: 10px 15px;
-  background: rgba(10, 14, 23, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.experience-scale__tv-icon svg {
-  opacity: 0.8;
-}
-
-.experience-scale__tv-icon span {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
 .experience-scale__metrics {
   display: flex;
   justify-content: center;
@@ -261,19 +233,6 @@
     min-height: 250px;
   }
 
-  .experience-scale__tv-comparison {
-    bottom: 50px;
-    left: 25px;
-  }
-
-  .experience-scale__tv-icon {
-    padding: 8px 12px;
-  }
-
-  .experience-scale__tv-icon span {
-    font-size: 10px;
-  }
-
   .experience-scale__metrics {
     flex-direction: column;
     border-radius: 10px;
@@ -305,13 +264,6 @@
   .experience-scale__image-wrapper {
     padding: 20px;
     min-height: 200px;
-  }
-
-  .experience-scale__tv-comparison {
-    position: static;
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
   }
 
   .experience-scale__metric {
