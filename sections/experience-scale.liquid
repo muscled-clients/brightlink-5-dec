@@ -36,18 +36,6 @@
           </div>
         {% endif %}
 
-        <div class="experience-scale__dimensions">
-          <div class="experience-scale__dimension experience-scale__dimension--width">
-            <span class="experience-scale__dimension-line"></span>
-            <span class="experience-scale__dimension-value">{{ section.settings.width_text | default: "17.5' wide" }}</span>
-            <span class="experience-scale__dimension-line"></span>
-          </div>
-          <div class="experience-scale__dimension experience-scale__dimension--height">
-            <span class="experience-scale__dimension-line"></span>
-            <span class="experience-scale__dimension-value">{{ section.settings.height_text | default: "8.6' tall" }}</span>
-            <span class="experience-scale__dimension-line"></span>
-          </div>
-        </div>
 
         <div class="experience-scale__tv-comparison">
           <div class="experience-scale__tv-icon">
@@ -130,18 +118,6 @@
       "type": "image_picker",
       "id": "image",
       "label": "Display Image"
-    },
-    {
-      "type": "text",
-      "id": "width_text",
-      "label": "Width Text",
-      "default": "17.5' wide"
-    },
-    {
-      "type": "text",
-      "id": "height_text",
-      "label": "Height Text",
-      "default": "8.6' tall"
     },
     {
       "type": "text",

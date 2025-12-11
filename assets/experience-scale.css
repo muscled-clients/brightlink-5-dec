@@ -106,57 +106,6 @@
   font-weight: 500;
 }
 
-.experience-scale__dimensions {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.experience-scale__dimension {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.experience-scale__dimension--width {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  justify-content: center;
-}
-
-.experience-scale__dimension--height {
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%) rotate(-90deg);
-  transform-origin: center center;
-  width: 60%;
-  justify-content: center;
-}
-
-.experience-scale__dimension-line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.5) 20%, rgba(59, 130, 246, 0.5) 80%, transparent 100%);
-}
-
-.experience-scale__dimension-value {
-  font-size: 14px;
-  font-weight: 600;
-  color: #3b82f6;
-  white-space: nowrap;
-  padding: 4px 12px;
-  background: rgba(10, 14, 23, 0.9);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: 4px;
-}
-
 .experience-scale__tv-comparison {
   position: absolute;
   bottom: 60px;
@@ -312,21 +261,6 @@
     min-height: 250px;
   }
 
-  .experience-scale__dimension--width {
-    bottom: 10px;
-    width: 90%;
-  }
-
-  .experience-scale__dimension--height {
-    right: 10px;
-    width: 50%;
-  }
-
-  .experience-scale__dimension-value {
-    font-size: 12px;
-    padding: 3px 8px;
-  }
-
   .experience-scale__tv-comparison {
     bottom: 50px;
     left: 25px;
@@ -371,11 +305,6 @@
   .experience-scale__image-wrapper {
     padding: 20px;
     min-height: 200px;
-  }
-
-  .experience-scale__dimension--width,
-  .experience-scale__dimension--height {
-    display: none;
   }
 
   .experience-scale__tv-comparison {
