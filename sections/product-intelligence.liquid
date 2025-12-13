@@ -1,8 +1,11 @@
 {{ 'product-intelligence.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="product-intelligence {{ section.settings.custom_class }}" id="product-intelligence-{{ section.id }}">
   <!-- Hexagonal Pattern Overlay -->
-  <div class="product-intelligence__pattern"></div>
+  {% if section.settings.show_pattern %}
+    {% render 'hexagon-pattern' %}
+  {% endif %}
 
   <div class="product-intelligence__container">
     <!-- Header -->

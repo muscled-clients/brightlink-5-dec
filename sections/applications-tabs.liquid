@@ -1,7 +1,8 @@
 {{ 'applications-tabs.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="applications-tabs" id="applications-tabs">
-  <div class="applications-tabs__pattern"></div>
+  {% render 'hexagon-pattern' %}
 
   <div class="applications-tabs__container">
     <div class="applications-tabs__header">

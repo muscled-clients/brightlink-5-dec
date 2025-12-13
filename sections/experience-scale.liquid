@@ -1,9 +1,8 @@
 {{ 'experience-scale.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="experience-scale" id="experience-scale">
-  <div class="experience-scale__background">
-    <div class="experience-scale__hex-pattern"></div>
-  </div>
+  {% render 'hexagon-pattern' %}
 
   <div class="experience-scale__container">
     <div class="experience-scale__header">

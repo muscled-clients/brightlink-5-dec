@@ -1,9 +1,8 @@
 {{ 'custom-config-builder.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="custom-config" id="custom-config">
-  <div class="custom-config__background">
-    <div class="custom-config__hex-pattern"></div>
-  </div>
+  {% render 'hexagon-pattern' %}
 
   <div class="custom-config__container">
     <div class="custom-config__header">

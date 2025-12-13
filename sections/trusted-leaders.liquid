@@ -1,8 +1,11 @@
 {{ 'trusted-leaders.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="trusted-leaders {{ section.settings.custom_class }}" id="trusted-leaders-{{ section.id }}">
   <!-- Hexagonal Pattern Overlay -->
-  <div class="trusted-leaders__pattern"></div>
+  {% if section.settings.show_pattern %}
+    {% render 'hexagon-pattern' %}
+  {% endif %}
 
   <div class="trusted-leaders__container">
     <!-- Heading -->
@@ -212,9 +215,4 @@
     --tl-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
-  {% unless section.settings.show_pattern %}
-  #trusted-leaders-{{ section.id }} .trusted-leaders__pattern {
-    display: none;
-  }
-  {% endunless %}
 </style>

@@ -1,8 +1,11 @@
 {{ 'technical-specs.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="technical-specs {{ section.settings.custom_class }}" id="technical-specs-{{ section.id }}">
   <!-- Hexagonal Pattern Overlay -->
-  <div class="technical-specs__pattern"></div>
+  {% if section.settings.show_pattern %}
+    {% render 'hexagon-pattern' %}
+  {% endif %}
 
   <div class="technical-specs__container">
     <!-- Header -->

@@ -1,7 +1,8 @@
 {{ 'controller-tabs.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="controller-tabs" id="controller-tabs">
-  <div class="controller-tabs__pattern"></div>
+  {% render 'hexagon-pattern' %}
 
   <div class="controller-tabs__container">
     <div class="controller-tabs__header">

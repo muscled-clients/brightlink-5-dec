@@ -1,0 +1,64 @@
+{% comment %}
+  Hexagon Pattern Background
+  Usage: {% render 'hexagon-pattern' %}
+  Optional: {% render 'hexagon-pattern', id: 'unique-id' %}
+{% endcomment %}
+
+<div class="hexagon-grid" id="hexGrid-{{ id | default: section.id }}"></div>
+<div class="hex-overlay"></div>
+
+<script>
+(function() {
+  const gridId = 'hexGrid-{{ id | default: section.id }}';
+  const grid = document.getElementById(gridId);
+
+  if (!grid || grid.dataset.initialized) return;
+  grid.dataset.initialized = 'true';
+
+  const rows = 20;
+  const hexPerRow = 25;
+
+  // Pattern definition
+  // 0 = subtle outline, 1 = filled, 2 = blue glow, 3 = strong blue glow, 4 = gold glow
+  const patterns = [
+    [0, 0, 2, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 0],
+    [0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0],
+    [1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0],
+    [0, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0],
+    [0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1]
+  ];
+
+  for (let i = 0; i < rows; i++) {
+    const row = document.createElement('div');
+    row.className = 'hex-row';
+
+    const patternRow = patterns[i % patterns.length];
+
+    for (let j = 0; j < hexPerRow; j++) {
+      const hex = document.createElement('div');
+      hex.className = 'hexagon';
+
+      const patternValue = patternRow[j % patternRow.length];
+
+      switch(patternValue) {
+        case 1:
+          hex.classList.add('filled');
+          break;
+        case 2:
+          hex.classList.add('glow');
+          break;
+        case 3:
+          hex.classList.add('glow-strong');
+          break;
+        case 4:
+          hex.classList.add('glow-gold');
+          break;
+      }
+
+      row.appendChild(hex);
+    }
+
+    grid.appendChild(row);
+  }
+})();
+</script>

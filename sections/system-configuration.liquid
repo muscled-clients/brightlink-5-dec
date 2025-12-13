@@ -1,4 +1,5 @@
 {{ 'system-configuration.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section
   id="system-configuration-{{ section.id }}"
@@ -6,7 +7,7 @@
 >
   <!-- Hexagonal Pattern Overlay -->
   {% if section.settings.show_pattern %}
-    <div class="system-configuration__pattern"></div>
+    {% render 'hexagon-pattern' %}
   {% endif %}
 
   <div class="system-configuration__container">
