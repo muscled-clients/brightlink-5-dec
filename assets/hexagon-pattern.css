@@ -1,12 +1,27 @@
 /* Hexagon Pattern Background */
 
+/* Ensure sections don't clip the hexagon pattern */
+.trusted-leaders,
+.product-showcase,
+.competitive-advantages,
+.technical-specs,
+.product-intelligence,
+.system-configuration,
+.experience-scale,
+.applications-tabs,
+.controller-tabs,
+.custom-config-builder {
+  overflow: visible !important;
+  position: relative;
+}
+
 .hexagon-grid {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200vw;
-  height: 200vh;
+  width: 250vw;
+  height: 250vh;
   z-index: 0;
   pointer-events: none;
 }
