@@ -1,16 +1,24 @@
 {{ 'applications-tabs.css' | asset_url | stylesheet_tag }}
 {{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign apps_data = led_data.applications %}
+
 <section class="applications-tabs" id="applications-tabs">
   {% render 'hexagon-pattern' %}
 
   <div class="applications-tabs__container">
+    <!-- Header - Use metafield data if available, otherwise use section settings -->
+    {% assign apps_title = apps_data.title | default: section.settings.title | default: 'Built for Every Environment' %}
+    {% assign apps_description = apps_data.description | default: section.settings.subtitle | default: 'From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings' %}
+
     <div class="applications-tabs__header">
       {% if section.settings.label != blank %}
         <span class="applications-tabs__label">{{ section.settings.label }}</span>
       {% endif %}
-      <h2 class="applications-tabs__heading">{{ section.settings.title | default: 'Built for Every Environment' }}</h2>
-      <p class="applications-tabs__subheading">{{ section.settings.subtitle | default: 'From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings' }}</p>
+      <h2 class="applications-tabs__heading">{{ apps_title }}</h2>
+      <p class="applications-tabs__subheading">{{ apps_description }}</p>
     </div>
 
     <div class="applications-tabs__content">

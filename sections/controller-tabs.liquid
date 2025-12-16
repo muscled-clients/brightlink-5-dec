@@ -1,16 +1,24 @@
 {{ 'controller-tabs.css' | asset_url | stylesheet_tag }}
 {{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign controller_data = led_data.controller %}
+
 <section class="controller-tabs" id="controller-tabs">
   {% render 'hexagon-pattern' %}
 
   <div class="controller-tabs__container">
+    <!-- Header - Use metafield data if available, otherwise use section settings -->
+    {% assign ctrl_title = controller_data.title | default: section.settings.title %}
+    {% assign ctrl_description = controller_data.description | default: section.settings.subtitle %}
+
     <div class="controller-tabs__header">
       {% if section.settings.label != blank %}
         <span class="controller-tabs__label">{{ section.settings.label }}</span>
       {% endif %}
-      <h2 class="controller-tabs__heading">{{ section.settings.title }}</h2>
-      <p class="controller-tabs__subheading">{{ section.settings.subtitle }}</p>
+      <h2 class="controller-tabs__heading">{{ ctrl_title }}</h2>
+      <p class="controller-tabs__subheading">{{ ctrl_description }}</p>
 
       {% if section.settings.badge_text != blank %}
         <div class="controller-tabs__badge">

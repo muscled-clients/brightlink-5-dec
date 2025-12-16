@@ -1,6 +1,10 @@
 {{ 'experience-scale.css' | asset_url | stylesheet_tag }}
 {{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign scale_data = led_data.experience_scale %}
+
 <section class="experience-scale" id="experience-scale">
   {% render 'hexagon-pattern' %}
 
@@ -39,22 +43,33 @@
       </div>
     </div>
 
+    <!-- Metrics - Use metafield data if available, otherwise use section settings -->
     <div class="experience-scale__metrics">
-      <div class="experience-scale__metric">
-        <span class="experience-scale__metric-value">{{ section.settings.metric1_value | default: '36x' }}</span>
-        <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
-        <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
-      </div>
-      <div class="experience-scale__metric">
-        <span class="experience-scale__metric-value">{{ section.settings.metric2_value | default: '4x' }}</span>
-        <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
-        <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
-      </div>
-      <div class="experience-scale__metric">
-        <span class="experience-scale__metric-value">{{ section.settings.metric3_value | default: '141' }}</span>
-        <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
-        <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
-      </div>
+      {% if scale_data.metrics.size > 0 %}
+        {% for metric in scale_data.metrics %}
+          <div class="experience-scale__metric">
+            <span class="experience-scale__metric-value">{{ metric.value }}</span>
+            <span class="experience-scale__metric-label">{{ metric.label }}</span>
+            <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="experience-scale__metric">
+          <span class="experience-scale__metric-value">{{ section.settings.metric1_value | default: '36x' }}</span>
+          <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
+          <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
+        </div>
+        <div class="experience-scale__metric">
+          <span class="experience-scale__metric-value">{{ section.settings.metric2_value | default: '4x' }}</span>
+          <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
+          <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
+        </div>
+        <div class="experience-scale__metric">
+          <span class="experience-scale__metric-value">{{ section.settings.metric3_value | default: '141' }}</span>
+          <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
+          <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
+        </div>
+      {% endif %}
     </div>
 
     {% if section.settings.cta_text != blank %}

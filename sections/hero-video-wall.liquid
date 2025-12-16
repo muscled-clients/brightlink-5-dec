@@ -1,5 +1,14 @@
 {{ 'hero-video-wall.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign hero_data = led_data.hero %}
+
+{% comment %} Use metafield data with fallback to section settings {% endcomment %}
+{% assign series_label = hero_data.series_label | default: section.settings.series_label %}
+{% assign tagline = hero_data.tagline | default: section.settings.subheading %}
+{% assign description = hero_data.description | default: section.settings.description %}
+
 <section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
   <!-- Background Video -->
   <div class="hero-video-wall__video-container">
@@ -20,23 +29,25 @@
   <!-- Content -->
   <div class="hero-video-wall__content">
     <!-- Series Label -->
-    {% if section.settings.series_label != blank %}
-      <p class="hero-video-wall__series-label">{{ section.settings.series_label }}</p>
+    {% if series_label != blank %}
+      <p class="hero-video-wall__series-label">{{ series_label }}</p>
     {% endif %}
 
-    <!-- Main Heading -->
+    <!-- Main Heading (use product title) -->
     {% if section.settings.main_heading != blank %}
       <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+    {% elsif product.title != blank %}
+      <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
     {% endif %}
 
-    <!-- Subheading -->
-    {% if section.settings.subheading != blank %}
-      <p class="hero-video-wall__subheading">{{ section.settings.subheading }}</p>
+    <!-- Subheading/Tagline -->
+    {% if tagline != blank %}
+      <p class="hero-video-wall__subheading">{{ tagline }}</p>
     {% endif %}
 
     <!-- Description -->
-    {% if section.settings.description != blank %}
-      <p class="hero-video-wall__description">{{ section.settings.description }}</p>
+    {% if description != blank %}
+      <p class="hero-video-wall__description">{{ description }}</p>
     {% endif %}
 
     <!-- CTA Buttons -->
@@ -53,16 +64,25 @@
       {% endif %}
     </div>
 
-    <!-- Feature Boxes -->
+    <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
     <div class="hero-video-wall__features">
-      {% for block in section.blocks %}
-        {% if block.type == 'feature' %}
-          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
-            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
-            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+      {% if hero_data.metrics.size > 0 %}
+        {% for metric in hero_data.metrics %}
+          <div class="hero-video-wall__feature-box">
+            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
           </div>
-        {% endif %}
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+              <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+              <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>

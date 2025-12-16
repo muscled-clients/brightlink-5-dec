@@ -1,6 +1,10 @@
 {{ 'technical-specs.css' | asset_url | stylesheet_tag }}
 {{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign specs_data = led_data.technical_specs %}
+
 <section class="technical-specs {{ section.settings.custom_class }}" id="technical-specs-{{ section.id }}">
   <!-- Hexagonal Pattern Overlay -->
   {% if section.settings.show_pattern %}
@@ -23,56 +27,97 @@
       {% endif %}
     </div>
 
-    <!-- Cards Grid -->
+    <!-- Cards Grid - Use metafield data if available, otherwise use blocks -->
     <div class="technical-specs__grid">
-      {% for block in section.blocks %}
-        {% if block.type == 'spec_card' %}
-          <div class="technical-specs__card" {{ block.shopify_attributes }}>
+      {% if specs_data.size > 0 %}
+        {% for spec in specs_data %}
+          <div class="technical-specs__card">
             <!-- Icon -->
             <div class="technical-specs__icon">
-              {% case block.settings.icon_type %}
+              {% case spec.icon %}
                 {% when 'grid' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"/></svg>
-                {% when 'ruler' %}
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71 3.29l-1-1a1 1 0 00-1.42 0l-18 18a1 1 0 000 1.42l1 1a1 1 0 001.42 0l18-18a1 1 0 000-1.42zM5.41 20l-.71-.71 1.29-1.29.71.71L5.41 20zm3-3l-.71-.71 2.29-2.29.71.71L8.41 17zm3-3l-.71-.71 1.29-1.29.71.71-1.29 1.29zm3-3l-.71-.71 2.29-2.29.71.71-2.29 2.29zm3-3l-.71-.71L18.29 6l.71.71-1.29 1.29z"/></svg>
+                {% when 'pen' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
                 {% when 'refresh' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-                {% when 'brightness' %}
+                {% when 'sun' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
                 {% when 'contrast' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
-                {% when 'view' %}
+                {% when 'eye' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
                 {% when 'layers' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
                 {% when 'weight' %}
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.78 3.97l-6.03 6.03c-.25-.03-.5-.05-.75-.05-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-.25-.02-.5-.05-.75l6.03-6.03-1.2-1.2zM12 21c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
                 {% else %}
-                  {% if block.settings.custom_icon != blank %}
-                    <img src="{{ block.settings.custom_icon | image_url: width: 50 }}" alt="" class="technical-specs__icon-img">
-                  {% else %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                  {% endif %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
               {% endcase %}
             </div>
 
             <!-- Card Title -->
-            {% if block.settings.card_title != blank %}
-              <h3 class="technical-specs__card-title">{{ block.settings.card_title }}</h3>
-            {% endif %}
+            <h3 class="technical-specs__card-title">{{ spec.value }}</h3>
 
             <!-- Card Subtitle -->
-            {% if block.settings.card_subtitle != blank %}
-              <p class="technical-specs__card-subtitle">{{ block.settings.card_subtitle }}</p>
-            {% endif %}
+            <p class="technical-specs__card-subtitle">{{ spec.label }}</p>
 
             <!-- Card Description -->
-            {% if block.settings.card_desc != blank %}
-              <p class="technical-specs__card-desc">{{ block.settings.card_desc }}</p>
+            {% if spec.detail != blank %}
+              <p class="technical-specs__card-desc">{{ spec.detail }}</p>
             {% endif %}
           </div>
-        {% endif %}
-      {% endfor %}
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'spec_card' %}
+            <div class="technical-specs__card" {{ block.shopify_attributes }}>
+              <!-- Icon -->
+              <div class="technical-specs__icon">
+                {% case block.settings.icon_type %}
+                  {% when 'grid' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"/></svg>
+                  {% when 'ruler' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.71 3.29l-1-1a1 1 0 00-1.42 0l-18 18a1 1 0 000 1.42l1 1a1 1 0 001.42 0l18-18a1 1 0 000-1.42zM5.41 20l-.71-.71 1.29-1.29.71.71L5.41 20zm3-3l-.71-.71 2.29-2.29.71.71L8.41 17zm3-3l-.71-.71 1.29-1.29.71.71-1.29 1.29zm3-3l-.71-.71 2.29-2.29.71.71-2.29 2.29zm3-3l-.71-.71L18.29 6l.71.71-1.29 1.29z"/></svg>
+                  {% when 'refresh' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                  {% when 'brightness' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+                  {% when 'contrast' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
+                  {% when 'view' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                  {% when 'layers' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+                  {% when 'weight' %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.78 3.97l-6.03 6.03c-.25-.03-.5-.05-.75-.05-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-.25-.02-.5-.05-.75l6.03-6.03-1.2-1.2zM12 21c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
+                  {% else %}
+                    {% if block.settings.custom_icon != blank %}
+                      <img src="{{ block.settings.custom_icon | image_url: width: 50 }}" alt="" class="technical-specs__icon-img">
+                    {% else %}
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    {% endif %}
+                {% endcase %}
+              </div>
+
+              <!-- Card Title -->
+              {% if block.settings.card_title != blank %}
+                <h3 class="technical-specs__card-title">{{ block.settings.card_title }}</h3>
+              {% endif %}
+
+              <!-- Card Subtitle -->
+              {% if block.settings.card_subtitle != blank %}
+                <p class="technical-specs__card-subtitle">{{ block.settings.card_subtitle }}</p>
+              {% endif %}
+
+              <!-- Card Description -->
+              {% if block.settings.card_desc != blank %}
+                <p class="technical-specs__card-desc">{{ block.settings.card_desc }}</p>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>

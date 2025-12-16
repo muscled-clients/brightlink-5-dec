@@ -1,6 +1,10 @@
 {{ 'system-configuration.css' | asset_url | stylesheet_tag }}
 {{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign config_data = led_data.system_config %}
+
 <section
   id="system-configuration-{{ section.id }}"
   class="system-configuration {{ section.settings.custom_class }}"
@@ -11,16 +15,19 @@
   {% endif %}
 
   <div class="system-configuration__container">
-    <!-- Header Section -->
+    <!-- Header Section - Use metafield data if available, otherwise use section settings -->
+    {% assign config_title = config_data.title | default: section.settings.heading %}
+    {% assign config_description = config_data.description | default: section.settings.subheading %}
+
     <div class="system-configuration__header">
       {% if section.settings.section_label != blank %}
         <span class="system-configuration__label">{{ section.settings.section_label }}</span>
       {% endif %}
-      {% if section.settings.heading != blank %}
-        <h2 class="system-configuration__heading">{{ section.settings.heading }}</h2>
+      {% if config_title != blank %}
+        <h2 class="system-configuration__heading">{{ config_title }}</h2>
       {% endif %}
-      {% if section.settings.subheading != blank %}
-        <p class="system-configuration__subheading">{{ section.settings.subheading }}</p>
+      {% if config_description != blank %}
+        <p class="system-configuration__subheading">{{ config_description }}</p>
       {% endif %}
     </div>
 
