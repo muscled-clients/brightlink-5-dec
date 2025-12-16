@@ -31,9 +31,19 @@
       {% endif %}
     </div>
 
-    <!-- Main Visual Area -->
+    <!-- Main Visual Area - Use metafield image if available -->
+    {% assign config_display_image = config_data.display_image %}
+    {% assign cabinet_specs = config_data.cabinet_specs %}
+
     <div class="system-configuration__visual">
-      {% if section.settings.display_image != blank %}
+      {% if config_display_image != blank %}
+        <img
+          src="{{ config_display_image }}"
+          alt="LED Video Wall Configuration"
+          class="system-configuration__display-image"
+          loading="lazy"
+        >
+      {% elsif section.settings.display_image != blank %}
         <img
           src="{{ section.settings.display_image | image_url: width: 1200 }}"
           alt="LED Video Wall Configuration"
@@ -105,23 +115,23 @@
           <div class="system-configuration__specs-table">
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Dimensions</span>
-              <span class="system-configuration__spec-value">{{ section.settings.cabinet_dimensions }}</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.dimensions | default: section.settings.cabinet_dimensions }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Imperial</span>
-              <span class="system-configuration__spec-value">{{ section.settings.cabinet_imperial }}</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.imperial | default: section.settings.cabinet_imperial }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Weight</span>
-              <span class="system-configuration__spec-value">{{ section.settings.cabinet_weight }}</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.weight | default: section.settings.cabinet_weight }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Resolution</span>
-              <span class="system-configuration__spec-value">{{ section.settings.cabinet_resolution }}</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.resolution | default: section.settings.cabinet_resolution }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Module Count</span>
-              <span class="system-configuration__spec-value">{{ section.settings.cabinet_modules }}</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.modules | default: section.settings.cabinet_modules }}</span>
             </div>
           </div>
         </div>

@@ -9,20 +9,34 @@
   {% render 'hexagon-pattern' %}
 
   <div class="experience-scale__container">
+    <!-- Header - Use metafield data if available, otherwise use section settings -->
+    {% assign scale_title = scale_data.title | default: section.settings.title | default: 'Experience the Scale' %}
+    {% assign scale_subtitle = scale_data.subtitle | default: section.settings.subtitle | default: '217 inches of immersive visual excellence' %}
+    {% assign scale_image = scale_data.image %}
+
     <div class="experience-scale__header">
       {% if section.settings.label != blank %}
         <span class="experience-scale__label">{{ section.settings.label }}</span>
       {% endif %}
-      <h2 class="experience-scale__title">{{ section.settings.title | default: 'Experience the Scale' }}</h2>
-      <p class="experience-scale__subtitle">{{ section.settings.subtitle | default: '217 inches of immersive visual excellence' }}</p>
+      <h2 class="experience-scale__title">{{ scale_title }}</h2>
+      <p class="experience-scale__subtitle">{{ scale_subtitle }}</p>
     </div>
 
     <div class="experience-scale__display">
       <div class="experience-scale__image-wrapper">
-        {% if section.settings.image != blank %}
+        {% if scale_image != blank %}
+          <img
+            src="{{ scale_image }}"
+            alt="{{ scale_title }}"
+            class="experience-scale__image"
+            loading="lazy"
+            width="1200"
+            height="600"
+          >
+        {% elsif section.settings.image != blank %}
           <img
             src="{{ section.settings.image | image_url: width: 1200 }}"
-            alt="{{ section.settings.title }}"
+            alt="{{ scale_title }}"
             class="experience-scale__image"
             loading="lazy"
             width="1200"
