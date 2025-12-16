@@ -262,8 +262,22 @@ Each section reads from the metafield with fallback to section settings:
 |-------|------|-------------|
 | `title` | string | Section title |
 | `description` | string | Section description |
+| `tabs` | array | Array of tab objects (see below) |
 
-**Note:** Application tabs are configured via Shopify section blocks.
+#### Tab Object Structure:
+| Field | Type | Description |
+|-------|------|-------------|
+| `tab_title` | string | Tab button text |
+| `icon` | string | Icon: `monitor`, `briefcase`, `video`, `layout`, `store` |
+| `heading` | string | Panel content heading |
+| `description` | string | Main description text |
+| `description2` | string | Secondary description (optional) |
+| `image` | string | Shopify CDN URL for tab image |
+| `stat1_label`, `stat1_value` | string | Stat overlay item 1 |
+| `stat2_label`, `stat2_value` | string | Stat overlay item 2 |
+| `stat3_label`, `stat3_value` | string | Stat overlay item 3 |
+| `configs` | array | Array of `{label, value}` objects for configuration grid |
+| `features` | array | Array of feature strings for "Why Pro Spectrum" list |
 
 ---
 
@@ -288,6 +302,26 @@ Each section reads from the metafield with fallback to section settings:
 |-------|------|-------------|
 | `title` | string | Section title |
 | `description` | string | Section description |
+
+---
+
+### 9. Knowledge Center (`knowledge-center.liquid`)
+
+**Metafield Key:** `knowledge_center`
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `title` | string | Section title |
+| `subtitle` | string | Section subtitle |
+| `categories` | array | Array of FAQ category objects (see below) |
+
+#### Category Object Structure:
+| Field | Type | Description |
+|-------|------|-------------|
+| `title` | string | Category accordion title |
+| `icon` | string | Icon: `info`, `monitor`, `tool`, `headphones`, `truck`, `credit-card`, `handshake` |
+| `filter` | string | Filter category: `all`, `product`, `support`, `shipping`, `payment`, `partnerships` |
+| `questions` | array | Array of `{question, answer}` objects |
 
 ---
 
@@ -452,7 +486,52 @@ Here's a complete example for a 217" LED Video Wall:
   },
   "applications": {
     "title": "Built for Every Environment",
-    "description": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance"
+    "description": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance",
+    "tabs": [
+      {
+        "tab_title": "Digital Signage",
+        "icon": "monitor",
+        "heading": "Digital Signage & Public Displays",
+        "description": "Captivate audiences with vibrant, attention-grabbing displays.",
+        "description2": "Ideal for corporate lobbies, museums, and public spaces.",
+        "stat1_label": "View Distance",
+        "stat1_value": "10-50 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "150-300\"",
+        "stat3_label": "Environment",
+        "stat3_value": "High-Traffic",
+        "configs": [
+          { "label": "Size", "value": "4×3 to 12×8 arrays" },
+          { "label": "Resolution", "value": "1.7M to 15.8M pixels" },
+          { "label": "Brightness", "value": "600-1000 nits" }
+        ],
+        "features": [
+          "24/7 operation with 100,000-hour lifespan",
+          "Anti-reflective surface for bright environments",
+          "CMS-ready for remote content management"
+        ]
+      },
+      {
+        "tab_title": "Executive Boardrooms",
+        "icon": "briefcase",
+        "heading": "Executive Boardrooms & Conference Centers",
+        "description": "Impress clients with crystal-clear presentations.",
+        "stat1_label": "View Distance",
+        "stat1_value": "6-20 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "120-200\"",
+        "stat3_label": "Environment",
+        "stat3_value": "Professional",
+        "configs": [
+          { "label": "Size", "value": "3×2 to 6×4 arrays" },
+          { "label": "Resolution", "value": "Full HD to 4K" }
+        ],
+        "features": [
+          "Silent operation for quiet environments",
+          "4K resolution for detailed presentations"
+        ]
+      }
+    ]
   },
   "controller": {
     "title": "Professional Control Solutions",
@@ -461,6 +540,53 @@ Here's a complete example for a 217" LED Video Wall:
   "config_builder": {
     "title": "Custom Configuration Builder",
     "description": "Design your perfect LED display"
+  },
+  "knowledge_center": {
+    "title": "Knowledge Center",
+    "subtitle": "Everything you need to know about Pro Spectrum",
+    "categories": [
+      {
+        "title": "About Brightlink",
+        "icon": "info",
+        "filter": "all",
+        "questions": [
+          {
+            "question": "How long has Brightlink been in business?",
+            "answer": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions worldwide."
+          },
+          {
+            "question": "What makes Brightlink different?",
+            "answer": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support."
+          }
+        ]
+      },
+      {
+        "title": "Product & Technical",
+        "icon": "monitor",
+        "filter": "product",
+        "questions": [
+          {
+            "question": "What is the pixel pitch?",
+            "answer": "Pixel pitch is the distance between LED pixels. Smaller pitch means higher resolution for closer viewing."
+          },
+          {
+            "question": "How long do LED displays last?",
+            "answer": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance."
+          }
+        ]
+      },
+      {
+        "title": "Installation & Setup",
+        "icon": "tool",
+        "filter": "support",
+        "questions": [
+          {
+            "question": "Do you provide installation services?",
+            "answer": "Yes, we offer professional installation services to ensure optimal setup."
+          }
+        ]
+      }
+    ]
   }
 }
 ```
