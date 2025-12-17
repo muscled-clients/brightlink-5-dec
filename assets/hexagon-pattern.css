@@ -22,8 +22,19 @@
 /* Clip hexagon pattern at contact-discussion (last section with pattern) */
 .contact-discussion {
   overflow: hidden !important;
-  clip-path: inset(0);
-  -webkit-clip-path: inset(0);
+}
+
+/* Limit hexagon grid height in contact-discussion so it doesn't bleed below */
+.contact-discussion .hexagon-grid {
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  max-height: 100%;
+}
+
+/* Also target the shopify section wrapper */
+[id^="shopify-section-"][id*="contact"] {
+  overflow: hidden !important;
 }
 
 .hexagon-grid {
