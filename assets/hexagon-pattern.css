@@ -15,13 +15,6 @@
   position: relative;
 }
 
-/* Hero section must stay above hexagon patterns */
-.hero-video-wall-wrapper,
-.hero-video-wall-section {
-  position: relative;
-  z-index: 10;
-}
-
 .hexagon-grid {
   position: absolute;
   top: 50%;
