@@ -20,6 +20,16 @@
   position: relative;
 }
 
+/* Hide hexagon pattern from newsletter and footer */
+.footer,
+.section[data-section-type="newsletter"],
+[data-section-type="newsletter"],
+.newsletter-section {
+  overflow: hidden !important;
+  position: relative;
+  z-index: 10;
+}
+
 .hexagon-grid {
   position: absolute;
   top: 50%;
