@@ -11,8 +11,15 @@
 .applications-tabs,
 .controller-tabs,
 .custom-config-builder {
-  overflow: visible !important;
+  overflow: hidden;
   position: relative;
+}
+
+/* Hero section must stay above hexagon patterns */
+.hero-video-wall-wrapper,
+.hero-video-wall-section {
+  position: relative;
+  z-index: 10;
 }
 
 .hexagon-grid {
