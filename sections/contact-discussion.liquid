@@ -1,4 +1,5 @@
 {{ 'contact-discussion.css' | asset_url | stylesheet_tag }}
+{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <style>
   .contact-discussion__label {
@@ -7,9 +8,7 @@
 </style>
 
 <section class="contact-discussion" id="contact-discussion">
-  <div class="contact-discussion__background">
-    <div class="contact-discussion__hex-pattern"></div>
-  </div>
+  {% render 'hexagon-pattern' %}
 
   <div class="contact-discussion__container">
     <div class="contact-discussion__header">

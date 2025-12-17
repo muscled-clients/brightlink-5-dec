@@ -10,7 +10,12 @@
 .experience-scale,
 .applications-tabs,
 .controller-tabs,
-.custom-config-builder {
+.custom-config-builder,
+.investment-config,
+.enhance-system,
+.knowledge-center,
+.contact-discussion,
+.custom-config {
   overflow: visible !important;
   position: relative;
 }
