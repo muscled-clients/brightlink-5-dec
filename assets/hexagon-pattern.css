@@ -22,20 +22,8 @@
 /* Clip hexagon pattern at contact-discussion (last section with pattern) */
 .contact-discussion {
   overflow: hidden !important;
-}
-
-/* Ensure newsletter and footer don't show hexagon pattern */
-.footer,
-[data-section-type="newsletter"],
-.section[data-section-type="newsletter"] {
-  position: relative;
-  z-index: 5;
-}
-
-/* Hide any hexagon grid that bleeds into newsletter/footer */
-.footer .hexagon-grid,
-[data-section-type="newsletter"] .hexagon-grid {
-  display: none !important;
+  clip-path: inset(0);
+  -webkit-clip-path: inset(0);
 }
 
 .hexagon-grid {
