@@ -19,18 +19,7 @@
   position: relative;
 }
 
-/* Hide hexagon pattern from newsletter and footer */
-.footer,
-.section[data-section-type="newsletter"],
-[data-section-type="newsletter"],
-.newsletter-section {
-  overflow: hidden !important;
-  position: relative;
-  z-index: 10;
-  background-color: #0a0e17;
-}
-
-/* Clip hexagon pattern at bottom of contact-discussion */
+/* Clip hexagon pattern at contact-discussion (last section with pattern) */
 .contact-discussion {
   overflow: hidden !important;
 }
