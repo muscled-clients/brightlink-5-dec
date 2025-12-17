@@ -1,5 +1,4 @@
 {{ 'investment-config.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <style>
   .investment-config__label {
@@ -8,7 +7,9 @@
 </style>
 
 <section class="investment-config" id="investment-config">
-  {% render 'hexagon-pattern' %}
+  <div class="investment-config__background">
+    <div class="investment-config__hex-pattern"></div>
+  </div>
 
   <div class="investment-config__container">
     <div class="investment-config__header">

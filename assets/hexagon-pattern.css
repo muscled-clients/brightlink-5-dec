@@ -10,54 +10,9 @@
 .experience-scale,
 .applications-tabs,
 .controller-tabs,
-.custom-config-builder,
-.investment-config,
-.enhance-system,
-.knowledge-center,
-.custom-config {
+.custom-config-builder {
   overflow: visible !important;
   position: relative;
-}
-
-/* Clip hexagon pattern at contact-discussion (last section with pattern) */
-.contact-discussion {
-  overflow: hidden !important;
-  contain: paint;
-  isolation: isolate;
-  position: relative;
-}
-
-/* Constrain hexagon grid strictly within contact-discussion */
-.contact-discussion .hexagon-grid {
-  top: 0 !important;
-  transform: translateX(-50%) !important;
-  height: 100% !important;
-  max-height: 100% !important;
-  overflow: hidden;
-}
-
-/* Target the shopify section wrapper for contact-discussion */
-[class*="contact-discussion-section"],
-.contact-discussion-section {
-  overflow: hidden !important;
-  overflow: clip !important;
-  contain: paint;
-  isolation: isolate;
-}
-
-/* Ensure sections after contact-discussion render above any bleeding hexagon pattern */
-.contact-discussion-section ~ .shopify-section,
-.contact-discussion-section ~ [class*="section"] {
-  position: relative;
-  z-index: 2;
-  background-color: inherit;
-}
-
-/* Newsletter section - ensure it covers any hexagon bleeding */
-[data-section-type="newsletter"],
-.section[data-section-type="newsletter"] {
-  position: relative;
-  z-index: 2;
 }
 
 .hexagon-grid {
@@ -67,7 +22,7 @@
   transform: translate(-50%, -50%);
   width: 250vw;
   height: 250vh;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
 }
 

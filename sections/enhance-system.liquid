@@ -1,8 +1,10 @@
 {{ 'enhance-system.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
+
 
 <section class="enhance-system" id="enhance-system">
-  {% render 'hexagon-pattern' %}
+  <div class="enhance-system__background">
+    <div class="enhance-system__hex-pattern"></div>
+  </div>
 
   <div class="enhance-system__container">
     <div class="enhance-system__header">

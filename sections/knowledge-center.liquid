@@ -1,5 +1,4 @@
 {{ 'knowledge-center.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
@@ -13,7 +12,9 @@
 </style>
 
 <section class="knowledge-center" id="knowledge-center">
-  {% render 'hexagon-pattern' %}
+  <div class="knowledge-center__background">
+    <div class="knowledge-center__hex-pattern"></div>
+  </div>
 
   <div class="knowledge-center__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
