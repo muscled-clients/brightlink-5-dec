@@ -248,12 +248,6 @@
       "content": "Advanced"
     },
     {
-      "type": "checkbox",
-      "id": "show_pattern",
-      "label": "Show Hexagonal Pattern",
-      "default": true
-    },
-    {
       "type": "text",
       "id": "custom_class",
       "label": "Custom CSS Class"
@@ -412,9 +406,4 @@
     --ts-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
-  {% unless section.settings.show_pattern %}
-  #technical-specs-{{ section.id }} .technical-specs__pattern {
-    display: none;
-  }
-  {% endunless %}
 </style>

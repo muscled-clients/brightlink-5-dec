@@ -238,7 +238,6 @@
         "separator_color": "#3a4a5e",
         "padding_top": 50,
         "padding_bottom": 50,
-        "show_pattern": true,
         "custom_class": ""
       }
     },
@@ -293,7 +292,6 @@
         "dot_active_color": "#ffffff",
         "padding_top": 60,
         "padding_bottom": 60,
-        "show_pattern": true,
         "custom_class": ""
       }
     },
@@ -367,7 +365,6 @@
         "footer_label_color": "#ffd700",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_pattern": true,
         "custom_class": ""
       }
     },
@@ -472,7 +469,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_pattern": true,
         "custom_class": ""
       }
     },
@@ -547,7 +543,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_pattern": true,
         "custom_class": ""
       }
     },
@@ -594,7 +589,6 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "show_pattern": true,
         "custom_class": ""
       }
     },

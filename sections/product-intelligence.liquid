@@ -1387,12 +1387,6 @@
       "content": "Advanced"
     },
     {
-      "type": "checkbox",
-      "id": "show_pattern",
-      "label": "Show Hexagonal Pattern",
-      "default": true
-    },
-    {
       "type": "text",
       "id": "custom_class",
       "label": "Custom CSS Class"
@@ -1809,9 +1803,4 @@
     --pi-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
 
-  {% unless section.settings.show_pattern %}
-  #product-intelligence-{{ section.id }} .product-intelligence__pattern {
-    display: none;
-  }
-  {% endunless %}
 </style>

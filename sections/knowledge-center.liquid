@@ -12,10 +12,6 @@
 </style>
 
 <section class="knowledge-center" id="knowledge-center">
-  <div class="knowledge-center__background">
-    <div class="knowledge-center__hex-pattern"></div>
-  </div>
-
   <div class="knowledge-center__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
