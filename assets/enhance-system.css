@@ -40,13 +40,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow:
+    0 0 40px rgba(10, 132, 255, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .enhance-system__card:hover {
   background: rgba(20, 30, 50, 0.8);
-  border-color: rgba(59, 130, 246, 0.3);
-  transform: translateY(-3px);
+  border-color: rgba(10, 132, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 80px rgba(10, 132, 255, 0.35),
+    0 0 120px rgba(10, 132, 255, 0.2),
+    0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* All text color change on hover */
+.enhance-system__card:hover .enhance-system__card-title,
+.enhance-system__card:hover .enhance-system__card-desc,
+.enhance-system__card:hover .enhance-system__card-price {
+  color: #0A84FF;
+}
+
+.enhance-system__card:hover .enhance-system__card-title {
+  text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
+}
+
+.enhance-system__card:hover .enhance-system__card-icon {
+  color: #0A84FF;
 }
 
 .enhance-system__card-icon {
@@ -57,6 +80,7 @@
   height: 60px;
   margin-bottom: 20px;
   color: #3b82f6;
+  transition: color 0.4s ease;
 }
 
 .enhance-system__card-title {
@@ -66,6 +90,7 @@
   color: #ffffff;
   margin: 0 0 15px;
   text-transform: uppercase;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .enhance-system__card-desc {
@@ -75,6 +100,7 @@
   color: rgba(255, 255, 255, 0.6);
   margin: 0 0 20px;
   flex-grow: 1;
+  transition: color 0.4s ease;
 }
 
 .enhance-system__card-price {
@@ -82,6 +108,7 @@
   font-weight: 700;
   color: #3b82f6;
   margin-bottom: 20px;
+  transition: color 0.4s ease;
 }
 
 .enhance-system__card-btn {
