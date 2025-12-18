@@ -11,7 +11,7 @@
 .applications-tabs,
 .controller-tabs,
 .custom-config-builder {
-  overflow: visible;
+  overflow: visible !important;
   position: relative;
 }
 
