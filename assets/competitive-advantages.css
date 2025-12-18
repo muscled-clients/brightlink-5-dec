@@ -68,21 +68,20 @@
 /* Individual Card */
 .competitive-advantages__card {
   position: relative;
-  background: rgba(8, 14, 22, 0.75);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(60, 100, 140, 0.4);
-  border-radius: 16px;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(10, 132, 255, 0.2);
+  border-radius: 12px;
   padding: 40px 30px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   box-shadow:
-    0 0 20px rgba(50, 120, 180, 0.15),
-    0 0 40px rgba(50, 120, 180, 0.08),
-    inset 0 1px 0 rgba(100, 150, 200, 0.1);
-  
+    0 0 40px rgba(10, 132, 255, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 /* Card inner pattern overlay */
@@ -99,13 +98,18 @@
 }
 
 .competitive-advantages__card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(80, 130, 180, 0.5);
+  transform: translateY(-2px);
+  border-color: rgba(10, 132, 255, 0.4);
   box-shadow:
-    0 0 25px rgba(50, 120, 180, 0.25),
-    0 0 50px rgba(50, 120, 180, 0.12),
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(100, 150, 200, 0.15);
+    0 0 60px rgba(10, 132, 255, 0.25),
+    0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Text color change on hover */
+.competitive-advantages__card:hover .competitive-advantages__card-title,
+.competitive-advantages__card:hover .competitive-advantages__card-subtitle {
+  color: #0A84FF;
+  text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
 }
 
 /* Card Icon */
@@ -146,6 +150,7 @@
   color: #ffffff;
   margin: 0 0 10px 0;
   letter-spacing: 1px;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 /* Card Subtitle */
@@ -154,6 +159,7 @@
   font-weight: 500;
   color: #ffffff;
   margin: 0 0 5px 0;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 /* Card Meta */
