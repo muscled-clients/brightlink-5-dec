@@ -55,13 +55,38 @@
   border-radius: 12px;
   padding: 30px 25px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow:
+    0 0 40px rgba(10, 132, 255, 0.15),
+    0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .contact-discussion__card:hover {
   background: rgba(20, 30, 50, 0.8);
-  border-color: rgba(59, 130, 246, 0.4);
-  transform: translateY(-3px);
+  border-color: rgba(10, 132, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 80px rgba(10, 132, 255, 0.35),
+    0 0 120px rgba(10, 132, 255, 0.2),
+    0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* All text color change on hover */
+.contact-discussion__card:hover .contact-discussion__card-title,
+.contact-discussion__card:hover .contact-discussion__card-phone,
+.contact-discussion__card:hover .contact-discussion__card-info,
+.contact-discussion__card:hover .contact-discussion__card-highlight {
+  color: #0A84FF;
+}
+
+.contact-discussion__card:hover .contact-discussion__card-title {
+  text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
+}
+
+.contact-discussion__card:hover .contact-discussion__card-icon {
+  color: #0A84FF;
+  background: rgba(10, 132, 255, 0.25);
 }
 
 .contact-discussion__card-icon {
@@ -74,6 +99,7 @@
   background: rgba(59, 130, 246, 0.15);
   border-radius: 50%;
   color: #3b82f6;
+  transition: color 0.4s ease, background 0.4s ease;
 }
 
 .contact-discussion__card-title {
@@ -81,6 +107,7 @@
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 12px;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .contact-discussion__card-phone {
@@ -89,6 +116,7 @@
   color: #3b82f6;
   margin: 0 0 8px;
   text-decoration: underline;
+  transition: color 0.4s ease;
 }
 
 .contact-discussion__card-email {
@@ -109,6 +137,7 @@
   font-weight: 500;
   color: #FFD700;
   margin: 0 0 8px;
+  transition: color 0.4s ease;
 }
 
 .contact-discussion__card-info {
@@ -116,6 +145,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   margin: 0 0 20px;
+  transition: color 0.4s ease;
 }
 
 .contact-discussion__card-btn {
@@ -150,6 +180,31 @@
 
 .contact-discussion__feature {
   text-align: center;
+  padding: 20px 15px;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.contact-discussion__feature:hover {
+  background: rgba(15, 23, 42, 0.6);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 40px rgba(10, 132, 255, 0.25),
+    0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.contact-discussion__feature:hover .contact-discussion__feature-icon {
+  color: #0A84FF;
+}
+
+.contact-discussion__feature:hover .contact-discussion__feature-title {
+  color: #0A84FF;
+  text-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
+}
+
+.contact-discussion__feature:hover .contact-discussion__feature-text {
+  color: #0A84FF;
 }
 
 .contact-discussion__feature-icon {
@@ -160,6 +215,7 @@
   height: 50px;
   margin: 0 auto 15px;
   color: #FFD700;
+  transition: color 0.4s ease;
 }
 
 .contact-discussion__feature-title {
@@ -168,6 +224,7 @@
   color: #ffffff;
   margin: 0 0 6px;
   letter-spacing: 0.5px;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .contact-discussion__feature-text {
@@ -175,6 +232,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   margin: 0;
+  transition: color 0.4s ease;
 }
 
 .contact-discussion__footer-text {
