@@ -99,17 +99,32 @@
 
 .competitive-advantages__card:hover {
   transform: translateY(-2px);
-  border-color: rgba(10, 132, 255, 0.4);
+  border-color: rgba(10, 132, 255, 0.5);
   box-shadow:
-    0 0 60px rgba(10, 132, 255, 0.25),
+    0 0 80px rgba(10, 132, 255, 0.35),
+    0 0 120px rgba(10, 132, 255, 0.2),
     0 25px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* Text color change on hover */
+/* All text color change on hover */
 .competitive-advantages__card:hover .competitive-advantages__card-title,
-.competitive-advantages__card:hover .competitive-advantages__card-subtitle {
+.competitive-advantages__card:hover .competitive-advantages__card-subtitle,
+.competitive-advantages__card:hover .competitive-advantages__card-meta,
+.competitive-advantages__card:hover .competitive-advantages__feature,
+.competitive-advantages__card:hover .competitive-advantages__card-desc {
   color: #0A84FF;
+}
+
+.competitive-advantages__card:hover .competitive-advantages__card-title {
   text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
+}
+
+.competitive-advantages__card:hover .competitive-advantages__card-label {
+  color: #60a5fa;
+}
+
+.competitive-advantages__card:hover .competitive-advantages__check svg {
+  fill: #0A84FF;
 }
 
 /* Card Icon */
@@ -168,6 +183,7 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   margin: 0 0 25px 0;
+  transition: color 0.4s ease;
 }
 
 /* Card Divider */
@@ -195,6 +211,7 @@
   font-size: 13px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
+  transition: color 0.4s ease;
 }
 
 .competitive-advantages__feature:last-child {
@@ -212,6 +229,7 @@
   width: 16px;
   height: 16px;
   fill: #3498db;
+  transition: fill 0.4s ease;
 }
 
 /* Card Footer/CTA */
@@ -234,6 +252,7 @@
   text-transform: uppercase;
   color: #3498db;
   margin-bottom: 10px;
+  transition: color 0.4s ease;
 }
 
 .competitive-advantages__card-desc {
@@ -242,6 +261,7 @@
   color: rgba(255, 255, 255, 0.7);
   margin: 0;
   line-height: 1.5;
+  transition: color 0.4s ease;
 }
 
 /* ========== RESPONSIVE ========== */
