@@ -2,7 +2,7 @@
   position: relative;
   padding: 80px 0;
   background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
-  overflow: hidden;
+  
 }
 
 .experience-scale__background {
@@ -72,7 +72,7 @@
 .experience-scale__image-wrapper {
   position: relative;
   border-radius: 12px;
-  overflow: hidden;
+  
 }
 
 .experience-scale__image {

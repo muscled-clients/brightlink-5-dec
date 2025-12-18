@@ -7,7 +7,7 @@
   background-color: var(--ca-bg-color, #0a0f14);
   padding-top: var(--ca-padding-top, 80px);
   padding-bottom: var(--ca-padding-bottom, 80px);
-  overflow: hidden;
+  
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -95,7 +95,7 @@
     0 0 20px rgba(50, 120, 180, 0.15),
     0 0 40px rgba(50, 120, 180, 0.08),
     inset 0 1px 0 rgba(100, 150, 200, 0.1);
-  overflow: hidden;
+  
 }
 
 /* Card inner pattern overlay */

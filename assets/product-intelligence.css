@@ -7,7 +7,7 @@
   background-color: var(--pi-bg-color, #0a0f14);
   padding-top: var(--pi-padding-top, 80px);
   padding-bottom: var(--pi-padding-bottom, 80px);
-  overflow: hidden;
+  
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -129,7 +129,7 @@
 /* Tab Panels Container */
 .product-intelligence__panels {
   position: relative;
-  overflow: hidden;
+  
   min-height: 400px;
 }
 
@@ -390,7 +390,7 @@
 
 .specs-accordion__content {
   max-height: 0;
-  overflow: hidden;
+  
   transition: max-height 0.3s ease;
 }
 
@@ -583,7 +583,7 @@
   background: rgba(15, 25, 40, 0.6);
   border: 1px solid rgba(60, 100, 140, 0.2);
   border-radius: 10px;
-  overflow: hidden;
+  
   transition: all 0.3s ease;
   padding: 20px 20px 25px 20px;
 }
@@ -596,7 +596,7 @@
 .included-card__image {
   width: 100%;
   aspect-ratio: 16/10;
-  overflow: hidden;
+  
   border-radius: 6px;
   margin-bottom: 15px;
 }

@@ -7,7 +7,6 @@
   background-color: var(--tl-bg-color, #0a0f14);
   padding-top: var(--tl-padding-top, 50px);
   padding-bottom: var(--tl-padding-bottom, 50px);
-  overflow: hidden;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 

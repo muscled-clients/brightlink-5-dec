@@ -4,7 +4,7 @@
   background-color: #0a0f14;
   padding-top: 80px;
   padding-bottom: 80px;
-  overflow: hidden;
+  
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -117,7 +117,7 @@
 
 .applications-tabs__panels {
   position: relative;
-  overflow: hidden;
+  
 }
 
 .applications-tabs__panel {
@@ -179,7 +179,7 @@
 .applications-tabs__image-wrapper {
   position: relative;
   border-radius: 10px;
-  overflow: hidden;
+  
 }
 
 .applications-tabs__image {
