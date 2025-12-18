@@ -15,6 +15,21 @@
   position: relative;
 }
 
+/* Ensure section content appears above hexagon */
+.trusted-leaders__container,
+.product-showcase__container,
+.competitive-advantages__container,
+.technical-specs__container,
+.product-intelligence__container,
+.system-configuration__container,
+.experience-scale__container,
+.applications-tabs__container,
+.controller-tabs__container,
+.custom-config__container {
+  position: relative;
+  z-index: 2;
+}
+
 .hexagon-grid {
   position: absolute;
   top: 50%;
@@ -22,7 +37,7 @@
   transform: translate(-50%, -50%);
   width: 250vw;
   height: 250vh;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
 }
 
