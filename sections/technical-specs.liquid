@@ -1,16 +1,10 @@
 {{ 'technical-specs.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign specs_data = led_data.technical_specs %}
 
 <section class="technical-specs {{ section.settings.custom_class }}" id="technical-specs-{{ section.id }}">
-  <!-- Hexagonal Pattern Overlay -->
-  {% if section.settings.show_pattern %}
-    {% render 'hexagon-pattern' %}
-  {% endif %}
-
   <div class="technical-specs__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign specs_title = led_data.technical_specs_header.title | default: section.settings.heading %}

@@ -1,5 +1,4 @@
 {{ 'system-configuration.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
@@ -9,11 +8,6 @@
   id="system-configuration-{{ section.id }}"
   class="system-configuration {{ section.settings.custom_class }}"
 >
-  <!-- Hexagonal Pattern Overlay -->
-  {% if section.settings.show_pattern %}
-    {% render 'hexagon-pattern' %}
-  {% endif %}
-
   <div class="system-configuration__container">
     <!-- Header Section - Use metafield data if available, otherwise use section settings -->
     {% assign config_title = config_data.title | default: section.settings.heading %}

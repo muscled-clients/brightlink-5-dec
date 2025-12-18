@@ -1,12 +1,6 @@
 {{ 'competitive-advantages.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
-  <!-- Hexagonal Pattern Overlay -->
-  {% if section.settings.show_pattern %}
-    {% render 'hexagon-pattern' %}
-  {% endif %}
-
   <div class="competitive-advantages__container">
     <!-- Header -->
     <div class="competitive-advantages__header">

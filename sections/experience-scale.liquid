@@ -1,13 +1,10 @@
 {{ 'experience-scale.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign scale_data = led_data.experience_scale %}
 
 <section class="experience-scale" id="experience-scale">
-  {% render 'hexagon-pattern' %}
-
   <div class="experience-scale__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign scale_title = scale_data.title | default: section.settings.title | default: 'Experience the Scale' %}

@@ -1,13 +1,10 @@
 {{ 'custom-config-builder.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign config_builder_data = led_data.config_builder %}
 
 <section class="custom-config" id="custom-config">
-  {% render 'hexagon-pattern' %}
-
   <div class="custom-config__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign builder_title = config_builder_data.title | default: section.settings.title | default: 'Custom Configuration Builder' %}

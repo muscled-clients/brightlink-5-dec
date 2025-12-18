@@ -1,16 +1,10 @@
 {{ 'product-intelligence.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign intel_data = led_data.product_intelligence %}
 
 <section class="product-intelligence {{ section.settings.custom_class }}" id="product-intelligence-{{ section.id }}">
-  <!-- Hexagonal Pattern Overlay -->
-  {% if section.settings.show_pattern %}
-    {% render 'hexagon-pattern' %}
-  {% endif %}
-
   <div class="product-intelligence__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign intel_title = intel_data.title | default: section.settings.heading %}

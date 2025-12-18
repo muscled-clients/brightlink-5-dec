@@ -1,12 +1,6 @@
 {{ 'product-showcase.css' | asset_url | stylesheet_tag }}
-{{ 'hexagon-pattern.css' | asset_url | stylesheet_tag }}
 
 <section class="product-showcase {{ section.settings.custom_class }}" id="product-showcase-{{ section.id }}">
-  <!-- Hexagonal Pattern Overlay -->
-  {% if section.settings.show_pattern %}
-    {% render 'hexagon-pattern' %}
-  {% endif %}
-
   <div class="product-showcase__container">
     <!-- Section Label -->
     {% if section.settings.section_label != blank %}
