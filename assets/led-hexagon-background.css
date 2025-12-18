@@ -191,10 +191,16 @@
   z-index: 1;
 }
 
+/* LED template page base styling */
+.led-template-page {
+  background-color: #0A0E1A;
+}
+
 /* Ensure all LED template sections appear above the hexagon background */
 .led-template-page main {
   position: relative;
   z-index: 1;
+  background: transparent;
 }
 
 /* Hero section should completely cover the hexagon pattern */
@@ -205,23 +211,25 @@
   background-color: #0A0E1A;
 }
 
-/* All other sections need relative positioning to stack above hexagon */
-.trusted-leaders,
-.product-showcase,
-.competitive-advantages,
-.technical-specs,
-.product-intelligence,
-.system-configuration,
-.experience-scale,
-.applications-tabs,
-.controller-tabs,
-.custom-config,
-.investment-config,
-.knowledge-center,
-.enhance-system,
-.contact-discussion {
+/* All other sections - transparent backgrounds to show hexagon pattern */
+.led-template-page .trusted-leaders,
+.led-template-page .product-showcase,
+.led-template-page .competitive-advantages,
+.led-template-page .technical-specs,
+.led-template-page .product-intelligence,
+.led-template-page .system-configuration,
+.led-template-page .experience-scale,
+.led-template-page .applications-tabs,
+.led-template-page .controller-tabs,
+.led-template-page .custom-config,
+.led-template-page .investment-config,
+.led-template-page .knowledge-center,
+.led-template-page .enhance-system,
+.led-template-page .contact-discussion {
   position: relative;
   z-index: 1;
+  background: transparent !important;
+  background-color: transparent !important;
 }
 
 /* Mobile responsive */
