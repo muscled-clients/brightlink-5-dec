@@ -49,8 +49,8 @@
   margin-bottom: 60px;
 }
 
-.contact-discussion__card {
-  background: rgba(15, 23, 42, 0.6);
+.contact-discussion .contact-discussion__card {
+  background: rgba(15, 23, 42, 0.6) !important;
   border: 1px solid rgba(59, 130, 246, 0.2);
   border-radius: 12px;
   padding: 30px 25px;
@@ -59,34 +59,34 @@
   cursor: pointer;
   box-shadow:
     0 0 40px rgba(10, 132, 255, 0.15),
-    0 20px 40px rgba(0, 0, 0, 0.3);
+    0 20px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
-.contact-discussion__card:hover {
-  background: rgba(20, 30, 50, 0.8);
+.contact-discussion .contact-discussion__card:hover {
+  background: rgba(20, 30, 50, 0.9) !important;
   border-color: rgba(10, 132, 255, 0.5);
   transform: translateY(-2px);
   box-shadow:
     0 0 80px rgba(10, 132, 255, 0.35),
     0 0 120px rgba(10, 132, 255, 0.2),
-    0 25px 50px rgba(0, 0, 0, 0.4);
+    0 25px 50px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* All text color change on hover */
-.contact-discussion__card:hover .contact-discussion__card-title,
-.contact-discussion__card:hover .contact-discussion__card-phone,
-.contact-discussion__card:hover .contact-discussion__card-info,
-.contact-discussion__card:hover .contact-discussion__card-highlight {
-  color: #0A84FF;
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-title,
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-phone,
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-info,
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-highlight {
+  color: #0A84FF !important;
 }
 
-.contact-discussion__card:hover .contact-discussion__card-title {
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-title {
   text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
 }
 
-.contact-discussion__card:hover .contact-discussion__card-icon {
-  color: #0A84FF;
-  background: rgba(10, 132, 255, 0.25);
+.contact-discussion .contact-discussion__card:hover .contact-discussion__card-icon {
+  color: #0A84FF !important;
+  background: rgba(10, 132, 255, 0.25) !important;
 }
 
 .contact-discussion__card-icon {
@@ -178,7 +178,7 @@
   margin-bottom: 30px;
 }
 
-.contact-discussion__feature {
+.contact-discussion .contact-discussion__feature {
   text-align: center;
   padding: 20px 15px;
   border-radius: 10px;
@@ -186,25 +186,25 @@
   cursor: pointer;
 }
 
-.contact-discussion__feature:hover {
-  background: rgba(15, 23, 42, 0.6);
+.contact-discussion .contact-discussion__feature:hover {
+  background: rgba(15, 23, 42, 0.8) !important;
   transform: translateY(-2px);
   box-shadow:
     0 0 40px rgba(10, 132, 255, 0.25),
-    0 15px 30px rgba(0, 0, 0, 0.3);
+    0 15px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
-.contact-discussion__feature:hover .contact-discussion__feature-icon {
-  color: #0A84FF;
+.contact-discussion .contact-discussion__feature:hover .contact-discussion__feature-icon {
+  color: #0A84FF !important;
 }
 
-.contact-discussion__feature:hover .contact-discussion__feature-title {
-  color: #0A84FF;
+.contact-discussion .contact-discussion__feature:hover .contact-discussion__feature-title {
+  color: #0A84FF !important;
   text-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
 }
 
-.contact-discussion__feature:hover .contact-discussion__feature-text {
-  color: #0A84FF;
+.contact-discussion .contact-discussion__feature:hover .contact-discussion__feature-text {
+  color: #0A84FF !important;
 }
 
 .contact-discussion__feature-icon {
