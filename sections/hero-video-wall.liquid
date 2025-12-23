@@ -35,7 +35,6 @@
 
     <!-- Main Heading (use product title) -->
     {% if section.settings.main_heading != blank %}
-      <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
       {{ product.metafields.custom.banner_title }}
     {% elsif product.title != blank %}
       <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
