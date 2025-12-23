@@ -48,19 +48,19 @@
 
     <!-- Description -->
     {% if description != blank %}
-      <p class="hero-video-wall__description">{{ description }}</p>
+      <p class="hero-video-wall__description">{{ product.metafields.custom.banner_small_description }}</p>
     {% endif %}
 
     <!-- CTA Buttons -->
     <div class="hero-video-wall__buttons">
       {% if section.settings.button_1_text != blank %}
         <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
-          {{ section.settings.button_1_text }}
+          {{ product.metafields.custom.tab_label_1 }}
         </a>
       {% endif %}
       {% if section.settings.button_2_text != blank %}
         <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
-          {{ section.settings.button_2_text }}
+          {{ product.metafields.custom.tab_label_1 }}
         </a>
       {% endif %}
     </div>
