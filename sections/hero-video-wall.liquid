@@ -6,8 +6,8 @@
 
 {% comment %} Use metafield data with fallback to section settings {% endcomment %}
 {% assign series_label = hero_data.series_label | default: section.settings.series_label %}
-{% assign tagline = hero_data.tagline | default: section.settings.subheading %}
-{% assign description = hero_data.description | default: section.settings.description %}
+{% assign tagline = product.metafields.custom.product_subtitle | default: section.settings.subheading %}
+{% assign description = product.metafields.custom.banner_small_description | default: section.settings.description %}
 {% assign hero_metrics = product.metafields.custom.hero_metrics.value %}
 
 <section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
@@ -54,28 +54,28 @@
 
     <!-- Subheading/Tagline -->
     {% if tagline != blank %}
-      <p class="hero-video-wall__subheading">{{ product.metafields.custom.product_subtitle }}</p>
+      <p class="hero-video-wall__subheading">{{ tagline }}</p>
     {% endif %}
 
     <!-- Description -->
     {% if description != blank %}
-      <p class="hero-video-wall__description">{{ product.metafields.custom.banner_small_description }}</p>
+      <p class="hero-video-wall__description">{{description }}</p>
     {% endif %}
 
     <!-- CTA Buttons -->
-  {% assign button_1_text = product.metafields.custom.tab_label_1 | default: section.settings.button_1_text %}
-  {% assign button_2_text = product.metafields.custom.tab_label_2 | default: section.settings.button_2_text %}
+    {% assign button_1_text = product.metafields.custom.tab_label_1 | default: section.settings.button_1_text %}
+    {% assign button_2_text = product.metafields.custom.tab_label_2 | default: section.settings.button_2_text %}
 
-  {% if button_1_text != blank %}
-    <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
-      {{ button_1_text }}
-    </a>
-  {% endif %}
-  {% if button_2_text != blank %}
-    <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
-      {{ button_2_text }}
-    </a>
-  {% endif %}
+    {% if button_1_text != blank %}
+      <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+        {{ button_1_text }}
+      </a>
+    {% endif %}
+    {% if button_2_text != blank %}
+      <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
+        {{ button_2_text }}
+      </a>
+    {% endif %}
 
     <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
     <div class="hero-video-wall__features">
