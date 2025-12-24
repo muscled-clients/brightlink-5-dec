@@ -9,7 +9,7 @@
     <!-- Header - Use metafield data if available, otherwise use section settings -->
   {% assign specs_title = product.metafields.custom.tech_spec_heading | default: section.settings.heading %}
   {% assign specs_subtitle = product.metafields.custom.tech_spec_sub_heading | default: section.settings.subheading %}          
-  
+
     <div class="technical-specs__header">
       {% if section.settings.section_label != blank %}
         <span class="technical-specs__label">{{ section.settings.section_label }}</span>
@@ -24,7 +24,8 @@
       {% endif %}
     </div>
 
-    <!-- Cards Grid - Use metafield data if available, otherwise use blocks -->
+    <!-- Cards Grid - Use metafield data if available, otherwise use blocks --> 
+    {% assign specs_data = product.metafields.custom.tech_spec_cards.value %}
     <div class="technical-specs__grid">
       {% if specs_data.size > 0 %}
         {% for spec in specs_data %}
