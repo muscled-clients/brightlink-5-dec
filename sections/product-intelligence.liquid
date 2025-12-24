@@ -7,8 +7,8 @@
 <section class="product-intelligence {{ section.settings.custom_class }}" id="product-intelligence-{{ section.id }}">
   <div class="product-intelligence__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
-    {% assign intel_title = intel_data.title | default: section.settings.heading %}
-    {% assign intel_description = intel_data.description | default: section.settings.subheading %}
+    {% assign intel_title = product.metafields.custom.pic_heading | default: section.settings.heading %}
+    {% assign intel_description = product.metafields.custom.pic_sub_heading | default: section.settings.subheading %}
 
     <div class="product-intelligence__header">
       {% if section.settings.section_label != blank %}
@@ -29,7 +29,14 @@
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' or block.type == 'support_tab' %}
+          {% if block.type == 'tab'
+            or block.type == 'specs_tab'
+            or block.type == 'overview_tab'
+            or block.type == 'features_tab'
+            or block.type == 'included_tab'
+            or block.type == 'installation_tab'
+            or block.type == 'support_tab'
+          %}
             <button
               class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
               role="tab"
@@ -78,7 +85,9 @@
                   <div class="product-intelligence__text">
                     {{ block.settings.tab_content }}
                     {% if block.settings.read_more_link != blank %}
-                      <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                      <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more"
+                        >Read More</a
+                      >
                     {% else %}
                       <a href="#" class="product-intelligence__read-more">Read More</a>
                     {% endif %}
@@ -184,8 +193,16 @@
                 <!-- Left Side: Text + Feature Cards -->
                 <div class="product-intelligence__left">
                   <div class="product-intelligence__text">
-                    <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p>
-                    <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>
+                    <p>
+                      Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This
+                      15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR
+                      support.
+                    </p>
+                    <p>
+                      The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high
+                      dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich
+                      blacks, and motion that stays smooth even in fast-paced content.
+                    </p>
                     <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
                   </div>
 
@@ -256,7 +273,14 @@
                 <div class="specs-accordion" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">Display Specifications</span>
-                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      class="specs-accordion__icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <path d="M6 9l6 6 6-6"/>
                     </svg>
                   </button>
@@ -338,7 +362,14 @@
                 <div class="specs-accordion" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">Physical Specifications</span>
-                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      class="specs-accordion__icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <path d="M6 9l6 6 6-6"/>
                     </svg>
                   </button>
@@ -402,7 +433,14 @@
                 <div class="specs-accordion" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">Electrical Specifications</span>
-                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      class="specs-accordion__icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <path d="M6 9l6 6 6-6"/>
                     </svg>
                   </button>
@@ -448,7 +486,14 @@
                 <div class="specs-accordion" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">Environmental & Durability</span>
-                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      class="specs-accordion__icon"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <path d="M6 9l6 6 6-6"/>
                     </svg>
                   </button>
@@ -500,7 +545,9 @@
                 <div class="specs-download">
                   <div class="specs-download__content">
                     <h3 class="specs-download__title">Download Complete Specifications</h3>
-                    <p class="specs-download__text">Access detailed technical documentation, CAD files, and integration guides</p>
+                    <p class="specs-download__text">
+                      Access detailed technical documentation, CAD files, and integration guides
+                    </p>
                   </div>
                   <a href="{{ block.settings.download_link }}" class="specs-download__btn" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -530,7 +577,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Quick Connect Locking System</h4>
-                      <p class="features-card__desc">Revolutionary cabinet assembly with our Quick Connect system. Secure each cabinet into place with a single turn of the integrated locking mechanism. Superior alignment efficiency and simplicity in professional installations.</p>
+                      <p class="features-card__desc">
+                        Revolutionary cabinet assembly with our Quick Connect system. Secure each cabinet into place
+                        with a single turn of the integrated locking mechanism. Superior alignment efficiency and
+                        simplicity in professional installations.
+                      </p>
                     </div>
                   </div>
 
@@ -542,7 +593,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Ultra-Slim Profile</h4>
-                      <p class="features-card__desc">Industry-leading slim design at just 25mm (1 inch) deep, integrating into 2 Tog (0.5 inch) wall systems. Significantly lighter than traditional LED displays, reducing structural requirements and broadening installation flexibility in space-constrained applications.</p>
+                      <p class="features-card__desc">
+                        Industry-leading slim design at just 25mm (1 inch) deep, integrating into 2 Tog (0.5 inch) wall
+                        systems. Significantly lighter than traditional LED displays, reducing structural requirements
+                        and broadening installation flexibility in space-constrained applications.
+                      </p>
                     </div>
                   </div>
 
@@ -555,7 +610,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Integrated Power & Network Hub</h4>
-                      <p class="features-card__desc">Simplified cable management. Modular cables and separate power supplies with required wire links. Enjoy a clean, efficient design while reducing potential points of failure and improving maintenance access.</p>
+                      <p class="features-card__desc">
+                        Simplified cable management. Modular cables and separate power supplies with required wire
+                        links. Enjoy a clean, efficient design while reducing potential points of failure and improving
+                        maintenance access.
+                      </p>
                     </div>
                   </div>
 
@@ -567,7 +626,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Optimized Module Configuration</h4>
-                      <p class="features-card__desc">Fewer LED modules needed per cabinet without reduced visual impact due to COB's improved brightness per module design. This configuration improves systematic efficiency, reduces components, and simplifies both installation and future maintenance.</p>
+                      <p class="features-card__desc">
+                        Fewer LED modules needed per cabinet without reduced visual impact due to COB's improved
+                        brightness per module design. This configuration improves systematic efficiency, reduces
+                        components, and simplifies both installation and future maintenance.
+                      </p>
                     </div>
                   </div>
 
@@ -580,7 +643,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">True Flat LED Modules</h4>
-                      <p class="features-card__desc">Perfectly flat COB delivers continuous viewing experience. No gaps or bezels between modules creating a completely uniform, single-surface visual, achieving a high-end premium seamless aesthetic that enhances overall visual appeal.</p>
+                      <p class="features-card__desc">
+                        Perfectly flat COB delivers continuous viewing experience. No gaps or bezels between modules
+                        creating a completely uniform, single-surface visual, achieving a high-end premium seamless
+                        aesthetic that enhances overall visual appeal.
+                      </p>
                     </div>
                   </div>
 
@@ -592,7 +659,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Superior Contrast Ratios</h4>
-                      <p class="features-card__desc">COB technology offers 6,000:1 contrast backed by a matte, black-coated fill providing an extremely low reflectivity and higher contrast display. This results in deeper blacks and more vibrant images at all ambient lighting.</p>
+                      <p class="features-card__desc">
+                        COB technology offers 6,000:1 contrast backed by a matte, black-coated fill providing an
+                        extremely low reflectivity and higher contrast display. This results in deeper blacks and more
+                        vibrant images at all ambient lighting.
+                      </p>
                     </div>
                   </div>
 
@@ -605,7 +676,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">High Dynamic Range (HDR)</h4>
-                      <p class="features-card__desc">HDR technology delivers a superior visual experience with expanded brightness range, creating more realistic highlights, richer mid-tones, deeper shadows that capture viewer attention in any lighting environment.</p>
+                      <p class="features-card__desc">
+                        HDR technology delivers a superior visual experience with expanded brightness range, creating
+                        more realistic highlights, richer mid-tones, deeper shadows that capture viewer attention in any
+                        lighting environment.
+                      </p>
                     </div>
                   </div>
 
@@ -617,7 +692,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">True High Resolution</h4>
-                      <p class="features-card__desc">1.25mm LED pixel density to deliver pixel-perfect precision. Ideal for close-range viewing where smaller pixel pitches demand higher precision—select video conferencing and command room settings.</p>
+                      <p class="features-card__desc">
+                        1.25mm LED pixel density to deliver pixel-perfect precision. Ideal for close-range viewing where
+                        smaller pixel pitches demand higher precision—select video conferencing and command room
+                        settings.
+                      </p>
                     </div>
                   </div>
 
@@ -630,7 +709,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Superior Motion Handling</h4>
-                      <p class="features-card__desc">Exceptional refresh rate starting with 3840Hz in both standard and competitive modes. High refresh eliminates flicker and delivers smooth, blur-free motion in fast-paced content including sports, gaming, cinematic and live performance.</p>
+                      <p class="features-card__desc">
+                        Exceptional refresh rate starting with 3840Hz in both standard and competitive modes. High
+                        refresh eliminates flicker and delivers smooth, blur-free motion in fast-paced content including
+                        sports, gaming, cinematic and live performance.
+                      </p>
                     </div>
                   </div>
 
@@ -642,7 +725,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Simplified Control</h4>
-                      <p class="features-card__desc">Advanced control system that enables algorithm-enhanced content display and visibility. Modular processing controls deliver a complete video and display management solution while integrating with your data and AV distribution from anywhere.</p>
+                      <p class="features-card__desc">
+                        Advanced control system that enables algorithm-enhanced content display and visibility. Modular
+                        processing controls deliver a complete video and display management solution while integrating
+                        with your data and AV distribution from anywhere.
+                      </p>
                     </div>
                   </div>
 
@@ -655,7 +742,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Robust Design</h4>
-                      <p class="features-card__desc">COB design features a patented polymer layer that shields LEDs, making them resistant to damage. Significantly more durable to handle contact and minor impacts compared to a traditional SMD display.</p>
+                      <p class="features-card__desc">
+                        COB design features a patented polymer layer that shields LEDs, making them resistant to damage.
+                        Significantly more durable to handle contact and minor impacts compared to a traditional SMD
+                        display.
+                      </p>
                     </div>
                   </div>
 
@@ -667,7 +758,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Superior Heat Dissipation</h4>
-                      <p class="features-card__desc">Optimized thermal architecture significantly enhances LED lifespan by efficiently dispersing heat through advanced heat sink design, maintaining optimal operating temperatures for years of reliable operation.</p>
+                      <p class="features-card__desc">
+                        Optimized thermal architecture significantly enhances LED lifespan by efficiently dispersing
+                        heat through advanced heat sink design, maintaining optimal operating temperatures for years of
+                        reliable operation.
+                      </p>
                     </div>
                   </div>
 
@@ -680,7 +775,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Energy Efficiency</h4>
-                      <p class="features-card__desc">Superior energy efficiency compared to traditional LED video wall technology. Lower power consumption means reduced operating costs and heat load without sacrificing any display quality or brightness.</p>
+                      <p class="features-card__desc">
+                        Superior energy efficiency compared to traditional LED video wall technology. Lower power
+                        consumption means reduced operating costs and heat load without sacrificing any display quality
+                        or brightness.
+                      </p>
                     </div>
                   </div>
 
@@ -692,7 +791,11 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">Wide Viewing Angles</h4>
-                      <p class="features-card__desc">170° Horizontal and 160° vertical viewing angles deliver extraordinary visibility from virtually any position. Color accuracy and contrast remains consistent across the entire viewing area, ensuring quality at all installation scenarios.</p>
+                      <p class="features-card__desc">
+                        170° Horizontal and 160° vertical viewing angles deliver extraordinary visibility from virtually
+                        any position. Color accuracy and contrast remains consistent across the entire viewing area,
+                        ensuring quality at all installation scenarios.
+                      </p>
                     </div>
                   </div>
 
@@ -705,7 +808,10 @@
                     </div>
                     <div class="features-card__content">
                       <h4 class="features-card__title">100% Front Serviceable</h4>
-                      <p class="features-card__desc">Complete front access design for maintenance without system disassembly. Reduces downtime and simplifying service operations.</p>
+                      <p class="features-card__desc">
+                        Complete front access design for maintenance without system disassembly. Reduces downtime and
+                        simplifying service operations.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -729,7 +835,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">64 Cabinets</span>
                       <h4 class="included-card__title">Complete Cabinet Array</h4>
-                      <p class="included-card__desc">23.62" × 13.3" × 1" interlocking cabinets, each with 4 interchangeable COB LED modules. Includes 5% spare modules for extended reliability.</p>
+                      <p class="included-card__desc">
+                        23.62" × 13.3" × 1" interlocking cabinets, each with 4 interchangeable COB LED modules. Includes
+                        5% spare modules for extended reliability.
+                      </p>
                     </div>
                   </div>
 
@@ -740,7 +849,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">1 Unit</span>
                       <h4 class="included-card__title">NovaStar H2 Controller</h4>
-                      <p class="included-card__desc">4K video processor with advanced color calibration and HDR support. 3D video capability with dedicated AV control. Includes 4K/60p + 1×4K HDMI 2.0 inputs.</p>
+                      <p class="included-card__desc">
+                        4K video processor with advanced color calibration and HDR support. 3D video capability with
+                        dedicated AV control. Includes 4K/60p + 1×4K HDMI 2.0 inputs.
+                      </p>
                     </div>
                   </div>
 
@@ -751,7 +863,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">Complete Kit</span>
                       <h4 class="included-card__title">Rail Mounting System</h4>
-                      <p class="included-card__desc">Professional-grade wall mounting rails and stainless steel brackets for secure installation with precise cabinet alignment tolerances.</p>
+                      <p class="included-card__desc">
+                        Professional-grade wall mounting rails and stainless steel brackets for secure installation with
+                        precise cabinet alignment tolerances.
+                      </p>
                     </div>
                   </div>
 
@@ -763,7 +878,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">Full Set + Spares</span>
                       <h4 class="included-card__title">Power & Network Cables</h4>
-                      <p class="included-card__desc">All connecting power and network cables including spare units. Pre-measured for 8×8 configuration with segregated cable management.</p>
+                      <p class="included-card__desc">
+                        All connecting power and network cables including spare units. Pre-measured for 8×8
+                        configuration with segregated cable management.
+                      </p>
                     </div>
                   </div>
 
@@ -774,7 +892,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">2 Tools</span>
                       <h4 class="included-card__title">Installation & Service Kit</h4>
-                      <p class="included-card__desc">Suction tool for frontal module exchange/repair, plus vacuum tool for precision handling. Essential for front service maintenance.</p>
+                      <p class="included-card__desc">
+                        Suction tool for frontal module exchange/repair, plus vacuum tool for precision handling.
+                        Essential for front service maintenance.
+                      </p>
                     </div>
                   </div>
 
@@ -785,7 +906,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">Integrated Set</span>
                       <h4 class="included-card__title">Interlocking Connectors</h4>
-                      <p class="included-card__desc">Precision-engineered 4-pole and 2-pole connecting plates. Enables cabinet-to-cabinet daisy chaining in two axis + power "bus/bars" + spare.</p>
+                      <p class="included-card__desc">
+                        Precision-engineered 4-pole and 2-pole connecting plates. Enables cabinet-to-cabinet daisy
+                        chaining in two axis + power "bus/bars" + spare.
+                      </p>
                     </div>
                   </div>
 
@@ -797,7 +921,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">Complete Set</span>
                       <h4 class="included-card__title">Technical Documentation</h4>
-                      <p class="included-card__desc">Full spec sheets, mounting drawings, wiring diagrams, NovaStar manuals, quick start guides, and installation instructions.</p>
+                      <p class="included-card__desc">
+                        Full spec sheets, mounting drawings, wiring diagrams, NovaStar manuals, quick start guides, and
+                        installation instructions.
+                      </p>
                     </div>
                   </div>
 
@@ -808,7 +935,10 @@
                     <div class="included-card__content">
                       <span class="included-card__badge">4 Years</span>
                       <h4 class="included-card__title">Comprehensive Warranty</h4>
-                      <p class="included-card__desc">4-year comprehensive warranty covering all components, modules, and system failures. Lifetime technical support included.</p>
+                      <p class="included-card__desc">
+                        4-year comprehensive warranty covering all components, modules, and system failures. Lifetime
+                        technical support included.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -829,28 +959,36 @@
                     <div class="installation-step__number">1</div>
                     <h4 class="installation-step__title">Preparation</h4>
                     <span class="installation-step__time">15 MINUTES</span>
-                    <p class="installation-step__desc">Site preparation, wall mounting rail installation, power/data infrastructure verification.</p>
+                    <p class="installation-step__desc">
+                      Site preparation, wall mounting rail installation, power/data infrastructure verification.
+                    </p>
                   </div>
 
                   <div class="installation-step">
                     <div class="installation-step__number">2</div>
                     <h4 class="installation-step__title">Cabinet Assembly</h4>
                     <span class="installation-step__time">75 MINUTES</span>
-                    <p class="installation-step__desc">Quick Connect cabinet linking in 8×8 configuration. Lock mechanisms engage with simple turns.</p>
+                    <p class="installation-step__desc">
+                      Quick Connect cabinet linking in 8×8 configuration. Lock mechanisms engage with simple turns.
+                    </p>
                   </div>
 
                   <div class="installation-step">
                     <div class="installation-step__number">3</div>
                     <h4 class="installation-step__title">Connections</h4>
                     <span class="installation-step__time">20 MINUTES</span>
-                    <p class="installation-step__desc">Integrated power and network hub connections. Organized cable routing through cabinet management.</p>
+                    <p class="installation-step__desc">
+                      Integrated power and network hub connections. Organized cable routing through cabinet management.
+                    </p>
                   </div>
 
                   <div class="installation-step">
                     <div class="installation-step__number">4</div>
                     <h4 class="installation-step__title">Calibration</h4>
                     <span class="installation-step__time">10 MINUTES</span>
-                    <p class="installation-step__desc">NovaStar H2 configuration, color calibration, brightness uniformity adjustment.</p>
+                    <p class="installation-step__desc">
+                      NovaStar H2 configuration, color calibration, brightness uniformity adjustment.
+                    </p>
                   </div>
                 </div>
 
@@ -865,7 +1003,10 @@
                         </svg>
                       </div>
                       <h4 class="installation-requirement__title">Power Requirements</h4>
-                      <p class="installation-requirement__desc">Standard AC 100-240V, 50/60Hz. Maximum draw: 5.6kW (peak). Average consumption: 2.7kW. Dedicated 30A circuit recommended.</p>
+                      <p class="installation-requirement__desc">
+                        Standard AC 100-240V, 50/60Hz. Maximum draw: 5.6kW (peak). Average consumption: 2.7kW. Dedicated
+                        30A circuit recommended.
+                      </p>
                     </div>
 
                     <div class="installation-requirement">
@@ -875,7 +1016,10 @@
                         </svg>
                       </div>
                       <h4 class="installation-requirement__title">Space Requirements</h4>
-                      <p class="installation-requirement__desc">Display: 15.75' × 8.86' (4.8m × 2.7m). Depth: 1" (25mm) + mounting rail. Clearance: 6" front access minimum. Weight: 242kg (534 lbs) total.</p>
+                      <p class="installation-requirement__desc">
+                        Display: 15.75' × 8.86' (4.8m × 2.7m). Depth: 1" (25mm) + mounting rail. Clearance: 6" front
+                        access minimum. Weight: 242kg (534 lbs) total.
+                      </p>
                     </div>
 
                     <div class="installation-requirement">
@@ -885,7 +1029,10 @@
                         </svg>
                       </div>
                       <h4 class="installation-requirement__title">Environmental</h4>
-                      <p class="installation-requirement__desc">Temperature: -20°C to +50°C. Humidity: 10-95% RH (non-condensing). Ventilation: Standard room airflow. Indoor installation recommended.</p>
+                      <p class="installation-requirement__desc">
+                        Temperature: -20°C to +50°C. Humidity: 10-95% RH (non-condensing). Ventilation: Standard room
+                        airflow. Indoor installation recommended.
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -894,7 +1041,10 @@
                 <div class="installation-support">
                   <div class="installation-support__content">
                     <h3 class="installation-support__title">Need Professional Installation Support?</h3>
-                    <p class="installation-support__desc">Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.</p>
+                    <p class="installation-support__desc">
+                      Our certified installation partners provide white-glove service nationwide. Contact us for
+                      installer recommendations in your area.
+                    </p>
                   </div>
                   <a href="{{ block.settings.installer_link }}" class="installation-support__btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -942,7 +1092,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">PRO SPECTRUM SPEC SHEET</h4>
-                      <p class="resource-card__desc">Complete technical specifications for Pro Spectrum COB LED series. Includes display, electrical, and environmental specs.</p>
+                      <p class="resource-card__desc">
+                        Complete technical specifications for Pro Spectrum COB LED series. Includes display, electrical,
+                        and environmental specs.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">2.4 MB</span>
@@ -963,7 +1116,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">LED VIEWING DISTANCE GUIDE</h4>
-                      <p class="resource-card__desc">Comprehensive guide for calculating optimal viewing distances and pixel pitch selection for LED video walls.</p>
+                      <p class="resource-card__desc">
+                        Comprehensive guide for calculating optimal viewing distances and pixel pitch selection for LED
+                        video walls.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">1.8 MB</span>
@@ -984,7 +1140,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">MOUNTING FRAME DRAWINGS</h4>
-                      <p class="resource-card__desc">Detailed CAD drawings for BL-PS-COB-LED-217 8×8 configuration. Includes dimensions and mounting specifications.</p>
+                      <p class="resource-card__desc">
+                        Detailed CAD drawings for BL-PS-COB-LED-217 8×8 configuration. Includes dimensions and mounting
+                        specifications.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">DWG</span>
                         <span class="resource-card__size">856 KB</span>
@@ -1005,7 +1164,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">POWER & NETWORK DIAGRAMS</h4>
-                      <p class="resource-card__desc">Complete wiring diagrams for power distribution and network connections in 8×8 cabinet array configuration.</p>
+                      <p class="resource-card__desc">
+                        Complete wiring diagrams for power distribution and network connections in 8×8 cabinet array
+                        configuration.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">DWG</span>
                         <span class="resource-card__size">743 KB</span>
@@ -1027,7 +1189,9 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">NOVASTAR H2 QUICK START</h4>
-                      <p class="resource-card__desc">Quick start guide for NovaStar H2 controller setup, initial configuration, and basic operation.</p>
+                      <p class="resource-card__desc">
+                        Quick start guide for NovaStar H2 controller setup, initial configuration, and basic operation.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">3.1 MB</span>
@@ -1048,7 +1212,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">NOVASTAR H2 USER MANUAL</h4>
-                      <p class="resource-card__desc">Complete user manual for NovaStar H2 video processor. Covers advanced features, troubleshooting, and specifications.</p>
+                      <p class="resource-card__desc">
+                        Complete user manual for NovaStar H2 video processor. Covers advanced features, troubleshooting,
+                        and specifications.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">12.5 MB</span>
@@ -1069,7 +1236,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">NOVASTAR H2 SPECIFICATIONS</h4>
-                      <p class="resource-card__desc">Detailed technical specifications for NovaStar H2 including I/O configurations, processing capacity, and features.</p>
+                      <p class="resource-card__desc">
+                        Detailed technical specifications for NovaStar H2 including I/O configurations, processing
+                        capacity, and features.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">1.2 MB</span>
@@ -1090,7 +1260,10 @@
                         </div>
                       </div>
                       <h4 class="resource-card__title">COB vs GOB COMPARISON CHART</h4>
-                      <p class="resource-card__desc">Side-by-side comparison of COB and GOB LED technologies. Understand the advantages of COB for professional applications.</p>
+                      <p class="resource-card__desc">
+                        Side-by-side comparison of COB and GOB LED technologies. Understand the advantages of COB for
+                        professional applications.
+                      </p>
                       <div class="resource-card__footer">
                         <span class="resource-card__badge">PDF</span>
                         <span class="resource-card__size">892 KB</span>
@@ -1121,7 +1294,11 @@
                     </div>
                     <h4 class="support-contact__email">support@brightlinkav.com</h4>
                     <p class="support-contact__response">Response within 1-2 hours during business hours</p>
-                    <a href="mailto:support@brightlinkav.com" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                    <a
+                      href="mailto:support@brightlinkav.com"
+                      class="support-contact__btn support-contact__btn--secondary"
+                      >SEND EMAIL</a
+                    >
                   </div>
 
                   <div class="support-contact__card support-contact__card--lifetime">
@@ -1186,12 +1363,26 @@
                   </div>
                   <div class="support-usecase__content">
                     <h3 class="support-usecase__title">Executive Boardrooms & Conference Centers</h3>
-                    <p class="support-usecase__text">Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim 25mm profile creates a seamless, architectural presence that complements high-end interiors.</p>
-                    <p class="support-usecase__text">Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content regardless of seating position.</p>
+                    <p class="support-usecase__text">
+                      Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm
+                      pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim
+                      25mm profile creates a seamless, architectural presence that complements high-end interiors.
+                    </p>
+                    <p class="support-usecase__text">
+                      Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video
+                      conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content
+                      regardless of seating position.
+                    </p>
 
                     <div class="support-usecase__features">
                       <h4 class="support-usecase__features-title">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          width="20"
+                          height="20"
+                        >
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                         Why Pro Spectrum?
@@ -1217,7 +1408,7 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const section = document.getElementById('product-intelligence-{{ section.id }}');
     if (!section) return;
 
@@ -1227,18 +1418,18 @@
 
     // Tab switching
     tabs.forEach((tab, index) => {
-      tab.addEventListener('click', function() {
+      tab.addEventListener('click', function () {
         if (index === currentIndex) return;
 
         // Determine slide direction
         const slideDirection = index > currentIndex ? 'slide-right' : 'slide-left';
 
         // Remove active class from all tabs and panels
-        tabs.forEach(t => {
+        tabs.forEach((t) => {
           t.classList.remove('product-intelligence__tab--active');
           t.setAttribute('aria-selected', 'false');
         });
-        panels.forEach(p => {
+        panels.forEach((p) => {
           p.classList.remove('product-intelligence__panel--active');
           p.classList.remove('product-intelligence__panel--slide-right');
           p.classList.remove('product-intelligence__panel--slide-left');
@@ -1257,10 +1448,10 @@
 
     // Accordion functionality for specs tab
     const accordions = section.querySelectorAll('[data-accordion]');
-    accordions.forEach(accordion => {
+    accordions.forEach((accordion) => {
       const header = accordion.querySelector('.specs-accordion__header');
       if (header) {
-        header.addEventListener('click', function() {
+        header.addEventListener('click', function () {
           accordion.classList.toggle('specs-accordion--open');
         });
       }
@@ -1802,5 +1993,4 @@
     --pi-padding-top: {{ section.settings.padding_top }}px;
     --pi-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
-
 </style>
