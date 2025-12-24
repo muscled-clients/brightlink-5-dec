@@ -8,9 +8,10 @@
     {% endif %}
 
     <!-- Main Heading -->
-    {% if section.settings.heading != blank %}
-      <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
-    {% endif %}
+  {% assign showcase_title = product.metafields.custom.showcase_title | default: section.settings.heading %}
+  {% if showcase_title != blank %}
+    <h2 class="product-showcase__heading">{{ showcase_title }}</h2>
+  {% endif %}
 
     <!-- Subheading -->
     {% if section.settings.subheading != blank %}
