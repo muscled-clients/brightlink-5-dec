@@ -7,9 +7,9 @@
 <section class="technical-specs {{ section.settings.custom_class }}" id="technical-specs-{{ section.id }}">
   <div class="technical-specs__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
-    {% assign specs_title = led_data.technical_specs_header.title | default: section.settings.heading %}
-    {% assign specs_subtitle = led_data.technical_specs_header.subtitle | default: section.settings.subheading %}
-
+  {% assign specs_title = product.metafields.custom.tech_spec_heading | default: section.settings.heading %}
+  {% assign specs_subtitle = product.metafields.custom.tech_spec_sub_heading | default: section.settings.subheading %}          
+  
     <div class="technical-specs__header">
       {% if section.settings.section_label != blank %}
         <span class="technical-specs__label">{{ section.settings.section_label }}</span>
