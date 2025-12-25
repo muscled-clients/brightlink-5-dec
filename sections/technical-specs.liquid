@@ -1,18 +1,15 @@
 {{ 'technical-specs.css' | asset_url | stylesheet_tag }}
 
-{% comment %} Use metafield data with fallback to section settings {% endcomment %}
-{% assign specs_title = product.metafields.custom.tech_spec_heading | default: section.settings.heading %}
-{% assign specs_subtitle = product.metafields.custom.tech_spec_sub_heading | default: section.settings.subheading %}
-
-{% comment %} Tech spec cards - List metafields {% endcomment %}
-{% assign ts_icons = product.metafields.custom.tech_spec_card_icon.value %}
-{% assign ts_titles = product.metafields.custom.tech_spec_card_title.value %}
-{% assign ts_subtitles = product.metafields.custom.tech_spec_card_sub_title.value %}
-{% assign ts_texts = product.metafields.custom.tech_spec_card_text.value %}
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign specs_data = led_data.technical_specs %}
 
 <section class="technical-specs {{ section.settings.custom_class }}" id="technical-specs-{{ section.id }}">
   <div class="technical-specs__container">
-    <!-- Header -->
+    <!-- Header - Use metafield data if available, otherwise use section settings -->
+    {% assign specs_title = led_data.technical_specs_header.title | default: section.settings.heading %}
+    {% assign specs_subtitle = led_data.technical_specs_header.subtitle | default: section.settings.subheading %}
+
     <div class="technical-specs__header">
       {% if section.settings.section_label != blank %}
         <span class="technical-specs__label">{{ section.settings.section_label }}</span>
@@ -27,50 +24,46 @@
       {% endif %}
     </div>
 
-    <!-- Cards Grid - Use list metafields if available, otherwise use blocks -->
+    <!-- Cards Grid - Use metafield data if available, otherwise use blocks -->
     <div class="technical-specs__grid">
-      {% if ts_titles.size > 0 %}
-        {% for i in (0..7) %}
-          {% if ts_titles[i] != blank %}
-            <div class="technical-specs__card">
-              <!-- Icon -->
-              <div class="technical-specs__icon">
-                {% case ts_icons[i] %}
-                  {% when 'grid' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"/></svg>
-                  {% when 'pen' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
-                  {% when 'refresh' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
-                  {% when 'sun' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
-                  {% when 'contrast' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
-                  {% when 'eye' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
-                  {% when 'layers' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
-                  {% when 'weight' %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.78 3.97l-6.03 6.03c-.25-.03-.5-.05-.75-.05-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-.25-.02-.5-.05-.75l6.03-6.03-1.2-1.2zM12 21c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
-                  {% else %}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                {% endcase %}
-              </div>
-
-              <!-- Card Title -->
-              <h3 class="technical-specs__card-title">{{ ts_titles[i] }}</h3>
-
-              <!-- Card Subtitle -->
-              {% if ts_subtitles[i] != blank %}
-                <p class="technical-specs__card-subtitle">{{ ts_subtitles[i] }}</p>
-              {% endif %}
-
-              <!-- Card Description -->
-              {% if ts_texts[i] != blank %}
-                <p class="technical-specs__card-desc">{{ ts_texts[i] }}</p>
-              {% endif %}
+      {% if specs_data.size > 0 %}
+        {% for spec in specs_data %}
+          <div class="technical-specs__card">
+            <!-- Icon -->
+            <div class="technical-specs__icon">
+              {% case spec.icon %}
+                {% when 'grid' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 3v8h8V3H3zm6 6H5V5h4v4zm-6 4v8h8v-8H3zm6 6H5v-4h4v4zm4-16v8h8V3h-8zm6 6h-4V5h4v4zm-6 4v8h8v-8h-8zm6 6h-4v-4h4v4z"/></svg>
+                {% when 'pen' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                {% when 'refresh' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+                {% when 'sun' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69zM12 18c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/></svg>
+                {% when 'contrast' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18V4c4.41 0 8 3.59 8 8s-3.59 8-8 8z"/></svg>
+                {% when 'eye' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                {% when 'layers' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/></svg>
+                {% when 'weight' %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm6.78 3.97l-6.03 6.03c-.25-.03-.5-.05-.75-.05-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-.25-.02-.5-.05-.75l6.03-6.03-1.2-1.2zM12 21c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/></svg>
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              {% endcase %}
             </div>
-          {% endif %}
+
+            <!-- Card Title -->
+            <h3 class="technical-specs__card-title">{{ spec.value }}</h3>
+
+            <!-- Card Subtitle -->
+            <p class="technical-specs__card-subtitle">{{ spec.label }}</p>
+
+            <!-- Card Description -->
+            {% if spec.detail != blank %}
+              <p class="technical-specs__card-desc">{{ spec.detail }}</p>
+            {% endif %}
+          </div>
         {% endfor %}
       {% else %}
         {% for block in section.blocks %}

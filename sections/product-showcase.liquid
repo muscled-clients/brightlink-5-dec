@@ -8,15 +8,13 @@
     {% endif %}
 
     <!-- Main Heading -->
-    {% assign showcase_title = product.metafields.custom.showcase_title | default: section.settings.heading %}
-    {% if showcase_title != blank %}
-      <h2 class="product-showcase__heading">{{ showcase_title }}</h2>
+    {% if section.settings.heading != blank %}
+      <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
     <!-- Subheading -->
-    {% assign showcase_subtitle = product.metafields.custom.showcase_subtitle | default: section.settings.subheading %}
-    {% if showcase_subtitle != blank %}
-      <p class="product-showcase__subheading">{{ showcase_subtitle }}</p>
+    {% if section.settings.subheading != blank %}
+      <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
     {% endif %}
 
     <!-- Image Carousel -->
@@ -25,11 +23,7 @@
       <div class="product-showcase__slides">
         {% for block in section.blocks %}
           {% if block.type == 'slide' %}
-            <div
-              class="product-showcase__slide {% if forloop.first %}product-showcase__slide--active{% endif %}"
-              data-slide-index="{{ forloop.index0 }}"
-              {{ block.shopify_attributes }}
-            >
+            <div class="product-showcase__slide {% if forloop.first %}product-showcase__slide--active{% endif %}" data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
               {% if block.settings.slide_image != blank %}
                 <img
                   src="{{ block.settings.slide_image | image_url: width: 1200 }}"
@@ -62,11 +56,7 @@
         <div class="product-showcase__dots">
           {% for block in section.blocks %}
             {% if block.type == 'slide' %}
-              <button
-                class="product-showcase__dot {% if forloop.first %}product-showcase__dot--active{% endif %}"
-                data-dot-index="{{ forloop.index0 }}"
-                aria-label="Go to slide {{ forloop.index }}"
-              ></button>
+              <button class="product-showcase__dot {% if forloop.first %}product-showcase__dot--active{% endif %}" data-dot-index="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}"></button>
             {% endif %}
           {% endfor %}
         </div>
@@ -368,4 +358,5 @@
     --ps-padding-top: {{ section.settings.padding_top }}px;
     --ps-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+
 </style>

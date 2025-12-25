@@ -6,17 +6,8 @@
 
 {% comment %} Use metafield data with fallback to section settings {% endcomment %}
 {% assign series_label = hero_data.series_label | default: section.settings.series_label %}
-{% assign tagline = product.metafields.custom.product_subtitle | default: section.settings.subheading %}
-{% assign description = product.metafields.custom.banner_small_description | default: section.settings.description %}
-{% comment %} Feature box metafields {% endcomment %}
-{% assign box_1_heading = product.metafields.custom.box_heading_1 %}
-{% assign box_1_subtext = product.metafields.custom.box_sub_text_1 %}
-{% assign box_2_heading = product.metafields.custom.box_heading_2 %}
-{% assign box_2_subtext = product.metafields.custom.box_sub_text_2 %}
-{% assign box_3_heading = product.metafields.custom.box_heading_3 %}
-{% assign box_3_subtext = product.metafields.custom.box_sub_text_3 %}
-{% assign box_4_heading = product.metafields.custom.box_heading_4 %}
-{% assign box_4_subtext = product.metafields.custom.box_sub_text_4 %}
+{% assign tagline = hero_data.tagline | default: section.settings.subheading %}
+{% assign description = hero_data.description | default: section.settings.description %}
 
 <section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
   <!-- Background Video -->
@@ -26,22 +17,13 @@
         <source src="{{ section.settings.video_url }}" type="video/mp4">
       </video>
     {% elsif section.settings.video_file != blank %}
-      {{
-        section.settings.video_file
-        | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video'
-      }}
+      {{ section.settings.video_file | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video' }}
     {% else %}
       <!-- Fallback background image -->
-      <div
-        class="hero-video-wall__fallback-bg"
-        style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"
-      ></div>
+      <div class="hero-video-wall__fallback-bg" style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"></div>
     {% endif %}
     <!-- Dark Overlay -->
-    <div
-      class="hero-video-wall__overlay"
-      style="background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"
-    ></div>
+    <div class="hero-video-wall__overlay" style="background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
   </div>
 
   <!-- Content -->
@@ -52,10 +34,8 @@
     {% endif %}
 
     <!-- Main Heading (use product title) -->
-    {% assign main_heading = product.metafields.custom.banner_title | default: section.settings.main_heading %}
-    {% if main_heading != blank %}
-      <h1 class="hero-video-wall__main-heading">{{ main_heading }}</h1>
-
+    {% if section.settings.main_heading != blank %}
+      <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
     {% elsif product.title != blank %}
       <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
     {% endif %}
@@ -71,53 +51,29 @@
     {% endif %}
 
     <!-- CTA Buttons -->
-    {% assign button_1_text = product.metafields.custom.tab_label_1 | default: section.settings.button_1_text %}
-    {% assign button_2_text = product.metafields.custom.tab_label_2 | default: section.settings.button_2_text %}
-
     <div class="hero-video-wall__buttons">
-      {% if button_1_text != blank %}
+      {% if section.settings.button_1_text != blank %}
         <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
-          {{ button_1_text }}
+          {{ section.settings.button_1_text }}
         </a>
       {% endif %}
-      {% if button_2_text != blank %}
+      {% if section.settings.button_2_text != blank %}
         <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
-          {{ button_2_text }}
+          {{ section.settings.button_2_text }}
         </a>
       {% endif %}
     </div>
 
-    <!-- Feature Boxes - Use metafield data if available, otherwise use blocks -->
+    <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
     <div class="hero-video-wall__features">
-      {% if box_1_heading != blank %}
-        <!-- Use Metafields -->
-        <div class="hero-video-wall__feature-box">
-          <span class="hero-video-wall__feature-value">{{ box_1_heading }}</span>
-          <span class="hero-video-wall__feature-label">{{ box_1_subtext }}</span>
-        </div>
-
-        {% if box_2_heading != blank %}
+      {% if hero_data.metrics.size > 0 %}
+        {% for metric in hero_data.metrics %}
           <div class="hero-video-wall__feature-box">
-            <span class="hero-video-wall__feature-value">{{ box_2_heading }}</span>
-            <span class="hero-video-wall__feature-label">{{ box_2_subtext }}</span>
+            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
           </div>
-        {% endif %}
-
-        {% if box_3_heading != blank %}
-          <div class="hero-video-wall__feature-box">
-            <span class="hero-video-wall__feature-value">{{ box_3_heading }}</span>
-            <span class="hero-video-wall__feature-label">{{ box_3_subtext }}</span>
-          </div>
-        {% endif %}
-
-        {% if box_4_heading != blank %}
-          <div class="hero-video-wall__feature-box">
-            <span class="hero-video-wall__feature-value">{{ box_4_heading }}</span>
-            <span class="hero-video-wall__feature-label">{{ box_4_subtext }}</span>
-          </div>
-        {% endif %}
+        {% endfor %}
       {% else %}
-        <!-- Fallback to Section Blocks -->
         {% for block in section.blocks %}
           {% if block.type == 'feature' %}
             <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
