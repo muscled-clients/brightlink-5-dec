@@ -257,6 +257,75 @@
         "stack_mobile": false,
         "title": "Why choose us"
       }
+    },
+    "hero_video_wall_PQqxeL": {
+      "type": "hero-video-wall",
+      "blocks": {
+        "feature_zKWMGn": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "217\"",
+            "feature_label": "Diagonal Display"
+          }
+        },
+        "feature_d7BGfx": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "8.3M",
+            "feature_label": "Total Pixels"
+          }
+        },
+        "feature_Jwryyq": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "1.25mm",
+            "feature_label": "Pixel Pitch"
+          }
+        },
+        "feature_c7gEgx": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "2hrs",
+            "feature_label": "Installation Time"
+          }
+        }
+      },
+      "block_order": [
+        "feature_zKWMGn",
+        "feature_d7BGfx",
+        "feature_Jwryyq",
+        "feature_c7gEgx"
+      ],
+      "name": "Hero Video Wall",
+      "settings": {
+        "video_url": "",
+        "overlay_opacity": 60,
+        "series_label": "PRO SPECTRUM SERIES",
+        "main_heading": "217\" COB LED Video Wall",
+        "subheading": "The Pinnacle of Visual Excellence",
+        "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
+        "button_1_text": "Configure Your System",
+        "button_1_link": "",
+        "button_2_text": "Explore Specifications",
+        "button_2_link": "",
+        "label_font_size": 12,
+        "heading_font_size": 64,
+        "heading_font_weight": "700",
+        "subheading_font_size": 36,
+        "subheading_font_weight": "400",
+        "subheading_italic": false,
+        "description_font_size": 16,
+        "feature_value_font_size": 28,
+        "feature_label_font_size": 12,
+        "button_font_size": 14,
+        "label_bg_opacity": 40,
+        "button_bg_opacity": 40,
+        "feature_box_bg_opacity": 40,
+        "button_bg_color": "#FF6200",
+        "button_hover_color": "#e55b00",
+        "series_label_color": "#FFD700",
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -264,6 +333,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "b8deed9e-0e81-4c1b-806c-3c7469277430"
+    "b8deed9e-0e81-4c1b-806c-3c7469277430",
+    "hero_video_wall_PQqxeL"
   ]
 }
