@@ -26,85 +26,113 @@
       {% endif %}
     </div>
 
-    <!-- Cards -->
-    {% assign advantage_cards = product.metafields.custom.competitive_advantage_cards.value %}
+    <!-- Cards - Using List metafields -->
+    {% assign ca_titles = product.metafields.custom.ca_card_title.value %}
+    {% assign ca_subtitles = product.metafields.custom.ca_card_sub_title.value %}
+    {% assign ca_subtexts = product.metafields.custom.ca_card_sub_text.value %}
+    {% assign ca_list_1 = product.metafields.custom.ca_card_list_1.value %}
+    {% assign ca_list_2 = product.metafields.custom.ca_card_list_2.value %}
+    {% assign ca_list_3 = product.metafields.custom.ca_card_list_3.value %}
+    {% assign ca_list_4 = product.metafields.custom.ca_card_list_4.value %}
+    {% assign ca_footer_headings = product.metafields.custom.ca_card_footer_heading.value %}
+    {% assign ca_footer_texts = product.metafields.custom.ca_card_footer_text.value %}
 
     <div class="competitive-advantages__cards">
-      {% if advantage_cards.size > 0 %}
-        {% for card in advantage_cards %}
-          <div class="competitive-advantages__card">
-            <!-- Icon -->
-            <div class="competitive-advantages__icon">
-              {% if card.icon_type == 'clock' %}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
-                </svg>
-              {% elsif card.icon_type == 'layers' %}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/>
-                </svg>
-              {% elsif card.icon_type == 'infinity' %}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99
-                  2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
-                </svg>
-              {% elsif card.custom_icon != blank %}
-                <img src="{{ card.custom_icon }}" alt="" class="competitive-advantages__icon-img">
-              {% else %}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18
-                  3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
+      {% if ca_titles.size > 0 %}
+        {% for i in (0..2) %}
+          {% if ca_titles[i] != blank %}
+            <div class="competitive-advantages__card">
+              <!-- Icon -->
+              <div class="competitive-advantages__icon">
+                {% case i %}
+                  {% when 0 %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/>
+                    </svg>
+                  {% when 1 %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M11.99 18.54l-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27-7.38 5.74zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16z"/>
+                    </svg>
+                  {% when 2 %}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
+                    </svg>
+                {% endcase %}
+              </div>
+
+              <!-- Card Title -->
+              <h3 class="competitive-advantages__card-title">{{ ca_titles[i] }}</h3>
+
+              <!-- Card Subtitle -->
+              {% if ca_subtitles[i] != blank %}
+                <p class="competitive-advantages__card-subtitle">{{ ca_subtitles[i] }}</p>
               {% endif %}
-            </div>
 
-            <!-- Card Title -->
-            {% if card.card_title != blank %}
-              <h3 class="competitive-advantages__card-title">{{ card.card_title }}</h3>
-            {% endif %}
+              <!-- Card Meta -->
+              {% if ca_subtexts[i] != blank %}
+                <p class="competitive-advantages__card-meta">{{ ca_subtexts[i] }}</p>
+              {% endif %}
 
-            <!-- Card Subtitle -->
-            {% if card.card_subtitle != blank %}
-              <p class="competitive-advantages__card-subtitle">{{ card.card_subtitle }}</p>
-            {% endif %}
+              <!-- Divider -->
+              <div class="competitive-advantages__divider"></div>
 
-            <!-- Card Meta -->
-            {% if card.card_meta != blank %}
-              <p class="competitive-advantages__card-meta">{{ card.card_meta }}</p>
-            {% endif %}
-
-            <!-- Divider -->
-            <div class="competitive-advantages__divider"></div>
-
-            <!-- Features List -->
-            <ul class="competitive-advantages__features">
-              {% for feature in card.features %}
-                {% if feature != blank %}
+              <!-- Features List -->
+              <ul class="competitive-advantages__features">
+                {% if ca_list_1[i] != blank %}
                   <li class="competitive-advantages__feature">
                     <span class="competitive-advantages__check">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9
-                        16.17z"/>
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
                       </svg>
                     </span>
-                    <span>{{ feature }}</span>
+                    <span>{{ ca_list_1[i] }}</span>
                   </li>
                 {% endif %}
-              {% endfor %}
-            </ul>
+                {% if ca_list_2[i] != blank %}
+                  <li class="competitive-advantages__feature">
+                    <span class="competitive-advantages__check">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{ ca_list_2[i] }}</span>
+                  </li>
+                {% endif %}
+                {% if ca_list_3[i] != blank %}
+                  <li class="competitive-advantages__feature">
+                    <span class="competitive-advantages__check">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{ ca_list_3[i] }}</span>
+                  </li>
+                {% endif %}
+                {% if ca_list_4[i] != blank %}
+                  <li class="competitive-advantages__feature">
+                    <span class="competitive-advantages__check">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                      </svg>
+                    </span>
+                    <span>{{ ca_list_4[i] }}</span>
+                  </li>
+                {% endif %}
+              </ul>
 
-            <!-- Card Footer -->
-            {% if card.footer_label != blank or card.footer_desc != blank %}
-              <div class="competitive-advantages__card-footer">
-                {% if card.footer_label != blank %}
-                  <span class="competitive-advantages__card-label">{{ card.footer_label }}</span>
-                {% endif %}
-                {% if card.footer_desc != blank %}
-                  <p class="competitive-advantages__card-desc">{{ card.footer_desc }}</p>
-                {% endif %}
-              </div>
-            {% endif %}
-          </div>
+              <!-- Card Footer -->
+              {% if ca_footer_headings[i] != blank or ca_footer_texts[i] != blank %}
+                <div class="competitive-advantages__card-footer">
+                  {% if ca_footer_headings[i] != blank %}
+                    <span class="competitive-advantages__card-label">{{ ca_footer_headings[i] }}</span>
+                  {% endif %}
+                  {% if ca_footer_texts[i] != blank %}
+                    <p class="competitive-advantages__card-desc">{{ ca_footer_texts[i] }}</p>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
         {% endfor %}
       {% else %}
         {% comment %} Fallback to section blocks {% endcomment %}
