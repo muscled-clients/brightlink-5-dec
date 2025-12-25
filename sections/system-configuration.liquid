@@ -1,8 +1,15 @@
 {{ 'system-configuration.css' | asset_url | stylesheet_tag }}
 
-{% comment %} Get LED template data from product metafield {% endcomment %}
-{% assign led_data = product.metafields.custom.led_template_data.value %}
-{% assign config_data = led_data.system_config %}
+{% comment %} Get System Configuration metafields {% endcomment %}
+{% assign sa_heading = product.metafields.custom.sa_heading | default: section.settings.heading %}
+{% assign sa_sub_heading = product.metafields.custom.sa_sub_heading | default: section.settings.subheading %}
+{% assign sa_image = product.metafields.custom.sa_image.value %}
+
+{% comment %} Expert Section metafields {% endcomment %}
+{% assign es_title = product.metafields.custom.es_title | default: section.settings.cta_heading %}
+{% assign es_sub_title = product.metafields.custom.es_sub_title | default: section.settings.cta_subheading %}
+{% assign es_button_label_1 = product.metafields.custom.es_button_label_1 | default: section.settings.primary_btn_text %}
+{% assign es_button_label_2 = product.metafields.custom.es_button_label_2 | default: section.settings.secondary_btn_text %}
 
 <section
   id="system-configuration-{{ section.id }}"
@@ -10,29 +17,24 @@
 >
   <div class="system-configuration__container">
     <!-- Header Section - Use metafield data if available, otherwise use section settings -->
-    {% assign config_title = config_data.title | default: section.settings.heading %}
-    {% assign config_description = config_data.description | default: section.settings.subheading %}
 
     <div class="system-configuration__header">
       {% if section.settings.section_label != blank %}
         <span class="system-configuration__label">{{ section.settings.section_label }}</span>
       {% endif %}
-      {% if config_title != blank %}
-        <h2 class="system-configuration__heading">{{ config_title }}</h2>
+      {% if sa_heading != blank %}
+        <h2 class="system-configuration__heading">{{ sa_heading }}</h2>
       {% endif %}
-      {% if config_description != blank %}
-        <p class="system-configuration__subheading">{{ config_description }}</p>
+      {% if sa_sub_heading != blank %}
+        <p class="system-configuration__subheading">{{ sa_sub_heading }}</p>
       {% endif %}
     </div>
 
     <!-- Main Visual Area - Use metafield image if available -->
-    {% assign config_display_image = config_data.display_image %}
-    {% assign cabinet_specs = config_data.cabinet_specs %}
-
     <div class="system-configuration__visual">
-      {% if config_display_image != blank %}
+      {% if sa_image != blank %}
         <img
-          src="{{ config_display_image }}"
+          src="{{ sa_image | image_url: width: 1200 }}"
           alt="LED Video Wall Configuration"
           class="system-configuration__display-image"
           loading="lazy"
@@ -109,23 +111,23 @@
           <div class="system-configuration__specs-table">
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Dimensions</span>
-              <span class="system-configuration__spec-value">{{ cabinet_specs.dimensions | default: section.settings.cabinet_dimensions }}</span>
+              <span class="system-configuration__spec-value">{{ section.settings.cabinet_dimensions }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Imperial</span>
-              <span class="system-configuration__spec-value">{{ cabinet_specs.imperial | default: section.settings.cabinet_imperial }}</span>
+              <span class="system-configuration__spec-value">{{ section.settings.cabinet_imperial }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Weight</span>
-              <span class="system-configuration__spec-value">{{ cabinet_specs.weight | default: section.settings.cabinet_weight }}</span>
+              <span class="system-configuration__spec-value">{{ section.settings.cabinet_weight }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Resolution</span>
-              <span class="system-configuration__spec-value">{{ cabinet_specs.resolution | default: section.settings.cabinet_resolution }}</span>
+              <span class="system-configuration__spec-value">{{ section.settings.cabinet_resolution }}</span>
             </div>
             <div class="system-configuration__spec-row">
               <span class="system-configuration__spec-label">Module Count</span>
-              <span class="system-configuration__spec-value">{{ cabinet_specs.modules | default: section.settings.cabinet_modules }}</span>
+              <span class="system-configuration__spec-value">{{ section.settings.cabinet_modules }}</span>
             </div>
           </div>
         </div>
@@ -231,18 +233,18 @@
 
     <!-- CTA Section -->
     <div class="system-configuration__cta-section">
-      <h3 class="system-configuration__cta-heading">{{ section.settings.cta_heading }}</h3>
-      <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
+      <h3 class="system-configuration__cta-heading">{{ es_title }}</h3>
+      <p class="system-configuration__cta-subheading">{{ es_sub_title }}</p>
 
       <div class="system-configuration__cta-buttons">
-        {% if section.settings.primary_btn_text != blank %}
+        {% if es_button_label_1 != blank %}
           <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn system-configuration__btn--primary">
-            {{ section.settings.primary_btn_text }}
+            {{ es_button_label_1 }}
           </a>
         {% endif %}
-        {% if section.settings.secondary_btn_text != blank %}
+        {% if es_button_label_2 != blank %}
           <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn system-configuration__btn--secondary">
-            {{ section.settings.secondary_btn_text }}
+            {{ es_button_label_2 }}
           </a>
         {% endif %}
       </div>
