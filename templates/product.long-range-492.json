@@ -111,6 +111,7 @@
         "4cbfbd00-6e6d-4e13-b31c-d7e42dbd0221",
         "eab05bef-0682-4859-81b0-d4f19f2aa1c8"
       ],
+      "disabled": true,
       "settings": {
         "image_size": "small",
         "enable_video_looping": true,
@@ -139,6 +140,7 @@
       "block_order": [
         "5afc3823-ceff-44c6-b46d-505456188783"
       ],
+      "disabled": true,
       "settings": {
         "heading": "Usually Bought with",
         "show_quick_buy": false
@@ -207,6 +209,7 @@
         "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-2",
         "template--21494022209824__1aa828bf-92b5-4f6e-89b0-3326d967d40b-item-3"
       ],
+      "disabled": true,
       "settings": {
         "expand_items": false,
         "section_size": "medium",
@@ -249,6 +252,7 @@
         "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2",
         "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3"
       ],
+      "disabled": true,
       "settings": {
         "stack_mobile": false,
         "title": "Why choose us"

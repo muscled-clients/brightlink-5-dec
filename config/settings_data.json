@@ -320,7 +320,7 @@
         ],
         "custom_css": [],
         "settings": {
-          "show_section": true,
+          "show_section": false,
           "stack_mobile": false
         }
       },
