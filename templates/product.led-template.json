@@ -613,6 +613,176 @@
         "cta_link": ""
       }
     },
+    "controller_tabs_h78LxC": {
+      "type": "controller-tabs",
+      "blocks": {
+        "tab_REUgTL": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Overview",
+            "icon": "overview",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "Real-time monitoring and diagnostics",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_ijUY3X": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Complex Integration",
+            "icon": "integration",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Seamlessly integrate with existing AV infrastructure. The H2 supports multiple input formats and protocols, making it ideal for complex installations requiring diverse source connections.",
+            "read_more_link": "",
+            "feature1": "Multiple input format support",
+            "feature2": "Network-based control",
+            "feature3": "RS232 and TCP/IP protocols",
+            "feature4": "Third-party system integration",
+            "feature5": "Preset scene management",
+            "feature6": "Automated failover switching",
+            "feature7": "API for custom integrations",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_PmfXEi": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "True 4K",
+            "icon": "4k",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Experience true 4K processing with full support for 4K@60Hz input signals. The H2 delivers stunning clarity and detail for demanding video wall applications.",
+            "read_more_link": "",
+            "feature1": "4K@60Hz input support",
+            "feature2": "4:4:4 color sampling",
+            "feature3": "Low latency processing",
+            "feature4": "Frame rate conversion",
+            "feature5": "Scaling and cropping",
+            "feature6": "Edge blending support",
+            "feature7": "Seamless switching",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_QaxmYD": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "60fps Processing",
+            "icon": "processing",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Smooth 60fps processing ensures fluid motion for video content, live broadcasts, and dynamic presentations. No dropped frames or stuttering.",
+            "read_more_link": "",
+            "feature1": "60fps processing",
+            "feature2": "Zero frame drop",
+            "feature3": "Motion interpolation",
+            "feature4": "Genlock synchronization",
+            "feature5": "Multi-screen sync",
+            "feature6": "Low input lag",
+            "feature7": "Broadcast-ready output",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_dqdew3": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Image Quality",
+            "icon": "quality",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Advanced image processing delivers exceptional visual quality with HDR support, precise color calibration, and enhanced contrast for stunning displays.",
+            "read_more_link": "",
+            "feature1": "HDR10 and HLG support",
+            "feature2": "10-bit color depth",
+            "feature3": "Wide color gamut",
+            "feature4": "Brightness uniformity",
+            "feature5": "Color calibration",
+            "feature6": "Gamma correction",
+            "feature7": "Noise reduction",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_9eeewA": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Flexibility",
+            "icon": "flexible",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Modular design allows for flexible configurations to match your exact requirements. Hot-swappable cards make maintenance and upgrades simple.",
+            "read_more_link": "",
+            "feature1": "Modular card slots",
+            "feature2": "Hot-swappable design",
+            "feature3": "Scalable architecture",
+            "feature4": "Future-proof expansion",
+            "feature5": "Multiple output options",
+            "feature6": "Redundant power supply",
+            "feature7": "Rack-mountable chassis",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_REUgTL",
+        "tab_ijUY3X",
+        "tab_PmfXEi",
+        "tab_QaxmYD",
+        "tab_dqdew3",
+        "tab_9eeewA"
+      ],
+      "name": "Controller Tabs",
+      "settings": {
+        "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
+        "title": "NovaStar H2 Controller",
+        "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
+        "badge_text": "Authorized NovaStar Partner"
+      }
+    },
     "applications_tabs_7JFAjQ": {
       "type": "applications-tabs",
       "blocks": {
@@ -819,176 +989,6 @@
         "label": "VERSATILE APPLICATIONS",
         "title": "Built for Every Environment",
         "subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings"
-      }
-    },
-    "controller_tabs_h78LxC": {
-      "type": "controller-tabs",
-      "blocks": {
-        "tab_REUgTL": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Overview",
-            "icon": "overview",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
-            "read_more_link": "",
-            "feature1": "26 million pixel processing capacity",
-            "feature2": "Up to 32 layers and multiple screens",
-            "feature3": "HDR10 and HLG support",
-            "feature4": "Hot-swappable modular I/O design",
-            "feature5": "10-bit color processing",
-            "feature6": "Web-based control interface",
-            "feature7": "Real-time monitoring and diagnostics",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_ijUY3X": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Complex Integration",
-            "icon": "integration",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Seamlessly integrate with existing AV infrastructure. The H2 supports multiple input formats and protocols, making it ideal for complex installations requiring diverse source connections.",
-            "read_more_link": "",
-            "feature1": "Multiple input format support",
-            "feature2": "Network-based control",
-            "feature3": "RS232 and TCP/IP protocols",
-            "feature4": "Third-party system integration",
-            "feature5": "Preset scene management",
-            "feature6": "Automated failover switching",
-            "feature7": "API for custom integrations",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_PmfXEi": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "True 4K",
-            "icon": "4k",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Experience true 4K processing with full support for 4K@60Hz input signals. The H2 delivers stunning clarity and detail for demanding video wall applications.",
-            "read_more_link": "",
-            "feature1": "4K@60Hz input support",
-            "feature2": "4:4:4 color sampling",
-            "feature3": "Low latency processing",
-            "feature4": "Frame rate conversion",
-            "feature5": "Scaling and cropping",
-            "feature6": "Edge blending support",
-            "feature7": "Seamless switching",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_QaxmYD": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "60fps Processing",
-            "icon": "processing",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Smooth 60fps processing ensures fluid motion for video content, live broadcasts, and dynamic presentations. No dropped frames or stuttering.",
-            "read_more_link": "",
-            "feature1": "60fps processing",
-            "feature2": "Zero frame drop",
-            "feature3": "Motion interpolation",
-            "feature4": "Genlock synchronization",
-            "feature5": "Multi-screen sync",
-            "feature6": "Low input lag",
-            "feature7": "Broadcast-ready output",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_dqdew3": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Image Quality",
-            "icon": "quality",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Advanced image processing delivers exceptional visual quality with HDR support, precise color calibration, and enhanced contrast for stunning displays.",
-            "read_more_link": "",
-            "feature1": "HDR10 and HLG support",
-            "feature2": "10-bit color depth",
-            "feature3": "Wide color gamut",
-            "feature4": "Brightness uniformity",
-            "feature5": "Color calibration",
-            "feature6": "Gamma correction",
-            "feature7": "Noise reduction",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_9eeewA": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Flexibility",
-            "icon": "flexible",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Modular design allows for flexible configurations to match your exact requirements. Hot-swappable cards make maintenance and upgrades simple.",
-            "read_more_link": "",
-            "feature1": "Modular card slots",
-            "feature2": "Hot-swappable design",
-            "feature3": "Scalable architecture",
-            "feature4": "Future-proof expansion",
-            "feature5": "Multiple output options",
-            "feature6": "Redundant power supply",
-            "feature7": "Rack-mountable chassis",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "tab_REUgTL",
-        "tab_ijUY3X",
-        "tab_PmfXEi",
-        "tab_QaxmYD",
-        "tab_dqdew3",
-        "tab_9eeewA"
-      ],
-      "name": "Controller Tabs",
-      "settings": {
-        "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
-        "title": "NovaStar H2 Controller",
-        "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
-        "badge_text": "Authorized NovaStar Partner"
       }
     },
     "investment_config_xJLwjx": {
@@ -1269,8 +1269,8 @@
     "product_intelligence_J64aNM",
     "system_configuration_P4iKBf",
     "experience_scale_NBgJny",
-    "applications_tabs_7JFAjQ",
     "controller_tabs_h78LxC",
+    "applications_tabs_7JFAjQ",
     "investment_config_xJLwjx",
     "enhance_system_Xbn39D",
     "custom_config_builder_NULhPQ",
