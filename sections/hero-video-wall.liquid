@@ -59,23 +59,25 @@
 
     <!-- Description -->
     {% if description != blank %}
-      <p class="hero-video-wall__description">{{description }}</p>
+      <p class="hero-video-wall__description">{{ description }}</p>
     {% endif %}
 
     <!-- CTA Buttons -->
     {% assign button_1_text = product.metafields.custom.tab_label_1 | default: section.settings.button_1_text %}
     {% assign button_2_text = product.metafields.custom.tab_label_2 | default: section.settings.button_2_text %}
 
-    {% if button_1_text != blank %}
-      <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
-        {{ button_1_text }}
-      </a>
-    {% endif %}
-    {% if button_2_text != blank %}
-      <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
-        {{ button_2_text }}
-      </a>
-    {% endif %}
+    <div class="hero-video-wall__buttons">
+      {% if button_1_text != blank %}
+        <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+          {{ button_1_text }}
+        </a>
+      {% endif %}
+      {% if button_2_text != blank %}
+        <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
+          {{ button_2_text }}
+        </a>
+      {% endif %}
+    </div>
 
     <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
     <div class="hero-video-wall__features">
