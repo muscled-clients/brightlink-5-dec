@@ -1,30 +1,34 @@
 {{ 'experience-scale.css' | asset_url | stylesheet_tag }}
 
-{% comment %} Get LED template data from product metafield {% endcomment %}
-{% assign led_data = product.metafields.custom.led_template_data.value %}
-{% assign scale_data = led_data.experience_scale %}
+{% comment %} Get Experience Scale metafields {% endcomment %}
+{% assign sv_heading = product.metafields.custom.sv_heading | default: section.settings.title %}
+{% assign sv_sub_heading = product.metafields.custom.sv_sub_heading | default: section.settings.subtitle %}
+{% assign sv_image = product.metafields.custom.sv_image.value %}
+
+{% comment %} SV Card list metafields {% endcomment %}
+{% assign sv_card_icons = product.metafields.custom.sv_card_icon.value %}
+{% assign sv_card_headings = product.metafields.custom.sv_card_heading.value %}
+{% assign sv_card_sub_headings = product.metafields.custom.sv_card_sub_heading.value %}
+{% assign sv_card_texts = product.metafields.custom.sv_card_text.value %}
 
 <section class="experience-scale" id="experience-scale">
   <div class="experience-scale__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
-    {% assign scale_title = scale_data.title | default: section.settings.title | default: 'Experience the Scale' %}
-    {% assign scale_subtitle = scale_data.subtitle | default: section.settings.subtitle | default: '217 inches of immersive visual excellence' %}
-    {% assign scale_image = scale_data.image %}
 
     <div class="experience-scale__header">
       {% if section.settings.label != blank %}
         <span class="experience-scale__label">{{ section.settings.label }}</span>
       {% endif %}
-      <h2 class="experience-scale__title">{{ scale_title }}</h2>
-      <p class="experience-scale__subtitle">{{ scale_subtitle }}</p>
+      <h2 class="experience-scale__title">{{ sv_heading }}</h2>
+      <p class="experience-scale__subtitle">{{ sv_sub_heading }}</p>
     </div>
 
     <div class="experience-scale__display">
       <div class="experience-scale__image-wrapper">
-        {% if scale_image != blank %}
+        {% if sv_image != blank %}
           <img
-            src="{{ scale_image }}"
-            alt="{{ scale_title }}"
+            src="{{ sv_image | image_url: width: 1200 }}"
+            alt="{{ sv_heading }}"
             class="experience-scale__image"
             loading="lazy"
             width="1200"
@@ -33,7 +37,7 @@
         {% elsif section.settings.image != blank %}
           <img
             src="{{ section.settings.image | image_url: width: 1200 }}"
-            alt="{{ scale_title }}"
+            alt="{{ sv_heading }}"
             class="experience-scale__image"
             loading="lazy"
             width="1200"
@@ -54,15 +58,20 @@
       </div>
     </div>
 
-    <!-- Metrics - Use metafield data if available, otherwise use section settings -->
+    <!-- Metrics -->
     <div class="experience-scale__metrics">
-      {% if scale_data.metrics.size > 0 %}
-        {% for metric in scale_data.metrics %}
-          <div class="experience-scale__metric">
-            <span class="experience-scale__metric-value">{{ metric.value }}</span>
-            <span class="experience-scale__metric-label">{{ metric.label }}</span>
-            <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
-          </div>
+      {% if sv_card_headings.size > 0 %}
+        {% for i in (0..2) %}
+          {% if sv_card_headings[i] != blank %}
+            <div class="experience-scale__metric">
+              {% if sv_card_icons[i] != blank %}
+                <span class="experience-scale__metric-icon">{{ sv_card_icons[i] }}</span>
+              {% endif %}
+              <span class="experience-scale__metric-value">{{ sv_card_headings[i] }}</span>
+              <span class="experience-scale__metric-label">{{ sv_card_sub_headings[i] }}</span>
+              <span class="experience-scale__metric-desc">{{ sv_card_texts[i] }}</span>
+            </div>
+          {% endif %}
         {% endfor %}
       {% else %}
         <div class="experience-scale__metric">
