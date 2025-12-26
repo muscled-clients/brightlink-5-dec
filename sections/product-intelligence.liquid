@@ -296,6 +296,17 @@
             >
               <!-- Specifications Content -->
               <div class="specs-content">
+                {% if block.settings.tab_content != blank %}
+                  <!-- Custom Content -->
+                  <div class="specs-custom-content">
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.tab_image != blank %}
+                      <div class="specs-custom-content__image">
+                        <img src="{{ block.settings.tab_image | image_url: width: 800 }}" alt="{{ block.settings.tab_title }}" loading="lazy">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
                 <!-- Display Specifications Accordion -->
                 <div class="specs-accordion" data-accordion>
                   <button class="specs-accordion__header" type="button">
@@ -553,6 +564,7 @@
                     DOWNLOAD PDF
                   </a>
                 </div>
+                {% endif %}
               </div>
             </div>
           {% elsif block.type == 'features_tab' %}
@@ -564,6 +576,17 @@
             >
               <!-- Features & Benefits Content -->
               <div class="features-content">
+                {% if block.settings.tab_content != blank %}
+                  <!-- Custom Content -->
+                  <div class="features-custom-content">
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.tab_image != blank %}
+                      <div class="features-custom-content__image">
+                        <img src="{{ block.settings.tab_image | image_url: width: 800 }}" alt="{{ block.settings.tab_title }}" loading="lazy">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
                 <div class="features-grid">
                   <!-- Row 1 -->
                   <div class="features-card">
@@ -753,6 +776,7 @@
                     </div>
                   </div>
                 </div>
+                {% endif %}
               </div>
             </div>
           {% elsif block.type == 'included_tab' %}
@@ -764,6 +788,17 @@
             >
               <!-- What's Included Content -->
               <div class="included-content">
+                {% if block.settings.tab_content != blank %}
+                  <!-- Custom Content -->
+                  <div class="included-custom-content">
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.tab_image != blank %}
+                      <div class="included-custom-content__image">
+                        <img src="{{ block.settings.tab_image | image_url: width: 800 }}" alt="{{ block.settings.tab_title }}" loading="lazy">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
                 <div class="included-grid">
                   <!-- Row 1 -->
                   <div class="included-card">
@@ -856,6 +891,7 @@
                     </div>
                   </div>
                 </div>
+                {% endif %}
               </div>
             </div>
           {% elsif block.type == 'installation_tab' %}
@@ -867,6 +903,17 @@
             >
               <!-- Installation Guide Content -->
               <div class="installation-content">
+                {% if block.settings.tab_content != blank %}
+                  <!-- Custom Content -->
+                  <div class="installation-custom-content">
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.tab_image != blank %}
+                      <div class="installation-custom-content__image">
+                        <img src="{{ block.settings.tab_image | image_url: width: 800 }}" alt="{{ block.settings.tab_title }}" loading="lazy">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
                 <!-- Installation Steps -->
                 <div class="installation-steps">
                   <div class="installation-step">
@@ -947,6 +994,7 @@
                     FIND AN INSTALLER
                   </a>
                 </div>
+                {% endif %}
               </div>
             </div>
           {% elsif block.type == 'support_tab' %}
@@ -958,6 +1006,17 @@
             >
               <!-- Support & Resources Content -->
               <div class="support-content">
+                {% if block.settings.tab_content != blank %}
+                  <!-- Custom Content -->
+                  <div class="support-custom-content">
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.tab_image != blank %}
+                      <div class="support-custom-content__image">
+                        <img src="{{ block.settings.tab_image | image_url: width: 800 }}" alt="{{ block.settings.tab_title }}" loading="lazy">
+                      </div>
+                    {% endif %}
+                  </div>
+                {% else %}
                 <!-- Section Header -->
                 <div class="support-header">
                   <div class="support-header__icon">
@@ -1251,6 +1310,7 @@
                     </div>
                   </div>
                 </div>
+                {% endif %}
               </div>
             </div>
           {% endif %}
@@ -1728,6 +1788,20 @@
         },
         {
           "type": "header",
+          "content": "Custom Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Custom Content (overrides default specs)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
+        },
+        {
+          "type": "header",
           "content": "Download Section"
         },
         {
@@ -1764,6 +1838,20 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Custom Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Custom Content (overrides default features)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
         }
       ]
     },
@@ -1794,6 +1882,20 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Custom Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Custom Content (overrides default list)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
         }
       ]
     },
@@ -1824,6 +1926,20 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Custom Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Custom Content (overrides default guide)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
         },
         {
           "type": "header",
@@ -1863,6 +1979,20 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Custom Content"
+        },
+        {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Custom Content (overrides default resources)"
+        },
+        {
+          "type": "image_picker",
+          "id": "tab_image",
+          "label": "Content Image"
         }
       ]
     }
