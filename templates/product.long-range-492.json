@@ -385,6 +385,7 @@
         "slide_RDtgc6": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene2_Cam2.jpg",
             "slide_title": "Real-Time Financial Data at Scale",
             "slide_description": "Mission-critical market visualization with zero latency"
           }
@@ -392,6 +393,7 @@
         "slide_AAzRpe": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
             "slide_title": "Immersive Entertainment",
             "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
@@ -399,6 +401,7 @@
         "slide_ityzkp": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene1_Cam2.jpg",
             "slide_title": "Corporate Communications",
             "slide_description": "Professional displays for boardrooms and lobbies"
           }
