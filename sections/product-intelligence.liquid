@@ -184,46 +184,82 @@
                 <!-- Left Side: Text + Feature Cards -->
                 <div class="product-intelligence__left">
                   <div class="product-intelligence__text">
-                    <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' × 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p>
-                    <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>
-                    <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                    {{ block.settings.tab_content }}
+                    {% if block.settings.read_more_link != blank %}
+                      <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                    {% endif %}
                   </div>
 
                   <!-- Feature Cards -->
-                  <div class="product-intelligence__features">
-                    <!-- Feature 1: 4-Year Warranty -->
-                    <div class="product-intelligence__feature-card">
-                      <div class="product-intelligence__feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-                        </svg>
-                      </div>
-                      <h4 class="product-intelligence__feature-title">4-Year Warranty</h4>
-                      <p class="product-intelligence__feature-desc">Comprehensive coverage</p>
-                    </div>
+                  {% if block.settings.show_features %}
+                    <div class="product-intelligence__features">
+                      <!-- Feature 1 -->
+                      {% if block.settings.feature_1_title != blank %}
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              {% case block.settings.feature_1_icon %}
+                                {% when 'warranty' %}
+                                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                                {% when 'support' %}
+                                  <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                                {% when 'parts' %}
+                                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                                {% else %}
+                                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                              {% endcase %}
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">{{ block.settings.feature_1_title }}</h4>
+                          <p class="product-intelligence__feature-desc">{{ block.settings.feature_1_desc }}</p>
+                        </div>
+                      {% endif %}
 
-                    <!-- Feature 2: Lifetime Support -->
-                    <div class="product-intelligence__feature-card">
-                      <div class="product-intelligence__feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
-                        </svg>
-                      </div>
-                      <h4 class="product-intelligence__feature-title">Lifetime Support</h4>
-                      <p class="product-intelligence__feature-desc">855-449-4733</p>
-                    </div>
+                      <!-- Feature 2 -->
+                      {% if block.settings.feature_2_title != blank %}
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              {% case block.settings.feature_2_icon %}
+                                {% when 'warranty' %}
+                                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                                {% when 'support' %}
+                                  <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                                {% when 'parts' %}
+                                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                                {% else %}
+                                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                              {% endcase %}
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">{{ block.settings.feature_2_title }}</h4>
+                          <p class="product-intelligence__feature-desc">{{ block.settings.feature_2_desc }}</p>
+                        </div>
+                      {% endif %}
 
-                    <!-- Feature 3: 5% Spare Parts -->
-                    <div class="product-intelligence__feature-card">
-                      <div class="product-intelligence__feature-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-                        </svg>
-                      </div>
-                      <h4 class="product-intelligence__feature-title">5% Spare Parts</h4>
-                      <p class="product-intelligence__feature-desc">Included standard</p>
+                      <!-- Feature 3 -->
+                      {% if block.settings.feature_3_title != blank %}
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                              {% case block.settings.feature_3_icon %}
+                                {% when 'warranty' %}
+                                  <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                                {% when 'support' %}
+                                  <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                                {% when 'parts' %}
+                                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                                {% else %}
+                                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                              {% endcase %}
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">{{ block.settings.feature_3_title }}</h4>
+                          <p class="product-intelligence__feature-desc">{{ block.settings.feature_3_desc }}</p>
+                        </div>
+                      {% endif %}
                     </div>
-                  </div>
+                  {% endif %}
                 </div>
 
                 <!-- Right Side: Image -->
@@ -1558,6 +1594,12 @@
           "content": "Content"
         },
         {
+          "type": "richtext",
+          "id": "tab_content",
+          "label": "Tab Content",
+          "default": "<p>Add your overview content here. Describe your product features, benefits, and key selling points.</p>"
+        },
+        {
           "type": "image_picker",
           "id": "tab_image",
           "label": "Content Image"
@@ -1566,6 +1608,85 @@
           "type": "url",
           "id": "read_more_link",
           "label": "Read More Link"
+        },
+        {
+          "type": "header",
+          "content": "Feature Cards"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_features",
+          "label": "Show Feature Cards",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "feature_1_title",
+          "label": "Feature 1 Title",
+          "default": "4-Year Warranty"
+        },
+        {
+          "type": "text",
+          "id": "feature_1_desc",
+          "label": "Feature 1 Description",
+          "default": "Comprehensive coverage for complete peace of mind"
+        },
+        {
+          "type": "select",
+          "id": "feature_1_icon",
+          "label": "Feature 1 Icon",
+          "default": "warranty",
+          "options": [
+            { "value": "warranty", "label": "Warranty (Shield)" },
+            { "value": "support", "label": "Support (Headset)" },
+            { "value": "parts", "label": "Parts (Tool)" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "feature_2_title",
+          "label": "Feature 2 Title",
+          "default": "Lifetime Support"
+        },
+        {
+          "type": "text",
+          "id": "feature_2_desc",
+          "label": "Feature 2 Description",
+          "default": "Expert technical assistance whenever you need it"
+        },
+        {
+          "type": "select",
+          "id": "feature_2_icon",
+          "label": "Feature 2 Icon",
+          "default": "support",
+          "options": [
+            { "value": "warranty", "label": "Warranty (Shield)" },
+            { "value": "support", "label": "Support (Headset)" },
+            { "value": "parts", "label": "Parts (Tool)" }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "feature_3_title",
+          "label": "Feature 3 Title",
+          "default": "Spare Parts"
+        },
+        {
+          "type": "text",
+          "id": "feature_3_desc",
+          "label": "Feature 3 Description",
+          "default": "5% spare modules included with every system"
+        },
+        {
+          "type": "select",
+          "id": "feature_3_icon",
+          "label": "Feature 3 Icon",
+          "default": "parts",
+          "options": [
+            { "value": "warranty", "label": "Warranty (Shield)" },
+            { "value": "support", "label": "Support (Headset)" },
+            { "value": "parts", "label": "Parts (Tool)" }
+          ]
         }
       ]
     },
