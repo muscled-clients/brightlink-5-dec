@@ -637,7 +637,7 @@
           "settings": {
             "tab_title": "Specifications",
             "tab_icon": "specs",
-            "display_section_title": "Display Specifications123",
+            "display_section_title": "Display Specifications",
             "pixel_pitch": "1.25mm",
             "led_type": "COB (Chip-on-Board)",
             "led_packaging": "TOP",
