@@ -1,42 +1,51 @@
 {{ 'product-intelligence.css' | asset_url | stylesheet_tag }}
 
-{% comment %} Get Product Intelligence metafields {% endcomment %}
+{% comment %} ============================================
+   PRODUCT INTELLIGENCE METAFIELDS
+   Namespace: custom | Prefix: pic_ (Product Intelligence Content)
+   ============================================ {% endcomment %}
+
+{% comment %} Section Header {% endcomment %}
 {% assign pic_label = product.metafields.custom.pic_label.value | default: section.settings.section_label %}
 {% assign pic_heading = product.metafields.custom.pic_heading.value | default: section.settings.heading %}
-{% assign pic_sub_heading = product.metafields.custom.pic_sub_heading.value | default: section.settings.subheading %}
+{% assign pic_subheading = product.metafields.custom.pic_subheading.value | default: section.settings.subheading %}
 
-{% comment %} Specifications metafields (JSON) {% endcomment %}
+{% comment %} Specifications Tab (JSON) {% endcomment %}
 {% assign pic_specs_display = product.metafields.custom.pic_specs_display.value %}
 {% assign pic_specs_physical = product.metafields.custom.pic_specs_physical.value %}
 {% assign pic_specs_electrical = product.metafields.custom.pic_specs_electrical.value %}
-{% assign pic_specs_env = product.metafields.custom.pic_specs_env.value %}
+{% assign pic_specs_environmentalironmental = product.metafields.custom.pic_specs_environmentalironmental.value %}
 
-{% comment %} What's Included metafields (Lists) {% endcomment %}
-{% assign pic_incl_badges = product.metafields.custom.pic_incl_badges.value %}
-{% assign pic_incl_titles = product.metafields.custom.pic_incl_titles.value %}
-{% assign pic_incl_desc = product.metafields.custom.pic_incl_desc.value %}
+{% comment %} What's Included Tab (Lists) {% endcomment %}
+{% assign pic_included_badges = product.metafields.custom.pic_included_badges.value %}
+{% assign pic_included_titles = product.metafields.custom.pic_included_titles.value %}
+{% assign pic_included_descriptions = product.metafields.custom.pic_included_descriptions.value %}
 
-{% comment %} Features metafields (Lists) {% endcomment %}
-{% assign pic_feat_titles = product.metafields.custom.pic_feat_titles.value %}
-{% assign pic_feat_desc = product.metafields.custom.pic_feat_desc.value %}
+{% comment %} Features Tab (Lists) {% endcomment %}
+{% assign pic_features_titles = product.metafields.custom.pic_features_titles.value %}
+{% assign pic_features_descriptions = product.metafields.custom.pic_features_descriptions.value %}
 
-{% comment %} Installation metafields {% endcomment %}
-{% assign pic_inst_step_num = product.metafields.custom.pic_inst_step_num.value %}
-{% assign pic_inst_step_titles = product.metafields.custom.pic_inst_step_titles.value %}
-{% assign pic_inst_step_desc = product.metafields.custom.pic_inst_step_desc.value %}
-{% assign pic_inst_step_dur = product.metafields.custom.pic_inst_step_dur.value %}
-{% assign pic_inst_req_header = product.metafields.custom.pic_inst_req_header.value %}
-{% assign pic_inst_req_title = product.metafields.custom.pic_inst_req_title.value %}
-{% assign pic_inst_req_desc = product.metafields.custom.pic_inst_req_desc.value %}
-{% assign pic_inst_sup_title = product.metafields.custom.pic_inst_sup_title.value %}
-{% assign pic_inst_sup_desc = product.metafields.custom.pic_inst_sup_desc.value %}
-{% assign pic_inst_sup_btn = product.metafields.custom.pic_inst_sup_btn.value %}
+{% comment %} Installation Tab - Steps (Lists) {% endcomment %}
+{% assign pic_install_step_numbers = product.metafields.custom.pic_install_step_numbers.value %}
+{% assign pic_install_step_titles = product.metafields.custom.pic_install_step_titles.value %}
+{% assign pic_install_step_descriptions = product.metafields.custom.pic_install_step_descriptions.value %}
+{% assign pic_install_step_durations = product.metafields.custom.pic_install_step_durations.value %}
 
-{% comment %} Overview metafields {% endcomment %}
-{% assign pic_over_desc = product.metafields.custom.pic_over_desc.value %}
-{% assign pic_over_img = product.metafields.custom.pic_over_img.value %}
-{% assign pic_over_card_titles = product.metafields.custom.pic_over_card_titles.value %}
-{% assign pic_over_card_desc = product.metafields.custom.pic_over_card_desc.value %}
+{% comment %} Installation Tab - Requirements {% endcomment %}
+{% assign pic_install_requirements_label = product.metafields.custom.pic_install_requirements_label.value %}
+{% assign pic_install_requirements_title = product.metafields.custom.pic_install_requirements_title.value %}
+{% assign pic_install_requirements_description = product.metafields.custom.pic_install_requirements_description.value %}
+
+{% comment %} Installation Tab - Support {% endcomment %}
+{% assign pic_install_support_title = product.metafields.custom.pic_install_support_title.value %}
+{% assign pic_install_support_description = product.metafields.custom.pic_install_support_description.value %}
+{% assign pic_install_support_button = product.metafields.custom.pic_install_support_button.value %}
+
+{% comment %} Overview Tab {% endcomment %}
+{% assign pic_overview_description = product.metafields.custom.pic_overview_description.value %}
+{% assign pic_overview_image = product.metafields.custom.pic_overview_image.value %}
+{% assign pic_overview_card_titles = product.metafields.custom.pic_overview_card_titles.value %}
+{% assign pic_overview_card_descriptions = product.metafields.custom.pic_overview_card_descriptions.value %}
 
 <section class="product-intelligence {{ section.settings.custom_class }}" id="product-intelligence-{{ section.id }}">
   <div class="product-intelligence__container">
@@ -50,8 +59,8 @@
         <h2 class="product-intelligence__heading">{{ pic_heading }}</h2>
       {% endif %}
 
-      {% if pic_sub_heading != blank %}
-        <p class="product-intelligence__subheading">{{ pic_sub_heading }}</p>
+      {% if pic_subheading != blank %}
+        <p class="product-intelligence__subheading">{{ pic_subheading }}</p>
       {% endif %}
     </div>
 
@@ -172,8 +181,8 @@
                 <!-- Left Side: Text + Feature Cards -->
                 <div class="product-intelligence__left">
                   <div class="product-intelligence__text">
-                    {% if pic_over_desc != blank %}
-                      {{ pic_over_desc | newline_to_br }}
+                    {% if pic_overview_description != blank %}
+                      {{ pic_overview_description | newline_to_br }}
                     {% else %}
                       <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' x 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch - true 4K resolution with HDR support.</p>
                       <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced content.</p>
@@ -186,9 +195,9 @@
                   <!-- Feature Cards -->
                   {% if block.settings.show_features %}
                     <div class="product-intelligence__features">
-                      {% if pic_over_card_titles != blank and pic_over_card_titles.size > 0 %}
-                        {% for i in (0..pic_over_card_titles.size) %}
-                          {% if pic_over_card_titles[i] != blank %}
+                      {% if pic_overview_card_titles != blank and pic_overview_card_titles.size > 0 %}
+                        {% for i in (0..pic_overview_card_titles.size) %}
+                          {% if pic_overview_card_titles[i] != blank %}
                             <div class="product-intelligence__feature-card">
                               <div class="product-intelligence__feature-icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -204,8 +213,8 @@
                                   {% endcase %}
                                 </svg>
                               </div>
-                              <h4 class="product-intelligence__feature-title">{{ pic_over_card_titles[i] }}</h4>
-                              <p class="product-intelligence__feature-desc">{{ pic_over_card_desc[i] }}</p>
+                              <h4 class="product-intelligence__feature-title">{{ pic_overview_card_titles[i] }}</h4>
+                              <p class="product-intelligence__feature-desc">{{ pic_overview_card_descriptions[i] }}</p>
                             </div>
                           {% endif %}
                         {% endfor %}
@@ -245,9 +254,9 @@
 
                 <!-- Right Side: Image -->
                 <div class="product-intelligence__right">
-                  {% if pic_over_img != blank %}
+                  {% if pic_overview_image != blank %}
                     <img
-                      src="{{ pic_over_img | image_url: width: 600 }}"
+                      src="{{ pic_overview_image | image_url: width: 600 }}"
                       alt="{{ pic_heading }}"
                       class="product-intelligence__image"
                       loading="lazy"
@@ -474,39 +483,39 @@
                       <tbody>
                         <tr>
                           <td class="specs-table__label">Operating Temperature</td>
-                          <td class="specs-table__value">{{ pic_specs_env.operating_temp | default: '-20°C to +50°C (-4°F to 122°F)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.operating_temp | default: '-20°C to +50°C (-4°F to 122°F)' }}</td>
                           <td class="specs-table__label">Storage Temperature</td>
-                          <td class="specs-table__value">{{ pic_specs_env.storage_temp | default: '-40°C to +70°C (-40°F to 158°F)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.storage_temp | default: '-40°C to +70°C (-40°F to 158°F)' }}</td>
                         </tr>
                         <tr>
                           <td class="specs-table__label">Operating Humidity</td>
-                          <td class="specs-table__value">{{ pic_specs_env.operating_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.operating_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
                           <td class="specs-table__label">Storage Humidity</td>
-                          <td class="specs-table__value">{{ pic_specs_env.storage_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.storage_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
                         </tr>
                         <tr>
                           <td class="specs-table__label">Lifespan</td>
-                          <td class="specs-table__value">{{ pic_specs_env.lifespan | default: '≥100,000 hours' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.lifespan | default: '≥100,000 hours' }}</td>
                           <td class="specs-table__label">MTBF</td>
-                          <td class="specs-table__value">{{ pic_specs_env.mtbf | default: '≥10,000 hours' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.mtbf | default: '≥10,000 hours' }}</td>
                         </tr>
                         <tr>
                           <td class="specs-table__label">Certifications</td>
-                          <td class="specs-table__value">{{ pic_specs_env.certifications | default: 'CE, RoHS, FCC, CCC, ISO9001' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.certifications | default: 'CE, RoHS, FCC, CCC, ISO9001' }}</td>
                           <td class="specs-table__label">Waterproof</td>
-                          <td class="specs-table__value">{{ pic_specs_env.waterproof | default: 'Yes (sealed modules)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.waterproof | default: 'Yes (sealed modules)' }}</td>
                         </tr>
                         <tr>
                           <td class="specs-table__label">Dustproof</td>
-                          <td class="specs-table__value">{{ pic_specs_env.dustproof | default: 'Yes' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.dustproof | default: 'Yes' }}</td>
                           <td class="specs-table__label">Anti-oxidation</td>
-                          <td class="specs-table__value">{{ pic_specs_env.anti_oxidation | default: 'Yes' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_oxidation | default: 'Yes' }}</td>
                         </tr>
                         <tr>
                           <td class="specs-table__label">Anti-static</td>
-                          <td class="specs-table__value">{{ pic_specs_env.anti_static | default: 'Yes' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_static | default: 'Yes' }}</td>
                           <td class="specs-table__label">Anti-impact</td>
-                          <td class="specs-table__value">{{ pic_specs_env.anti_impact | default: 'Yes (COB protective layer)' }}</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_impact | default: 'Yes (COB protective layer)' }}</td>
                         </tr>
                       </tbody>
                     </table>
@@ -538,8 +547,8 @@
               <!-- Features & Benefits Content -->
               <div class="features-content">
                 <div class="features-grid">
-                  {% if pic_feat_titles and pic_feat_titles.size > 0 %}
-                    {% for title in pic_feat_titles %}
+                  {% if pic_features_titles and pic_features_titles.size > 0 %}
+                    {% for title in pic_features_titles %}
                       <div class="features-card">
                         <div class="features-card__icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -548,8 +557,8 @@
                         </div>
                         <div class="features-card__content">
                           <h4 class="features-card__title">{{ title }}</h4>
-                          {% if pic_feat_desc[forloop.index0] %}
-                            <p class="features-card__desc">{{ pic_feat_desc[forloop.index0] }}</p>
+                          {% if pic_features_descriptions[forloop.index0] %}
+                            <p class="features-card__desc">{{ pic_features_descriptions[forloop.index0] }}</p>
                           {% endif %}
                         </div>
                       </div>
@@ -749,19 +758,19 @@
               <!-- What's Included Content -->
               <div class="included-content">
                 <div class="included-grid">
-                  {% if pic_incl_titles and pic_incl_titles.size > 0 %}
-                    {% for title in pic_incl_titles %}
+                  {% if pic_included_titles and pic_included_titles.size > 0 %}
+                    {% for title in pic_included_titles %}
                       <div class="included-card">
                         <div class="included-card__image">
                           <div class="included-card__placeholder"></div>
                         </div>
                         <div class="included-card__content">
-                          {% if pic_incl_badges[forloop.index0] %}
-                            <span class="included-card__badge">{{ pic_incl_badges[forloop.index0] }}</span>
+                          {% if pic_included_badges[forloop.index0] %}
+                            <span class="included-card__badge">{{ pic_included_badges[forloop.index0] }}</span>
                           {% endif %}
                           <h4 class="included-card__title">{{ title }}</h4>
-                          {% if pic_incl_desc[forloop.index0] %}
-                            <p class="included-card__desc">{{ pic_incl_desc[forloop.index0] }}</p>
+                          {% if pic_included_descriptions[forloop.index0] %}
+                            <p class="included-card__desc">{{ pic_included_descriptions[forloop.index0] }}</p>
                           {% endif %}
                         </div>
                       </div>
@@ -870,16 +879,16 @@
               <div class="installation-content">
                 <!-- Installation Steps -->
                 <div class="installation-steps">
-                  {% if pic_inst_step_titles and pic_inst_step_titles.size > 0 %}
-                    {% for title in pic_inst_step_titles %}
+                  {% if pic_install_step_titles and pic_install_step_titles.size > 0 %}
+                    {% for title in pic_install_step_titles %}
                       <div class="installation-step">
-                        <div class="installation-step__number">{{ pic_inst_step_num[forloop.index0] | default: forloop.index }}</div>
+                        <div class="installation-step__number">{{ pic_install_step_numbers[forloop.index0] | default: forloop.index }}</div>
                         <h4 class="installation-step__title">{{ title }}</h4>
-                        {% if pic_inst_step_dur[forloop.index0] %}
-                          <span class="installation-step__time">{{ pic_inst_step_dur[forloop.index0] }}</span>
+                        {% if pic_install_step_durations[forloop.index0] %}
+                          <span class="installation-step__time">{{ pic_install_step_durations[forloop.index0] }}</span>
                         {% endif %}
-                        {% if pic_inst_step_desc[forloop.index0] %}
-                          <p class="installation-step__desc">{{ pic_inst_step_desc[forloop.index0] }}</p>
+                        {% if pic_install_step_descriptions[forloop.index0] %}
+                          <p class="installation-step__desc">{{ pic_install_step_descriptions[forloop.index0] }}</p>
                         {% endif %}
                       </div>
                     {% endfor %}
@@ -917,12 +926,12 @@
 
                 <!-- Installation Requirements -->
                 <div class="installation-requirements">
-                  {% if pic_inst_req_header != blank %}
-                    <span class="installation-requirements__header">{{ pic_inst_req_header }}</span>
+                  {% if pic_install_requirements_label != blank %}
+                    <span class="installation-requirements__header">{{ pic_install_requirements_label }}</span>
                   {% endif %}
-                  <h3 class="installation-requirements__title">{{ pic_inst_req_title | default: 'Installation Requirements' }}</h3>
-                  {% if pic_inst_req_desc != blank %}
-                    <div class="installation-requirements__desc">{{ pic_inst_req_desc }}</div>
+                  <h3 class="installation-requirements__title">{{ pic_install_requirements_title | default: 'Installation Requirements' }}</h3>
+                  {% if pic_install_requirements_description != blank %}
+                    <div class="installation-requirements__desc">{{ pic_install_requirements_description }}</div>
                   {% else %}
                     <div class="installation-requirements__grid">
                       <div class="installation-requirement">
@@ -961,14 +970,14 @@
                 <!-- Professional Support CTA -->
                 <div class="installation-support">
                   <div class="installation-support__content">
-                    <h3 class="installation-support__title">{{ pic_inst_sup_title | default: 'Need Professional Installation Support?' }}</h3>
-                    <p class="installation-support__desc">{{ pic_inst_sup_desc | default: 'Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.' }}</p>
+                    <h3 class="installation-support__title">{{ pic_install_support_title | default: 'Need Professional Installation Support?' }}</h3>
+                    <p class="installation-support__desc">{{ pic_install_support_description | default: 'Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.' }}</p>
                   </div>
                   <a href="{{ block.settings.installer_link }}" class="installation-support__btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                     </svg>
-                    {{ pic_inst_sup_btn | default: 'FIND AN INSTALLER' }}
+                    {{ pic_install_support_button | default: 'FIND AN INSTALLER' }}
                   </a>
                 </div>
               </div>

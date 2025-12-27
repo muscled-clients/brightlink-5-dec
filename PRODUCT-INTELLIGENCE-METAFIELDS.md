@@ -2,7 +2,7 @@
 
 This document outlines all metafields required for the Product Intelligence section.
 
-**Naming Convention:** `pic_` prefix (Product Intelligence Content)
+**Naming Convention:** `pic_` prefix (Product Intelligence Content) + full descriptive words
 
 ---
 
@@ -33,7 +33,7 @@ All metafields use namespace: `custom`
 |-----|------|---------|---------|
 | `pic_label` | single_line_text_field | Section label | "PRODUCT DETAILS" |
 | `pic_heading` | single_line_text_field | Section heading | "Product Intelligence" |
-| `pic_sub_heading` | single_line_text_field | Section sub-heading | "Everything you need to know about your LED display" |
+| `pic_subheading` | single_line_text_field | Section sub-heading | "Everything you need to know about your LED display" |
 
 ---
 
@@ -124,7 +124,7 @@ All metafields use namespace: `custom`
 
 | Key | Type | Fields Count |
 |-----|------|--------------|
-| `pic_specs_env` | json | 12 |
+| `pic_specs_environmental` | json | 12 |
 
 **JSON Structure:**
 ```json
@@ -150,9 +150,9 @@ All metafields use namespace: `custom`
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_incl_badges` | list.single_line_text_field | Badge labels |
-| `pic_incl_titles` | list.single_line_text_field | Item titles |
-| `pic_incl_desc` | list.single_line_text_field | Item descriptions |
+| `pic_included_badges` | list.single_line_text_field | Badge labels |
+| `pic_included_titles` | list.single_line_text_field | Item titles |
+| `pic_included_descriptions` | list.single_line_text_field | Item descriptions |
 
 **Example Values:**
 
@@ -162,29 +162,14 @@ All metafields use namespace: `custom`
 | 1 | "Controller" | "NovaStar Controller" | "Industry-leading video processor..." |
 | 2 | "Cables" | "Complete Cable Package" | "All required power and data cables..." |
 
-**Liquid Usage:**
-```liquid
-{% assign badges = product.metafields.custom.pic_incl_badges.value %}
-{% assign titles = product.metafields.custom.pic_incl_titles.value %}
-{% assign desc = product.metafields.custom.pic_incl_desc.value %}
-
-{% for i in (0..titles.size) %}
-  <div class="included-card">
-    <span class="badge">{{ badges[i] }}</span>
-    <h4>{{ titles[i] }}</h4>
-    <p>{{ desc[i] }}</p>
-  </div>
-{% endfor %}
-```
-
 ---
 
 ## 3. Features Tab (2 List Metafields)
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_feat_titles` | list.single_line_text_field | Feature titles |
-| `pic_feat_desc` | list.single_line_text_field | Feature descriptions |
+| `pic_features_titles` | list.single_line_text_field | Feature titles |
+| `pic_features_descriptions` | list.single_line_text_field | Feature descriptions |
 
 **Example Values:**
 
@@ -194,19 +179,6 @@ All metafields use namespace: `custom`
 | 1 | "Ultra-Slim Profile" | "Industry-leading slim design at just 25mm (1 inch) deep..." |
 | 2 | "Integrated Power & Network Hub" | "Simplified cable management..." |
 
-**Liquid Usage:**
-```liquid
-{% assign titles = product.metafields.custom.pic_feat_titles.value %}
-{% assign desc = product.metafields.custom.pic_feat_desc.value %}
-
-{% for i in (0..titles.size) %}
-  <div class="features-card">
-    <h4>{{ titles[i] }}</h4>
-    <p>{{ desc[i] }}</p>
-  </div>
-{% endfor %}
-```
-
 ---
 
 ## 4. Installation Tab (10 Metafields)
@@ -215,10 +187,10 @@ All metafields use namespace: `custom`
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_inst_step_num` | list.single_line_text_field | Step numbers |
-| `pic_inst_step_titles` | list.single_line_text_field | Step titles |
-| `pic_inst_step_desc` | list.single_line_text_field | Step descriptions |
-| `pic_inst_step_dur` | list.single_line_text_field | Step durations |
+| `pic_install_step_numbers` | list.single_line_text_field | Step numbers |
+| `pic_install_step_titles` | list.single_line_text_field | Step titles |
+| `pic_install_step_descriptions` | list.single_line_text_field | Step descriptions |
+| `pic_install_step_durations` | list.single_line_text_field | Step durations |
 
 **Example Values:**
 
@@ -232,12 +204,12 @@ All metafields use namespace: `custom`
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_inst_req_header` | single_line_text_field | Section header label |
-| `pic_inst_req_title` | single_line_text_field | Section title |
-| `pic_inst_req_desc` | multi_line_text_field | Requirements description |
+| `pic_install_requirements_label` | single_line_text_field | Section header label |
+| `pic_install_requirements_title` | single_line_text_field | Section title |
+| `pic_install_requirements_description` | multi_line_text_field | Requirements description |
 
 **Example Values:**
-- Header: `"REQUIREMENTS"`
+- Label: `"REQUIREMENTS"`
 - Title: `"Installation Requirements"`
 - Description: `"Professional installation recommended. Requires structural assessment, dedicated electrical circuit (20A minimum), and proper ventilation..."`
 
@@ -245,9 +217,9 @@ All metafields use namespace: `custom`
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_inst_sup_title` | single_line_text_field | Support section title |
-| `pic_inst_sup_desc` | single_line_text_field | Support description |
-| `pic_inst_sup_btn` | single_line_text_field | Button text |
+| `pic_install_support_title` | single_line_text_field | Support section title |
+| `pic_install_support_description` | single_line_text_field | Support description |
+| `pic_install_support_button` | single_line_text_field | Button text |
 
 **Example Values:**
 - Title: `"Need Professional Installation?"`
@@ -262,10 +234,10 @@ All metafields use namespace: `custom`
 
 | Key | Type | Purpose |
 |-----|------|---------|
-| `pic_over_desc` | multi_line_text_field | Main product description |
-| `pic_over_img` | file_reference | Product hero image |
-| `pic_over_card_titles` | list.single_line_text_field | Feature card titles (3 items) |
-| `pic_over_card_desc` | list.single_line_text_field | Feature card descriptions (3 items) |
+| `pic_overview_description` | multi_line_text_field | Main product description |
+| `pic_overview_image` | file_reference | Product hero image |
+| `pic_overview_card_titles` | list.single_line_text_field | Feature card titles (3 items) |
+| `pic_overview_card_descriptions` | list.single_line_text_field | Feature card descriptions (3 items) |
 
 **Example Values:**
 
@@ -321,40 +293,40 @@ These settings remain in the section schema (not metafields):
 # Section Header (3 Text)
 custom.pic_label
 custom.pic_heading
-custom.pic_sub_heading
+custom.pic_subheading
 
 # Specifications Tab (4 JSON)
 custom.pic_specs_display
 custom.pic_specs_physical
 custom.pic_specs_electrical
-custom.pic_specs_env
+custom.pic_specs_environmental
 
 # What's Included Tab (3 Lists)
-custom.pic_incl_badges
-custom.pic_incl_titles
-custom.pic_incl_desc
+custom.pic_included_badges
+custom.pic_included_titles
+custom.pic_included_descriptions
 
 # Features Tab (2 Lists)
-custom.pic_feat_titles
-custom.pic_feat_desc
+custom.pic_features_titles
+custom.pic_features_descriptions
 
 # Installation Tab (10 Mixed)
-custom.pic_inst_step_num
-custom.pic_inst_step_titles
-custom.pic_inst_step_desc
-custom.pic_inst_step_dur
-custom.pic_inst_req_header
-custom.pic_inst_req_title
-custom.pic_inst_req_desc
-custom.pic_inst_sup_title
-custom.pic_inst_sup_desc
-custom.pic_inst_sup_btn
+custom.pic_install_step_numbers
+custom.pic_install_step_titles
+custom.pic_install_step_descriptions
+custom.pic_install_step_durations
+custom.pic_install_requirements_label
+custom.pic_install_requirements_title
+custom.pic_install_requirements_description
+custom.pic_install_support_title
+custom.pic_install_support_description
+custom.pic_install_support_button
 
 # Overview Tab (4 Mixed)
-custom.pic_over_desc
-custom.pic_over_img
-custom.pic_over_card_titles
-custom.pic_over_card_desc
+custom.pic_overview_description
+custom.pic_overview_image
+custom.pic_overview_card_titles
+custom.pic_overview_card_descriptions
 ```
 
 ---
@@ -364,7 +336,7 @@ custom.pic_over_card_desc
 | Type | Count |
 |------|-------|
 | JSON | 4 |
-| list.single_line_text_field | 13 |
+| list.single_line_text_field | 12 |
 | single_line_text_field | 7 |
 | multi_line_text_field | 2 |
 | file_reference | 1 |
