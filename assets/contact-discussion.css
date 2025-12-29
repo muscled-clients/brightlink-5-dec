@@ -327,9 +327,9 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     gap: 0;
-    padding: 40px 0;
+    padding: 30px 0 10px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 0;
   }
 
   .contact-discussion__features::-webkit-scrollbar {
@@ -349,7 +349,7 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
-    margin-top: 20px;
+    margin-top: 5px;
     background: rgba(255, 255, 255, 0.08);
     padding: 10px 20px;
     border-radius: 30px;
