@@ -614,16 +614,41 @@
         "cta_link": ""
       }
     },
-    "controller_tabs_h78LxC": {
+    "controller_tabs_eJdxqp": {
       "type": "controller-tabs",
       "blocks": {
-        "tab_REUgTL": {
+        "tab_44tY6F": {
           "type": "tab",
           "settings": {
             "tab_title": "Overview",
             "icon": "overview",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "10-bit color processing",
+            "feature5": "Web-based control interface",
+            "feature6": "Real-time monitoring and diagnostics",
+            "feature7": "Real-time monitoring and diagnostics",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD 1080p input cards",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": ""
+          }
+        },
+        "tab_peWNf8": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Complex Integration",
+            "icon": "integration",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The H Series integrates splice processing and display control through module mainframe connectivity, offering a simplified All-in-One structure. This reduces equipment failure rates and improves operation and maintenance.",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -642,46 +667,21 @@
             "button_link": ""
           }
         },
-        "tab_ijUY3X": {
+        "tab_YmAWEj": {
           "type": "tab",
           "settings": {
-            "tab_title": "Complex Integration",
-            "icon": "integration",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Seamlessly integrate with existing AV infrastructure. The H2 supports multiple input formats and protocols, making it ideal for complex installations requiring diverse source connections.",
-            "read_more_link": "",
-            "feature1": "Multiple input format support",
-            "feature2": "Network-based control",
-            "feature3": "RS232 and TCP/IP protocols",
-            "feature4": "Third-party system integration",
-            "feature5": "Preset scene management",
-            "feature6": "Automated failover switching",
-            "feature7": "API for custom integrations",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
-          }
-        },
-        "tab_PmfXEi": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "True 4K",
+            "tab_title": "True 4k",
             "icon": "4k",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Experience true 4K processing with full support for 4K@60Hz input signals. The H2 delivers stunning clarity and detail for demanding video wall applications.",
+            "description": "The H Series provides true 4K (4K x 2K @ 60Hz, RGB 4:4:4, 10bit) signal collection, processing, and output, ensuring ultra-high resolution displays for professional-grade environments.",
             "read_more_link": "",
-            "feature1": "4K@60Hz input support",
-            "feature2": "4:4:4 color sampling",
-            "feature3": "Low latency processing",
-            "feature4": "Frame rate conversion",
-            "feature5": "Scaling and cropping",
-            "feature6": "Edge blending support",
-            "feature7": "Seamless switching",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
             "config2": "1× HDMI 2.0 input card (4K@60Hz)",
@@ -692,21 +692,21 @@
             "button_link": ""
           }
         },
-        "tab_QaxmYD": {
+        "tab_VQAHTp": {
           "type": "tab",
           "settings": {
             "tab_title": "60fps Processing",
             "icon": "processing",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Smooth 60fps processing ensures fluid motion for video content, live broadcasts, and dynamic presentations. No dropped frames or stuttering.",
+            "description": "The system supports input and output signal processing at full 60FPS, ensuring smooth visuals with no lag or frame loss. This delivers a flawless display experience.",
             "read_more_link": "",
-            "feature1": "60fps processing",
-            "feature2": "Zero frame drop",
-            "feature3": "Motion interpolation",
-            "feature4": "Genlock synchronization",
-            "feature5": "Multi-screen sync",
-            "feature6": "Low input lag",
-            "feature7": "Broadcast-ready output",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
             "config2": "1× HDMI 2.0 input card (4K@60Hz)",
@@ -717,21 +717,21 @@
             "button_link": ""
           }
         },
-        "tab_dqdew3": {
+        "tab_mKpj7c": {
           "type": "tab",
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Advanced image processing delivers exceptional visual quality with HDR support, precise color calibration, and enhanced contrast for stunning displays.",
+            "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
             "read_more_link": "",
-            "feature1": "HDR10 and HLG support",
-            "feature2": "10-bit color depth",
-            "feature3": "Wide color gamut",
-            "feature4": "Brightness uniformity",
-            "feature5": "Color calibration",
-            "feature6": "Gamma correction",
-            "feature7": "Noise reduction",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
             "config2": "1× HDMI 2.0 input card (4K@60Hz)",
@@ -742,21 +742,21 @@
             "button_link": ""
           }
         },
-        "tab_9eeewA": {
+        "tab_yVVqGd": {
           "type": "tab",
           "settings": {
             "tab_title": "Flexibility",
             "icon": "flexible",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Modular design allows for flexible configurations to match your exact requirements. Hot-swappable cards make maintenance and upgrades simple.",
+            "description": "The H Series supports numerous layers with an unrestricted arrangement. Each output display/board provides 16 layers (up to 18 layers maximum per port). The layers can freely cross different output loading areas while keeping layer size the same. Layers can be in any position, overlapped, or unlimited scaled. It supports functions such as image capture, layer configuration, layer flip, and more. This all helps you realize your creativity and create a captivating visual effect.",
             "read_more_link": "",
-            "feature1": "Modular card slots",
-            "feature2": "Hot-swappable design",
-            "feature3": "Scalable architecture",
-            "feature4": "Future-proof expansion",
-            "feature5": "Multiple output options",
-            "feature6": "Redundant power supply",
-            "feature7": "Rack-mountable chassis",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
             "config2": "1× HDMI 2.0 input card (4K@60Hz)",
@@ -769,12 +769,12 @@
         }
       },
       "block_order": [
-        "tab_REUgTL",
-        "tab_ijUY3X",
-        "tab_PmfXEi",
-        "tab_QaxmYD",
-        "tab_dqdew3",
-        "tab_9eeewA"
+        "tab_44tY6F",
+        "tab_peWNf8",
+        "tab_YmAWEj",
+        "tab_VQAHTp",
+        "tab_mKpj7c",
+        "tab_yVVqGd"
       ],
       "name": "Controller Tabs",
       "settings": {
@@ -1275,7 +1275,7 @@
     "product_intelligence_J64aNM",
     "system_configuration_P4iKBf",
     "experience_scale_NBgJny",
-    "controller_tabs_h78LxC",
+    "controller_tabs_eJdxqp",
     "applications_tabs_mBjMrf",
     "investment_config_xJLwjx",
     "enhance_system_Xbn39D",
