@@ -270,7 +270,8 @@
   }
 
   .knowledge-center__title {
-    font-size: 28px;
+    font-size: 26px;
+    font-style: italic;
   }
 
   .knowledge-center__subtitle {
@@ -280,46 +281,101 @@
   .knowledge-center__search-input {
     padding: 12px 16px 12px 44px;
     font-size: 14px;
+    border-radius: 8px;
   }
 
+  /* Mobile Filter Dropdown */
   .knowledge-center__filters {
-    gap: 6px;
+    display: none;
   }
 
-  .knowledge-center__filter-btn {
-    padding: 6px 12px;
-    font-size: 12px;
+  .knowledge-center__filter-dropdown {
+    display: block !important;
+    margin-bottom: 24px;
+  }
+
+  .knowledge-center__filter-select {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #ffffff;
+    background: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  .knowledge-center__filter-select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+  }
+
+  /* Accordion Styling */
+  .knowledge-center__accordion {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .knowledge-center__accordion:hover {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .knowledge-center__accordion.active {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
   .knowledge-center__accordion-header {
-    padding: 14px 16px;
+    padding: 16px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f1f36 100%);
+    border-radius: 8px;
   }
 
   .knowledge-center__accordion-icon {
     width: 32px;
     height: 32px;
+    background: transparent;
   }
 
   .knowledge-center__accordion-icon svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
   }
 
   .knowledge-center__accordion-title {
-    font-size: 14px;
+    font-size: 15px;
+  }
+
+  .knowledge-center__questions-list {
+    padding: 0;
+  }
+
+  .knowledge-center__question-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   .knowledge-center__question-header {
-    padding: 12px 8px 12px 42px;
+    padding: 16px;
+    padding-left: 16px;
   }
 
   .knowledge-center__question-header span {
-    font-size: 13px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .knowledge-center__answer p {
-    padding: 0 8px 12px 42px;
-    font-size: 13px;
+    padding: 0 16px 16px 16px;
+    font-size: 14px;
   }
 }
 
@@ -333,30 +389,15 @@
   }
 
   .knowledge-center__title {
-    font-size: 24px;
-  }
-
-  .knowledge-center__filters {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    padding-bottom: 10px;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .knowledge-center__filter-btn {
-    flex-shrink: 0;
+    font-size: 22px;
   }
 
   .knowledge-center__accordion-title-wrapper {
     gap: 10px;
   }
+}
 
-  .knowledge-center__question-header {
-    padding-left: 10px;
-  }
-
-  .knowledge-center__answer p {
-    padding-left: 10px;
-  }
+/* Hide dropdown on desktop */
+.knowledge-center__filter-dropdown {
+  display: none;
 }

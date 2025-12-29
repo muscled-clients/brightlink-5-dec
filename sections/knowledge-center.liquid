@@ -42,6 +42,17 @@
       <button class="knowledge-center__filter-btn" data-filter="partnerships">{{ section.settings.filter_partnerships | default: 'Partnerships' }}</button>
     </div>
 
+    <div class="knowledge-center__filter-dropdown">
+      <select class="knowledge-center__filter-select" aria-label="Filter categories">
+        <option value="all">{{ section.settings.filter_all | default: 'All' }}</option>
+        <option value="product">{{ section.settings.filter_product | default: 'Product' }}</option>
+        <option value="support">{{ section.settings.filter_support | default: 'Support' }}</option>
+        <option value="shipping">{{ section.settings.filter_shipping | default: 'Shipping' }}</option>
+        <option value="payment">{{ section.settings.filter_payment | default: 'Payment' }}</option>
+        <option value="partnerships">{{ section.settings.filter_partnerships | default: 'Partnerships' }}</option>
+      </select>
+    </div>
+
     <!-- FAQ Categories - Use metafield data if available, otherwise use blocks -->
     <div class="knowledge-center__faq-list">
       {% if faq_categories.size > 0 %}
@@ -310,24 +321,44 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   const filterBtns = document.querySelectorAll('.knowledge-center__filter-btn');
+  const filterSelect = document.querySelector('.knowledge-center__filter-select');
   const accordions = document.querySelectorAll('.knowledge-center__accordion');
+
+  function filterAccordions(filter) {
+    accordions.forEach(accordion => {
+      if (filter === 'all' || accordion.dataset.category === filter) {
+        accordion.style.display = 'block';
+      } else {
+        accordion.style.display = 'none';
+      }
+    });
+  }
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', function() {
       filterBtns.forEach(b => b.classList.remove('active'));
       this.classList.add('active');
+      filterAccordions(this.dataset.filter);
 
-      const filter = this.dataset.filter;
-
-      accordions.forEach(accordion => {
-        if (filter === 'all' || accordion.dataset.category === filter) {
-          accordion.style.display = 'block';
-        } else {
-          accordion.style.display = 'none';
-        }
-      });
+      // Sync dropdown
+      if (filterSelect) {
+        filterSelect.value = this.dataset.filter;
+      }
     });
   });
+
+  // Mobile dropdown filter
+  if (filterSelect) {
+    filterSelect.addEventListener('change', function() {
+      const filter = this.value;
+      filterAccordions(filter);
+
+      // Sync buttons
+      filterBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.filter === filter);
+      });
+    });
+  }
 
   const searchInput = document.querySelector('.knowledge-center__search-input');
   if (searchInput) {
