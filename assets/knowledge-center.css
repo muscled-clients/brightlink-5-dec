@@ -324,6 +324,10 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
+  .knowledge-center__accordion:first-child {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
   .knowledge-center__accordion:hover {
     background: transparent;
     border-color: rgba(255, 255, 255, 0.1);
@@ -335,14 +339,14 @@
   }
 
   .knowledge-center__accordion-header {
-    padding: 16px;
-    background: rgba(20, 30, 45, 0.7);
-    border-radius: 8px;
+    padding: 18px 16px;
+    background: transparent;
+    border-radius: 0;
   }
 
   .knowledge-center__accordion-icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     background: transparent;
   }
 
