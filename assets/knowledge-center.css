@@ -355,12 +355,20 @@
     font-size: 15px;
   }
 
+  .knowledge-center__accordion-content {
+    background: rgba(10, 15, 25, 0.85);
+  }
+
   .knowledge-center__questions-list {
     padding: 0;
   }
 
   .knowledge-center__question-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .knowledge-center__question-item:last-child {
+    border-bottom: none;
   }
 
   .knowledge-center__question-header {
