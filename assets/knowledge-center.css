@@ -336,7 +336,7 @@
 
   .knowledge-center__accordion-header {
     padding: 16px;
-    background: linear-gradient(135deg, #1e3a5f 0%, #0f1f36 100%);
+    background: rgba(20, 30, 45, 0.7);
     border-radius: 8px;
   }
 
