@@ -345,9 +345,10 @@
 
   /* Slider Dots */
   .contact-discussion__dots {
-    display: flex;
+    display: flex !important;
     justify-content: center;
-    gap: 8px;
+    gap: 10px;
+    margin-top: 20px;
   }
 
   .contact-discussion__dot {
@@ -363,6 +364,12 @@
 
   .contact-discussion__dot--active {
     background: #3b82f6;
+  }
+
+  /* Wrapper display block on mobile */
+  .contact-discussion__cards-wrapper,
+  .contact-discussion__features-wrapper {
+    display: block !important;
   }
 }
 
