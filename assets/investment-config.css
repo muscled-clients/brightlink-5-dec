@@ -265,7 +265,8 @@
   }
 
   .investment-config__title {
-    font-size: 28px;
+    font-size: 26px;
+    font-style: italic;
   }
 
   .investment-config__card {
@@ -273,11 +274,12 @@
   }
 
   .investment-config__product-name {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .investment-config__current-price {
-    font-size: 38px;
+    font-size: 36px;
+    color: #3b82f6;
   }
 
   .investment-config__includes-grid {
@@ -285,12 +287,18 @@
     gap: 10px;
   }
 
+  .investment-config__includes-col {
+    gap: 10px;
+  }
+
   .investment-config__buttons {
     flex-direction: column;
+    gap: 10px;
   }
 
   .investment-config__btn {
     width: 100%;
+    padding: 14px 20px;
   }
 }
 
