@@ -14,103 +14,160 @@
       <p class="contact-discussion__subtitle">{{ section.settings.subtitle | default: 'Talk to our LED specialists about your specific requirements' }}</p>
     </div>
 
-    <div class="contact-discussion__cards">
-      <div class="contact-discussion__card">
-        <div class="contact-discussion__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
+    <div class="contact-discussion__cards-wrapper">
+      <div class="contact-discussion__cards" data-slider="cards">
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+          </div>
+          <h3 class="contact-discussion__card-title">{{ section.settings.call_title | default: 'Call Us Now' }}</h3>
+          <p class="contact-discussion__card-phone">{{ section.settings.phone_number | default: '855-449-4733' }}</p>
+          <p class="contact-discussion__card-info">{{ section.settings.phone_availability | default: 'Mon-Fri 7AM-5PM PST' }}</p>
+          <a href="tel:{{ section.settings.phone_number | default: '855-449-4733' | remove: '-' }}" class="contact-discussion__card-btn">
+            {{ section.settings.call_button_text | default: 'CALL NOW' }}
+          </a>
         </div>
-        <h3 class="contact-discussion__card-title">{{ section.settings.call_title | default: 'Call Us Now' }}</h3>
-        <p class="contact-discussion__card-phone">{{ section.settings.phone_number | default: '855-449-4733' }}</p>
-        <p class="contact-discussion__card-info">{{ section.settings.phone_availability | default: 'Mon-Fri 7AM-5PM PST' }}</p>
-        <a href="tel:{{ section.settings.phone_number | default: '855-449-4733' | remove: '-' }}" class="contact-discussion__card-btn">
-          {{ section.settings.call_button_text | default: 'CALL NOW' }}
-        </a>
-      </div>
 
-      <div class="contact-discussion__card">
-        <div class="contact-discussion__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-          </svg>
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+          </div>
+          <h3 class="contact-discussion__card-title">{{ section.settings.email_title | default: 'Email Our Team' }}</h3>
+          <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-email">{{ section.settings.email_address | default: 'support@brightlinkav.com' }}</a>
+          <p class="contact-discussion__card-info">{{ section.settings.email_response | default: 'Same day response time' }}</p>
+          <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-btn">
+            {{ section.settings.email_button_text | default: 'SEND EMAIL' }}
+          </a>
         </div>
-        <h3 class="contact-discussion__card-title">{{ section.settings.email_title | default: 'Email Our Team' }}</h3>
-        <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-email">{{ section.settings.email_address | default: 'support@brightlinkav.com' }}</a>
-        <p class="contact-discussion__card-info">{{ section.settings.email_response | default: 'Same day response time' }}</p>
-        <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-btn">
-          {{ section.settings.email_button_text | default: 'SEND EMAIL' }}
-        </a>
-      </div>
 
-      <div class="contact-discussion__card">
-        <div class="contact-discussion__card-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-            <line x1="16" x2="16" y1="2" y2="6"></line>
-            <line x1="8" x2="8" y1="2" y2="6"></line>
-            <line x1="3" x2="21" y1="10" y2="10"></line>
-          </svg>
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+          </div>
+          <h3 class="contact-discussion__card-title">{{ section.settings.demo_title | default: 'Schedule Demo' }}</h3>
+          <p class="contact-discussion__card-highlight">{{ section.settings.demo_subtitle | default: 'See Pro Spectrum In Person' }}</p>
+          <p class="contact-discussion__card-info">{{ section.settings.demo_info | default: 'Virtual or in-person tours' }}</p>
+          <a href="{{ section.settings.demo_button_link | default: '#' }}" class="contact-discussion__card-btn">
+            {{ section.settings.demo_button_text | default: 'BOOK APPOINTMENT' }}
+          </a>
         </div>
-        <h3 class="contact-discussion__card-title">{{ section.settings.demo_title | default: 'Schedule Demo' }}</h3>
-        <p class="contact-discussion__card-highlight">{{ section.settings.demo_subtitle | default: 'See Pro Spectrum In Person' }}</p>
-        <p class="contact-discussion__card-info">{{ section.settings.demo_info | default: 'Virtual or in-person tours' }}</p>
-        <a href="{{ section.settings.demo_button_link | default: '#' }}" class="contact-discussion__card-btn">
-          {{ section.settings.demo_button_text | default: 'BOOK APPOINTMENT' }}
-        </a>
+      </div>
+      <div class="contact-discussion__dots" data-dots="cards">
+        <button class="contact-discussion__dot contact-discussion__dot--active" data-index="0" aria-label="Slide 1"></button>
+        <button class="contact-discussion__dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="contact-discussion__dot" data-index="2" aria-label="Slide 3"></button>
       </div>
     </div>
 
-    <div class="contact-discussion__features">
-      <div class="contact-discussion__feature">
-        <div class="contact-discussion__feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
-          </svg>
+    <div class="contact-discussion__features-wrapper">
+      <div class="contact-discussion__features" data-slider="features">
+        <div class="contact-discussion__feature">
+          <div class="contact-discussion__feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+            </svg>
+          </div>
+          <h4 class="contact-discussion__feature-title">{{ section.settings.feature1_title | default: 'SINCE 2009' }}</h4>
+          <p class="contact-discussion__feature-text">{{ section.settings.feature1_text | default: 'Established Excellence' }}</p>
         </div>
-        <h4 class="contact-discussion__feature-title">{{ section.settings.feature1_title | default: 'SINCE 2009' }}</h4>
-        <p class="contact-discussion__feature-text">{{ section.settings.feature1_text | default: 'Established Excellence' }}</p>
-      </div>
 
-      <div class="contact-discussion__feature">
-        <div class="contact-discussion__feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
-            <path d="m9 12 2 2 4-4"></path>
-          </svg>
+        <div class="contact-discussion__feature">
+          <div class="contact-discussion__feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h4 class="contact-discussion__feature-title">{{ section.settings.feature2_title | default: '4-YEAR WARRANTY' }}</h4>
+          <p class="contact-discussion__feature-text">{{ section.settings.feature2_text | default: 'Comprehensive Coverage' }}</p>
         </div>
-        <h4 class="contact-discussion__feature-title">{{ section.settings.feature2_title | default: '4-YEAR WARRANTY' }}</h4>
-        <p class="contact-discussion__feature-text">{{ section.settings.feature2_text | default: 'Comprehensive Coverage' }}</p>
-      </div>
 
-      <div class="contact-discussion__feature">
-        <div class="contact-discussion__feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <circle cx="12" cy="12" r="6"></circle>
-            <circle cx="12" cy="12" r="2"></circle>
-          </svg>
+        <div class="contact-discussion__feature">
+          <div class="contact-discussion__feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <h4 class="contact-discussion__feature-title">{{ section.settings.feature3_title | default: 'LIFETIME SUPPORT' }}</h4>
+          <p class="contact-discussion__feature-text">{{ section.settings.feature3_text | default: 'Always Here to Help' }}</p>
         </div>
-        <h4 class="contact-discussion__feature-title">{{ section.settings.feature3_title | default: 'LIFETIME SUPPORT' }}</h4>
-        <p class="contact-discussion__feature-text">{{ section.settings.feature3_text | default: 'Always Here to Help' }}</p>
-      </div>
 
-      <div class="contact-discussion__feature">
-        <div class="contact-discussion__feature-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
-            <path d="m9 11 3 3L22 4"></path>
-          </svg>
+        <div class="contact-discussion__feature">
+          <div class="contact-discussion__feature-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+              <path d="m9 11 3 3L22 4"></path>
+            </svg>
+          </div>
+          <h4 class="contact-discussion__feature-title">{{ section.settings.feature4_title | default: 'CERTIFIED' }}</h4>
+          <p class="contact-discussion__feature-text">{{ section.settings.feature4_text | default: 'CE, RoHS, FCC, ISO9001' }}</p>
         </div>
-        <h4 class="contact-discussion__feature-title">{{ section.settings.feature4_title | default: 'CERTIFIED' }}</h4>
-        <p class="contact-discussion__feature-text">{{ section.settings.feature4_text | default: 'CE, RoHS, FCC, ISO9001' }}</p>
+      </div>
+      <div class="contact-discussion__dots" data-dots="features">
+        <button class="contact-discussion__dot contact-discussion__dot--active" data-index="0" aria-label="Feature 1"></button>
+        <button class="contact-discussion__dot" data-index="1" aria-label="Feature 2"></button>
+        <button class="contact-discussion__dot" data-index="2" aria-label="Feature 3"></button>
+        <button class="contact-discussion__dot" data-index="3" aria-label="Feature 4"></button>
       </div>
     </div>
 
     <p class="contact-discussion__footer-text">{{ section.settings.footer_text | default: 'Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions' }}</p>
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.contact-discussion');
+  if (!section) return;
+
+  function initSlider(sliderSelector, dotsSelector) {
+    const slider = section.querySelector(sliderSelector);
+    const dotsContainer = section.querySelector(dotsSelector);
+    if (!slider || !dotsContainer) return;
+
+    const dots = dotsContainer.querySelectorAll('.contact-discussion__dot');
+    const items = slider.children;
+
+    // Update dots on scroll
+    slider.addEventListener('scroll', function() {
+      const scrollLeft = slider.scrollLeft;
+      const itemWidth = slider.offsetWidth;
+      const activeIndex = Math.round(scrollLeft / itemWidth);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('contact-discussion__dot--active', index === activeIndex);
+      });
+    });
+
+    // Click on dots to navigate
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
+        const itemWidth = slider.offsetWidth;
+        slider.scrollTo({
+          left: index * itemWidth,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  // Initialize both sliders
+  initSlider('[data-slider="cards"]', '[data-dots="cards"]');
+  initSlider('[data-slider="features"]', '[data-dots="features"]');
+});
+</script>
 
 {% schema %}
 {
