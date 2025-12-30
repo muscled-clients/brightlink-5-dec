@@ -370,6 +370,11 @@
   }
 }
 
+/* Dropdown - Hidden on desktop */
+.controller-tabs__dropdown {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .controller-tabs {
     padding: 60px 0;
@@ -387,27 +392,102 @@
     font-size: 14px;
   }
 
+  /* Hide tabs, show dropdown on mobile */
   .controller-tabs__tabs {
-    justify-content: flex-start;
-    overflow-x: auto;
-    flex-wrap: nowrap;
-    gap: 8px;
-    padding-bottom: 10px;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  .controller-tabs__tabs::-webkit-scrollbar {
     display: none;
   }
 
+  .controller-tabs__dropdown {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .controller-tabs__select {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3b82f6;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  .controller-tabs__select:focus {
+    outline: none;
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+
+  .controller-tabs__select option {
+    background: #0a0f14;
+    color: #ffffff;
+  }
+
   .controller-tabs__panel {
-    padding: 25px 20px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+  }
+
+  .controller-tabs__panel-content {
+    gap: 20px;
   }
 
   .controller-tabs__image-area {
-    min-height: 200px;
+    min-height: 180px;
     padding: 20px;
+  }
+
+  /* Config section as card */
+  .controller-tabs__config-section {
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid rgba(60, 100, 140, 0.3);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 0;
+  }
+
+  .controller-tabs__config-title {
+    font-size: 15px;
+    margin-bottom: 15px;
+  }
+
+  .controller-tabs__config-list {
+    gap: 12px;
+  }
+
+  .controller-tabs__config-list li {
+    font-size: 13px;
+  }
+
+  /* Right content section */
+  .controller-tabs__right {
+    gap: 20px;
+  }
+
+  .controller-tabs__description {
+    font-size: 13px;
+  }
+
+  .controller-tabs__features-list {
+    gap: 14px;
+  }
+
+  .controller-tabs__features-list li {
+    font-size: 13px;
+  }
+
+  .controller-tabs__button {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -416,17 +496,17 @@
     padding: 40px 0;
   }
 
+  .controller-tabs__container {
+    padding: 0 15px;
+  }
+
   .controller-tabs__heading {
     font-size: 24px;
   }
 
-  .controller-tabs__tab {
-    padding: 8px 12px;
-    font-size: 11px;
-  }
-
-  .controller-tabs__panel {
-    padding: 20px 15px;
+  .controller-tabs__select {
+    padding: 12px 36px 12px 14px;
+    font-size: 14px;
   }
 
   .controller-tabs__badge {
@@ -434,8 +514,25 @@
     font-size: 10px;
   }
 
+  .controller-tabs__image-area {
+    min-height: 150px;
+    padding: 15px;
+  }
+
+  .controller-tabs__config-section {
+    padding: 18px;
+  }
+
+  .controller-tabs__config-title {
+    font-size: 14px;
+  }
+
+  .controller-tabs__config-list li {
+    font-size: 12px;
+  }
+
   .controller-tabs__description {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .controller-tabs__features-list li {
@@ -443,7 +540,7 @@
   }
 
   .controller-tabs__button {
-    width: 100%;
     padding: 12px 20px;
+    font-size: 11px;
   }
 }
