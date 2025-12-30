@@ -20,6 +20,21 @@
     </div>
 
     <div class="applications-tabs__content">
+      <!-- Mobile Dropdown Navigation -->
+      <div class="applications-tabs__dropdown">
+        <select class="applications-tabs__select" aria-label="Select application">
+          {% if apps_tabs.size > 0 %}
+            {% for tab in apps_tabs %}
+              <option value="{{ forloop.index0 }}">{{ tab.tab_title }}</option>
+            {% endfor %}
+          {% else %}
+            {% for block in section.blocks %}
+              <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
+            {% endfor %}
+          {% endif %}
+        </select>
+      </div>
+
       <!-- Tab Navigation - Use metafield tabs if available, otherwise use blocks -->
       <div class="applications-tabs__tabs" role="tablist">
         {% if apps_tabs.size > 0 %}
@@ -343,37 +358,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const tabs = section.querySelectorAll('.applications-tabs__tab');
   const panels = section.querySelectorAll('.applications-tabs__panel');
+  const dropdown = section.querySelector('.applications-tabs__select');
   let currentIndex = 0;
 
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', function() {
-      const newIndex = parseInt(this.dataset.tabIndex);
-      if (newIndex === currentIndex) return;
+  function switchToTab(newIndex) {
+    if (newIndex === currentIndex) return;
 
-      tabs.forEach(t => {
-        t.classList.remove('applications-tabs__tab--active');
-        t.setAttribute('aria-selected', 'false');
-      });
-      this.classList.add('applications-tabs__tab--active');
-      this.setAttribute('aria-selected', 'true');
+    tabs.forEach(t => {
+      t.classList.remove('applications-tabs__tab--active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    if (tabs[newIndex]) {
+      tabs[newIndex].classList.add('applications-tabs__tab--active');
+      tabs[newIndex].setAttribute('aria-selected', 'true');
+    }
 
-      panels.forEach(p => {
-        p.classList.remove('applications-tabs__panel--active');
-        p.classList.remove('applications-tabs__panel--slide-left');
-        p.classList.remove('applications-tabs__panel--slide-right');
-      });
+    panels.forEach(p => {
+      p.classList.remove('applications-tabs__panel--active');
+      p.classList.remove('applications-tabs__panel--slide-left');
+      p.classList.remove('applications-tabs__panel--slide-right');
+    });
 
-      const targetPanel = panels[newIndex];
+    const targetPanel = panels[newIndex];
+    if (targetPanel) {
       if (newIndex > currentIndex) {
         targetPanel.classList.add('applications-tabs__panel--slide-right');
       } else {
         targetPanel.classList.add('applications-tabs__panel--slide-left');
       }
       targetPanel.classList.add('applications-tabs__panel--active');
+    }
 
-      currentIndex = newIndex;
+    if (dropdown) {
+      dropdown.value = newIndex;
+    }
+
+    currentIndex = newIndex;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', function() {
+      const newIndex = parseInt(this.dataset.tabIndex);
+      switchToTab(newIndex);
     });
   });
+
+  if (dropdown) {
+    dropdown.addEventListener('change', function() {
+      const newIndex = parseInt(this.value);
+      switchToTab(newIndex);
+    });
+  }
 });
 </script>
 
