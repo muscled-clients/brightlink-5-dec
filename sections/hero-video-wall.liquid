@@ -86,6 +86,25 @@
     </div>
   </div>
 </section>
+<div class="hero-video-wall__features_mob">
+      {% if hero_data.metrics.size > 0 %}
+        {% for metric in hero_data.metrics %}
+          <div class="hero-video-wall__feature-box">
+            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+              <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+              <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
 
 {% schema %}
 {
@@ -459,7 +478,8 @@
     font-style: italic;
     {% endif %}
   }
-
+ 
+  }
   #hero-video-wall-{{ section.id }} .hero-video-wall__description {
     font-size: {{ section.settings.description_font_size }}px;
   }
@@ -484,4 +504,38 @@
   #hero-video-wall-{{ section.id }} .hero-video-wall__feature-box {
     background-color: rgba(0, 0, 0, var(--hero-feature-bg-opacity));
   }
+
+   @media screen and (max-width: 768px){
+  #hero-video-wall-{{ section.id }} .hero-video-wall__subheading {
+    font-size: 16px;
+    font-weight: 300;
+  }
+  #hero-video-wall-{{ section.id }} .hero-video-wall__main-heading {
+  font-size: 32px;
+    font-weight: 500;
+    width: 300px;
+  }
+  .hero-video-wall-section{
+  max-height: 846px;
+  }
+    #hero-video-wall-{{ section.id }} .hero-video-wall__btn {
+    width: auto;
+    padding: 12px 16px;
+    font-size: 12px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    white-space: nowrap;
+    background: rgba(10, 14, 26, 0.7);
+    border: 1px solid rgba(10, 132, 255, 0.55);
+    border-radius: 100px;
+  }
+  #hero-video-wall-{{ section.id }} .hero-video-wall__feature-label{
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #9CA3AF;
+    white-space: nowrap;
+  }
+}
+  
 </style>
+

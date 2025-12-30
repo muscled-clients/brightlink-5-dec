@@ -2,41 +2,72 @@
 
 <section class="trusted-leaders {{ section.settings.custom_class }}" id="trusted-leaders-{{ section.id }}">
   <div class="trusted-leaders__container">
-    <!-- Heading -->
     {% if section.settings.heading != blank %}
       <h2 class="trusted-leaders__heading">{{ section.settings.heading }}</h2>
     {% endif %}
 
-    <!-- Logos/Companies List -->
-    <div class="trusted-leaders__logos">
-      {% for block in section.blocks %}
-        {% if block.type == 'company' %}
-          <div class="trusted-leaders__logo-item" {{ block.shopify_attributes }}>
-            {% if block.settings.company_link != blank %}
-              <a href="{{ block.settings.company_link }}" class="trusted-leaders__link" target="_blank" rel="noopener">
-            {% endif %}
+    <div class="trusted-leaders__logos marquee-window">
+      
+      <div class="trusted-leaders__track">
+        
+        <div class="trusted-leaders__group">
+          {% for block in section.blocks %}
+            {% if block.type == 'company' %}
+              <div class="trusted-leaders__logo-item" {{ block.shopify_attributes }}>
+                {% if block.settings.company_link != blank %}
+                  <a href="{{ block.settings.company_link }}" class="trusted-leaders__link" target="_blank" rel="noopener">
+                {% endif %}
 
-            {% if block.settings.company_logo != blank %}
-              <img
-                src="{{ block.settings.company_logo | image_url: width: 200 }}"
-                alt="{{ block.settings.company_name }}"
-                class="trusted-leaders__logo-img"
-                loading="lazy"
-              >
-            {% else %}
-              <span class="trusted-leaders__company-name">{{ block.settings.company_name }}</span>
-            {% endif %}
+                {% if block.settings.company_logo != blank %}
+                  <img
+                    src="{{ block.settings.company_logo | image_url: width: 200 }}"
+                    alt="{{ block.settings.company_name }}"
+                    class="trusted-leaders__logo-img"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <span class="trusted-leaders__company-name">{{ block.settings.company_name }}</span>
+                {% endif %}
 
-            {% if block.settings.company_link != blank %}
-              </a>
+                {% if block.settings.company_link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+              
+              <span class="trusted-leaders__separator"></span>
             {% endif %}
-          </div>
+          {% endfor %}
+        </div>
 
-          {% unless forloop.last %}
-            <span class="trusted-leaders__separator"></span>
-          {% endunless %}
-        {% endif %}
-      {% endfor %}
+        <div class="trusted-leaders__group trusted-leaders__group--clone">
+          {% for block in section.blocks %}
+            {% if block.type == 'company' %}
+              <div class="trusted-leaders__logo-item">
+                {% if block.settings.company_link != blank %}
+                  <a href="{{ block.settings.company_link }}" class="trusted-leaders__link" target="_blank" rel="noopener">
+                {% endif %}
+
+                {% if block.settings.company_logo != blank %}
+                  <img
+                    src="{{ block.settings.company_logo | image_url: width: 200 }}"
+                    alt="{{ block.settings.company_name }}"
+                    class="trusted-leaders__logo-img"
+                    loading="lazy"
+                  >
+                {% else %}
+                  <span class="trusted-leaders__company-name">{{ block.settings.company_name }}</span>
+                {% endif %}
+
+                {% if block.settings.company_link != blank %}
+                  </a>
+                {% endif %}
+              </div>
+              <span class="trusted-leaders__separator"></span>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
@@ -52,6 +83,21 @@
       "id": "heading",
       "label": "Heading",
       "default": "Trusted By Industry Leaders"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Slider"
+    },
+    {
+      "type": "range",
+      "id": "slider_speed",
+      "min": 5,
+      "max": 60,
+      "step": 1,
+      "default": 20,
+      "unit": "s",
+      "label": "Slider Speed (Seconds)",
+      "info": "Lower is faster"
     },
     {
       "type": "header",
@@ -201,6 +247,193 @@
     --tl-company-size: {{ section.settings.company_font_size }}px;
     --tl-padding-top: {{ section.settings.padding_top }}px;
     --tl-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --marquee-speed: {{ section.settings.slider_speed }}s;
   }
 
+  /* --- EXISTING STYLES WITH TWEAKS --- */
+
+  .trusted-leaders {
+    position: relative;
+    width: 100%;
+    background-color: var(--tl-bg-color, #0a0f14);
+    padding-top: var(--tl-padding-top, 50px);
+    padding-bottom: var(--tl-padding-bottom, 50px);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: hidden; /* Prevent horizontal scrollbar on full width */
+  }
+
+  .trusted-leaders__container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .trusted-leaders__heading {
+    font-size: var(--tl-heading-size, 24px);
+    font-weight: 500;
+    color: var(--tl-text-color, #ffffff);
+    letter-spacing: 1px;
+    margin: 0 0 35px 0;
+    text-transform: none;
+  }
+
+  /* Group Handling */
+  .trusted-leaders__track {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .trusted-leaders__group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Desktop: Wrap items normally */
+    gap: 20px;
+  }
+  
+  /* Hide the clone on desktop by default */
+  .trusted-leaders__group--clone {
+    display: none; 
+  }
+
+  .trusted-leaders__logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 25px;
+  }
+
+  .trusted-leaders__company-name {
+    font-size: var(--tl-company-size, 18px);
+    font-weight: 400;
+    color: var(--tl-text-color, #ffffff);
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+    white-space: nowrap;
+  }
+
+  .trusted-leaders__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .trusted-leaders__logo-img {
+    max-height: 40px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+  }
+
+  .trusted-leaders__separator {
+    display: block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--tl-separator-color, #3a4a5e);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* DESKTOP LOGIC: Hide the very last separator */
+  .trusted-leaders__group > .trusted-leaders__separator:last-child {
+    display: none;
+  }
+
+  /* ========== RESPONSIVE SLIDER LOGIC ========== */
+
+
+  @media screen and (max-width: 768px) {
+    
+    .trusted-leaders__heading {
+      font-size: 14px;
+      font-weight: 400;
+      color: #9CA3AF;
+      margin-bottom: 25px;
+    }
+
+    .trusted-leaders__logos.marquee-window {
+      width: 100vw; 
+      margin-left: -20px;
+      margin-right: -20px; 
+      overflow: hidden;
+    }
+
+
+    .trusted-leaders__track {
+      display: flex;
+      width: max-content; 
+      animation: marquee-scroll var(--marquee-speed) linear infinite;
+    }
+    .trusted-leaders__track:hover {
+       animation-play-state: paused;
+    }
+
+   
+    .trusted-leaders__group {
+      flex-wrap: nowrap; 
+      gap: 0; 
+    }
+
+   
+    .trusted-leaders__group--clone {
+      display: flex;
+    }
+
+    .trusted-leaders__logo-item {
+      padding: 8px 15px;
+    }
+
+   
+    .trusted-leaders__group > .trusted-leaders__separator:last-child {
+      display: block; 
+    }
+
+   
+    .trusted-leaders__separator {
+      width: 4px;
+      height: 4px;
+      margin: 0 5px; 
+      display: block !important; 
+    }
+    
+
+    .trusted-leaders__company-name {
+      font-size: 16px;
+      font-weight:300;
+     color:  #FFFFFF66;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .trusted-leaders__heading {
+      font-size: 14px;
+      font-weight: 400;
+      color: #9CA3AF;;
+      margin-bottom: 20px;
+    }
+    
+ 
+    .trusted-leaders__logos {
+       flex-direction: row !important;
+    }
+    
+    .trusted-leaders__company-name {
+      font-size: calc(var(--tl-company-size, 18px) * 0.8);
+    }
+  }
+
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+
+      transform: translateX(-50%);
+    }
+  }
 </style>
