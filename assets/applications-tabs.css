@@ -460,7 +460,7 @@
     font-size: 22px;
   }
 
-  /* Stats overlay styling */
+  /* Stats card styling */
   .applications-tabs__stats-overlay {
     position: relative;
     bottom: auto;
@@ -468,13 +468,12 @@
     right: auto;
     width: 100%;
     justify-content: space-between;
-    gap: 10px;
-    padding: 15px;
-    margin-top: 0;
-    border-radius: 0;
-    border: none;
-    border-top: 1px solid rgba(60, 100, 140, 0.3);
-    border-bottom: 1px solid rgba(60, 100, 140, 0.3);
+    gap: 15px;
+    padding: 20px 25px;
+    margin-top: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(60, 100, 140, 0.3);
+    background: rgba(10, 15, 25, 0.9);
   }
 
   .applications-tabs__image-wrapper .applications-tabs__stats-overlay {
@@ -483,23 +482,42 @@
     left: auto;
     right: auto;
     width: 100%;
-    border-radius: 0;
+    border-radius: 12px;
   }
 
   .applications-tabs__stat-item {
-    text-align: center;
+    text-align: left;
     flex: 1;
   }
 
-  /* Config section as list */
+  .applications-tabs__stat-label {
+    font-size: 11px;
+    color: #3b82f6;
+    margin-bottom: 6px;
+  }
+
+  .applications-tabs__stat-value {
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  /* Config section as card */
   .applications-tabs__config-card {
-    padding: 20px 0;
-    border-top: none;
+    padding: 20px 25px;
+    margin-top: 15px;
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid rgba(60, 100, 140, 0.3);
+    border-radius: 12px;
+  }
+
+  .applications-tabs__config-title {
+    font-size: 15px;
+    margin-bottom: 18px;
   }
 
   .applications-tabs__config-grid {
     grid-template-columns: 1fr;
-    gap: 12px;
+    gap: 14px;
   }
 
   .applications-tabs__config-row {
@@ -511,19 +529,20 @@
   }
 
   .applications-tabs__config-label {
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .applications-tabs__config-value {
-    font-size: 13px;
+    font-size: 14px;
+    color: #ffffff;
     text-align: right;
   }
 
   /* Right content section */
   .applications-tabs__right {
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+    border-top: none;
   }
 
   .applications-tabs__text {
@@ -559,19 +578,32 @@
   }
 
   .applications-tabs__stats-overlay {
-    padding: 12px 10px;
+    padding: 15px 18px;
   }
 
   .applications-tabs__stat-label {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   .applications-tabs__stat-value {
-    font-size: 12px;
+    font-size: 13px;
+  }
+
+  .applications-tabs__config-card {
+    padding: 18px 20px;
+  }
+
+  .applications-tabs__config-title {
+    font-size: 14px;
+    margin-bottom: 15px;
+  }
+
+  .applications-tabs__config-grid {
+    gap: 12px;
   }
 
   .applications-tabs__config-label,
   .applications-tabs__config-value {
-    font-size: 12px;
+    font-size: 13px;
   }
 }
