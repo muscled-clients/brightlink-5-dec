@@ -266,7 +266,6 @@
 
   .investment-config__title {
     font-size: 26px;
-    font-style: italic;
   }
 
   .investment-config__card {
@@ -279,25 +278,17 @@
 
   .investment-config__current-price {
     font-size: 36px;
-    color: #3b82f6;
   }
 
   .investment-config__includes-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    gap: 10px 20px;
   }
 
   .investment-config__includes-col {
     gap: 10px;
   }
 
-  .investment-config__buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-
   .investment-config__btn {
-    width: 100%;
     padding: 14px 20px;
   }
 }
@@ -313,6 +304,7 @@
 
   .investment-config__title {
     font-size: 24px;
+    font-style: italic;
   }
 
   .investment-config__card {
@@ -329,17 +321,29 @@
 
   .investment-config__current-price {
     font-size: 32px;
+    color: #3b82f6;
   }
 
   .investment-config__original-price {
     font-size: 16px;
   }
 
+  .investment-config__includes-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
   .investment-config__include-item span {
     font-size: 12px;
   }
 
+  .investment-config__buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .investment-config__btn {
+    width: 100%;
     padding: 12px 16px;
     font-size: 12px;
   }
