@@ -523,20 +523,21 @@
   .applications-tabs__config-row {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
   }
 
   .applications-tabs__config-label {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.4);
+    min-width: 90px;
+    flex-shrink: 0;
   }
 
   .applications-tabs__config-value {
     font-size: 14px;
     color: #ffffff;
-    text-align: right;
+    text-align: left;
   }
 
   /* Right content section */
