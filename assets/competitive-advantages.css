@@ -29,8 +29,8 @@
 /* Section Label */
 .competitive-advantages__label {
   display: inline-block;
-  font-size: var(--ca-label-size, 12px);
-  font-weight: 500;
+  font-size: var(--ca-label-size, 14px);
+  font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
   color: var(--ca-label-color, #FFD700);
@@ -51,7 +51,7 @@
 .competitive-advantages__subheading {
   font-size: var(--ca-subheading-size, 16px);
   font-weight: 400;
-  color: var(--ca-subheading-color, #a0a0a0);
+  color: var(--ca-subheading-color,#A0AEC0);
   margin: 0;
   line-height: 1.5;
 }
@@ -170,9 +170,9 @@
 
 /* Card Subtitle */
 .competitive-advantages__card-subtitle {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
-  color: #ffffff;
+  color: #A0AEC0;
   margin: 0 0 5px 0;
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
@@ -181,7 +181,7 @@
 .competitive-advantages__card-meta {
   font-size: 12px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  color: #64748B;
   margin: 0 0 25px 0;
   transition: color 0.4s ease;
 }
@@ -317,7 +317,8 @@
 
 @media screen and (max-width: 480px) {
   .competitive-advantages__label {
-    font-size: 10px;
+    font-size: 14px;
+    font-weight:600;
     letter-spacing: 2px;
   }
 
@@ -349,6 +350,8 @@
   }
 
   .competitive-advantages__feature {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight:400;
   }
 }
+
