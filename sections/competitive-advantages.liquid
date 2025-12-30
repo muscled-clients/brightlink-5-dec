@@ -1,8 +1,345 @@
-{{ 'competitive-advantages.css' | asset_url | stylesheet_tag }}
+{% comment %}
+  COMPETITIVE ADVANTAGES SECTION
+  {% endcomment %}
+
+<style>
+  /* --- BASE VARIABLES --- */
+  #competitive-advantages-{{ section.id }} {
+    --ca-bg-color: {{ section.settings.bg_color }};
+    --ca-label-color: {{ section.settings.label_color }};
+    --ca-heading-color: {{ section.settings.heading_color }};
+    --ca-subheading-color: {{ section.settings.subheading_color }};
+    --ca-footer-label-color: {{ section.settings.footer_label_color }};
+    --ca-label-size: {{ section.settings.label_font_size }}px;
+    --ca-heading-size: {{ section.settings.heading_font_size }}px;
+    --ca-subheading-size: {{ section.settings.subheading_font_size }}px;
+    --ca-card-title-size: {{ section.settings.card_title_font_size }}px;
+    --ca-padding-top: {{ section.settings.padding_top }}px;
+    --ca-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  /* --- MAIN STYLES --- */
+  .competitive-advantages {
+    position: relative;
+    width: 100%;
+    background-color: var(--ca-bg-color, #0a0f14);
+    padding-top: var(--ca-padding-top, 80px);
+    padding-bottom: var(--ca-padding-bottom, 80px);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .competitive-advantages__container {
+    position: relative;
+    z-index: 2;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* Header Section */
+  .competitive-advantages__header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .competitive-advantages__label {
+    display: inline-block;
+    font-size: var(--ca-label-size, 14px);
+    font-weight: 500;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ca-label-color, #FFD700);
+    margin-bottom: 20px;
+  }
+
+  .competitive-advantages__heading {
+    font-size: var(--ca-heading-size, 42px);
+    font-weight: 700;
+    color: var(--ca-heading-color, #ffffff);
+    letter-spacing: 0.5px;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+  }
+
+  .competitive-advantages__subheading {
+    font-size: var(--ca-subheading-size, 16px);
+    font-weight: 400;
+    color: var(--ca-subheading-color, #A0AEC0);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Cards Grid (Desktop Default) */
+  .competitive-advantages__cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  /* Individual Card */
+  .competitive-advantages__card {
+    position: relative;
+    background: rgba(10, 14, 26, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(10, 132, 255, 0.2);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 40px rgba(10, 132, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    height: 100%;
+  }
+
+  .competitive-advantages__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234a6080' fill-opacity='0.4'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .competitive-advantages__card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(10, 132, 255, 0.5);
+    box-shadow: 0 0 80px rgba(10, 132, 255, 0.35), 0 0 120px rgba(10, 132, 255, 0.2), 0 25px 50px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Text Hover Effects */
+  .competitive-advantages__card:hover .competitive-advantages__card-title,
+  .competitive-advantages__card:hover .competitive-advantages__card-subtitle,
+  .competitive-advantages__card:hover .competitive-advantages__card-meta,
+  .competitive-advantages__card:hover .competitive-advantages__feature,
+  .competitive-advantages__card:hover .competitive-advantages__card-desc {
+    color: #0A84FF;
+  }
+  .competitive-advantages__card:hover .competitive-advantages__card-title {
+    text-shadow: 0 0 30px rgba(10, 132, 255, 0.6), 0 0 60px rgba(10, 132, 255, 0.3);
+  }
+  .competitive-advantages__card:hover .competitive-advantages__card-label {
+    color: #60a5fa;
+  }
+  .competitive-advantages__card:hover .competitive-advantages__check svg {
+    fill: #0A84FF;
+  }
+
+  /* Icon */
+  .competitive-advantages__icon {
+    position: relative;
+    z-index: 1;
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.5), 0 0 40px rgba(52, 152, 219, 0.3), 0 0 60px rgba(52, 152, 219, 0.15);
+  }
+  .competitive-advantages__icon svg {
+    width: 28px;
+    height: 28px;
+    fill: #ffffff;
+  }
+  .competitive-advantages__icon-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  /* Typography */
+  .competitive-advantages__card-title {
+    font-size: var(--ca-card-title-size, 28px);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+  .competitive-advantages__card-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    color: #A0AEC0;
+    margin: 0 0 5px 0;
+    transition: color 0.4s ease, text-shadow 0.4s ease;
+  }
+  
+
+  .competitive-advantages__divider {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(80, 100, 130, 0.3);
+    margin: 0 0 25px 0;
+  }
+
+  /* Features List */
+  .competitive-advantages__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left;
+    flex-grow: 1;
+  }
+  .competitive-advantages__feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+    transition: color 0.4s ease;
+  }
+  .competitive-advantages__feature:last-child {
+    margin-bottom: 0;
+  }
+  .competitive-advantages__check {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+  }
+  .competitive-advantages__check svg {
+    width: 16px;
+    height: 16px;
+    fill: #3498db;
+    transition: fill 0.4s ease;
+  }
+
+  /* Card Footer */
+  .competitive-advantages__card-footer {
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+    padding: 20px 25px;
+    background: rgba(20, 60, 100, 0.25);
+    border: 1px solid rgba(60, 100, 140, 0.4);
+    border-radius: 12px;
+    text-align: center;
+  }
+  .competitive-advantages__card-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #3498db;
+    margin-bottom: 10px;
+    transition: color 0.4s ease;
+  }
+  .competitive-advantages__card-desc {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+    transition: color 0.4s ease;
+  }
+
+  /* Hide Dots on Desktop */
+  .mobile-slider-dots { display: none; }
+
+
+  /* --- RESPONSIVE TABLET TWEAKS --- */
+  @media screen and (max-width: 1024px) {
+    .competitive-advantages__cards { gap: 20px; }
+    .competitive-advantages__card { padding: 35px 25px; }
+    .competitive-advantages__card-title { font-size: 24px; }
+  }
+
+  /* --- MOBILE SLIDER LOGIC (Max Width 768px) --- */
+  @media screen and (max-width: 768px) {
+    .competitive-advantages__container {
+      padding: 0;
+    }
+    
+    .competitive-advantages__header {
+      padding: 0 15px;
+    }
+    
+    .competitive-advantages__heading {
+      font-size:28px;
+      font-weight:700;
+    }
+
+    /* Slider Container */
+    .competitive-advantages__cards {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 0px 15px 30px 15px;
+      margin: 0;
+      max-width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .competitive-advantages__cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Card Sizing - Full Width (100%) */
+    .competitive-advantages__card {
+      flex: 0 0 100%; /* Full width per slide */
+      width: 100%;
+      max-width: none;
+      scroll-snap-align: center;
+      margin: 0;
+    }
+    
+    /* Dots Container - Custom Styling */
+    .mobile-slider-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      /* Exact Requested Styles */
+      border: 1px solid #0A84FF1A;
+      width: fit-content; /* Adapts to content padding */
+      height: 18px;
+      border-radius: 16px;
+      gap: 12px;
+      padding: 4px 20px;
+      opacity: 1;
+
+      /* Positioning */
+      margin: -20px auto 0 auto; /* Pull up slightly */
+      position: relative;
+    }
+    
+    .slider-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4); /* Inactive Grey */
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .slider-dot.active {
+      background-color: #0A84FF; /* Active Blue */
+      opacity: 1;
+    }
+  }
+</style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
   <div class="competitive-advantages__container">
-    <!-- Header -->
     <div class="competitive-advantages__header">
       {% if section.settings.section_label != blank %}
         <span class="competitive-advantages__label">{{ section.settings.section_label }}</span>
@@ -17,12 +354,10 @@
       {% endif %}
     </div>
 
-    <!-- Cards -->
-    <div class="competitive-advantages__cards">
+    <div class="competitive-advantages__cards" id="ca-slider-{{ section.id }}">
       {% for block in section.blocks %}
         {% if block.type == 'card' %}
           <div class="competitive-advantages__card" {{ block.shopify_attributes }}>
-            <!-- Icon -->
             <div class="competitive-advantages__icon">
               {% if block.settings.icon_type == 'clock' %}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
@@ -37,25 +372,20 @@
               {% endif %}
             </div>
 
-            <!-- Card Title -->
             {% if block.settings.card_title != blank %}
               <h3 class="competitive-advantages__card-title">{{ block.settings.card_title }}</h3>
             {% endif %}
 
-            <!-- Card Subtitle -->
             {% if block.settings.card_subtitle != blank %}
               <p class="competitive-advantages__card-subtitle">{{ block.settings.card_subtitle }}</p>
             {% endif %}
 
-            <!-- Card Meta -->
             {% if block.settings.card_meta != blank %}
               <p class="competitive-advantages__card-meta">{{ block.settings.card_meta }}</p>
             {% endif %}
 
-            <!-- Divider -->
             <div class="competitive-advantages__divider"></div>
 
-            <!-- Features List -->
             <ul class="competitive-advantages__features">
               {% if block.settings.feature_1 != blank %}
                 <li class="competitive-advantages__feature">
@@ -91,7 +421,6 @@
               {% endif %}
             </ul>
 
-            <!-- Card Footer -->
             {% if block.settings.footer_label != blank or block.settings.footer_desc != blank %}
               <div class="competitive-advantages__card-footer">
                 {% if block.settings.footer_label != blank %}
@@ -106,6 +435,15 @@
         {% endif %}
       {% endfor %}
     </div>
+
+    <div class="mobile-slider-dots hidden-desktop" id="ca-dots-{{ section.id }}">
+      {% for block in section.blocks %}
+        {% if block.type == 'card' %}
+          <div class="slider-dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
   </div>
 </section>
 
@@ -401,19 +739,38 @@
 }
 {% endschema %}
 
-<style>
-  #competitive-advantages-{{ section.id }} {
-    --ca-bg-color: {{ section.settings.bg_color }};
-    --ca-label-color: {{ section.settings.label_color }};
-    --ca-heading-color: {{ section.settings.heading_color }};
-    --ca-subheading-color: {{ section.settings.subheading_color }};
-    --ca-footer-label-color: {{ section.settings.footer_label_color }};
-    --ca-label-size: {{ section.settings.label_font_size }}px;
-    --ca-heading-size: {{ section.settings.heading_font_size }}px;
-    --ca-subheading-size: {{ section.settings.subheading_font_size }}px;
-    --ca-card-title-size: {{ section.settings.card_title_font_size }}px;
-    --ca-padding-top: {{ section.settings.padding_top }}px;
-    --ca-padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const container = document.querySelector('#ca-slider-{{ section.id }}');
+  const dots = document.querySelectorAll('#ca-dots-{{ section.id }} .slider-dot');
+  
+  if (!container || dots.length === 0) return;
 
-</style>
+  // Sync dots with scroll
+  container.addEventListener('scroll', function() {
+    const scrollPosition = container.scrollLeft;
+    // Card width + Gap (100% card means offsetWidth + 20px gap)
+    const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth + 20;
+    const activeIndex = Math.round(scrollPosition / cardWidth);
+
+    dots.forEach((dot, index) => {
+      if (index === activeIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  });
+
+  // Click dot to scroll
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth + 20;
+      container.scrollTo({
+        left: cardWidth * index,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
