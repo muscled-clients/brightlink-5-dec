@@ -198,6 +198,10 @@
     font-size: 14px;
   }
 
+  .experience-scale__display {
+    max-width: none;
+  }
+
   /* Metrics: 2 in first row, 1 centered below */
   .experience-scale__metrics {
     display: grid;
