@@ -66,6 +66,17 @@
 
     <!-- Content -->
     <div class="product-intelligence__content">
+      <!-- Mobile Dropdown Navigation -->
+      <div class="product-intelligence__dropdown">
+        <select class="product-intelligence__select" aria-label="Select tab">
+          {% for block in section.blocks %}
+            {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' or block.type == 'support_tab' %}
+              <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
       <!-- Tab Navigation -->
       <div class="product-intelligence__tabs" role="tablist">
         {% for block in section.blocks %}
@@ -1300,37 +1311,59 @@
 
     const tabs = section.querySelectorAll('.product-intelligence__tab');
     const panels = section.querySelectorAll('.product-intelligence__panel');
+    const dropdown = section.querySelector('.product-intelligence__select');
     let currentIndex = 0;
+
+    function switchToTab(newIndex) {
+      if (newIndex === currentIndex) return;
+
+      // Determine slide direction
+      const slideDirection = newIndex > currentIndex ? 'slide-right' : 'slide-left';
+
+      // Remove active class from all tabs and panels
+      tabs.forEach(t => {
+        t.classList.remove('product-intelligence__tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => {
+        p.classList.remove('product-intelligence__panel--active');
+        p.classList.remove('product-intelligence__panel--slide-right');
+        p.classList.remove('product-intelligence__panel--slide-left');
+      });
+
+      // Add active class to clicked tab and corresponding panel
+      if (tabs[newIndex]) {
+        tabs[newIndex].classList.add('product-intelligence__tab--active');
+        tabs[newIndex].setAttribute('aria-selected', 'true');
+      }
+      if (panels[newIndex]) {
+        panels[newIndex].classList.add('product-intelligence__panel--active');
+        panels[newIndex].classList.add('product-intelligence__panel--' + slideDirection);
+      }
+
+      // Sync dropdown
+      if (dropdown) {
+        dropdown.value = newIndex;
+      }
+
+      // Update current index
+      currentIndex = newIndex;
+    }
 
     // Tab switching
     tabs.forEach((tab, index) => {
       tab.addEventListener('click', function() {
-        if (index === currentIndex) return;
-
-        // Determine slide direction
-        const slideDirection = index > currentIndex ? 'slide-right' : 'slide-left';
-
-        // Remove active class from all tabs and panels
-        tabs.forEach(t => {
-          t.classList.remove('product-intelligence__tab--active');
-          t.setAttribute('aria-selected', 'false');
-        });
-        panels.forEach(p => {
-          p.classList.remove('product-intelligence__panel--active');
-          p.classList.remove('product-intelligence__panel--slide-right');
-          p.classList.remove('product-intelligence__panel--slide-left');
-        });
-
-        // Add active class to clicked tab and corresponding panel
-        tab.classList.add('product-intelligence__tab--active');
-        tab.setAttribute('aria-selected', 'true');
-        panels[index].classList.add('product-intelligence__panel--active');
-        panels[index].classList.add('product-intelligence__panel--' + slideDirection);
-
-        // Update current index
-        currentIndex = index;
+        switchToTab(index);
       });
     });
+
+    // Dropdown switching
+    if (dropdown) {
+      dropdown.addEventListener('change', function() {
+        const newIndex = parseInt(this.value);
+        switchToTab(newIndex);
+      });
+    }
 
     // Accordion functionality for specs tab
     const accordions = section.querySelectorAll('[data-accordion]');

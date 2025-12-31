@@ -1232,6 +1232,11 @@
   background-size: contain;
 }
 
+/* Dropdown - Hidden on desktop */
+.product-intelligence__dropdown {
+  display: none;
+}
+
 /* ========== RESPONSIVE ========== */
 
 @media screen and (max-width: 1024px) {
@@ -1283,34 +1288,90 @@
   }
 
   .product-intelligence__heading {
-    font-size: calc(var(--pi-heading-size, 42px) * 0.75);
+    font-size: 28px;
   }
 
   .product-intelligence__subheading {
-    font-size: calc(var(--pi-subheading-size, 16px) * 0.9);
+    font-size: 14px;
   }
 
+  /* Hide tabs, show dropdown on mobile */
   .product-intelligence__tabs {
-    justify-content: flex-start;
-    padding-bottom: 5px;
+    display: none;
   }
 
-  .product-intelligence__tab {
-    padding: 12px 15px;
-    font-size: 13px;
+  .product-intelligence__dropdown {
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  .product-intelligence__select {
+    width: 100%;
+    padding: 14px 40px 14px 16px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #3b82f6;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    border-radius: 8px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%233b82f6' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+  }
+
+  .product-intelligence__select:focus {
+    outline: none;
+    border-color: rgba(59, 130, 246, 0.6);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+  }
+
+  .product-intelligence__select option {
+    background: #0a0f14;
+    color: #ffffff;
   }
 
   .product-intelligence__panel {
-    padding: 25px;
-  }
-
-  .product-intelligence__features {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
   }
 
   .product-intelligence__panels {
-    min-height: 300px;
+    min-height: auto;
+  }
+
+  /* Feature cards: 2 in first row, 1 centered below */
+  .product-intelligence__features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .product-intelligence__features .product-intelligence__feature-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .product-intelligence__feature-card {
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid rgba(60, 100, 140, 0.3);
+    padding: 18px 15px;
+    text-align: center;
+  }
+
+  .product-intelligence__feature-icon {
+    margin: 0 auto 12px;
+  }
+
+  .product-intelligence__feature-title {
+    font-size: 13px;
+  }
+
+  .product-intelligence__feature-desc {
+    font-size: 11px;
   }
 
   /* Specs Tab Responsive */
