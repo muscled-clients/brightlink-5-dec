@@ -125,6 +125,21 @@
   line-height: 1.4;
 }
 
+.experience-scale__metric-icon {
+  display: none;
+}
+
+/* Show icon only on mobile for third metric */
+@media (max-width: 768px) {
+  .experience-scale__metric--with-icon .experience-scale__metric-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: #3b82f6;
+  }
+}
+
 .experience-scale__cta {
   text-align: center;
 }
@@ -187,24 +202,45 @@
 
   .experience-scale__title {
     font-size: 28px;
+    font-style: italic;
   }
 
   .experience-scale__subtitle {
     font-size: 14px;
   }
 
-
+  /* Metrics: 2 in first row, 1 centered below */
   .experience-scale__metrics {
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    max-width: 100%;
   }
 
   .experience-scale__metric {
     padding: 20px 15px;
+    background: rgba(10, 15, 25, 0.9);
+    border: 1px solid rgba(60, 100, 140, 0.3);
+  }
+
+  .experience-scale__metric:last-child {
+    grid-column: 1 / -1;
+    max-width: 200px;
+    margin: 0 auto;
   }
 
   .experience-scale__metric-value {
-    font-size: 36px;
+    font-size: 32px;
+  }
+
+  .experience-scale__metric-label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .experience-scale__metric-desc {
+    font-size: 11px;
   }
 }
 
@@ -213,25 +249,36 @@
     padding: 40px 0;
   }
 
+  .experience-scale__container {
+    padding: 0 15px;
+  }
+
   .experience-scale__title {
     font-size: 24px;
   }
 
+  .experience-scale__metrics {
+    gap: 10px;
+  }
 
   .experience-scale__metric {
-    padding: 20px 15px;
+    padding: 18px 12px;
+  }
+
+  .experience-scale__metric:last-child {
+    max-width: 180px;
   }
 
   .experience-scale__metric-value {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .experience-scale__metric-label {
-    font-size: 13px;
+    font-size: 11px;
   }
 
   .experience-scale__metric-desc {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .experience-scale__btn {
