@@ -1356,6 +1356,22 @@
     grid-template-columns: 1fr;
   }
 
+  .product-intelligence__left,
+  .product-intelligence__right {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .product-intelligence__text {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .product-intelligence__text p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
   .product-intelligence__image {
     max-width: 100%;
     height: auto;
@@ -1364,8 +1380,9 @@
   /* Feature cards: 2 in first row, 1 centered below */
   .product-intelligence__features {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 12px;
+    width: 100%;
   }
 
   .product-intelligence__features .product-intelligence__feature-card:last-child {
@@ -1378,28 +1395,39 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
     background: rgba(10, 15, 25, 0.9);
     border: 1px solid rgba(60, 100, 140, 0.3);
     border-radius: 10px;
-    padding: 15px;
+    padding: 12px;
     text-align: left;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .product-intelligence__feature-icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
     margin: 0;
   }
 
+  .product-intelligence__feature-content {
+    flex: 1;
+    min-width: 0;
+  }
+
   .product-intelligence__feature-title {
-    font-size: 13px;
-    margin-bottom: 3px;
+    font-size: 12px;
+    margin-bottom: 2px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .product-intelligence__feature-desc {
-    font-size: 11px;
+    font-size: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   /* Specs Tab Responsive */
