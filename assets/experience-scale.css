@@ -225,8 +225,6 @@
 
   .experience-scale__metric:last-child {
     grid-column: 1 / -1;
-    max-width: 200px;
-    margin: 0 auto;
   }
 
   .experience-scale__metric-value {
@@ -265,9 +263,6 @@
     padding: 18px 12px;
   }
 
-  .experience-scale__metric:last-child {
-    max-width: 180px;
-  }
 
   .experience-scale__metric-value {
     font-size: 26px;
