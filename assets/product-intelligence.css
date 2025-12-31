@@ -1356,8 +1356,15 @@
     grid-template-columns: 1fr;
   }
 
-  .product-intelligence__left,
+  /* Image first, then text on mobile */
+  .product-intelligence__left {
+    order: 2;
+    min-width: 0;
+    max-width: 100%;
+  }
+
   .product-intelligence__right {
+    order: 1;
     min-width: 0;
     max-width: 100%;
   }
@@ -1380,7 +1387,7 @@
   /* Feature cards: 2 in first row, 1 centered below */
   .product-intelligence__features {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     width: 100%;
   }
@@ -1393,41 +1400,32 @@
 
   .product-intelligence__feature-card {
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 10px;
+    flex-direction: column;
+    align-items: center;
     background: rgba(10, 15, 25, 0.9);
     border: 1px solid rgba(60, 100, 140, 0.3);
     border-radius: 10px;
-    padding: 12px;
-    text-align: left;
+    padding: 20px 15px;
+    text-align: center;
     min-width: 0;
-    overflow: hidden;
   }
 
   .product-intelligence__feature-icon {
     flex-shrink: 0;
-    width: 32px;
-    height: 32px;
-    margin: 0;
-  }
-
-  .product-intelligence__feature-content {
-    flex: 1;
-    min-width: 0;
+    width: 36px;
+    height: 36px;
+    margin: 0 0 12px 0;
   }
 
   .product-intelligence__feature-title {
-    font-size: 12px;
-    margin-bottom: 2px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 4px;
   }
 
   .product-intelligence__feature-desc {
-    font-size: 10px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   /* Specs Tab Responsive */
