@@ -203,7 +203,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
-    max-width: 100%;
+    max-width: none;
+    margin: 15px 0 30px;
   }
 
   .experience-scale__metric {
