@@ -7,7 +7,7 @@
   background-color: var(--pi-bg-color, #0a0f14);
   padding-top: var(--pi-padding-top, 80px);
   padding-bottom: var(--pi-padding-bottom, 80px);
-  
+  overflow-x: hidden;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -1313,6 +1313,13 @@
 @media screen and (max-width: 768px) {
   .product-intelligence__container {
     padding: 0 20px;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .product-intelligence__content {
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .product-intelligence__heading {
@@ -1342,6 +1349,16 @@
 
   .product-intelligence__panels {
     min-height: auto;
+    overflow: hidden;
+  }
+
+  .product-intelligence__panel-content {
+    grid-template-columns: 1fr;
+  }
+
+  .product-intelligence__image {
+    max-width: 100%;
+    height: auto;
   }
 
   /* Feature cards: 2 in first row, 1 centered below */
