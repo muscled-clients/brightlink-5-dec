@@ -129,17 +129,6 @@
   display: none;
 }
 
-/* Show icon only on mobile for third metric */
-@media (max-width: 768px) {
-  .experience-scale__metric--with-icon .experience-scale__metric-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
-    color: #3b82f6;
-  }
-}
-
 .experience-scale__cta {
   text-align: center;
 }
@@ -225,6 +214,15 @@
 
   .experience-scale__metric:last-child {
     grid-column: 1 / -1;
+  }
+
+  /* Show icons on mobile */
+  .experience-scale__metric-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: #3b82f6;
   }
 
   .experience-scale__metric-value {
