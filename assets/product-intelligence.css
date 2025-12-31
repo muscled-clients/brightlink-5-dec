@@ -1297,11 +1297,11 @@
 
   /* Hide tabs, show dropdown on mobile */
   .product-intelligence__tabs {
-    display: none;
+    display: none !important;
   }
 
   .product-intelligence__dropdown {
-    display: block;
+    display: block !important;
     margin-bottom: 20px;
   }
 
