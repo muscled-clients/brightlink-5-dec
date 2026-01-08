@@ -5,10 +5,9 @@
   width: 100%;
   min-height: 100vh;
   display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
-  padding-top: 80px;
 }
 
 /* Video Background */
@@ -48,10 +47,10 @@
 .hero-video-wall__content {
   position: relative;
   z-index: 2;
-  text-align: left;
-  padding: 60px 80px;
-  max-width: 100%;
-  width: 100%;
+  text-align: center;
+  padding: 60px 40px;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 /* Series Label */
@@ -95,7 +94,9 @@
   color: rgba(255, 255, 255, 0.85);
   margin: 0 0 30px 0;
   line-height: 1.6;
-  max-width: 550px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Price Badge */
@@ -114,8 +115,8 @@
 .hero-video-wall__buttons {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  align-items: center;
+  gap: 15px;
   margin-bottom: 15px;
 }
 
@@ -172,15 +173,11 @@
 
 /* Feature Boxes */
 .hero-video-wall__features {
-  position: absolute;
-  bottom: 40px;
-  left: 0;
-  right: 0;
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 0 80px;
-  z-index: 3;
+  margin-top: 40px;
+  flex-wrap: wrap;
 }
 
 .hero-video-wall__feature-box {
@@ -188,11 +185,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 25px 40px;
-  background-color: rgba(30, 40, 55, 0.85);
+  padding: 25px 35px;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 12px;
-  min-width: 150px;
+  min-width: 140px;
   backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero-video-wall__feature-value {
