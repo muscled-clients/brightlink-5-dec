@@ -51,13 +51,10 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 40px 40px 60px;
+  padding: 40px 40px;
   max-width: 900px;
   margin: 0 auto;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-bottom: 180px;
 }
 
 /* Series Label */
