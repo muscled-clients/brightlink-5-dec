@@ -251,6 +251,36 @@
   /* Hide Dots on Desktop */
   .mobile-slider-dots { display: none; }
 
+  /* CTA Button */
+  .competitive-advantages__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+
+  .competitive-advantages__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 48px;
+    background-color: #0A84FF;
+    color: #ffffff;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 100px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .competitive-advantages__btn:hover {
+    background-color: #0070E0;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(10, 132, 255, 0.4);
+  }
+
 
   /* --- RESPONSIVE TABLET TWEAKS --- */
   @media screen and (max-width: 1024px) {
@@ -444,6 +474,14 @@
       {% endfor %}
     </div>
 
+    {% if section.settings.button_text != blank %}
+      <div class="competitive-advantages__cta">
+        <a href="{{ section.settings.button_link }}" class="competitive-advantages__btn">
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+
   </div>
 </section>
 
@@ -576,6 +614,21 @@
       "default": 80,
       "unit": "px",
       "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
     },
     {
       "type": "header",
