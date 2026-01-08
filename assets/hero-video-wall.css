@@ -61,15 +61,16 @@
 /* Series Label */
 .hero-video-wall__series-label {
   display: inline-block;
-  padding: 8px 20px;
-  background-color: rgba(30, 30, 30, 0.85);
-  border-radius: 30px;
+  padding: 14px 36px;
+  background-color: rgba(10, 14, 26, 0.7);
+  border: 1px solid rgba(10, 132, 255, 0.1);
+  border-radius: 100px;
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--hero-series-color, #FFD700);
-  margin-bottom: 25px;
+  color: #D4AF37;
+  margin-bottom: 24px;
 }
 
 /* Main Heading */
