@@ -10,7 +10,6 @@
   justify-content: flex-start;
   overflow: hidden;
   padding-top: 60px;
-  padding-bottom: 160px;
 }
 
 /* Video Background */
@@ -178,13 +177,13 @@
 /* Feature Boxes */
 .hero-video-wall__features {
   position: absolute;
-  bottom: 40px;
+  bottom: 0;
   left: 0;
   right: 0;
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 0 40px;
+  padding: 20px 40px;
   z-index: 3;
 }
 
