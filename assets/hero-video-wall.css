@@ -3,7 +3,7 @@
 .hero-video-wall-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 810px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
