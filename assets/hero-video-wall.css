@@ -3,13 +3,7 @@
 .hero-video-wall-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
   overflow: hidden;
-  padding-top: 60px;
 }
 
 /* Video Background */
@@ -50,10 +44,9 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 40px 40px;
+  padding: 60px 40px 40px;
   max-width: 900px;
   margin: 0 auto;
-  margin-bottom: 180px;
 }
 
 /* Series Label */
@@ -176,15 +169,13 @@
 
 /* Feature Boxes */
 .hero-video-wall__features {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 20px 40px;
-  z-index: 3;
+  padding: 30px 40px;
+  background-color: rgba(10, 15, 25, 0.95);
 }
 
 .hero-video-wall__feature-box {
