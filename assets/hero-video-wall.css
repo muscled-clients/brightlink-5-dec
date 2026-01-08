@@ -182,7 +182,7 @@
   display: flex;
   justify-content: center;
   gap: 20px;
-  padding: 30px 40px;
+  padding: 30px 40px 0;
 }
 
 .hero-video-wall__feature-box {
