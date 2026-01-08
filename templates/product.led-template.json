@@ -120,31 +120,31 @@
         "carousel_effect": "slide"
       }
     },
-    "hero_video_wall_qxJTrE": {
+    "hero_video_wall_Ut7dmE": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_PUzMV6": {
+        "feature_KCzdGe": {
           "type": "feature",
           "settings": {
             "feature_value": "217\"",
             "feature_label": "Diagonal Display"
           }
         },
-        "feature_ywPKfB": {
+        "feature_pfbw38": {
           "type": "feature",
           "settings": {
             "feature_value": "8.3M",
             "feature_label": "Total Pixels"
           }
         },
-        "feature_gKtNNR": {
+        "feature_DFFhgx": {
           "type": "feature",
           "settings": {
             "feature_value": "1.25mm",
             "feature_label": "Pixel Pitch"
           }
         },
-        "feature_pV3XEj": {
+        "feature_ifVJgh": {
           "type": "feature",
           "settings": {
             "feature_value": "2hrs",
@@ -153,10 +153,10 @@
         }
       },
       "block_order": [
-        "feature_PUzMV6",
-        "feature_ywPKfB",
-        "feature_gKtNNR",
-        "feature_pV3XEj"
+        "feature_KCzdGe",
+        "feature_pfbw38",
+        "feature_DFFhgx",
+        "feature_ifVJgh"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -171,7 +171,7 @@
         "shipping_text": "Shipping: ~ 5 weeks",
         "button_1_text": "Order Now",
         "button_1_link": "",
-        "button_2_text": "Explore Specifications",
+        "button_2_text": "",
         "button_2_link": "",
         "label_font_size": 12,
         "heading_font_size": 64,
@@ -1270,7 +1270,7 @@
   },
   "order": [
     "main",
-    "hero_video_wall_qxJTrE",
+    "hero_video_wall_Ut7dmE",
     "trusted_leaders_bprKmk",
     "product_showcase_bjYF7g",
     "competitive_advantages_i6KCgz",
