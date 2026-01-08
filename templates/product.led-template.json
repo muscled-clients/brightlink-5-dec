@@ -167,6 +167,8 @@
         "main_heading": "217\" COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
+        "price_text": "$19,250.00 (30% Deposit)",
+        "shipping_text": "Shipping: ~ 5 weeks",
         "button_1_text": "Configure Your System",
         "button_1_link": "",
         "button_2_text": "Explore Specifications",
@@ -187,6 +189,77 @@
         "button_bg_color": "#ff6200",
         "button_hover_color": "#e55b00",
         "series_label_color": "#ffd700",
+        "custom_class": ""
+      }
+    },
+    "hero_video_wall_qxJTrE": {
+      "type": "hero-video-wall",
+      "blocks": {
+        "feature_PUzMV6": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "217\"",
+            "feature_label": "Diagonal Display"
+          }
+        },
+        "feature_ywPKfB": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "8.3M",
+            "feature_label": "Total Pixels"
+          }
+        },
+        "feature_gKtNNR": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "1.25mm",
+            "feature_label": "Pixel Pitch"
+          }
+        },
+        "feature_pV3XEj": {
+          "type": "feature",
+          "settings": {
+            "feature_value": "2hrs",
+            "feature_label": "Installation Time"
+          }
+        }
+      },
+      "block_order": [
+        "feature_PUzMV6",
+        "feature_ywPKfB",
+        "feature_gKtNNR",
+        "feature_pV3XEj"
+      ],
+      "name": "Hero Video Wall",
+      "settings": {
+        "video_url": "",
+        "overlay_opacity": 60,
+        "series_label": "PRO SPECTRUM SERIES",
+        "main_heading": "217\" COB LED Video Wall",
+        "subheading": "The Pinnacle of Visual Excellence",
+        "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
+        "price_text": "$19,250.00 (30% Deposit)",
+        "shipping_text": "Shipping: ~ 5 weeks",
+        "button_1_text": "Order Now",
+        "button_1_link": "",
+        "button_2_text": "Explore Specifications",
+        "button_2_link": "",
+        "label_font_size": 12,
+        "heading_font_size": 64,
+        "heading_font_weight": "700",
+        "subheading_font_size": 36,
+        "subheading_font_weight": "400",
+        "subheading_italic": false,
+        "description_font_size": 16,
+        "feature_value_font_size": 28,
+        "feature_label_font_size": 12,
+        "button_font_size": 14,
+        "label_bg_opacity": 40,
+        "button_bg_opacity": 40,
+        "feature_box_bg_opacity": 40,
+        "button_bg_color": "#FF6200",
+        "button_hover_color": "#e55b00",
+        "series_label_color": "#FFD700",
         "custom_class": ""
       }
     },
@@ -231,6 +304,7 @@
       "name": "Trusted Leaders",
       "settings": {
         "heading": "Trusted By Industry Leaders",
+        "slider_speed": 20,
         "heading_font_size": 24,
         "company_font_size": 18,
         "bg_color": "#0a0f14",
@@ -1268,6 +1342,7 @@
   "order": [
     "main",
     "hero_video_wall_WfXNgE",
+    "hero_video_wall_qxJTrE",
     "trusted_leaders_bprKmk",
     "product_showcase_bjYF7g",
     "competitive_advantages_i6KCgz",
