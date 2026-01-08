@@ -80,27 +80,27 @@
         {{ section.settings.shipping_text }}
       </div>
     {% endif %}
-  </div>
 
-  <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
-  <div class="hero-video-wall__features">
-    {% if hero_data.metrics.size > 0 %}
-      {% for metric in hero_data.metrics %}
-        <div class="hero-video-wall__feature-box">
-          <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
-          <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
-        </div>
-      {% endfor %}
-    {% else %}
-      {% for block in section.blocks %}
-        {% if block.type == 'feature' %}
-          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
-            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
-            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+    <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
+    <div class="hero-video-wall__features">
+      {% if hero_data.metrics.size > 0 %}
+        {% for metric in hero_data.metrics %}
+          <div class="hero-video-wall__feature-box">
+            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
           </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+              <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+              <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
   </div>
 </section>
 <div class="hero-video-wall__features_mob">
