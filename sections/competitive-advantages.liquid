@@ -474,13 +474,11 @@
       {% endfor %}
     </div>
 
-    {% if section.settings.button_text != blank %}
-      <div class="competitive-advantages__cta">
-        <a href="{{ section.settings.button_link }}" class="competitive-advantages__btn">
-          {{ section.settings.button_text }}
-        </a>
-      </div>
-    {% endif %}
+    <div class="competitive-advantages__cta">
+      <a href="{{ section.settings.button_link | default: '#' }}" class="competitive-advantages__btn">
+        {{ section.settings.button_text | default: 'ORDER NOW' }}
+      </a>
+    </div>
 
   </div>
 </section>
