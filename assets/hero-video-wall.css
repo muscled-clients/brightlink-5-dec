@@ -235,28 +235,13 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hero-video-wall-section {
-    min-height: auto;
-  }
-
   .hero-video-wall__content {
     padding: 100px 20px 40px;
   }
 
   .hero-video-wall__series-label {
-    font-size: 10px;
     padding: 6px 14px;
     letter-spacing: 1.5px;
-  }
-
-  .hero-video-wall__main-heading {
-    font-size: 32px;
-    font-weight: 600;
-  }
-
-  .hero-video-wall__subheading {
-    font-size: 18px;
-    font-weight: 400;
   }
 
   .hero-video-wall__description {
@@ -266,11 +251,6 @@
   .hero-video-wall__price-badge {
     font-size: 12px;
     padding: 8px 18px;
-  }
-
-  .hero-video-wall__btn {
-    padding: 12px 24px;
-    font-size: 13px;
   }
 
   .hero-video-wall__shipping {
@@ -302,10 +282,6 @@
 
   .hero-video-wall__features_mob .hero-video-wall__feature-value {
     font-size: 24px;
-  }
-
-  .hero-video-wall__features_mob .hero-video-wall__feature-label {
-    font-size: 11px;
   }
 }
 
