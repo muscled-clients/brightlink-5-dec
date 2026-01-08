@@ -79,12 +79,13 @@
 
 /* Main Heading */
 .hero-video-wall__main-heading {
-  font-size: 64px;
-  font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 15px 0;
-  line-height: 1.1;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 96px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 96px;
+  margin: 0;
 }
 
 /* Subheading */
