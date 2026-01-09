@@ -19,7 +19,8 @@
       <p class="experience-scale__subtitle">{{ scale_subtitle }}</p>
     </div>
 
-    <div class="experience-scale__display">
+    <div class="experience-scale__content">
+      <div class="experience-scale__display">
       <div class="experience-scale__image-wrapper">
         {% if scale_image != blank %}
           <img
@@ -52,11 +53,11 @@
 
 
       </div>
-    </div>
+      </div>
 
-    <!-- Metrics - Use metafield data if available, otherwise use section settings -->
-    <div class="experience-scale__metrics">
-      {% if scale_data.metrics.size > 0 %}
+      <!-- Metrics - Use metafield data if available, otherwise use section settings -->
+      <div class="experience-scale__metrics">
+        {% if scale_data.metrics.size > 0 %}
         {% for metric in scale_data.metrics %}
           <div class="experience-scale__metric">
             <span class="experience-scale__metric-value">{{ metric.value }}</span>
@@ -111,6 +112,7 @@
           <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
         </div>
       {% endif %}
+      </div>
     </div>
 
     {% if section.settings.cta_text != blank %}
