@@ -113,15 +113,17 @@
 
 .experience-scale__metric {
   display: flex;
-  width: 100%;
-  padding: 25px 20px;
+  padding: 24px;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 2px solid rgba(10, 132, 255, 0.40);
   background: linear-gradient(45deg, rgba(10, 132, 255, 0.05) 50%, rgba(10, 132, 255, 0.02) 120.71%);
-  border: 1px solid rgba(10, 132, 255, 0.40);
-  border-radius: 12px;
+  box-shadow: 0 0 35px 0 rgba(10, 132, 255, 0.15);
   box-sizing: border-box;
+  text-align: center;
 }
 
 .experience-scale__metric-value {
@@ -129,14 +131,14 @@
   font-weight: 700;
   color: #3b82f6;
   line-height: 1;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .experience-scale__metric-label {
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 5px;
+  margin: 0;
 }
 
 .experience-scale__metric-desc {
