@@ -186,9 +186,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#FF6200",
+        "button_bg_color": "#ff6200",
         "button_hover_color": "#e55b00",
-        "series_label_color": "#FFD700",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -368,6 +368,8 @@
         "footer_label_color": "#ffd700",
         "padding_top": 80,
         "padding_bottom": 80,
+        "button_text": "ORDER NOW",
+        "button_link": "",
         "custom_class": ""
       }
     },
@@ -603,7 +605,7 @@
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
         "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/Leds2.png",
+        "image": "shopify://shop_images/2_Without_Drop_Shadow.png",
         "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
