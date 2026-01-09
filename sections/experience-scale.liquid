@@ -115,17 +115,6 @@
       </div>
     </div>
 
-    {% if section.settings.cta_text != blank %}
-      <div class="experience-scale__cta">
-        <a href="{{ section.settings.cta_link | default: '#' }}" class="experience-scale__btn">
-          {{ section.settings.cta_text }}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 12h14"></path>
-            <path d="M12 5l7 7-7 7"></path>
-          </svg>
-        </a>
-      </div>
-    {% endif %}
   </div>
 </section>
 
