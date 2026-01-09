@@ -30,7 +30,6 @@
   align-items: flex-start;
   gap: 20px;
   width: 1280px;
-  max-width: 100%;
 }
 
 .experience-scale__label {
