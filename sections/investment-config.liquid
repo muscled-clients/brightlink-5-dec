@@ -1,11 +1,5 @@
 {{ 'investment-config.css' | asset_url | stylesheet_tag }}
 
-<style>
-  .investment-config__label {
-    color: #FFD700 !important;
-  }
-</style>
-
 <section class="investment-config" id="investment-config">
   <div class="investment-config__container">
     <div class="investment-config__header">
@@ -14,116 +8,183 @@
       <p class="investment-config__subtitle">{{ section.settings.subtitle | default: 'Transparent pricing for professional installations' }}</p>
     </div>
 
-    <div class="investment-config__card">
-      <div class="investment-config__card-header">
-        <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
-      </div>
-
-      <div class="investment-config__product-info">
-        <h3 class="investment-config__product-name">{{ section.settings.product_name | default: 'Brightlink Pro Spectrum 217"' }}</h3>
-        <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
-      </div>
-
-      <div class="investment-config__pricing">
-        <div class="investment-config__price-row">
-          <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
-          <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
+    <div class="investment-config__content">
+      <!-- Left Card - Main Pricing -->
+      <div class="investment-config__card">
+        <div class="investment-config__card-header">
+          <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
         </div>
-        <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
-        <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
-      </div>
 
-      <div class="investment-config__includes">
-        <h4 class="investment-config__includes-title">{{ section.settings.includes_title | default: 'Complete System Includes:' }}</h4>
-        <div class="investment-config__includes-grid">
-          <div class="investment-config__includes-col">
-            {% if section.settings.include_1 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_1 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_2 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_2 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_3 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_3 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_4 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_4 }}</span>
-              </div>
-            {% endif %}
+        <div class="investment-config__product-info">
+          <h3 class="investment-config__product-name">{{ section.settings.product_name | default: 'Brightlink Pro Spectrum 217"' }}</h3>
+          <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
+        </div>
+
+        <div class="investment-config__pricing">
+          <div class="investment-config__price-row">
+            <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
+            <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
           </div>
-          <div class="investment-config__includes-col">
-            {% if section.settings.include_5 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_5 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_6 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_6 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_7 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_7 }}</span>
-              </div>
-            {% endif %}
-            {% if section.settings.include_8 != blank %}
-              <div class="investment-config__include-item">
-                <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
-                <span>{{ section.settings.include_8 }}</span>
-              </div>
-            {% endif %}
+          <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
+          <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
+        </div>
+
+        <div class="investment-config__includes">
+          <h4 class="investment-config__includes-title">{{ section.settings.includes_title | default: 'Complete System Includes:' }}</h4>
+          <div class="investment-config__includes-grid">
+            <div class="investment-config__includes-col">
+              {% if section.settings.include_1 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_1 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_2 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_2 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_3 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_3 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_4 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_4 }}</span>
+                </div>
+              {% endif %}
+            </div>
+            <div class="investment-config__includes-col">
+              {% if section.settings.include_5 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_5 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_6 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_6 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_7 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_7 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_8 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>{{ section.settings.include_8 }}</span>
+                </div>
+              {% endif %}
+            </div>
           </div>
+        </div>
+
+        <div class="investment-config__buttons">
+          <a href="{{ section.settings.primary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--primary">
+            {{ section.settings.primary_button_text | default: 'CALCULATE MY PROJECT' }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--secondary">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
+              <line x1="16" x2="16" y1="2" y2="6"></line>
+              <line x1="8" x2="8" y1="2" y2="6"></line>
+              <line x1="3" x2="21" y1="10" y2="10"></line>
+            </svg>
+            {{ section.settings.secondary_button_text | default: 'SCHEDULE CONSULTATION' }}
+          </a>
         </div>
       </div>
 
-      <div class="investment-config__buttons">
-        <a href="{{ section.settings.primary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--primary">
-          {{ section.settings.primary_button_text | default: 'CALCULATE MY PROJECT' }}
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
-        </a>
-        <a href="{{ section.settings.secondary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--secondary">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-            <line x1="16" x2="16" y1="2" y2="6"></line>
-            <line x1="8" x2="8" y1="2" y2="6"></line>
-            <line x1="3" x2="21" y1="10" y2="10"></line>
-          </svg>
-          {{ section.settings.secondary_button_text | default: 'SCHEDULE CONSULTATION' }}
-        </a>
+      <!-- Right Side - Add-on Cards -->
+      <div class="investment-config__addons">
+        <!-- Add-on Card 1: Vacuum Tool -->
+        {% if section.settings.addon1_title != blank %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+              </div>
+              <h4 class="investment-config__addon-title">{{ section.settings.addon1_title }}</h4>
+              <p class="investment-config__addon-desc">{{ section.settings.addon1_desc }}</p>
+              <span class="investment-config__addon-price">{{ section.settings.addon1_price }}</span>
+            </div>
+            <a href="{{ section.settings.addon1_link | default: '#' }}" class="investment-config__addon-btn">
+              {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
+            </a>
+          </div>
+        {% endif %}
+
+        <!-- Add-on Card 2: Extended Warranty -->
+        {% if section.settings.addon2_title != blank %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <h4 class="investment-config__addon-title">{{ section.settings.addon2_title }}</h4>
+              <p class="investment-config__addon-desc">{{ section.settings.addon2_desc }}</p>
+              <span class="investment-config__addon-price">{{ section.settings.addon2_price }}</span>
+            </div>
+            <a href="{{ section.settings.addon2_link | default: '#' }}" class="investment-config__addon-btn">
+              {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
+            </a>
+          </div>
+        {% endif %}
+
+        <!-- Add-on Card 3: Spare Module Kit -->
+        {% if section.settings.addon3_title != blank %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="3" width="7" height="7"></rect>
+                  <rect x="14" y="14" width="7" height="7"></rect>
+                  <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+              </div>
+              <h4 class="investment-config__addon-title">{{ section.settings.addon3_title }}</h4>
+              <p class="investment-config__addon-desc">{{ section.settings.addon3_desc }}</p>
+              <span class="investment-config__addon-price">{{ section.settings.addon3_price }}</span>
+            </div>
+            <a href="{{ section.settings.addon3_link | default: '#' }}" class="investment-config__addon-btn">
+              {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
+            </a>
+          </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -289,6 +350,105 @@
       "type": "url",
       "id": "secondary_button_link",
       "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 1: Vacuum Tool"
+    },
+    {
+      "type": "text",
+      "id": "addon1_title",
+      "label": "Title",
+      "default": "BL-VT PRO VACUUM TOOL"
+    },
+    {
+      "type": "textarea",
+      "id": "addon1_desc",
+      "label": "Description",
+      "default": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams."
+    },
+    {
+      "type": "text",
+      "id": "addon1_price",
+      "label": "Price",
+      "default": "$249"
+    },
+    {
+      "type": "text",
+      "id": "addon1_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "url",
+      "id": "addon1_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 2: Extended Warranty"
+    },
+    {
+      "type": "text",
+      "id": "addon2_title",
+      "label": "Title",
+      "default": "EXTENDED WARRANTY"
+    },
+    {
+      "type": "textarea",
+      "id": "addon2_desc",
+      "label": "Description",
+      "default": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support."
+    },
+    {
+      "type": "text",
+      "id": "addon2_price",
+      "label": "Price",
+      "default": "$4,500"
+    },
+    {
+      "type": "text",
+      "id": "addon2_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "url",
+      "id": "addon2_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 3: Spare Module Kit"
+    },
+    {
+      "type": "text",
+      "id": "addon3_title",
+      "label": "Title",
+      "default": "SPARE MODULE KIT"
+    },
+    {
+      "type": "textarea",
+      "id": "addon3_desc",
+      "label": "Description",
+      "default": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations."
+    },
+    {
+      "type": "text",
+      "id": "addon3_price",
+      "label": "Price",
+      "default": "$8,900"
+    },
+    {
+      "type": "text",
+      "id": "addon3_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "url",
+      "id": "addon3_link",
+      "label": "Button Link"
     }
   ],
   "presets": [
