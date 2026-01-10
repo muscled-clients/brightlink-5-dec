@@ -271,6 +271,7 @@
 /* Individual Add-on Card */
 .investment-config__addon-card {
   display: flex;
+  height: 248px;
   padding: 16px;
   flex-direction: column;
   align-items: flex-start;
