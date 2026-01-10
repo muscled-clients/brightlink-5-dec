@@ -54,7 +54,7 @@
 .investment-config__content {
   display: flex;
   width: 1280px;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 20px;
 }
 
@@ -271,14 +271,12 @@
 /* Individual Add-on Card */
 .investment-config__addon-card {
   display: flex;
-  height: 248px;
   padding: 16px;
   flex-direction: column;
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
-  flex-grow: 0;
-  flex-shrink: 0;
+  flex: 1;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.02);
