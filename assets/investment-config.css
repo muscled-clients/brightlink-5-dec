@@ -6,8 +6,8 @@
 
 .investment-config__container {
   display: flex;
-  width: 1440px;
-  max-width: 100%;
+  max-width: 1440px;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   gap: 60px;
@@ -54,7 +54,8 @@
 /* Content wrapper for side-by-side layout */
 .investment-config__content {
   display: flex;
-  width: 1280px;
+  max-width: 1280px;
+  width: 100%;
   align-items: stretch;
   gap: 20px;
 }
