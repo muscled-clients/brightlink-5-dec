@@ -120,31 +120,31 @@
         "carousel_effect": "slide"
       }
     },
-    "hero_video_wall_Ut7dmE": {
+    "hero_video_wall_zYBDhM": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_KCzdGe": {
+        "feature_c4CBE8": {
           "type": "feature",
           "settings": {
             "feature_value": "217\"",
             "feature_label": "Diagonal Display"
           }
         },
-        "feature_pfbw38": {
+        "feature_d796PE": {
           "type": "feature",
           "settings": {
             "feature_value": "8.3M",
             "feature_label": "Total Pixels"
           }
         },
-        "feature_DFFhgx": {
+        "feature_cfXwfC": {
           "type": "feature",
           "settings": {
             "feature_value": "1.25mm",
             "feature_label": "Pixel Pitch"
           }
         },
-        "feature_ifVJgh": {
+        "feature_Cf7NQ3": {
           "type": "feature",
           "settings": {
             "feature_value": "2hrs",
@@ -153,10 +153,10 @@
         }
       },
       "block_order": [
-        "feature_KCzdGe",
-        "feature_pfbw38",
-        "feature_DFFhgx",
-        "feature_ifVJgh"
+        "feature_c4CBE8",
+        "feature_d796PE",
+        "feature_cfXwfC",
+        "feature_Cf7NQ3"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -168,10 +168,10 @@
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "price_text": "$19,250.00 (30% Deposit)",
-        "shipping_text": "Shipping: ~ 5 weeks",
+        "shipping_text": "",
         "button_1_text": "Order Now",
         "button_1_link": "",
-        "button_2_text": "",
+        "button_2_text": "Book A Call",
         "button_2_link": "",
         "label_font_size": 12,
         "heading_font_size": 64,
@@ -186,9 +186,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#ff6200",
-        "button_hover_color": "#e55b00",
-        "series_label_color": "#ffd700",
+        "button_bg_color": "#2196F3",
+        "button_hover_color": "#1976D2",
+        "series_label_color": "#FFD700",
         "custom_class": ""
       }
     },
@@ -1028,7 +1028,22 @@
         "primary_button_text": "CALCULATE MY PROJECT",
         "primary_button_link": "",
         "secondary_button_text": "SCHEDULE CONSULTATION",
-        "secondary_button_link": ""
+        "secondary_button_link": "",
+        "addon1_title": "BL-VT PRO VACUUM TOOL",
+        "addon1_desc": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.",
+        "addon1_price": "$249",
+        "addon1_btn_text": "ADD TO ORDER",
+        "addon1_link": "",
+        "addon2_title": "EXTENDED WARRANTY",
+        "addon2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
+        "addon2_price": "$4,500",
+        "addon2_btn_text": "ADD TO ORDER",
+        "addon2_link": "",
+        "addon3_title": "SPARE MODULE KIT",
+        "addon3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
+        "addon3_price": "$8,900",
+        "addon3_btn_text": "ADD TO ORDER",
+        "addon3_link": ""
       }
     },
     "enhance_system_Xbn39D": {
@@ -1272,7 +1287,7 @@
   },
   "order": [
     "main",
-    "hero_video_wall_Ut7dmE",
+    "hero_video_wall_zYBDhM",
     "trusted_leaders_bprKmk",
     "product_showcase_bjYF7g",
     "competitive_advantages_i6KCgz",
