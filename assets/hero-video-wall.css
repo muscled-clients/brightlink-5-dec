@@ -146,24 +146,28 @@
 }
 
 .hero-video-wall__btn--primary {
-  background-color: #E07B00;
+  background-color: #2196F3;
   color: #ffffff;
   border: none;
+  min-width: 200px;
 }
 
 .hero-video-wall__btn--primary:hover {
-  background-color: #c96d00;
+  background-color: #1976D2;
 }
 
 .hero-video-wall__btn--secondary {
   background-color: transparent;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 8px 20px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .hero-video-wall__btn--secondary:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.7);
+  background-color: transparent;
+  text-decoration-color: rgba(255, 255, 255, 0.7);
 }
 
 /* Shipping Info */
