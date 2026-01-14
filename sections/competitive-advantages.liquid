@@ -251,17 +251,39 @@
   /* Hide Dots on Desktop */
   .mobile-slider-dots { display: none; }
 
-  /* CTA Button */
+  /* CTA Section */
   .competitive-advantages__cta {
     display: flex;
-    justify-content: center;
-    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
   }
 
+  /* Price Text */
+  .competitive-advantages__price {
+    color: #D4AF37;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  /* Buttons Container */
+  .competitive-advantages__buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  /* Primary Button */
   .competitive-advantages__btn {
     display: flex;
-    width: 312px;
-    padding: 16px;
+    padding: 20px 64px;
     justify-content: center;
     align-items: center;
     gap: 12px;
@@ -271,10 +293,12 @@
     color: #FFF;
     text-align: center;
     font-family: Inter, sans-serif;
-    font-size: 16px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     text-decoration: none;
     border: none;
     cursor: pointer;
@@ -282,9 +306,35 @@
   }
 
   .competitive-advantages__btn:hover {
-    background-color: #0070E0;
-    transform: translateY(-2px);
-    box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.6);
+    background: #0070E0;
+    box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.50);
+  }
+
+  /* Secondary Button */
+  .competitive-advantages__btn--secondary {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .competitive-advantages__btn--secondary:hover {
+    color: rgba(255, 255, 255, 0.8);
   }
 
 
@@ -481,9 +531,24 @@
     </div>
 
     <div class="competitive-advantages__cta">
-      <a href="{{ section.settings.button_link | default: '#' }}" class="competitive-advantages__btn">
-        {{ section.settings.button_text | default: 'ORDER NOW' }}
-      </a>
+      {% if section.settings.price_text != blank %}
+        <div class="competitive-advantages__price">
+          {{ section.settings.price_text }}
+        </div>
+      {% endif %}
+
+      <div class="competitive-advantages__buttons">
+        {% if section.settings.button_text != blank %}
+          <a href="{{ section.settings.button_link | default: '#' }}" class="competitive-advantages__btn">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button_2_text != blank %}
+          <a href="{{ section.settings.button_2_link | default: '#' }}" class="competitive-advantages__btn--secondary">
+            {{ section.settings.button_2_text }}
+          </a>
+        {% endif %}
+      </div>
     </div>
 
   </div>
@@ -621,18 +686,35 @@
     },
     {
       "type": "header",
-      "content": "Button"
+      "content": "CTA Section"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% Deposit)"
     },
     {
       "type": "text",
       "id": "button_text",
-      "label": "Button Text",
+      "label": "Button 1 Text",
       "default": "ORDER NOW"
     },
     {
       "type": "url",
       "id": "button_link",
-      "label": "Button Link"
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Book A Call"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
     },
     {
       "type": "header",
