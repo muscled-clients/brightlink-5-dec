@@ -231,20 +231,17 @@
 
     <!-- CTA Section -->
     <div class="system-configuration__cta-section">
-      {% if section.settings.price_text != blank %}
-        <div class="system-configuration__price">
-          {{ section.settings.price_text }}
-        </div>
-      {% endif %}
+      <h3 class="system-configuration__cta-heading">{{ section.settings.cta_heading }}</h3>
+      <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
 
       <div class="system-configuration__cta-buttons">
         {% if section.settings.primary_btn_text != blank %}
-          <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn">
+          <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn system-configuration__btn--primary">
             {{ section.settings.primary_btn_text }}
           </a>
         {% endif %}
         {% if section.settings.secondary_btn_text != blank %}
-          <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn--secondary">
+          <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn system-configuration__btn--secondary">
             {{ section.settings.secondary_btn_text }}
           </a>
         {% endif %}
@@ -449,31 +446,37 @@
     },
     {
       "type": "text",
-      "id": "price_text",
-      "label": "Price Text",
-      "default": "$19,250.00 (30% Deposit)"
+      "id": "cta_heading",
+      "label": "CTA Heading",
+      "default": "Get Your LED Specifications in 60 Seconds"
+    },
+    {
+      "type": "text",
+      "id": "cta_subheading",
+      "label": "CTA Subheading",
+      "default": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences"
     },
     {
       "type": "text",
       "id": "primary_btn_text",
-      "label": "Button 1 Text",
-      "default": "ORDER NOW"
+      "label": "Primary Button Text",
+      "default": "Calculate My Project"
     },
     {
       "type": "url",
       "id": "primary_btn_link",
-      "label": "Button 1 Link"
+      "label": "Primary Button Link"
     },
     {
       "type": "text",
       "id": "secondary_btn_text",
-      "label": "Button 2 Text",
-      "default": "Book A Call"
+      "label": "Secondary Button Text",
+      "default": "Talk to Expert"
     },
     {
       "type": "url",
       "id": "secondary_btn_link",
-      "label": "Button 2 Link"
+      "label": "Secondary Button Link"
     },
     {
       "type": "header",
