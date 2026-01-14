@@ -8,7 +8,7 @@
   padding-top: var(--pi-padding-top, 80px);
   padding-bottom: var(--pi-padding-bottom, 80px);
   overflow-x: hidden;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 /* Container */
@@ -1708,5 +1708,91 @@
 
   .support-usecase__config-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ========== CTA SECTION ========== */
+
+.product-intelligence__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+/* Primary Button */
+.product-intelligence__btn {
+  display: flex;
+  width: 100%;
+  padding: 20px 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  background: #0A84FF;
+  box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-intelligence__btn:hover {
+  background: #0070E0;
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.50);
+}
+
+/* Secondary Button */
+.product-intelligence__btn--secondary {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product-intelligence__btn--secondary:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* CTA Responsive */
+@media screen and (max-width: 768px) {
+  .product-intelligence__cta {
+    margin-top: 24px;
+  }
+
+  .product-intelligence__btn {
+    padding: 16px 48px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .product-intelligence__btn {
+    padding: 14px 32px;
+    font-size: 12px;
   }
 }

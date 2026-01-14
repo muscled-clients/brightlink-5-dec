@@ -261,6 +261,16 @@
                       {% endif %}
                     </div>
                   {% endif %}
+
+                  <!-- CTA Box -->
+                  <div class="product-intelligence__cta">
+                    <a href="{{ block.settings.primary_btn_link | default: '#order' }}" class="product-intelligence__btn">
+                      {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
+                    </a>
+                    <a href="{{ block.settings.secondary_btn_link | default: '#book-call' }}" class="product-intelligence__btn--secondary">
+                      {{ block.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                    </a>
+                  </div>
                 </div>
 
                 <!-- Right Side: Image -->
@@ -1575,6 +1585,32 @@
           "id": "show_features",
           "label": "Show Feature Cards",
           "default": true
+        },
+        {
+          "type": "header",
+          "content": "CTA Buttons"
+        },
+        {
+          "type": "text",
+          "id": "primary_btn_text",
+          "label": "Primary Button Text",
+          "default": "ORDER NOW"
+        },
+        {
+          "type": "url",
+          "id": "primary_btn_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_btn_text",
+          "label": "Secondary Button Text",
+          "default": "BOOK A CALL"
+        },
+        {
+          "type": "url",
+          "id": "secondary_btn_link",
+          "label": "Secondary Button Link"
         }
       ]
     },
