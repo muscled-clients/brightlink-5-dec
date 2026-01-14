@@ -186,6 +186,22 @@
                       {% endfor %}
                     </ul>
                   </div>
+
+                  <!-- CTA Box -->
+                  <div class="applications-tabs__cta">
+                    <a href="{{ section.settings.primary_btn_link | default: '#order' }}" class="applications-tabs__btn">
+                      {{ section.settings.primary_btn_text | default: 'ORDER NOW' }}
+                    </a>
+                    <div class="applications-tabs__cta-footer">
+                      <a href="{{ section.settings.secondary_btn_link | default: '#book-call' }}" class="applications-tabs__btn--secondary">
+                        {{ section.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                      </a>
+                      {% if section.settings.price_text != blank %}
+                        <span class="applications-tabs__divider"></span>
+                        <span class="applications-tabs__price">{{ section.settings.price_text }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -341,6 +357,22 @@
                     {% endif %}
                   </ul>
                 </div>
+
+                <!-- CTA Box -->
+                <div class="applications-tabs__cta">
+                  <a href="{{ section.settings.primary_btn_link | default: '#order' }}" class="applications-tabs__btn">
+                    {{ section.settings.primary_btn_text | default: 'ORDER NOW' }}
+                  </a>
+                  <div class="applications-tabs__cta-footer">
+                    <a href="{{ section.settings.secondary_btn_link | default: '#book-call' }}" class="applications-tabs__btn--secondary">
+                      {{ section.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                    </a>
+                    {% if section.settings.price_text != blank %}
+                      <span class="applications-tabs__divider"></span>
+                      <span class="applications-tabs__price">{{ section.settings.price_text }}</span>
+                    {% endif %}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -435,6 +467,38 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "subtitle",
       "label": "Subtitle",
       "default": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings"
+    },
+    {
+      "type": "header",
+      "content": "CTA Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary Button Text",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary Button Text",
+      "default": "BOOK A CALL"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% DEPOSIT)"
     }
   ],
   "blocks": [

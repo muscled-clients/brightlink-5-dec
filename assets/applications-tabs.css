@@ -5,7 +5,7 @@
   padding-top: 80px;
   padding-bottom: 80px;
   
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 .applications-tabs__pattern {
@@ -369,6 +369,92 @@
   color: #3498db;
 }
 
+/* CTA Section */
+.applications-tabs__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 32px;
+  width: 100%;
+}
+
+.applications-tabs__btn {
+  display: flex;
+  width: 100%;
+  padding: 20px 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  background: #0A84FF;
+  box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.applications-tabs__btn:hover {
+  background: #0070E0;
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.50);
+}
+
+.applications-tabs__cta-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.applications-tabs__btn--secondary {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.applications-tabs__btn--secondary:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.applications-tabs__divider {
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.applications-tabs__price {
+  color: #D4AF37;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1024px) {
   .applications-tabs__panel-content {
     grid-template-columns: 1fr;
@@ -549,6 +635,15 @@
   .applications-tabs__text {
     margin-bottom: 25px;
   }
+
+  .applications-tabs__cta {
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .applications-tabs__btn {
+    padding: 16px 48px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -606,5 +701,19 @@
   .applications-tabs__config-label,
   .applications-tabs__config-value {
     font-size: 13px;
+  }
+
+  .applications-tabs__btn {
+    padding: 14px 32px;
+    font-size: 12px;
+  }
+
+  .applications-tabs__cta-footer {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .applications-tabs__divider {
+    display: none;
   }
 }
