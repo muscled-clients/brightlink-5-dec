@@ -34,6 +34,7 @@
   width: 100%;
   overflow: hidden;
   border-radius: 12px;
+  background: #0a0f14;
 }
 
 .visual-experience__slide {
@@ -71,17 +72,27 @@
 
 /* Slider Dots */
 .visual-experience__dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 30px;
+  z-index: 10;
 }
 
 .visual-experience__dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   padding: 0;
   cursor: pointer;
@@ -89,7 +100,7 @@
 }
 
 .visual-experience__dot:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .visual-experience__dot--active {

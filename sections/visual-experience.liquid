@@ -41,22 +41,22 @@
               </div>
             </div>
           {% endif %}
-        </div>
 
-        <!-- Dots Navigation -->
-        {% if section.blocks.size > 1 %}
-          <div class="visual-experience__dots">
-            {% for block in section.blocks %}
-              {% if block.type == 'slide' %}
-                <button
-                  class="visual-experience__dot {% if forloop.first %}visual-experience__dot--active{% endif %}"
-                  data-dot-index="{{ forloop.index0 }}"
-                  aria-label="Go to slide {{ forloop.index }}"
-                ></button>
-              {% endif %}
-            {% endfor %}
-          </div>
-        {% endif %}
+          <!-- Dots Navigation (inside slides for overlay) -->
+          {% if section.blocks.size > 1 %}
+            <div class="visual-experience__dots">
+              {% for block in section.blocks %}
+                {% if block.type == 'slide' %}
+                  <button
+                    class="visual-experience__dot {% if forloop.first %}visual-experience__dot--active{% endif %}"
+                    data-dot-index="{{ forloop.index0 }}"
+                    aria-label="Go to slide {{ forloop.index }}"
+                  ></button>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       </div>
 
       <!-- Right Side - Text Content -->
