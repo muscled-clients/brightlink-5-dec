@@ -556,7 +556,7 @@
         "heading_font_size": 42,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
@@ -657,7 +657,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
         "tab_peWNf8": {
@@ -682,7 +687,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
         "tab_YmAWEj": {
@@ -707,7 +717,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
         "tab_VQAHTp": {
@@ -732,7 +747,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
         "tab_mKpj7c": {
@@ -757,7 +777,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
         "tab_yVVqGd": {
@@ -782,7 +807,12 @@
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": ""
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         }
       },
@@ -1266,6 +1296,44 @@
         "filter_partnerships": "Partnerships"
       }
     },
+    "visual_experience_RLnDzd": {
+      "type": "visual-experience",
+      "blocks": {
+        "slide_CKgUq9": {
+          "type": "slide",
+          "settings": {
+            "image_alt": ""
+          }
+        },
+        "slide_wcETJV": {
+          "type": "slide",
+          "settings": {
+            "image_alt": ""
+          }
+        },
+        "slide_CJ6rKr": {
+          "type": "slide",
+          "settings": {
+            "image_alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_CKgUq9",
+        "slide_wcETJV",
+        "slide_CJ6rKr"
+      ],
+      "name": "Visual Experience",
+      "settings": {
+        "heading": "Elevate Your Visual Experience Today",
+        "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "primary_btn_text": "ORDER NOW",
+        "primary_btn_link": "",
+        "secondary_btn_text": "BOOK A CALL",
+        "secondary_btn_link": "",
+        "price_text": "$19,250.00 (30% DEPOSIT)"
+      }
+    },
     "contact_discussion_6iek7q": {
       "type": "contact-discussion",
       "name": "Contact Discussion",
@@ -1314,6 +1382,7 @@
     "enhance_system_Xbn39D",
     "custom_config_builder_NULhPQ",
     "knowledge_center_MzR9mP",
+    "visual_experience_RLnDzd",
     "contact_discussion_6iek7q"
   ]
 }
