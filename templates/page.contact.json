@@ -1,1 +1,56 @@
-{"sections":{"main":{"type":"main-page","settings":{"title":true,"content":true}},"contact-form":{"type":"contact-form","blocks":{"be883ec9-b870-48bc-b977-430a31f87846":{"type":"text","settings":{"title":"Subject","use_long_text":false,"is_required":false}},"186a4f4c-d568-4375-a805-8495f22af914":{"type":"text","settings":{"title":"Phone Number","use_long_text":false,"is_required":true}}},"block_order":["be883ec9-b870-48bc-b977-430a31f87846","186a4f4c-d568-4375-a805-8495f22af914"],"settings":{"form_heading":"Write Us","show_store_info":true,"store_heading":"Contact Details","store_image":"shopify:\/\/shop_images\/Brightlink-final-logo-698.png","store_info":"<p><a href=\"tel:1-855-44 WIRED(94733)\" title=\"tel:1-855-44 WIRED(94733)\">1-855-44 WIRED(94733)<\/a><\/p><p><a href=\"mailto:support@brightlinkav.com\">support@brightlinkav.com<\/a><\/p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com<\/a><\/p>"}}},"order":["main","contact-form"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "title": true,
+        "content": true
+      }
+    },
+    "contact-form": {
+      "type": "contact-form",
+      "blocks": {
+        "be883ec9-b870-48bc-b977-430a31f87846": {
+          "type": "text",
+          "settings": {
+            "title": "Subject",
+            "use_long_text": false,
+            "is_required": false
+          }
+        },
+        "186a4f4c-d568-4375-a805-8495f22af914": {
+          "type": "text",
+          "settings": {
+            "title": "Phone Number",
+            "use_long_text": false,
+            "is_required": true
+          }
+        }
+      },
+      "block_order": [
+        "be883ec9-b870-48bc-b977-430a31f87846",
+        "186a4f4c-d568-4375-a805-8495f22af914"
+      ],
+      "settings": {
+        "form_heading": "Write Us",
+        "show_store_info": true,
+        "store_heading": "Contact Details",
+        "store_image": "shopify://shop_images/Brightlink-final-logo-698.png",
+        "store_info": "<p><a href=\"tel:1-855-44 WIRED(94733)\" title=\"tel:1-855-44 WIRED(94733)\">1-855-44 WIRED(94733)</a></p><p><a href=\"mailto:support@brightlinkav.com\">support@brightlinkav.com</a></p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact-form"
+  ]
+}

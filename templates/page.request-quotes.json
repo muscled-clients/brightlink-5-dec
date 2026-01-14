@@ -1,1 +1,44 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"title":true,"content":true}},"17417218124da62dca":{"type":"apps","blocks":{"brightlink_quotes_by_muscled_request_qoute_4fC6mw":{"type":"shopify:\/\/apps\/brightlink-quotes-by-muscled\/blocks\/request-qoute\/cf61f7d9-a012-4cf7-937c-5fb0a5ba9884","settings":{"call_to_action":"page","redirect_to":"","block_title_0":"Embrace Renewal with Every Sip"}}},"block_order":["brightlink_quotes_by_muscled_request_qoute_4fC6mw"],"settings":{"include_margins":true}}},"order":["main","17417218124da62dca"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "title": true,
+        "content": true
+      }
+    },
+    "17417218124da62dca": {
+      "type": "apps",
+      "blocks": {
+        "brightlink_quotes_by_muscled_request_qoute_4fC6mw": {
+          "type": "shopify://apps/brightlink-quotes-by-muscled/blocks/request-qoute/cf61f7d9-a012-4cf7-937c-5fb0a5ba9884",
+          "settings": {
+            "call_to_action": "page",
+            "redirect_to": "",
+            "block_title_0": "Embrace Renewal with Every Sip"
+          }
+        }
+      },
+      "block_order": [
+        "brightlink_quotes_by_muscled_request_qoute_4fC6mw"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "17417218124da62dca"
+  ]
+}

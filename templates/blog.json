@@ -1,1 +1,76 @@
-{"sections":{"main":{"type":"main-blog","blocks":{"newsletter":{"type":"newsletter","settings":{"title":"Join Us","content":"<p>A short sentence describing what someone will receive by subscribing<\/p>","subtext":"100% free, Unsubscribe any time!","background":"#001d55","text":"#ffffff"}},"social-media":{"type":"social_media","settings":{"title":"Follow us","show_rss":true}},"0e8a7712-dc17-4e12-b0d1-ba8f6178e6cc":{"type":"featured_posts","settings":{"title":"Popular posts","show_ranking":true,"show_category":true,"show_date":true,"article_1":"news\/what-is-hdbaset","article_2":"","article_3":"","article_4":"","article_5":""}},"1107e98e-d8ed-43a2-94c8-54117a3f46f5":{"type":"featured_products","settings":{"title":"Featured products","product_1":"brightlink-8-x-4-modular-hdmi-matrix-1080p-with-hdcp-v1-4-8-sources-to-4-display","product_2":"brightlink-12-x-24-modular-hdmi-matrix-1080p-with-hdcp-v-1-4-12-sources-to-24-display","product_3":"brightlink-16x16-4k-hdmi-matrix-set-w-16ea-cat6-hdbaset-228ft-extenders-with-wifi-app-control"}}},"block_order":["newsletter","social-media","0e8a7712-dc17-4e12-b0d1-ba8f6178e6cc","1107e98e-d8ed-43a2-94c8-54117a3f46f5"],"settings":{"articles_per_page":12,"highlight_first_article":true,"show_tags":true,"show_category":true,"show_author":true,"show_date":true,"show_excerpt":false}}},"order":["main"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "Join Us",
+            "content": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "subtext": "100% free, Unsubscribe any time!",
+            "background": "#001d55",
+            "text": "#ffffff"
+          }
+        },
+        "social-media": {
+          "type": "social_media",
+          "settings": {
+            "title": "Follow us",
+            "show_rss": true
+          }
+        },
+        "0e8a7712-dc17-4e12-b0d1-ba8f6178e6cc": {
+          "type": "featured_posts",
+          "settings": {
+            "title": "Popular posts",
+            "show_ranking": true,
+            "show_category": true,
+            "show_date": true,
+            "article_1": "news/what-is-hdbaset",
+            "article_2": "",
+            "article_3": "",
+            "article_4": "",
+            "article_5": ""
+          }
+        },
+        "1107e98e-d8ed-43a2-94c8-54117a3f46f5": {
+          "type": "featured_products",
+          "settings": {
+            "title": "Featured products",
+            "product_1": "brightlink-8-x-4-modular-hdmi-matrix-1080p-with-hdcp-v1-4-8-sources-to-4-display",
+            "product_2": "brightlink-12-x-24-modular-hdmi-matrix-1080p-with-hdcp-v-1-4-12-sources-to-24-display",
+            "product_3": "brightlink-16x16-4k-hdmi-matrix-set-w-16ea-cat6-hdbaset-228ft-extenders-with-wifi-app-control"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "social-media",
+        "0e8a7712-dc17-4e12-b0d1-ba8f6178e6cc",
+        "1107e98e-d8ed-43a2-94c8-54117a3f46f5"
+      ],
+      "settings": {
+        "articles_per_page": 12,
+        "highlight_first_article": true,
+        "show_tags": true,
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false
+      }
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

@@ -8839,7 +8839,8 @@ select option {
 }
 
 shopify-payment-terms {
-  display: block;
+  /* display: block; */
+  display: none;
   margin-top: 8px;
 }
 
