@@ -234,17 +234,25 @@
       <h3 class="system-configuration__cta-heading">{{ section.settings.cta_heading }}</h3>
       <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
 
-      <div class="system-configuration__cta-buttons">
-        {% if section.settings.primary_btn_text != blank %}
-          <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn system-configuration__btn--primary">
-            {{ section.settings.primary_btn_text }}
-          </a>
+      <div class="system-configuration__cta-box">
+        {% if section.settings.price_text != blank %}
+          <div class="system-configuration__price">
+            {{ section.settings.price_text }}
+          </div>
         {% endif %}
-        {% if section.settings.secondary_btn_text != blank %}
-          <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn system-configuration__btn--secondary">
-            {{ section.settings.secondary_btn_text }}
-          </a>
-        {% endif %}
+
+        <div class="system-configuration__cta-buttons">
+          {% if section.settings.primary_btn_text != blank %}
+            <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn">
+              {{ section.settings.primary_btn_text }}
+            </a>
+          {% endif %}
+          {% if section.settings.secondary_btn_text != blank %}
+            <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn--secondary">
+              {{ section.settings.secondary_btn_text }}
+            </a>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
@@ -458,25 +466,31 @@
     },
     {
       "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% Deposit)"
+    },
+    {
+      "type": "text",
       "id": "primary_btn_text",
-      "label": "Primary Button Text",
-      "default": "Calculate My Project"
+      "label": "Button 1 Text",
+      "default": "ORDER NOW"
     },
     {
       "type": "url",
       "id": "primary_btn_link",
-      "label": "Primary Button Link"
+      "label": "Button 1 Link"
     },
     {
       "type": "text",
       "id": "secondary_btn_text",
-      "label": "Secondary Button Text",
-      "default": "Talk to Expert"
+      "label": "Button 2 Text",
+      "default": "Book A Call"
     },
     {
       "type": "url",
       "id": "secondary_btn_link",
-      "label": "Secondary Button Link"
+      "label": "Button 2 Link"
     },
     {
       "type": "header",
