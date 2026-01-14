@@ -1309,12 +1309,14 @@
         "slide_wcETJV": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Rectangle_4_5.png",
             "image_alt": ""
           }
         },
         "slide_CJ6rKr": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
         }
