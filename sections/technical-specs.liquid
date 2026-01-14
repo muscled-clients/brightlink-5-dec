@@ -116,6 +116,28 @@
         {% endfor %}
       {% endif %}
     </div>
+
+    <!-- CTA Section -->
+    <div class="technical-specs__cta">
+      {% if section.settings.price_text != blank %}
+        <div class="technical-specs__price">
+          {{ section.settings.price_text }}
+        </div>
+      {% endif %}
+
+      <div class="technical-specs__cta-buttons">
+        {% if section.settings.button_1_text != blank %}
+          <a href="{{ section.settings.button_1_link }}" class="technical-specs__btn">
+            {{ section.settings.button_1_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button_2_text != blank %}
+          <a href="{{ section.settings.button_2_link }}" class="technical-specs__btn--secondary">
+            {{ section.settings.button_2_text }}
+          </a>
+        {% endif %}
+      </div>
+    </div>
   </div>
 </section>
 
@@ -242,6 +264,38 @@
       "default": 80,
       "unit": "px",
       "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "CTA Section"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% Deposit)"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Book A Call"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
     },
     {
       "type": "header",
