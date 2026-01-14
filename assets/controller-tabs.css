@@ -4,7 +4,7 @@
   background: linear-gradient(180deg, #0a0e14 0%, #0d1320 50%, #0a0e14 100%);
   padding: 80px 0;
   
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: Inter, sans-serif;
 }
 
 .controller-tabs__pattern {
@@ -341,7 +341,6 @@
   letter-spacing: 0.5px;
   text-decoration: none;
   transition: all 0.3s ease;
-  margin-top: auto;
   width: fit-content;
 }
 
@@ -353,6 +352,79 @@
 .controller-tabs__button svg {
   width: 14px;
   height: 14px;
+}
+
+/* CTA Section */
+.controller-tabs__cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.controller-tabs__price {
+  color: #D4AF37;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+}
+
+.controller-tabs__btn {
+  display: flex;
+  width: 100%;
+  padding: 20px 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  border-radius: 8px;
+  background: #0A84FF;
+  box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.controller-tabs__btn:hover {
+  background: #0070E0;
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.50);
+}
+
+.controller-tabs__btn--secondary {
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+  text-transform: uppercase;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center;
+}
+
+.controller-tabs__btn--secondary:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 @media (max-width: 900px) {
@@ -489,6 +561,14 @@
     width: 100%;
     justify-content: center;
   }
+
+  .controller-tabs__cta {
+    align-items: center;
+  }
+
+  .controller-tabs__btn {
+    padding: 16px 48px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -542,5 +622,10 @@
   .controller-tabs__button {
     padding: 12px 20px;
     font-size: 11px;
+  }
+
+  .controller-tabs__btn {
+    padding: 14px 32px;
+    font-size: 12px;
   }
 }
