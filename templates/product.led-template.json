@@ -186,9 +186,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -368,8 +368,11 @@
         "footer_label_color": "#ffd700",
         "padding_top": 80,
         "padding_bottom": 80,
+        "price_text": "$19,250.00 (30% Deposit)",
         "button_text": "ORDER NOW",
         "button_link": "",
+        "button_2_text": "Book A Call",
+        "button_2_link": "",
         "custom_class": ""
       }
     },
@@ -474,22 +477,31 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
+        "price_text": "$19,250.00 (30% Deposit)",
+        "button_1_text": "ORDER NOW",
+        "button_1_link": "",
+        "button_2_text": "Book A Call",
+        "button_2_link": "",
         "custom_class": ""
       }
     },
-    "product_intelligence_J64aNM": {
+    "product_intelligence_yxkAnU": {
       "type": "product-intelligence",
       "blocks": {
-        "overview_tab_gEKTL9": {
+        "overview_tab_dkyPEx": {
           "type": "overview_tab",
           "settings": {
             "tab_title": "Overview",
             "tab_icon": "overview",
             "read_more_link": "",
-            "show_features": true
+            "show_features": true,
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
           }
         },
-        "specs_tab_UQFkFR": {
+        "specs_tab_pAXAYP": {
           "type": "specs_tab",
           "settings": {
             "tab_title": "Specifications",
@@ -497,21 +509,21 @@
             "download_link": ""
           }
         },
-        "features_tab_Pr9hhX": {
+        "features_tab_ziJeaP": {
           "type": "features_tab",
           "settings": {
             "tab_title": "Features & Benefits",
             "tab_icon": "features"
           }
         },
-        "included_tab_JVPfy4": {
+        "included_tab_9HY9it": {
           "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
             "tab_icon": "included"
           }
         },
-        "installation_tab_YqJpyX": {
+        "installation_tab_KhF7ry": {
           "type": "installation_tab",
           "settings": {
             "tab_title": "Installation Guide",
@@ -519,7 +531,7 @@
             "installer_link": ""
           }
         },
-        "support_tab_KKHkKq": {
+        "support_tab_NGWgfb": {
           "type": "support_tab",
           "settings": {
             "tab_title": "Support & Resources",
@@ -528,12 +540,12 @@
         }
       },
       "block_order": [
-        "overview_tab_gEKTL9",
-        "specs_tab_UQFkFR",
-        "features_tab_Pr9hhX",
-        "included_tab_JVPfy4",
-        "installation_tab_YqJpyX",
-        "support_tab_KKHkKq"
+        "overview_tab_dkyPEx",
+        "specs_tab_pAXAYP",
+        "features_tab_ziJeaP",
+        "included_tab_9HY9it",
+        "installation_tab_KhF7ry",
+        "support_tab_NGWgfb"
       ],
       "name": "Product Intelligence",
       "settings": {
@@ -544,7 +556,7 @@
         "heading_font_size": 42,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#ffd700",
+        "label_color": "#FFD700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
@@ -586,6 +598,7 @@
         "feature_4_desc": "Integrated routing channels for clean professional installations",
         "cta_heading": "Get Your LED Specifications in 60 Seconds",
         "cta_subheading": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
+        "price_text": "$19,250.00 (30% Deposit)",
         "primary_btn_text": "Calculate My Project",
         "primary_btn_link": "",
         "secondary_btn_text": "Talk to Expert",
@@ -1292,7 +1305,7 @@
     "product_showcase_bjYF7g",
     "competitive_advantages_i6KCgz",
     "technical_specs_PMdgbW",
-    "product_intelligence_J64aNM",
+    "product_intelligence_yxkAnU",
     "system_configuration_P4iKBf",
     "experience_scale_NBgJny",
     "controller_tabs_eJdxqp",
