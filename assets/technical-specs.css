@@ -1,0 +1,257 @@
+/* Technical Specs Section */
+
+/* Main Container */
+.technical-specs {
+  position: relative;
+  width: 100%;
+  background-color: var(--ts-bg-color, #0a0f14);
+  padding-top: var(--ts-padding-top, 80px);
+  padding-bottom: var(--ts-padding-bottom, 80px);
+  font-family: Inter, sans-serif;
+}
+
+.technical-specs__container {
+  position: relative;
+  z-index: 2;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header Section */
+.technical-specs__header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.technical-specs__label {
+  display: inline-block;
+  font-size: var(--ts-label-size, 12px);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ts-label-color, #D4AF37);
+  margin-bottom: 16px;
+}
+
+.technical-specs__heading {
+  font-size: var(--ts-heading-size, 42px);
+  font-weight: 700;
+  color: var(--ts-heading-color, #ffffff);
+  letter-spacing: 0.5px;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.technical-specs__subheading {
+  font-size: var(--ts-subheading-size, 16px);
+  font-weight: 400;
+  color: var(--ts-subheading-color, rgba(255, 255, 255, 0.6));
+  margin: 0 auto;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* Cards Grid */
+.technical-specs__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Individual Card */
+.technical-specs__card {
+  position: relative;
+  background: rgba(15, 25, 40, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(60, 100, 140, 0.25);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.technical-specs__card:hover {
+  border-color: rgba(10, 132, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(10, 132, 255, 0.15);
+}
+
+/* Icon */
+.technical-specs__icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(10, 132, 255, 0.15) 0%, rgba(10, 132, 255, 0.05) 100%);
+  border: 1px solid rgba(10, 132, 255, 0.25);
+  border-radius: 12px;
+}
+
+.technical-specs__icon svg {
+  width: 28px;
+  height: 28px;
+  fill: #0A84FF;
+}
+
+.technical-specs__icon-img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Card Title */
+.technical-specs__card-title {
+  font-size: var(--ts-card-title-size, 24px);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  letter-spacing: 0.5px;
+}
+
+/* Card Subtitle */
+.technical-specs__card-subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0A84FF;
+  margin: 0 0 8px 0;
+}
+
+/* Card Description */
+.technical-specs__card-desc {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ========== RESPONSIVE ========== */
+
+@media screen and (max-width: 1200px) {
+  .technical-specs__grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .technical-specs__card {
+    padding: 28px 20px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .technical-specs__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .technical-specs__heading {
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .technical-specs__container {
+    padding: 0 20px;
+  }
+
+  .technical-specs__header {
+    margin-bottom: 40px;
+  }
+
+  .technical-specs__heading {
+    font-size: 28px;
+  }
+
+  .technical-specs__subheading {
+    font-size: 14px;
+  }
+
+  .technical-specs__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .technical-specs__card {
+    padding: 24px 16px;
+  }
+
+  .technical-specs__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 16px;
+  }
+
+  .technical-specs__icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 18px;
+  }
+
+  .technical-specs__card-subtitle {
+    font-size: 13px;
+  }
+
+  .technical-specs__card-desc {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .technical-specs__container {
+    padding: 0 15px;
+  }
+
+  .technical-specs__label {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .technical-specs__heading {
+    font-size: 24px;
+  }
+
+  .technical-specs__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .technical-specs__card {
+    padding: 20px 12px;
+  }
+
+  .technical-specs__icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 12px;
+  }
+
+  .technical-specs__icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .technical-specs__card-title {
+    font-size: 16px;
+  }
+
+  .technical-specs__card-subtitle {
+    font-size: 12px;
+  }
+
+  .technical-specs__card-desc {
+    font-size: 11px;
+  }
+}
