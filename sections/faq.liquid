@@ -1,4 +1,4 @@
-<div class="container container--flush container--narrow shopify-section-faq-dev2">
+<div class="container container--flush container--narrow">
   {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
   {% assign faq_subtitle = faq_data.subtitle | default: section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' %}
 
@@ -54,7 +54,7 @@
 {%- endif -%}
         
         {%- if block.type == 'question' -%}
-          <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+          <div class="faq__item " itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
             <div class="faq__item-wrapper">
               <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">
                 <span class="faq__question-text">{{ block.settings.title | escape }}</span>
@@ -86,6 +86,7 @@
 <style>
   /* Reset and base styles */
   .faq__group-title-wrapper {
+    background: #0A0E18;
      width: 100% !important;
     background: none;
     border: none;
@@ -199,10 +200,7 @@
     padding: 40px 0px !important;
   }
   
-  .shopify-section-faq-dev2 {
-  border-top: 1px solid rgba(10, 132, 255, 0.20);
-background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
-  }
+  
   
   /* Group arrow positioning */
   .faq__group-arrow-icon {
