@@ -466,20 +466,11 @@
   document.addEventListener('DOMContentLoaded', function () {
     console.log('FAQ script loaded');
     
-    // Simple toggle function without animations
+    // Simple toggle function with smooth transition
     function toggleQuestion(button) {
       const expanded = button.getAttribute('aria-expanded') === 'true';
       const answerId = button.getAttribute('aria-controls');
       const answerWrapper = document.getElementById(answerId);
-      
-      console.log('Toggle question clicked:', {
-        button: button,
-        expanded: expanded,
-        answerId: answerId,
-        answerWrapper: answerWrapper,
-        answerWrapperExists: !!answerWrapper,
-        currentDisplay: answerWrapper ? answerWrapper.style.display : 'none'
-      });
       
       if (!answerWrapper) {
         console.error('Answer wrapper not found for ID:', answerId);
@@ -487,15 +478,46 @@
       }
       
       if (expanded) {
-        // Close the answer
+        // Close the answer with smooth transition
         button.setAttribute('aria-expanded', 'false');
-        answerWrapper.style.display = 'none';
-        console.log('Answer closed');
+        
+        // Start closing animation
+        answerWrapper.style.maxHeight = answerWrapper.scrollHeight + 'px';
+        answerWrapper.style.opacity = '1';
+        
+        // Force reflow
+        answerWrapper.offsetHeight;
+        
+        // Animate to closed state
+        answerWrapper.style.maxHeight = '0';
+        answerWrapper.style.opacity = '0';
+        
+        // After animation completes, set display: none
+        setTimeout(() => {
+          answerWrapper.style.display = 'none';
+        }, 350);
+        
       } else {
-        // Open the answer
+        // Open the answer with smooth transition
         button.setAttribute('aria-expanded', 'true');
+        
+        // First set display to block but with zero height
         answerWrapper.style.display = 'block';
-        console.log('Answer opened');
+        answerWrapper.style.maxHeight = '0';
+        answerWrapper.style.opacity = '0';
+        
+        // Force reflow
+        answerWrapper.offsetHeight;
+        
+        // Animate to open state
+        const height = answerWrapper.scrollHeight;
+        answerWrapper.style.maxHeight = height + 'px';
+        answerWrapper.style.opacity = '1';
+        
+        // After animation completes, remove max-height restriction
+        setTimeout(() => {
+          answerWrapper.style.maxHeight = 'none';
+        }, 350);
       }
     }
     
@@ -505,14 +527,6 @@
       const groupId = button.getAttribute('aria-controls');
       const groupContent = document.getElementById(groupId);
       
-      console.log('Toggle group clicked:', {
-        button: button,
-        expanded: expanded,
-        groupId: groupId,
-        groupContent: groupContent,
-        groupContentExists: !!groupContent
-      });
-      
       if (!groupContent) {
         console.error('Group content not found for ID:', groupId);
         return;
@@ -521,23 +535,56 @@
       if (expanded) {
         // Close the group
         button.setAttribute('aria-expanded', 'false');
-        groupContent.style.display = 'none';
         
-        // Also close all questions inside this group
-        groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
-          const answerId = questionButton.getAttribute('aria-controls');
-          const answerWrapper = document.getElementById(answerId);
-          if (answerWrapper) {
-            questionButton.setAttribute('aria-expanded', 'false');
-            answerWrapper.style.display = 'none';
-          }
-        });
-        console.log('Group closed');
+        // Start closing animation
+        groupContent.style.maxHeight = groupContent.scrollHeight + 'px';
+        groupContent.style.opacity = '1';
+        
+        // Force reflow
+        groupContent.offsetHeight;
+        
+        // Animate to closed state
+        groupContent.style.maxHeight = '0';
+        groupContent.style.opacity = '0';
+        
+        // After animation completes, set display: none
+        setTimeout(() => {
+          groupContent.style.display = 'none';
+          
+          // Also close all questions inside this group
+          groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
+            const answerId = questionButton.getAttribute('aria-controls');
+            const answerWrapper = document.getElementById(answerId);
+            if (answerWrapper && answerWrapper.style.display !== 'none') {
+              questionButton.setAttribute('aria-expanded', 'false');
+              answerWrapper.style.display = 'none';
+              answerWrapper.style.maxHeight = '0';
+              answerWrapper.style.opacity = '0';
+            }
+          });
+        }, 350);
+        
       } else {
         // Open the group
         button.setAttribute('aria-expanded', 'true');
+        
+        // First set display to block but with zero height
         groupContent.style.display = 'block';
-        console.log('Group opened');
+        groupContent.style.maxHeight = '0';
+        groupContent.style.opacity = '0';
+        
+        // Force reflow
+        groupContent.offsetHeight;
+        
+        // Animate to open state
+        const height = groupContent.scrollHeight;
+        groupContent.style.maxHeight = height + 'px';
+        groupContent.style.opacity = '1';
+        
+        // After animation completes, remove max-height restriction
+        setTimeout(() => {
+          groupContent.style.maxHeight = 'none';
+        }, 400);
       }
     }
 
@@ -558,17 +605,6 @@
         toggleQuestion(this);
       });
     });
-    
-    // Log initial state
-    console.log('Found groups:', document.querySelectorAll('[data-action="toggle-group"]').length);
-    console.log('Found questions:', document.querySelectorAll('[data-action="toggle-collapsible"]').length);
-    console.log('Found answer wrappers:', document.querySelectorAll('.faq__answer-wrapper').length);
-    
-    // Check one answer wrapper to see its content
-    const firstAnswer = document.querySelector('.faq__answer-wrapper');
-    if (firstAnswer) {
-      console.log('First answer wrapper HTML:', firstAnswer.innerHTML);
-    }
   });
 </script>
 
