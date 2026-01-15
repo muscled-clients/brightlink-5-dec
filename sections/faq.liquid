@@ -464,20 +464,39 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Initialize all group contents to be closed initially
+    document.querySelectorAll('.faq__group-content').forEach(function(groupContent) {
+      groupContent.style.display = 'none';
+      groupContent.style.maxHeight = '0';
+      groupContent.style.opacity = '0';
+    });
+
+    // Initialize all answer wrappers to be closed initially
+    document.querySelectorAll('.faq__answer-wrapper').forEach(function(answerWrapper) {
+      answerWrapper.style.display = 'none';
+      answerWrapper.style.maxHeight = '0';
+      answerWrapper.style.opacity = '0';
+    });
+
     // Smooth slide animation helper
     function slideDown(element, duration = 400) {
+      // If element is already visible, do nothing
+      if (element.style.display === 'block' && element.style.maxHeight !== '0px') {
+        return;
+      }
+      
       element.style.display = 'block';
       element.style.overflow = 'hidden';
       element.style.maxHeight = '0';
       element.style.opacity = '0';
-
-      const height = element.scrollHeight;
       element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
 
-      requestAnimationFrame(() => {
-        element.style.maxHeight = height + 'px';
-        element.style.opacity = '1';
-      });
+      // Force reflow
+      element.offsetHeight;
+
+      const height = element.scrollHeight;
+      element.style.maxHeight = height + 'px';
+      element.style.opacity = '1';
 
       setTimeout(() => {
         element.style.maxHeight = 'none';
@@ -487,15 +506,21 @@
     }
 
     function slideUp(element, duration = 400) {
+      // If element is already hidden, do nothing
+      if (element.style.display === 'none') {
+        return;
+      }
+      
       element.style.overflow = 'hidden';
       element.style.maxHeight = element.scrollHeight + 'px';
       element.style.opacity = '1';
       element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
 
-      requestAnimationFrame(() => {
-        element.style.maxHeight = '0';
-        element.style.opacity = '0';
-      });
+      // Force reflow
+      element.offsetHeight;
+
+      element.style.maxHeight = '0';
+      element.style.opacity = '0';
 
       setTimeout(() => {
         element.style.display = 'none';
@@ -508,39 +533,60 @@
 
     // Toggle group (section separator) functionality
     document.querySelectorAll('[data-action="toggle-group"]').forEach((button) => {
-      button.addEventListener('click', function () {
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
         const expanded = this.getAttribute('aria-expanded') === 'true';
         const groupId = this.getAttribute('aria-controls');
         const groupContent = document.getElementById(groupId);
 
         if (expanded) {
           this.setAttribute('aria-expanded', 'false');
-
+          
           // Close all questions within this group first
           groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
             const answerId = questionButton.getAttribute('aria-controls');
             const answerWrapper = document.getElementById(answerId);
-            if (answerWrapper && answerWrapper.style.display !== 'none') {
+            if (answerWrapper && answerWrapper.style.display === 'block') {
               questionButton.setAttribute('aria-expanded', 'false');
-              answerWrapper.style.display = 'none';
+              slideUp(answerWrapper, 250);
             }
           });
 
           // Then close the group
-          slideUp(groupContent, 350);
+          slideUp(groupContent, 300);
         } else {
           this.setAttribute('aria-expanded', 'true');
-          slideDown(groupContent, 400);
+          slideDown(groupContent, 350);
         }
       });
     });
 
     // Toggle question functionality
     document.querySelectorAll('[data-action="toggle-collapsible"]').forEach((button) => {
-      button.addEventListener('click', function () {
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
         const expanded = this.getAttribute('aria-expanded') === 'true';
         const answerId = this.getAttribute('aria-controls');
         const answerWrapper = document.getElementById(answerId);
+
+        // First, make sure the parent group is open
+        const groupContent = this.closest('.faq__group-content');
+        if (groupContent && groupContent.style.display === 'none') {
+          const groupButton = groupContent.parentElement.querySelector('[data-action="toggle-group"]');
+          if (groupButton) {
+            groupButton.setAttribute('aria-expanded', 'true');
+            slideDown(groupContent, 300);
+            
+            // Wait for group to open, then open the question
+            setTimeout(() => {
+              this.setAttribute('aria-expanded', 'true');
+              slideDown(answerWrapper, 300);
+            }, 300);
+            return;
+          }
+        }
 
         if (expanded) {
           this.setAttribute('aria-expanded', 'false');
