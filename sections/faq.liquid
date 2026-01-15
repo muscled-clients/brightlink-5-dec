@@ -1,104 +1,585 @@
-<div class="container container--flush container--narrow">
+<div class="container container--flush container--narrow faq-dev-02-container">
+  {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
+  {% assign faq_subtitle = faq_data.subtitle
+    | default: section.settings.subtitle
+    | default: 'Everything you need to know about Pro Spectrum'
+  %}
+
+  <div class="knowledge-center__header">
+    <span class="knowledge-center__label" style="color: #FFD700;">
+      {{- section.settings.label | default: 'KNOWLEDGE CENTER' -}}
+    </span>
+    <h2 class="knowledge-center__title">{{ faq_title }}</h2>
+    <p class="knowledge-center__subtitle">{{ faq_subtitle }}</p>
+  </div>
+
   <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <div class="faq__group-list">
       {%- for block in section.blocks -%}
-        {%- if forloop.first or block.type == 'separator' -%}
-          <div class="faq__group">
+        {%- if block.type == 'separator' -%}
+          {%- unless forloop.first -%}
+            </div>
+            <!-- Close previous group -->
+          {%- endunless -%}
+
+          {%- assign group_id = 'group-' | append: block.id -%}
+          <div class="faq__group" data-group-id="{{ group_id }}">
+            <div class="faq__group-header" {{ block.shopify_attributes }}>
+              <button
+                class="faq__group-title-wrapper"
+                data-action="toggle-group"
+                aria-expanded="false"
+                aria-controls="{{ group_id }}"
+              >
+                <div class="faq__group-title heading h2" id="block-{{ block.id }}">
+                  {%- if block.settings.icon_image -%}
+                    <span
+                      class="faq__group-icon"
+                      style="
+                        {% if block.settings.icon_width %}width: {{ block.settings.icon_width }}px;{% endif %}
+                        {% if block.settings.icon_height %}height: {{ block.settings.icon_height }}px;{% endif %}
+                        {% if block.settings.icon_color %}color: {{ block.settings.icon_color }};{% endif %}
+                        {% if block.settings.icon_margin_top %}margin-top: {{ block.settings.icon_margin_top }}px;{% endif %}
+                        {% if block.settings.icon_margin_right %}margin-right: {{ block.settings.icon_margin_right }}px;{% endif %}
+                        {% if block.settings.icon_margin_bottom %}margin-bottom: {{ block.settings.icon_margin_bottom }}px;{% endif %}
+                        {% if block.settings.icon_margin_left %}margin-left: {{ block.settings.icon_margin_left }}px;{% endif %}
+                      "
+                    >
+                      <img
+                        src="{{ block.settings.icon_image | img_url: '200x' }}"
+                        alt="{{ block.settings.title | escape }}"
+                        style="width: 100%; height: 100%; object-fit: contain;"
+                      >
+                    </span>
+                  {%- endif -%}
+
+                  <span class="faq__group-title-text">
+                    {{- block.settings.title | escape -}}
+                  </span>
+
+                  <span class="faq__group-arrow-icon">
+                    <svg
+                      class="group-arrow-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            <div id="{{ group_id }}" class="faq__group-content" style="display: none;">
         {%- endif -%}
 
-        {%- case block.type -%}
-          {%- when 'separator' -%}
-            <h1 class="faq__group-title heading h2" {{ block.shopify_attributes }}>
-              <span class="anchor" id="block-{{ block.id }}"></span>
-              {{- block.settings.title | escape -}}
-            </h1>
-          {%- when 'question' -%}
-            <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
-              <div class="faq__item-wrapper">
-                <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">{{ block.settings.title | escape }} <span class="plus-button plus-button--large"></span></button>
+        {%- if block.type == 'question' -%}
+          <div
+            class="faq__item"
+            itemscope
+            itemprop="mainEntity"
+            itemtype="https://schema.org/Question"
+            {{ block.shopify_attributes }}
+          >
+            <div class="faq__item-wrapper">
+              <button
+                class="faq__question heading h4"
+                data-action="toggle-collapsible"
+                aria-expanded="false"
+                aria-controls="block-{{ block.id }}"
+                itemprop="name"
+              >
+                <span class="faq__question-text">{{ block.settings.title | escape }}</span>
+                <span class="faq__arrow-icon">
+                  <svg
+                    class="arrow-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
 
-                <div id="block-{{ block.id }}" class="faq__answer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-                  <div class="faq__answer rte" itemprop="text">
-                    {{ block.settings.answer }}
-                  </div>
+              <div
+                id="block-{{ block.id }}"
+                class="faq__answer-wrapper"
+                itemscope
+                itemprop="acceptedAnswer"
+                itemtype="https://schema.org/Answer"
+                style="display: none;"
+              >
+                <div class="faq__answer rte" itemprop="text">
+                  {{ block.settings.answer }}
                 </div>
               </div>
             </div>
-        {%- endcase -%}
-
-        {%- if forloop.last or block.type == 'question' and section.blocks[forloop.index].type == 'separator' -%}
           </div>
+        {%- endif -%}
+
+        {%- if forloop.last -%}
+          </div>
+          <!-- Close group-content -->
+          </div>
+          <!-- Close group -->
         {%- endif -%}
       {%- endfor -%}
     </div>
-
-    {%- if section.settings.show_contact_info -%}
-      <div class="container--unflush">
-        <div class="faq__contact-info">
-          <header class="page__header page__header--stack page__header--centered">
-            {%- if section.settings.contact_info_heading != blank -%}
-              <h2 class="page__title heading h2">{{ section.settings.contact_info_heading | escape }}</h2>
-            {%- endif -%}
-
-            {%- if section.settings.contact_info_text != blank -%}
-              <div class="page__description rte">
-                {{ section.settings.contact_info_text }}
-              </div>
-            {%- endif -%}
-          </header>
-
-          <div class="text-with-icons text-with-icons--boxed">
-            {%- if section.settings.contact_1_heading != blank or section.settings.contact_1_text != blank -%}
-              <div class="text-with-icons__item">
-                <div class="text-with-icons__icon-wrapper">
-                  {%- render 'icon', icon: section.settings.contact_1_icon, stroke_width: 1.5 -%}
-                </div>
-
-                <div class="text-with-icons__content-wrapper">
-                  {%- if section.settings.contact_1_heading != blank -%}
-                    <p class="text-with-icons__title text--strong">{{ section.settings.contact_1_heading | escape }}</p>
-                  {%- endif -%}
-
-                  {%- if section.settings.contact_1_text != blank -%}
-                    <div class="text-with-icons__content rte">
-                      {{ section.settings.contact_1_text }}
-                    </div>
-                  {%- endif -%}
-                </div>
-              </div>
-            {%- endif -%}
-
-            {%- if section.settings.contact_2_heading != blank or section.settings.contact_2_text != blank -%}
-              <div class="text-with-icons__item">
-                <div class="text-with-icons__icon-wrapper">
-                  {%- render 'icon', icon: section.settings.contact_2_icon, stroke_width: 1.5 -%}
-                </div>
-
-                <div class="text-with-icons__content-wrapper">
-                  {%- if section.settings.contact_2_heading != blank -%}
-                    <p class="text-with-icons__title text--strong">{{ section.settings.contact_2_heading | escape }}</p>
-                  {%- endif -%}
-
-                  {%- if section.settings.contact_2_text != blank -%}
-                    <div class="text-with-icons__content rte">
-                      {{ section.settings.contact_2_text }}
-                    </div>
-                  {%- endif -%}
-                </div>
-              </div>
-            {%- endif -%}
-          </div>
-        </div>
-      </div>
-    {%- endif -%}
   </div>
 </div>
+
+<style>
+  /*
+   * FAQ Section Styles
+   * Using high specificity selectors to override theme defaults without !important
+   * Only critical overrides use !important where theme uses it too
+   */
+
+  /* Base section */
+  #shopify-section-{{ section.id }} {
+    background: #0a0e18;
+  }
+
+  /* Container - needs !important to override theme's .container--narrow */
+  #shopify-section-{{ section.id }} .container.container--narrow.faq-dev-02-container {
+    background: #0a0e18;
+    max-width: 1280px !important;
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+
+  /* Header Styles */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__header {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__title {
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  /* FAQ Container */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* FAQ Group */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-header {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__group-title-wrapper {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    text-align: left;
+    display: block;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title.heading.h2 {
+    display: flex;
+    align-items: center;
+    padding: 24px 20px;
+    padding-right: 56px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 60px 0 rgba(10, 132, 255, 0.12);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    justify-content: flex-start;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title.heading.h2:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 80px 0 rgba(10, 132, 255, 0.18);
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 14px;
+    width: 24px;
+    height: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-icon img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Group Arrow */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-arrow-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .group-arrow-icon {
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-wrapper[aria-expanded='false'] .group-arrow-icon {
+    transform: rotate(0deg);
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-wrapper[aria-expanded='true'] .group-arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Group Content */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content {
+    width: 100%;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.is-closing {
+    opacity: 0;
+  }
+
+  /* FAQ Item (Question) */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__item {
+    background: transparent;
+    display: block;
+    padding: 0;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__item:last-child {
+    border-bottom: none;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__item-wrapper {
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 12px;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: color 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4:hover {
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question-text {
+    flex: 1;
+    min-width: 0;
+    padding-right: 16px;
+    text-align: left;
+  }
+
+  /* Question Arrow */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__arrow-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .arrow-icon {
+    width: 100%;
+    height: 100%;
+    color: rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question[aria-expanded='false'] .arrow-icon {
+    transform: rotate(0deg);
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question[aria-expanded='true'] .arrow-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Answer */
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.is-closing {
+    opacity: 0;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    line-height: 1.7;
+    padding: 0 12px 20px 12px;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte p {
+    margin: 0;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 749px) {
+    #shopify-section-{{ section.id }} .container.container--narrow.faq-dev-02-container {
+      padding: 50px 16px;
+      gap: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__title {
+      font-size: 28px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__subtitle {
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group {
+      margin-bottom: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title.heading.h2 {
+      padding: 18px 16px;
+      padding-right: 48px;
+      font-size: 14px;
+      border-radius: 10px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-arrow-icon {
+      right: 16px;
+      width: 18px;
+      height: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4 {
+      padding: 16px 10px;
+      font-size: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__arrow-icon {
+      width: 16px;
+      height: 16px;
+      min-width: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
+      font-size: 12px;
+      padding: 0 10px 16px 10px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Smooth slide animation helper
+    function slideDown(element, duration = 400) {
+      element.style.display = 'block';
+      element.style.overflow = 'hidden';
+      element.style.maxHeight = '0';
+      element.style.opacity = '0';
+
+      const height = element.scrollHeight;
+      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
+
+      requestAnimationFrame(() => {
+        element.style.maxHeight = height + 'px';
+        element.style.opacity = '1';
+      });
+
+      setTimeout(() => {
+        element.style.maxHeight = 'none';
+        element.style.overflow = '';
+        element.style.transition = '';
+      }, duration);
+    }
+
+    function slideUp(element, duration = 400) {
+      element.style.overflow = 'hidden';
+      element.style.maxHeight = element.scrollHeight + 'px';
+      element.style.opacity = '1';
+      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
+
+      requestAnimationFrame(() => {
+        element.style.maxHeight = '0';
+        element.style.opacity = '0';
+      });
+
+      setTimeout(() => {
+        element.style.display = 'none';
+        element.style.maxHeight = '';
+        element.style.overflow = '';
+        element.style.opacity = '';
+        element.style.transition = '';
+      }, duration);
+    }
+
+    // Toggle group (section separator) functionality
+    document.querySelectorAll('[data-action="toggle-group"]').forEach((button) => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const groupId = this.getAttribute('aria-controls');
+        const groupContent = document.getElementById(groupId);
+
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+
+          // Close all questions within this group first
+          groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
+            const answerId = questionButton.getAttribute('aria-controls');
+            const answerWrapper = document.getElementById(answerId);
+            if (answerWrapper && answerWrapper.style.display !== 'none') {
+              questionButton.setAttribute('aria-expanded', 'false');
+              answerWrapper.style.display = 'none';
+            }
+          });
+
+          // Then close the group
+          slideUp(groupContent, 350);
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          slideDown(groupContent, 400);
+        }
+      });
+    });
+
+    // Toggle question functionality
+    document.querySelectorAll('[data-action="toggle-collapsible"]').forEach((button) => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const answerId = this.getAttribute('aria-controls');
+        const answerWrapper = document.getElementById(answerId);
+
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          if (answerWrapper) {
+            slideUp(answerWrapper, 300);
+          }
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          if (answerWrapper) {
+            slideDown(answerWrapper, 350);
+          }
+        }
+      });
+    });
+  });
+</script>
 
 {% schema %}
 {
   "name": "FAQ",
-
   "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "KNOWLEDGE CENTER"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Knowledge Center"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Everything you need to know about Pro Spectrum"
+    },
     {
       "type": "checkbox",
       "id": "show_contact_info",
@@ -437,6 +918,78 @@
           "id": "title",
           "label": "Heading",
           "default": "Default"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon image",
+          "info": "Upload your custom icon"
+        },
+        {
+          "type": "color",
+          "id": "icon_color",
+          "label": "Icon color",
+          "default": "#FFD700"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "label": "Icon width",
+          "min": 10,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "icon_height",
+          "label": "Icon height",
+          "min": 10,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 24
+        },
+        {
+          "type": "range",
+          "id": "icon_margin_top",
+          "label": "Icon top margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "icon_margin_right",
+          "label": "Icon right margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "icon_margin_bottom",
+          "label": "Icon bottom margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 0
+        },
+        {
+          "type": "range",
+          "id": "icon_margin_left",
+          "label": "Icon left margin",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "default": 0
         }
       ]
     },
@@ -466,7 +1019,9 @@
         {
           "type": "separator",
           "settings": {
-            "title": "Shipping"
+            "title": "Shipping",
+            "icon_width": 24,
+            "icon_height": 24
           }
         },
         {
@@ -479,15 +1034,8 @@
         {
           "type": "question",
           "settings": {
-            "title": "How long will it take to get my order?",
-            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
-          }
-        },
-        {
-          "type": "question",
-          "settings": {
-            "title": "What shipping carriers do you use?",
-            "answer": "<p>We use all major carriers, and local courier partners. You’ll be asked to select a delivery method during checkout.</p>"
+            "title": "How long does shipping take?",
+            "answer": "<p>Shipping typically takes 5-7 business days domestically and 10-14 business days internationally.</p>"
           }
         },
         {
@@ -500,27 +1048,14 @@
           "type": "question",
           "settings": {
             "title": "Can I return my product?",
-            "answer": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we’re happy to help. Just email us directly and we’ll take you through the process.</p>"
+            "answer": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we're happy to help. Just email us directly and we'll take you through the process.</p>"
           }
         },
         {
           "type": "question",
           "settings": {
-            "title": "Can I get my product personalized?",
-            "answer": "<p>It depends on the creator and the product. All options are outlined on the product page, so look out for customization options there.</p>"
-          }
-        },
-        {
-          "type": "separator",
-          "settings": {
-            "title": "Other"
-          }
-        },
-        {
-          "type": "question",
-          "settings": {
-            "title": "Any question?",
-            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+            "title": "What is your warranty policy?",
+            "answer": "<p>All products come with a 1-year manufacturer's warranty covering defects in materials and workmanship.</p>"
           }
         }
       ]
