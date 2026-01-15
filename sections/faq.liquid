@@ -1,13 +1,4 @@
 <div class="container container--flush container--narrow">
-  {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
-  {% assign faq_subtitle = faq_data.subtitle | default: section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' %}
-
-  <div class="knowledge-center__header">
-    <span class="knowledge-center__label" style="color: #FFD700;">{{ section.settings.label | default: 'KNOWLEDGE CENTER' }}</span>
-    <h2 class="knowledge-center__title">{{ faq_title }}</h2>
-    <p class="knowledge-center__subtitle">{{ faq_subtitle }}</p>
-  </div>
-  
   <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <div class="faq__group-list">
       {%- for block in section.blocks -%}
@@ -17,48 +8,22 @@
 
         {%- case block.type -%}
           {%- when 'separator' -%}
-  <div class="faq__group-title-wrapper" {{ block.shopify_attributes }}>
-    <h1 class="faq__group-title heading h2" id="block-{{ block.id }}">
-      <span class="anchor"></span>
-      
-      {%- if block.settings.icon_image -%}
-        <span class="faq__group-icon" style="
-          {% if block.settings.icon_width %}width: {{ block.settings.icon_width }}px;{% endif %}
-          {% if block.settings.icon_height %}height: {{ block.settings.icon_height }}px;{% endif %}
-          {% if block.settings.icon_color %}color: {{ block.settings.icon_color }};{% endif %}
-          {% if block.settings.icon_margin_top %}margin-top: {{ block.settings.icon_margin_top }}px;{% endif %}
-          {% if block.settings.icon_margin_right %}margin-right: {{ block.settings.icon_margin_right }}px;{% endif %}
-          {% if block.settings.icon_margin_bottom %}margin-bottom: {{ block.settings.icon_margin_bottom }}px;{% endif %}
-          {% if block.settings.icon_margin_left %}margin-left: {{ block.settings.icon_margin_left }}px;{% endif %}
-        ">
-          <img src="{{ block.settings.icon_image | img_url: '200x' }}" 
-               alt="{{ block.settings.title | escape }}"
-               style="width: 100%; height: 100%; object-fit: contain;">
-        </span>
-      {%- endif -%}
-      
-      {{- block.settings.title | escape -}}
-    </h1>
-  </div>
+            <h1 class="faq__group-title heading h2" {{ block.shopify_attributes }}>
+              <span class="anchor" id="block-{{ block.id }}"></span>
+              {{- block.settings.title | escape -}}
+            </h1>
           {%- when 'question' -%}
-  <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
-    <div class="faq__item-wrapper">
-      <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">
-        <span class="faq__question-text">{{ block.settings.title | escape }}</span>
-        <span class="faq__arrow-icon">
-          <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </button>
+            <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+              <div class="faq__item-wrapper">
+                <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">{{ block.settings.title | escape }} <span class="plus-button plus-button--large"></span></button>
 
-      <div id="block-{{ block.id }}" class="faq__answer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-        <div class="faq__answer rte" itemprop="text">
-          {{ block.settings.answer }}
-        </div>
-      </div>
-    </div>
-  </div>
+                <div id="block-{{ block.id }}" class="faq__answer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                  <div class="faq__answer rte" itemprop="text">
+                    {{ block.settings.answer }}
+                  </div>
+                </div>
+              </div>
+            </div>
         {%- endcase -%}
 
         {%- if forloop.last or block.type == 'question' and section.blocks[forloop.index].type == 'separator' -%}
@@ -66,172 +31,74 @@
         {%- endif -%}
       {%- endfor -%}
     </div>
+
+    {%- if section.settings.show_contact_info -%}
+      <div class="container--unflush">
+        <div class="faq__contact-info">
+          <header class="page__header page__header--stack page__header--centered">
+            {%- if section.settings.contact_info_heading != blank -%}
+              <h2 class="page__title heading h2">{{ section.settings.contact_info_heading | escape }}</h2>
+            {%- endif -%}
+
+            {%- if section.settings.contact_info_text != blank -%}
+              <div class="page__description rte">
+                {{ section.settings.contact_info_text }}
+              </div>
+            {%- endif -%}
+          </header>
+
+          <div class="text-with-icons text-with-icons--boxed">
+            {%- if section.settings.contact_1_heading != blank or section.settings.contact_1_text != blank -%}
+              <div class="text-with-icons__item">
+                <div class="text-with-icons__icon-wrapper">
+                  {%- render 'icon', icon: section.settings.contact_1_icon, stroke_width: 1.5 -%}
+                </div>
+
+                <div class="text-with-icons__content-wrapper">
+                  {%- if section.settings.contact_1_heading != blank -%}
+                    <p class="text-with-icons__title text--strong">{{ section.settings.contact_1_heading | escape }}</p>
+                  {%- endif -%}
+
+                  {%- if section.settings.contact_1_text != blank -%}
+                    <div class="text-with-icons__content rte">
+                      {{ section.settings.contact_1_text }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+
+            {%- if section.settings.contact_2_heading != blank or section.settings.contact_2_text != blank -%}
+              <div class="text-with-icons__item">
+                <div class="text-with-icons__icon-wrapper">
+                  {%- render 'icon', icon: section.settings.contact_2_icon, stroke_width: 1.5 -%}
+                </div>
+
+                <div class="text-with-icons__content-wrapper">
+                  {%- if section.settings.contact_2_heading != blank -%}
+                    <p class="text-with-icons__title text--strong">{{ section.settings.contact_2_heading | escape }}</p>
+                  {%- endif -%}
+
+                  {%- if section.settings.contact_2_text != blank -%}
+                    <div class="text-with-icons__content rte">
+                      {{ section.settings.contact_2_text }}
+                    </div>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    {%- endif -%}
   </div>
 </div>
-
-<style>
-  .faq__group-title-wrapper {
-    width: 100%;
-}
-  .faq__item {
-    gap: 16px;
-    background: transparent;
-    display: flex;
-    padding: 28px 12px;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-  
-  .faq__group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  button.faq__question.heading.h4 {
-    flex: 1 0 0;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px;
-  }
-  
-  h1.faq__group-title.heading.h2 {
-    display: flex;
-    align-items: center;
-    padding: 29px 12px;
-    align-self: stretch;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.02);
-    box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
-    color: #FFF;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
-  
-  .faq__group-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-  
-  .faq__group-icon img {
-    display: block;
-  }
-  
-  .container.container--flush.container--narrow {
-    padding: 40px 0px !important;
-  }
-  
-  .shopify-section {
-    background-color: #0A0E18 !important;
-  }
-  
-  @media (max-width: 749px) {
-    h1.faq__group-title.heading.h2 {
-      padding: 20px 12px;
-      font-size: 14px;
-    }
-  }
-  
-
-/* FIX FOR ARROW POSITIONING */
-.faq__question {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Text container - this is KEY */
-.faq__question-text {
-  flex: 1 !important;
-  min-width: 0 !important; /* Allows text to truncate */
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  white-space: normal !important; /* Allows wrapping */
-  padding-right: 20px !important; /* Space between text and arrow */
-  text-align: left !important;
-}
-
-/* Arrow container */
-.faq__arrow-icon {
-  flex-shrink: 0 !important;
-  width: 24px !important;
-  height: 24px !important;
-  min-width: 24px !important; /* Prevents shrinking */
-  margin-left: auto !important; /* Pushes to far right */
-}
-
-/* Arrow icon */
-.arrow-icon {
-  width: 100% !important;
-  height: 100% !important;
-  color: #FFFFFF !important;
-  transition: transform 0.3s ease !important;
-}
-
-/* Arrow points DOWN when closed */
-.faq__question[aria-expanded="false"] .arrow-icon {
-  transform: rotate(0deg) !important;
-}
-
-/* Arrow points UP when open */
-.faq__question[aria-expanded="true"] .arrow-icon {
-  transform: rotate(180deg) !important;
-}
-
-/* Ensure the button container is full width */
-.faq__item-wrapper {
-  width: 100% !important;
-}
-
-/* Mobile responsive */
-@media (max-width: 749px) {
-  .faq__arrow-icon {
-    width: 20px !important;
-    height: 20px !important;
-    min-width: 20px !important;
-  }
-  
-  .faq__question-text {
-    padding-right: 16px !important;
-  }
-}
-</style>
 
 {% schema %}
 {
   "name": "FAQ",
+
   "settings": [
-    {
-      "type": "text",
-      "id": "label",
-      "label": "Section Label",
-      "default": "KNOWLEDGE CENTER"
-    },
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Knowledge Center"
-    },
-    {
-      "type": "text",
-      "id": "subtitle",
-      "label": "Subtitle",
-      "default": "Everything you need to know about Pro Spectrum"
-    },
     {
       "type": "checkbox",
       "id": "show_contact_info",
@@ -562,89 +429,17 @@
   ],
   "blocks": [
     {
-  "type": "separator",
-  "name": "Section separator",
-  "settings": [
-    {
-      "type": "text",
-      "id": "title",
-      "label": "Heading",
-      "default": "Default"
+      "type": "separator",
+      "name": "Section separator",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Default"
+        }
+      ]
     },
-    {
-      "type": "image_picker",
-      "id": "icon_image",
-      "label": "Icon image",
-      "info": "Upload your custom icon"
-    },
-    {
-      "type": "color",
-      "id": "icon_color",
-      "label": "Icon color",
-      "default": "#FFD700"
-    },
-    {
-      "type": "range",
-      "id": "icon_width",
-      "label": "Icon width",
-      "min": 10,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "icon_height",
-      "label": "Icon height",
-      "min": 10,
-      "max": 100,
-      "step": 2,
-      "unit": "px",
-      "default": 24
-    },
-    {
-      "type": "range",
-      "id": "icon_margin_top",
-      "label": "Icon top margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "icon_margin_right",
-      "label": "Icon right margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 10
-    },
-    {
-      "type": "range",
-      "id": "icon_margin_bottom",
-      "label": "Icon bottom margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    },
-    {
-      "type": "range",
-      "id": "icon_margin_left",
-      "label": "Icon left margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "default": 0
-    }
-  ]
-},
     {
       "type": "question",
       "name": "Question",
@@ -663,41 +458,73 @@
     }
   ],
   "presets": [
-  {
-    "category": "Text",
-    "name": "Frequently Asked Questions",
-    "settings": {},
-    "blocks": [
-      {
-        "type": "separator",
-        "settings": {
-          "title": "Shipping",
-          "icon_width": 24,
-          "icon_height": 24
+    {
+      "category": "Text",
+      "name": "Frequently Asked Questions",
+      "settings": {},
+      "blocks": [
+        {
+          "type": "separator",
+          "settings": {
+            "title": "Shipping"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship overseas?",
+            "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "How long will it take to get my order?",
+            "answer": "<p>It depends on where you are. Orders processed here will take 5-7 business days to arrive. Overseas deliveries can take anywhere from 7-16 days. Delivery details will be provided in your confirmation email.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "What shipping carriers do you use?",
+            "answer": "<p>We use all major carriers, and local courier partners. You’ll be asked to select a delivery method during checkout.</p>"
+          }
+        },
+        {
+          "type": "separator",
+          "settings": {
+            "title": "Product"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Can I return my product?",
+            "answer": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we’re happy to help. Just email us directly and we’ll take you through the process.</p>"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Can I get my product personalized?",
+            "answer": "<p>It depends on the creator and the product. All options are outlined on the product page, so look out for customization options there.</p>"
+          }
+        },
+        {
+          "type": "separator",
+          "settings": {
+            "title": "Other"
+          }
+        },
+        {
+          "type": "question",
+          "settings": {
+            "title": "Any question?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+          }
         }
-      },
-      {
-        "type": "question",
-        "settings": {
-          "title": "Do you ship overseas?",
-          "answer": "<p>Yes, we ship all over the world. Shipping costs will apply, and will be added at checkout. We run discounts and promotions all year, so stay tuned for exclusive deals.</p>"
-        }
-      },
-      {
-        "type": "separator",
-        "settings": {
-          "title": "Product"
-        }
-      },
-      {
-        "type": "question",
-        "settings": {
-          "title": "Can I return my product?",
-          "answer": "<p>We always aim for make sure our customers love our products, but if you do need to return an order, we're happy to help. Just email us directly and we'll take you through the process.</p>"
-        }
-      }
-    ]
-  }
-]
+      ]
+    }
+  ]
 }
 {% endschema %}
