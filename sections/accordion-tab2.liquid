@@ -75,10 +75,12 @@
   /* Tab Content */
   #shopify-section-{{ section.id }} .tab-content {
     display: none;
+    width: 100%;
   }
 
   #shopify-section-{{ section.id }} .tab-content.active {
     display: block;
+    width: 100%;
   }
 
   /* Section Title */
@@ -213,10 +215,11 @@
   }
 
   /* Downloads Section */
-  #shopify-section-{{ section.id }} .downloads-list {
+  #shopify-section-{{ section.id }} .tab-content .downloads-list {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
   }
 
   #shopify-section-{{ section.id }} .download-item {
@@ -227,35 +230,39 @@
     align-items: center;
     justify-content: space-between;
     border: 1px solid #1e2d44;
+    width: 100%;
   }
 
   #shopify-section-{{ section.id }} .download-item-name {
-    color: #fff;
-    font-size: 14px;
-    font-weight: 400;
+    color: #FFF;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
   }
 
   #shopify-section-{{ section.id }} .download-btn {
-    background: #4190D2;
+    display: flex;
+    width: 238px;
+    height: 56px;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    border-radius: 8px;
+    border: 0 solid #E5E7EB;
+    background: #0A84FF;
+    box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
     color: #fff;
-    padding: 10px 20px;
-    border-radius: 6px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 8px;
     transition: opacity 0.3s ease;
+    flex-shrink: 0;
   }
 
   #shopify-section-{{ section.id }} .download-btn:hover {
     opacity: 0.85;
-  }
-
-  #shopify-section-{{ section.id }} .download-btn svg {
-    width: 14px;
-    height: 14px;
   }
 
   /* What's Included Section */
@@ -546,10 +553,8 @@
                 <div class="download-item">
                   <span class="download-item-name">{{ item.name }}</span>
                   <a href="{{ item.url }}" class="download-btn" target="_blank">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                      <polyline points="7 10 12 15 17 10"/>
-                      <line x1="12" y1="15" x2="12" y2="3"/>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M9 1C9 0.446875 8.55313 0 8 0C7.44688 0 7 0.446875 7 1V8.58438L4.70625 6.29063C4.31563 5.9 3.68125 5.9 3.29063 6.29063C2.9 6.68125 2.9 7.31563 3.29063 7.70625L7.29063 11.7063C7.68125 12.0969 8.31563 12.0969 8.70625 11.7063L12.7063 7.70625C13.0969 7.31563 13.0969 6.68125 12.7063 6.29063C12.3156 5.9 11.6812 5.9 11.2906 6.29063L9 8.58438V1ZM2 11C0.896875 11 0 11.8969 0 13V14C0 15.1031 0.896875 16 2 16H14C15.1031 16 16 15.1031 16 14V13C16 11.8969 15.1031 11 14 11H10.8281L9.4125 12.4156C8.63125 13.1969 7.36562 13.1969 6.58437 12.4156L5.17188 11H2ZM13.5 12.75C13.6989 12.75 13.8897 12.829 14.0303 12.9697C14.171 13.1103 14.25 13.3011 14.25 13.5C14.25 13.6989 14.171 13.8897 14.0303 14.0303C13.8897 14.171 13.6989 14.25 13.5 14.25C13.3011 14.25 13.1103 14.171 12.9697 14.0303C12.829 13.8897 12.75 13.6989 12.75 13.5C12.75 13.3011 12.829 13.1103 12.9697 12.9697C13.1103 12.829 13.3011 12.75 13.5 12.75Z" fill="white"/>
                     </svg>
                     DOWNLOAD PDF
                   </a>
