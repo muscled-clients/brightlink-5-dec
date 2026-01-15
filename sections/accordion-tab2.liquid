@@ -81,15 +81,12 @@
     margin: 0 0 30px 0;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
   }
 
-  #shopify-section-{{ section.id }} .section-title::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: #4190D2;
-    border-radius: 50%;
+  #shopify-section-{{ section.id }} .section-title svg {
+    min-width: 23px;
+    height: 20px;
   }
 
   /* Features Section */
@@ -382,7 +379,12 @@
         {% if product_features != blank %}
           <div class="tab-content {% if first_active %}active{% endif %}" id="features-{{ block.id }}">
             {% for feature_group in product_features %}
-              <h2 class="section-title">{{ feature_group.title | default: 'Features & Benefits' }}</h2>
+              <h2 class="section-title">
+                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                  <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+                </svg>
+                {{ feature_group.title | default: 'Features & Benefits' }}
+              </h2>
 
               <div class="features-content">
                 <div class="features-list-wrapper">
@@ -420,7 +422,12 @@
       {% when 'specification' %}
         {% if product_specification != blank %}
           <div class="tab-content" id="specification-{{ block.id }}">
-            <h2 class="section-title">{{ block.settings.title | default: 'Specifications' }}</h2>
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+              </svg>
+              {{ block.settings.title | default: 'Specifications' }}
+            </h2>
 
             {% for spec_table in product_specification %}
               {% if spec_table.title != blank %}
@@ -448,7 +455,12 @@
       {% when 'whats_included' %}
         {% if block.settings.content != blank or product.metafields.custom.whats_included != blank %}
           <div class="tab-content" id="whats-included-{{ block.id }}">
-            <h2 class="section-title">{{ block.settings.title | default: "What's Included" }}</h2>
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+              </svg>
+              {{ block.settings.title | default: "What's Included" }}
+            </h2>
 
             <div class="whats-included-content">
               <div class="features-list-wrapper">
@@ -484,7 +496,12 @@
       {% when 'video' %}
         {% if product.metafields.custom.section_video.value != blank %}
           <div class="tab-content" id="video-{{ block.id }}">
-            <h2 class="section-title">{{ block.settings.title | default: 'Video' }}</h2>
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+              </svg>
+              {{ block.settings.title | default: 'Video' }}
+            </h2>
 
             <div class="video-wrapper" id="video-container-{{ block.id }}">
               {% assign video_url = product.metafields.custom.section_video.value.link.value | default: product.metafields.custom.section_video.value %}
@@ -510,7 +527,12 @@
       {% when 'downloads' %}
         {% if product.metafields.custom.accordion_downloads.value != blank %}
           <div class="tab-content" id="downloads-{{ block.id }}">
-            <h2 class="section-title">{{ block.settings.title | default: 'Download' }}</h2>
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+              </svg>
+              {{ block.settings.title | default: 'Download' }}
+            </h2>
 
             <div class="downloads-list">
               {% for item in product.metafields.custom.accordion_downloads.value %}
@@ -533,7 +555,12 @@
       {% when 'faq' %}
         {% if product.metafields.custom.section_custom_faq_dropdown_list != blank %}
           <div class="tab-content" id="faq-{{ block.id }}">
-            <h2 class="section-title">{{ block.settings.title | default: 'FAQ' }}</h2>
+            <h2 class="section-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                <path d="M12.3792 0.703125C12.1721 0.273438 11.7346 0 11.2542 0C10.7737 0 10.3401 0.273438 10.1292 0.703125L7.61744 5.87109L2.00806 6.69922C1.53931 6.76953 1.14869 7.09766 1.00416 7.54688C0.859627 7.99609 0.976814 8.49219 1.31275 8.82422L5.38306 12.8516L4.42213 18.543C4.344 19.0117 4.53931 19.4883 4.92603 19.7656C5.31275 20.043 5.82447 20.0781 6.24635 19.8555L11.2581 17.1797L16.2698 19.8555C16.6917 20.0781 17.2034 20.0469 17.5901 19.7656C17.9768 19.4844 18.1721 19.0117 18.094 18.543L17.1292 12.8516L21.1995 8.82422C21.5354 8.49219 21.6565 7.99609 21.5081 7.54688C21.3596 7.09766 20.9729 6.76953 20.5042 6.69922L14.8909 5.87109L12.3792 0.703125Z" fill="#0066CC"/>
+              </svg>
+              {{ block.settings.title | default: 'FAQ' }}
+            </h2>
 
             <div class="faq-list">
               {% for faq in product.metafields.custom.section_custom_faq_dropdown_list.value %}
