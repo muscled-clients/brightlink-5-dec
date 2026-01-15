@@ -152,20 +152,20 @@
     {
       "type": "range",
       "id": "padding_top",
-      "min": 20,
+      "min": 0,
       "max": 100,
       "step": 5,
-      "default": 50,
+      "default": 0,
       "unit": "px",
       "label": "Padding Top"
     },
     {
       "type": "range",
       "id": "padding_bottom",
-      "min": 20,
-      "max": 100,
+      "min": 0,
+      "max": 150,
       "step": 5,
-      "default": 50,
+      "default": 120,
       "unit": "px",
       "label": "Padding Bottom"
     },
@@ -256,8 +256,8 @@
     position: relative;
     width: 100%;
     background-color: var(--tl-bg-color, #0a0f14);
-    padding-top: var(--tl-padding-top, 50px);
-    padding-bottom: var(--tl-padding-bottom, 50px);
+    padding-top: var(--tl-padding-top, 0px);
+    padding-bottom: var(--tl-padding-bottom, 120px);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow: hidden; /* Prevent horizontal scrollbar on full width */
   }
@@ -347,7 +347,12 @@
 
 
   @media screen and (max-width: 768px) {
-    
+
+    .trusted-leaders {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+
     .trusted-leaders__heading {
       font-size: 14px;
       font-weight: 400;

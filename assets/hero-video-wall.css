@@ -317,6 +317,7 @@
 @media screen and (max-width: 768px) {
   .hero-video-wall-section {
     min-height: auto;
+    margin-bottom: 50px;
   }
 
   .hero-video-wall__content {
