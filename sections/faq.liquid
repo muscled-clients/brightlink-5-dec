@@ -460,6 +460,30 @@
       padding: 0 10px 16px 10px;
     }
   }
+
+  /* Answer - Fix for display issues */
+#shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
+  display: none; /* Default hidden state */
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.25s ease;
+}
+
+/* When answer is shown */
+#shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper[aria-hidden="false"],
+#shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper:not([style*="display: none"]) {
+  display: block !important;
+  max-height: none !important;
+  opacity: 1 !important;
+}
+
+/* Specifically target when JavaScript sets display: block */
+#shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper[style*="display: block"] {
+  display: block !important;
+  max-height: none !important;
+  opacity: 1 !important;
+}
 </style>
 
 <script>
