@@ -464,49 +464,46 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Simple toggle with animation
-    function toggleElement(element, show, duration = 400) {
-      if (show) {
-        // Show element
-        element.style.display = 'block';
-        element.style.overflow = 'hidden';
-        element.style.maxHeight = '0';
-        element.style.opacity = '0';
-        
-        // Force reflow
-        element.offsetHeight;
-        
-        const height = element.scrollHeight;
-        element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
+    // Smooth slide animation helper
+    function slideDown(element, duration = 400) {
+      element.style.display = 'block';
+      element.style.overflow = 'hidden';
+      element.style.maxHeight = '0';
+      element.style.opacity = '0';
+
+      const height = element.scrollHeight;
+      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
+
+      requestAnimationFrame(() => {
         element.style.maxHeight = height + 'px';
         element.style.opacity = '1';
-        
-        setTimeout(() => {
-          element.style.maxHeight = 'none';
-          element.style.overflow = '';
-          element.style.transition = '';
-        }, duration);
-      } else {
-        // Hide element
-        element.style.overflow = 'hidden';
-        element.style.maxHeight = element.scrollHeight + 'px';
-        element.style.opacity = '1';
-        element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
-        
-        // Force reflow
-        element.offsetHeight;
-        
+      });
+
+      setTimeout(() => {
+        element.style.maxHeight = 'none';
+        element.style.overflow = '';
+        element.style.transition = '';
+      }, duration);
+    }
+
+    function slideUp(element, duration = 400) {
+      element.style.overflow = 'hidden';
+      element.style.maxHeight = element.scrollHeight + 'px';
+      element.style.opacity = '1';
+      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
+
+      requestAnimationFrame(() => {
         element.style.maxHeight = '0';
         element.style.opacity = '0';
-        
-        setTimeout(() => {
-          element.style.display = 'none';
-          element.style.maxHeight = '';
-          element.style.overflow = '';
-          element.style.opacity = '';
-          element.style.transition = '';
-        }, duration);
-      }
+      });
+
+      setTimeout(() => {
+        element.style.display = 'none';
+        element.style.maxHeight = '';
+        element.style.overflow = '';
+        element.style.opacity = '';
+        element.style.transition = '';
+      }, duration);
     }
 
     // Toggle group (section separator) functionality
@@ -518,22 +515,22 @@
 
         if (expanded) {
           this.setAttribute('aria-expanded', 'false');
-          
-          // Close all questions within this group
+
+          // Close all questions within this group first
           groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
             const answerId = questionButton.getAttribute('aria-controls');
             const answerWrapper = document.getElementById(answerId);
             if (answerWrapper && answerWrapper.style.display !== 'none') {
               questionButton.setAttribute('aria-expanded', 'false');
-              toggleElement(answerWrapper, false, 300);
+              answerWrapper.style.display = 'none';
             }
           });
 
-          // Close the group
-          toggleElement(groupContent, false, 350);
+          // Then close the group
+          slideUp(groupContent, 350);
         } else {
           this.setAttribute('aria-expanded', 'true');
-          toggleElement(groupContent, true, 400);
+          slideDown(groupContent, 400);
         }
       });
     });
@@ -545,8 +542,17 @@
         const answerId = this.getAttribute('aria-controls');
         const answerWrapper = document.getElementById(answerId);
 
-        this.setAttribute('aria-expanded', !expanded);
-        toggleElement(answerWrapper, !expanded, expanded ? 300 : 350);
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          if (answerWrapper) {
+            slideUp(answerWrapper, 300);
+          }
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          if (answerWrapper) {
+            slideDown(answerWrapper, 350);
+          }
+        }
       });
     });
   });
