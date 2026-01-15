@@ -1,1 +1,1034 @@
-{"sections":{"main":{"type":"main-product","blocks":{"product_meta":{"type":"product_meta","settings":{"show_vendor":false,"show_sku":false,"show_reviews_badge":true,"show_share_buttons":false}},"variant_selector":{"type":"variant_selector","settings":{"show_sku":true,"show_shipping_info":true,"selector_mode":"dropdown","color_mode":"variant_image","show_quantity_selector":true,"show_taxes_included":false,"show_inventory_quantity":true,"low_inventory_threshold":53}},"3f15d1e3-29ed-48c5-ac58-5c8adca50770":{"type":"accordian","settings":{"data-type":"metafield","title-name-space":"","title":"{{ product.metafields.custom.block_product_information.value.accordian_product_information_title.value }}","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"<p>{{ product.metafields.custom.block_product_information.value.accordian_product_information_content | metafield_tag }}<\/p>","meta-content-image":"{{ product.metafields.custom.block_product_information.value.accordion_product_information_image.value }}","content-font-size":16,"content-font-size-mobile":14}},"adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c":{"type":"accordian","settings":{"data-type":"metafield","title-name-space":"","title":"{{ product.metafields.custom.block_product_information.value.second_accordian_title.value }}","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"{{ product.metafields.custom.block_product_information.value.second_accordian_content | metafield_tag }}","content-font-size":16,"content-font-size-mobile":14}},"ed9fbd09-1abb-4ab4-a62f-931138cd6494":{"type":"accordian","settings":{"data-type":"metafield","title-name-space":"","title":"{{ product.metafields.custom.block_product_information.value.third_accordion_title.value }}","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"{{ product.metafields.custom.block_product_information.value.third_accordion_content | metafield_tag }}","content-font-size":16,"content-font-size-mobile":14}},"09949fdd-86ca-430b-8a35-54fe50f22c9c":{"type":"accordian","settings":{"data-type":"metafield","title-name-space":"","title":"{{ product.metafields.custom.block_product_information.value.fourth_accordion_title.value }}","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"{{ product.metafields.custom.block_product_information.value.fourth_accordion_content | metafield_tag }}","content-font-size":16,"content-font-size-mobile":14}},"download_accordion_WThxdX":{"type":"download-accordion","settings":{"title":"Downloads"}},"57b5eef3-3db5-4acf-a56e-e6d9cd7f7737":{"type":"accordian","settings":{"data-type":"metafield","title-name-space":"","title":"{{ product.metafields.custom.block_product_information.value.fifth_accordion_title.value }}","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"{{ product.metafields.custom.block_product_information.value.fifth_accordion_content | metafield_tag }}","content-font-size":16,"content-font-size-mobile":14}},"fd62c6b7-26f4-4374-b874-a66dd71682ce":{"type":"accordian","settings":{"data-type":"customizer","title-name-space":"","title":"Shipping & Returns","title-font-size":16,"title-font-size-mobile":14,"show_product_desc":false,"content-name-space":"","content":"<p>Some products have their own terms and conditions on the product page which you much accept before you can purchase. The general terms and conditions below do not apply if a products has an individual terms and conditions in place on it’s product age. If a product does not have an individual terms and conditions it will default to the following general terms and condition which is: “<strong>Returns are accepted up to 30 days<\/strong> after the purchase date for a full refund minus the original shipping cost.  <em><strong>Returns are only accepted for Unopened Unused products. <\/strong><\/em><em> <\/em>Open boxes or used \/ installed items are subject to a <em>restocking fee of 10-30%<\/em> dependding on the condition of the item after inpsection by our warehouse. <\/p><p>Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. <\/p><p>Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to <a href=\"mailto:support@brightlinkcables.com\" target=\"_blank\">support@brightlinkav.com<\/a><\/p>","content-font-size":16,"content-font-size-mobile":14}},"buy_buttons":{"type":"buy_buttons","settings":{"show_payment_button":true,"show_purchase_btn":true}},"59761649-86b3-44c5-800a-493acb77417c":{"type":"custom-fbt","settings":{"title":"Frequently Bought Together","products":"{{ product.metafields.custom.block_frequently_bought_together.value.product_list.value }}"}},"d6ced4ca-4de2-4334-a445-3390c3abf8b1":{"type":"purchase_buttons","disabled":true,"settings":{"show_purchase_btns":true,"distributor_logo":"shopify:\/\/shop_images\/Rectangle_2340_1.png","amazon_link":"https:\/\/www.google.com","distributor_logo2":"shopify:\/\/shop_images\/Rectangle_2344.png","amazon_link2":"https:\/\/www.google.com"}},"description":{"type":"description","disabled":true,"settings":{"display_mode":"view_more","title":"","text":""}},"2c653889-de9a-4870-89e9-ec8bdfc610d7":{"type":"shopify:\/\/apps\/request-a-quote-hide-price-b2b\/blocks\/easy-quote-sealapps\/414e3c56-ba13-45bb-9f54-87077e6b11d9","disabled":true,"settings":{"eq_quote_button_color":"#ffffff","eq_quote_button_color_hover":"#333333","eq_quote_button_background":"#1994f9","eq_quote_button_background_hover":"#ffffff","eq_quote_border_color":"#333333","eq_quote_border_color_hover":"#333333","eq_quote_border_width":2,"eq_quote_border_radius":5,"eq_quote_button_margin_top":10,"eq_quote_button_content":"Request for Quote","eq_quote_button_text_align":"left","eq_quote_font_size":14,"eq_quote_button_height":44,"eq_quote_button_width_customizable":true,"eq_quote_button_width":315,"eq_quote_button_font_family":"inherit","eq_quote_button_font_weight":"inherit"}},"04b69ffe-0002-411a-a1e0-6f4790447db6":{"type":"content","disabled":true,"settings":{"title":"Shipping & Returns","content":"<p>Some products have their own terms and conditions on the product page which you much accept before you can purchase. The general terms and conditions below do not apply if a products has an individual terms and conditions in place on it’s product age. If a product does not have an individual terms and conditions it will default to the following general terms and condition which is: “<strong>Returns are accepted up to 30 days<\/strong> after the purchase date for a full refund minus the original shipping cost.  <em><strong>Returns are only accepted for Unopened Unused products. <\/strong><\/em><em> <\/em>Open boxes or used \/ installed items are subject to a <em>restocking fee of 10-30%<\/em> dependding on the condition of the item after inpsection by our warehouse. <\/p><p>Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. <\/p><p>Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to <a href=\"mailto:support@brightlinkcables.com\">support@brightlinkav.com<\/a><\/p>","page":"","display_mode":"show_all"}},"97650900-1f05-4d17-be1a-a0767123954f":{"type":"reviews","disabled":true,"settings":{"title":"Reviews"}},"4402ac48-14de-4fd3-9ff6-caf849577038":{"type":"content","disabled":true,"settings":{"title":"Support","content":"<p>Need to contact us? <a href=\"\/pages\/contact\" title=\"Contact\">Go here<\/a><\/p>","page":"","display_mode":"show_all"}}},"block_order":["product_meta","variant_selector","3f15d1e3-29ed-48c5-ac58-5c8adca50770","adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c","ed9fbd09-1abb-4ab4-a62f-931138cd6494","09949fdd-86ca-430b-8a35-54fe50f22c9c","download_accordion_WThxdX","57b5eef3-3db5-4acf-a56e-e6d9cd7f7737","fd62c6b7-26f4-4374-b874-a66dd71682ce","buy_buttons","59761649-86b3-44c5-800a-493acb77417c","d6ced4ca-4de2-4334-a445-3390c3abf8b1","description","2c653889-de9a-4870-89e9-ec8bdfc610d7","04b69ffe-0002-411a-a1e0-6f4790447db6","97650900-1f05-4d17-be1a-a0767123954f","4402ac48-14de-4fd3-9ff6-caf849577038"],"settings":{"new-pdp-page":true,"image_size":"small","enable_video_looping":true,"enable_image_zoom":true,"zoom_effect":"outside","carousel_effect":"slide"}},"1651673745108066c9":{"type":"custom-bundle","disabled":true,"settings":{"title":"","textarea":"{{ product.metafields.my_fields.bundle_embed_code.value }}"}},"16506275679eb630d5":{"type":"promotion-list","blocks":{"1650627567611f2fab-0":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/BL-EXT-IP-4KVW-TX-Back-angle_7.png","show_overlay":false,"overlay_opacity":35,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"NEW IN","content":"","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#6f42ef","button_text":"","button_link":"shopify:\/\/collections\/new-in"}},"1650627567611f2fab-1":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/32X32-FRONT-ANGLE_1.png","show_overlay":false,"overlay_opacity":50,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"SALE","content":"","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#fc2a68","button_text":"","button_link":"shopify:\/\/collections\/sale"}},"1650627567611f2fab-2":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/49-img_1.png","show_overlay":false,"overlay_opacity":50,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"MUST HAVE","content":"","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#26c1ce","button_text":"","button_link":"shopify:\/\/collections\/featured-collection"}}},"block_order":["1650627567611f2fab-0","1650627567611f2fab-1","1650627567611f2fab-2"],"disabled":true,"settings":{"expand_items":false,"section_size":"medium","stack_mobile":false}},"1650627394e28c2243":{"type":"custom_text-with-icons","blocks":{"16506273945a7338af-0":{"type":"item","settings":{"icon":"bi-delivery","custom_icon":"shopify:\/\/shop_images\/Shipping.png","title":"Fast free shipping*","content":"<p>*On most in stock items for USA orders.<\/p>"}},"16506273945a7338af-1":{"type":"item","settings":{"icon":"bi-returns","custom_icon":"shopify:\/\/shop_images\/Returns.png","title":"30 Days Returns*","content":"<p>*On most in stock items for USA orders.<\/p>"}},"16506273945a7338af-2":{"type":"item","settings":{"icon":"bi-customer-support","custom_icon":"shopify:\/\/shop_images\/Secure_Payments.png","title":"Secure Payment*","content":"<p>*On most in stock items for USA orders.<\/p>"}}},"block_order":["16506273945a7338af-0","16506273945a7338af-1","16506273945a7338af-2"],"disabled":true,"settings":{"stack_mobile":false,"title":"Why choose us"}},"recently-viewed-products":{"type":"recently-viewed-products","disabled":true,"settings":{"title":"Recently viewed","show_quick_buy":false}},"c175c6e0-d557-480c-8ba5-1443a9670d19":{"type":"accordion-tab2","blocks":{"9a94a2f0-db3d-4d85-ade9-fc3b8362ff6a":{"type":"feaures","settings":{"title":"Features"}},"5d72e470-00a7-4f81-a2ea-f0dca054d2f8":{"type":"specification","settings":{"title":"Specification"}},"c23ea137-c627-4180-b349-f608456af033":{"type":"downloads","settings":{"title":"Downloads"}},"8f46583b-4611-4c7f-a6af-44efaaa19b31":{"type":"video","settings":{"title":"Video","section-id":"shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"}},"29d1c919-1da0-497b-82ac-a44532ca48fd":{"type":"faq","disabled":true,"settings":{"title":"FAQ","section-id":"shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"}},"6814604b-6991-4cb1-9bf9-8e4d878c2f44":{"type":"static","settings":{"title":"Faq","section-id":"shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"}}},"block_order":["9a94a2f0-db3d-4d85-ade9-fc3b8362ff6a","5d72e470-00a7-4f81-a2ea-f0dca054d2f8","c23ea137-c627-4180-b349-f608456af033","8f46583b-4611-4c7f-a6af-44efaaa19b31","29d1c919-1da0-497b-82ac-a44532ca48fd","6814604b-6991-4cb1-9bf9-8e4d878c2f44"],"settings":{"title":""}},"3acf3b7d-451e-4a29-90ab-488fc5d406f9":{"type":"accordion-downloads","disabled":true,"settings":{}},"63baf964-4391-49c8-8684-83eeda216181":{"type":"feature-bullet-points","disabled":true,"settings":{}},"ba731d54-3048-46a8-879c-ceb926f1da3d":{"type":"product-manual-downloads","disabled":true,"settings":{}},"067e33fc-b471-498b-9aac-5d93bbadcb12":{"type":"video","settings":{"title":"Seamless LED Video Wall Installation","description":"<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!<\/p>","txt_center":true,"video_url":""}},"f8572bb3-e256-48d7-98a9-b3de46803d68":{"type":"d8-faq-custom-section","settings":{"sub_heading":"","headingS":"","sub_text":"","desc":"","title":"","faq_h-bg":"","faq-text-color":"#636363","border_color":"","border_radius":25,"faq_width_dsk":100,"faq_width_mob":100}},"96f87cd6-24fa-4d7c-878d-f9b13a68a597":{"type":"frequently-bought","disabled":true,"settings":{"my-product":"{{ product.metafields.custom.fbt.value }}","min-heading":"Frequently Bought Together","img1":"shopify:\/\/shop_images\/Rectangle_10_84b4dd63-b21b-4949-9cbc-37cab228c414.png","img1-title":"HDMI CABLES","img1-desc":"Brightlinks New Installer pack of 2ea 25ft Pro Series 4k High Speed HDMI Cable - 2.0. 26AWG","img1-price":"68.29","img2":"shopify:\/\/shop_images\/Rectangle_10_1_7512e648-febb-4484-b534-cd03399da278.png","img2-title":"HDMI MATRIX","img2-desc":"Brightlink New 4X2 HDMI Matrix - 1080P - 3D Support (Model # BL-4X2 )","img2-price":"68.29","img3":"shopify:\/\/shop_images\/Rectangle_10_2_071e10c7-9422-4bef-95ba-a7fab310a384.png","img3-title":"HDMI SPLITTERS","img3-desc":"HDMI 2.0 1x2 HDMI Splitter, HDCP2.2 Supports 3D, 4Kx2K@60Hz(YUV 4:4:4), 18G, HDR, EDID","img3-price":"45.06","atc-price":"89.00","img4":"shopify:\/\/shop_images\/Rectangle_2340.png","margin-top-d":0,"margin-bottom-d":125,"margin-top-m":50,"margin-bottom-m":50}},"fb1341ff-e3cb-49de-ae4a-4c436324bbdd":{"type":"custom-slider-pcr","settings":{"emptySpace":false,"bg_img":"{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}","slide1_title":"{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_title.value }}","wrapper-container-width":100,"slide1_image":"{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_image.value }}","slide1_description":"{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_description | metafield_tag }}","slide1_icon":"shopify:\/\/shop_images\/Group_53.svg","slide1_mobile":"shopify:\/\/shop_images\/Group_53.svg","slide2_title":"{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_title.value }}","slide2_image":"{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_image.value }}","slide2_description":"{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_description | metafield_tag }}","slide2_icon":"shopify:\/\/shop_images\/Group_39488_e0dc5ca3-49da-4f18-a09d-3aa533aef1ad.svg","slide2_mobile":"shopify:\/\/shop_images\/Group_39488_e0dc5ca3-49da-4f18-a09d-3aa533aef1ad.svg","slide3_title":"{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_title.value }}","slide3_image":"{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_image.value }}","slide3_description":"{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_description | metafield_tag }}","slide3_icon":"shopify:\/\/shop_images\/Group_39489_57f529f4-850b-40c9-af0f-137f2bef7fed.svg","slide3_mobile":"shopify:\/\/shop_images\/Group_39489_57f529f4-850b-40c9-af0f-137f2bef7fed.svg","slide4_title":"{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_title.value }}","slide4_image":"{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_image.value }}","slide4_description":"{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_description | metafield_tag }}","slide4_icon":"shopify:\/\/shop_images\/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg","slide4_mobile":"shopify:\/\/shop_images\/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg"}},"be5fcda4-e747-4686-bf2c-597f15159877":{"type":"text-with-image","settings":{"heading":"{{ product.metafields.custom.section_text_with_image.value.heading.value }}","text":"{{ product.metafields.custom.section_text_with_image.value.description | metafield_tag }}","image":"{{ product.metafields.custom.section_text_with_image.value.image.value }}","bg":"#f2f2f2","content_color":"#000000","margin-top-d":0,"margin-bottom-d":40,"margin-top-m":0,"margin-bottom-m":40}},"efcc3d0e-bb2e-4b38-9dc0-3c4d61415136":{"type":"product-cards","settings":{"product1":"{{ product.metafields.custom.section_product_cards.value.product_image_1.value }}","product1-title":"{{ product.metafields.custom.section_product_cards.value.product_title_1.value }}","product1-desc":"<p>{{ product.metafields.custom.section_product_cards.value.product_description_1 | metafield_tag }}<\/p>","product2":"{{ product.metafields.custom.section_product_cards.value.product_image_2.value }}","product2-title":"{{ product.metafields.custom.section_product_cards.value.product_title_2.value }}","product2-desc":"<p>{{ product.metafields.custom.section_product_cards.value.product_description_2 | metafield_tag }}<\/p>","product3":"{{ product.metafields.custom.section_product_cards.value.product_image_3.value }}","product3-title":"{{ product.metafields.custom.section_product_cards.value.product_title_3.value }}","product3-desc":"<p>{{ product.metafields.custom.section_product_cards.value.product_description_3 | metafield_tag }}<\/p>","margin-top-d":0,"margin-bottom-d":125,"margin-top-m":0,"margin-bottom-m":80}},"cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b":{"type":"comparison-table","disabled":true,"settings":{}},"8327b273-eeb3-49bf-b10e-565925283e64":{"type":"faq-heading","settings":{"faq-heading":"FAQ","faq-text":"Have questions? We’re here to help"}},"0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9":{"type":"faq-custom","blocks":{"cfd4e53c-606b-493d-a2a7-893cece3b7f7":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_1.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_1 | metafield_tag }}<\/p>"}},"daecb9c7-75e9-43b5-8df9-42770663d1d0":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_2.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_2 | metafield_tag }}<\/p>"}},"db3350f0-a0de-4e37-a957-fda9cbb9228e":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_3.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_3.value }}<\/p>"}},"2ebf0c65-60de-4576-9844-07710475349d":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_4.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_4 | metafield_tag }}<\/p>"}},"38306134-5ba1-41a8-bd98-9e38678aa67c":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_5.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_5 | metafield_tag }}<\/p>"}},"a6e48e91-8d22-4a1f-a9bf-4ad006415b71":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_6.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_6 | metafield_tag }}<\/p>"}},"c93abfdd-b07b-446f-afe9-ebd1c174c338":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_7.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_7 | metafield_tag }}<\/p>"}},"4d855157-58cf-4fe3-9152-2646636c61fb":{"type":"block","settings":{"title":"{{ product.metafields.custom.section_faq_custom.value.faq_question_8.value }}","faqstext":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_8 | metafield_tag }}<\/p>"}}},"block_order":["cfd4e53c-606b-493d-a2a7-893cece3b7f7","daecb9c7-75e9-43b5-8df9-42770663d1d0","db3350f0-a0de-4e37-a957-fda9cbb9228e","2ebf0c65-60de-4576-9844-07710475349d","38306134-5ba1-41a8-bd98-9e38678aa67c","a6e48e91-8d22-4a1f-a9bf-4ad006415b71","c93abfdd-b07b-446f-afe9-ebd1c174c338","4d855157-58cf-4fe3-9152-2646636c61fb"],"disabled":true,"settings":{"sub_heading":"","headingS":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_heading.value }}<\/p>","sub_text":"","desc":"<p>{{ product.metafields.custom.section_faq_custom.value.faq_description | metafield_tag }}<\/p>","title":"","faq_h-bg":"","faq-text-color":"","border_color":"","border_radius":25,"faq_width_dsk":60,"faq_width_mob":100}},"3e27d268-c437-4a2e-96e6-cc76a3f32a17":{"type":"faq","blocks":{"template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1":{"type":"separator","settings":{"title":"About Us"}},"template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1":{"type":"question","settings":{"title":"How long have you been in business?","answer":"<p>We have been in business since 2009<\/p>"}},"template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-2":{"type":"question","settings":{"title":"What makes you different from your competitors?","answer":"<p>We offer the best possible price and phone<br\/>support for all our products. We specialize in our field of AV and can help you<br\/>through the complicated process of picking the right products for your<br\/>installation.<\/p>"}},"template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-3":{"type":"question","settings":{"title":"From where do you operate?","answer":"<p>We are based out of Vancouver, Canada however our Warehouse is in Washington State with the majority of our customers being form the USA.<\/p>"}},"a309ac30-9ec2-4458-889e-9b90befc34f6":{"type":"question","settings":{"title":"Do you have a store front?","answer":"<p>No we are online based.<\/p>"}},"d0f47600-b986-4610-893f-67351059ff6c":{"type":"question","settings":{"title":"What is your legal business name?","answer":"<p>We are “Brightlink AV LTD”<\/p>"}},"99cb505d-5eb9-4c32-8956-bb7c3886b8c5":{"type":"separator","settings":{"title":"Support"}},"3db8fff2-fad6-4a49-a933-9b5cc8f3782d":{"type":"question","settings":{"title":"Do you offer support?","answer":"<p>Yes we offer phone and email support. 1-855-449-4733, ext 2. Email is support@brightlinkav.com<\/p>"}},"1f8719e5-d55a-4ad3-82fb-73e6b4c380bd":{"type":"question","settings":{"title":"What are you support hours?","answer":"<p>Our support are open Monday to Friday, 7am-5pm PST.<\/p>"}},"af481837-184c-4b9d-981e-ca8defaa24d2":{"type":"question","settings":{"title":"How long do email response take?","answer":"<p>During business hours support response should be no more then 1-2 hours. If you have not heard form us please call in or try email again.<\/p>"}},"dbedc86d-390c-4f3f-9bbf-4d3964de05b4":{"type":"question","settings":{"title":"Do you offer lifetime support?","answer":"<p>Yes even after your warranty is over we will offer you full support for the lifetime of your product<\/p>"}},"dea00b71-b735-4a4c-950e-3ed0f67ab53b":{"type":"separator","settings":{"title":"Returns"}},"3b5efae3-6e68-4971-93e3-209d72b06a21":{"type":"question","settings":{"title":"Do you accept returns\/exchanges?","answer":"<p>Returns are accepted up to 30 days after the purchase date for a full refund minus the original shipping cost. Returns are only accepted for Unopened Unused products. Open boxes or used \/ installed items are subject to a restocking fee of 10-30% depending on the condition of the item after inspection by our warehouse. Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to support@brightlinkav.com<\/p>"}},"e07db189-f696-4664-b0dd-d0a200d0a7ec":{"type":"separator","settings":{"title":"Shipping"}},"264c8238-8595-4753-9b97-5228d709a631":{"type":"question","settings":{"title":"To where do you ship?","answer":"<p>We ship to almost anywhere in the world.<\/p>"}},"1becc976-7122-4b8a-a9ab-789372c390c9":{"type":"question","settings":{"title":"How long does it take you to process an order before it is dispatched?","answer":"<p>Depending on the product it can take 1-7 business days to ship.<\/p>"}},"c29f1c20-7af8-406e-8125-b948ab29dbe9":{"type":"question","settings":{"title":"Where are your packages shipped from?","answer":"<p>Most items are shipped from Washington State, USA however some customer orders will ship directly from our Manufacture in Shenzhen, China.<\/p>"}},"0c70079f-cb27-462e-8cb8-8530703ce113":{"type":"question","settings":{"title":"Do you ship packages internationally?","answer":"<p>Yes. Please email support@brightlinkav.com to get shipping estimate if not on product page.<\/p>"}},"0601227c-90cd-4570-9f1c-4e2822153a01":{"type":"question","settings":{"title":"How do you price your shipping cost?","answer":"<p>Items are priced based on weight and level of service.<\/p>"}},"6fbc057b-2c5f-4248-a8cf-b630269cf089":{"type":"question","settings":{"title":"What shipping carrier do you use?","answer":"<p>We mostly USE Fedex or UPS for domestic USA orders, and DHL for international. For large orders that required skids we use Transgroup Trucking.<\/p>"}},"7fa76d91-407f-4e61-8656-8a4ee2bc9077":{"type":"question","settings":{"title":"What does “In-transit” mean? tracking?","answer":"<p>In-transit” means the carrier has picked up the goods and they are on route to you.<br\/>▪ What does “No Events Found” mean? Either your label is created but the carrier hasn’t picked up yet or you have received an incorrect tracking number and therefore it is not in their system. Please email support@brightlinkav.com to check your tracking number.<\/p>"}},"9d4a2ea4-e30f-476b-ba16-19faba2295ae":{"type":"separator","settings":{"title":"Payment Methods"}},"7114b4b1-a69e-40bb-b407-6775e44d2375":{"type":"question","settings":{"title":"What payment methods do you accept?","answer":"<p>We accept most major credit card directly through our website. We also accept PayPal, Bank Transfer, and Check. For Bank Transfer or Check you will need to email support@brightlinkav.com to request instructions. For all payment methods we require payment in full prior to shipping any goods.<\/p>"}},"7caea11b-79c7-438d-9a96-cc48bf39384e":{"type":"question","settings":{"title":"Do you any Credit or Terms?","answer":"<p>No we do not offer any Credit or terms. If you need credit or terms you can contact our distributor https:\/\/microage.com\/ - 480-366-2072 - jp@microage.com<\/p>"}},"eab21537-4412-4e29-94dd-9d50b7cf8b0b":{"type":"separator","settings":{"title":"Discounts \/ coupons?"}},"ed89530d-844e-4686-85dc-76dfb08a0cb8":{"type":"question","settings":{"title":"Do you offer any discounts or coupons?","answer":"<p>We do not currently have any coupons codes. We do offer discounts for larger orders and to our known installers and resellers. To see if you qualify for discounts please email sales@brightlinkav.com<\/p>"}},"0a43fd82-6145-4785-a04d-87782a5e776b":{"type":"separator","settings":{"title":"Distributors"}},"7b953808-534d-4aff-9d49-f24f20616f51":{"type":"question","settings":{"title":"Do have any distributors?","answer":"<p>Yes please contact https:\/\/microage.com\/ - 480-366-2072 - cjohnson@microage.com<\/p>"}},"b11407ce-5799-4bc4-9e0c-3ba3b829a62d":{"type":"question","settings":{"title":"Do you have a W9?","answer":"<p>No since we are a Canadian corporation we can provide you our W8 on request. Please email support@brightlinkav.com for this.<\/p>"}}},"block_order":["template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1","template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1","template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-2","template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-3","a309ac30-9ec2-4458-889e-9b90befc34f6","d0f47600-b986-4610-893f-67351059ff6c","99cb505d-5eb9-4c32-8956-bb7c3886b8c5","3db8fff2-fad6-4a49-a933-9b5cc8f3782d","1f8719e5-d55a-4ad3-82fb-73e6b4c380bd","af481837-184c-4b9d-981e-ca8defaa24d2","dbedc86d-390c-4f3f-9bbf-4d3964de05b4","dea00b71-b735-4a4c-950e-3ed0f67ab53b","3b5efae3-6e68-4971-93e3-209d72b06a21","e07db189-f696-4664-b0dd-d0a200d0a7ec","264c8238-8595-4753-9b97-5228d709a631","1becc976-7122-4b8a-a9ab-789372c390c9","c29f1c20-7af8-406e-8125-b948ab29dbe9","0c70079f-cb27-462e-8cb8-8530703ce113","0601227c-90cd-4570-9f1c-4e2822153a01","6fbc057b-2c5f-4248-a8cf-b630269cf089","7fa76d91-407f-4e61-8656-8a4ee2bc9077","9d4a2ea4-e30f-476b-ba16-19faba2295ae","7114b4b1-a69e-40bb-b407-6775e44d2375","7caea11b-79c7-438d-9a96-cc48bf39384e","eab21537-4412-4e29-94dd-9d50b7cf8b0b","ed89530d-844e-4686-85dc-76dfb08a0cb8","0a43fd82-6145-4785-a04d-87782a5e776b","7b953808-534d-4aff-9d49-f24f20616f51","b11407ce-5799-4bc4-9e0c-3ba3b829a62d"],"settings":{"show_contact_info":true,"contact_info_heading":"Any question?","contact_info_text":"<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.<\/p>","contact_1_icon":"bi-phone","contact_1_heading":"Customer support","contact_1_text":"<p><a href=\"tel:1-855-449-4733\" title=\"tel:1-855-449-4733\">1-855-449-4733<\/a><\/p>","contact_2_icon":"bi-email","contact_2_heading":"Send a message","contact_2_text":"<p><a href=\"mailto:support@brightlinkav.com\" title=\"mailto:support@brightlinkav.com\">support@brightlinkav.com<\/a><\/p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com<\/a><\/p>"}},"product-recommendations":{"type":"product-recommendations","blocks":{"af949d6a-729e-4beb-bb58-bb9282739a2d":{"type":"product","settings":{"product":""}}},"block_order":["af949d6a-729e-4beb-bb58-bb9282739a2d"],"disabled":true,"settings":{"heading":"You may also like","show_quick_buy":true}},"3a147c4c-5de7-45e5-916d-e0d7e58db13a":{"type":"you-may-also-like","blocks":{"5c403df1-058f-4817-aee9-4e058bafc1da":{"type":"product","settings":{"my-product":"{{ product.metafields.custom.section_you_may_also_like.value.product_1.value }}"}},"e2ba38aa-9243-4e3f-9e52-9094cb59c2fa":{"type":"product","settings":{"my-product":"{{ product.metafields.custom.section_you_may_also_like.value.product_2.value }}"}},"cc6878bc-87d4-4abf-83a8-9a17c1929b9d":{"type":"product","settings":{"my-product":"{{ product.metafields.custom.section_you_may_also_like.value.product_3.value }}"}},"6c54bc36-7e9d-4b07-8592-bb4178d798ea":{"type":"product","settings":{"my-product":"{{ product.metafields.custom.section_you_may_also_like.value.product_4.value }}"}}},"block_order":["5c403df1-058f-4817-aee9-4e058bafc1da","e2ba38aa-9243-4e3f-9e52-9094cb59c2fa","cc6878bc-87d4-4abf-83a8-9a17c1929b9d","6c54bc36-7e9d-4b07-8592-bb4178d798ea"],"settings":{"main-heading":"You may also like"}}},"order":["main","1651673745108066c9","16506275679eb630d5","1650627394e28c2243","recently-viewed-products","c175c6e0-d557-480c-8ba5-1443a9670d19","3acf3b7d-451e-4a29-90ab-488fc5d406f9","63baf964-4391-49c8-8684-83eeda216181","ba731d54-3048-46a8-879c-ceb926f1da3d","067e33fc-b471-498b-9aac-5d93bbadcb12","f8572bb3-e256-48d7-98a9-b3de46803d68","96f87cd6-24fa-4d7c-878d-f9b13a68a597","fb1341ff-e3cb-49de-ae4a-4c436324bbdd","be5fcda4-e747-4686-bf2c-597f15159877","efcc3d0e-bb2e-4b38-9dc0-3c4d61415136","cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b","8327b273-eeb3-49bf-b10e-565925283e64","0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9","3e27d268-c437-4a2e-96e6-cc76a3f32a17","product-recommendations","3a147c4c-5de7-45e5-916d-e0d7e58db13a"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "product_meta": {
+          "type": "product_meta",
+          "settings": {
+            "show_vendor": false,
+            "show_sku": false,
+            "show_reviews_badge": true,
+            "show_share_buttons": false
+          }
+        },
+        "variant_selector": {
+          "type": "variant_selector",
+          "settings": {
+            "show_sku": true,
+            "show_shipping_info": true,
+            "selector_mode": "dropdown",
+            "color_mode": "variant_image",
+            "show_quantity_selector": true,
+            "show_taxes_included": false,
+            "show_inventory_quantity": true,
+            "low_inventory_threshold": 53
+          }
+        },
+        "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "metafield",
+            "title-name-space": "",
+            "title": "{{ product.metafields.custom.block_product_information.value.accordian_product_information_title.value }}",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "<p>{{ product.metafields.custom.block_product_information.value.accordian_product_information_content | metafield_tag }}</p>",
+            "meta-content-image": "{{ product.metafields.custom.block_product_information.value.accordion_product_information_image.value }}",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "metafield",
+            "title-name-space": "",
+            "title": "{{ product.metafields.custom.block_product_information.value.second_accordian_title.value }}",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "{{ product.metafields.custom.block_product_information.value.second_accordian_content | metafield_tag }}",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "ed9fbd09-1abb-4ab4-a62f-931138cd6494": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "metafield",
+            "title-name-space": "",
+            "title": "{{ product.metafields.custom.block_product_information.value.third_accordion_title.value }}",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "{{ product.metafields.custom.block_product_information.value.third_accordion_content | metafield_tag }}",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "09949fdd-86ca-430b-8a35-54fe50f22c9c": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "metafield",
+            "title-name-space": "",
+            "title": "{{ product.metafields.custom.block_product_information.value.fourth_accordion_title.value }}",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "{{ product.metafields.custom.block_product_information.value.fourth_accordion_content | metafield_tag }}",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "download_accordion_WThxdX": {
+          "type": "download-accordion",
+          "settings": {
+            "title": "Downloads"
+          }
+        },
+        "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "metafield",
+            "title-name-space": "",
+            "title": "{{ product.metafields.custom.block_product_information.value.fifth_accordion_title.value }}",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "{{ product.metafields.custom.block_product_information.value.fifth_accordion_content | metafield_tag }}",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "fd62c6b7-26f4-4374-b874-a66dd71682ce": {
+          "type": "accordian",
+          "settings": {
+            "data-type": "customizer",
+            "title-name-space": "",
+            "title": "Shipping & Returns",
+            "title-font-size": 16,
+            "title-font-size-mobile": 14,
+            "show_product_desc": false,
+            "content-name-space": "",
+            "content": "<p>Some products have their own terms and conditions on the product page which you much accept before you can purchase. The general terms and conditions below do not apply if a products has an individual terms and conditions in place on it’s product age. If a product does not have an individual terms and conditions it will default to the following general terms and condition which is: “<strong>Returns are accepted up to 30 days</strong> after the purchase date for a full refund minus the original shipping cost.  <em><strong>Returns are only accepted for Unopened Unused products. </strong></em><em> </em>Open boxes or used / installed items are subject to a <em>restocking fee of 10-30%</em> dependding on the condition of the item after inpsection by our warehouse. </p><p>Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. </p><p>Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to <a href=\"mailto:support@brightlinkcables.com\" target=\"_blank\">support@brightlinkav.com</a></p>",
+            "content-font-size": 16,
+            "content-font-size-mobile": 14
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "show_purchase_btn": true
+          }
+        },
+        "59761649-86b3-44c5-800a-493acb77417c": {
+          "type": "custom-fbt",
+          "settings": {
+            "title": "Frequently Bought Together",
+            "products": "{{ product.metafields.custom.block_frequently_bought_together.value.product_list.value }}"
+          }
+        },
+        "d6ced4ca-4de2-4334-a445-3390c3abf8b1": {
+          "type": "purchase_buttons",
+          "disabled": true,
+          "settings": {
+            "show_purchase_btns": true,
+            "distributor_logo": "shopify://shop_images/Rectangle_2340_1.png",
+            "amazon_link": "https://www.google.com",
+            "distributor_logo2": "shopify://shop_images/Rectangle_2344.png",
+            "amazon_link2": "https://www.google.com"
+          }
+        },
+        "description": {
+          "type": "description",
+          "disabled": true,
+          "settings": {
+            "display_mode": "view_more",
+            "title": "",
+            "text": ""
+          }
+        },
+        "2c653889-de9a-4870-89e9-ec8bdfc610d7": {
+          "type": "shopify://apps/request-a-quote-hide-price-b2b/blocks/easy-quote-sealapps/414e3c56-ba13-45bb-9f54-87077e6b11d9",
+          "disabled": true,
+          "settings": {
+            "eq_quote_button_color": "#ffffff",
+            "eq_quote_button_color_hover": "#333333",
+            "eq_quote_button_background": "#1994f9",
+            "eq_quote_button_background_hover": "#ffffff",
+            "eq_quote_border_color": "#333333",
+            "eq_quote_border_color_hover": "#333333",
+            "eq_quote_border_width": 2,
+            "eq_quote_border_radius": 5,
+            "eq_quote_button_margin_top": 10,
+            "eq_quote_button_content": "Request for Quote",
+            "eq_quote_button_text_align": "left",
+            "eq_quote_font_size": 14,
+            "eq_quote_button_height": 44,
+            "eq_quote_button_width_customizable": true,
+            "eq_quote_button_width": 315,
+            "eq_quote_button_font_family": "inherit",
+            "eq_quote_button_font_weight": "inherit"
+          }
+        },
+        "04b69ffe-0002-411a-a1e0-6f4790447db6": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "title": "Shipping & Returns",
+            "content": "<p>Some products have their own terms and conditions on the product page which you much accept before you can purchase. The general terms and conditions below do not apply if a products has an individual terms and conditions in place on it’s product age. If a product does not have an individual terms and conditions it will default to the following general terms and condition which is: “<strong>Returns are accepted up to 30 days</strong> after the purchase date for a full refund minus the original shipping cost.  <em><strong>Returns are only accepted for Unopened Unused products. </strong></em><em> </em>Open boxes or used / installed items are subject to a <em>restocking fee of 10-30%</em> dependding on the condition of the item after inpsection by our warehouse. </p><p>Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. </p><p>Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to <a href=\"mailto:support@brightlinkcables.com\">support@brightlinkav.com</a></p>",
+            "page": "",
+            "display_mode": "show_all"
+          }
+        },
+        "97650900-1f05-4d17-be1a-a0767123954f": {
+          "type": "reviews",
+          "disabled": true,
+          "settings": {
+            "title": "Reviews"
+          }
+        },
+        "4402ac48-14de-4fd3-9ff6-caf849577038": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "title": "Support",
+            "content": "<p>Need to contact us? <a href=\"/pages/contact\" title=\"Contact\">Go here</a></p>",
+            "page": "",
+            "display_mode": "show_all"
+          }
+        }
+      },
+      "block_order": [
+        "product_meta",
+        "variant_selector",
+        "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
+        "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
+        "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
+        "09949fdd-86ca-430b-8a35-54fe50f22c9c",
+        "download_accordion_WThxdX",
+        "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737",
+        "fd62c6b7-26f4-4374-b874-a66dd71682ce",
+        "buy_buttons",
+        "59761649-86b3-44c5-800a-493acb77417c",
+        "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
+        "description",
+        "2c653889-de9a-4870-89e9-ec8bdfc610d7",
+        "04b69ffe-0002-411a-a1e0-6f4790447db6",
+        "97650900-1f05-4d17-be1a-a0767123954f",
+        "4402ac48-14de-4fd3-9ff6-caf849577038"
+      ],
+      "settings": {
+        "new-pdp-page": true,
+        "image_size": "small",
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "zoom_effect": "outside",
+        "carousel_effect": "slide"
+      }
+    },
+    "1651673745108066c9": {
+      "type": "custom-bundle",
+      "disabled": true,
+      "settings": {
+        "title": "",
+        "textarea": "{{ product.metafields.my_fields.bundle_embed_code.value }}"
+      }
+    },
+    "16506275679eb630d5": {
+      "type": "promotion-list",
+      "blocks": {
+        "1650627567611f2fab-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BL-EXT-IP-4KVW-TX-Back-angle_7.png",
+            "show_overlay": false,
+            "overlay_opacity": 35,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "NEW IN",
+            "content": "",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#6f42ef",
+            "button_text": "",
+            "button_link": "shopify://collections/new-in"
+          }
+        },
+        "1650627567611f2fab-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/32X32-FRONT-ANGLE_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "SALE",
+            "content": "",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#fc2a68",
+            "button_text": "",
+            "button_link": "shopify://collections/sale"
+          }
+        },
+        "1650627567611f2fab-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/49-img_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "MUST HAVE",
+            "content": "",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#26c1ce",
+            "button_text": "",
+            "button_link": "shopify://collections/featured-collection"
+          }
+        }
+      },
+      "block_order": [
+        "1650627567611f2fab-0",
+        "1650627567611f2fab-1",
+        "1650627567611f2fab-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "expand_items": false,
+        "section_size": "medium",
+        "stack_mobile": false
+      }
+    },
+    "1650627394e28c2243": {
+      "type": "custom_text-with-icons",
+      "blocks": {
+        "16506273945a7338af-0": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "custom_icon": "shopify://shop_images/Shipping.png",
+            "title": "Fast free shipping*",
+            "content": "<p>*On most in stock items for USA orders.</p>"
+          }
+        },
+        "16506273945a7338af-1": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "custom_icon": "shopify://shop_images/Returns.png",
+            "title": "30 Days Returns*",
+            "content": "<p>*On most in stock items for USA orders.</p>"
+          }
+        },
+        "16506273945a7338af-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "custom_icon": "shopify://shop_images/Secure_Payments.png",
+            "title": "Secure Payment*",
+            "content": "<p>*On most in stock items for USA orders.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16506273945a7338af-0",
+        "16506273945a7338af-1",
+        "16506273945a7338af-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "stack_mobile": false,
+        "title": "Why choose us"
+      }
+    },
+    "recently-viewed-products": {
+      "type": "recently-viewed-products",
+      "disabled": true,
+      "settings": {
+        "title": "Recently viewed",
+        "show_quick_buy": false
+      }
+    },
+    "c175c6e0-d557-480c-8ba5-1443a9670d19": {
+      "type": "accordion-tab2",
+      "blocks": {
+        "9a94a2f0-db3d-4d85-ade9-fc3b8362ff6a": {
+          "type": "feaures",
+          "settings": {
+            "title": "Features"
+          }
+        },
+        "5d72e470-00a7-4f81-a2ea-f0dca054d2f8": {
+          "type": "specification",
+          "settings": {
+            "title": "Specification"
+          }
+        },
+        "c23ea137-c627-4180-b349-f608456af033": {
+          "type": "downloads",
+          "settings": {
+            "title": "Downloads"
+          }
+        },
+        "8f46583b-4611-4c7f-a6af-44efaaa19b31": {
+          "type": "video",
+          "settings": {
+            "title": "Video",
+            "section-id": "shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"
+          }
+        },
+        "29d1c919-1da0-497b-82ac-a44532ca48fd": {
+          "type": "faq",
+          "disabled": true,
+          "settings": {
+            "title": "FAQ",
+            "section-id": "shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"
+          }
+        },
+        "6814604b-6991-4cb1-9bf9-8e4d878c2f44": {
+          "type": "static",
+          "settings": {
+            "title": "Faq",
+            "section-id": "shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
+          }
+        }
+      },
+      "block_order": [
+        "9a94a2f0-db3d-4d85-ade9-fc3b8362ff6a",
+        "5d72e470-00a7-4f81-a2ea-f0dca054d2f8",
+        "c23ea137-c627-4180-b349-f608456af033",
+        "8f46583b-4611-4c7f-a6af-44efaaa19b31",
+        "29d1c919-1da0-497b-82ac-a44532ca48fd",
+        "6814604b-6991-4cb1-9bf9-8e4d878c2f44"
+      ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "3acf3b7d-451e-4a29-90ab-488fc5d406f9": {
+      "type": "accordion-downloads",
+      "disabled": true,
+      "settings": {}
+    },
+    "63baf964-4391-49c8-8684-83eeda216181": {
+      "type": "feature-bullet-points",
+      "disabled": true,
+      "settings": {}
+    },
+    "ba731d54-3048-46a8-879c-ceb926f1da3d": {
+      "type": "product-manual-downloads",
+      "disabled": true,
+      "settings": {}
+    },
+    "067e33fc-b471-498b-9aac-5d93bbadcb12": {
+      "type": "video",
+      "settings": {
+        "title": "Seamless LED Video Wall Installation",
+        "description": "<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!</p>",
+        "txt_center": true,
+        "video_url": ""
+      }
+    },
+    "f8572bb3-e256-48d7-98a9-b3de46803d68": {
+      "type": "d8-faq-custom-section",
+      "settings": {
+        "sub_heading": "",
+        "headingS": "",
+        "sub_text": "",
+        "desc": "",
+        "title": "",
+        "faq_h-bg": "",
+        "faq-text-color": "#636363",
+        "border_color": "",
+        "border_radius": 25,
+        "faq_width_dsk": 100,
+        "faq_width_mob": 100
+      }
+    },
+    "96f87cd6-24fa-4d7c-878d-f9b13a68a597": {
+      "type": "frequently-bought",
+      "disabled": true,
+      "settings": {
+        "my-product": "{{ product.metafields.custom.fbt.value }}",
+        "min-heading": "Frequently Bought Together",
+        "img1": "shopify://shop_images/Rectangle_10_84b4dd63-b21b-4949-9cbc-37cab228c414.png",
+        "img1-title": "HDMI CABLES",
+        "img1-desc": "Brightlinks New Installer pack of 2ea 25ft Pro Series 4k High Speed HDMI Cable - 2.0. 26AWG",
+        "img1-price": "68.29",
+        "img2": "shopify://shop_images/Rectangle_10_1_7512e648-febb-4484-b534-cd03399da278.png",
+        "img2-title": "HDMI MATRIX",
+        "img2-desc": "Brightlink New 4X2 HDMI Matrix - 1080P - 3D Support (Model # BL-4X2 )",
+        "img2-price": "68.29",
+        "img3": "shopify://shop_images/Rectangle_10_2_071e10c7-9422-4bef-95ba-a7fab310a384.png",
+        "img3-title": "HDMI SPLITTERS",
+        "img3-desc": "HDMI 2.0 1x2 HDMI Splitter, HDCP2.2 Supports 3D, 4Kx2K@60Hz(YUV 4:4:4), 18G, HDR, EDID",
+        "img3-price": "45.06",
+        "atc-price": "89.00",
+        "img4": "shopify://shop_images/Rectangle_2340.png",
+        "margin-top-d": 0,
+        "margin-bottom-d": 125,
+        "margin-top-m": 50,
+        "margin-bottom-m": 50
+      }
+    },
+    "fb1341ff-e3cb-49de-ae4a-4c436324bbdd": {
+      "type": "custom-slider-pcr",
+      "settings": {
+        "emptySpace": false,
+        "bg_img": "{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}",
+        "slide1_title": "{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_title.value }}",
+        "wrapper-container-width": 100,
+        "slide1_image": "{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_image.value }}",
+        "slide1_description": "{{ product.metafields.custom.section_custom_slider_pcr.value.first_slide_description | metafield_tag }}",
+        "slide1_icon": "shopify://shop_images/Group_53.svg",
+        "slide1_mobile": "shopify://shop_images/Group_53.svg",
+        "slide2_title": "{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_title.value }}",
+        "slide2_image": "{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_image.value }}",
+        "slide2_description": "{{ product.metafields.custom.section_custom_slider_pcr.value.second_slide_description | metafield_tag }}",
+        "slide2_icon": "shopify://shop_images/Group_39488_e0dc5ca3-49da-4f18-a09d-3aa533aef1ad.svg",
+        "slide2_mobile": "shopify://shop_images/Group_39488_e0dc5ca3-49da-4f18-a09d-3aa533aef1ad.svg",
+        "slide3_title": "{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_title.value }}",
+        "slide3_image": "{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_image.value }}",
+        "slide3_description": "{{ product.metafields.custom.section_custom_slider_pcr.value.third_slide_description | metafield_tag }}",
+        "slide3_icon": "shopify://shop_images/Group_39489_57f529f4-850b-40c9-af0f-137f2bef7fed.svg",
+        "slide3_mobile": "shopify://shop_images/Group_39489_57f529f4-850b-40c9-af0f-137f2bef7fed.svg",
+        "slide4_title": "{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_title.value }}",
+        "slide4_image": "{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_image.value }}",
+        "slide4_description": "{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_description | metafield_tag }}",
+        "slide4_icon": "shopify://shop_images/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg",
+        "slide4_mobile": "shopify://shop_images/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg"
+      }
+    },
+    "be5fcda4-e747-4686-bf2c-597f15159877": {
+      "type": "text-with-image",
+      "settings": {
+        "heading": "{{ product.metafields.custom.section_text_with_image.value.heading.value }}",
+        "text": "{{ product.metafields.custom.section_text_with_image.value.description | metafield_tag }}",
+        "image": "{{ product.metafields.custom.section_text_with_image.value.image.value }}",
+        "bg": "#f2f2f2",
+        "content_color": "#000000",
+        "margin-top-d": 0,
+        "margin-bottom-d": 40,
+        "margin-top-m": 0,
+        "margin-bottom-m": 40
+      }
+    },
+    "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136": {
+      "type": "product-cards",
+      "settings": {
+        "product1": "{{ product.metafields.custom.section_product_cards.value.product_image_1.value }}",
+        "product1-title": "{{ product.metafields.custom.section_product_cards.value.product_title_1.value }}",
+        "product1-desc": "<p>{{ product.metafields.custom.section_product_cards.value.product_description_1 | metafield_tag }}</p>",
+        "product2": "{{ product.metafields.custom.section_product_cards.value.product_image_2.value }}",
+        "product2-title": "{{ product.metafields.custom.section_product_cards.value.product_title_2.value }}",
+        "product2-desc": "<p>{{ product.metafields.custom.section_product_cards.value.product_description_2 | metafield_tag }}</p>",
+        "product3": "{{ product.metafields.custom.section_product_cards.value.product_image_3.value }}",
+        "product3-title": "{{ product.metafields.custom.section_product_cards.value.product_title_3.value }}",
+        "product3-desc": "<p>{{ product.metafields.custom.section_product_cards.value.product_description_3 | metafield_tag }}</p>",
+        "margin-top-d": 0,
+        "margin-bottom-d": 125,
+        "margin-top-m": 0,
+        "margin-bottom-m": 80
+      }
+    },
+    "cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b": {
+      "type": "comparison-table",
+      "disabled": true,
+      "settings": {}
+    },
+    "8327b273-eeb3-49bf-b10e-565925283e64": {
+      "type": "faq-heading",
+      "settings": {
+        "faq-heading": "FAQ",
+        "faq-text": "Have questions? We’re here to help"
+      }
+    },
+    "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9": {
+      "type": "faq-custom",
+      "blocks": {
+        "cfd4e53c-606b-493d-a2a7-893cece3b7f7": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_1.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_1 | metafield_tag }}</p>"
+          }
+        },
+        "daecb9c7-75e9-43b5-8df9-42770663d1d0": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_2.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_2 | metafield_tag }}</p>"
+          }
+        },
+        "db3350f0-a0de-4e37-a957-fda9cbb9228e": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_3.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_3.value }}</p>"
+          }
+        },
+        "2ebf0c65-60de-4576-9844-07710475349d": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_4.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_4 | metafield_tag }}</p>"
+          }
+        },
+        "38306134-5ba1-41a8-bd98-9e38678aa67c": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_5.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_5 | metafield_tag }}</p>"
+          }
+        },
+        "a6e48e91-8d22-4a1f-a9bf-4ad006415b71": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_6.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_6 | metafield_tag }}</p>"
+          }
+        },
+        "c93abfdd-b07b-446f-afe9-ebd1c174c338": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_7.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_7 | metafield_tag }}</p>"
+          }
+        },
+        "4d855157-58cf-4fe3-9152-2646636c61fb": {
+          "type": "block",
+          "settings": {
+            "title": "{{ product.metafields.custom.section_faq_custom.value.faq_question_8.value }}",
+            "faqstext": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_answer_8 | metafield_tag }}</p>"
+          }
+        }
+      },
+      "block_order": [
+        "cfd4e53c-606b-493d-a2a7-893cece3b7f7",
+        "daecb9c7-75e9-43b5-8df9-42770663d1d0",
+        "db3350f0-a0de-4e37-a957-fda9cbb9228e",
+        "2ebf0c65-60de-4576-9844-07710475349d",
+        "38306134-5ba1-41a8-bd98-9e38678aa67c",
+        "a6e48e91-8d22-4a1f-a9bf-4ad006415b71",
+        "c93abfdd-b07b-446f-afe9-ebd1c174c338",
+        "4d855157-58cf-4fe3-9152-2646636c61fb"
+      ],
+      "disabled": true,
+      "settings": {
+        "sub_heading": "",
+        "headingS": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_heading.value }}</p>",
+        "sub_text": "",
+        "desc": "<p>{{ product.metafields.custom.section_faq_custom.value.faq_description | metafield_tag }}</p>",
+        "title": "",
+        "faq_h-bg": "",
+        "faq-text-color": "",
+        "border_color": "",
+        "border_radius": 25,
+        "faq_width_dsk": 60,
+        "faq_width_mob": 100
+      }
+    },
+    "3e27d268-c437-4a2e-96e6-cc76a3f32a17": {
+      "type": "faq",
+      "blocks": {
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1": {
+          "type": "separator",
+          "settings": {
+            "title": "About Us",
+            "icon_image": "shopify://shop_images/download_3.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1": {
+          "type": "question",
+          "settings": {
+            "title": "How long have you been in business?",
+            "answer": "<p>We have been in business since 2009</p>"
+          }
+        },
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-2": {
+          "type": "question",
+          "settings": {
+            "title": "What makes you different from your competitors?",
+            "answer": "<p>We offer the best possible price and phone<br/>support for all our products. We specialize in our field of AV and can help you<br/>through the complicated process of picking the right products for your<br/>installation.</p>"
+          }
+        },
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-3": {
+          "type": "question",
+          "settings": {
+            "title": "From where do you operate?",
+            "answer": "<p>We are based out of Vancouver, Canada however our Warehouse is in Washington State with the majority of our customers being form the USA.</p>"
+          }
+        },
+        "a309ac30-9ec2-4458-889e-9b90befc34f6": {
+          "type": "question",
+          "settings": {
+            "title": "Do you have a store front?",
+            "answer": "<p>No we are online based.</p>"
+          }
+        },
+        "d0f47600-b986-4610-893f-67351059ff6c": {
+          "type": "question",
+          "settings": {
+            "title": "What is your legal business name?",
+            "answer": "<p>We are “Brightlink AV LTD”</p>"
+          }
+        },
+        "99cb505d-5eb9-4c32-8956-bb7c3886b8c5": {
+          "type": "separator",
+          "settings": {
+            "title": "Support",
+            "icon_image": "shopify://shop_images/download_4.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "3db8fff2-fad6-4a49-a933-9b5cc8f3782d": {
+          "type": "question",
+          "settings": {
+            "title": "Do you offer support?",
+            "answer": "<p>Yes we offer phone and email support. 1-855-449-4733, ext 2. Email is support@brightlinkav.com</p>"
+          }
+        },
+        "1f8719e5-d55a-4ad3-82fb-73e6b4c380bd": {
+          "type": "question",
+          "settings": {
+            "title": "What are you support hours?",
+            "answer": "<p>Our support are open Monday to Friday, 7am-5pm PST.</p>"
+          }
+        },
+        "af481837-184c-4b9d-981e-ca8defaa24d2": {
+          "type": "question",
+          "settings": {
+            "title": "How long do email response take?",
+            "answer": "<p>During business hours support response should be no more then 1-2 hours. If you have not heard form us please call in or try email again.</p>"
+          }
+        },
+        "dbedc86d-390c-4f3f-9bbf-4d3964de05b4": {
+          "type": "question",
+          "settings": {
+            "title": "Do you offer lifetime support?",
+            "answer": "<p>Yes even after your warranty is over we will offer you full support for the lifetime of your product</p>"
+          }
+        },
+        "dea00b71-b735-4a4c-950e-3ed0f67ab53b": {
+          "type": "separator",
+          "settings": {
+            "title": "Returns",
+            "icon_image": "shopify://shop_images/download_5.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "3b5efae3-6e68-4971-93e3-209d72b06a21": {
+          "type": "question",
+          "settings": {
+            "title": "Do you accept returns/exchanges?",
+            "answer": "<p>Returns are accepted up to 30 days after the purchase date for a full refund minus the original shipping cost. Returns are only accepted for Unopened Unused products. Open boxes or used / installed items are subject to a restocking fee of 10-30% depending on the condition of the item after inspection by our warehouse. Customers returning items are responsible for the return shipping cost to a selected warehouse in the USA. Returns are not accepts without a RMA#. Please allow 1-2 weeks for refunds to be processed after the return product is received. To request a return please send an email with your order number and a reason for return to support@brightlinkav.com</p>"
+          }
+        },
+        "e07db189-f696-4664-b0dd-d0a200d0a7ec": {
+          "type": "separator",
+          "settings": {
+            "title": "Shipping",
+            "icon_image": "shopify://shop_images/download_6.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "264c8238-8595-4753-9b97-5228d709a631": {
+          "type": "question",
+          "settings": {
+            "title": "To where do you ship?",
+            "answer": "<p>We ship to almost anywhere in the world.</p>"
+          }
+        },
+        "1becc976-7122-4b8a-a9ab-789372c390c9": {
+          "type": "question",
+          "settings": {
+            "title": "How long does it take you to process an order before it is dispatched?",
+            "answer": "<p>Depending on the product it can take 1-7 business days to ship.</p>"
+          }
+        },
+        "c29f1c20-7af8-406e-8125-b948ab29dbe9": {
+          "type": "question",
+          "settings": {
+            "title": "Where are your packages shipped from?",
+            "answer": "<p>Most items are shipped from Washington State, USA however some customer orders will ship directly from our Manufacture in Shenzhen, China.</p>"
+          }
+        },
+        "0c70079f-cb27-462e-8cb8-8530703ce113": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship packages internationally?",
+            "answer": "<p>Yes. Please email support@brightlinkav.com to get shipping estimate if not on product page.</p>"
+          }
+        },
+        "0601227c-90cd-4570-9f1c-4e2822153a01": {
+          "type": "question",
+          "settings": {
+            "title": "How do you price your shipping cost?",
+            "answer": "<p>Items are priced based on weight and level of service.</p>"
+          }
+        },
+        "6fbc057b-2c5f-4248-a8cf-b630269cf089": {
+          "type": "question",
+          "settings": {
+            "title": "What shipping carrier do you use?",
+            "answer": "<p>We mostly USE Fedex or UPS for domestic USA orders, and DHL for international. For large orders that required skids we use Transgroup Trucking.</p>"
+          }
+        },
+        "7fa76d91-407f-4e61-8656-8a4ee2bc9077": {
+          "type": "question",
+          "settings": {
+            "title": "What does “In-transit” mean? tracking?",
+            "answer": "<p>In-transit” means the carrier has picked up the goods and they are on route to you.<br/>▪ What does “No Events Found” mean? Either your label is created but the carrier hasn’t picked up yet or you have received an incorrect tracking number and therefore it is not in their system. Please email support@brightlinkav.com to check your tracking number.</p>"
+          }
+        },
+        "9d4a2ea4-e30f-476b-ba16-19faba2295ae": {
+          "type": "separator",
+          "settings": {
+            "title": "Payment Methods",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "7114b4b1-a69e-40bb-b407-6775e44d2375": {
+          "type": "question",
+          "settings": {
+            "title": "What payment methods do you accept?",
+            "answer": "<p>We accept most major credit card directly through our website. We also accept PayPal, Bank Transfer, and Check. For Bank Transfer or Check you will need to email support@brightlinkav.com to request instructions. For all payment methods we require payment in full prior to shipping any goods.</p>"
+          }
+        },
+        "7caea11b-79c7-438d-9a96-cc48bf39384e": {
+          "type": "question",
+          "settings": {
+            "title": "Do you any Credit or Terms?",
+            "answer": "<p>No we do not offer any Credit or terms. If you need credit or terms you can contact our distributor https://microage.com/ - 480-366-2072 - jp@microage.com</p>"
+          }
+        },
+        "eab21537-4412-4e29-94dd-9d50b7cf8b0b": {
+          "type": "separator",
+          "settings": {
+            "title": "Discounts / coupons?",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "ed89530d-844e-4686-85dc-76dfb08a0cb8": {
+          "type": "question",
+          "settings": {
+            "title": "Do you offer any discounts or coupons?",
+            "answer": "<p>We do not currently have any coupons codes. We do offer discounts for larger orders and to our known installers and resellers. To see if you qualify for discounts please email sales@brightlinkav.com</p>"
+          }
+        },
+        "0a43fd82-6145-4785-a04d-87782a5e776b": {
+          "type": "separator",
+          "settings": {
+            "title": "Distributors",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
+          }
+        },
+        "7b953808-534d-4aff-9d49-f24f20616f51": {
+          "type": "question",
+          "settings": {
+            "title": "Do have any distributors?",
+            "answer": "<p>Yes please contact https://microage.com/ - 480-366-2072 - cjohnson@microage.com</p>"
+          }
+        },
+        "b11407ce-5799-4bc4-9e0c-3ba3b829a62d": {
+          "type": "question",
+          "settings": {
+            "title": "Do you have a W9?",
+            "answer": "<p>No since we are a Canadian corporation we can provide you our W8 on request. Please email support@brightlinkav.com for this.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1",
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1",
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-2",
+        "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-3",
+        "a309ac30-9ec2-4458-889e-9b90befc34f6",
+        "d0f47600-b986-4610-893f-67351059ff6c",
+        "99cb505d-5eb9-4c32-8956-bb7c3886b8c5",
+        "3db8fff2-fad6-4a49-a933-9b5cc8f3782d",
+        "1f8719e5-d55a-4ad3-82fb-73e6b4c380bd",
+        "af481837-184c-4b9d-981e-ca8defaa24d2",
+        "dbedc86d-390c-4f3f-9bbf-4d3964de05b4",
+        "dea00b71-b735-4a4c-950e-3ed0f67ab53b",
+        "3b5efae3-6e68-4971-93e3-209d72b06a21",
+        "e07db189-f696-4664-b0dd-d0a200d0a7ec",
+        "264c8238-8595-4753-9b97-5228d709a631",
+        "1becc976-7122-4b8a-a9ab-789372c390c9",
+        "c29f1c20-7af8-406e-8125-b948ab29dbe9",
+        "0c70079f-cb27-462e-8cb8-8530703ce113",
+        "0601227c-90cd-4570-9f1c-4e2822153a01",
+        "6fbc057b-2c5f-4248-a8cf-b630269cf089",
+        "7fa76d91-407f-4e61-8656-8a4ee2bc9077",
+        "9d4a2ea4-e30f-476b-ba16-19faba2295ae",
+        "7114b4b1-a69e-40bb-b407-6775e44d2375",
+        "7caea11b-79c7-438d-9a96-cc48bf39384e",
+        "eab21537-4412-4e29-94dd-9d50b7cf8b0b",
+        "ed89530d-844e-4686-85dc-76dfb08a0cb8",
+        "0a43fd82-6145-4785-a04d-87782a5e776b",
+        "7b953808-534d-4aff-9d49-f24f20616f51",
+        "b11407ce-5799-4bc4-9e0c-3ba3b829a62d"
+      ],
+      "settings": {
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum",
+        "show_contact_info": true,
+        "contact_info_heading": "Any question?",
+        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
+        "contact_1_icon": "bi-phone",
+        "contact_1_heading": "Customer support",
+        "contact_1_text": "<p><a href=\"tel:1-855-449-4733\" title=\"tel:1-855-449-4733\">1-855-449-4733</a></p>",
+        "contact_2_icon": "bi-email",
+        "contact_2_heading": "Send a message",
+        "contact_2_text": "<p><a href=\"mailto:support@brightlinkav.com\" title=\"mailto:support@brightlinkav.com\">support@brightlinkav.com</a></p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "blocks": {
+        "af949d6a-729e-4beb-bb58-bb9282739a2d": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "af949d6a-729e-4beb-bb58-bb9282739a2d"
+      ],
+      "disabled": true,
+      "settings": {
+        "heading": "You may also like",
+        "show_quick_buy": true
+      }
+    },
+    "3a147c4c-5de7-45e5-916d-e0d7e58db13a": {
+      "type": "you-may-also-like",
+      "blocks": {
+        "5c403df1-058f-4817-aee9-4e058bafc1da": {
+          "type": "product",
+          "settings": {
+            "my-product": "{{ product.metafields.custom.section_you_may_also_like.value.product_1.value }}"
+          }
+        },
+        "e2ba38aa-9243-4e3f-9e52-9094cb59c2fa": {
+          "type": "product",
+          "settings": {
+            "my-product": "{{ product.metafields.custom.section_you_may_also_like.value.product_2.value }}"
+          }
+        },
+        "cc6878bc-87d4-4abf-83a8-9a17c1929b9d": {
+          "type": "product",
+          "settings": {
+            "my-product": "{{ product.metafields.custom.section_you_may_also_like.value.product_3.value }}"
+          }
+        },
+        "6c54bc36-7e9d-4b07-8592-bb4178d798ea": {
+          "type": "product",
+          "settings": {
+            "my-product": "{{ product.metafields.custom.section_you_may_also_like.value.product_4.value }}"
+          }
+        }
+      },
+      "block_order": [
+        "5c403df1-058f-4817-aee9-4e058bafc1da",
+        "e2ba38aa-9243-4e3f-9e52-9094cb59c2fa",
+        "cc6878bc-87d4-4abf-83a8-9a17c1929b9d",
+        "6c54bc36-7e9d-4b07-8592-bb4178d798ea"
+      ],
+      "settings": {
+        "main-heading": "You may also like"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1651673745108066c9",
+    "16506275679eb630d5",
+    "1650627394e28c2243",
+    "recently-viewed-products",
+    "c175c6e0-d557-480c-8ba5-1443a9670d19",
+    "3acf3b7d-451e-4a29-90ab-488fc5d406f9",
+    "63baf964-4391-49c8-8684-83eeda216181",
+    "ba731d54-3048-46a8-879c-ceb926f1da3d",
+    "067e33fc-b471-498b-9aac-5d93bbadcb12",
+    "f8572bb3-e256-48d7-98a9-b3de46803d68",
+    "96f87cd6-24fa-4d7c-878d-f9b13a68a597",
+    "fb1341ff-e3cb-49de-ae4a-4c436324bbdd",
+    "be5fcda4-e747-4686-bf2c-597f15159877",
+    "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136",
+    "cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b",
+    "8327b273-eeb3-49bf-b10e-565925283e64",
+    "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9",
+    "3e27d268-c437-4a2e-96e6-cc76a3f32a17",
+    "product-recommendations",
+    "3a147c4c-5de7-45e5-916d-e0d7e58db13a"
+  ]
+}
