@@ -239,23 +239,23 @@
 /* Feature Boxes */
 .hero-video-wall__features {
   display: flex;
-  justify-content: center;
-  gap: 16px;
-  margin-top: auto;
-  width: 100%;
+  width: 872px;
+  align-items: center;
+  gap: 32px;
+  margin-top: 60px;
 }
 
 .hero-video-wall__feature-box {
   display: flex;
+  height: 118px;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px 32px;
-  background-color: rgba(10, 15, 25, 0.7);
+  align-items: center;
+  gap: 8px;
+  flex: 1 0 0;
   border-radius: 12px;
-  min-width: 130px;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 0.805px solid rgba(10, 132, 255, 0.10);
+  background: rgba(10, 14, 26, 0.70);
 }
 
 .hero-video-wall__feature-value {
@@ -264,7 +264,7 @@
   font-weight: 700;
   color: #ffffff;
   line-height: 1.2;
-  margin-bottom: 4px;
+  margin: 0;
 }
 
 .hero-video-wall__feature-label {
