@@ -464,97 +464,111 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Smooth slide animation helper
-    function slideDown(element, duration = 400) {
-      element.style.display = 'block';
-      element.style.overflow = 'hidden';
-      element.style.maxHeight = '0';
-      element.style.opacity = '0';
-
-      const height = element.scrollHeight;
-      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
-
-      requestAnimationFrame(() => {
-        element.style.maxHeight = height + 'px';
-        element.style.opacity = '1';
+    console.log('FAQ script loaded');
+    
+    // Simple toggle function without animations
+    function toggleQuestion(button) {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const answerId = button.getAttribute('aria-controls');
+      const answerWrapper = document.getElementById(answerId);
+      
+      console.log('Toggle question clicked:', {
+        button: button,
+        expanded: expanded,
+        answerId: answerId,
+        answerWrapper: answerWrapper,
+        answerWrapperExists: !!answerWrapper,
+        currentDisplay: answerWrapper ? answerWrapper.style.display : 'none'
       });
-
-      setTimeout(() => {
-        element.style.maxHeight = 'none';
-        element.style.overflow = '';
-        element.style.transition = '';
-      }, duration);
+      
+      if (!answerWrapper) {
+        console.error('Answer wrapper not found for ID:', answerId);
+        return;
+      }
+      
+      if (expanded) {
+        // Close the answer
+        button.setAttribute('aria-expanded', 'false');
+        answerWrapper.style.display = 'none';
+        console.log('Answer closed');
+      } else {
+        // Open the answer
+        button.setAttribute('aria-expanded', 'true');
+        answerWrapper.style.display = 'block';
+        console.log('Answer opened');
+      }
+    }
+    
+    // Simple toggle for groups
+    function toggleGroup(button) {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      const groupId = button.getAttribute('aria-controls');
+      const groupContent = document.getElementById(groupId);
+      
+      console.log('Toggle group clicked:', {
+        button: button,
+        expanded: expanded,
+        groupId: groupId,
+        groupContent: groupContent,
+        groupContentExists: !!groupContent
+      });
+      
+      if (!groupContent) {
+        console.error('Group content not found for ID:', groupId);
+        return;
+      }
+      
+      if (expanded) {
+        // Close the group
+        button.setAttribute('aria-expanded', 'false');
+        groupContent.style.display = 'none';
+        
+        // Also close all questions inside this group
+        groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
+          const answerId = questionButton.getAttribute('aria-controls');
+          const answerWrapper = document.getElementById(answerId);
+          if (answerWrapper) {
+            questionButton.setAttribute('aria-expanded', 'false');
+            answerWrapper.style.display = 'none';
+          }
+        });
+        console.log('Group closed');
+      } else {
+        // Open the group
+        button.setAttribute('aria-expanded', 'true');
+        groupContent.style.display = 'block';
+        console.log('Group opened');
+      }
     }
 
-    function slideUp(element, duration = 400) {
-      element.style.overflow = 'hidden';
-      element.style.maxHeight = element.scrollHeight + 'px';
-      element.style.opacity = '1';
-      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
-
-      requestAnimationFrame(() => {
-        element.style.maxHeight = '0';
-        element.style.opacity = '0';
-      });
-
-      setTimeout(() => {
-        element.style.display = 'none';
-        element.style.maxHeight = '';
-        element.style.overflow = '';
-        element.style.opacity = '';
-        element.style.transition = '';
-      }, duration);
-    }
-
-    // Toggle group (section separator) functionality
+    // Set up group toggle listeners
     document.querySelectorAll('[data-action="toggle-group"]').forEach((button) => {
-      button.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        const groupId = this.getAttribute('aria-controls');
-        const groupContent = document.getElementById(groupId);
-
-        if (expanded) {
-          this.setAttribute('aria-expanded', 'false');
-
-          // Close all questions within this group first
-          groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
-            const answerId = questionButton.getAttribute('aria-controls');
-            const answerWrapper = document.getElementById(answerId);
-            if (answerWrapper && answerWrapper.style.display !== 'none') {
-              questionButton.setAttribute('aria-expanded', 'false');
-              answerWrapper.style.display = 'none';
-            }
-          });
-
-          // Then close the group
-          slideUp(groupContent, 350);
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          slideDown(groupContent, 400);
-        }
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        toggleGroup(this);
       });
     });
 
-    // Toggle question functionality
+    // Set up question toggle listeners
     document.querySelectorAll('[data-action="toggle-collapsible"]').forEach((button) => {
-      button.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        const answerId = this.getAttribute('aria-controls');
-        const answerWrapper = document.getElementById(answerId);
-
-        if (expanded) {
-          this.setAttribute('aria-expanded', 'false');
-          if (answerWrapper) {
-            slideUp(answerWrapper, 300);
-          }
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          if (answerWrapper) {
-            slideDown(answerWrapper, 350);
-          }
-        }
+      button.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        toggleQuestion(this);
       });
     });
+    
+    // Log initial state
+    console.log('Found groups:', document.querySelectorAll('[data-action="toggle-group"]').length);
+    console.log('Found questions:', document.querySelectorAll('[data-action="toggle-collapsible"]').length);
+    console.log('Found answer wrappers:', document.querySelectorAll('.faq__answer-wrapper').length);
+    
+    // Check one answer wrapper to see its content
+    const firstAnswer = document.querySelector('.faq__answer-wrapper');
+    if (firstAnswer) {
+      console.log('First answer wrapper HTML:', firstAnswer.innerHTML);
+    }
   });
 </script>
 
