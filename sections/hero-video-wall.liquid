@@ -28,29 +28,31 @@
 
   <!-- Content -->
   <div class="hero-video-wall__content">
-    <!-- Series Label -->
-    {% if series_label != blank %}
-      <p class="hero-video-wall__series-label">{{ series_label }}</p>
-    {% endif %}
+    <!-- Top Frame: Text Content -->
+    <div class="hero-video-wall__text-frame">
+      <!-- Series Label -->
+      {% if series_label != blank %}
+        <p class="hero-video-wall__series-label">{{ series_label }}</p>
+      {% endif %}
 
-    <!-- Main Heading (use product title) -->
-    {% if section.settings.main_heading != blank %}
-      <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
-    {% elsif product.title != blank %}
-      <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
-    {% endif %}
+      <!-- Main Heading (use product title) -->
+      {% if section.settings.main_heading != blank %}
+        <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+      {% elsif product.title != blank %}
+        <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
+      {% endif %}
 
-    <!-- Subheading/Tagline -->
-    {% if tagline != blank %}
-      <p class="hero-video-wall__subheading">{{ tagline }}</p>
-    {% endif %}
+      <!-- Subheading/Tagline -->
+      {% if tagline != blank %}
+        <p class="hero-video-wall__subheading">{{ tagline }}</p>
+      {% endif %}
 
-    <!-- Description -->
-    {% if description != blank %}
-      <p class="hero-video-wall__description">{{ description }}</p>
-    {% endif %}
+      <!-- Description -->
+      {% if description != blank %}
+        <p class="hero-video-wall__description">{{ description }}</p>
+      {% endif %}
 
-    <!-- Price & CTA Section -->
+      <!-- Price & CTA Section -->
     <div class="hero-video-wall__cta-wrapper">
       <!-- Price Badge -->
       {% if section.settings.price_text != blank %}
@@ -82,6 +84,7 @@
           {{ section.settings.shipping_text }}
         </div>
       {% endif %}
+    </div>
     </div>
 
     <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->

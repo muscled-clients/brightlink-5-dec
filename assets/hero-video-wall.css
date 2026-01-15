@@ -4,7 +4,7 @@
   position: relative;
   max-width: 1440px;
   min-height: 700px;
-  margin: 0 auto;
+  margin: 0 auto 120px auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -48,12 +48,25 @@
   position: relative;
   z-index: 2;
   display: flex;
-  max-width: 900px;
+  width: 1145px;
+  max-width: 100%;
+  height: 646px;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  padding: 80px 20px 40px;
+  padding: 81.5px 147px 82.5px 148px;
   text-align: center;
+  box-sizing: border-box;
+}
+
+/* Top Text Frame */
+.hero-video-wall__text-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  align-self: stretch;
+  width: 100%;
 }
 
 /* Series Label */
@@ -72,7 +85,7 @@
   text-transform: uppercase;
   text-align: center;
   color: #D4AF37;
-  margin-bottom: 16px;
+  margin: 0;
 }
 
 /* Main Heading */
@@ -83,7 +96,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: 1.1;
-  margin: 0 0 12px 0;
+  margin: 0;
 }
 
 /* Subheading */
@@ -93,7 +106,7 @@
   font-weight: 400;
   font-style: italic;
   color: rgba(255, 255, 255, 0.95);
-  margin: 0 0 12px 0;
+  margin: 0;
   line-height: 1.4;
 }
 
@@ -114,8 +127,7 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-top: 48px;
-  margin-bottom: 60px;
+  margin: 0;
 }
 
 /* Price Text */
