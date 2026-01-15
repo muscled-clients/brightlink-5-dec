@@ -833,6 +833,7 @@
           "type": "separator",
           "settings": {
             "title": "Payment Methods",
+            "icon_image": "shopify://shop_images/download_7.png",
             "icon_color": "#ffd700",
             "icon_width": 24,
             "icon_height": 24,
@@ -860,6 +861,7 @@
           "type": "separator",
           "settings": {
             "title": "Discounts / coupons?",
+            "icon_image": "shopify://shop_images/download_8.png",
             "icon_color": "#ffd700",
             "icon_width": 24,
             "icon_height": 24,
@@ -880,6 +882,7 @@
           "type": "separator",
           "settings": {
             "title": "Distributors",
+            "icon_image": "shopify://shop_images/download_9.png",
             "icon_color": "#ffd700",
             "icon_width": 24,
             "icon_height": 24,
