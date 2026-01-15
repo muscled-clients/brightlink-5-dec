@@ -102,6 +102,9 @@
   line-height: 96px;
   margin: 0;
   margin-top: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Subheading */
