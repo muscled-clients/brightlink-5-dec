@@ -1,4 +1,4 @@
-<div class="container container--flush container--narrow">
+<div class="container container--flush container--narrow faq-dev-02-container">
   {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
   {% assign faq_subtitle = faq_data.subtitle | default: section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' %}
 
@@ -54,7 +54,7 @@
 {%- endif -%}
         
         {%- if block.type == 'question' -%}
-          <div class="faq__item " itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+          <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
             <div class="faq__item-wrapper">
               <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">
                 <span class="faq__question-text">{{ block.settings.title | escape }}</span>
