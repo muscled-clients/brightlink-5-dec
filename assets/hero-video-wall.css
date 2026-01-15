@@ -49,11 +49,11 @@
   z-index: 2;
   display: flex;
   width: 1145px;
-  max-width: 100%;
+  max-width: calc(100% - 295px);
   height: 646px;
   flex-direction: column;
   align-items: center;
-  margin: 81.5px 148px 82.5px 148px;
+  margin: 81.5px 148px 82.5px 147px;
   padding: 0;
   text-align: center;
   box-sizing: border-box;
