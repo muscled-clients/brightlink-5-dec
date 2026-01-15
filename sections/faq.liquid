@@ -1,71 +1,120 @@
 <div class="container container--flush container--narrow faq-dev-02-container">
   {% assign faq_title = faq_data.title | default: section.settings.title | default: 'Knowledge Center' %}
-  {% assign faq_subtitle = faq_data.subtitle | default: section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' %}
+  {% assign faq_subtitle = faq_data.subtitle
+    | default: section.settings.subtitle
+    | default: 'Everything you need to know about Pro Spectrum'
+  %}
 
   <div class="knowledge-center__header">
-    <span class="knowledge-center__label" style="color: #FFD700;">{{ section.settings.label | default: 'KNOWLEDGE CENTER' }}</span>
+    <span class="knowledge-center__label" style="color: #FFD700;">
+      {{- section.settings.label | default: 'KNOWLEDGE CENTER' -}}
+    </span>
     <h2 class="knowledge-center__title">{{ faq_title }}</h2>
     <p class="knowledge-center__subtitle">{{ faq_subtitle }}</p>
   </div>
-  
+
   <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <div class="faq__group-list">
       {%- for block in section.blocks -%}
         {%- if block.type == 'separator' -%}
-  {%- unless forloop.first -%}
-    </div> <!-- Close previous group -->
-  {%- endunless -%}
-  
-  {%- assign group_id = 'group-' | append: block.id -%}
-  <div class="faq__group" data-group-id="{{ group_id }}">
-    <div class="faq__group-header" {{ block.shopify_attributes }}>
-      <button class="faq__group-title-wrapper" data-action="toggle-group" aria-expanded="false" aria-controls="{{ group_id }}">
-        <div class="faq__group-title heading h2" id="block-{{ block.id }}">
-          {%- if block.settings.icon_image -%}
-            <span class="faq__group-icon" style="
-              {% if block.settings.icon_width %}width: {{ block.settings.icon_width }}px;{% endif %}
-              {% if block.settings.icon_height %}height: {{ block.settings.icon_height }}px;{% endif %}
-              {% if block.settings.icon_color %}color: {{ block.settings.icon_color }};{% endif %}
-              {% if block.settings.icon_margin_top %}margin-top: {{ block.settings.icon_margin_top }}px;{% endif %}
-              {% if block.settings.icon_margin_right %}margin-right: {{ block.settings.icon_margin_right }}px;{% endif %}
-              {% if block.settings.icon_margin_bottom %}margin-bottom: {{ block.settings.icon_margin_bottom }}px;{% endif %}
-              {% if block.settings.icon_margin_left %}margin-left: {{ block.settings.icon_margin_left }}px;{% endif %}
-            ">
-              <img src="{{ block.settings.icon_image | img_url: '200x' }}" 
-                   alt="{{ block.settings.title | escape }}"
-                   style="width: 100%; height: 100%; object-fit: contain;">
-            </span>
-          {%- endif -%}
-          
-          <span class="faq__group-title-text">
-            {{- block.settings.title | escape -}}
-          </span>
-          
-          <span class="faq__group-arrow-icon">
-            <svg class="group-arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </div>
-      </button>
-    </div>
-    
-    <div id="{{ group_id }}" class="faq__group-content" style="display: none;">
-{%- endif -%}
-        
+          {%- unless forloop.first -%}
+            </div>
+            <!-- Close previous group -->
+          {%- endunless -%}
+
+          {%- assign group_id = 'group-' | append: block.id -%}
+          <div class="faq__group" data-group-id="{{ group_id }}">
+            <div class="faq__group-header" {{ block.shopify_attributes }}>
+              <button
+                class="faq__group-title-wrapper"
+                data-action="toggle-group"
+                aria-expanded="false"
+                aria-controls="{{ group_id }}"
+              >
+                <div class="faq__group-title heading h2" id="block-{{ block.id }}">
+                  {%- if block.settings.icon_image -%}
+                    <span
+                      class="faq__group-icon"
+                      style="
+                        {% if block.settings.icon_width %}width: {{ block.settings.icon_width }}px;{% endif %}
+                        {% if block.settings.icon_height %}height: {{ block.settings.icon_height }}px;{% endif %}
+                        {% if block.settings.icon_color %}color: {{ block.settings.icon_color }};{% endif %}
+                        {% if block.settings.icon_margin_top %}margin-top: {{ block.settings.icon_margin_top }}px;{% endif %}
+                        {% if block.settings.icon_margin_right %}margin-right: {{ block.settings.icon_margin_right }}px;{% endif %}
+                        {% if block.settings.icon_margin_bottom %}margin-bottom: {{ block.settings.icon_margin_bottom }}px;{% endif %}
+                        {% if block.settings.icon_margin_left %}margin-left: {{ block.settings.icon_margin_left }}px;{% endif %}
+                      "
+                    >
+                      <img
+                        src="{{ block.settings.icon_image | img_url: '200x' }}"
+                        alt="{{ block.settings.title | escape }}"
+                        style="width: 100%; height: 100%; object-fit: contain;"
+                      >
+                    </span>
+                  {%- endif -%}
+
+                  <span class="faq__group-title-text">
+                    {{- block.settings.title | escape -}}
+                  </span>
+
+                  <span class="faq__group-arrow-icon">
+                    <svg
+                      class="group-arrow-icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </div>
+              </button>
+            </div>
+
+            <div id="{{ group_id }}" class="faq__group-content" style="display: none;">
+        {%- endif -%}
+
         {%- if block.type == 'question' -%}
-          <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" {{ block.shopify_attributes }}>
+          <div
+            class="faq__item"
+            itemscope
+            itemprop="mainEntity"
+            itemtype="https://schema.org/Question"
+            {{ block.shopify_attributes }}
+          >
             <div class="faq__item-wrapper">
-              <button class="faq__question heading h4" data-action="toggle-collapsible" aria-expanded="false" aria-controls="block-{{ block.id }}" itemprop="name">
+              <button
+                class="faq__question heading h4"
+                data-action="toggle-collapsible"
+                aria-expanded="false"
+                aria-controls="block-{{ block.id }}"
+                itemprop="name"
+              >
                 <span class="faq__question-text">{{ block.settings.title | escape }}</span>
                 <span class="faq__arrow-icon">
-                  <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg
+                    class="arrow-icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
                     <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                 </span>
               </button>
 
-              <div id="block-{{ block.id }}" class="faq__answer-wrapper" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer" style="display: none;">
+              <div
+                id="block-{{ block.id }}"
+                class="faq__answer-wrapper"
+                itemscope
+                itemprop="acceptedAnswer"
+                itemtype="https://schema.org/Answer"
+                style="display: none;"
+              >
                 <div class="faq__answer rte" itemprop="text">
                   {{ block.settings.answer }}
                 </div>
@@ -73,10 +122,12 @@
             </div>
           </div>
         {%- endif -%}
-        
+
         {%- if forloop.last -%}
-            </div> <!-- Close group-content -->
-          </div> <!-- Close group -->
+          </div>
+          <!-- Close group-content -->
+          </div>
+          <!-- Close group -->
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -85,93 +136,133 @@
 
 <style>
   /* Reset and base styles */
-  .faq-dev-02-container{
-      background: #0A0E18;
-      max-width:100%;
-      display: flex;
-
-flex-direction: column;
-align-items: center;
-gap: 60px;
-    }
-  .faq__group-title-wrapper {
-
-     max-width: 1280px;
-    background: none;
-    border: none;
-    padding: 0 !important;
-    cursor: pointer;
-    text-align: left;
-    display: block !important; /* Changed from flex to block */
+  #shopify-section-{{ section.id }} {
+    background: #0a0e18 !important;
   }
-  
-  .faq__group-title-text {
-    flex: 1 !important;
-    text-align: left !important;
-}
 
-  .faq__group-title-content {
+  #shopify-section-{{ section.id }} .faq-dev-02-container {
+    background: #0a0e18 !important;
+    max-width: 1280px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 60px 20px !important;
     display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
+    gap: 60px !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container.container--narrow {
+    max-width: 1280px !important;
+  }
+
+  #shopify-section-{{ section.id }} .knowledge-center__header {
+    text-align: center;
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .knowledge-center__label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .knowledge-center__title {
+    color: #fff !important;
+    font-size: 48px !important;
+    font-weight: 700 !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knowledge-center__subtitle {
+    color: rgba(255, 255, 255, 0.6) !important;
+    font-size: 16px !important;
+    margin: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq__group-list {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq__group-title-wrapper {
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    text-align: left !important;
+    display: block !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq__group-title-text {
     flex: 1 !important;
     text-align: left !important;
-    min-width: 0 !important;
   }
-  
-  .faq__item {
-    gap: 16px;
-    background: transparent;
-    display: flex;
-    padding: 28px 12px;
-    align-items: center;
-    gap: 16px;
-    align-self: stretch;
-    border: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+  #shopify-section-{{ section.id }} .faq__item {
+    background: transparent !important;
+    display: flex !important;
+    padding: 28px 12px !important;
+    align-items: center !important;
+    gap: 16px !important;
+    align-self: stretch !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
   }
-  
-  .faq__group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 16px;
+
+  #shopify-section-{{ section.id }} .faq__group {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    margin-bottom: 0 !important;
     width: 100% !important;
   }
-  
-  .faq__group-content {
-    width: 100%;
-  }
-  
-  .faq__group-header {
+
+  #shopify-section-{{ section.id }} .faq__group-content {
     width: 100% !important;
-    margin-bottom: 0;
   }
-  
-  button.faq__question.heading.h4 {
-    flex: 1 0 0;
-    color: rgb(255, 255, 255);
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px;
-    width: 100%;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    text-align: left;
+
+  #shopify-section-{{ section.id }} .faq__group-header {
+    width: 100% !important;
+    margin-bottom: 0 !important;
   }
-  
-  .faq__group-title {
-     display: flex !important;
+
+  #shopify-section-{{ section.id }} button.faq__question.heading.h4 {
+    flex: 1 0 0 !important;
+    color: rgb(255, 255, 255) !important;
+    font-size: 14px !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 20px !important;
+    width: 100% !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+    text-align: left !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq__group-title {
+    display: flex !important;
     align-items: center !important;
     padding: 29px 12px !important;
     align-self: stretch !important;
     border-radius: 16px !important;
-    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     background: rgba(255, 255, 255, 0.02) !important;
     box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15) !important;
-    color: #FFF !important;
+    color: #fff !important;
     font-size: 16px !important;
     font-style: normal !important;
     font-weight: 700 !important;
@@ -183,73 +274,52 @@ gap: 60px;
     text-align: left !important;
     justify-content: flex-start !important;
     position: relative !important;
-    padding-right: 40px !important; /* Space for the arrow */
+    padding-right: 50px !important;
   }
-  
-  /* Fix for the button wrapper issue - make it full width */
-  .faq__group-title-wrapper {
-    width: 100% !important;
-    display: flex !important;
-    align-items: stretch !important;
-  }
-  
-  .faq__group-icon {
-     display: inline-flex !important;
+
+  #shopify-section-{{ section.id }} .faq__group-icon {
+    display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
     flex-shrink: 0 !important;
     margin-right: 12px !important;
   }
-  
-  .faq__group-icon img {
+
+  #shopify-section-{{ section.id }} .faq__group-icon img {
     display: block !important;
   }
-  
-  .container.container--flush.container--narrow {
-    padding: 40px 0px !important;
-  }
-  
-  
-  
+
   /* Group arrow positioning */
-  .faq__group-arrow-icon {
+  #shopify-section-{{ section.id }} .faq__group-arrow-icon {
     position: absolute !important;
-    right: 12px !important;
+    right: 16px !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     width: 24px !important;
     height: 24px !important;
   }
-  
-  /* Position relative for the button to position arrow */
-  .faq__group-title-wrapper {
+
+  #shopify-section-{{ section.id }} .faq__group-title-wrapper {
     position: relative !important;
   }
-  
-  .group-arrow-icon {
+
+  #shopify-section-{{ section.id }} .group-arrow-icon {
     width: 100% !important;
     height: 100% !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     transition: transform 0.3s ease !important;
   }
-  
-  /* Group arrow points DOWN when closed */
-  .faq__group-title-wrapper[aria-expanded="false"] .group-arrow-icon {
-    transform: translateY(-50%) rotate(0deg) !important;
+
+  #shopify-section-{{ section.id }} .faq__group-title-wrapper[aria-expanded='false'] .group-arrow-icon {
+    transform: rotate(0deg) !important;
   }
-  
-  /* Group arrow points UP when open */
-  .faq__group-title-wrapper[aria-expanded="true"] .group-arrow-icon {
-    transform: translateY(-50%) rotate(180deg) !important;
+
+  #shopify-section-{{ section.id }} .faq__group-title-wrapper[aria-expanded='true'] .group-arrow-icon {
+    transform: rotate(180deg) !important;
   }
-  
-  /* Ensure the title text aligns left and doesn't wrap under arrow */
-  .faq__group-title {
-    padding-right: 40px !important; /* Space for the arrow */
-  }
-  
-  /* Question arrow positioning */
-  .faq__question {
+
+  /* Question styling */
+  #shopify-section-{{ section.id }} .faq__question {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
@@ -257,8 +327,8 @@ gap: 60px;
     padding: 0 !important;
     margin: 0 !important;
   }
-  
-  .faq__question-text {
+
+  #shopify-section-{{ section.id }} .faq__question-text {
     flex: 1 !important;
     min-width: 0 !important;
     overflow: hidden !important;
@@ -267,113 +337,129 @@ gap: 60px;
     padding-right: 20px !important;
     text-align: left !important;
   }
-  
-  .faq__arrow-icon {
+
+  #shopify-section-{{ section.id }} .faq__arrow-icon {
     flex-shrink: 0 !important;
     width: 24px !important;
     height: 24px !important;
     min-width: 24px !important;
     margin-left: auto !important;
   }
-  
-  .arrow-icon {
+
+  #shopify-section-{{ section.id }} .arrow-icon {
     width: 100% !important;
     height: 100% !important;
-    color: #FFFFFF !important;
+    color: #ffffff !important;
     transition: transform 0.3s ease !important;
   }
-  
-  /* Question arrow points DOWN when closed */
-  .faq__question[aria-expanded="false"] .arrow-icon {
+
+  #shopify-section-{{ section.id }} .faq__question[aria-expanded='false'] .arrow-icon {
     transform: rotate(0deg) !important;
   }
-  
-  /* Question arrow points UP when open */
-  .faq__question[aria-expanded="true"] .arrow-icon {
+
+  #shopify-section-{{ section.id }} .faq__question[aria-expanded='true'] .arrow-icon {
     transform: rotate(180deg) !important;
   }
-  
-  .faq__item-wrapper {
+
+  #shopify-section-{{ section.id }} .faq__item-wrapper {
     width: 100% !important;
   }
-  
+
+  #shopify-section-{{ section.id }} .faq__answer-wrapper {
+    padding: 16px 12px !important;
+  }
+
+  #shopify-section-{{ section.id }} .faq__answer {
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+  }
+
   /* Mobile responsive */
   @media (max-width: 749px) {
-    .faq__group-title {
+    #shopify-section-{{ section.id }} .faq-dev-02-container {
+      padding: 40px 16px !important;
+    }
+
+    #shopify-section-{{ section.id }} .knowledge-center__title {
+      font-size: 32px !important;
+    }
+
+    #shopify-section-{{ section.id }} .faq__group-title {
       padding: 20px 12px !important;
-      padding-right: 40px !important;
+      padding-right: 50px !important;
       font-size: 14px !important;
     }
-    
-    .faq__group-arrow-icon,
-    .faq__arrow-icon {
+
+    #shopify-section-{{ section.id }} .faq__group-arrow-icon,
+    #shopify-section-{{ section.id }} .faq__arrow-icon {
       width: 20px !important;
       height: 20px !important;
       min-width: 20px !important;
     }
-    
-    .faq__question-text {
+
+    #shopify-section-{{ section.id }} .faq__question-text {
       padding-right: 16px !important;
     }
-    
-    .faq__group-arrow-icon {
+
+    #shopify-section-{{ section.id }} .faq__group-arrow-icon {
       right: 12px !important;
     }
   }
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // Toggle group (section separator) functionality
-  document.querySelectorAll('[data-action="toggle-group"]').forEach(button => {
-    button.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      const groupId = this.getAttribute('aria-controls');
-      const groupContent = document.getElementById(groupId);
-      
-      // Toggle group content
-      if (expanded) {
-        this.setAttribute('aria-expanded', 'false');
-        groupContent.style.display = 'none';
-        
-        // Also close all questions within this group
-        groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach(questionButton => {
-          questionButton.setAttribute('aria-expanded', 'false');
-          const answerId = questionButton.getAttribute('aria-controls');
-          const answerWrapper = document.getElementById(answerId);
+  document.addEventListener('DOMContentLoaded', function () {
+    // Toggle group (section separator) functionality
+    document.querySelectorAll('[data-action="toggle-group"]').forEach((button) => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const groupId = this.getAttribute('aria-controls');
+        const groupContent = document.getElementById(groupId);
+
+        // Toggle group content
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
+          groupContent.style.display = 'none';
+
+          // Also close all questions within this group
+          groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
+            questionButton.setAttribute('aria-expanded', 'false');
+            const answerId = questionButton.getAttribute('aria-controls');
+            const answerWrapper = document.getElementById(answerId);
+            if (answerWrapper) {
+              answerWrapper.style.display = 'none';
+            }
+          });
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          groupContent.style.display = 'block';
+        }
+      });
+    });
+
+    // Toggle question functionality
+    document.querySelectorAll('[data-action="toggle-collapsible"]').forEach((button) => {
+      button.addEventListener('click', function () {
+        const expanded = this.getAttribute('aria-expanded') === 'true';
+        const answerId = this.getAttribute('aria-controls');
+        const answerWrapper = document.getElementById(answerId);
+
+        // Toggle answer
+        if (expanded) {
+          this.setAttribute('aria-expanded', 'false');
           if (answerWrapper) {
             answerWrapper.style.display = 'none';
           }
-        });
-      } else {
-        this.setAttribute('aria-expanded', 'true');
-        groupContent.style.display = 'block';
-      }
+        } else {
+          this.setAttribute('aria-expanded', 'true');
+          if (answerWrapper) {
+            answerWrapper.style.display = 'block';
+          }
+        }
+      });
     });
   });
-  
-  // Toggle question functionality
-  document.querySelectorAll('[data-action="toggle-collapsible"]').forEach(button => {
-    button.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      const answerId = this.getAttribute('aria-controls');
-      const answerWrapper = document.getElementById(answerId);
-      
-      // Toggle answer
-      if (expanded) {
-        this.setAttribute('aria-expanded', 'false');
-        if (answerWrapper) {
-          answerWrapper.style.display = 'none';
-        }
-      } else {
-        this.setAttribute('aria-expanded', 'true');
-        if (answerWrapper) {
-          answerWrapper.style.display = 'block';
-        }
-      }
-    });
-  });
-});
 </script>
 
 {% schema %}
