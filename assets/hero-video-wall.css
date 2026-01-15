@@ -93,6 +93,7 @@
 
 /* Main Heading */
 .hero-video-wall__main-heading {
+  width: 100%;
   color: #FFF;
   font-family: Inter, sans-serif;
   font-size: 96px;
