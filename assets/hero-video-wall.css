@@ -259,19 +259,24 @@
 }
 
 .hero-video-wall__feature-value {
+  color: #FFF;
+  text-align: center;
   font-family: Inter, sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #ffffff;
-  line-height: 1.2;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
   margin: 0;
 }
 
 .hero-video-wall__feature-label {
+  color: #9CA3AF;
+  text-align: center;
   font-family: Inter, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  line-height: normal;
   text-transform: capitalize;
 }
 
