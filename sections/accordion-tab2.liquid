@@ -254,7 +254,13 @@ background: rgba(10, 132, 255, 0.20);
 
   /* Downloads Section */
   #shopify-section-{{ section.id }} .tab-content .downloads-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
 
+  #shopify-section-{{ section.id }} .download-item {
     display: flex;
 height: 150px;
 padding: 0 40px;
@@ -267,25 +273,13 @@ background: rgba(255, 255, 255, 0.05);
 box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   }
 
-  #shopify-section-{{ section.id }} .download-item {
-
-    background: #0d1c30;
-    border-radius: 8px;
-    padding: 20px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #1e2d44;
-    width: 100%;
-  }
-
   #shopify-section-{{ section.id }} .download-item-name {
     color: #FFF;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 600;
-line-height: 32px; /* 133.333% */
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
   }
 
   #shopify-section-{{ section.id }} .download-btn {
