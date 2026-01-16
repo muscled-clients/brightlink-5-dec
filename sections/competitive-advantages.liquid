@@ -38,9 +38,14 @@
   .competitive-advantages__container {
     position: relative;
     z-index: 2;
-    max-width: 1440px;
+    display: flex;
+    width: 1440px;
+    max-width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
     margin: 0 auto;
-    padding: 0 40px;
+    padding: 0;
   }
 
   /* Header Section */
@@ -50,7 +55,8 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    align-self: stretch;
+    width: 1440px;
+    max-width: 100%;
     text-align: center;
     border-top: 1px solid rgba(10, 132, 255, 0.20);
     background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
@@ -109,8 +115,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    max-width: 1400px;
-    margin: 0 auto;
+    width: 100%;
+    padding: 0 60px;
+    box-sizing: border-box;
   }
 
   /* Individual Card */
@@ -383,11 +390,11 @@
   /* --- MOBILE SLIDER LOGIC (Max Width 768px) --- */
   @media screen and (max-width: 768px) {
     .competitive-advantages__container {
-      padding: 0;
+      gap: 40px;
     }
 
     .competitive-advantages__header {
-      padding: 40px 15px;
+      padding: 40px 20px;
     }
 
     .competitive-advantages__header-text {
@@ -412,7 +419,7 @@
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
       gap: 20px;
-      padding: 0px 15px 30px 15px;
+      padding: 0 20px 30px 20px;
       margin: 0;
       max-width: 100%;
       scrollbar-width: none;
