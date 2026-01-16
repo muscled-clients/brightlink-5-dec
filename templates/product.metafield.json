@@ -262,6 +262,58 @@
         "carousel_effect": "slide"
       }
     },
+    "product_trusted_6e7QXQ": {
+      "type": "product-trusted",
+      "blocks": {
+        "trusted_item_8fMPXU": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "SpaceX",
+            "url": ""
+          }
+        },
+        "trusted_item_N8pFCh": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "University of Hawaii",
+            "url": ""
+          }
+        },
+        "trusted_item_J3gipQ": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "Epic Games",
+            "url": ""
+          }
+        },
+        "trusted_item_N9GzhU": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "City of Mesa",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "trusted_item_8fMPXU",
+        "trusted_item_N8pFCh",
+        "trusted_item_J3gipQ",
+        "trusted_item_N9GzhU"
+      ],
+      "name": "Product Trusted",
+      "settings": {
+        "heading": "Trusted By Industry Leaders",
+        "max_width": 1200,
+        "padding_y": 70,
+        "bg_color": "#050a12",
+        "text_color": "#b7c4d6",
+        "muted_color": "#6b7c93",
+        "accent_color": "#3caaff",
+        "border_color": "rgba(255,255,255,0.06)",
+        "pattern_opacity": 14,
+        "items_opacity": 70
+      }
+    },
     "1651673745108066c9": {
       "type": "custom-bundle",
       "disabled": true,
@@ -967,58 +1019,6 @@
       ],
       "settings": {
         "main-heading": "You may also like"
-      }
-    },
-    "product_trusted_6e7QXQ": {
-      "type": "product-trusted",
-      "blocks": {
-        "trusted_item_8fMPXU": {
-          "type": "trusted_item",
-          "settings": {
-            "label": "SpaceX",
-            "url": ""
-          }
-        },
-        "trusted_item_N8pFCh": {
-          "type": "trusted_item",
-          "settings": {
-            "label": "University of Hawaii",
-            "url": ""
-          }
-        },
-        "trusted_item_J3gipQ": {
-          "type": "trusted_item",
-          "settings": {
-            "label": "Epic Games",
-            "url": ""
-          }
-        },
-        "trusted_item_N9GzhU": {
-          "type": "trusted_item",
-          "settings": {
-            "label": "City of Mesa",
-            "url": ""
-          }
-        }
-      },
-      "block_order": [
-        "trusted_item_8fMPXU",
-        "trusted_item_N8pFCh",
-        "trusted_item_J3gipQ",
-        "trusted_item_N9GzhU"
-      ],
-      "name": "Product Trusted",
-      "settings": {
-        "heading": "Trusted By Industry Leaders",
-        "max_width": 1200,
-        "padding_y": 70,
-        "bg_color": "#050a12",
-        "text_color": "#b7c4d6",
-        "muted_color": "#6b7c93",
-        "accent_color": "#3caaff",
-        "border_color": "rgba(255,255,255,0.06)",
-        "pattern_opacity": 14,
-        "items_opacity": 70
       }
     }
   },
