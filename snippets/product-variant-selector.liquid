@@ -164,7 +164,7 @@
 
   {%- if block.settings.show_inventory_quantity and product.template_suffix != 'pre-order' -%}
     <div class="product-form__info-item">
-       {% if block.settings.icon != blank %}
+       {% if block.settings.icon2 != blank %}
                         <img
                           class="pdp-icon-text-inline__icon"
                           src="{{ block.settings.icon | image_url: width: 48 }}"
