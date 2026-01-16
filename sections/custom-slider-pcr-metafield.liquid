@@ -25,6 +25,44 @@
     padding: 0 20px;
   }
 
+  /* Section Header */
+  #shopify-section-{{ section.id }} .slider-metafield-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-label {
+    color: #F5A623;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-main-heading {
+    color: #FFF;
+    font-family: Inter, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 12px 0;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-subtitle {
+    color: #A0AEC0;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+  }
+
   /* Slider container */
   #shopify-section-{{ section.id }} .slider-metafield-container {
     position: relative;
@@ -199,6 +237,14 @@
 
   /* Responsive - Tablet */
   @media screen and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .slider-metafield-main-heading {
+      font-size: 32px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-subtitle {
+      font-size: 14px;
+    }
+
     #shopify-section-{{ section.id }} .slider-metafield-container {
       height: 600px;
     }
@@ -219,6 +265,23 @@
     #shopify-section-{{ section.id }} .slider-metafield-wrapper {
       margin: 40px auto;
       padding: 0 15px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-header {
+      margin-bottom: 30px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-label {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-main-heading {
+      font-size: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-subtitle {
+      font-size: 13px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-container {
@@ -287,6 +350,21 @@
 
 <!-- New Slider Design -->
 <div class="slider-metafield-wrapper" id="slider-metafield-{{ section.id }}">
+  <!-- Section Header -->
+  {% if section.settings.section_label != blank or section.settings.section_heading != blank or section.settings.section_subtitle != blank %}
+    <div class="slider-metafield-header">
+      {% if section.settings.section_label != blank %}
+        <div class="slider-metafield-label">{{ section.settings.section_label }}</div>
+      {% endif %}
+      {% if section.settings.section_heading != blank %}
+        <h2 class="slider-metafield-main-heading">{{ section.settings.section_heading }}</h2>
+      {% endif %}
+      {% if section.settings.section_subtitle != blank %}
+        <p class="slider-metafield-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
   <div class="slider-metafield-container">
     <!-- Slide Images -->
     <div class="slider-metafield-slides">
@@ -401,10 +479,36 @@
   "name": "Custom Slider Metafield",
   "settings": [
     {
-  "type": "checkbox",
-  "id": "emptySpace",
-  "label": "Add Empty Space",
-  "default": false
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "PRODUCT SHOWCASE"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Experience Premium Engineering"
+    },
+    {
+      "type": "text",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Every detail crafted for visual excellence"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "emptySpace",
+      "label": "Add Empty Space",
+      "default": false
     },
     {
       "type": "image_picker",
@@ -412,11 +516,6 @@
       "label": "Background Image"
     },
     {
-      "type": "text",
-      "id": "slide1_title",
-      "label": "Slide 1 Title"
-    },
-     {
       "type":"range",
       "id":"wrapper-container-width",
       "min":70,
@@ -424,6 +523,15 @@
       "step":1,
       "label":"Container Width",
       "default":100
+    },
+    {
+      "type": "header",
+      "content": "Slide 1"
+    },
+    {
+      "type": "text",
+      "id": "slide1_title",
+      "label": "Slide 1 Title"
     },
     {
       "type": "image_picker",
