@@ -147,30 +147,6 @@
     },
     {
       "type": "header",
-      "content": "Spacing"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 100,
-      "step": 5,
-      "default": 0,
-      "unit": "px",
-      "label": "Padding Top"
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 150,
-      "step": 5,
-      "default": 120,
-      "unit": "px",
-      "label": "Padding Bottom"
-    },
-    {
-      "type": "header",
       "content": "Advanced"
     },
     {
@@ -245,8 +221,6 @@
     --tl-separator-color: {{ section.settings.separator_color }};
     --tl-heading-size: {{ section.settings.heading_font_size }}px;
     --tl-company-size: {{ section.settings.company_font_size }}px;
-    --tl-padding-top: {{ section.settings.padding_top }}px;
-    --tl-padding-bottom: {{ section.settings.padding_bottom }}px;
     --marquee-speed: {{ section.settings.slider_speed }}s;
   }
 
@@ -259,8 +233,8 @@
     margin-left: auto;
     margin-right: auto;
     background-color: var(--tl-bg-color, #0a0f14);
-    padding-top: var(--tl-padding-top, 0px);
-    padding-bottom: var(--tl-padding-bottom, 120px);
+    padding-top: 0;
+    padding-bottom: 120px;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     overflow: hidden;
   }
