@@ -175,7 +175,8 @@
 .product-showcase__dots {
   position: absolute;
   bottom: 24px;
-  right: 24px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   width: 169px;
   padding: 14px 20px;
