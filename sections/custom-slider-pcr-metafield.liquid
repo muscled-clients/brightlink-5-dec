@@ -417,25 +417,25 @@
         {% if slider_metafield.first_slide_title.value != blank %}
           <div class="slider-metafield-text-item active-text" data-text="0">
             <h3 class="slider-metafield-heading">{{ slider_metafield.first_slide_title.value }}</h3>
-            <div class="slider-metafield-description">{{ slider_metafield.first_slide_description.value }}</div>
+            <div class="slider-metafield-description">{{ slider_metafield.first_slide_description | metafield_tag }}</div>
           </div>
         {% endif %}
         {% if slider_metafield.second_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="1">
             <h3 class="slider-metafield-heading">{{ slider_metafield.second_slide_title.value }}</h3>
-            <div class="slider-metafield-description">{{ slider_metafield.second_slide_description.value }}</div>
+            <div class="slider-metafield-description">{{ slider_metafield.second_slide_description | metafield_tag }}</div>
           </div>
         {% endif %}
         {% if slider_metafield.third_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="2">
             <h3 class="slider-metafield-heading">{{ slider_metafield.third_slide_title.value }}</h3>
-            <div class="slider-metafield-description">{{ slider_metafield.third_slide_description.value }}</div>
+            <div class="slider-metafield-description">{{ slider_metafield.third_slide_description | metafield_tag }}</div>
           </div>
         {% endif %}
         {% if slider_metafield.fourth_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="3">
             <h3 class="slider-metafield-heading">{{ slider_metafield.fourth_slide_title.value }}</h3>
-            <div class="slider-metafield-description">{{ slider_metafield.fourth_slide_description.value }}</div>
+            <div class="slider-metafield-description">{{ slider_metafield.fourth_slide_description | metafield_tag }}</div>
           </div>
         {% endif %}
       </div>
