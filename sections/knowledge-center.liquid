@@ -5,12 +5,6 @@
 {% assign faq_data = led_data.knowledge_center %}
 {% assign faq_categories = faq_data.categories %}
 
-<style>
-  .knowledge-center__label {
-    color: #FFD700 !important;
-  }
-</style>
-
 <section class="knowledge-center" id="knowledge-center">
   <div class="knowledge-center__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
@@ -18,11 +12,14 @@
     {% assign faq_subtitle = faq_data.subtitle | default: section.settings.subtitle | default: 'Everything you need to know about Pro Spectrum' %}
 
     <div class="knowledge-center__header">
-      <span class="knowledge-center__label" style="color: #FFD700;">{{ section.settings.label | default: 'KNOWLEDGE CENTER' }}</span>
-      <h2 class="knowledge-center__title">{{ faq_title }}</h2>
+      <div class="knowledge-center__header-text">
+        <span class="knowledge-center__label">{{ section.settings.label | default: 'KNOWLEDGE CENTER' }}</span>
+        <h2 class="knowledge-center__title">{{ faq_title }}</h2>
+      </div>
       <p class="knowledge-center__subtitle">{{ faq_subtitle }}</p>
     </div>
 
+    <div class="knowledge-center__content">
     <div class="knowledge-center__search-wrapper">
       <div class="knowledge-center__search-box">
         <svg class="knowledge-center__search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -285,6 +282,7 @@
         {% endif %}
       {% endfor %}
       {% endif %}
+    </div>
     </div>
   </div>
 </section>
