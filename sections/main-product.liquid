@@ -1577,7 +1577,7 @@ text-align: center;
               {%- endcomment -%}
              
               {% comment %} icon with text custom block start {% endcomment %}
-               {% when 'icon_with_text_inline' %}
+               {% comment %} {% when 'icon_with_text_inline' %}
                   <div class="pdp-icon-text-inline" {{ block.shopify_attributes }}>
                     {% if block.settings.icon != blank %}
                       <img
@@ -1595,7 +1595,7 @@ text-align: center;
                         {{ block.settings.text }}
                       </span>
                     {% endif %}
-                  </div>
+                  </div> {% endcomment %}
 
               {% comment %} icon with text custom block end {% endcomment %}
 
