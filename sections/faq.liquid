@@ -18,8 +18,8 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'separator' -%}
           {%- unless forloop.first -%}
-            </div><!-- Close previous group-content -->
-            </div><!-- Close previous group -->
+            </div>
+            <!-- Close previous group -->
           {%- endunless -%}
 
           {%- assign group_id = 'group-' | append: block.id -%}
@@ -121,10 +121,10 @@
         {%- endif -%}
 
         {%- if forloop.last -%}
-          {%- if section.blocks.size > 0 -%}
-            </div><!-- Close final group-content -->
-            </div><!-- Close final group -->
-          {%- endif -%}
+          </div>
+          <!-- Close group-content -->
+          </div>
+          <!-- Close group -->
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -142,6 +142,7 @@
   #shopify-section-{{ section.id }} {
     background: #0a1628;
        display: flex;
+
 flex-direction: column;
 align-items: center;
 gap: 60px;
