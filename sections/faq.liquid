@@ -13,122 +13,57 @@
     <p class="knowledge-center__subtitle">{{ faq_subtitle }}</p>
   </div>
 
-  <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
-    <div class="faq__group-list">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'separator' -%}
-          {%- unless forloop.first -%}
-            </div>
-            <!-- Close previous group -->
-          {%- endunless -%}
+  {%- comment -%} Group blocks by separator {%- endcomment -%}
+{%- assign groups = '' | split: '' -%}
+{%- assign current_group = '' | split: '' -%}
 
-          {%- assign group_id = 'group-' | append: block.id -%}
-          <div class="faq__group" data-group-id="{{ group_id }}">
-            <div class="faq__group-header" {{ block.shopify_attributes }}>
-              <button
-                class="faq__group-title-wrapper faq-group-trigger"
-                aria-expanded="false"
-                data-target="{{ group_id }}"
-              >
-                <div class="faq__group-title heading h2" id="block-{{ block.id }}">
-                  {%- if block.settings.icon_image -%}
-                    <span
-                      class="faq__group-icon"
-                      style="
-                        {% if block.settings.icon_width %}width: {{ block.settings.icon_width }}px;{% endif %}
-                        {% if block.settings.icon_height %}height: {{ block.settings.icon_height }}px;{% endif %}
-                        {% if block.settings.icon_color %}color: {{ block.settings.icon_color }};{% endif %}
-                        {% if block.settings.icon_margin_top %}margin-top: {{ block.settings.icon_margin_top }}px;{% endif %}
-                        {% if block.settings.icon_margin_right %}margin-right: {{ block.settings.icon_margin_right }}px;{% endif %}
-                        {% if block.settings.icon_margin_bottom %}margin-bottom: {{ block.settings.icon_margin_bottom }}px;{% endif %}
-                        {% if block.settings.icon_margin_left %}margin-left: {{ block.settings.icon_margin_left }}px;{% endif %}
-                      "
-                    >
-                      <img
-                        src="{{ block.settings.icon_image | img_url: '200x' }}"
-                        alt="{{ block.settings.title | escape }}"
-                        style="width: 100%; height: 100%; object-fit: contain;"
-                      >
-                    </span>
-                  {%- endif -%}
+{%- for block in section.blocks -%}
+  {%- if block.type == 'separator' and forloop.first == false -%}
+    {%- assign groups = groups | concat: current_group -%}
+    {%- assign current_group = '' | split: '' -%}
+  {%- endif -%}
+  {%- assign current_group = current_group | concat: block -%}
+{%- endfor -%}
 
-                  <span class="faq__group-title-text">
-                    {{- block.settings.title | escape -}}
+{%- if current_group.size > 0 -%}
+  {%- assign groups = groups | concat: current_group -%}
+{%- endif -%}
+
+<div class="faq" itemscope itemtype="https://schema.org/FAQPage">
+  <div class="faq__group-list">
+    {%- for group in groups -%}
+      {%- assign separator_block = group[0] -%}
+      {%- if separator_block.type == 'separator' -%}
+        {%- assign group_id = 'group-' | append: separator_block.id -%}
+        <div class="faq__group" data-group-id="{{ group_id }}">
+          <div class="faq__group-header" {{ separator_block.shopify_attributes }}>
+            <button class="faq__group-title-wrapper faq-group-trigger" aria-expanded="false" data-target="{{ group_id }}">
+              <div class="faq__group-title heading h2" id="block-{{ separator_block.id }}">
+                {%- if separator_block.settings.icon_image -%}
+                  <span class="faq__group-icon" style="...">
+                    <img src="{{ separator_block.settings.icon_image | img_url: '200x' }}" alt="{{ separator_block.settings.title | escape }}">
                   </span>
-
-                  <span class="faq__group-arrow-icon">
-                    <svg
-                      class="faq-group-arrow-icon"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </button>
-            </div>
-
-            <div id="{{ group_id }}" class="faq__group-content">
-        {%- endif -%}
-
-        {%- if block.type == 'question' -%}
-          <div
-            class="faq__item"
-            itemscope
-            itemprop="mainEntity"
-            itemtype="https://schema.org/Question"
-            {{ block.shopify_attributes }}
-          >
-            <div class="faq__item-wrapper">
-              <button
-                class="faq__question heading h4 faq-question-trigger"
-                aria-expanded="false"
-                data-target="block-{{ block.id }}"
-                itemprop="name"
-              >
-                <span class="faq__question-text">{{ block.settings.title | escape }}</span>
-                <span class="faq__arrow-icon">
-                  <svg
-                    class="faq-arrow-icon"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-
-              <div
-                id="block-{{ block.id }}"
-                class="faq__answer-wrapper"
-                itemscope
-                itemprop="acceptedAnswer"
-                itemtype="https://schema.org/Answer"
-              >
-                <div class="faq__answer rte" itemprop="text">
-                  {{ block.settings.answer }}
-                </div>
+                {%- endif -%}
+                <span class="faq__group-title-text">{{ separator_block.settings.title | escape }}</span>
+                <span class="faq__group-arrow-icon">...</span>
               </div>
-            </div>
+            </button>
           </div>
-        {%- endif -%}
-
-        {%- if forloop.last -%}
+          
+          <div id="{{ group_id }}" class="faq__group-content">
+            {%- for block in group -%}
+              {%- if block.type == 'question' -%}
+                <div class="faq__item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+                  <!-- Question content here -->
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
           </div>
-          <!-- Close group-content -->
-          </div>
-          <!-- Close group -->
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
   </div>
+</div>
 </div>
 
 <style>
