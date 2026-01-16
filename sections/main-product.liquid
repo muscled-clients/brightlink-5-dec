@@ -1575,6 +1575,30 @@ text-align: center;
               TRUST BADGE
               --------------------------------------------------------------------------------------
               {%- endcomment -%}
+             
+              {% comment %} icon with text custom block start {% endcomment %}
+               {% when 'icon_with_text_inline' %}
+                  <div class="pdp-icon-text-inline" {{ block.shopify_attributes }}>
+                    {% if block.settings.icon != blank %}
+                      <img
+                        class="pdp-icon-text-inline__icon"
+                        src="{{ block.settings.icon | image_url: width: 48 }}"
+                        alt="{{ block.settings.text | escape }}"
+                        loading="lazy"
+                        width="18"
+                        height="18"
+                      >
+                    {% endif %}
+
+                    {% if block.settings.text != blank %}
+                      <span class="pdp-icon-text-inline__text">
+                        {{ block.settings.text }}
+                      </span>
+                    {% endif %}
+                  </div>
+
+              {% comment %} icon with text custom block end {% endcomment %}
+
 
               {%- when 'trust' -%}
                 {%- if block.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
