@@ -269,28 +269,28 @@
           "type": "trusted_item",
           "settings": {
             "label": "SpaceX",
-            "url": "shopify://collections"
+            "url": "#"
           }
         },
         "trusted_item_N8pFCh": {
           "type": "trusted_item",
           "settings": {
             "label": "University of Hawaii",
-            "url": ""
+            "url": "#"
           }
         },
         "trusted_item_J3gipQ": {
           "type": "trusted_item",
           "settings": {
             "label": "Epic Games",
-            "url": ""
+            "url": "#"
           }
         },
         "trusted_item_N9GzhU": {
           "type": "trusted_item",
           "settings": {
             "label": "City of Mesa",
-            "url": ""
+            "url": "#"
           }
         }
       },
