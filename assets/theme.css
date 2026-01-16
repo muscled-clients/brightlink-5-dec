@@ -13884,6 +13884,11 @@ shopify-payment-terms {
     height: 24px;
     margin-right: 10px;
 }
+.product-form__info-item img{
+   width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
 .product-form__info-item {
     display: flex !important;
 }
