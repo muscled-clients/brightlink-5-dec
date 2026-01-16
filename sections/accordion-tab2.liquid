@@ -11,7 +11,10 @@
 
 <style>
 
-
+/* Inactive tab button SVG */
+#shopify-section-{{ section.id }} .tab-button:not(.active) svg {
+  fill: #A0AEC0; /* Gray color for inactive SVG */
+}
   /* Active tab button SVG */
 #shopify-section-{{ section.id }} .tab-button.active svg {
   fill: #0A84FF; /* Blue color for active SVG */
