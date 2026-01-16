@@ -297,7 +297,7 @@ line-height: normal;
     display: block;
    width: 17.5px;
 height: 23.333px;
-
+   
   }
 
   /* Group Arrow */
@@ -324,20 +324,14 @@ height: 23.333px;
     transform: rotate(180deg);
   }
 
-  /* Group Content - Initially hidden with smooth animation */
+  /* Group Content - Initially hidden */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content {
     width: 100%;
-    max-height: 0;
-    opacity: 0;
-    visibility: hidden;
-    overflow: hidden;
-    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    display: none;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.active {
-    max-height: 2000px;
-    opacity: 1;
-    visibility: visible;
+    display: block;
   }
 
   /* FAQ Item (Question) */
@@ -363,7 +357,7 @@ height: 23.333px;
    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
    flex-direction: column;
 }
-
+  
 
   #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4 {
     display: flex;
@@ -388,7 +382,7 @@ height: 23.333px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question-text {
-
+    
   color: #FFF;
 font-family: Inter;
 font-size: 14px;
@@ -420,27 +414,24 @@ flex: 1 0 0;
     transform: rotate(180deg);
   }
 
-  /* Answer - with smooth animation */
+  /* Answer - FIXED VERSION */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
-    display: grid;
-    grid-template-rows: 0fr;
-    opacity: 0;
-    visibility: hidden;
-    transition: grid-template-rows 0.4s ease-in-out, opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-  }
-
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper > .faq__answer {
+    display: none;
     overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
-    grid-template-rows: 1fr;
+    display: contents;
+    max-height: 1000px; /* Large enough to show all content */
     opacity: 1;
-    visibility: visible;
+    padding: 0 40px 30px 14px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
     line-height: 1.7;
     padding: 0 12px;
@@ -500,52 +491,53 @@ flex: 1 0 0;
 
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
       padding: 0 10px 16px 10px;
+      max-height: 2000px; /* Even larger for mobile to ensure content shows */
     }
-
+    
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
       font-size: 12px;
     }
   }
-
+  
 </style>
 
 <script>
 // FAQ Functionality - SIMPLE AND GUARANTEED TO WORK
 (function() {
   'use strict';
-
+  
   // Function to initialize FAQ
   function initFAQ() {
     // Get the FAQ container
     const faqContainer = document.querySelector('.faq-dev-02-container');
     if (!faqContainer) return;
-
+    
     console.log('Initializing FAQ functionality...');
-
+    
     // Group toggle functionality
     const groupTriggers = faqContainer.querySelectorAll('.faq-group-trigger');
     console.log('Found', groupTriggers.length, 'group triggers');
-
+    
     groupTriggers.forEach(trigger => {
       // Add click event - SIMPLIFIED, no cloning
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Group trigger clicked');
-
+        
         const targetId = this.getAttribute('data-target');
         const targetElement = document.getElementById(targetId);
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
+        
         // Toggle aria-expanded
         this.setAttribute('aria-expanded', !isExpanded);
-
+        
         // Toggle group content
         if (targetElement) {
           if (isExpanded) {
             // Close the group
             targetElement.classList.remove('active');
-
+            
             // Also close all questions in this group
             const questionTriggers = targetElement.querySelectorAll('.faq-question-trigger');
             questionTriggers.forEach(qTrigger => {
@@ -563,25 +555,25 @@ flex: 1 0 0;
         }
       }, {once: false}); // Allow multiple event listeners
     });
-
+    
     // Question toggle functionality
     const questionTriggers = faqContainer.querySelectorAll('.faq-question-trigger');
     console.log('Found', questionTriggers.length, 'question triggers');
-
+    
     questionTriggers.forEach(trigger => {
       // Add click event - SIMPLIFIED, no cloning
       trigger.addEventListener('click', function(e) {
         e.preventDefault();
         e.stopPropagation();
         console.log('Question trigger clicked');
-
+        
         const targetId = this.getAttribute('data-target');
         const targetElement = document.getElementById(targetId);
         const isExpanded = this.getAttribute('aria-expanded') === 'true';
-
+        
         // Toggle aria-expanded
         this.setAttribute('aria-expanded', !isExpanded);
-
+        
         // Toggle answer content
         if (targetElement) {
           if (isExpanded) {
@@ -593,18 +585,18 @@ flex: 1 0 0;
       }, {once: false}); // Allow multiple event listeners
     });
   }
-
+  
   // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initFAQ);
   } else {
     initFAQ();
   }
-
+  
   // Re-initialize for Shopify section reloads
   if (typeof Shopify !== 'undefined') {
     document.addEventListener('shopify:section:load', function(event) {
-      if (event.target.querySelector('.faq-dev-02-container') ||
+      if (event.target.querySelector('.faq-dev-02-container') || 
           event.target.classList.contains('faq-dev-02-container')) {
         console.log('FAQ section reloaded, re-initializing...');
         setTimeout(initFAQ, 100);
