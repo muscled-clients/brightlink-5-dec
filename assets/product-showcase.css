@@ -174,12 +174,19 @@
 /* Navigation Dots */
 .product-showcase__dots {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: 24px;
+  right: 24px;
   display: flex;
-  gap: 10px;
+  width: 169px;
+  padding: 14px 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 15.862px;
+  border: 0.991px solid rgba(10, 132, 255, 0.10);
+  background: rgba(10, 14, 26, 0.70);
   z-index: 10;
+  box-sizing: border-box;
 }
 
 .product-showcase__dot {
