@@ -80,7 +80,7 @@
 }
 
 .knowledge-center__content {
-  width: 900px;
+  width: 1280px;
   max-width: calc(100% - 40px);
   display: flex;
   flex-direction: column;
