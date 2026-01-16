@@ -566,6 +566,7 @@
     },
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd": {
       "type": "custom-slider-pcr",
+      "disabled": true,
       "settings": {
         "emptySpace": false,
         "bg_img": "{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}",
@@ -590,6 +591,16 @@
         "slide4_description": "{{ product.metafields.custom.section_custom_slider_pcr.value.fourth_slide_description | metafield_tag }}",
         "slide4_icon": "shopify://shop_images/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg",
         "slide4_mobile": "shopify://shop_images/Group_39491_6693c161-a313-47a9-ae9b-e47493e3c049.svg"
+      }
+    },
+    "custom_slider_pcr_metafield_AHJeFW": {
+      "type": "custom-slider-pcr-metafield",
+      "name": "Custom Slider Metafield",
+      "settings": {
+        "section_label": "PRODUCT SHOWCASE",
+        "section_heading": "Experience Premium Engineering",
+        "section_subtitle": "Every detail crafted for visual excellence",
+        "wrapper-container-width": 100
       }
     },
     "be5fcda4-e747-4686-bf2c-597f15159877": {
@@ -1037,6 +1048,7 @@
     "f8572bb3-e256-48d7-98a9-b3de46803d68",
     "96f87cd6-24fa-4d7c-878d-f9b13a68a597",
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd",
+    "custom_slider_pcr_metafield_AHJeFW",
     "be5fcda4-e747-4686-bf2c-597f15159877",
     "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136",
     "cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b",
