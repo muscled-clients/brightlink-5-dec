@@ -14,12 +14,14 @@
     {% assign config_description = config_data.description | default: section.settings.subheading %}
 
     <div class="system-configuration__header">
-      {% if section.settings.section_label != blank %}
-        <span class="system-configuration__label">{{ section.settings.section_label }}</span>
-      {% endif %}
-      {% if config_title != blank %}
-        <h2 class="system-configuration__heading">{{ config_title }}</h2>
-      {% endif %}
+      <div class="system-configuration__header-text">
+        {% if section.settings.section_label != blank %}
+          <span class="system-configuration__label">{{ section.settings.section_label }}</span>
+        {% endif %}
+        {% if config_title != blank %}
+          <h2 class="system-configuration__heading">{{ config_title }}</h2>
+        {% endif %}
+      </div>
       {% if config_description != blank %}
         <p class="system-configuration__subheading">{{ config_description }}</p>
       {% endif %}
