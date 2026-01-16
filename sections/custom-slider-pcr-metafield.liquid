@@ -365,6 +365,8 @@
 
 
 <!-- New Slider Design -->
+{% assign slider_metafield = product.metafields.custom.section_custom_slider_pcr.value %}
+
 <div class="slider-metafield-wrapper" id="slider-metafield-{{ section.id }}">
   <!-- Section Header -->
   {% if section.settings.section_label != blank or section.settings.section_heading != blank or section.settings.section_subtitle != blank %}
@@ -384,24 +386,24 @@
   <div class="slider-metafield-container">
     <!-- Slide Images -->
     <div class="slider-metafield-slides">
-      {% if section.settings.slide1_image != blank %}
+      {% if slider_metafield.first_slide_image.value != blank %}
         <div class="slider-metafield-slide active-slide" data-slide="0">
-          <img src="{{ section.settings.slide1_image | img_url: '1400x' }}" alt="{{ section.settings.slide1_title }}">
+          <img src="{{ slider_metafield.first_slide_image.value | img_url: '1400x' }}" alt="{{ slider_metafield.first_slide_title.value }}">
         </div>
       {% endif %}
-      {% if section.settings.slide2_image != blank %}
+      {% if slider_metafield.second_slide_image.value != blank %}
         <div class="slider-metafield-slide" data-slide="1">
-          <img src="{{ section.settings.slide2_image | img_url: '1400x' }}" alt="{{ section.settings.slide2_title }}">
+          <img src="{{ slider_metafield.second_slide_image.value | img_url: '1400x' }}" alt="{{ slider_metafield.second_slide_title.value }}">
         </div>
       {% endif %}
-      {% if section.settings.slide3_image != blank %}
+      {% if slider_metafield.third_slide_image.value != blank %}
         <div class="slider-metafield-slide" data-slide="2">
-          <img src="{{ section.settings.slide3_image | img_url: '1400x' }}" alt="{{ section.settings.slide3_title }}">
+          <img src="{{ slider_metafield.third_slide_image.value | img_url: '1400x' }}" alt="{{ slider_metafield.third_slide_title.value }}">
         </div>
       {% endif %}
-      {% if section.settings.slide4_image != blank %}
+      {% if slider_metafield.fourth_slide_image.value != blank %}
         <div class="slider-metafield-slide" data-slide="3">
-          <img src="{{ section.settings.slide4_image | img_url: '1400x' }}" alt="{{ section.settings.slide4_title }}">
+          <img src="{{ slider_metafield.fourth_slide_image.value | img_url: '1400x' }}" alt="{{ slider_metafield.fourth_slide_title.value }}">
         </div>
       {% endif %}
     </div>
@@ -412,28 +414,28 @@
     <!-- Text Content - Bottom Left -->
     <div class="slider-metafield-content">
       <div class="slider-metafield-text">
-        {% if section.settings.slide1_title != blank %}
+        {% if slider_metafield.first_slide_title.value != blank %}
           <div class="slider-metafield-text-item active-text" data-text="0">
-            <h3 class="slider-metafield-heading">{{ section.settings.slide1_title }}</h3>
-            <div class="slider-metafield-description">{{ section.settings.slide1_description }}</div>
+            <h3 class="slider-metafield-heading">{{ slider_metafield.first_slide_title.value }}</h3>
+            <div class="slider-metafield-description">{{ slider_metafield.first_slide_description.value }}</div>
           </div>
         {% endif %}
-        {% if section.settings.slide2_title != blank %}
+        {% if slider_metafield.second_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="1">
-            <h3 class="slider-metafield-heading">{{ section.settings.slide2_title }}</h3>
-            <div class="slider-metafield-description">{{ section.settings.slide2_description }}</div>
+            <h3 class="slider-metafield-heading">{{ slider_metafield.second_slide_title.value }}</h3>
+            <div class="slider-metafield-description">{{ slider_metafield.second_slide_description.value }}</div>
           </div>
         {% endif %}
-        {% if section.settings.slide3_title != blank %}
+        {% if slider_metafield.third_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="2">
-            <h3 class="slider-metafield-heading">{{ section.settings.slide3_title }}</h3>
-            <div class="slider-metafield-description">{{ section.settings.slide3_description }}</div>
+            <h3 class="slider-metafield-heading">{{ slider_metafield.third_slide_title.value }}</h3>
+            <div class="slider-metafield-description">{{ slider_metafield.third_slide_description.value }}</div>
           </div>
         {% endif %}
-        {% if section.settings.slide4_title != blank %}
+        {% if slider_metafield.fourth_slide_title.value != blank %}
           <div class="slider-metafield-text-item" data-text="3">
-            <h3 class="slider-metafield-heading">{{ section.settings.slide4_title }}</h3>
-            <div class="slider-metafield-description">{{ section.settings.slide4_description }}</div>
+            <h3 class="slider-metafield-heading">{{ slider_metafield.fourth_slide_title.value }}</h3>
+            <div class="slider-metafield-description">{{ slider_metafield.fourth_slide_description.value }}</div>
           </div>
         {% endif %}
       </div>
@@ -441,16 +443,16 @@
 
     <!-- Navigation Dots - Bottom Center -->
     <div class="slider-metafield-dots">
-      {% if section.settings.slide1_image != blank or section.settings.slide1_title != blank %}
+      {% if slider_metafield.first_slide_image.value != blank or slider_metafield.first_slide_title.value != blank %}
         <button class="slider-metafield-dot active-dot" data-dot="0" aria-label="Go to slide 1"></button>
       {% endif %}
-      {% if section.settings.slide2_image != blank or section.settings.slide2_title != blank %}
+      {% if slider_metafield.second_slide_image.value != blank or slider_metafield.second_slide_title.value != blank %}
         <button class="slider-metafield-dot" data-dot="1" aria-label="Go to slide 2"></button>
       {% endif %}
-      {% if section.settings.slide3_image != blank or section.settings.slide3_title != blank %}
+      {% if slider_metafield.third_slide_image.value != blank or slider_metafield.third_slide_title.value != blank %}
         <button class="slider-metafield-dot" data-dot="2" aria-label="Go to slide 3"></button>
       {% endif %}
-      {% if section.settings.slide4_image != blank or section.settings.slide4_title != blank %}
+      {% if slider_metafield.fourth_slide_image.value != blank or slider_metafield.fourth_slide_title.value != blank %}
         <button class="slider-metafield-dot" data-dot="3" aria-label="Go to slide 4"></button>
       {% endif %}
     </div>
@@ -521,134 +523,22 @@
       "content": "Section Settings"
     },
     {
-      "type": "checkbox",
-      "id": "emptySpace",
-      "label": "Add Empty Space",
-      "default": false
+      "type": "range",
+      "id": "wrapper-container-width",
+      "min": 70,
+      "max": 100,
+      "step": 1,
+      "label": "Container Width",
+      "default": 100
     },
     {
-      "type": "image_picker",
-      "id": "bg_img",
-      "label": "Background Image"
-    },
-    {
-      "type":"range",
-      "id":"wrapper-container-width",
-      "min":70,
-      "max":100,
-      "step":1,
-      "label":"Container Width",
-      "default":100
-    },
-    {
-      "type": "header",
-      "content": "Slide 1"
-    },
-    {
-      "type": "text",
-      "id": "slide1_title",
-      "label": "Slide 1 Title"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide1_image",
-      "label": "Slide 1 Image"
-    },
-    {
-      "type": "richtext",
-      "id": "slide1_description",
-      "label": "Slide 1 Description"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide1_icon",
-      "label": "Slide 1 Icon(SVG)"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide1_mobile",
-      "label": "Slide 1 Mobile Icon(SVG)"
-    },
-    {
-      "type": "text",
-      "id": "slide2_title",
-      "label": "Slide 2 Title"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide2_image",
-      "label": "Slide 2 Image"
-    },
-    {
-      "type": "richtext",
-      "id": "slide2_description",
-      "label": "Slide 2 Description"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide2_icon",
-      "label": "Slide 2 Icon"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide2_mobile",
-      "label": "Slide 2 Mobile Icon"
-    },
-    {
-      "type": "text",
-      "id": "slide3_title",
-      "label": "Slide 3 Title"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide3_image",
-      "label": "Slide 3 Image"
-    },
-    {
-      "type": "richtext",
-      "id": "slide3_description",
-      "label": "Slide 3 Description"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide3_icon",
-      "label": "Slide 3 Icon(SVG)"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide3_mobile",
-      "label": "Slide 3 Mobile Icon(SVG)"
-    },
-      {
-      "type": "text",
-      "id": "slide4_title",
-      "label": "Slide 4 Title"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide4_image",
-      "label": "Slide 4 Image"
-    },
-    {
-      "type": "richtext",
-      "id": "slide4_description",
-      "label": "Slide 4 Description"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide4_icon",
-      "label": "Slide 4 Icon(SVG)"
-    },
-    {
-      "type": "image_picker",
-      "id": "slide4_mobile",
-      "label": "Slide 4 Mobile Icon(SVG)"
+      "type": "paragraph",
+      "content": "Slide data is pulled from product metafield: custom.section_custom_slider_pcr"
     }
-
   ],
-  "presets":[
+  "presets": [
     {
-      "name":"Custom Slider Metafield"
+      "name": "Custom Slider Metafield"
     }
   ]
 }
