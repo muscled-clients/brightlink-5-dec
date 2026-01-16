@@ -875,6 +875,12 @@ text-align: center;
   "infoOverflowScroll": {% if template == 'product.quick-view' %}false{% else %}true{% endif %},
   "isQuickView": {% if template == 'product.quick-view' %}true{% else %}false{% endif %}
 }
+
+{%- endcapture -%}
+
+
+<section data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
+
 {% comment %} add bg image {% endcomment %}
 
 {%- assign is_metafield_template = false -%}
@@ -900,10 +906,9 @@ text-align: center;
 {%- endif -%}
 
 {% comment %} bg image end {% endcomment %}
-{%- endcapture -%}
 
 
-<section data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
+
   {%- if template != 'product.quick-view' -%}
     <div class="container container--flush">
       <div class="page__sub-header">
