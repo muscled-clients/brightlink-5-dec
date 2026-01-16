@@ -12,10 +12,12 @@
     {% assign apps_description = apps_data.description | default: section.settings.subtitle | default: 'From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings' %}
 
     <div class="applications-tabs__header">
-      {% if section.settings.label != blank %}
-        <span class="applications-tabs__label">{{ section.settings.label }}</span>
-      {% endif %}
-      <h2 class="applications-tabs__heading">{{ apps_title }}</h2>
+      <div class="applications-tabs__header-text">
+        {% if section.settings.label != blank %}
+          <span class="applications-tabs__label">{{ section.settings.label }}</span>
+        {% endif %}
+        <h2 class="applications-tabs__heading">{{ apps_title }}</h2>
+      </div>
       <p class="applications-tabs__subheading">{{ apps_description }}</p>
     </div>
 
