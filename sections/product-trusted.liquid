@@ -113,14 +113,13 @@
 
     .product-trusted__link,
     .product-trusted__text{
-      font-size: 14px;
-      letter-spacing: 0.02em;
-      color: var(--pt-text);
-      opacity: {{ section.settings.items_opacity | divided_by: 100.0 }};
-      text-decoration: none;
-      transition: opacity .2s ease, color .2s ease, text-shadow .2s ease;
-      padding: 4px 6px;
-      border-radius: 8px;
+      color: rgba(255, 255, 255, 0.40);
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 28px; /* 140% */
+    letter-spacing: 1px;
     }
 
     .product-trusted__link:hover{
