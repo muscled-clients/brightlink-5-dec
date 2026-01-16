@@ -1184,6 +1184,13 @@ text-align: center;
               --------------------------------------------------------------------------------------
               {%- endcomment -%}
 
+                {% comment %} custom icon width text block start {% endcomment %}
+                  {%- when 'reviews' -%}
+
+                {% comment %} custom icon with text block end {% endcomment %}
+
+
+
               {%- when 'trust' -%}
                 {%- if block.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
                   {%- assign show_payment_icons = true -%}
