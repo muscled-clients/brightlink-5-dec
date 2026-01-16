@@ -11,10 +11,12 @@
     {% assign ctrl_description = controller_data.description | default: section.settings.subtitle %}
 
     <div class="controller-tabs__header">
-      {% if section.settings.label != blank %}
-        <span class="controller-tabs__label">{{ section.settings.label }}</span>
-      {% endif %}
-      <h2 class="controller-tabs__heading">{{ ctrl_title }}</h2>
+      <div class="controller-tabs__header-text">
+        {% if section.settings.label != blank %}
+          <span class="controller-tabs__label">{{ section.settings.label }}</span>
+        {% endif %}
+        <h2 class="controller-tabs__heading">{{ ctrl_title }}</h2>
+      </div>
       <p class="controller-tabs__subheading">{{ ctrl_description }}</p>
 
       {% if section.settings.badge_text != blank %}
