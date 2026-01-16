@@ -13901,6 +13901,9 @@ shopify-payment-terms {
         background: transparent !important;
     }
 }
+.ctm-bg{
+  background: transparent !important;
+  }
 {% endif %}
 
 /* my custom css end */
