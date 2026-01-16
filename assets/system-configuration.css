@@ -98,40 +98,27 @@
   position: relative;
   width: 1280px;
   max-width: calc(100% - 40px);
-  height: 698px;
-  align-self: stretch;
-  padding: 17px;
-  border-radius: 17px;
-  border: 1px solid rgba(10, 132, 255, 0.30);
-  background: rgba(10, 14, 26, 0.60);
-  box-shadow: 0 0 64px 0 rgba(10, 132, 255, 0.20);
+  border-radius: 12px;
   box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
 }
 
 .system-configuration__display-image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
-  border-radius: 8px;
 }
 
 /* Placeholder */
 .system-configuration__display-placeholder {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 15px;
   color: rgba(255, 255, 255, 0.3);
-  background: transparent;
-  border-radius: 8px;
+  padding: 60px;
+  min-height: 400px;
+  background: linear-gradient(135deg, #0d1a2a 0%, #061018 100%);
 }
 
 .system-configuration__display-placeholder svg {
@@ -608,10 +595,6 @@
 
   .system-configuration__visual {
     max-width: calc(100% - 40px);
-    height: auto;
-    aspect-ratio: 16/9;
-    padding: 12px;
-    border-radius: 12px;
   }
 
   .system-configuration__cards {
@@ -755,8 +738,6 @@
 
   .system-configuration__visual {
     max-width: calc(100% - 30px);
-    padding: 10px;
-    border-radius: 10px;
   }
 
   .system-configuration__cards {
@@ -764,6 +745,7 @@
   }
 
   .system-configuration__display-placeholder {
+    min-height: 200px;
     padding: 30px;
   }
 
