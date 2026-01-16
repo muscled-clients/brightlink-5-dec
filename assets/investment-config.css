@@ -7,13 +7,13 @@
 
 .investment-config__container {
   display: flex;
-  max-width: 1440px;
-  width: 100%;
+  width: 1440px;
+  max-width: 100%;
   flex-direction: column;
   align-items: center;
   gap: 60px;
   margin: 0 auto;
-  box-sizing: border-box;
+  padding: 0;
 }
 
 .investment-config__header {
@@ -22,7 +22,8 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  align-self: stretch;
+  width: 1440px;
+  max-width: 100%;
   text-align: center;
   border-top: 1px solid rgba(10, 132, 255, 0.20);
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
@@ -79,8 +80,8 @@
 /* Content wrapper for side-by-side layout */
 .investment-config__content {
   display: flex;
-  max-width: 1280px;
-  width: 100%;
+  width: 1280px;
+  max-width: calc(100% - 40px);
   align-items: stretch;
   gap: 20px;
 }
@@ -420,8 +421,27 @@
     padding: 40px 20px;
   }
 
+  .investment-config__header-text {
+    gap: 16px;
+  }
+
+  .investment-config__label {
+    font-family: Inter, sans-serif;
+    color: #D4AF37;
+  }
+
   .investment-config__title {
-    font-size: 26px;
+    font-size: 32px;
+    letter-spacing: -1px;
+    font-family: Inter, sans-serif;
+    color: #FFF;
+  }
+
+  .investment-config__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Inter, sans-serif;
+    color: #A0AEC0;
   }
 
   .investment-config__card {
@@ -455,17 +475,30 @@
 }
 
 @media (max-width: 480px) {
-  .investment-config__container {
-    gap: 30px;
-  }
-
   .investment-config__header {
     padding: 30px 15px;
   }
 
+  .investment-config__label {
+    font-size: 12px;
+    font-family: Inter, sans-serif;
+    color: #D4AF37;
+  }
+
   .investment-config__title {
-    font-size: 24px;
-    font-style: italic;
+    font-size: 28px;
+    font-family: Inter, sans-serif;
+    color: #FFF;
+  }
+
+  .investment-config__subtitle {
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    color: #A0AEC0;
+  }
+
+  .investment-config__content {
+    max-width: calc(100% - 30px);
   }
 
   .investment-config__card {
