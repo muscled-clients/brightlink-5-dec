@@ -517,9 +517,10 @@
       "name": "Custom Slider Metafield",
       "settings": {
         "emptySpace": false,
-        "slide1_title": "",
+        "slide1_title": "Real-Time Financial Data at Scale",
         "wrapper-container-width": 100,
-        "slide1_description": "",
+        "slide1_image": "shopify://shop_images/bg.png",
+        "slide1_description": "<p>Mission-critical market visualization with zero latency</p>",
         "slide2_title": "",
         "slide2_description": "",
         "slide3_title": "",
