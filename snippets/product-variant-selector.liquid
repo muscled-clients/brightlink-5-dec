@@ -142,10 +142,12 @@
       <div
         class="product-meta__sku product-form__info-item"
       >
-        <span class="product-form__info-title text--strong">Shipping Time:</span>
+        <div>
+            <span class="product-form__info-title text--strong">Shipping Time:</span>
         <span class="product-meta__sku-number product-form__info-content">
           {{- product.metafields.custom.shipping_times -}}
         </span>
+        </div>
       </div>
     {%- endif -%}
   {% endif %}
