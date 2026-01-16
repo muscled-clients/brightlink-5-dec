@@ -486,7 +486,6 @@
     },
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd": {
       "type": "custom-slider-pcr",
-      "disabled": true,
       "settings": {
         "emptySpace": false,
         "bg_img": "{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}",
@@ -520,18 +519,7 @@
         "section_label": "PRODUCT SHOWCASE",
         "section_heading": "Experience Premium Engineering",
         "section_subtitle": "Every detail crafted for visual excellence",
-        "emptySpace": false,
-        "wrapper-container-width": 100,
-        "slide1_title": "Real-Time Financial Data at Scale",
-        "slide1_image": "shopify://shop_images/image_8.png",
-        "slide1_description": "<p>Mission-critical market visualization with zero latency</p>",
-        "slide2_title": "Real-Time Financial Data at Scale",
-        "slide2_image": "shopify://shop_images/bg.png",
-        "slide2_description": "<p>Mission-critical market visualization with zero latency</p>",
-        "slide3_title": "",
-        "slide3_description": "",
-        "slide4_title": "",
-        "slide4_description": ""
+        "wrapper-container-width": 100
       }
     },
     "be5fcda4-e747-4686-bf2c-597f15159877": {
