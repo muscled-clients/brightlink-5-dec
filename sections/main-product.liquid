@@ -1,19 +1,19 @@
 {% comment %} add bg image {% endcomment %}
 
-{%- if request.page_type == 'product' and template.name == 'product' and template.suffix == 'metafield' and section.settings.bg_image != blank -%}
+{% if request.page_type == 'product'
+  and template.name == 'product'
+  and template.suffix == 'metafield'
+  and section.settings.bg_image != blank
+%}
   {% style %}
-    .template-product-metafield {
-      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
+    body.template-product-metafield {
+      background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      min-height: 100vh;
     }
   {% endstyle %}
-{%- endif -%}
-{% if template.suffix == 'metafield' %}
-  <div style="padding:10px;background:#000;color:#fff;position:fixed;bottom:10px;right:10px;z-index:9999;">
-    Template: product.metafield detected ✅
-  </div>
 {% endif %}
 
 
