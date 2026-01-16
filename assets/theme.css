@@ -13895,6 +13895,12 @@ shopify-payment-terms {
 
 /* icon with text css end */
 
+
+@media screen and (min-width: 1000px) {
+    .product-block-list {
+        background: transparent !important;
+    }
+}
 {% endif %}
 
 /* my custom css end */
