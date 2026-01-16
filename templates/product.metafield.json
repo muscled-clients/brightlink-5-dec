@@ -34,6 +34,13 @@
             "low_inventory_threshold": 53
           }
         },
+        "icon_with_text_inline_8QNFxD": {
+          "type": "icon_with_text_inline",
+          "settings": {
+            "icon": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
+            "text": "Shipping Time: Standard: 3 - 4 week delivery"
+          }
+        },
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
           "type": "accordian",
           "settings": {
@@ -137,13 +144,6 @@
             "content-font-size-mobile": 14
           }
         },
-        "icon_with_text_inline_8QNFxD": {
-          "type": "icon_with_text_inline",
-          "settings": {
-            "icon": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
-            "text": "Shipping Time: Standard: 3 - 4 week delivery"
-          }
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -240,6 +240,7 @@
       "block_order": [
         "product_meta",
         "variant_selector",
+        "icon_with_text_inline_8QNFxD",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
@@ -247,7 +248,6 @@
         "download_accordion_WThxdX",
         "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737",
         "fd62c6b7-26f4-4374-b874-a66dd71682ce",
-        "icon_with_text_inline_8QNFxD",
         "buy_buttons",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
