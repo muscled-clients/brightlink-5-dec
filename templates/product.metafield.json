@@ -16,7 +16,7 @@
           "type": "product_meta",
           "settings": {
             "show_vendor": false,
-            "show_sku": true,
+            "show_sku": false,
             "show_reviews_badge": false,
             "show_share_buttons": false
           }
