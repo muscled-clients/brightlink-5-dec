@@ -41,8 +41,17 @@
             "text": "Shipping Time: Standard: 3 - 4 week delivery"
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {
+            "display_mode": "view_more",
+            "title": "",
+            "text": ""
+          }
+        },
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -170,15 +179,6 @@
             "amazon_link2": "https://www.google.com"
           }
         },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "display_mode": "view_more",
-            "title": "",
-            "text": ""
-          }
-        },
         "2c653889-de9a-4870-89e9-ec8bdfc610d7": {
           "type": "shopify://apps/request-a-quote-hide-price-b2b/blocks/easy-quote-sealapps/414e3c56-ba13-45bb-9f54-87077e6b11d9",
           "disabled": true,
@@ -241,6 +241,7 @@
         "product_meta",
         "variant_selector",
         "icon_with_text_inline_8QNFxD",
+        "description",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
@@ -251,7 +252,6 @@
         "buy_buttons",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
-        "description",
         "2c653889-de9a-4870-89e9-ec8bdfc610d7",
         "04b69ffe-0002-411a-a1e0-6f4790447db6",
         "97650900-1f05-4d17-be1a-a0767123954f",
