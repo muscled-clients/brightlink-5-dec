@@ -968,6 +968,54 @@
       "settings": {
         "main-heading": "You may also like"
       }
+    },
+    "text_with_icons_LdBQeW": {
+      "type": "text-with-icons",
+      "blocks": {
+        "item_3RUmpd": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-network",
+            "title": "Free delivery worldwide",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "item_pxwTTW": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-returns",
+            "title": "Satisfied or refunded",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "item_JeTw3E": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "title": "Top-notch support",
+            "content": "<p>Short content about your store</p>"
+          }
+        },
+        "item_kbzQNp": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-secure-payment",
+            "title": "Secure payments",
+            "content": "<p>Short content about your store</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_3RUmpd",
+        "item_pxwTTW",
+        "item_JeTw3E",
+        "item_kbzQNp"
+      ],
+      "disabled": true,
+      "name": "Text with icons",
+      "settings": {
+        "stack_mobile": false
+      }
     }
   },
   "order": [
@@ -991,6 +1039,7 @@
     "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9",
     "3e27d268-c437-4a2e-96e6-cc76a3f32a17",
     "product-recommendations",
-    "3a147c4c-5de7-45e5-916d-e0d7e58db13a"
+    "3a147c4c-5de7-45e5-916d-e0d7e58db13a",
+    "text_with_icons_LdBQeW"
   ]
 }
