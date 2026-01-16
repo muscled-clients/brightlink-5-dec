@@ -137,6 +137,12 @@
             "content-font-size-mobile": 14
           }
         },
+        "icon_with_text_inline_8QNFxD": {
+          "type": "icon_with_text_inline",
+          "settings": {
+            "text": "Shipping Time: Standard: 3 - 4 week delivery"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -240,6 +246,7 @@
         "download_accordion_WThxdX",
         "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737",
         "fd62c6b7-26f4-4374-b874-a66dd71682ce",
+        "icon_with_text_inline_8QNFxD",
         "buy_buttons",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
