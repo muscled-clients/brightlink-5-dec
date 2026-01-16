@@ -45,35 +45,63 @@
 
   /* Header Section */
   .competitive-advantages__header {
+    display: flex;
+    padding: 52px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
     text-align: center;
-    margin-bottom: 50px;
+    border-top: 1px solid rgba(10, 132, 255, 0.20);
+    background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
+  }
+
+  .competitive-advantages__header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
   }
 
   .competitive-advantages__label {
-    display: inline-block;
-    font-size: var(--ca-label-size, 14px);
-    font-weight: 500;
-    letter-spacing: 3px;
+    height: 20px;
+    align-self: stretch;
+    color: #D4AF37;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--ca-label-color, #FFD700);
-    margin-bottom: 20px;
   }
 
   .competitive-advantages__heading {
-    font-size: var(--ca-heading-size, 42px);
+    align-self: stretch;
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 48px;
+    font-style: normal;
     font-weight: 700;
-    color: var(--ca-heading-color, #ffffff);
-    letter-spacing: 0.5px;
-    margin: 0 0 15px 0;
-    line-height: 1.2;
+    line-height: normal;
+    letter-spacing: -2px;
+    margin: 0;
   }
 
   .competitive-advantages__subheading {
-    font-size: var(--ca-subheading-size, 16px);
+    width: 846px;
+    max-width: 100%;
+    color: #A0AEC0;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 20px;
+    font-style: normal;
     font-weight: 400;
-    color: var(--ca-subheading-color, #A0AEC0);
+    line-height: 28px;
     margin: 0;
-    line-height: 1.5;
   }
 
   /* Cards Grid (Desktop Default) */
@@ -357,14 +385,23 @@
     .competitive-advantages__container {
       padding: 0;
     }
-    
+
     .competitive-advantages__header {
-      padding: 0 15px;
+      padding: 40px 15px;
     }
-    
+
+    .competitive-advantages__header-text {
+      gap: 16px;
+    }
+
     .competitive-advantages__heading {
-      font-size:28px;
-      font-weight:700;
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .competitive-advantages__subheading {
+      font-size: 16px;
+      line-height: 24px;
     }
 
     /* Slider Container */
@@ -434,14 +471,14 @@
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
   <div class="competitive-advantages__container">
     <div class="competitive-advantages__header">
-      {% if section.settings.section_label != blank %}
-        <span class="competitive-advantages__label">{{ section.settings.section_label }}</span>
-      {% endif %}
-
-      {% if section.settings.heading != blank %}
-        <h2 class="competitive-advantages__heading">{{ section.settings.heading }}</h2>
-      {% endif %}
-
+      <div class="competitive-advantages__header-text">
+        {% if section.settings.section_label != blank %}
+          <span class="competitive-advantages__label">{{ section.settings.section_label }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="competitive-advantages__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
       {% if section.settings.subheading != blank %}
         <p class="competitive-advantages__subheading">{{ section.settings.subheading }}</p>
       {% endif %}
