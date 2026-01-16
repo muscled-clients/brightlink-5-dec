@@ -41,6 +41,32 @@
 {% assign pic_install_support_description = product.metafields.custom.pic_install_support_description.value %}
 {% assign pic_install_support_button = product.metafields.custom.pic_install_support_button.value %}
 
+{% comment %} Support Tab - Header & Resources {% endcomment %}
+{% assign pic_support_heading = product.metafields.custom.pic_support_heading.value %}
+{% assign pic_support_resource_titles = product.metafields.custom.pic_support_resource_titles.value %}
+{% assign pic_support_resource_descriptions = product.metafields.custom.pic_support_resource_descriptions.value %}
+{% assign pic_support_resource_badges = product.metafields.custom.pic_support_resource_badges.value %}
+{% assign pic_support_resource_sizes = product.metafields.custom.pic_support_resource_sizes.value %}
+{% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %}
+
+{% comment %} Support Tab - Contact Section {% endcomment %}
+{% assign pic_support_phone = product.metafields.custom.pic_support_phone.value %}
+{% assign pic_support_phone_hours = product.metafields.custom.pic_support_phone_hours.value %}
+{% assign pic_support_phone_note = product.metafields.custom.pic_support_phone_note.value %}
+{% assign pic_support_email = product.metafields.custom.pic_support_email.value %}
+{% assign pic_support_email_response = product.metafields.custom.pic_support_email_response.value %}
+{% assign pic_support_lifetime_title = product.metafields.custom.pic_support_lifetime_title.value %}
+{% assign pic_support_lifetime_description = product.metafields.custom.pic_support_lifetime_description.value %}
+
+{% comment %} Support Tab - Use Case Section {% endcomment %}
+{% assign pic_support_usecase_image = product.metafields.custom.pic_support_usecase_image.value %}
+{% assign pic_support_usecase_title = product.metafields.custom.pic_support_usecase_title.value %}
+{% assign pic_support_usecase_description = product.metafields.custom.pic_support_usecase_description.value %}
+{% assign pic_support_usecase_specs = product.metafields.custom.pic_support_usecase_specs.value %}
+{% assign pic_support_usecase_config = product.metafields.custom.pic_support_usecase_config.value %}
+{% assign pic_support_usecase_features_title = product.metafields.custom.pic_support_usecase_features_title.value %}
+{% assign pic_support_usecase_features = product.metafields.custom.pic_support_usecase_features.value %}
+
 {% comment %} Overview Tab {% endcomment %}
 {% assign pic_overview_description = product.metafields.custom.pic_overview_description.value %}
 {% assign pic_overview_image = product.metafields.custom.pic_overview_image.value %}
@@ -1037,181 +1063,123 @@
                       <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/>
                     </svg>
                   </div>
-                  <h3 class="support-header__title">Support & Resources</h3>
+                  <h3 class="support-header__title">{{ pic_support_heading | default: 'Support & Resources' }}</h3>
                 </div>
 
                 <!-- Resources Grid -->
                 <div class="support-resources">
                   <div class="support-resources__grid">
-                    <!-- Row 1 -->
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                          </svg>
+                    {% if pic_support_resource_titles and pic_support_resource_titles.size > 0 %}
+                      {% for title in pic_support_resource_titles %}
+                        <a href="{{ pic_support_resource_links[forloop.index0] | default: '#' }}" class="resource-card" target="_blank">
+                          <div class="resource-card__header">
+                            <div class="resource-card__icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                              </svg>
+                            </div>
+                            <div class="resource-card__download">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                              </svg>
+                            </div>
+                          </div>
+                          <h4 class="resource-card__title">{{ title }}</h4>
+                          {% if pic_support_resource_descriptions[forloop.index0] %}
+                            <p class="resource-card__desc">{{ pic_support_resource_descriptions[forloop.index0] }}</p>
+                          {% endif %}
+                          <div class="resource-card__footer">
+                            <span class="resource-card__badge">{{ pic_support_resource_badges[forloop.index0] | default: 'PDF' }}</span>
+                            <span class="resource-card__size">{{ pic_support_resource_sizes[forloop.index0] | default: '' }}</span>
+                          </div>
+                        </a>
+                      {% endfor %}
+                    {% else %}
+                      <!-- Default Resource Cards -->
+                      <div class="resource-card">
+                        <div class="resource-card__header">
+                          <div class="resource-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                            </svg>
+                          </div>
+                          <div class="resource-card__download">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                          </div>
                         </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
+                        <h4 class="resource-card__title">PRO SPECTRUM SPEC SHEET</h4>
+                        <p class="resource-card__desc">Complete technical specifications for Pro Spectrum COB LED series. Includes display, electrical, and environmental specs.</p>
+                        <div class="resource-card__footer">
+                          <span class="resource-card__badge">PDF</span>
+                          <span class="resource-card__size">2.4 MB</span>
                         </div>
                       </div>
-                      <h4 class="resource-card__title">PRO SPECTRUM SPEC SHEET</h4>
-                      <p class="resource-card__desc">Complete technical specifications for Pro Spectrum COB LED series. Includes display, electrical, and environmental specs.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">2.4 MB</span>
-                      </div>
-                    </div>
 
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-                          </svg>
+                      <div class="resource-card">
+                        <div class="resource-card__header">
+                          <div class="resource-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                            </svg>
+                          </div>
+                          <div class="resource-card__download">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                          </div>
                         </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
+                        <h4 class="resource-card__title">LED VIEWING DISTANCE GUIDE</h4>
+                        <p class="resource-card__desc">Comprehensive guide for calculating optimal viewing distances and pixel pitch selection for LED video walls.</p>
+                        <div class="resource-card__footer">
+                          <span class="resource-card__badge">PDF</span>
+                          <span class="resource-card__size">1.8 MB</span>
                         </div>
                       </div>
-                      <h4 class="resource-card__title">LED VIEWING DISTANCE GUIDE</h4>
-                      <p class="resource-card__desc">Comprehensive guide for calculating optimal viewing distances and pixel pitch selection for LED video walls.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">1.8 MB</span>
-                      </div>
-                    </div>
 
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-4h4v-2h-4V7h-2v4H8v2h4z"/>
-                          </svg>
+                      <div class="resource-card">
+                        <div class="resource-card__header">
+                          <div class="resource-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h2v-4h4v-2h-4V7h-2v4H8v2h4z"/>
+                            </svg>
+                          </div>
+                          <div class="resource-card__download">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                          </div>
                         </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
+                        <h4 class="resource-card__title">MOUNTING FRAME DRAWINGS</h4>
+                        <p class="resource-card__desc">Detailed CAD drawings for BL-PS-COB-LED-217 8×8 configuration. Includes dimensions and mounting specifications.</p>
+                        <div class="resource-card__footer">
+                          <span class="resource-card__badge">DWG</span>
+                          <span class="resource-card__size">856 KB</span>
                         </div>
                       </div>
-                      <h4 class="resource-card__title">MOUNTING FRAME DRAWINGS</h4>
-                      <p class="resource-card__desc">Detailed CAD drawings for BL-PS-COB-LED-217 8×8 configuration. Includes dimensions and mounting specifications.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">DWG</span>
-                        <span class="resource-card__size">856 KB</span>
-                      </div>
-                    </div>
 
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
-                          </svg>
+                      <div class="resource-card">
+                        <div class="resource-card__header">
+                          <div class="resource-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                            </svg>
+                          </div>
+                          <div class="resource-card__download">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
+                          </div>
                         </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <h4 class="resource-card__title">POWER & NETWORK DIAGRAMS</h4>
-                      <p class="resource-card__desc">Complete wiring diagrams for power distribution and network connections in 8×8 cabinet array configuration.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">DWG</span>
-                        <span class="resource-card__size">743 KB</span>
-                      </div>
-                    </div>
-
-                    <!-- Row 2 -->
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
-                          </svg>
-                        </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
+                        <h4 class="resource-card__title">POWER & NETWORK DIAGRAMS</h4>
+                        <p class="resource-card__desc">Complete wiring diagrams for power distribution and network connections in 8×8 cabinet array configuration.</p>
+                        <div class="resource-card__footer">
+                          <span class="resource-card__badge">DWG</span>
+                          <span class="resource-card__size">743 KB</span>
                         </div>
                       </div>
-                      <h4 class="resource-card__title">NOVASTAR H2 QUICK START</h4>
-                      <p class="resource-card__desc">Quick start guide for NovaStar H2 controller setup, initial configuration, and basic operation.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">3.1 MB</span>
-                      </div>
-                    </div>
-
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
-                          </svg>
-                        </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <h4 class="resource-card__title">NOVASTAR H2 USER MANUAL</h4>
-                      <p class="resource-card__desc">Complete user manual for NovaStar H2 video processor. Covers advanced features, troubleshooting, and specifications.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">12.5 MB</span>
-                      </div>
-                    </div>
-
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9h-4v4h-2v-4H9V9h4V5h2v4h4v2z"/>
-                          </svg>
-                        </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <h4 class="resource-card__title">NOVASTAR H2 SPECIFICATIONS</h4>
-                      <p class="resource-card__desc">Detailed technical specifications for NovaStar H2 including I/O configurations, processing capacity, and features.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">1.2 MB</span>
-                      </div>
-                    </div>
-
-                    <div class="resource-card">
-                      <div class="resource-card__header">
-                        <div class="resource-card__icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
-                          </svg>
-                        </div>
-                        <div class="resource-card__download">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                          </svg>
-                        </div>
-                      </div>
-                      <h4 class="resource-card__title">COB vs GOB COMPARISON CHART</h4>
-                      <p class="resource-card__desc">Side-by-side comparison of COB and GOB LED technologies. Understand the advantages of COB for professional applications.</p>
-                      <div class="resource-card__footer">
-                        <span class="resource-card__badge">PDF</span>
-                        <span class="resource-card__size">892 KB</span>
-                      </div>
-                    </div>
+                    {% endif %}
                   </div>
                 </div>
 
@@ -1223,10 +1191,10 @@
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__number">855-449-4733</h4>
-                    <p class="support-contact__hours">Monday - Friday: 7AM - 5PM PST</p>
-                    <p class="support-contact__note">Press 2 for Technical Support</p>
-                    <a href="tel:855-449-4733" class="support-contact__btn">CALL NOW</a>
+                    <h4 class="support-contact__number">{{ pic_support_phone | default: '855-449-4733' }}</h4>
+                    <p class="support-contact__hours">{{ pic_support_phone_hours | default: 'Monday - Friday: 7AM - 5PM PST' }}</p>
+                    <p class="support-contact__note">{{ pic_support_phone_note | default: 'Press 2 for Technical Support' }}</p>
+                    <a href="tel:{{ pic_support_phone | default: '855-449-4733' | remove: '-' | remove: ' ' }}" class="support-contact__btn">CALL NOW</a>
                   </div>
 
                   <div class="support-contact__card support-contact__card--email">
@@ -1235,9 +1203,9 @@
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__email">support@brightlinkav.com</h4>
-                    <p class="support-contact__response">Response within 1-2 hours during business hours</p>
-                    <a href="mailto:support@brightlinkav.com" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                    <h4 class="support-contact__email">{{ pic_support_email | default: 'support@brightlinkav.com' }}</h4>
+                    <p class="support-contact__response">{{ pic_support_email_response | default: 'Response within 1-2 hours during business hours' }}</p>
+                    <a href="mailto:{{ pic_support_email | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
                   </div>
 
                   <div class="support-contact__card support-contact__card--lifetime">
@@ -1246,8 +1214,8 @@
                         <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__title">Lifetime Technical Support</h4>
-                    <p class="support-contact__desc">Even after warranty expires, full support continues.</p>
+                    <h4 class="support-contact__title">{{ pic_support_lifetime_title | default: 'Lifetime Technical Support' }}</h4>
+                    <p class="support-contact__desc">{{ pic_support_lifetime_description | default: 'Even after warranty expires, full support continues.' }}</p>
                     <span class="support-contact__badge">INCLUDED</span>
                   </div>
                 </div>
@@ -1255,19 +1223,23 @@
                 <!-- Use Case Section -->
                 <div class="support-usecase">
                   <div class="support-usecase__image">
-                    <div class="support-usecase__placeholder"></div>
+                    {% if pic_support_usecase_image != blank %}
+                      <img src="{{ pic_support_usecase_image | image_url: width: 600 }}" alt="{{ pic_support_usecase_title }}" class="support-usecase__img" loading="lazy">
+                    {% else %}
+                      <div class="support-usecase__placeholder"></div>
+                    {% endif %}
                     <div class="support-usecase__specs">
                       <div class="support-usecase__spec">
                         <span class="support-usecase__spec-label">View Distance</span>
-                        <span class="support-usecase__spec-value">6-15 feet</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.view_distance | default: '6-15 feet' }}</span>
                       </div>
                       <div class="support-usecase__spec">
                         <span class="support-usecase__spec-label">Typical Size</span>
-                        <span class="support-usecase__spec-value">180-250"</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.typical_size | default: '180-250"' }}</span>
                       </div>
                       <div class="support-usecase__spec">
                         <span class="support-usecase__spec-label">Use Case</span>
-                        <span class="support-usecase__spec-value">Premium</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.use_case | default: 'Premium' }}</span>
                       </div>
                     </div>
                     <div class="support-usecase__config">
@@ -1275,50 +1247,60 @@
                       <div class="support-usecase__config-grid">
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Size:</span>
-                          <span class="support-usecase__config-value">6×4 to 10×6 arrays</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.size | default: '6×4 to 10×6 arrays' }}</span>
                         </div>
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Resolution:</span>
-                          <span class="support-usecase__config-value">2.88M to 7.2M pixels</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.resolution | default: '2.88M to 7.2M pixels' }}</span>
                         </div>
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Brightness:</span>
-                          <span class="support-usecase__config-value">600 nits</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.brightness | default: '600 nits' }}</span>
                         </div>
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Controller:</span>
-                          <span class="support-usecase__config-value">NovaStar H2/H5</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.controller | default: 'NovaStar H2/H5' }}</span>
                         </div>
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Mounting:</span>
-                          <span class="support-usecase__config-value">Flush wall mount</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.mounting | default: 'Flush wall mount' }}</span>
                         </div>
                         <div class="support-usecase__config-item">
                           <span class="support-usecase__config-label">Integration:</span>
-                          <span class="support-usecase__config-value">Corporate AV systems</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.integration | default: 'Corporate AV systems' }}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="support-usecase__content">
-                    <h3 class="support-usecase__title">Executive Boardrooms & Conference Centers</h3>
-                    <p class="support-usecase__text">Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim 25mm profile creates a seamless, architectural presence that complements high-end interiors.</p>
-                    <p class="support-usecase__text">Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content regardless of seating position.</p>
+                    <h3 class="support-usecase__title">{{ pic_support_usecase_title | default: 'Executive Boardrooms & Conference Centers' }}</h3>
+                    {% if pic_support_usecase_description != blank %}
+                      {{ pic_support_usecase_description | newline_to_br }}
+                    {% else %}
+                      <p class="support-usecase__text">Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim 25mm profile creates a seamless, architectural presence that complements high-end interiors.</p>
+                      <p class="support-usecase__text">Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content regardless of seating position.</p>
+                    {% endif %}
 
                     <div class="support-usecase__features">
                       <h4 class="support-usecase__features-title">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
                           <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
-                        Why Pro Spectrum?
+                        {{ pic_support_usecase_features_title | default: 'Why Pro Spectrum?' }}
                       </h4>
                       <ul class="support-usecase__list">
-                        <li>Crystal-clear text readability at 6+ feet</li>
-                        <li>Professional aesthetic matches premium spaces</li>
-                        <li>Silent operation (no fan noise)</li>
-                        <li>4K content support for presentations</li>
-                        <li>HDR for realistic video conferencing</li>
-                        <li>Zero flicker for comfortable extended viewing</li>
+                        {% if pic_support_usecase_features and pic_support_usecase_features.size > 0 %}
+                          {% for feature in pic_support_usecase_features %}
+                            <li>{{ feature }}</li>
+                          {% endfor %}
+                        {% else %}
+                          <li>Crystal-clear text readability at 6+ feet</li>
+                          <li>Professional aesthetic matches premium spaces</li>
+                          <li>Silent operation (no fan noise)</li>
+                          <li>4K content support for presentations</li>
+                          <li>HDR for realistic video conferencing</li>
+                          <li>Zero flicker for comfortable extended viewing</li>
+                        {% endif %}
                       </ul>
                     </div>
                   </div>
