@@ -20,7 +20,7 @@
 {% comment %} bg image end {% endcomment %}
 
 <style>
-  {% if product.suffix == 'metafield' %}
+  {% if product.template_suffix == 'metafield' %}
 #main{
       background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
       background-size: cover;
