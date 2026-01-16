@@ -1,12 +1,12 @@
 {% comment %} add bg image {% endcomment %}
 
-{% comment %} {% if request.page_type == 'product'
+ {% if request.page_type == 'product'
   and template.name == 'product'
   and template.suffix == 'metafield'
   and section.settings.bg_image != blank
 %}
   {% style %}
-    body.template-product-metafield {
+   #main{
       background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
       background-size: cover;
       background-repeat: no-repeat;
@@ -14,7 +14,7 @@
       min-height: 100vh;
     }
   {% endstyle %}
-{% endif %} {% endcomment %}
+{% endif %} 
 
 
 {% comment %} bg image end {% endcomment %}
