@@ -1,0 +1,254 @@
+{% comment %}
+  Section: Product Trusted
+  - Dark background with subtle hex/tech pattern
+  - Center heading
+  - Inline trusted names with dot separators
+{% endcomment %}
+
+<section
+  class="product-trusted"
+  style="
+    --pt-bg: {{ section.settings.bg_color }};
+    --pt-text: {{ section.settings.text_color }};
+    --pt-muted: {{ section.settings.muted_color }};
+    --pt-accent: {{ section.settings.accent_color }};
+    --pt-border: {{ section.settings.border_color }};
+    --pt-pad-y: {{ section.settings.padding_y }}px;
+  "
+>
+  <div class="product-trusted__inner">
+    {% if section.settings.heading != blank %}
+      <p class="product-trusted__heading">{{ section.settings.heading }}</p>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <nav class="product-trusted__row" aria-label="Trusted by">
+        {% for block in section.blocks %}
+          {% if block.type == 'trusted_item' %}
+            {% assign label = block.settings.label %}
+            {% assign url = block.settings.url %}
+
+            {% if label != blank %}
+              <span class="product-trusted__item" {{ block.shopify_attributes }}>
+                {% if url != blank %}
+                  <a class="product-trusted__link" href="{{ url }}">
+                    {{ label }}
+                  </a>
+                {% else %}
+                  <span class="product-trusted__text">{{ label }}</span>
+                {% endif %}
+              </span>
+
+              {% unless forloop.last %}
+                <span class="product-trusted__dot" aria-hidden="true">•</span>
+              {% endunless %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </nav>
+    {% endif %}
+  </div>
+
+  {% style %}
+    .product-trusted{
+      position: relative;
+      padding: var(--pt-pad-y) 16px;
+      background: var(--pt-bg);
+      color: var(--pt-text);
+      overflow: hidden;
+      border-top: 1px solid var(--pt-border);
+      border-bottom: 1px solid var(--pt-border);
+    }
+
+    /* Subtle tech/hex pattern (no image needed) */
+    .product-trusted::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity: {{ section.settings.pattern_opacity | divided_by: 100.0 }};
+      background:
+        /* soft top glow */
+        radial-gradient(80% 140% at 50% 0%, rgba(60, 170, 255, 0.12), transparent 60%),
+        /* faint vertical bars */
+        repeating-linear-gradient(90deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 120px),
+        /* hex-like feel using angled lines */
+        repeating-linear-gradient(60deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px),
+        repeating-linear-gradient(-60deg, rgba(255,255,255,0.03) 0 1px, transparent 1px 46px);
+      filter: blur(0.2px);
+    }
+
+    .product-trusted__inner{
+      position: relative;
+      max-width: {{ section.settings.max_width }}px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .product-trusted__heading{
+      margin: 0 0 18px;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pt-muted);
+    }
+
+    .product-trusted__row{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      line-height: 1;
+    }
+
+    .product-trusted__item{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-trusted__link,
+    .product-trusted__text{
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: var(--pt-text);
+      opacity: {{ section.settings.items_opacity | divided_by: 100.0 }};
+      text-decoration: none;
+      transition: opacity .2s ease, color .2s ease, text-shadow .2s ease;
+      padding: 4px 6px;
+      border-radius: 8px;
+    }
+
+    .product-trusted__link:hover{
+      opacity: 1;
+      color: var(--pt-accent);
+      text-shadow: 0 0 18px rgba(60,170,255,0.35);
+    }
+
+    .product-trusted__dot{
+      color: var(--pt-muted);
+      opacity: 0.75;
+      font-size: 12px;
+      transform: translateY(-1px);
+      user-select: none;
+    }
+
+    @media (max-width: 640px){
+      .product-trusted__heading{ margin-bottom: 14px; }
+      .product-trusted__link, .product-trusted__text{ font-size: 13px; }
+      .product-trusted__row{ gap: 8px; }
+    }
+  {% endstyle %}
+</section>
+
+{% schema %}
+{
+  "name": "Product Trusted",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Trusted By Industry Leaders"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Max width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "padding_y",
+      "label": "Vertical padding",
+      "min": 30,
+      "max": 140,
+      "step": 5,
+      "default": 70
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background",
+      "default": "#050a12"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#b7c4d6"
+    },
+    {
+      "type": "color",
+      "id": "muted_color",
+      "label": "Muted color",
+      "default": "#6b7c93"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Hover accent color",
+      "default": "#3caaff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Top/Bottom border color",
+      "default": "rgba(255,255,255,0.06)"
+    },
+    {
+      "type": "range",
+      "id": "pattern_opacity",
+      "label": "Background pattern opacity",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "items_opacity",
+      "label": "Trusted names opacity",
+      "min": 40,
+      "max": 100,
+      "step": 1,
+      "default": 70
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trusted_item",
+      "name": "Trusted item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Text",
+          "default": "SpaceX"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Product Trusted",
+      "blocks": [
+        { "type": "trusted_item", "settings": { "label": "SpaceX" } },
+        { "type": "trusted_item", "settings": { "label": "University of Hawaii" } },
+        { "type": "trusted_item", "settings": { "label": "Epic Games" } },
+        { "type": "trusted_item", "settings": { "label": "City of Mesa" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
