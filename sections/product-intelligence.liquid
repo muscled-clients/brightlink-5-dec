@@ -49,14 +49,8 @@
 {% assign pic_support_resource_sizes = product.metafields.custom.pic_support_resource_sizes.value %}
 {% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %}
 
-{% comment %} Support Tab - Contact Section {% endcomment %}
-{% assign pic_support_phone = product.metafields.custom.pic_support_phone.value %}
-{% assign pic_support_phone_hours = product.metafields.custom.pic_support_phone_hours.value %}
-{% assign pic_support_phone_note = product.metafields.custom.pic_support_phone_note.value %}
-{% assign pic_support_email = product.metafields.custom.pic_support_email.value %}
-{% assign pic_support_email_response = product.metafields.custom.pic_support_email_response.value %}
-{% assign pic_support_lifetime_title = product.metafields.custom.pic_support_lifetime_title.value %}
-{% assign pic_support_lifetime_description = product.metafields.custom.pic_support_lifetime_description.value %}
+{% comment %} Support Tab - Contact Section (JSON) {% endcomment %}
+{% assign pic_support_contact = product.metafields.custom.pic_support_contact.value %}
 
 {% comment %} Support Tab - Use Case Section {% endcomment %}
 {% assign pic_support_usecase_image = product.metafields.custom.pic_support_usecase_image.value %}
@@ -1191,10 +1185,10 @@
                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__number">{{ pic_support_phone | default: '855-449-4733' }}</h4>
-                    <p class="support-contact__hours">{{ pic_support_phone_hours | default: 'Monday - Friday: 7AM - 5PM PST' }}</p>
-                    <p class="support-contact__note">{{ pic_support_phone_note | default: 'Press 2 for Technical Support' }}</p>
-                    <a href="tel:{{ pic_support_phone | default: '855-449-4733' | remove: '-' | remove: ' ' }}" class="support-contact__btn">CALL NOW</a>
+                    <h4 class="support-contact__number">{{ pic_support_contact.phone.number | default: '855-449-4733' }}</h4>
+                    <p class="support-contact__hours">{{ pic_support_contact.phone.hours | default: 'Monday - Friday: 7AM - 5PM PST' }}</p>
+                    <p class="support-contact__note">{{ pic_support_contact.phone.note | default: 'Press 2 for Technical Support' }}</p>
+                    <a href="tel:{{ pic_support_contact.phone.number | default: '855-449-4733' | remove: '-' | remove: ' ' }}" class="support-contact__btn">CALL NOW</a>
                   </div>
 
                   <div class="support-contact__card support-contact__card--email">
@@ -1203,9 +1197,9 @@
                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__email">{{ pic_support_email | default: 'support@brightlinkav.com' }}</h4>
-                    <p class="support-contact__response">{{ pic_support_email_response | default: 'Response within 1-2 hours during business hours' }}</p>
-                    <a href="mailto:{{ pic_support_email | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                    <h4 class="support-contact__email">{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}</h4>
+                    <p class="support-contact__response">{{ pic_support_contact.email.response | default: 'Response within 1-2 hours during business hours' }}</p>
+                    <a href="mailto:{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
                   </div>
 
                   <div class="support-contact__card support-contact__card--lifetime">
@@ -1214,8 +1208,8 @@
                         <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
                       </svg>
                     </div>
-                    <h4 class="support-contact__title">{{ pic_support_lifetime_title | default: 'Lifetime Technical Support' }}</h4>
-                    <p class="support-contact__desc">{{ pic_support_lifetime_description | default: 'Even after warranty expires, full support continues.' }}</p>
+                    <h4 class="support-contact__title">{{ pic_support_contact.lifetime.title | default: 'Lifetime Technical Support' }}</h4>
+                    <p class="support-contact__desc">{{ pic_support_contact.lifetime.description | default: 'Even after warranty expires, full support continues.' }}</p>
                     <span class="support-contact__badge">INCLUDED</span>
                   </div>
                 </div>
