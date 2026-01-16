@@ -16,7 +16,7 @@
   gap: 60px;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -86,6 +86,8 @@
 .product-showcase__carousel {
   position: relative;
   width: 100%;
+  padding: 0 60px;
+  box-sizing: border-box;
 }
 
 .product-showcase__slides {
@@ -185,12 +187,15 @@
 /* Responsive */
 @media screen and (max-width: 768px) {
   .product-showcase__container {
-    padding: 0 20px;
     gap: 40px;
   }
 
   .product-showcase__header {
-    padding: 40px 0;
+    padding: 40px 20px;
+  }
+
+  .product-showcase__carousel {
+    padding: 0 20px;
   }
 
   .product-showcase__heading {
@@ -217,12 +222,12 @@
 }
 
 @media screen and (max-width: 480px) {
-  .product-showcase__container {
-    padding: 0 15px;
+  .product-showcase__header {
+    padding: 30px 15px;
   }
 
-  .product-showcase__header {
-    padding: 30px 0;
+  .product-showcase__carousel {
+    padding: 0 15px;
   }
 
   .product-showcase__header-text {
