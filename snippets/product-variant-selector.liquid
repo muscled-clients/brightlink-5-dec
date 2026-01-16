@@ -265,12 +265,12 @@
   {% comment %} <div class="product-info-heading-s">Product Information</div>  {% endcomment %}
   {% comment %}============================sku starts here under product info ==================={% endcomment %}
   {%- if block.settings.show_sku -%}
-    <div
+    {% comment %} <div
       class="product-meta__sku product-form__info-item my-sku-s"
       {% if selected_variant.sku == blank %}
         style="display: none"
       {% endif %}
-    >
+    > {% endcomment %}
       <span class="product-form__info-title text--strong">{{- 'product.general.sku' | t -}}</span>
       <span class="product-meta__sku-number product-form__info-content">{{ selected_variant.sku }}</span>
     </div>
