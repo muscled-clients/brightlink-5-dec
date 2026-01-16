@@ -25,7 +25,7 @@
           "type": "variant_selector",
           "settings": {
             "show_sku": true,
-            "show_shipping_info": false,
+            "show_shipping_info": true,
             "selector_mode": "dropdown",
             "color_mode": "variant_image",
             "show_quantity_selector": true,
