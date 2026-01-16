@@ -5,10 +5,15 @@
   position: relative;
   width: 100%;
   background-color: var(--sc-bg-color, #0a0f14);
-  padding-top: var(--sc-padding-top, 80px);
-  padding-bottom: var(--sc-padding-bottom, 80px);
-  
+  margin-bottom: 120px;
+  padding: 0;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .system-configuration {
+    margin-bottom: 50px;
+  }
 }
 
 /* Container */

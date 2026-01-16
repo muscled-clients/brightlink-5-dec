@@ -1,6 +1,7 @@
 .knowledge-center {
   position: relative;
-  padding: 80px 0;
+  margin-bottom: 120px;
+  padding: 0;
   background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
 }
 
@@ -266,7 +267,7 @@
 
 @media (max-width: 768px) {
   .knowledge-center {
-    padding: 60px 0;
+    margin-bottom: 50px;
   }
 
   .knowledge-center__title {

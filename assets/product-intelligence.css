@@ -5,10 +5,16 @@
   position: relative;
   width: 100%;
   background-color: var(--pi-bg-color, #0a0f14);
-  padding-top: var(--pi-padding-top, 80px);
-  padding-bottom: var(--pi-padding-bottom, 80px);
+  margin-bottom: 120px;
+  padding: 0;
   overflow-x: hidden;
   font-family: Inter, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .product-intelligence {
+    margin-bottom: 50px;
+  }
 }
 
 /* Container */

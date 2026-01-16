@@ -4,8 +4,15 @@
   position: relative;
   width: 100%;
   background: transparent;
-  padding: 80px 0;
+  margin-bottom: 120px;
+  padding: 0;
   font-family: Inter, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .visual-experience {
+    margin-bottom: 50px;
+  }
 }
 
 .visual-experience__container {

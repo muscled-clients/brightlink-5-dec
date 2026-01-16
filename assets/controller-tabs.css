@@ -2,9 +2,15 @@
   position: relative;
   width: 100%;
   background: linear-gradient(180deg, #0a0e14 0%, #0d1320 50%, #0a0e14 100%);
-  padding: 80px 0;
-  
+  margin-bottom: 120px;
+  padding: 0;
   font-family: Inter, sans-serif;
+}
+
+@media screen and (max-width: 768px) {
+  .controller-tabs {
+    margin-bottom: 50px;
+  }
 }
 
 .controller-tabs__pattern {

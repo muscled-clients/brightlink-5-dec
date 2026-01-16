@@ -1,7 +1,13 @@
 .experience-scale {
   position: relative;
   background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
-  margin: 120px 0;
+  margin-bottom: 120px;
+}
+
+@media screen and (max-width: 768px) {
+  .experience-scale {
+    margin-bottom: 50px;
+  }
 }
 
 .experience-scale__container {

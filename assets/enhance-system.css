@@ -1,7 +1,14 @@
 .enhance-system {
   position: relative;
-  padding: 80px 0;
+  margin-bottom: 120px;
+  padding: 0;
   background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
+}
+
+@media screen and (max-width: 768px) {
+  .enhance-system {
+    margin-bottom: 50px;
+  }
 }
 
 .enhance-system__container {
