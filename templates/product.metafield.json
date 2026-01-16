@@ -254,6 +254,7 @@
       ],
       "settings": {
         "new-pdp-page": true,
+        "bg_image": "shopify://shop_images/bg-product.png",
         "image_size": "small",
         "enable_video_looping": true,
         "enable_image_zoom": true,
