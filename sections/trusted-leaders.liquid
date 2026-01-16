@@ -255,11 +255,14 @@
   .trusted-leaders {
     position: relative;
     width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
     background-color: var(--tl-bg-color, #0a0f14);
     padding-top: var(--tl-padding-top, 0px);
     padding-bottom: var(--tl-padding-bottom, 120px);
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    overflow: hidden; /* Prevent horizontal scrollbar on full width */
+    overflow: hidden;
   }
 
   .trusted-leaders__container {
@@ -271,7 +274,7 @@
     gap: 48px;
     width: 1320px;
     max-width: calc(100% - 120px);
-    margin: 0 60px;
+    margin: 0 auto;
     padding: 0;
     background: rgba(0, 0, 0, 0.00);
   }
