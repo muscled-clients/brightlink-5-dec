@@ -879,31 +879,7 @@ text-align: center;
 {%- endcapture -%}
 
 
-{% comment %} add bg image {% endcomment %}
 
-{%- assign is_metafield_template = false -%}
-{%- if request.page_type == 'product' and template.suffix == 'metafield' -%}
-  {%- assign is_metafield_template = true -%}
-{%- endif -%}
-
-{%- if is_metafield_template and section.settings.bg_image != blank -%}
-  {% style %}
-    body.template-product-metafield {
-      background-image: url({{ section.settings.bg_image | image_url: width: 2000 }});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      background-attachment: scroll;
-    }
-
-    /* Optional: content readable rahe */
-    body.template-product-metafield .shopify-section {
-      position: relative;
-    }
-  {% endstyle %}
-{%- endif -%}
-
-{% comment %} bg image end {% endcomment %}
 
 
 
