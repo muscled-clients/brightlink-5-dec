@@ -2,20 +2,20 @@
 
 <section class="product-showcase {{ section.settings.custom_class }}" id="product-showcase-{{ section.id }}">
   <div class="product-showcase__container">
-    <!-- Section Label -->
-    {% if section.settings.section_label != blank %}
-      <span class="product-showcase__label">{{ section.settings.section_label }}</span>
-    {% endif %}
-
-    <!-- Main Heading -->
-    {% if section.settings.heading != blank %}
-      <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
-    {% endif %}
-
-    <!-- Subheading -->
-    {% if section.settings.subheading != blank %}
-      <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
-    {% endif %}
+    <!-- Header Section -->
+    <div class="product-showcase__header">
+      <div class="product-showcase__header-text">
+        {% if section.settings.section_label != blank %}
+          <span class="product-showcase__label">{{ section.settings.section_label }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+      {% if section.settings.subheading != blank %}
+        <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
+      {% endif %}
+    </div>
 
     <!-- Image Carousel -->
     <div class="product-showcase__carousel">
