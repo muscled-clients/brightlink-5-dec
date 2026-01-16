@@ -18,18 +18,17 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'separator' -%}
           {%- unless forloop.first -%}
-            </div>
-            <!-- Close previous group -->
+            </div><!-- Close previous group-content -->
+            </div><!-- Close previous group -->
           {%- endunless -%}
 
           {%- assign group_id = 'group-' | append: block.id -%}
           <div class="faq__group" data-group-id="{{ group_id }}">
             <div class="faq__group-header" {{ block.shopify_attributes }}>
               <button
-                class="faq__group-title-wrapper"
-                data-action="toggle-group"
+                class="faq__group-title-wrapper faq-group-trigger"
                 aria-expanded="false"
-                aria-controls="{{ group_id }}"
+                data-target="{{ group_id }}"
               >
                 <div class="faq__group-title heading h2" id="block-{{ block.id }}">
                   {%- if block.settings.icon_image -%}
@@ -59,7 +58,7 @@
 
                   <span class="faq__group-arrow-icon">
                     <svg
-                      class="group-arrow-icon"
+                      class="faq-group-arrow-icon"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -73,7 +72,7 @@
               </button>
             </div>
 
-            <div id="{{ group_id }}" class="faq__group-content" style="display: none;">
+            <div id="{{ group_id }}" class="faq__group-content">
         {%- endif -%}
 
         {%- if block.type == 'question' -%}
@@ -86,16 +85,15 @@
           >
             <div class="faq__item-wrapper">
               <button
-                class="faq__question heading h4"
-                data-action="toggle-collapsible"
+                class="faq__question heading h4 faq-question-trigger"
                 aria-expanded="false"
-                aria-controls="block-{{ block.id }}"
+                data-target="block-{{ block.id }}"
                 itemprop="name"
               >
                 <span class="faq__question-text">{{ block.settings.title | escape }}</span>
                 <span class="faq__arrow-icon">
                   <svg
-                    class="arrow-icon"
+                    class="faq-arrow-icon"
                     width="24"
                     height="24"
                     viewBox="0 0 24 24"
@@ -113,7 +111,6 @@
                 itemscope
                 itemprop="acceptedAnswer"
                 itemtype="https://schema.org/Answer"
-                style="display: none;"
               >
                 <div class="faq__answer rte" itemprop="text">
                   {{ block.settings.answer }}
@@ -124,10 +121,10 @@
         {%- endif -%}
 
         {%- if forloop.last -%}
-          </div>
-          <!-- Close group-content -->
-          </div>
-          <!-- Close group -->
+          {%- if section.blocks.size > 0 -%}
+            </div><!-- Close final group-content -->
+            </div><!-- Close final group -->
+          {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     </div>
@@ -143,51 +140,72 @@
 
   /* Base section */
   #shopify-section-{{ section.id }} {
-    background: #0a0e18;
+    background: #0a1628;
+       display: flex;
+
+flex-direction: column;
+align-items: center;
+gap: 60px;
   }
 
   /* Container - needs !important to override theme's .container--narrow */
   #shopify-section-{{ section.id }} .container.container--narrow.faq-dev-02-container {
-    background: #0a0e18;
-    max-width: 1280px !important;
-    width: 100%;
-    margin: 0 auto;
-    padding: 80px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+   display: flex;
+   max-width: 1280px;
+width:100%;
+flex-direction: column;
+align-items: center;
+gap: 60px;
   }
 
   /* Header Styles */
   #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__header {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
+    display: flex;
+height: 160.5px;
+flex-direction: column;
+align-items: center;
+gap: 16px;
+align-self: stretch;
+
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__label {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    display: block;
+    height: 20px;
+flex-shrink: 0;
+align-self: stretch;
+color: #D4AF37;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 2px;
+margin-bottom: 8px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__title {
-    color: #fff;
-    font-size: 42px;
-    font-weight: 700;
-    margin: 0 0 12px 0;
-    line-height: 1.2;
+   align-self: stretch;
+   color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: 60px; /* 125% */
+letter-spacing: -2px;
+margin:0;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .knowledge-center__subtitle {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 15px;
-    margin: 0;
-    font-weight: 400;
+  align-self: stretch;
+  color: #A0AEC0;
+text-align: center;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 39px; /* 195% */
   }
 
   /* FAQ Container */
@@ -200,7 +218,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 16px;
   }
 
   /* FAQ Group */
@@ -208,7 +226,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
     width: 100%;
   }
 
@@ -256,8 +274,13 @@
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-text {
-    flex: 1;
-    text-align: left;
+
+    color: #FFF;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-icon {
@@ -272,9 +295,9 @@
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-icon img {
     display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+   width: 17.5px;
+height: 23.333px;
+   
   }
 
   /* Group Arrow */
@@ -290,31 +313,25 @@
     justify-content: center;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .group-arrow-icon {
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq-group-arrow-icon {
     width: 100%;
     height: 100%;
     color: rgba(255, 255, 255, 0.6);
     transition: transform 0.3s ease;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-wrapper[aria-expanded='false'] .group-arrow-icon {
-    transform: rotate(0deg);
-  }
-
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-title-wrapper[aria-expanded='true'] .group-arrow-icon {
+  #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__group-title-wrapper[aria-expanded='true'] .faq-group-arrow-icon {
     transform: rotate(180deg);
   }
 
-  /* Group Content */
+  /* Group Content - Initially hidden */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content {
     width: 100%;
-    overflow: hidden;
-    transition: max-height 0.4s ease, opacity 0.3s ease;
-    opacity: 1;
+    display: none;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.is-closing {
-    opacity: 0;
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.active {
+    display: block;
   }
 
   /* FAQ Item (Question) */
@@ -331,9 +348,16 @@
     border-bottom: none;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__item-wrapper {
-    width: 100%;
-  }
+ #shopify-section-{{ section.id }} .faq-dev-02-container .faq__item-wrapper {
+   display: block;
+   padding: 28px 12px;
+   align-items: center;
+   gap: 16px;
+   align-self: stretch;
+   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+   flex-direction: column;
+}
+  
 
   #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4 {
     display: flex;
@@ -358,10 +382,14 @@
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question-text {
-    flex: 1;
-    min-width: 0;
-    padding-right: 16px;
-    text-align: left;
+    
+  color: #FFF;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; /* 142.857% */
+flex: 1 0 0;
   }
 
   /* Question Arrow */
@@ -375,41 +403,47 @@
     justify-content: center;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .arrow-icon {
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq-arrow-icon {
     width: 100%;
     height: 100%;
     color: rgba(255, 255, 255, 0.5);
     transition: transform 0.3s ease;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question[aria-expanded='false'] .arrow-icon {
-    transform: rotate(0deg);
-  }
-
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__question[aria-expanded='true'] .arrow-icon {
+  #shopify-section-{{ section.id }} .faq-dev-02-container button.faq__question.heading.h4[aria-expanded='true'] .faq-arrow-icon {
     transform: rotate(180deg);
   }
 
-  /* Answer */
+  /* Answer - FIXED VERSION */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
+    display: none;
     overflow: hidden;
-    transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.35s ease;
-    opacity: 1;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
   }
 
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.is-closing {
-    opacity: 0;
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
+    display: contents;
+    max-height: 1000px; /* Large enough to show all content */
+    opacity: 1;
+    padding: 0 40px 30px 14px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
     color: rgba(255, 255, 255, 0.55);
     font-size: 13px;
     line-height: 1.7;
-    padding: 0 12px 20px 12px;
+    padding: 0 12px;
+    margin-top: 20px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte p {
-    margin: 0;
+    margin: 0 0 10px 0;
+  }
+
+  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte p:last-child {
+    margin-bottom: 0;
   }
 
   /* Mobile responsive */
@@ -455,107 +489,121 @@
       min-width: 16px;
     }
 
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
+      padding: 0 10px 16px 10px;
+      max-height: 2000px; /* Even larger for mobile to ensure content shows */
+    }
+    
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
       font-size: 12px;
-      padding: 0 10px 16px 10px;
     }
   }
+  
 </style>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Smooth slide animation helper
-    function slideDown(element, duration = 400) {
-      element.style.display = 'block';
-      element.style.overflow = 'hidden';
-      element.style.maxHeight = '0';
-      element.style.opacity = '0';
-
-      const height = element.scrollHeight;
-      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.75}ms ease`;
-
-      requestAnimationFrame(() => {
-        element.style.maxHeight = height + 'px';
-        element.style.opacity = '1';
-      });
-
-      setTimeout(() => {
-        element.style.maxHeight = 'none';
-        element.style.overflow = '';
-        element.style.transition = '';
-      }, duration);
-    }
-
-    function slideUp(element, duration = 400) {
-      element.style.overflow = 'hidden';
-      element.style.maxHeight = element.scrollHeight + 'px';
-      element.style.opacity = '1';
-      element.style.transition = `max-height ${duration}ms ease, opacity ${duration * 0.5}ms ease`;
-
-      requestAnimationFrame(() => {
-        element.style.maxHeight = '0';
-        element.style.opacity = '0';
-      });
-
-      setTimeout(() => {
-        element.style.display = 'none';
-        element.style.maxHeight = '';
-        element.style.overflow = '';
-        element.style.opacity = '';
-        element.style.transition = '';
-      }, duration);
-    }
-
-    // Toggle group (section separator) functionality
-    document.querySelectorAll('[data-action="toggle-group"]').forEach((button) => {
-      button.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        const groupId = this.getAttribute('aria-controls');
-        const groupContent = document.getElementById(groupId);
-
-        if (expanded) {
-          this.setAttribute('aria-expanded', 'false');
-
-          // Close all questions within this group first
-          groupContent.querySelectorAll('[data-action="toggle-collapsible"]').forEach((questionButton) => {
-            const answerId = questionButton.getAttribute('aria-controls');
-            const answerWrapper = document.getElementById(answerId);
-            if (answerWrapper && answerWrapper.style.display !== 'none') {
-              questionButton.setAttribute('aria-expanded', 'false');
-              answerWrapper.style.display = 'none';
-            }
-          });
-
-          // Then close the group
-          slideUp(groupContent, 350);
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          slideDown(groupContent, 400);
-        }
-      });
-    });
-
-    // Toggle question functionality
-    document.querySelectorAll('[data-action="toggle-collapsible"]').forEach((button) => {
-      button.addEventListener('click', function () {
-        const expanded = this.getAttribute('aria-expanded') === 'true';
-        const answerId = this.getAttribute('aria-controls');
-        const answerWrapper = document.getElementById(answerId);
-
-        if (expanded) {
-          this.setAttribute('aria-expanded', 'false');
-          if (answerWrapper) {
-            slideUp(answerWrapper, 300);
-          }
-        } else {
-          this.setAttribute('aria-expanded', 'true');
-          if (answerWrapper) {
-            slideDown(answerWrapper, 350);
+// FAQ Functionality - SIMPLE AND GUARANTEED TO WORK
+(function() {
+  'use strict';
+  
+  // Function to initialize FAQ
+  function initFAQ() {
+    // Get the FAQ container
+    const faqContainer = document.querySelector('.faq-dev-02-container');
+    if (!faqContainer) return;
+    
+    console.log('Initializing FAQ functionality...');
+    
+    // Group toggle functionality
+    const groupTriggers = faqContainer.querySelectorAll('.faq-group-trigger');
+    console.log('Found', groupTriggers.length, 'group triggers');
+    
+    groupTriggers.forEach(trigger => {
+      // Add click event - SIMPLIFIED, no cloning
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Group trigger clicked');
+        
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle aria-expanded
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        // Toggle group content
+        if (targetElement) {
+          if (isExpanded) {
+            // Close the group
+            targetElement.classList.remove('active');
+            
+            // Also close all questions in this group
+            const questionTriggers = targetElement.querySelectorAll('.faq-question-trigger');
+            questionTriggers.forEach(qTrigger => {
+              qTrigger.setAttribute('aria-expanded', 'false');
+              const qTargetId = qTrigger.getAttribute('data-target');
+              const qTargetElement = document.getElementById(qTargetId);
+              if (qTargetElement) {
+                qTargetElement.classList.remove('active');
+              }
+            });
+          } else {
+            // Open the group
+            targetElement.classList.add('active');
           }
         }
-      });
+      }, {once: false}); // Allow multiple event listeners
     });
-  });
+    
+    // Question toggle functionality
+    const questionTriggers = faqContainer.querySelectorAll('.faq-question-trigger');
+    console.log('Found', questionTriggers.length, 'question triggers');
+    
+    questionTriggers.forEach(trigger => {
+      // Add click event - SIMPLIFIED, no cloning
+      trigger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('Question trigger clicked');
+        
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Toggle aria-expanded
+        this.setAttribute('aria-expanded', !isExpanded);
+        
+        // Toggle answer content
+        if (targetElement) {
+          if (isExpanded) {
+            targetElement.classList.remove('active');
+          } else {
+            targetElement.classList.add('active');
+          }
+        }
+      }, {once: false}); // Allow multiple event listeners
+    });
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQ);
+  } else {
+    initFAQ();
+  }
+  
+  // Re-initialize for Shopify section reloads
+  if (typeof Shopify !== 'undefined') {
+    document.addEventListener('shopify:section:load', function(event) {
+      if (event.target.querySelector('.faq-dev-02-container') || 
+          event.target.classList.contains('faq-dev-02-container')) {
+        console.log('FAQ section reloaded, re-initializing...');
+        setTimeout(initFAQ, 100);
+      }
+    });
+  }
+})();
 </script>
 
 {% schema %}
@@ -579,333 +627,6 @@
       "id": "subtitle",
       "label": "Subtitle",
       "default": "Everything you need to know about Pro Spectrum"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_contact_info",
-      "label": "Show additional info",
-      "info": "Additional info is displayed below all questions.",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "contact_info_heading",
-      "label": "Heading",
-      "default": "Any question?"
-    },
-    {
-      "type": "richtext",
-      "id": "contact_info_text",
-      "label": "Text",
-      "default": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>"
-    },
-    {
-      "type": "header",
-      "content": "Block 1"
-    },
-    {
-      "type": "select",
-      "id": "contact_1_icon",
-      "label": "Icon",
-      "options": [
-        {
-          "value": "bi-add-to-cart",
-          "label": "Add to cart",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-gift-wrap",
-          "label": "Gift wrap",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-gift-box",
-          "label": "Gift box",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-heart",
-          "label": "Heart",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-ecology",
-          "label": "Ecology",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-plant",
-          "label": "Plant",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-shop",
-          "label": "Shop",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-shop-pin",
-          "label": "Shop with pin",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-alert",
-          "label": "Alert",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-chat",
-          "label": "Chat",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-comment",
-          "label": "Comment",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-customer-support",
-          "label": "Customer support",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-email",
-          "label": "Email",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-network",
-          "label": "Network",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-newsletter",
-          "label": "Newsletter",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-love",
-          "label": "Love",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-phone",
-          "label": "Phone",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-share",
-          "label": "Share",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-delivery",
-          "label": "Delivery",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-fast-delivery",
-          "label": "Fast delivery",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-returns",
-          "label": "Returns",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-time",
-          "label": "Time",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-secure-payment",
-          "label": "Secure payment",
-          "group": "Security"
-        },
-        {
-          "value": "bi-mobile-payment",
-          "label": "Mobile payment",
-          "group": "Security"
-        },
-        {
-          "value": "bi-credit-card",
-          "label": "Credit card",
-          "group": "Security"
-        },
-        {
-          "value": "bi-shield",
-          "label": "Shield",
-          "group": "Security"
-        }
-      ],
-      "default": "bi-phone"
-    },
-    {
-      "type": "text",
-      "id": "contact_1_heading",
-      "label": "Heading",
-      "default": "Customer support"
-    },
-    {
-      "type": "richtext",
-      "id": "contact_1_text",
-      "label": "Text",
-      "default": "<p>Enter your text here</p>"
-    },
-    {
-      "type": "header",
-      "content": "Block 2"
-    },
-    {
-      "type": "select",
-      "id": "contact_2_icon",
-      "label": "Icon",
-      "options": [
-        {
-          "value": "bi-add-to-cart",
-          "label": "Add to cart",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-gift-wrap",
-          "label": "Gift wrap",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-gift-box",
-          "label": "Gift box",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-heart",
-          "label": "Heart",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-ecology",
-          "label": "Ecology",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-plant",
-          "label": "Plant",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-shop",
-          "label": "Shop",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-shop-pin",
-          "label": "Shop with pin",
-          "group": "Shop"
-        },
-        {
-          "value": "bi-alert",
-          "label": "Alert",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-chat",
-          "label": "Chat",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-comment",
-          "label": "Comment",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-customer-support",
-          "label": "Customer support",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-email",
-          "label": "Email",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-network",
-          "label": "Network",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-newsletter",
-          "label": "Newsletter",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-love",
-          "label": "Love",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-phone",
-          "label": "Phone",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-share",
-          "label": "Share",
-          "group": "Communication"
-        },
-        {
-          "value": "bi-delivery",
-          "label": "Delivery",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-fast-delivery",
-          "label": "Fast delivery",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-returns",
-          "label": "Returns",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-time",
-          "label": "Time",
-          "group": "Delivery"
-        },
-        {
-          "value": "bi-secure-payment",
-          "label": "Secure payment",
-          "group": "Security"
-        },
-        {
-          "value": "bi-mobile-payment",
-          "label": "Mobile payment",
-          "group": "Security"
-        },
-        {
-          "value": "bi-credit-card",
-          "label": "Credit card",
-          "group": "Security"
-        },
-        {
-          "value": "bi-shield",
-          "label": "Shield",
-          "group": "Security"
-        }
-      ],
-      "default": "bi-email"
-    },
-    {
-      "type": "text",
-      "id": "contact_2_heading",
-      "label": "Heading",
-      "default": "Send a message"
-    },
-    {
-      "type": "richtext",
-      "id": "contact_2_text",
-      "label": "Text",
-      "default": "<p>Enter your text here</p>"
     }
   ],
   "blocks": [
