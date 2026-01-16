@@ -857,7 +857,7 @@ text-align: center;
 
 {%- assign shipping_estimator_block = section.blocks | where: 'type', 'shipping_estimator' | first -%}
 {%- assign variant_selector_block = section.blocks | where: 'type', 'variant_selector' | first -%}
-{%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%}
+{% comment %} {%- assign buy_buttons_block = section.blocks | where: 'type', 'buy_buttons' | first -%} {% endcomment %}
 
 {%- capture section_settings -%}
 {
