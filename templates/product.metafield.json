@@ -738,7 +738,15 @@
         "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1": {
           "type": "separator",
           "settings": {
-            "title": "About Us"
+            "title": "About Us",
+            "icon_image": "shopify://shop_images/download_3.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1": {
@@ -779,7 +787,15 @@
         "99cb505d-5eb9-4c32-8956-bb7c3886b8c5": {
           "type": "separator",
           "settings": {
-            "title": "Support"
+            "title": "Support",
+            "icon_image": "shopify://shop_images/download_4.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "3db8fff2-fad6-4a49-a933-9b5cc8f3782d": {
@@ -813,7 +829,15 @@
         "dea00b71-b735-4a4c-950e-3ed0f67ab53b": {
           "type": "separator",
           "settings": {
-            "title": "Returns"
+            "title": "Returns",
+            "icon_image": "shopify://shop_images/download_5.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "3b5efae3-6e68-4971-93e3-209d72b06a21": {
@@ -826,7 +850,15 @@
         "e07db189-f696-4664-b0dd-d0a200d0a7ec": {
           "type": "separator",
           "settings": {
-            "title": "Shipping"
+            "title": "Shipping",
+            "icon_image": "shopify://shop_images/download_7.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "264c8238-8595-4753-9b97-5228d709a631": {
@@ -881,7 +913,15 @@
         "9d4a2ea4-e30f-476b-ba16-19faba2295ae": {
           "type": "separator",
           "settings": {
-            "title": "Payment Methods"
+            "title": "Payment Methods",
+            "icon_image": "shopify://shop_images/download_7.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "7114b4b1-a69e-40bb-b407-6775e44d2375": {
@@ -901,7 +941,15 @@
         "eab21537-4412-4e29-94dd-9d50b7cf8b0b": {
           "type": "separator",
           "settings": {
-            "title": "Discounts / coupons?"
+            "title": "Discounts / coupons?",
+            "icon_image": "shopify://shop_images/download_8.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "ed89530d-844e-4686-85dc-76dfb08a0cb8": {
@@ -914,7 +962,15 @@
         "0a43fd82-6145-4785-a04d-87782a5e776b": {
           "type": "separator",
           "settings": {
-            "title": "Distributors"
+            "title": "Distributors",
+            "icon_image": "shopify://shop_images/download_9.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "7b953808-534d-4aff-9d49-f24f20616f51": {
@@ -964,6 +1020,9 @@
         "b11407ce-5799-4bc4-9e0c-3ba3b829a62d"
       ],
       "settings": {
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum",
         "show_contact_info": true,
         "contact_info_heading": "Any question?",
         "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
