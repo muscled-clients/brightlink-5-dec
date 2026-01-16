@@ -14,7 +14,6 @@
       "blocks": {
         "product_meta": {
           "type": "product_meta",
-          "disabled": true,
           "settings": {
             "show_vendor": false,
             "show_sku": true,
