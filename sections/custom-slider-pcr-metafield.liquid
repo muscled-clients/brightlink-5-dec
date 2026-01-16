@@ -29,37 +29,48 @@
   #shopify-section-{{ section.id }} .slider-metafield-header {
     text-align: center;
     margin-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
   }
 
   #shopify-section-{{ section.id }} .slider-metafield-label {
-    color: #F5A623;
+    color: #D4AF37;
+    text-align: center;
     font-family: Inter, sans-serif;
-    font-size: 12px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
     letter-spacing: 2px;
+    height: 20px;
+    align-self: stretch;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin: 0;
   }
 
   #shopify-section-{{ section.id }} .slider-metafield-main-heading {
-    color: #FFF;
+    color: #000;
+    text-align: center;
     font-family: Inter, sans-serif;
-    font-size: 40px;
+    font-size: 48px;
     font-style: normal;
     font-weight: 700;
-    line-height: 1.2;
-    margin: 0 0 12px 0;
+    line-height: normal;
+    letter-spacing: -2px;
+    align-self: stretch;
+    margin: 0;
   }
 
   #shopify-section-{{ section.id }} .slider-metafield-subtitle {
     color: #A0AEC0;
+    text-align: center;
     font-family: Inter, sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: normal;
+    line-height: 28px;
     margin: 0;
   }
 
@@ -238,11 +249,13 @@
   /* Responsive - Tablet */
   @media screen and (max-width: 1024px) {
     #shopify-section-{{ section.id }} .slider-metafield-main-heading {
-      font-size: 32px;
+      font-size: 36px;
+      letter-spacing: -1px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-subtitle {
-      font-size: 14px;
+      font-size: 18px;
+      line-height: 26px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-container {
@@ -269,19 +282,22 @@
 
     #shopify-section-{{ section.id }} .slider-metafield-header {
       margin-bottom: 30px;
+      gap: 8px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-label {
-      font-size: 10px;
+      font-size: 12px;
       letter-spacing: 1.5px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-main-heading {
-      font-size: 24px;
+      font-size: 28px;
+      letter-spacing: -1px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-subtitle {
-      font-size: 13px;
+      font-size: 16px;
+      line-height: 24px;
     }
 
     #shopify-section-{{ section.id }} .slider-metafield-container {
