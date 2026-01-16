@@ -32,6 +32,7 @@
             "show_quantity_selector": true,
             "show_taxes_included": false,
             "show_inventory_quantity": true,
+            "icon2": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
             "low_inventory_threshold": 53
           }
         },
