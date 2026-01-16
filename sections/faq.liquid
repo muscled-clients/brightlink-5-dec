@@ -324,14 +324,18 @@ height: 23.333px;
     transform: rotate(180deg);
   }
 
-  /* Group Content - Initially hidden */
+  /* Group Content - Initially hidden with animation */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content {
     width: 100%;
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.active {
-    display: block;
+    max-height: 2000px;
+    opacity: 1;
   }
 
   /* FAQ Item (Question) */
@@ -414,18 +418,17 @@ flex: 1 0 0;
     transform: rotate(180deg);
   }
 
-  /* Answer - FIXED VERSION */
+  /* Answer - with smooth animation */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
-    display: none;
     overflow: hidden;
     max-height: 0;
     opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.2s ease;
+    transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 40px 0 14px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
-    display: contents;
-    max-height: 1000px; /* Large enough to show all content */
+    max-height: 1000px;
     opacity: 1;
     padding: 0 40px 30px 14px;
   }
@@ -491,7 +494,11 @@ flex: 1 0 0;
 
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
       padding: 0 10px 16px 10px;
-      max-height: 2000px; /* Even larger for mobile to ensure content shows */
+      max-height: 2000px;
+    }
+
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.active {
+      max-height: 3000px;
     }
     
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
