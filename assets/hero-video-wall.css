@@ -4,7 +4,7 @@
   position: relative;
   max-width: 1440px;
   min-height: 700px;
-  margin: 0 auto 120px auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -317,7 +317,6 @@
 @media screen and (max-width: 768px) {
   .hero-video-wall-section {
     min-height: auto;
-    margin-bottom: 50px;
   }
 
   .hero-video-wall__content {
