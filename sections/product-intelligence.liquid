@@ -32,9 +32,9 @@
 {% assign pic_install_step_durations = product.metafields.custom.pic_install_step_durations.value %}
 
 {% comment %} Installation Tab - Requirements {% endcomment %}
-{% assign pic_install_requirements_label = product.metafields.custom.pic_install_requirements_label.value %}
-{% assign pic_install_requirements_title = product.metafields.custom.pic_install_requirements_title.value %}
-{% assign pic_install_requirements_description = product.metafields.custom.pic_install_requirements_description.value %}
+{% assign pic_install_requirements_heading = product.metafields.custom.pic_install_requirements_heading.value %}
+{% assign pic_install_requirements_titles = product.metafields.custom.pic_install_requirements_titles.value %}
+{% assign pic_install_requirements_descriptions = product.metafields.custom.pic_install_requirements_descriptions.value %}
 
 {% comment %} Installation Tab - Support {% endcomment %}
 {% assign pic_install_support_title = product.metafields.custom.pic_install_support_title.value %}
@@ -947,14 +947,32 @@
 
                 <!-- Installation Requirements -->
                 <div class="installation-requirements">
-                  {% if pic_install_requirements_label != blank %}
-                    <span class="installation-requirements__header">{{ pic_install_requirements_label }}</span>
-                  {% endif %}
-                  <h3 class="installation-requirements__title">{{ pic_install_requirements_title | default: 'Installation Requirements' }}</h3>
-                  {% if pic_install_requirements_description != blank %}
-                    <div class="installation-requirements__desc">{{ pic_install_requirements_description }}</div>
-                  {% else %}
-                    <div class="installation-requirements__grid">
+                  <h3 class="installation-requirements__title">{{ pic_install_requirements_heading | default: 'Installation Requirements' }}</h3>
+                  <div class="installation-requirements__grid">
+                    {% if pic_install_requirements_titles and pic_install_requirements_titles.size > 0 %}
+                      {% for title in pic_install_requirements_titles %}
+                        <div class="installation-requirement">
+                          <div class="installation-requirement__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              {% case forloop.index0 %}
+                                {% when 0 %}
+                                  <path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l2.6 1.53c.56-1.24.88-2.62.88-4.07 0-5.18-3.95-9.45-9-9.95zM12 19c-3.87 0-7-3.13-7-7 0-3.53 2.61-6.43 6-6.92V2.05c-5.06.5-9 4.76-9 9.95 0 5.52 4.47 10 9.99 10 3.31 0 6.24-1.61 8.06-4.09l-2.6-1.53C16.17 17.98 14.21 19 12 19z"/>
+                                {% when 1 %}
+                                  <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14z"/>
+                                {% when 2 %}
+                                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                                {% else %}
+                                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                              {% endcase %}
+                            </svg>
+                          </div>
+                          <h4 class="installation-requirement__title">{{ title }}</h4>
+                          {% if pic_install_requirements_descriptions[forloop.index0] %}
+                            <p class="installation-requirement__desc">{{ pic_install_requirements_descriptions[forloop.index0] }}</p>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                    {% else %}
                       <div class="installation-requirement">
                         <div class="installation-requirement__icon">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -984,8 +1002,8 @@
                         <h4 class="installation-requirement__title">Environmental</h4>
                         <p class="installation-requirement__desc">Temperature: -20°C to +50°C. Humidity: 10-95% RH (non-condensing). Ventilation: Standard room airflow. Indoor installation recommended.</p>
                       </div>
-                    </div>
-                  {% endif %}
+                    {% endif %}
+                  </div>
                 </div>
 
                 <!-- Professional Support CTA -->
