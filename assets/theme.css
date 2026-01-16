@@ -13842,7 +13842,7 @@ shopify-payment-terms {
 
 
 /* my custom css start */
-
+{% if template.name == 'metafield' %}
 
 
 /* footer css start */
