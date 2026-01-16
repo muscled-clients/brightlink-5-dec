@@ -1,682 +1,363 @@
 {% if template.name == 'product' %}
   {% if product.metafields.custom.section_custom_slider_pcr.value.first_slide_title.value == blank and product.metafields.custom.section_custom_slider_pcr.value.first_slide_description.value == blank %}
     <style>
-      #shopify-section-{{ section.id }}, 
+      #shopify-section-{{ section.id }},
       .custom-slider-pcr-mobile-{{ section.id }} {
         display: none;
       }
     </style>
   {% endif %}
-  {% endif %}
+{% endif %}
 
 {% style %}
-  #shopify-section-{{ section.id }} * {
+  /* Reset styles scoped to this section */
+  #shopify-section-{{ section.id }} .slider-metafield-wrapper * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
 
-  #shopify-section-{{ section.id }} .mobile_icons {
-    display:none;
+  /* Main wrapper */
+  #shopify-section-{{ section.id }} .slider-metafield-wrapper {
+    width: {{ section.settings.wrapper-container-width }}%;
+    max-width: 1400px;
+    margin: 60px auto;
+    padding: 0 20px;
   }
 
-  #shopify-section-{{ section.id }} .mobile_version_icon_section {
-    display:none;
-  }
-
-  #shopify-section-{{ section.id }} .container-bg {
-    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-      url("bg.png"); */
-    background-size: cover;
-    background-position: center;
-    padding: 0 30px;
-    padding-top: 50px;
+  /* Slider container */
+  #shopify-section-{{ section.id }} .slider-metafield-container {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: 16px;
     overflow: hidden;
-    /* height: 90vh; */
-    height: 600px;
-    /* filter: brightness(50%); */
-    width:{{ section.settings.wrapper-container-width }}%;
+    background-color: #1a1a1a;
   }
 
-  #shopify-section-{{ section.id }} .transform {
+  /* Background/Slide images */
+  #shopify-section-{{ section.id }} .slider-metafield-slides {
     position: absolute;
-    transform: translateX(1000px);
-    /* display: none; */
-  }
-
-  #shopify-section-{{ section.id }} .remove-none {
-    transform: translateX(-1000px);
-    position: relative;
-  }
-
-  #shopify-section-{{ section.id }} .content-sl {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-  }
-
-  #shopify-section-{{ section.id }} .text-content {
-    position: absolute;
-    width: 40%;
-    top: 45px;
-    left: 5%;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    color: white;
   }
 
-  #shopify-section-{{ section.id }} .image img {
-    width: 400px;
-    transition: 0.6s ease;
+  #shopify-section-{{ section.id }} .slider-metafield-slide {
     position: absolute;
-    top: 80px;
-    right: 6%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease;
   }
 
-  #shopify-section-{{ section.id }} .hide {
+  #shopify-section-{{ section.id }} .slider-metafield-slide.active-slide {
+    opacity: 1;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Gradient overlay */
+  #shopify-section-{{ section.id }} .slider-metafield-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+    pointer-events: none;
+  }
+
+  /* Text content - bottom left */
+  #shopify-section-{{ section.id }} .slider-metafield-content {
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+    right: 40px;
+    z-index: 10;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-text {
+    max-width: 500px;
+  }
+
+  #shopify-section-{{ section.id }} .slider-metafield-text-item {
     display: none;
   }
 
-  #shopify-section-{{ section.id }} .text {
-    transition: 0.3s ease;
+  #shopify-section-{{ section.id }} .slider-metafield-text-item.active-text {
+    display: block;
+    animation: fadeInText 0.5s ease;
   }
 
-  #shopify-section-{{ section.id }} .text.my-text-parent {
-    max-width:580px;
-  }
-
-  #shopify-section-{{ section.id }} .fadeout {
-    animation: fadeOut 3s;
-  }
-
-  @keyframes fadeOut {
-    0% {
+  @keyframes fadeInText {
+    from {
       opacity: 0;
+      transform: translateY(10px);
     }
-    100% {
+    to {
       opacity: 1;
+      transform: translateY(0);
     }
   }
 
-  #shopify-section-{{ section.id }} .text .heading h2 {
-    font-size: 35px;
+  #shopify-section-{{ section.id }} .slider-metafield-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    line-height: 1.3;
   }
 
-  #shopify-section-{{ section.id }} .heading {
-    text-align: left;
-    width: max-content;
+  #shopify-section-{{ section.id }} .slider-metafield-description {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
   }
 
-  #shopify-section-{{ section.id }} .description {
-    text-align: left;
-    width: max-content;
-    max-width: 580px;
+  #shopify-section-{{ section.id }} .slider-metafield-description p {
+    margin: 0;
+    font-size: inherit;
+    color: inherit;
+    line-height: inherit;
   }
 
-  #shopify-section-{{ section.id }} .text .description p {
-    font-size: 20px;
-    line-height: 150%;
-    font-weight: lighter;
-    margin-top: 10px;
-    color: #989796;
-    font-weight: 500;
-  }
-
-  #shopify-section-{{ section.id }} .container-bg {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("{{ section.settings.bg_img | img_url }}");
-  }
-
-  #shopify-section-{{ section.id }} .text .heading h2 {
-    color:white;
-    font-weight:bold;
-  }
-
-  #shopify-section-{{ section.id }} .container-bg-wrapper {
-    max-width:1200px;
-    max-width:100%;
-    margin:auto;
-    margin-top:150px;
-    margin-bottom:150px;
-  }
-
-  /**************** round buttons ******************/
-  #shopify-section-{{ section.id }} .icons-h {
+  /* Navigation dots - bottom center */
+  #shopify-section-{{ section.id }} .slider-metafield-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    max-width: 350px;
-    justify-content: space-between;
+    gap: 10px;
+    z-index: 10;
   }
 
-  #shopify-section-{{ section.id }} .icon-h {
-    width: 70px;
-    height: 70px;
-    margin: 40px 0;
-    /* border-radius: 50%; */
-    /* border: 3px solid #989796; */
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    transition: 0.3s ease;
-    filter: invert(30%) sepia(3%) saturate(117%) hue-rotate(349deg)
-      brightness(88%) contrast(80%);
+  #shopify-section-{{ section.id }} .slider-metafield-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.4);
     cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    padding: 0;
   }
 
-  #shopify-section-{{ section.id }} .icon-h img {
-    height: 70px;
-    width: 70px;
-    cursor: pointer;
-    transition: 0.2s ease;
+  #shopify-section-{{ section.id }} .slider-metafield-dot:hover {
+    background-color: rgba(255, 255, 255, 0.7);
   }
 
-  #shopify-section-{{ section.id }} .active {
-    filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
-      brightness(109%) contrast(100%);
-    /* border: 3px solid white; */
+  #shopify-section-{{ section.id }} .slider-metafield-dot.active-dot {
+    background-color: #ffffff;
+    transform: scale(1.1);
   }
 
-  #shopify-section-{{ section.id }} .icon-h:hover {
-    filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
-      brightness(109%) contrast(100%);
-    /* border: 3px solid white; */
+  /* Hide elements */
+  #shopify-section-{{ section.id }} .slider-metafield-hide {
+    display: none !important;
   }
 
-  @media screen and (max-width: 1200px) {
-    #shopify-section-{{ section.id }} .image img {
-      right: 0%;
-    }
-  }
-
-  @media screen and (max-width: 1000px) {
-    #shopify-section-{{ section.id }} .text-content {
-      top: 50px;
-    }
-  }
-
-  @media screen and (max-width:980px){
-    #shopify-section-{{ section.id }} .image img{
-      width:350px;
-      top:140px;
-    }
-  }
-
-  @media screen and (max-width: 900px) {
-    #shopify-section-{{ section.id }} .text-content {
-      left: 2%;
-    }
-    #shopify-section-{{ section.id }} .image img {
-      top: 100px;
-      right: 0;
-      width:50%;
-    }
-  }
-
-  /* Restored commented-out code */
-  /* @media screen and (max-width: 800px) {
-    #shopify-section-{{ section.id }} .container-bg{
-      width:95%;
-      margin:auto;
-    }
-    #shopify-section-{{ section.id }} .icons-h {
-      width: 260px;
-    }
-    #shopify-section-{{ section.id }} .icon-h {
-      margin: 30px 0;
-    }
-    #shopify-section-{{ section.id }} .text .heading h2{
-      font-size:24px;
-    }
-    #shopify-section-{{ section.id }} .text .description p{
-      font-size:15px;
-    }
-    #shopify-section-{{ section.id }} .image img{
-      right:-15px;
-    }
-  } */
-
-  /* @media screen and (max-width: 750px) {
-    #shopify-section-{{ section.id }} .icon-h {
-      width: 50px;
-      height: 50px;
-    }
-    #shopify-section-{{ section.id }} .icons-h {
-      width: 100%;
-    }
-
-    #shopify-section-{{ section.id }} .icon-h img {
-      height: 25px;
-      width: 25px;
-    }
-  } */
-
-  /* @media screen and (max-width: 550px) {
-    #shopify-section-{{ section.id }} .container-bg {
+  /* Responsive - Tablet */
+  @media screen and (max-width: 1024px) {
+    #shopify-section-{{ section.id }} .slider-metafield-container {
       height: 400px;
     }
-    #shopify-section-{{ section.id }} .image img {
-      width: 100px;
+
+    #shopify-section-{{ section.id }} .slider-metafield-content {
+      bottom: 50px;
+      left: 30px;
+      right: 30px;
     }
 
-    #shopify-section-{{ section.id }} .icons-h {
-      width: 120%;
+    #shopify-section-{{ section.id }} .slider-metafield-heading {
+      font-size: 22px;
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media screen and (max-width: 768px) {
+    #shopify-section-{{ section.id }} .slider-metafield-wrapper {
+      margin: 40px auto;
+      padding: 0 15px;
     }
 
-    #shopify-section-{{ section.id }} .heading {
-      width: 120%;
-    }
-  } */
-
-  /* @media screen and (max-width: 520px) {
-    #shopify-section-{{ section.id }} .container-bg {
-      height: 100vh;
-    }
-    #shopify-section-{{ section.id }} .text-content {
-      left: 37%;
-      top: 280px;
-      transform: translate(-50%, -50%);
-    }
-    #shopify-section-{{ section.id }} .icons-h {
-      width: 150%;
-      margin: -30px 0;
+    #shopify-section-{{ section.id }} .slider-metafield-container {
+      height: 350px;
+      border-radius: 12px;
     }
 
-    #shopify-section-{{ section.id }} .image img {
-      width: 80px;
-      top: -10px;
-      right: 45%;
-    }
-    #shopify-section-{{ section.id }} .text .heading h2 {
-      font-size: 30px;
-    }
-    #shopify-section-{{ section.id }} .description p {
-      line-height: 1;
-    }
-  } */
-  /* End of restored commented-out code */
-
-  /* D4 is writing code for mobile at 375 */
-  @media screen and (max-width: 800px) {
-    #shopify-section-{{ section.id }} .desktop_icons {
-      display:none;
-    }
-    #shopify-section-{{ section.id }} .mobile_icons {
-      display:flex;
-      width: 47.63px;
-    }
-    #shopify-section-{{ section.id }} .desktop_version_icon_section {
-      display:none;
+    #shopify-section-{{ section.id }} .slider-metafield-content {
+      bottom: 45px;
+      left: 20px;
+      right: 20px;
     }
 
-    #shopify-section-{{ section.id }} .mobile_version_icon_section{
-      display: grid;
-      margin-top: 20px;
-      margin-bottom: 80px;
-      /* justify-content: center; */
-    }
-    #shopify-section-{{ section.id }} .container-bghh {
-      width: 100%;
-      height: 590px;
-      max-width: fit-content;
+    #shopify-section-{{ section.id }} .slider-metafield-text {
       max-width: 100%;
-      background: #262729;
-      margin-left: 0px;
-      margin-right: 0px;
-
-      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Rectangle_2263.png?v=1695750176);
-      background-size: cover;
-      background-position: center;
-      /* padding: 0 30px;
-      padding-top: 50px;
-      overflow: hidden; */
     }
 
-    #shopify-section-{{ section.id }} .text-contenthh {
-      padding: 30px 20px 30px 20px;
+    #shopify-section-{{ section.id }} .slider-metafield-heading {
+      font-size: 18px;
+      margin-bottom: 6px;
     }
 
-    #shopify-section-{{ section.id }} .icons-hhh {
-      display:flex;
-      justify-content: center;
-      gap:25px;
-      margin-bottom: 10px;
-    }
-    #shopify-section-{{ section.id }} .icon-hhh {
-      transition: 0.3s ease;
-      opacity:0.5;
-      cursor: pointer;
+    #shopify-section-{{ section.id }} .slider-metafield-description {
+      font-size: 13px;
     }
 
-    #shopify-section-{{ section.id }} .icon-hhh:hover {
-      filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
-        brightness(109%) contrast(100%);
+    #shopify-section-{{ section.id }} .slider-metafield-dots {
+      bottom: 15px;
+      gap: 8px;
     }
 
-    #shopify-section-{{ section.id }} .activehh {
-      transition: 0.3s ease;
-      opacity:1;
+    #shopify-section-{{ section.id }} .slider-metafield-dot {
+      width: 8px;
+      height: 8px;
     }
+  }
 
-    #shopify-section-{{ section.id }} .texthh {
-      transition: 0.3s ease;
-    }
-    #shopify-section-{{ section.id }} .sliding-texthh {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-    }
-    #shopify-section-{{ section.id }} .fadeouthh {
-      animation: fadeOut 3s;
-    }
-
-    @keyframes fadeOuthh {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-    #shopify-section-{{ section.id }} .headinghh{
-        margin-bottom: 10px;
-    }
-    #shopify-section-{{ section.id }} .headinghh h2{
-      font-family: 'Lato';
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 24px;
-      color: #FFFFFF;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-    #shopify-section-{{ section.id }} .descriptionhh p{
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 300;
-      font-size: 14px;
-      line-height: 150%;
-      /* or 21px */
-      text-align: center;
-      color: #FFFFFF;
-      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    }
-    #shopify-section-{{ section.id }} .imagehh {
-      display: flex;
-      justify-content: center;
-      position:relative;
-    }
-    #shopify-section-{{ section.id }} .imagehh img {
-      width:335px;
+  /* Responsive - Small Mobile */
+  @media screen and (max-width: 480px) {
+    #shopify-section-{{ section.id }} .slider-metafield-container {
       height: 300px;
-      height:auto;
-      position:absolute;
-      transition: 0.6s ease;
     }
-    #shopify-section-{{ section.id }} .transformhh {
-      position: absolute;
-      transform: translateX(1000px);
+
+    #shopify-section-{{ section.id }} .slider-metafield-content {
+      bottom: 40px;
+      left: 15px;
+      right: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-heading {
+      font-size: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .slider-metafield-description {
+      font-size: 12px;
     }
   }
 {% endstyle %}
 
 
-<div class="custom-slider-pcr-{{ section.id }} container-bg-wrapper desktop_version_icon_section">
-  <div class="container-bg">
-    <div class="content-sl">
-      <div class="text-content">
-        <div class="icons-h">
-          <div class="icon-h" onclick="changeSlide(0)">
-            {% if section.settings.slide1_icon != blank and section.settings.slide1_title != blank %}
-              <img src="{{ section.settings.slide1_icon | img_url }}" alt="{{ section.settings.slide1_title }}">
-            {% endif %}
-          </div>
-          <div class="icon-h" onclick="changeSlide(1)">
-            {% if section.settings.slide2_icon != blank and section.settings.slide2_title != blank %}
-              <img src="{{ section.settings.slide2_icon | img_url }}" alt="{{ section.settings.slide2_title }}">
-            {% endif %}
-          </div>
-          <div class="icon-h" onclick="changeSlide(2)">
-            {% if section.settings.slide3_icon != blank and section.settings.slide3_title != blank %}
-              <img src="{{ section.settings.slide3_icon | img_url }}" alt="{{ section.settings.slide3_title }}">
-            {% endif %}
-          </div>
-            <div class="icon-h" onclick="changeSlide(3)">
-            {% if section.settings.slide4_icon != blank and section.settings.slide4_title != blank %}
-              <img src="{{ section.settings.slide4_icon | img_url }}" alt="{{ section.settings.slide4_title }}">
-            {% endif %}
-          </div>
+<!-- New Slider Design -->
+<div class="slider-metafield-wrapper" id="slider-metafield-{{ section.id }}">
+  <div class="slider-metafield-container">
+    <!-- Slide Images -->
+    <div class="slider-metafield-slides">
+      {% if section.settings.slide1_image != blank %}
+        <div class="slider-metafield-slide active-slide" data-slide="0">
+          <img src="{{ section.settings.slide1_image | img_url: '1400x' }}" alt="{{ section.settings.slide1_title }}">
         </div>
-        <div class="sliding-text">
-          <div class="text my-text-parent" style="position:inherit;">
-            <div class="heading">
-              <h2>{{ section.settings.slide1_title }}</h2>
-            </div>
-            <div class="description">
-              <p>
-                {{ section.settings.slide1_description }}
-              </p>
-            </div>
-          </div>
-          <div class="text my-text-parent" style="position:inherit;">
-            <div class="heading">
-              <h2>{{ section.settings.slide2_title }}</h2>
-            </div>
-            <div class="description">
-              <p>
-                {{ section.settings.slide2_description }}
-              </p>
-            </div>
-          </div>
-          <div class="text my-text-parent" style="position:inherit;">
-            <div class="heading">
-              <h2>{{ section.settings.slide3_title }}</h2>
-            </div>
-            <div class="description">
-              <p>
-                {{ section.settings.slide3_description }}
-              </p>
-            </div>
-          </div>
-
-          <div class="text my-text-parent" style="position:inherit;">
-            <div class="heading">
-              <h2>{{ section.settings.slide4_title }}</h2>
-            </div>
-            <div class="description">
-              <p>
-                {{ section.settings.slide4_description }}
-              </p>
-            </div>
-          </div>
-          
+      {% endif %}
+      {% if section.settings.slide2_image != blank %}
+        <div class="slider-metafield-slide" data-slide="1">
+          <img src="{{ section.settings.slide2_image | img_url: '1400x' }}" alt="{{ section.settings.slide2_title }}">
         </div>
-      </div>
+      {% endif %}
+      {% if section.settings.slide3_image != blank %}
+        <div class="slider-metafield-slide" data-slide="2">
+          <img src="{{ section.settings.slide3_image | img_url: '1400x' }}" alt="{{ section.settings.slide3_title }}">
+        </div>
+      {% endif %}
+      {% if section.settings.slide4_image != blank %}
+        <div class="slider-metafield-slide" data-slide="3">
+          <img src="{{ section.settings.slide4_image | img_url: '1400x' }}" alt="{{ section.settings.slide4_title }}">
+        </div>
+      {% endif %}
+    </div>
 
-      <!-- main image -->
-      <div class="image">
-        {% if section.settings.slide1_image != blank %}
-          <img
-            src="{{  section.settings.slide1_image | img_url: "720x" }}"
-            alt="{{ section.settings.slide1_title }}"
-          >
-        {% else %}
-          <img
-            src="{{ "pcr-product-slide.png"|asset_url }}"
-            alt=""
-          >
+    <!-- Gradient Overlay -->
+    <div class="slider-metafield-overlay"></div>
+
+    <!-- Text Content - Bottom Left -->
+    <div class="slider-metafield-content">
+      <div class="slider-metafield-text">
+        {% if section.settings.slide1_title != blank %}
+          <div class="slider-metafield-text-item active-text" data-text="0">
+            <h3 class="slider-metafield-heading">{{ section.settings.slide1_title }}</h3>
+            <div class="slider-metafield-description">{{ section.settings.slide1_description }}</div>
+          </div>
         {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide2_image| img_url: "1400x" }}" alt="{{ section.settings.slide2_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% if section.settings.slide2_title != blank %}
+          <div class="slider-metafield-text-item" data-text="1">
+            <h3 class="slider-metafield-heading">{{ section.settings.slide2_title }}</h3>
+            <div class="slider-metafield-description">{{ section.settings.slide2_description }}</div>
+          </div>
         {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide3_image | img_url: "1400x" }}" alt="{{ section.settings.slide3_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% if section.settings.slide3_title != blank %}
+          <div class="slider-metafield-text-item" data-text="2">
+            <h3 class="slider-metafield-heading">{{ section.settings.slide3_title }}</h3>
+            <div class="slider-metafield-description">{{ section.settings.slide3_description }}</div>
+          </div>
         {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide4_image | img_url: "1400x" }}" alt="{{ section.settings.slide4_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% if section.settings.slide4_title != blank %}
+          <div class="slider-metafield-text-item" data-text="3">
+            <h3 class="slider-metafield-heading">{{ section.settings.slide4_title }}</h3>
+            <div class="slider-metafield-description">{{ section.settings.slide4_description }}</div>
+          </div>
         {% endif %}
       </div>
     </div>
-  </div>
-  <div class="emptyspace"></div>
-</div>
 
-<!-- mobile version -->
-<div class="custom-slider-pcr-mobile-{{ section.id }} container-bg-wrapperhh mobile_version_icon_section">
-  <div class="container-bghh">
-    <div class="content-slhh">
-      <div class="text-contenthh">
-        <div class="icons-hhh">
-          <div class="icon-hhh" onclick="changeSlidehh(0)">
-            {% if section.settings.slide1_icon != blank and section.settings.slide1_title != blank %}
-              <img
-                class="desktop_icons"
-                src="{{ section.settings.slide1_icon | img_url }}"
-                alt="{{ section.settings.slide1_title }}"
-              >
-              <img
-                class="mobile_icons"
-                src="{{ section.settings.slide1_mobile | img_url }}"
-                alt="{{ section.settings.slide1_title }}"
-              >
-            {% endif %}
-          </div>
-          <div class="icon-hhh" onclick="changeSlidehh(1)">
-            {% if section.settings.slide2_icon != blank and section.settings.slide2_title != blank %}
-              <img
-                class="desktop_icons"
-                src="{{ section.settings.slide2_icon | img_url }}"
-                alt="{{ section.settings.slide2_title }}"
-              >
-              <img
-                class="mobile_icons"
-                src="{{ section.settings.slide2_mobile | img_url }}"
-                alt="{{ section.settings.slide2_title }}"
-              >
-            {% endif %}
-          </div>
-          <div class="icon-hhh" onclick="changeSlidehh(2)">
-            {% if section.settings.slide3_icon != blank and section.settings.slide3_title != blank %}
-              <img
-                class="desktop_icons"
-                src="{{ section.settings.slide3_icon | img_url }}"
-                alt="{{ section.settings.slide3_title }}"
-              >
-              <img
-                class="mobile_icons"
-                src="{{ section.settings.slide3_mobile | img_url }}"
-                alt="{{ section.settings.slide3_title }}"
-              >
-            {% endif %}
-          </div>
-
-          <div class="icon-hhh" onclick="changeSlidehh(3)">
-            {% if section.settings.slide4_icon != blank and section.settings.slide4_title != blank %}
-              <img
-                class="desktop_icons"
-                src="{{ section.settings.slide4_icon | img_url }}"
-                alt="{{ section.settings.slide4_title }}"
-              >
-              <img
-                class="mobile_icons"
-                src="{{ section.settings.slide4_mobile | img_url }}"
-                alt="{{ section.settings.slide4_title }}"
-              >
-            {% endif %}
-          </div>
-        </div>
-
-        <div class="sliding-texthh">
-          <div class="texthh" style="position:inherit;">
-            <div class="headinghh">
-              <h2>{{ section.settings.slide1_title }}</h2>
-            </div>
-            <div class="descriptionhh">
-              <p>
-                {{ section.settings.slide1_description }}
-              </p>
-            </div>
-          </div>
-
-          <div class="texthh">
-            <div class="headinghh">
-              <h2>{{ section.settings.slide2_title }}</h2>
-            </div>
-            <div class="descriptionhh">
-              <p>
-                {{ section.settings.slide2_description }}
-              </p>
-            </div>
-          </div>
-
-          <div class="texthh">
-            <div class="headinghh">
-              <h2>{{ section.settings.slide3_title }}</h2>
-            </div>
-            <div class="descriptionhh">
-              <p>
-                {{ section.settings.slide3_description }}
-              </p>
-            </div>
-          </div>
-
-          <div class="texthh">
-            <div class="headinghh">
-              <h2>{{ section.settings.slide4_title }}</h2>
-            </div>
-            <div class="descriptionhh">
-              <p>
-                {{ section.settings.slide4_description }}
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- main image -->
-      <div class="imagehh">
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{  section.settings.slide1_image | img_url: "1400x" }}" alt="{{ section.settings.slide1_title }}">
-        {% else %}
-          <img
-            src="{{ "pcr-product-slide.png"|asset_url }}"
-            alt=""
-          >
-        {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide2_image| img_url: "1400x" }}" alt="{{ section.settings.slide2_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
-        {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide3_image | img_url: "1400x" }}" alt="{{ section.settings.slide3_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
-        {% endif %}
-
-        {% if section.settings.slide1_image != blank %}
-          <img src="{{ section.settings.slide4_image | img_url: "1400x" }}" alt="{{ section.settings.slide4_title }}">
-        {% else %}
-          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
-        {% endif %}
-      </div>
+    <!-- Navigation Dots - Bottom Center -->
+    <div class="slider-metafield-dots">
+      {% if section.settings.slide1_image != blank or section.settings.slide1_title != blank %}
+        <button class="slider-metafield-dot active-dot" data-dot="0" aria-label="Go to slide 1"></button>
+      {% endif %}
+      {% if section.settings.slide2_image != blank or section.settings.slide2_title != blank %}
+        <button class="slider-metafield-dot" data-dot="1" aria-label="Go to slide 2"></button>
+      {% endif %}
+      {% if section.settings.slide3_image != blank or section.settings.slide3_title != blank %}
+        <button class="slider-metafield-dot" data-dot="2" aria-label="Go to slide 3"></button>
+      {% endif %}
+      {% if section.settings.slide4_image != blank or section.settings.slide4_title != blank %}
+        <button class="slider-metafield-dot" data-dot="3" aria-label="Go to slide 4"></button>
+      {% endif %}
     </div>
   </div>
-  <div class="emptyspace"></div>
 </div>
 
-<!-- mobile  version ended -->
+<script>
+  (function() {
+    const wrapper = document.getElementById('slider-metafield-{{ section.id }}');
+    if (!wrapper) return;
 
-<script src="{{ 'custom-slider.js' | asset_url}}"></script>
+    const slides = wrapper.querySelectorAll('.slider-metafield-slide');
+    const textItems = wrapper.querySelectorAll('.slider-metafield-text-item');
+    const dots = wrapper.querySelectorAll('.slider-metafield-dot');
+
+    function changeSlideMetafield(index) {
+      // Update slides
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active-slide', i === index);
+      });
+
+      // Update text
+      textItems.forEach((text, i) => {
+        text.classList.toggle('active-text', i === index);
+      });
+
+      // Update dots
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active-dot', i === index);
+      });
+    }
+
+    // Add click listeners to dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => changeSlideMetafield(index));
+    });
+  })();
+</script>
 
 {% schema %}
 {
