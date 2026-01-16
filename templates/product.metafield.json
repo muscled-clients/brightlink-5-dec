@@ -597,9 +597,9 @@
       "type": "custom-slider-pcr-metafield",
       "name": "Custom Slider Metafield",
       "settings": {
-        "section_label": "PRODUCT SHOWCASE",
-        "section_heading": "Experience Premium Engineering",
-        "section_subtitle": "Every detail crafted for visual excellence",
+        "section_label": "VERSATILE APPLICATIONS",
+        "section_heading": "Built for Every Environment",
+        "section_subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings",
         "wrapper-container-width": 100
       }
     },
