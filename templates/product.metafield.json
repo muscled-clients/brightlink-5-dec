@@ -466,23 +466,14 @@
         "8f46583b-4611-4c7f-a6af-44efaaa19b31": {
           "type": "video",
           "settings": {
-            "title": "Video",
-            "section-id": "shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"
+            "title": "Video"
           }
         },
         "29d1c919-1da0-497b-82ac-a44532ca48fd": {
           "type": "faq",
           "disabled": true,
           "settings": {
-            "title": "FAQ",
-            "section-id": "shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"
-          }
-        },
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44": {
-          "type": "static",
-          "settings": {
-            "title": "Faq",
-            "section-id": "shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
+            "title": "FAQ"
           }
         }
       },
@@ -491,8 +482,7 @@
         "5d72e470-00a7-4f81-a2ea-f0dca054d2f8",
         "c23ea137-c627-4180-b349-f608456af033",
         "8f46583b-4611-4c7f-a6af-44efaaa19b31",
-        "29d1c919-1da0-497b-82ac-a44532ca48fd",
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44"
+        "29d1c919-1da0-497b-82ac-a44532ca48fd"
       ],
       "settings": {
         "title": ""
@@ -515,6 +505,7 @@
     },
     "067e33fc-b471-498b-9aac-5d93bbadcb12": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "title": "Seamless LED Video Wall Installation",
         "description": "<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!</p>",
@@ -605,6 +596,7 @@
     },
     "be5fcda4-e747-4686-bf2c-597f15159877": {
       "type": "text-with-image",
+      "disabled": true,
       "settings": {
         "heading": "{{ product.metafields.custom.section_text_with_image.value.heading.value }}",
         "text": "{{ product.metafields.custom.section_text_with_image.value.description | metafield_tag }}",
@@ -619,6 +611,7 @@
     },
     "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136": {
       "type": "product-cards",
+      "disabled": true,
       "settings": {
         "product1": "{{ product.metafields.custom.section_product_cards.value.product_image_1.value }}",
         "product1-title": "{{ product.metafields.custom.section_product_cards.value.product_title_1.value }}",
