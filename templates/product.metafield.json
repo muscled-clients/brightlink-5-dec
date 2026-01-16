@@ -515,6 +515,7 @@
     },
     "f8572bb3-e256-48d7-98a9-b3de46803d68": {
       "type": "d8-faq-custom-section",
+      "disabled": true,
       "settings": {
         "sub_heading": "",
         "headingS": "",
