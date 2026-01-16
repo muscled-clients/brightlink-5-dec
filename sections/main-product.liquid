@@ -967,7 +967,7 @@ text-align: center;
               DESCRIPTION
               --------------------------------------------------------------------------------------
               {%- endcomment -%}
-              {%- when 'description' -%}
+              {% comment %} {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product-block-list__item product-block-list__item--description" {{ block.shopify_attributes }}>
                     <div class="card">
@@ -1004,7 +1004,7 @@ text-align: center;
                       {%- endif -%}
                     </div>
                   </div>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
           			{%- assign title = block.settings.title -%}
                   <div class="card" style="display:none;">
                     <div class="card__header card__header--flex">
