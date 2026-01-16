@@ -127,9 +127,14 @@ background: rgba(0, 102, 204, 0.20);
   }
 
   #shopify-section-{{ section.id }} .features-list {
-    list-style: none;
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+    {% comment %} list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0; {% endcomment %}
   }
 
   #shopify-section-{{ section.id }} .features-list li {
