@@ -20,6 +20,8 @@
 {% comment %} bg image end {% endcomment %}
 
 <style>
+
+  {% comment %} product page css start {% endcomment %}
   {% if product.template_suffix == 'metafield' %}
 #main{
       background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
@@ -31,9 +33,11 @@
     #shopify-installments p{
       display:none !important;
     }
+    .card__header h2.card__title {
+    color: white !important;
+ 
+}
 
-
-/* product page css start */
 
 /* icon with text block css start */
 .shipping-icon{
