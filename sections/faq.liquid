@@ -18,7 +18,6 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'separator' -%}
           {%- unless forloop.first -%}
-              </div><!-- Close previous group-content-inner -->
             </div><!-- Close previous group-content -->
             </div><!-- Close previous group -->
           {%- endunless -%}
@@ -74,7 +73,6 @@
             </div>
 
             <div id="{{ group_id }}" class="faq__group-content">
-              <div class="faq__group-content-inner">
         {%- endif -%}
 
         {%- if block.type == 'question' -%}
@@ -124,7 +122,6 @@
 
         {%- if forloop.last -%}
           {%- if section.blocks.size > 0 -%}
-              </div><!-- Close final group-content-inner -->
             </div><!-- Close final group-content -->
             </div><!-- Close final group -->
           {%- endif -%}
@@ -327,20 +324,14 @@ height: 23.333px;
     transform: rotate(180deg);
   }
 
-  /* Group Content - Initially hidden with smooth animation */
+  /* Group Content - Initially hidden */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content {
     width: 100%;
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s ease-in-out;
-  }
-
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content-inner {
-    overflow: hidden;
+    display: none;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__group-content.active {
-    grid-template-rows: 1fr;
+    display: block;
   }
 
   /* FAQ Item (Question) */
@@ -423,19 +414,20 @@ flex: 1 0 0;
     transform: rotate(180deg);
   }
 
-  /* Answer - with smooth animation */
+  /* Answer - FIXED VERSION */
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s ease-in-out;
-  }
-
-  #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper .faq__answer {
+    display: none;
     overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
-    grid-template-rows: 1fr;
+    display: contents;
+    max-height: 1000px; /* Large enough to show all content */
+    opacity: 1;
+    padding: 0 40px 30px 14px;
   }
 
   #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
@@ -497,8 +489,9 @@ flex: 1 0 0;
       min-width: 16px;
     }
 
-    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
-      padding: 0 10px;
+    #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer-wrapper.active {
+      padding: 0 10px 16px 10px;
+      max-height: 2000px; /* Even larger for mobile to ensure content shows */
     }
     
     #shopify-section-{{ section.id }} .faq-dev-02-container .faq__answer.rte {
