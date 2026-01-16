@@ -12,10 +12,12 @@
     {% assign scale_image = scale_data.image %}
 
     <div class="experience-scale__header">
-      {% if section.settings.label != blank %}
-        <span class="experience-scale__label">{{ section.settings.label }}</span>
-      {% endif %}
-      <h2 class="experience-scale__title">{{ scale_title }}</h2>
+      <div class="experience-scale__header-text">
+        {% if section.settings.label != blank %}
+          <span class="experience-scale__label">{{ section.settings.label }}</span>
+        {% endif %}
+        <h2 class="experience-scale__title">{{ scale_title }}</h2>
+      </div>
       <p class="experience-scale__subtitle">{{ scale_subtitle }}</p>
     </div>
 
