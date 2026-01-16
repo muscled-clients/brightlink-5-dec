@@ -486,6 +486,7 @@
     },
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd": {
       "type": "custom-slider-pcr",
+      "disabled": true,
       "settings": {
         "emptySpace": false,
         "bg_img": "{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}",
