@@ -18,8 +18,8 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'separator' -%}
           {%- unless forloop.first -%}
-            </div>
-            <!-- Close previous group -->
+            </div><!-- Close previous group-content -->
+            </div><!-- Close previous group -->
           {%- endunless -%}
 
           {%- assign group_id = 'group-' | append: block.id -%}
@@ -121,10 +121,10 @@
         {%- endif -%}
 
         {%- if forloop.last -%}
-          </div>
-          <!-- Close group-content -->
-          </div>
-          <!-- Close group -->
+          {%- if section.blocks.size > 0 -%}
+            </div><!-- Close final group-content -->
+            </div><!-- Close final group -->
+          {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     </div>
