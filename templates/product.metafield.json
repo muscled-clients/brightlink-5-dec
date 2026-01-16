@@ -34,19 +34,19 @@
             "low_inventory_threshold": 53
           }
         },
-        "icon_with_text_inline_8QNFxD": {
-          "type": "icon_with_text_inline",
-          "settings": {
-            "icon": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
-            "text": "Shipping Time: Standard: 3 - 4 week delivery"
-          }
-        },
         "description": {
           "type": "description",
           "settings": {
             "display_mode": "view_more",
             "title": "",
             "text": ""
+          }
+        },
+        "icon_with_text_inline_8QNFxD": {
+          "type": "icon_with_text_inline",
+          "settings": {
+            "icon": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
+            "text": "Shipping Time: Standard: 3 - 4 week delivery"
           }
         },
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
@@ -240,8 +240,8 @@
       "block_order": [
         "product_meta",
         "variant_selector",
-        "icon_with_text_inline_8QNFxD",
         "description",
+        "icon_with_text_inline_8QNFxD",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
