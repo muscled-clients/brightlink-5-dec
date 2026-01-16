@@ -28,27 +28,51 @@
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
 }
 
+.investment-config__header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
 .investment-config__label {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 3px;
+  height: 20px;
+  align-self: stretch;
+  color: #D4AF37;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  color: #FFD700;
 }
 
 .investment-config__title {
-  font-size: 36px;
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 48px;
+  font-style: normal;
   font-weight: 700;
-  color: #ffffff;
+  line-height: normal;
+  letter-spacing: -2px;
   margin: 0;
-  line-height: 1.2;
 }
 
 .investment-config__subtitle {
-  font-size: 16px;
+  width: 846px;
+  max-width: 100%;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  line-height: 28px;
   margin: 0;
 }
 
