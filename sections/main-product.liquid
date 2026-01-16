@@ -877,6 +877,8 @@ text-align: center;
 }
 {%- endcapture -%}
 
+{% comment %} add bg image {% endcomment %}
+
 {%- assign is_metafield_template = false -%}
 {%- if request.page_type == 'product' and template.suffix == 'metafield' -%}
   {%- assign is_metafield_template = true -%}
@@ -899,7 +901,7 @@ text-align: center;
   {% endstyle %}
 {%- endif -%}
 
-
+{% comment %} bg image end {% endcomment %}
 <section data-section-id="{{ section.id }}" data-section-type="product" data-section-settings='{{ section_settings }}'>
   {%- if template != 'product.quick-view' -%}
     <div class="container container--flush">
