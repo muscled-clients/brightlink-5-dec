@@ -13085,7 +13085,7 @@ shopify-payment-terms {
   }
 
   .faq__group + .faq__group {
-    margin-top: 50px;
+    /* margin-top: 50px; */
   }
 }
 
