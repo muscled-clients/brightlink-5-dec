@@ -19,43 +19,76 @@
 .technical-specs__container {
   position: relative;
   z-index: 2;
-  max-width: 1440px;
+  display: flex;
+  width: 1440px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0;
 }
 
 /* Header Section */
 .technical-specs__header {
+  display: flex;
+  padding: 52px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 1440px;
+  max-width: 100%;
   text-align: center;
-  margin-bottom: 60px;
+  border-top: 1px solid rgba(10, 132, 255, 0.20);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
+}
+
+.technical-specs__header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
 }
 
 .technical-specs__label {
-  display: inline-block;
-  font-size: var(--ts-label-size, 12px);
+  height: 20px;
+  align-self: stretch;
+  color: #D4AF37;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 600;
+  line-height: normal;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: var(--ts-label-color, #D4AF37);
-  margin-bottom: 16px;
 }
 
 .technical-specs__heading {
-  font-size: var(--ts-heading-size, 42px);
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 48px;
+  font-style: normal;
   font-weight: 700;
-  color: var(--ts-heading-color, #ffffff);
-  letter-spacing: 0.5px;
-  margin: 0 0 16px 0;
-  line-height: 1.2;
+  line-height: normal;
+  letter-spacing: -2px;
+  margin: 0;
 }
 
 .technical-specs__subheading {
-  font-size: var(--ts-subheading-size, 16px);
+  width: 846px;
+  max-width: 100%;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
-  color: var(--ts-subheading-color, rgba(255, 255, 255, 0.6));
-  margin: 0 auto;
-  line-height: 1.6;
-  max-width: 600px;
+  line-height: 28px;
+  margin: 0;
 }
 
 /* Cards Grid */
@@ -63,8 +96,9 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 1280px;
+  max-width: calc(100% - 40px);
+  box-sizing: border-box;
 }
 
 /* Individual Card */
@@ -144,7 +178,6 @@
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  margin-top: 48px;
 }
 
 /* Price Text */
@@ -255,24 +288,31 @@
 
 @media screen and (max-width: 768px) {
   .technical-specs__container {
-    padding: 0 20px;
+    gap: 40px;
   }
 
   .technical-specs__header {
-    margin-bottom: 40px;
+    padding: 40px 20px;
+  }
+
+  .technical-specs__header-text {
+    gap: 16px;
   }
 
   .technical-specs__heading {
-    font-size: 28px;
+    font-size: 32px;
+    letter-spacing: -1px;
   }
 
   .technical-specs__subheading {
-    font-size: 14px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .technical-specs__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    max-width: calc(100% - 40px);
   }
 
   .technical-specs__card {
@@ -302,10 +342,6 @@
     font-size: 12px;
   }
 
-  .technical-specs__cta {
-    margin-top: 40px;
-  }
-
   .technical-specs__btn {
     width: 100%;
     max-width: 400px;
@@ -314,22 +350,26 @@
 }
 
 @media screen and (max-width: 480px) {
-  .technical-specs__container {
-    padding: 0 15px;
+  .technical-specs__header {
+    padding: 30px 15px;
   }
 
   .technical-specs__label {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 12px;
   }
 
   .technical-specs__heading {
-    font-size: 24px;
+    font-size: 28px;
+  }
+
+  .technical-specs__subheading {
+    font-size: 14px;
   }
 
   .technical-specs__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
+    max-width: calc(100% - 30px);
   }
 
   .technical-specs__card {
