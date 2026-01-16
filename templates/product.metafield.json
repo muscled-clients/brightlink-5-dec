@@ -269,7 +269,7 @@
           "type": "trusted_item",
           "settings": {
             "label": "SpaceX",
-            "url": ""
+            "url": "shopify://collections"
           }
         },
         "trusted_item_N8pFCh": {
