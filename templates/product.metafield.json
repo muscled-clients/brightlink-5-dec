@@ -152,7 +152,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_payment_button": true,
-            "show_purchase_btn": true
+            "show_purchase_btn": false
           }
         },
         "59761649-86b3-44c5-800a-493acb77417c": {
@@ -309,7 +309,7 @@
         "text_color": "#b7c4d6",
         "muted_color": "#6b7c93",
         "accent_color": "#3caaff",
-        "border_color": "rgba(255,255,255,0.06)",
+        "border_color": "#ffffff0f",
         "pattern_opacity": 14,
         "items_opacity": 70
       }
