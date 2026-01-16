@@ -233,14 +233,12 @@
       "name": "Trusted Leaders",
       "settings": {
         "heading": "Trusted By Industry Leaders",
-        "slider_speed": 20,
+        "slider_speed": 23,
         "heading_font_size": 24,
         "company_font_size": 18,
         "bg_color": "#0a0f14",
         "text_color": "#ffffff",
         "separator_color": "#3a4a5e",
-        "padding_top": 50,
-        "padding_bottom": 50,
         "custom_class": ""
       }
     },
@@ -293,8 +291,6 @@
         "subheading_color": "#a0a0a0",
         "dot_color": "#4a5d75",
         "dot_active_color": "#ffffff",
-        "padding_top": 60,
-        "padding_bottom": 60,
         "custom_class": ""
       }
     },
@@ -1042,7 +1038,12 @@
       "settings": {
         "label": "VERSATILE APPLICATIONS",
         "title": "Built for Every Environment",
-        "subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings"
+        "subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings",
+        "primary_btn_text": "ORDER NOW",
+        "primary_btn_link": "",
+        "secondary_btn_text": "BOOK A CALL",
+        "secondary_btn_link": "",
+        "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
     "investment_config_xJLwjx": {
