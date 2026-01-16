@@ -233,7 +233,7 @@
       "name": "Trusted Leaders",
       "settings": {
         "heading": "Trusted By Industry Leaders",
-        "slider_speed": 23,
+        "slider_speed": 20,
         "heading_font_size": 24,
         "company_font_size": 18,
         "bg_color": "#0a0f14",
