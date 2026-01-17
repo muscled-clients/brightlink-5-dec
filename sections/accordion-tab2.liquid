@@ -229,21 +229,20 @@ background: rgba(10, 132, 255, 0.20);
   #shopify-section-{{ section.id }} .video-wrapper {
     position: relative;
     width: 100%;
+    max-width: 1224px;
+    max-height: 688px;
     border-radius: 16px;
     overflow: hidden;
-    max-width: 1224px;
-height: 688.5px;
-aspect-ratio: 1224.00/688.50;
-
+    aspect-ratio: 16/9;
+    margin: 0 auto;
   }
 
   #shopify-section-{{ section.id }} .video-wrapper img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    max-width: 1224px;
-max-height: 688.5px;
- border-radius: 16px;
+    border-radius: 16px;
   }
 
   #shopify-section-{{ section.id }} .video-play-btn {
@@ -417,9 +416,9 @@ fill: #FFF;
         {% when 'video' %}
           {% if product.metafields.custom.section_video.value != blank %}
             <button class="tab-button" data-tab="video-{{ block.id }}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+  <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" />
+</svg>
               {{ block.settings.title | default: 'Video' }}
             </button>
           {% endif %}
@@ -517,7 +516,7 @@ fill: #FFF;
                 <tbody>
                   {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
                   {% for row in table_data %}
-                    {% assign cols = row | split: ';' %}
+                    {% assign cols = row | split: ':' %}
                     {% if cols.size >= 2 %}
                       <tr>
                         <td>{{ cols[0] }}</td>
@@ -576,8 +575,8 @@ fill: #FFF;
         {% if product.metafields.custom.section_video.value != blank %}
           <div class="tab-content" id="video-{{ block.id }}">
             <h2 class="section-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
-                <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" fill="#0A84FF"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="#0A84FF">
+                <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" />
               </svg>
               {{ block.settings.title | default: 'Video' }}
             </h2>
@@ -683,23 +682,41 @@ document.addEventListener('DOMContentLoaded', function() {
   // Video play functionality
   const playButtons = container.querySelectorAll('.video-play-btn');
   playButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       const videoId = this.getAttribute('data-video-id');
       const containerId = this.getAttribute('data-container');
       const videoContainer = document.getElementById(containerId);
 
       if (videoContainer && videoId) {
+        // Save scroll position before replacing content
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+
         videoContainer.innerHTML = `
           <iframe
             width="100%"
-            height="450"
+            height="100%"
             src="https://www.youtube.com/embed/${videoId}?autoplay=1"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="border-radius: 12px;"
+            style="border-radius: 16px;"
           ></iframe>
         `;
+
+        // Restore scroll position after iframe is inserted
+        window.scrollTo(scrollX, scrollY);
+
+        // Also prevent scroll when iframe loads
+        const iframe = videoContainer.querySelector('iframe');
+        if (iframe) {
+          iframe.addEventListener('load', function() {
+            window.scrollTo(scrollX, scrollY);
+          });
+        }
       }
     });
   });
