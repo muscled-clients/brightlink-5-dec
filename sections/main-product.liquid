@@ -1199,6 +1199,15 @@ text-align: center;
                   products: block.settings.products
                 %}
               {% endif %}
+               {% comment %} divider block {% endcomment %}
+                 {% when 'divider_block' %}
+                   {%- if divider_block != blank -%}
+                  <div class="divider-block">
+                    <div class="divider-block__inner">
+                      <hr class="divider-block__line">
+                    </div>
+                  </div>
+                  {%- endif -%}
               {%- comment -%}
               --------------------------------------------------------------------------------------
               DESCRIPTION
