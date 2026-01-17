@@ -1,10 +1,8 @@
 {% style %}
   {% comment %} product page css start {% endcomment %}
   {% if product.template_suffix == 'metafield' %}
-    body{
-      background:#000;
-    }
-#main{
+   
+ body{
       background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
       background-size: cover;
       background-repeat: no-repeat;
