@@ -109,19 +109,20 @@
 
 .custom-config__input-row {
   display: flex;
-  align-items: flex-end;
-  gap: 15px;
+  align-items: center;
+  gap: 24px;
 }
 
 .custom-config__input-group {
-  flex: 1;
   display: flex;
+  width: 288px;
   flex-direction: column;
-  gap: 8px;
+  align-items: flex-start;
+  gap: 11px;
 }
 
 .custom-config__input-group--wide {
-  flex: 2;
+  width: 288px;
 }
 
 .custom-config__ratio-separator {
@@ -452,10 +453,16 @@
 
   .custom-config__input-row {
     flex-wrap: wrap;
+    gap: 16px;
   }
 
   .custom-config__input-group {
+    width: 100%;
     min-width: 120px;
+  }
+
+  .custom-config__input-group--wide {
+    width: 100%;
   }
 
   .custom-config__result-grid {
