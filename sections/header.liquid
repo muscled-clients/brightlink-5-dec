@@ -147,7 +147,7 @@
             </a>
           {%- endcapture -%}
   
-          {%- if request.page_type == 'index' -%}
+          {%- if request.page_type == 'index' or product.template_suffix == 'metafield' -%} 
             <h1 class="header__logo">{{ header_logo }}</h1>
           {%- else -%}
             <div class="header__logo">{{ header_logo }}</div>
