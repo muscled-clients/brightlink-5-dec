@@ -40,7 +40,7 @@
           "type": "liquid",
           "settings": {
             "title": "",
-            "liquid": "<hr>",
+            "liquid": "<hr class=\"divider-line>\n\n<style>\n.divider-line{\nborder-radius: 12px;\nborder: 1px solid rgba(255, 255, 255, 0.10);\nbackground: url(<path-to-image>) lightgray 45.859px 189px / 87.436% 48.219% no-repeat, linear-gradient(135deg, rgba(10, 132, 255, 0.10) 0%, rgba(0, 0, 0, 0.00) 70.71%);\nbox-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);\n}\n<style>",
             "display_mode": "show_all"
           }
         },
