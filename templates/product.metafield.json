@@ -44,6 +44,14 @@
             "display_mode": "show_all"
           }
         },
+        "divider_line_UTcWqd": {
+          "type": "divider_line",
+          "settings": {
+            "line_color": "#3caaff",
+            "line_width": 80,
+            "line_thickness": 2
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -164,14 +172,6 @@
             "show_purchase_btn": true
           }
         },
-        "divider_block_8KXPGq": {
-          "type": "divider_block",
-          "settings": {
-            "line_color": "#3caaff",
-            "line_width": 100,
-            "line_thickness": 5
-          }
-        },
         "59761649-86b3-44c5-800a-493acb77417c": {
           "type": "custom-fbt",
           "disabled": true,
@@ -253,6 +253,7 @@
         "product_meta",
         "variant_selector",
         "liquid_dgqED7",
+        "divider_line_UTcWqd",
         "description",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
@@ -262,7 +263,6 @@
         "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737",
         "fd62c6b7-26f4-4374-b874-a66dd71682ce",
         "buy_buttons",
-        "divider_block_8KXPGq",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
         "2c653889-de9a-4870-89e9-ec8bdfc610d7",
