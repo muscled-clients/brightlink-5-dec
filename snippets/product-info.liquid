@@ -70,10 +70,10 @@
 
             {% comment %}===============code for request for zone ============ {% endcomment %}
 
-          {%- when 'purchase_buttons' -%}
+          {% comment %} {%- when 'purchase_buttons' -%}
             {% comment %}      snippet for purchase from distributor {% endcomment %}
             <div>Shipping Times: {{ product.metafields.custom.shipping_times }}</div>
-            {% render 'purchase-distributor-btn', block: block %}
+            {% render 'purchase-distributor-btn', block: block %} {% endcomment %}
             
           {%- when 'text' -%}
             {%- if block.settings.content != blank -%}
