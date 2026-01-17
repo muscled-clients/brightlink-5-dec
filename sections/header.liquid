@@ -150,7 +150,7 @@
           {%- if request.page_type == 'index' -%} 
             <h1 class="header__logo">{{ header_logo }}</h1> 
           {%- elsif product.template_suffix == 'metafield' -%}
-             <img src="{{section.settings.metafield_logo }}">
+             <img src="{{section.settings.metafield_logo  | img_url:'master'}}">
           {%- else -%}
             <div class="header__logo">{{ header_logo }}</div>
           {%- endif -%}
