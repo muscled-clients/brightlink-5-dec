@@ -36,6 +36,14 @@
             "low_inventory_threshold": 53
           }
         },
+        "liquid_dgqED7": {
+          "type": "liquid",
+          "settings": {
+            "title": "",
+            "liquid": "<hr>",
+            "display_mode": "show_all"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {
@@ -244,6 +252,7 @@
       "block_order": [
         "product_meta",
         "variant_selector",
+        "liquid_dgqED7",
         "description",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
