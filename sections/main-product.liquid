@@ -109,10 +109,10 @@
 }
 
 #custom-{{ section.id }} .product-gallery__thumbnail-list .product-gallery__thumbnail {
-  border-radius: 8px !important;
+  {% comment %} border-radius: 8px !important;
   border: 1px solid rgba(255, 255, 255, 0.10) !important;
   background: url(<path-to-image>) lightgray 6.282px 25.89px / 87.436% 48.219% no-repeat !important;
-  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15) !important;
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15) !important; {% endcomment %}
 }
 
 {% comment %} product page css end {% endcomment %}
