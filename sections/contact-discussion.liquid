@@ -1,18 +1,15 @@
 {{ 'contact-discussion.css' | asset_url | stylesheet_tag }}
 
-<style>
-  .contact-discussion__label {
-    color: #FFD700 !important;
-  }
-</style>
-
 <section class="contact-discussion" id="contact-discussion">
   <div class="contact-discussion__container">
     <div class="contact-discussion__header">
-      <span class="contact-discussion__label">{{ section.settings.label | default: 'READY TO TRANSFORM YOUR SPACE?' }}</span>
-      <h2 class="contact-discussion__title">{{ section.settings.title | default: "Let's Discuss Your Project" }}</h2>
+      <div class="contact-discussion__header-text">
+        <span class="contact-discussion__label">{{ section.settings.label | default: 'READY TO TRANSFORM YOUR SPACE?' }}</span>
+        <h2 class="contact-discussion__title">{{ section.settings.title | default: "Let's Discuss Your Project" }}</h2>
+      </div>
       <p class="contact-discussion__subtitle">{{ section.settings.subtitle | default: 'Talk to our LED specialists about your specific requirements' }}</p>
     </div>
+    <div class="contact-discussion__content">
 
     <div class="contact-discussion__cards-wrapper">
       <div class="contact-discussion__cards" data-slider="cards">
@@ -124,6 +121,7 @@
     </div>
 
     <p class="contact-discussion__footer-text">{{ section.settings.footer_text | default: 'Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions' }}</p>
+    </div>
   </div>
 </section>
 
