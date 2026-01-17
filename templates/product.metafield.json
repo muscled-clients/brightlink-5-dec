@@ -26,13 +26,13 @@
           "settings": {
             "show_sku": true,
             "show_shipping_info": true,
-            "icon": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
+            "icon": "shopify://shop_images/div_1c282ff4-fdf7-40e0-beac-a578bbb5a2b6.png",
             "selector_mode": "dropdown",
             "color_mode": "variant_image",
             "show_quantity_selector": false,
             "show_taxes_included": false,
             "show_inventory_quantity": true,
-            "icon2": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
+            "icon2": "shopify://shop_images/div_1c282ff4-fdf7-40e0-beac-a578bbb5a2b6.png",
             "low_inventory_threshold": 53
           }
         },
