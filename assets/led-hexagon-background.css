@@ -192,12 +192,12 @@
 }
 
 /* LED template page base styling */
-.led-template-page {
+.advanced-spectrum-page {
   background-color: #0A0E1A;
 }
 
 /* Ensure all LED template sections appear above the hexagon background */
-.led-template-page main {
+.advanced-spectrum-page main {
   position: relative;
   z-index: 1;
   background: transparent;
@@ -212,20 +212,20 @@
 }
 
 /* All other sections - transparent backgrounds to show hexagon pattern */
-.led-template-page .trusted-leaders,
-.led-template-page .product-showcase,
-.led-template-page .competitive-advantages,
-.led-template-page .technical-specs,
-.led-template-page .product-intelligence,
-.led-template-page .system-configuration,
-.led-template-page .experience-scale,
-.led-template-page .applications-tabs,
-.led-template-page .controller-tabs,
-.led-template-page .custom-config,
-.led-template-page .investment-config,
-.led-template-page .knowledge-center,
-.led-template-page .enhance-system,
-.led-template-page .contact-discussion {
+.advanced-spectrum-page .trusted-leaders,
+.advanced-spectrum-page .product-showcase,
+.advanced-spectrum-page .competitive-advantages,
+.advanced-spectrum-page .technical-specs,
+.advanced-spectrum-page .product-intelligence,
+.advanced-spectrum-page .system-configuration,
+.advanced-spectrum-page .experience-scale,
+.advanced-spectrum-page .applications-tabs,
+.advanced-spectrum-page .controller-tabs,
+.advanced-spectrum-page .custom-config,
+.advanced-spectrum-page .investment-config,
+.advanced-spectrum-page .knowledge-center,
+.advanced-spectrum-page .enhance-system,
+.advanced-spectrum-page .contact-discussion {
   position: relative;
   z-index: 1;
   background: transparent !important;
