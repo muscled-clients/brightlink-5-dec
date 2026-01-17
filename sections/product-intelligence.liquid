@@ -295,16 +295,16 @@
 
                 <!-- Right Side: Image -->
                 <div class="product-intelligence__right">
-                  {% if pic_overview_image != blank %}
+                  {% if block.settings.overview_image != blank %}
                     <img
-                      src="{{ pic_overview_image | image_url: width: 600 }}"
+                      src="{{ block.settings.overview_image | image_url: width: 600 }}"
                       alt="{{ pic_heading }}"
                       class="product-intelligence__image"
                       loading="lazy"
                     >
                   {% else %}
                     <div class="product-intelligence__image-placeholder">
-                      <span>Add Image via Metafields</span>
+                      <span>Add Image via Customizer</span>
                     </div>
                   {% endif %}
                 </div>
@@ -801,9 +801,14 @@
                 <div class="included-grid">
                   {% if pic_included_titles and pic_included_titles.size > 0 %}
                     {% for title in pic_included_titles %}
+                      {% assign img_key = 'included_image_' | append: forloop.index %}
                       <div class="included-card">
                         <div class="included-card__image">
-                          <div class="included-card__placeholder"></div>
+                          {% if block.settings[img_key] != blank %}
+                            <img src="{{ block.settings[img_key] | image_url: width: 400 }}" alt="{{ title }}" loading="lazy">
+                          {% else %}
+                            <div class="included-card__placeholder"></div>
+                          {% endif %}
                         </div>
                         <div class="included-card__content">
                           {% if pic_included_badges[forloop.index0] %}
@@ -820,7 +825,11 @@
                     <!-- Fallback hardcoded content -->
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_1 != blank %}
+                          <img src="{{ block.settings.included_image_1 | image_url: width: 400 }}" alt="Complete Cabinet Array" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">64 Cabinets</span>
@@ -831,7 +840,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_2 != blank %}
+                          <img src="{{ block.settings.included_image_2 | image_url: width: 400 }}" alt="NovaStar H2 Controller" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">1 Unit</span>
@@ -842,7 +855,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_3 != blank %}
+                          <img src="{{ block.settings.included_image_3 | image_url: width: 400 }}" alt="Rail Mounting System" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">Complete Kit</span>
@@ -853,7 +870,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_4 != blank %}
+                          <img src="{{ block.settings.included_image_4 | image_url: width: 400 }}" alt="Power & Network Cables" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">Full Set + Spares</span>
@@ -864,7 +885,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_5 != blank %}
+                          <img src="{{ block.settings.included_image_5 | image_url: width: 400 }}" alt="Installation & Service Kit" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">2 Tools</span>
@@ -875,7 +900,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_6 != blank %}
+                          <img src="{{ block.settings.included_image_6 | image_url: width: 400 }}" alt="Interlocking Connectors" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">Integrated Set</span>
@@ -886,7 +915,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_7 != blank %}
+                          <img src="{{ block.settings.included_image_7 | image_url: width: 400 }}" alt="Technical Documentation" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">Complete Set</span>
@@ -897,7 +930,11 @@
 
                     <div class="included-card">
                       <div class="included-card__image">
-                        <div class="included-card__placeholder"></div>
+                        {% if block.settings.included_image_8 != blank %}
+                          <img src="{{ block.settings.included_image_8 | image_url: width: 400 }}" alt="Comprehensive Warranty" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
                       </div>
                       <div class="included-card__content">
                         <span class="included-card__badge">4 Years</span>
@@ -1217,8 +1254,8 @@
                 <!-- Use Case Section -->
                 <div class="support-usecase">
                   <div class="support-usecase__image">
-                    {% if pic_support_usecase_image != blank %}
-                      <img src="{{ pic_support_usecase_image | image_url: width: 600 }}" alt="{{ pic_support_usecase_title }}" class="support-usecase__img" loading="lazy">
+                    {% if block.settings.usecase_image != blank %}
+                      <img src="{{ block.settings.usecase_image | image_url: width: 600 }}" alt="{{ pic_support_usecase_title }}" class="support-usecase__img" loading="lazy">
                     {% else %}
                       <div class="support-usecase__placeholder"></div>
                     {% endif %}
@@ -1570,6 +1607,15 @@
           ]
         },
         {
+          "type": "header",
+          "content": "Overview Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "overview_image",
+          "label": "Overview Image"
+        },
+        {
           "type": "url",
           "id": "read_more_link",
           "label": "Read More Link"
@@ -1688,6 +1734,55 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Included Item Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_1",
+          "label": "Item 1 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_2",
+          "label": "Item 2 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_3",
+          "label": "Item 3 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_4",
+          "label": "Item 4 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_5",
+          "label": "Item 5 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_6",
+          "label": "Item 6 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_7",
+          "label": "Item 7 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_8",
+          "label": "Item 8 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_9",
+          "label": "Item 9 Image"
         }
       ]
     },
@@ -1745,6 +1840,15 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
+        },
+        {
+          "type": "header",
+          "content": "Use Case Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "usecase_image",
+          "label": "Use Case Image"
         }
       ]
     }
