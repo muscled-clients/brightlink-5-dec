@@ -117,6 +117,26 @@
   {% endstyle %}
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const readMoreButton = document.getElementById('read-more');
+    const fullDescription = document.getElementById('full-description');
+    const shortDescription = document.getElementById('short-description');
+    
+    readMoreButton.addEventListener('click', function () {
+      if (fullDescription.style.display === 'none') {
+        fullDescription.style.display = 'block';
+        shortDescription.style.display = 'none';
+        readMoreButton.innerHTML = 'Read Less';
+      } else {
+        fullDescription.style.display = 'none';
+        shortDescription.style.display = 'block';
+        readMoreButton.innerHTML = 'Read More';
+      }
+    });
+  });
+</script>
+
                   {% comment %} add description block end {% endcomment %}
          
          
