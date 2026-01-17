@@ -10,9 +10,25 @@
 {% endif %}
 
 <style>
+
+  :root {
+  --tab-inactive-color: #FFFFFF;
+  --tab-active-color: #0A84FF;
+}
+
+/* Inactive tab button SVG */
+#shopify-section-{{ section.id }} .tab-button:not(.active) svg {
+   fill: var(--tab-inactive-color);
+}
+  /* Active tab button SVG */
+#shopify-section-{{ section.id }} .tab-button.active svg {
+    fill: var(--tab-active-color);
+}
+ 
   #shopify-section-{{ section.id }} {
     background: #0a1628;
     font-family: 'Montserrat', sans-serif;
+        padding: 80px 30px;
   }
 
   #shopify-section-{{ section.id }} a {
@@ -22,39 +38,40 @@
 
   /* Tabs Container */
   #shopify-section-{{ section.id }} .tabs-container {
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.01);
-    box-shadow: 0 0 80px 0 rgba(10, 132, 255, 0.20);
     display: flex;
-    max-width: 1280px;
-    padding: 12px 28px 28px 28px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 60px;
-    margin: 0 auto;
+{% comment %} width: 1280px; {% endcomment %}
+padding: 12px 28px 28px 28px;
+flex-direction: column;
+align-items: flex-start;
+gap: 60px;
+border-radius: 24px;
+border: 1px solid rgba(255, 255, 255, 0.10);
+background: rgba(255, 255, 255, 0.01);
+box-shadow: 0 0 80px 0 rgba(10, 132, 255, 0.20);
   }
 
   #shopify-section-{{ section.id }} .tabs-wrapper {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+   display: flex;
+align-items: center;
+gap: 20px;
+align-self: stretch;
   }
 
   #shopify-section-{{ section.id }} .tab-button {
-    background: transparent;
-    border: 1px solid #2a3f5f;
-    color: #fff;
-    padding: 12px 24px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+display: flex;
+height: 56px;
+padding: 0 32px;
+justify-content: center;
+align-items: center;
+gap: 12px;
+flex: 1 0 0;
   }
 
   #shopify-section-{{ section.id }} .tab-button:hover {
@@ -62,15 +79,17 @@
   }
 
   #shopify-section-{{ section.id }} .tab-button.active {
-    background: #4190D2;
-    border-color: #4190D2;
-    color: #fff;
+   border-radius: 12px;
+background: rgba(10, 132, 255, 0.15);
+ color: #0A84FF;
   }
 
   #shopify-section-{{ section.id }} .tab-button svg {
-    width: 16px;
-    height: 16px;
+    width: 16.502px;
+height: 16.002px;
+fill: #FFFFFF;
   }
+ 
 
   /* Tab Content */
   #shopify-section-{{ section.id }} .tab-content {
@@ -85,17 +104,32 @@
 
   /* Section Title */
   #shopify-section-{{ section.id }} .section-title {
-    color: #4190D2;
-    font-size: 24px;
-    font-weight: 600;
-    margin: 0 0 30px 0;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+
+   {% comment %} width: 285px; {% endcomment %}
+    margin-top:24px;
+height: 36px;
+color: #0A84FF;
+font-family: Inter;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 36px; /* 120% */
+display: flex;
+align-items: center;
+gap: 16px;
   }
 
   #shopify-section-{{ section.id }} .section-title svg {
-    flex-shrink: 0;
+
+   display: flex;
+width: 48px;
+height: 48px;
+padding: 10px 12.75px;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+border: 0 solid #E5E7EB;
+background: rgba(0, 102, 204, 0.20);
   }
 
   /* Features Section */
@@ -107,33 +141,51 @@
   }
 
   #shopify-section-{{ section.id }} .features-list {
-    list-style: none;
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+    {% comment %} list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0; {% endcomment %}
   }
 
   #shopify-section-{{ section.id }} .features-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    color: #b0b8c4;
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 16px;
+   display: flex;
+align-items: center;
+gap: 16px;
+color: #FFF;
+font-family: Inter;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 28px; /* 155.556% */
   }
 
   #shopify-section-{{ section.id }} .features-list li svg {
-    min-width: 18px;
-    margin-top: 2px;
+
+ display: flex;
+width: 32px;
+height: 32px;
+padding: 4px 9px;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+border: 0 solid #E5E7EB;
+background: rgba(10, 132, 255, 0.20);
   }
 
   #shopify-section-{{ section.id }} .features-image {
     border-radius: 8px;
     overflow: hidden;
+    border-radius: 16px;
+    border: 2px solid #0A84FF;
   }
 
   #shopify-section-{{ section.id }} .features-image img {
     width: 100%;
+    
     height: auto;
     display: block;
   }
@@ -177,15 +229,21 @@
   #shopify-section-{{ section.id }} .video-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
+    max-width: 1224px;
+height: 688.5px;
+aspect-ratio: 1224.00/688.50;
+
   }
 
   #shopify-section-{{ section.id }} .video-wrapper img {
     width: 100%;
     height: auto;
     display: block;
+    max-width: 1224px;
+max-height: 688.5px;
+ border-radius: 16px;
   }
 
   #shopify-section-{{ section.id }} .video-play-btn {
@@ -223,42 +281,52 @@
   }
 
   #shopify-section-{{ section.id }} .download-item {
-    background: #0d1c30;
-    border-radius: 8px;
-    padding: 20px 24px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 1px solid #1e2d44;
-    width: 100%;
+height: 150px;
+padding: 0 40px;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
+border-radius: 16px;
+border: 1px solid rgba(255, 255, 255, 0.10);
+background: rgba(255, 255, 255, 0.05);
+box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   }
 
   #shopify-section-{{ section.id }} .download-item-name {
     color: #FFF;
-    font-family: 'Inter', sans-serif;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 32px;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 600;
+line-height: 32px; /* 133.333% */
   }
 
   #shopify-section-{{ section.id }} .download-btn {
     display: flex;
-    width: 238px;
-    height: 56px;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    border-radius: 8px;
-    border: 0 solid #E5E7EB;
-    background: #0A84FF;
-    box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-    flex-shrink: 0;
+width: 238px;
+height: 56px;
+justify-content: center;
+align-items: center;
+gap: 12px;
+border-radius: 8px;
+border: 0 solid #E5E7EB;
+background: #0A84FF;
+box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
+color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+  }
+
+  #shopify-section-{{ section.id }} .download-btn.svg{
+    width: 16px;
+height: 16px;
+fill: #FFF;
+  
   }
 
   #shopify-section-{{ section.id }} .download-btn:hover {
@@ -293,6 +361,7 @@
     }
 
     #shopify-section-{{ section.id }} .section-title {
+
       font-size: 20px;
     }
 
@@ -317,10 +386,9 @@
         {% when 'feaures' %}
           {% if product_features != blank %}
             <button class="tab-button {% if forloop.first %}active{% endif %}" data-tab="features-{{ block.id }}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9 12l2 2 4-4"/>
-                <circle cx="12" cy="12" r="10"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+  <path d="M9.14864 0.5625C8.98301 0.21875 8.63301 0 8.24864 0C7.86426 0 7.51739 0.21875 7.34864 0.5625L5.33926 4.69688L0.851764 5.35938C0.476764 5.41563 0.164264 5.67812 0.0486389 6.0375C-0.0669861 6.39687 0.0267638 6.79375 0.295514 7.05937L3.55176 10.2812L2.78301 14.8344C2.72051 15.2094 2.87676 15.5906 3.18614 15.8125C3.49551 16.0344 3.90489 16.0625 4.24239 15.8844L8.25176 13.7437L12.2611 15.8844C12.5986 16.0625 13.008 16.0375 13.3174 15.8125C13.6268 15.5875 13.783 15.2094 13.7205 14.8344L12.9486 10.2812L16.2049 7.05937C16.4736 6.79375 16.5705 6.39687 16.4518 6.0375C16.333 5.67812 16.0236 5.41563 15.6486 5.35938L11.158 4.69688L9.14864 0.5625Z" />
+</svg>
               {{ block.settings.title | default: 'Features' }}
             </button>
           {% endif %}
@@ -329,7 +397,7 @@
           {% if product_specification != blank %}
             <button class="tab-button" data-tab="specification-{{ block.id }}">
              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
-  <path d="M4.75273 0.196365C5.06211 0.47449 5.08711 0.946365 4.80898 1.25574L2.55898 3.75574C2.42148 3.90887 2.22773 3.99949 2.02148 4.00261C1.81523 4.00574 1.61836 3.92762 1.47148 3.78387L0.218359 2.53387C-0.0722656 2.24012 -0.0722656 1.76512 0.218359 1.47137C0.508984 1.17762 0.987109 1.17762 1.27773 1.47137L1.96836 2.16199L3.69023 0.24949C3.96836 -0.0598848 4.44023 -0.0848849 4.74961 0.19324L4.75273 0.196365ZM4.75273 5.19636C5.06211 5.47449 5.08711 5.94637 4.80898 6.25574L2.55898 8.75574C2.42148 8.90886 2.22773 8.99949 2.02148 9.00261C1.81523 9.00574 1.61836 8.92762 1.47148 8.78386L0.218359 7.53386C-0.0753906 7.24012 -0.0753906 6.76512 0.218359 6.47449C0.512109 6.18387 0.987109 6.18074 1.27773 6.47449L1.96836 7.16512L3.69023 5.25261C3.96836 4.94324 4.44023 4.91824 4.74961 5.19636H4.75273ZM6.99961 2.00262C6.99961 1.44949 7.44648 1.00262 7.99961 1.00262H14.9996C15.5527 1.00262 15.9996 1.44949 15.9996 2.00262C15.9996 2.55574 15.5527 3.00262 14.9996 3.00262H7.99961C7.44648 3.00262 6.99961 2.55574 6.99961 2.00262ZM6.99961 7.00261C6.99961 6.44949 7.44648 6.00261 7.99961 6.00261H14.9996C15.5527 6.00261 15.9996 6.44949 15.9996 7.00261C15.9996 7.55574 15.5527 8.00261 14.9996 8.00261H7.99961C7.44648 8.00261 6.99961 7.55574 6.99961 7.00261ZM4.99961 12.0026C4.99961 11.4495 5.44648 11.0026 5.99961 11.0026H14.9996C15.5527 11.0026 15.9996 11.4495 15.9996 12.0026C15.9996 12.5557 15.5527 13.0026 14.9996 13.0026H5.99961C5.44648 13.0026 4.99961 12.5557 4.99961 12.0026ZM1.49961 10.5026C1.89743 10.5026 2.27896 10.6607 2.56027 10.942C2.84157 11.2233 2.99961 11.6048 2.99961 12.0026C2.99961 12.4004 2.84157 12.782 2.56027 13.0633C2.27896 13.3446 1.89743 13.5026 1.49961 13.5026C1.10178 13.5026 0.720254 13.3446 0.438949 13.0633C0.157645 12.782 -0.000390634 12.4004 -0.000390634 12.0026C-0.000390634 11.6048 0.157645 11.2233 0.438949 10.942C0.720254 10.6607 1.10178 10.5026 1.49961 10.5026Z" fill="#A0AEC0"/>
+  <path d="M4.75273 0.196365C5.06211 0.47449 5.08711 0.946365 4.80898 1.25574L2.55898 3.75574C2.42148 3.90887 2.22773 3.99949 2.02148 4.00261C1.81523 4.00574 1.61836 3.92762 1.47148 3.78387L0.218359 2.53387C-0.0722656 2.24012 -0.0722656 1.76512 0.218359 1.47137C0.508984 1.17762 0.987109 1.17762 1.27773 1.47137L1.96836 2.16199L3.69023 0.24949C3.96836 -0.0598848 4.44023 -0.0848849 4.74961 0.19324L4.75273 0.196365ZM4.75273 5.19636C5.06211 5.47449 5.08711 5.94637 4.80898 6.25574L2.55898 8.75574C2.42148 8.90886 2.22773 8.99949 2.02148 9.00261C1.81523 9.00574 1.61836 8.92762 1.47148 8.78386L0.218359 7.53386C-0.0753906 7.24012 -0.0753906 6.76512 0.218359 6.47449C0.512109 6.18387 0.987109 6.18074 1.27773 6.47449L1.96836 7.16512L3.69023 5.25261C3.96836 4.94324 4.44023 4.91824 4.74961 5.19636H4.75273ZM6.99961 2.00262C6.99961 1.44949 7.44648 1.00262 7.99961 1.00262H14.9996C15.5527 1.00262 15.9996 1.44949 15.9996 2.00262C15.9996 2.55574 15.5527 3.00262 14.9996 3.00262H7.99961C7.44648 3.00262 6.99961 2.55574 6.99961 2.00262ZM6.99961 7.00261C6.99961 6.44949 7.44648 6.00261 7.99961 6.00261H14.9996C15.5527 6.00261 15.9996 6.44949 15.9996 7.00261C15.9996 7.55574 15.5527 8.00261 14.9996 8.00261H7.99961C7.44648 8.00261 6.99961 7.55574 6.99961 7.00261ZM4.99961 12.0026C4.99961 11.4495 5.44648 11.0026 5.99961 11.0026H14.9996C15.5527 11.0026 15.9996 11.4495 15.9996 12.0026C15.9996 12.5557 15.5527 13.0026 14.9996 13.0026H5.99961C5.44648 13.0026 4.99961 12.5557 4.99961 12.0026ZM1.49961 10.5026C1.89743 10.5026 2.27896 10.6607 2.56027 10.942C2.84157 11.2233 2.99961 11.6048 2.99961 12.0026C2.99961 12.4004 2.84157 12.782 2.56027 13.0633C2.27896 13.3446 1.89743 13.5026 1.49961 13.5026C1.10178 13.5026 0.720254 13.3446 0.438949 13.0633C0.157645 12.782 -0.000390634 12.4004 -0.000390634 12.0026C-0.000390634 11.6048 0.157645 11.2233 0.438949 10.942C0.720254 10.6607 1.10178 10.5026 1.49961 10.5026Z" />
 </svg>
               </svg>
               {{ block.settings.title | default: 'Specifications' }}
@@ -349,9 +417,9 @@
         {% when 'video' %}
           {% if product.metafields.custom.section_video.value != blank %}
             <button class="tab-button" data-tab="video-{{ block.id }}">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polygon points="5 3 19 12 5 21 5 3"/>
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+  <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" />
+</svg>
               {{ block.settings.title | default: 'Video' }}
             </button>
           {% endif %}
@@ -360,7 +428,7 @@
           {% if product.metafields.custom.accordion_downloads.value != blank %}
             <button class="tab-button" data-tab="downloads-{{ block.id }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
-  <path d="M13.0203 3.56094H12.8656C12.6953 3.56094 12.5641 3.42656 12.5492 3.25703C12.3953 1.43279 10.8656 0 9.00079 0C7.13671 0 5.60695 1.43283 5.45235 3.25703C5.43829 3.42657 5.30626 3.56094 5.13595 3.56094H4.98126C2.36323 3.56094 0.0812102 5.57816 0.00220936 8.19458C-0.0790415 10.9016 2.09123 13.122 4.78046 13.122H13.2195C15.9086 13.122 18.079 10.9016 17.9978 8.19458C17.9189 5.57816 15.6368 3.56094 13.0187 3.56094H13.0203ZM11.9164 8.60319L9.33738 11.2656C9.15378 11.4555 8.8491 11.4555 8.66549 11.2656L6.08647 8.60319C5.79896 8.3063 6.00912 7.80942 6.42241 7.80942H7.73882C7.82945 7.80942 7.90289 7.73598 7.90289 7.64536V4.81173C7.90289 4.30468 8.31383 3.89376 8.82086 3.89376H9.1818C9.68885 3.89376 10.0998 4.3047 10.0998 4.81173V7.64536C10.0998 7.73598 10.1732 7.80942 10.2638 7.80942H11.5802C11.9935 7.80942 12.2037 8.3063 11.9162 8.60319H11.9164Z" fill="white"/>
+  <path d="M13.0203 3.56094H12.8656C12.6953 3.56094 12.5641 3.42656 12.5492 3.25703C12.3953 1.43279 10.8656 0 9.00079 0C7.13671 0 5.60695 1.43283 5.45235 3.25703C5.43829 3.42657 5.30626 3.56094 5.13595 3.56094H4.98126C2.36323 3.56094 0.0812102 5.57816 0.00220936 8.19458C-0.0790415 10.9016 2.09123 13.122 4.78046 13.122H13.2195C15.9086 13.122 18.079 10.9016 17.9978 8.19458C17.9189 5.57816 15.6368 3.56094 13.0187 3.56094H13.0203ZM11.9164 8.60319L9.33738 11.2656C9.15378 11.4555 8.8491 11.4555 8.66549 11.2656L6.08647 8.60319C5.79896 8.3063 6.00912 7.80942 6.42241 7.80942H7.73882C7.82945 7.80942 7.90289 7.73598 7.90289 7.64536V4.81173C7.90289 4.30468 8.31383 3.89376 8.82086 3.89376H9.1818C9.68885 3.89376 10.0998 4.3047 10.0998 4.81173V7.64536C10.0998 7.73598 10.1732 7.80942 10.2638 7.80942H11.5802C11.9935 7.80942 12.2037 8.3063 11.9162 8.60319H11.9164Z" />
 </svg>
               {{ block.settings.title | default: 'Download' }}
             </button>
@@ -404,7 +472,7 @@
                     {% for feature in features %}
                       {% if feature != blank %}
                         <li>
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                          <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 14 10" fill="none">
                             <path d="M13.7066 0.292969C14.0973 0.683594 14.0973 1.31797 13.7066 1.70859L5.70664 9.70859C5.31602 10.0992 4.68164 10.0992 4.29102 9.70859L0.291016 5.70859C-0.0996094 5.31797 -0.0996094 4.68359 0.291016 4.29297C0.681641 3.90234 1.31602 3.90234 1.70664 4.29297L5.00039 7.58359L12.2941 0.292969C12.6848 -0.0976562 13.3191 -0.0976562 13.7098 0.292969H13.7066Z" fill="#0A84FF"/>
                           </svg>
                           {{ feature }}
@@ -508,8 +576,8 @@
         {% if product.metafields.custom.section_video.value != blank %}
           <div class="tab-content" id="video-{{ block.id }}">
             <h2 class="section-title">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
-                <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" fill="#0A84FF"/>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="#0A84FF">
+                <path d="M4.8 0C2.14082 0 0 2.14082 0 4.8V13.2C0 15.8592 2.14082 18 4.8 18H19.2C21.8592 18 24 15.8592 24 13.2V4.8C24 2.14082 21.8592 0 19.2 0H4.8ZM9 4.8L15.6 9L9 13.2V4.8Z" />
               </svg>
               {{ block.settings.title | default: 'Video' }}
             </h2>
