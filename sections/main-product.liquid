@@ -1194,7 +1194,7 @@ text-align: center;
                         </div>
                       {%- else -%}
                         <div class="card__header">
-                          <h2 class="card__title heading h3"> {{'blocks.settings.desription_title'}}</h2>
+                          <h2 class="card__title heading h3"> {{ block.settings.desription_title }}</h2>
                         </div>
 
                         <div class="card__section {% if block.settings.display_mode == 'view_more' %}expandable-content{% endif %}" {% if block.settings.display_mode == 'view_more' %}aria-expanded="false"{% endif %}>
