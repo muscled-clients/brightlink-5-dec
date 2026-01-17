@@ -40,7 +40,7 @@
           "type": "description",
           "settings": {
             "display_mode": "view_more",
-            "title": "Product Information",
+            "title": "",
             "text": ""
           }
         },
