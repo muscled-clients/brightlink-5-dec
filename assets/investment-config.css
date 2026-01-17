@@ -1,0 +1,551 @@
+.investment-config {
+  position: relative;
+  background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
+  margin-bottom: 120px;
+  overflow-x: hidden;
+}
+
+.investment-config__container {
+  display: flex;
+  width: 1440px;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.investment-config__header {
+  display: flex;
+  padding: 52px 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 1440px;
+  max-width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(10, 132, 255, 0.20);
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
+}
+
+.investment-config__header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+}
+
+.investment-config__label {
+  height: 20px;
+  align-self: stretch;
+  color: #D4AF37;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.investment-config__title {
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.investment-config__subtitle {
+  width: 846px;
+  max-width: 100%;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+  margin: 0;
+}
+
+/* Content wrapper for side-by-side layout */
+.investment-config__content {
+  display: flex;
+  width: 1280px;
+  max-width: calc(100% - 40px);
+  align-items: stretch;
+  gap: 20px;
+}
+
+/* Left Card - Main Pricing */
+.investment-config__card {
+  display: flex;
+  width: 847px;
+  padding: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 1px solid rgba(229, 231, 235, 0.10);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
+  box-sizing: border-box;
+}
+
+/* Left Card Upper Section (product info + pricing) */
+.investment-config__card-upper {
+  display: flex;
+  padding-bottom: 40px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 1;
+  align-self: stretch;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Left Card Lower Section (includes + buttons) */
+.investment-config__card-lower {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex: 1;
+  align-self: stretch;
+}
+
+.investment-config__card-header {
+  text-align: center;
+  align-self: stretch;
+}
+
+.investment-config__card-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.investment-config__product-info {
+  text-align: center;
+}
+
+.investment-config__product-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.investment-config__product-specs {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+}
+
+.investment-config__pricing {
+  text-align: center;
+}
+
+.investment-config__price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.investment-config__original-price {
+  font-size: 18px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: line-through;
+}
+
+.investment-config__discount-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #000000;
+  background: #FFD700;
+  border-radius: 20px;
+}
+
+.investment-config__current-price {
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.investment-config__price-note {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.investment-config__includes {
+  width: 100%;
+}
+
+.investment-config__includes-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 18px;
+}
+
+.investment-config__includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 30px;
+}
+
+.investment-config__includes-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.investment-config__include-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.investment-config__check-icon {
+  flex-shrink: 0;
+  color: #3b82f6;
+}
+
+.investment-config__include-item span {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.investment-config__buttons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.investment-config__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.investment-config__btn--primary {
+  flex: 1;
+  color: #ffffff;
+  background: #3b82f6;
+  border: none;
+}
+
+.investment-config__btn--primary:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.investment-config__btn--secondary {
+  flex: 1;
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.investment-config__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Right Side - Add-on Cards Container */
+.investment-config__addons {
+  display: flex;
+  width: 413px;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Individual Add-on Card */
+.investment-config__addon-card {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex: 1;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
+  box-sizing: border-box;
+}
+
+.investment-config__addon-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.investment-config__addon-icon {
+  color: #0A84FF;
+}
+
+.investment-config__addon-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.investment-config__addon-desc {
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.investment-config__addon-price {
+  font-size: 32px;
+  font-weight: 700;
+  color: #0A84FF;
+  margin: 0;
+}
+
+.investment-config__addon-btn {
+  display: flex;
+  padding: 12px 0;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 1px solid rgba(10, 132, 255, 0.30);
+  background: rgba(10, 132, 255, 0.10);
+  color: #0A84FF;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.investment-config__addon-btn:hover {
+  background: rgba(10, 132, 255, 0.20);
+  border-color: rgba(10, 132, 255, 0.50);
+}
+
+@media (max-width: 1300px) {
+  .investment-config__content {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .investment-config__card {
+    width: 60%;
+  }
+
+  .investment-config__addons {
+    width: 38%;
+  }
+}
+
+@media (max-width: 900px) {
+  .investment-config__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .investment-config__card {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .investment-config__addons {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .investment-config {
+    margin-bottom: 50px;
+  }
+
+  .investment-config__container {
+    gap: 40px;
+  }
+
+  .investment-config__header {
+    padding: 40px 20px;
+  }
+
+  .investment-config__header-text {
+    gap: 16px;
+  }
+
+  .investment-config__label {
+    font-family: Inter, sans-serif;
+    color: #D4AF37;
+  }
+
+  .investment-config__title {
+    font-size: 32px;
+    letter-spacing: -1px;
+    font-family: Inter, sans-serif;
+    color: #FFF;
+  }
+
+  .investment-config__subtitle {
+    font-size: 16px;
+    line-height: 24px;
+    font-family: Inter, sans-serif;
+    color: #A0AEC0;
+  }
+
+  .investment-config__card {
+    padding: 25px 20px;
+    gap: 30px;
+  }
+
+  .investment-config__product-name {
+    font-size: 22px;
+  }
+
+  .investment-config__current-price {
+    font-size: 36px;
+  }
+
+  .investment-config__includes-grid {
+    gap: 10px 20px;
+  }
+
+  .investment-config__includes-col {
+    gap: 10px;
+  }
+
+  .investment-config__btn {
+    padding: 14px 20px;
+  }
+
+  .investment-config__addon-price {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .investment-config__header {
+    padding: 30px 15px;
+  }
+
+  .investment-config__label {
+    font-size: 12px;
+    font-family: Inter, sans-serif;
+    color: #D4AF37;
+  }
+
+  .investment-config__title {
+    font-size: 28px;
+    font-family: Inter, sans-serif;
+    color: #FFF;
+  }
+
+  .investment-config__subtitle {
+    font-size: 14px;
+    font-family: Inter, sans-serif;
+    color: #A0AEC0;
+  }
+
+  .investment-config__content {
+    max-width: calc(100% - 30px);
+  }
+
+  .investment-config__card {
+    padding: 20px 15px;
+  }
+
+  .investment-config__product-name {
+    font-size: 20px;
+  }
+
+  .investment-config__product-specs {
+    font-size: 12px;
+  }
+
+  .investment-config__current-price {
+    font-size: 32px;
+  }
+
+  .investment-config__original-price {
+    font-size: 16px;
+  }
+
+  .investment-config__includes-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .investment-config__include-item span {
+    font-size: 12px;
+  }
+
+  .investment-config__buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .investment-config__btn {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 12px;
+  }
+
+  .investment-config__addon-card {
+    padding: 14px;
+  }
+
+  .investment-config__addon-price {
+    font-size: 24px;
+  }
+}

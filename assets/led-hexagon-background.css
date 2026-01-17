@@ -1,0 +1,275 @@
+/* LED Template - Page-Level Hexagon Pattern Background */
+
+/* Container for the entire hexagon background - fixed to viewport */
+.led-hexagon-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Hexagon grid container */
+.led-hexagon-bg__grid {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+  height: 200vh;
+}
+
+/* Row container with adjusted spacing */
+.led-hexagon-bg__row {
+  display: flex;
+  margin-top: -38px;
+  gap: 4px;
+}
+
+.led-hexagon-bg__row:first-child {
+  margin-top: 0;
+}
+
+/* Offset every other row */
+.led-hexagon-bg__row:nth-child(even) {
+  margin-left: 77px;
+}
+
+/* Base hexagon - flat-top style */
+.led-hexagon-bg__hex {
+  width: 150px;
+  height: 173.2px;
+  clip-path: polygon(
+    0 25%,
+    50% 0%,
+    100% 25%,
+    100% 75%,
+    50% 100%,
+    0 75%
+  );
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.6s ease;
+  background: rgba(10, 14, 26, 0.4);
+  border: 1px solid rgba(30, 41, 59, 0.2);
+}
+
+/* Filled hexagons - slightly more visible */
+.led-hexagon-bg__hex--filled {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(30, 41, 59, 0.3);
+}
+
+/* Blue glowing hexagons */
+.led-hexagon-bg__hex--glow {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 132, 255, 0.1) 0%,
+    rgba(10, 132, 255, 0.05) 50%,
+    rgba(15, 23, 42, 0.4) 100%
+  );
+  border: 1px solid rgba(10, 132, 255, 0.4);
+  box-shadow:
+    0 0 20px rgba(10, 132, 255, 0.3),
+    0 0 40px rgba(10, 132, 255, 0.15),
+    inset 0 0 20px rgba(10, 132, 255, 0.1);
+  animation: ledHexPulseGlow 4s ease-in-out infinite;
+}
+
+/* Stronger blue glow for accent hexagons */
+.led-hexagon-bg__hex--glow-strong {
+  background: linear-gradient(
+    135deg,
+    rgba(10, 132, 255, 0.2) 0%,
+    rgba(10, 132, 255, 0.1) 50%,
+    rgba(15, 23, 42, 0.5) 100%
+  );
+  border: 1px solid rgba(10, 132, 255, 0.6);
+  box-shadow:
+    0 0 30px rgba(10, 132, 255, 0.5),
+    0 0 60px rgba(10, 132, 255, 0.25),
+    0 0 90px rgba(10, 132, 255, 0.1),
+    inset 0 0 30px rgba(10, 132, 255, 0.15);
+  animation: ledHexPulseGlowStrong 3s ease-in-out infinite;
+}
+
+/* Gold accent - rare special hexagons */
+.led-hexagon-bg__hex--glow-gold {
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.08) 0%,
+    rgba(212, 175, 55, 0.04) 50%,
+    rgba(15, 23, 42, 0.4) 100%
+  );
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.2),
+    0 0 40px rgba(212, 175, 55, 0.1),
+    inset 0 0 20px rgba(212, 175, 55, 0.08);
+  animation: ledHexPulseGoldGlow 5s ease-in-out infinite;
+}
+
+/* Glow animations */
+@keyframes ledHexPulseGlow {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow:
+      0 0 20px rgba(10, 132, 255, 0.3),
+      0 0 40px rgba(10, 132, 255, 0.15);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 30px rgba(10, 132, 255, 0.4),
+      0 0 60px rgba(10, 132, 255, 0.2);
+  }
+}
+
+@keyframes ledHexPulseGlowStrong {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow:
+      0 0 30px rgba(10, 132, 255, 0.5),
+      0 0 60px rgba(10, 132, 255, 0.25);
+  }
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 40px rgba(10, 132, 255, 0.6),
+      0 0 80px rgba(10, 132, 255, 0.3),
+      0 0 120px rgba(10, 132, 255, 0.15);
+  }
+}
+
+@keyframes ledHexPulseGoldGlow {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+/* Stagger animation delays */
+.led-hexagon-bg__hex--glow:nth-child(odd) {
+  animation-delay: 0s;
+}
+
+.led-hexagon-bg__hex--glow:nth-child(even) {
+  animation-delay: 2s;
+}
+
+.led-hexagon-bg__hex--glow-strong {
+  animation-delay: 1s;
+}
+
+/* Gradient overlay for depth */
+.led-hexagon-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(10, 132, 255, 0.03) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(10, 132, 255, 0.02) 0%,
+      transparent 60%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.3) 0%,
+      transparent 50%,
+      rgba(0, 5, 17, 0.4) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* LED template page base styling */
+.led-template-page {
+  background-color: #0A0E1A;
+}
+
+/* Ensure all LED template sections appear above the hexagon background */
+.led-template-page main {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+/* Hero section should completely cover the hexagon pattern */
+.hero-video-wall,
+.hero-video-wall-section {
+  position: relative;
+  z-index: 2;
+  background-color: #0A0E1A;
+}
+
+/* All other sections - transparent backgrounds to show hexagon pattern */
+.led-template-page .trusted-leaders,
+.led-template-page .product-showcase,
+.led-template-page .competitive-advantages,
+.led-template-page .technical-specs,
+.led-template-page .product-intelligence,
+.led-template-page .system-configuration,
+.led-template-page .experience-scale,
+.led-template-page .applications-tabs,
+.led-template-page .controller-tabs,
+.led-template-page .custom-config,
+.led-template-page .investment-config,
+.led-template-page .knowledge-center,
+.led-template-page .enhance-system,
+.led-template-page .contact-discussion {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .led-hexagon-bg__hex {
+    width: 80px;
+    height: 92.4px;
+  }
+
+  .led-hexagon-bg__row {
+    margin-top: -20px;
+    gap: 2px;
+  }
+
+  .led-hexagon-bg__row:nth-child(even) {
+    margin-left: 41px;
+  }
+}
+
+@media (max-width: 480px) {
+  .led-hexagon-bg__hex {
+    width: 60px;
+    height: 69.3px;
+  }
+
+  .led-hexagon-bg__row {
+    margin-top: -15px;
+    gap: 2px;
+  }
+
+  .led-hexagon-bg__row:nth-child(even) {
+    margin-left: 31px;
+  }
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .led-hexagon-bg__hex--glow,
+  .led-hexagon-bg__hex--glow-strong,
+  .led-hexagon-bg__hex--glow-gold {
+    animation: none;
+  }
+}

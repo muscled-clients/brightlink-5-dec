@@ -1,0 +1,515 @@
+{{ 'hero-video-wall.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign hero_data = led_data.hero %}
+
+{% comment %} Use metafield data with fallback to section settings {% endcomment %}
+{% assign series_label = hero_data.series_label | default: section.settings.series_label %}
+{% assign tagline = hero_data.tagline | default: section.settings.subheading %}
+{% assign description = hero_data.description | default: section.settings.description %}
+
+<section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
+  <!-- Background Video -->
+  <div class="hero-video-wall__video-container">
+    {% if section.settings.video_url != blank %}
+      <video class="hero-video-wall__video" autoplay muted loop playsinline>
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.video_file != blank %}
+      {{ section.settings.video_file | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video' }}
+    {% else %}
+      <!-- Fallback background image -->
+      <div class="hero-video-wall__fallback-bg" style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"></div>
+    {% endif %}
+    <!-- Dark Overlay -->
+    <div class="hero-video-wall__overlay" style="background-color: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-video-wall__content">
+    <!-- Top Frame: Text Content -->
+    <div class="hero-video-wall__text-frame">
+      <!-- Series Label -->
+      {% if series_label != blank %}
+        <p class="hero-video-wall__series-label">{{ series_label }}</p>
+      {% endif %}
+
+      <!-- Main Heading (use product title) -->
+      {% if section.settings.main_heading != blank %}
+        <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+      {% elsif product.title != blank %}
+        <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
+      {% endif %}
+
+      <!-- Subheading/Tagline -->
+      {% if tagline != blank %}
+        <p class="hero-video-wall__subheading">{{ tagline }}</p>
+      {% endif %}
+
+      <!-- Description -->
+      {% if description != blank %}
+        <p class="hero-video-wall__description">{{ description }}</p>
+      {% endif %}
+
+      <!-- Price & CTA Section -->
+    <div class="hero-video-wall__cta-wrapper">
+      <!-- Price Badge -->
+      {% if section.settings.price_text != blank %}
+        <div class="hero-video-wall__price-badge">
+          {{ section.settings.price_text }}
+        </div>
+      {% endif %}
+
+      <!-- CTA Buttons -->
+      <div class="hero-video-wall__buttons">
+        {% if section.settings.button_1_text != blank %}
+          <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+            {{ section.settings.button_1_text }}
+          </a>
+        {% endif %}
+        {% if section.settings.button_2_text != blank %}
+          <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
+            {{ section.settings.button_2_text }}
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Shipping Info -->
+      {% if section.settings.shipping_text != blank %}
+        <div class="hero-video-wall__shipping">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+          </svg>
+          {{ section.settings.shipping_text }}
+        </div>
+      {% endif %}
+    </div>
+    </div>
+
+    <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
+    <div class="hero-video-wall__features">
+      {% if hero_data.metrics.size > 0 %}
+        {% for metric in hero_data.metrics %}
+          <div class="hero-video-wall__feature-box">
+            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for block in section.blocks %}
+          {% if block.type == 'feature' %}
+            <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+              <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+              <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Mobile Feature Boxes -->
+  <div class="hero-video-wall__features_mob">
+    {% if hero_data.metrics.size > 0 %}
+      {% for metric in hero_data.metrics %}
+        <div class="hero-video-wall__feature-box">
+          <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
+          <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
+        </div>
+      {% endfor %}
+    {% else %}
+      {% for block in section.blocks %}
+        {% if block.type == 'feature' %}
+          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
+            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
+            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Video Wall",
+  "tag": "section",
+  "class": "hero-video-wall-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (MP4)",
+      "info": "Enter a direct link to an MP4 video file"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Or Upload Video",
+      "info": "Upload a video from Shopify's file storage"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback Background Image",
+      "info": "Displayed if no video is provided"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "%",
+      "label": "Overlay Opacity"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "series_label",
+      "label": "Series Label",
+      "default": "PRO SPECTRUM SERIES"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "217\" COB LED Video Wall"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The Pinnacle of Visual Excellence"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology."
+    },
+    {
+      "type": "header",
+      "content": "Price & Shipping"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Badge Text",
+      "default": "$19,250.00 (30% Deposit)"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Info Text"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Order Now"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Book A Call"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Series Label"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Series Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Main Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 32,
+      "max": 100,
+      "step": 2,
+      "default": 64,
+      "unit": "px",
+      "label": "Heading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Subheading"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 16,
+      "max": 50,
+      "step": 2,
+      "default": 36,
+      "unit": "px",
+      "label": "Subheading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Subheading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "subheading_italic",
+      "label": "Subheading Italic",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography - Description"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Description Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Feature Boxes"
+    },
+    {
+      "type": "range",
+      "id": "feature_value_font_size",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Feature Value Font Size"
+    },
+    {
+      "type": "range",
+      "id": "feature_label_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Feature Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Buttons"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px",
+      "label": "Button Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "label_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Series Label Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "button_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Buttons Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "feature_box_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Feature Boxes Background Opacity"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#2196F3"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Color",
+      "default": "#1976D2"
+    },
+    {
+      "type": "color",
+      "id": "series_label_color",
+      "label": "Series Label Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class",
+      "info": "Add custom class for additional styling"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Box",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature_value",
+          "label": "Feature Value",
+          "default": "217\""
+        },
+        {
+          "type": "text",
+          "id": "feature_label",
+          "label": "Feature Label",
+          "default": "Diagonal Display"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video Wall",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "217\"",
+            "feature_label": "Diagonal Display"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "8.3M",
+            "feature_label": "Total Pixels"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "1.25mm",
+            "feature_label": "Pixel Pitch"
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "feature_value": "2hrs",
+            "feature_label": "Installation Time"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #hero-video-wall-{{ section.id }} {
+    --hero-btn-bg: {{ section.settings.button_bg_color }};
+    --hero-btn-hover: {{ section.settings.button_hover_color }};
+    --hero-series-color: {{ section.settings.series_label_color }};
+    --hero-label-bg-opacity: {{ section.settings.label_bg_opacity | divided_by: 100.0 }};
+    --hero-feature-bg-opacity: {{ section.settings.feature_box_bg_opacity | divided_by: 100.0 }};
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__series-label {
+    color: var(--hero-series-color);
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn--primary {
+    background-color: var(--hero-btn-bg);
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn--primary:hover {
+    background-color: var(--hero-btn-hover);
+  }
+</style>
+

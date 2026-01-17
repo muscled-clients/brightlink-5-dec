@@ -440,8 +440,9 @@ section[data-section-id="template--15505473208504__blog-posts"] .article-item .a
   .value-picker[data-picker-position=top] {
       top: auto;
       bottom: calc(100% + 10px);
-      left: 0px; 
+      left: 0px;
       min-width: fit-content;
       padding: 10px;
   }
 }
+

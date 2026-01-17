@@ -1,0 +1,462 @@
+{{ 'custom-config-builder.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign config_builder_data = led_data.config_builder %}
+
+<section class="custom-config" id="custom-config">
+  <div class="custom-config__container">
+    <!-- Header - Use metafield data if available, otherwise use section settings -->
+    {% assign builder_title = config_builder_data.title | default: section.settings.title | default: 'Custom Configuration Builder' %}
+    {% assign builder_description = config_builder_data.description | default: section.settings.subtitle | default: 'Configure your perfect LED display setup' %}
+
+    <div class="custom-config__content">
+      <div class="custom-config__header">
+        <div class="custom-config__header-text">
+          <h2 class="custom-config__title">{{ builder_title }}</h2>
+          <p class="custom-config__subtitle">{{ builder_description }}</p>
+        </div>
+      </div>
+
+      <div class="custom-config__card">
+      <!-- Viewing Distance Input -->
+      <div class="custom-config__section">
+        <h3 class="custom-config__section-title">Viewing Distance</h3>
+        <div class="custom-config__input-row">
+          <div class="custom-config__input-group custom-config__input-group--wide">
+            <label class="custom-config__input-label">DISTANCE</label>
+            <input type="number" class="custom-config__input" id="viewing-distance" value="10" min="1" max="200" step="0.1">
+          </div>
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">UNIT</label>
+            <select class="custom-config__select" id="distance-unit">
+              <option value="feet" selected>Feet</option>
+              <option value="meters">Meters</option>
+              <option value="inches">Inches</option>
+            </select>
+          </div>
+        </div>
+        <div class="custom-config__result-inline">
+          <span class="custom-config__result-label">Recommended Pixel Pitch:</span>
+          <span class="custom-config__result-value custom-config__result-value--highlight" id="pixel-pitch">2.5mm</span>
+        </div>
+      </div>
+
+      <!-- Aspect Ratio Input -->
+      <div class="custom-config__section">
+        <h3 class="custom-config__section-title">Aspect Ratio</h3>
+        <div class="custom-config__input-row">
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">WIDTH RATIO</label>
+            <input type="number" class="custom-config__input" id="aspect-width" value="16" min="1" max="100">
+          </div>
+          <span class="custom-config__ratio-separator">:</span>
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">HEIGHT RATIO</label>
+            <input type="number" class="custom-config__input" id="aspect-height" value="9" min="1" max="100">
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen Size Input -->
+      <div class="custom-config__section">
+        <h3 class="custom-config__section-title">Screen Size</h3>
+        <div class="custom-config__input-row">
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">DIMENSION</label>
+            <select class="custom-config__select" id="known-dimension">
+              <option value="diagonal" selected>Diagonal</option>
+              <option value="width">Width</option>
+              <option value="height">Height</option>
+            </select>
+          </div>
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">VALUE</label>
+            <input type="number" class="custom-config__input" id="dimension-value" value="120" min="1" max="1000" step="0.1">
+          </div>
+          <div class="custom-config__input-group">
+            <label class="custom-config__input-label">UNIT</label>
+            <select class="custom-config__select" id="size-unit">
+              <option value="inches" selected>Inches</option>
+              <option value="feet">Feet</option>
+              <option value="cm">CM</option>
+              <option value="meters">Meters</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="custom-config__results">
+        <h3 class="custom-config__section-title">Calculated Dimensions</h3>
+        <div class="custom-config__result-grid">
+          <div class="custom-config__result-card">
+            <span class="custom-config__result-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 3H3v18h18V3z"></path>
+                <path d="M3 3l18 18"></path>
+              </svg>
+            </span>
+            <span class="custom-config__result-label">Diagonal</span>
+            <span class="custom-config__result-value" id="result-diagonal">120"</span>
+          </div>
+          <div class="custom-config__result-card">
+            <span class="custom-config__result-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 12h16"></path>
+                <path d="M4 12l3-3m-3 3l3 3"></path>
+                <path d="M20 12l-3-3m3 3l-3 3"></path>
+              </svg>
+            </span>
+            <span class="custom-config__result-label">Width</span>
+            <span class="custom-config__result-value" id="result-width">104.6"</span>
+          </div>
+          <div class="custom-config__result-card">
+            <span class="custom-config__result-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 4v16"></path>
+                <path d="M12 4l-3 3m3-3l3 3"></path>
+                <path d="M12 20l-3-3m3 3l3-3"></path>
+              </svg>
+            </span>
+            <span class="custom-config__result-label">Height</span>
+            <span class="custom-config__result-value" id="result-height">58.8"</span>
+          </div>
+        </div>
+
+        <div class="custom-config__unit-toggle">
+          <span class="custom-config__toggle-label">Show results in:</span>
+          <div class="custom-config__toggle-buttons">
+            <button class="custom-config__toggle-btn custom-config__toggle-btn--active" data-unit="inches">Inches</button>
+            <button class="custom-config__toggle-btn" data-unit="feet">Feet</button>
+            <button class="custom-config__toggle-btn" data-unit="cm">CM</button>
+            <button class="custom-config__toggle-btn" data-unit="meters">Meters</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-config__buttons">
+        <a href="{{ section.settings.quote_button_link | default: '#' }}" class="custom-config__btn custom-config__btn--primary">
+          {{ section.settings.quote_button_text | default: 'GET CUSTOM QUOTE' }}
+        </a>
+        <a href="{{ section.settings.specs_button_link | default: '#' }}" class="custom-config__btn custom-config__btn--secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          {{ section.settings.specs_button_text | default: 'GET LED SPECIFICATIONS' }}
+        </a>
+      </div>
+    </div>
+
+    </div>
+
+    <div class="custom-config__payment">
+      <div class="custom-config__payment-header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="14" x="2" y="5" rx="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        <span>{{ section.settings.payment_title | default: 'Flexible Payment Options Available' }}</span>
+      </div>
+      <p class="custom-config__payment-info">{{ section.settings.payment_info | default: 'NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted' }}</p>
+      <a href="{{ section.settings.payment_link | default: '#' }}" class="custom-config__payment-link">{{ section.settings.payment_link_text | default: 'DISCUSS PAYMENT OPTIONS' }}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Excel data for optimal viewing distances
+  const EXCEL_OPTIMAL_DATA = {
+    0.7: { meters: 1.8, feet: 5.7 },
+    0.9: { meters: 2.3, feet: 7.4 },
+    1.25: { meters: 3.1, feet: 10.3 },
+    1.56: { meters: 3.9, feet: 12.8 },
+    1.875: { meters: 4.7, feet: 15.4 },
+    2: { meters: 5.0, feet: 16.4 },
+    2.5: { meters: 6.3, feet: 20.5 },
+    3: { meters: 7.5, feet: 24.6 },
+    3.91: { meters: 9.8, feet: 32.1 },
+    5: { meters: 12.5, feet: 41.0 },
+    8: { meters: 20.0, feet: 65.6 },
+    10: { meters: 25.0, feet: 82.0 },
+    20: { meters: 50.0, feet: 164.0 }
+  };
+
+  const PIXEL_PITCHES = [0.7, 0.9, 1.25, 1.56, 1.875, 2, 2.5, 3, 3.91, 5, 8, 10, 20];
+
+  // Unit conversion factors to inches
+  const TO_INCHES = {
+    inches: 1,
+    feet: 12,
+    cm: 0.393701,
+    meters: 39.3701
+  };
+
+  // DOM Elements
+  const viewingDistanceInput = document.getElementById('viewing-distance');
+  const distanceUnitSelect = document.getElementById('distance-unit');
+  const pixelPitchResult = document.getElementById('pixel-pitch');
+
+  const aspectWidthInput = document.getElementById('aspect-width');
+  const aspectHeightInput = document.getElementById('aspect-height');
+
+  const knownDimensionSelect = document.getElementById('known-dimension');
+  const dimensionValueInput = document.getElementById('dimension-value');
+  const sizeUnitSelect = document.getElementById('size-unit');
+
+  const resultDiagonal = document.getElementById('result-diagonal');
+  const resultWidth = document.getElementById('result-width');
+  const resultHeight = document.getElementById('result-height');
+
+  const toggleButtons = document.querySelectorAll('.custom-config__toggle-btn');
+
+  let currentOutputUnit = 'inches';
+  let calculatedDimensions = { diagonal: 120, width: 104.6, height: 58.8 };
+
+  // Calculate pixel pitch based on viewing distance
+  function calculatePixelPitch(distanceValue, unit) {
+    let distanceMeters, distanceFeet;
+
+    if (unit === 'feet') {
+      distanceMeters = distanceValue * 0.3048;
+      distanceFeet = distanceValue;
+    } else if (unit === 'meters') {
+      distanceMeters = distanceValue;
+      distanceFeet = distanceValue * 3.28084;
+    } else if (unit === 'inches') {
+      distanceMeters = distanceValue * 0.0254;
+      distanceFeet = distanceValue / 12;
+    }
+
+    const tolerance = 0.05;
+
+    // Check if matches any Excel value
+    for (const [pitch, data] of Object.entries(EXCEL_OPTIMAL_DATA)) {
+      if (Math.abs(data.meters - distanceMeters) < tolerance) {
+        return parseFloat(pitch);
+      }
+      if (Math.abs(data.feet - distanceFeet) < tolerance) {
+        return parseFloat(pitch);
+      }
+    }
+
+    // Use formula if no exact match: Optimal = Pixel Pitch × 2.5
+    const calculatedPitch = distanceMeters / 2.5;
+
+    // Find closest available pitch
+    let closestPitch = PIXEL_PITCHES[0];
+    let minDiff = Math.abs(PIXEL_PITCHES[0] - calculatedPitch);
+
+    for (const pitch of PIXEL_PITCHES) {
+      const diff = Math.abs(pitch - calculatedPitch);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestPitch = pitch;
+      }
+    }
+
+    return closestPitch;
+  }
+
+  // Calculate screen dimensions from aspect ratio and one known dimension
+  function calculateScreenDimensions(aspectWidth, aspectHeight, knownValue, knownDimension) {
+    const aspectDiagonal = Math.sqrt(aspectWidth ** 2 + aspectHeight ** 2);
+    let diagonal, width, height;
+
+    if (knownDimension === 'diagonal') {
+      diagonal = knownValue;
+      const factor = diagonal / aspectDiagonal;
+      width = aspectWidth * factor;
+      height = aspectHeight * factor;
+    } else if (knownDimension === 'width') {
+      width = knownValue;
+      const factor = width / aspectWidth;
+      diagonal = aspectDiagonal * factor;
+      height = aspectHeight * factor;
+    } else if (knownDimension === 'height') {
+      height = knownValue;
+      const factor = height / aspectHeight;
+      diagonal = aspectDiagonal * factor;
+      width = aspectWidth * factor;
+    }
+
+    return {
+      diagonal: diagonal,
+      width: width,
+      height: height
+    };
+  }
+
+  // Convert units
+  function convertUnits(value, fromUnit, toUnit) {
+    const valueInInches = value * TO_INCHES[fromUnit];
+    return valueInInches / TO_INCHES[toUnit];
+  }
+
+  // Format value with unit suffix
+  function formatValue(value, unit) {
+    const rounded = Math.round(value * 10) / 10;
+    const suffixes = {
+      inches: '"',
+      feet: "'",
+      cm: ' cm',
+      meters: ' m'
+    };
+    return rounded + suffixes[unit];
+  }
+
+  // Update pixel pitch display
+  function updatePixelPitch() {
+    const distance = parseFloat(viewingDistanceInput.value) || 10;
+    const unit = distanceUnitSelect.value;
+    const pitch = calculatePixelPitch(distance, unit);
+    pixelPitchResult.textContent = pitch + 'mm';
+  }
+
+  // Update screen dimensions
+  function updateScreenDimensions() {
+    const aspectWidth = parseFloat(aspectWidthInput.value) || 16;
+    const aspectHeight = parseFloat(aspectHeightInput.value) || 9;
+    const knownDimension = knownDimensionSelect.value;
+    const knownValue = parseFloat(dimensionValueInput.value) || 120;
+    const inputUnit = sizeUnitSelect.value;
+
+    // Convert input value to inches for calculation
+    const knownValueInches = convertUnits(knownValue, inputUnit, 'inches');
+
+    // Calculate dimensions in inches
+    calculatedDimensions = calculateScreenDimensions(aspectWidth, aspectHeight, knownValueInches, knownDimension);
+
+    // Display in current output unit
+    updateResultsDisplay();
+  }
+
+  // Update results display based on selected output unit
+  function updateResultsDisplay() {
+    resultDiagonal.textContent = formatValue(convertUnits(calculatedDimensions.diagonal, 'inches', currentOutputUnit), currentOutputUnit);
+    resultWidth.textContent = formatValue(convertUnits(calculatedDimensions.width, 'inches', currentOutputUnit), currentOutputUnit);
+    resultHeight.textContent = formatValue(convertUnits(calculatedDimensions.height, 'inches', currentOutputUnit), currentOutputUnit);
+  }
+
+  // Event listeners
+  if (viewingDistanceInput && distanceUnitSelect) {
+    viewingDistanceInput.addEventListener('input', updatePixelPitch);
+    distanceUnitSelect.addEventListener('change', updatePixelPitch);
+  }
+
+  if (aspectWidthInput && aspectHeightInput && knownDimensionSelect && dimensionValueInput && sizeUnitSelect) {
+    aspectWidthInput.addEventListener('input', updateScreenDimensions);
+    aspectHeightInput.addEventListener('input', updateScreenDimensions);
+    knownDimensionSelect.addEventListener('change', updateScreenDimensions);
+    dimensionValueInput.addEventListener('input', updateScreenDimensions);
+    sizeUnitSelect.addEventListener('change', updateScreenDimensions);
+  }
+
+  // Toggle buttons for output unit
+  toggleButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      toggleButtons.forEach(b => b.classList.remove('custom-config__toggle-btn--active'));
+      this.classList.add('custom-config__toggle-btn--active');
+      currentOutputUnit = this.dataset.unit;
+      updateResultsDisplay();
+    });
+  });
+
+  // Initial calculations
+  updatePixelPitch();
+  updateScreenDimensions();
+});
+</script>
+
+{% schema %}
+{
+  "name": "Custom Config Builder",
+  "tag": "section",
+  "class": "custom-config-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "CONFIGURATION TOOL"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Custom Configuration Builder"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Configure your perfect LED display setup"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "quote_button_text",
+      "label": "Quote Button Text",
+      "default": "GET CUSTOM QUOTE"
+    },
+    {
+      "type": "url",
+      "id": "quote_button_link",
+      "label": "Quote Button Link"
+    },
+    {
+      "type": "text",
+      "id": "specs_button_text",
+      "label": "Specs Button Text",
+      "default": "GET LED SPECIFICATIONS"
+    },
+    {
+      "type": "url",
+      "id": "specs_button_link",
+      "label": "Specs Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Payment Section"
+    },
+    {
+      "type": "text",
+      "id": "payment_title",
+      "label": "Payment Title",
+      "default": "Flexible Payment Options Available"
+    },
+    {
+      "type": "text",
+      "id": "payment_info",
+      "label": "Payment Info",
+      "default": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted"
+    },
+    {
+      "type": "text",
+      "id": "payment_link_text",
+      "label": "Payment Link Text",
+      "default": "DISCUSS PAYMENT OPTIONS"
+    },
+    {
+      "type": "url",
+      "id": "payment_link",
+      "label": "Payment Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Config Builder"
+    }
+  ]
+}
+{% endschema %}

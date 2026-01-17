@@ -1,0 +1,231 @@
+{{ 'enhance-system.css' | asset_url | stylesheet_tag }}
+
+
+<section class="enhance-system" id="enhance-system">
+  <div class="enhance-system__container">
+    <div class="enhance-system__header">
+      <h2 class="enhance-system__title">{{ section.settings.title | default: 'Enhance Your System' }}</h2>
+    </div>
+
+    <div class="enhance-system__cards-wrapper">
+      <div class="enhance-system__cards" data-slider="enhance-cards">
+        <div class="enhance-system__card">
+          <div class="enhance-system__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <h3 class="enhance-system__card-title">{{ section.settings.card1_title | default: 'BL-VT PRO VACUUM TOOL' }}</h3>
+          <p class="enhance-system__card-desc">{{ section.settings.card1_desc | default: 'Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams.' }}</p>
+          <div class="enhance-system__card-price">{{ section.settings.card1_price | default: '$249' }}</div>
+          <a href="{{ section.settings.card1_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card1_button | default: 'ADD TO ORDER' }}
+          </a>
+        </div>
+
+        <div class="enhance-system__card">
+          <div class="enhance-system__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="enhance-system__card-title">{{ section.settings.card2_title | default: 'EXTENDED WARRANTY' }}</h3>
+          <p class="enhance-system__card-desc">{{ section.settings.card2_desc | default: 'Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.' }}</p>
+          <div class="enhance-system__card-price">{{ section.settings.card2_price | default: '+$4,500' }}</div>
+          <a href="{{ section.settings.card2_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card2_button | default: 'ADD PROTECTION' }}
+          </a>
+        </div>
+
+        <div class="enhance-system__card">
+          <div class="enhance-system__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path>
+              <path d="M12 22V12"></path>
+            </svg>
+          </div>
+          <h3 class="enhance-system__card-title">{{ section.settings.card3_title | default: 'SPARE MODULE KIT' }}</h3>
+          <p class="enhance-system__card-desc">{{ section.settings.card3_desc | default: 'Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.' }}</p>
+          <div class="enhance-system__card-price">{{ section.settings.card3_price | default: '+$8,900' }}</div>
+          <a href="{{ section.settings.card3_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card3_button | default: 'ADD SPARES' }}
+          </a>
+        </div>
+      </div>
+      <div class="enhance-system__dots" data-dots="enhance-cards">
+        <button class="enhance-system__dot enhance-system__dot--active" data-index="0" aria-label="Slide 1"></button>
+        <button class="enhance-system__dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="enhance-system__dot" data-index="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.enhance-system');
+  if (!section) return;
+
+  const slider = section.querySelector('[data-slider="enhance-cards"]');
+  const dotsContainer = section.querySelector('[data-dots="enhance-cards"]');
+  if (!slider || !dotsContainer) return;
+
+  const dots = dotsContainer.querySelectorAll('.enhance-system__dot');
+
+  // Update dots on scroll
+  slider.addEventListener('scroll', function() {
+    const scrollLeft = slider.scrollLeft;
+    const itemWidth = slider.offsetWidth;
+    const activeIndex = Math.round(scrollLeft / itemWidth);
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('enhance-system__dot--active', index === activeIndex);
+    });
+  });
+
+  // Click on dots to navigate
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      const itemWidth = slider.offsetWidth;
+      slider.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Enhance System",
+  "tag": "section",
+  "class": "enhance-system-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "OPTIONAL ADD-ONS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Enhance Your System"
+    },
+    {
+      "type": "header",
+      "content": "Card 1 - Vacuum Tool"
+    },
+    {
+      "type": "text",
+      "id": "card1_title",
+      "label": "Card 1 Title",
+      "default": "BL-VT PRO VACUUM TOOL"
+    },
+    {
+      "type": "textarea",
+      "id": "card1_desc",
+      "label": "Card 1 Description",
+      "default": "Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams."
+    },
+    {
+      "type": "text",
+      "id": "card1_price",
+      "label": "Card 1 Price",
+      "default": "$249"
+    },
+    {
+      "type": "text",
+      "id": "card1_button",
+      "label": "Card 1 Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "url",
+      "id": "card1_link",
+      "label": "Card 1 Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Card 2 - Extended Warranty"
+    },
+    {
+      "type": "text",
+      "id": "card2_title",
+      "label": "Card 2 Title",
+      "default": "EXTENDED WARRANTY"
+    },
+    {
+      "type": "textarea",
+      "id": "card2_desc",
+      "label": "Card 2 Description",
+      "default": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support."
+    },
+    {
+      "type": "text",
+      "id": "card2_price",
+      "label": "Card 2 Price",
+      "default": "+$4,500"
+    },
+    {
+      "type": "text",
+      "id": "card2_button",
+      "label": "Card 2 Button Text",
+      "default": "ADD PROTECTION"
+    },
+    {
+      "type": "url",
+      "id": "card2_link",
+      "label": "Card 2 Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Card 3 - Spare Module Kit"
+    },
+    {
+      "type": "text",
+      "id": "card3_title",
+      "label": "Card 3 Title",
+      "default": "SPARE MODULE KIT"
+    },
+    {
+      "type": "textarea",
+      "id": "card3_desc",
+      "label": "Card 3 Description",
+      "default": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations."
+    },
+    {
+      "type": "text",
+      "id": "card3_price",
+      "label": "Card 3 Price",
+      "default": "+$8,900"
+    },
+    {
+      "type": "text",
+      "id": "card3_button",
+      "label": "Card 3 Button Text",
+      "default": "ADD SPARES"
+    },
+    {
+      "type": "url",
+      "id": "card3_link",
+      "label": "Card 3 Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Enhance System"
+    }
+  ]
+}
+{% endschema %}
