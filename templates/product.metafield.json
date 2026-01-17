@@ -44,6 +44,13 @@
             "text": ""
           }
         },
+        "product_description_block_YkaktE": {
+          "type": "product_description_block",
+          "settings": {
+            "title": "Product Information",
+            "short_description_lines": 3
+          }
+        },
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
           "type": "accordian",
           "disabled": true,
@@ -236,6 +243,7 @@
         "product_meta",
         "variant_selector",
         "description",
+        "product_description_block_YkaktE",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
@@ -442,6 +450,16 @@
         "show_quick_buy": false
       }
     },
+    "custom_slider_pcr_metafield_AHJeFW": {
+      "type": "custom-slider-pcr-metafield",
+      "name": "Custom Slider Metafield",
+      "settings": {
+        "section_label": "VERSATILE APPLICATIONS",
+        "section_heading": "Built for Every Environment",
+        "section_subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings",
+        "wrapper-container-width": 100
+      }
+    },
     "c175c6e0-d557-480c-8ba5-1443a9670d19": {
       "type": "accordion-tab2",
       "blocks": {
@@ -511,16 +529,6 @@
         "description": "<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!</p>",
         "txt_center": true,
         "video_url": ""
-      }
-    },
-    "custom_slider_pcr_metafield_AHJeFW": {
-      "type": "custom-slider-pcr-metafield",
-      "name": "Custom Slider Metafield",
-      "settings": {
-        "section_label": "VERSATILE APPLICATIONS",
-        "section_heading": "Built for Every Environment",
-        "section_subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings",
-        "wrapper-container-width": 100
       }
     },
     "f8572bb3-e256-48d7-98a9-b3de46803d68": {
