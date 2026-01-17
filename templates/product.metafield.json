@@ -46,6 +46,7 @@
         },
         "divider_line_UTcWqd": {
           "type": "divider_line",
+          "disabled": true,
           "settings": {
             "line_color": "#3caaff",
             "line_width": 80,
