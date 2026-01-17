@@ -1238,6 +1238,9 @@ text-align: center;
                     </div>
                   </div>
 				   
+                  
+          {%- when 'buy_buttons' -%}
+            {%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
 
               {%- when 'content' -%}
