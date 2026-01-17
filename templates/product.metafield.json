@@ -12,6 +12,14 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "divider_block_gTPhB6": {
+          "type": "Divider_Block",
+          "settings": {
+            "line_color": "#3caaff",
+            "line_width": 80,
+            "line_thickness": 2
+          }
+        },
         "product_meta": {
           "type": "product_meta",
           "settings": {
@@ -234,6 +242,7 @@
         }
       },
       "block_order": [
+        "divider_block_gTPhB6",
         "product_meta",
         "variant_selector",
         "description",
