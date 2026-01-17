@@ -98,7 +98,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
 
     {%- comment -%}LED Template Hexagon Background{%- endcomment -%}
-    {%- if template.suffix == 'led-template' -%}
+    {%- if template.suffix == 'led-template' or template.suffix == 'cob-led-217-in' -%}
       <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
     {%- endif -%}
 
@@ -261,7 +261,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% section 'header' %}
 
     <main id="main" role="main">
-      {%- if template.suffix == 'led-template' -%}
+      {%- if template.suffix == 'led-template' or template.suffix == 'cob-led-217-in' -%}
         {% render 'led-hexagon-background' %}
       {%- endif -%}
       {{ content_for_layout }}
