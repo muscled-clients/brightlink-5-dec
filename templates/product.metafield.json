@@ -38,6 +38,7 @@
         },
         "description": {
           "type": "description",
+          "disabled": true,
           "settings": {
             "display_mode": "view_more",
             "title": "Product Information",
