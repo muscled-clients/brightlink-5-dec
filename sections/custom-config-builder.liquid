@@ -10,18 +10,15 @@
     {% assign builder_title = config_builder_data.title | default: section.settings.title | default: 'Custom Configuration Builder' %}
     {% assign builder_description = config_builder_data.description | default: section.settings.subtitle | default: 'Configure your perfect LED display setup' %}
 
-    <div class="custom-config__header">
-      <div class="custom-config__header-text">
-        {% if section.settings.label != blank %}
-          <span class="custom-config__label">{{ section.settings.label }}</span>
-        {% endif %}
-        <h2 class="custom-config__title">{{ builder_title }}</h2>
-      </div>
-      <p class="custom-config__subtitle">{{ builder_description }}</p>
-    </div>
     <div class="custom-config__content">
+      <div class="custom-config__header">
+        <div class="custom-config__header-text">
+          <h2 class="custom-config__title">{{ builder_title }}</h2>
+          <p class="custom-config__subtitle">{{ builder_description }}</p>
+        </div>
+      </div>
 
-    <div class="custom-config__card">
+      <div class="custom-config__card">
       <!-- Viewing Distance Input -->
       <div class="custom-config__section">
         <h3 class="custom-config__section-title">Viewing Distance</h3>
