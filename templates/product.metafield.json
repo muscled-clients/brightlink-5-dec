@@ -156,12 +156,12 @@
             "show_purchase_btn": true
           }
         },
-        "divider_block_nWy7p8": {
-          "type": "divider_Block",
+        "divider_block_8KXPGq": {
+          "type": "divider_block",
           "settings": {
             "line_color": "#3caaff",
-            "line_width": 80,
-            "line_thickness": 2
+            "line_width": 100,
+            "line_thickness": 5
           }
         },
         "59761649-86b3-44c5-800a-493acb77417c": {
@@ -253,7 +253,7 @@
         "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737",
         "fd62c6b7-26f4-4374-b874-a66dd71682ce",
         "buy_buttons",
-        "divider_block_nWy7p8",
+        "divider_block_8KXPGq",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
         "2c653889-de9a-4870-89e9-ec8bdfc610d7",
