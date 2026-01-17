@@ -692,6 +692,10 @@ document.addEventListener('DOMContentLoaded', function() {
       const videoContainer = document.getElementById(containerId);
 
       if (videoContainer && videoId) {
+        // Save scroll position before replacing content
+        const scrollX = window.scrollX;
+        const scrollY = window.scrollY;
+
         videoContainer.innerHTML = `
           <iframe
             width="100%"
@@ -703,6 +707,17 @@ document.addEventListener('DOMContentLoaded', function() {
             style="border-radius: 16px;"
           ></iframe>
         `;
+
+        // Restore scroll position after iframe is inserted
+        window.scrollTo(scrollX, scrollY);
+
+        // Also prevent scroll when iframe loads
+        const iframe = videoContainer.querySelector('iframe');
+        if (iframe) {
+          iframe.addEventListener('load', function() {
+            window.scrollTo(scrollX, scrollY);
+          });
+        }
       }
     });
   });
