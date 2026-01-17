@@ -283,9 +283,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -345,6 +345,7 @@
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/image_8.png",
             "slide_title": "Real-Time Financial Data at Scale",
             "slide_description": "Mission-critical market visualization with zero latency"
           }
@@ -352,6 +353,7 @@
         "slide_YTbLzi": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
             "slide_title": "Immersive Entertainment",
             "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
@@ -359,6 +361,7 @@
         "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
             "slide_title": "Corporate Communications",
             "slide_description": "Professional displays for boardrooms and lobbies"
           }
@@ -380,7 +383,7 @@
         "heading_font_size": 40,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "dot_color": "#4a5d75",
@@ -452,7 +455,7 @@
         "subheading_font_size": 16,
         "card_title_font_size": 28,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "footer_label_color": "#3498db",
@@ -562,7 +565,7 @@
         "subheading_font_size": 16,
         "card_title_font_size": 24,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
@@ -646,7 +649,7 @@
         "heading_font_size": 42,
         "subheading_font_size": 16,
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "heading_color": "#ffffff",
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
@@ -690,7 +693,7 @@
         "secondary_btn_text": "Book A Call",
         "secondary_btn_link": "",
         "bg_color": "#0a0f14",
-        "label_color": "#FFD700",
+        "label_color": "#ffd700",
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
