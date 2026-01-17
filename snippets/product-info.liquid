@@ -54,7 +54,10 @@
                     </div>
                   </div>
                 {%- endif -%}
-                  testing.......
+                  {% comment %} Add description block start {% endcomment %}
+                    {% when 'product_description_block' %}
+
+                  {% comment %} add description block end {% endcomment %}
          
          
               {%- when 'buy_buttons' -%}
