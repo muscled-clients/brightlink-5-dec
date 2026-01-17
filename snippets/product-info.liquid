@@ -16,7 +16,7 @@
           {%- when 'variant_selector' -%}
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
-              {%- when 'description' -%}
+              {% comment %} {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product-block-list__item product-block-list__item--description" {{ block.shopify_attributes }}>
                     <div class="card">
@@ -53,7 +53,7 @@
                       {%- endif -%}
                     </div>
                   </div>
-                {%- endif -%}
+                {%- endif -%} {% endcomment %}
 
           {%- when 'buy_buttons' -%}
             {%- render 'product-buy-buttons', product: product, form: form, block: block -%}
