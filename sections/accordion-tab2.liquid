@@ -683,7 +683,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Video play functionality
   const playButtons = container.querySelectorAll('.video-play-btn');
   playButtons.forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
       const videoId = this.getAttribute('data-video-id');
       const containerId = this.getAttribute('data-container');
       const videoContainer = document.getElementById(containerId);
@@ -692,12 +695,12 @@ document.addEventListener('DOMContentLoaded', function() {
         videoContainer.innerHTML = `
           <iframe
             width="100%"
-            height="450"
+            height="100%"
             src="https://www.youtube.com/embed/${videoId}?autoplay=1"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-            style="border-radius: 12px;"
+            style="border-radius: 16px;"
           ></iframe>
         `;
       }
