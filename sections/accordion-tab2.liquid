@@ -517,7 +517,7 @@ fill: #FFF;
                 <tbody>
                   {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
                   {% for row in table_data %}
-                    {% assign cols = row | split: ';' %}
+                    {% assign cols = row | split: ':' %}
                     {% if cols.size >= 2 %}
                       <tr>
                         <td>{{ cols[0] }}</td>
