@@ -151,7 +151,7 @@
             <h1 class="header__logo">{{ header_logo }}</h1> 
           {%- elsif product.template_suffix == 'metafield' -%}
              <img class="header__logo-image"
-                     style="max-width: {{ section.settings.metafield_logo_max_width }}px"
+                     style="max-width: {{ section.settings.logo_max_width }}px"
                      width="{{ section.settings.metafield_logo.width }}"
                      height="{{ section.settings.metafield_logo.height }}"
                      src="{{ section.settings.metafield_logo | img_url: image_size, scale: 2 }}"
