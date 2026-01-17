@@ -18,12 +18,18 @@
 .visual-experience__container {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  width: 1440px;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .visual-experience__content {
+  width: 1280px;
+  max-width: calc(100% - 40px);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
@@ -127,18 +133,19 @@
 }
 
 .visual-experience__heading {
-  font-size: 42px;
+  font-size: 48px;
   font-weight: 700;
+  letter-spacing: -2px;
   color: #ffffff;
   line-height: 1.2;
   margin: 0;
 }
 
 .visual-experience__description {
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  line-height: 1.7;
+  line-height: 28px;
+  color: #A0AEC0;
   margin: 0;
 }
 
@@ -235,20 +242,13 @@
   }
 
   .visual-experience__heading {
-    font-size: 36px;
+    font-size: 40px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .visual-experience {
-    padding: 60px 0;
-  }
-
-  .visual-experience__container {
-    padding: 0 20px;
-  }
-
   .visual-experience__content {
+    max-width: calc(100% - 32px);
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -265,10 +265,12 @@
 
   .visual-experience__heading {
     font-size: 32px;
+    letter-spacing: -1px;
   }
 
   .visual-experience__description {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .visual-experience__cta {
@@ -282,12 +284,8 @@
 }
 
 @media screen and (max-width: 480px) {
-  .visual-experience {
-    padding: 40px 0;
-  }
-
-  .visual-experience__container {
-    padding: 0 15px;
+  .visual-experience__content {
+    max-width: calc(100% - 24px);
   }
 
   .visual-experience__heading {
