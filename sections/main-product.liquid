@@ -100,9 +100,17 @@
   background: transparent !important;
   }
 
+/* border for big image */
+#custom-{{ section.id }} .product-gallery__carousel-wrapper img {
+    {% comment %} border: 2px solid #C2C2C2;
+    border-radius: 20px; {% endcomment %}
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: url(<path-to-image>) lightgray 45.859px 189px / 87.436% 48.219% no-repeat, linear-gradient(135deg, rgba(10, 132, 255, 0.10) 0%, rgba(0, 0, 0, 0.00) 70.71%);
+    box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
+}
 
-
-
+{% comment %} product page css end {% endcomment %}
 
     /* footer css start */
 .footer__block-item--text.footer__title:first-child{
