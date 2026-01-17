@@ -56,7 +56,7 @@
   display: flex;
   width: 1145px;
   max-width: calc(100% - 295px);
-  height: 646px;
+  height: auto;
   flex-direction: column;
   align-items: center;
   margin: 81.5px 148px 82.5px 147px;
