@@ -443,22 +443,6 @@
         "video_url": ""
       }
     },
-    "f8572bb3-e256-48d7-98a9-b3de46803d68": {
-      "type": "d8-faq-custom-section",
-      "settings": {
-        "sub_heading": "",
-        "headingS": "",
-        "sub_text": "",
-        "desc": "",
-        "title": "",
-        "faq_h-bg": "",
-        "faq-text-color": "#636363",
-        "border_color": "",
-        "border_radius": 25,
-        "faq_width_dsk": 100,
-        "faq_width_mob": 100
-      }
-    },
     "96f87cd6-24fa-4d7c-878d-f9b13a68a597": {
       "type": "frequently-bought",
       "disabled": true,
@@ -1004,7 +988,6 @@
     "63baf964-4391-49c8-8684-83eeda216181",
     "ba731d54-3048-46a8-879c-ceb926f1da3d",
     "067e33fc-b471-498b-9aac-5d93bbadcb12",
-    "f8572bb3-e256-48d7-98a9-b3de46803d68",
     "96f87cd6-24fa-4d7c-878d-f9b13a68a597",
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd",
     "be5fcda4-e747-4686-bf2c-597f15159877",
