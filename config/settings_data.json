@@ -157,6 +157,8 @@
           "enable_sticky_header": false,
           "logo": "shopify://shop_images/Brightlink_Logo.png",
           "logo_max_width": 260,
+          "metafield_logo": "shopify://shop_images/image_1316.svg",
+          "metafield_logo_max_width": 140,
           "mobile_logo_max_width": 80,
           "show_locale_selector": false,
           "show_country_selector": true,
