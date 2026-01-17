@@ -1210,14 +1210,13 @@ text-align: center;
                 %}
               {% endif %}
                {% comment %} divider block {% endcomment %}
-                 {% when 'divider_block' %}
-                   {%- if divider_block != blank -%}
+                 {% when 'divider_block' %}      
                   <div class="divider-block">
                     <div class="divider-block__inner">
                       <hr class="divider-block__line">
                     </div>
                   </div>
-                  {%- endif -%}
+               
               {%- comment -%}
               --------------------------------------------------------------------------------------
               DESCRIPTION
