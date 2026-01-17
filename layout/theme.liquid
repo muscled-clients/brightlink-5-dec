@@ -226,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% render 'wsg-custom' %}
 </head>
 <body
-    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}{% if template.suffix == 'led-template' %} led-template-page{% endif %}"
+    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}{% if template.suffix == 'led-template' or template.suffix == 'cob-led-217-in' %} led-template-page{% endif %}"
     data-instant-intensity="viewport"
   >
     <!-- Google Tag Manager (noscript) -->
