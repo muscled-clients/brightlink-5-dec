@@ -16,7 +16,7 @@
           {%- when 'variant_selector' -%}
             {%- render 'product-variant-selector', product: product, form: form, block: block -%}
 
-              {% comment %} {%- when 'description' -%}
+              {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product-block-list__item product-block-list__item--description" {{ block.shopify_attributes }}>
                     <div class="card">
@@ -53,10 +53,10 @@
                       {%- endif -%}
                     </div>
                   </div>
-                {%- endif -%} {% endcomment %}
+                {%- endif -%}
 
-          {% comment %} {%- when 'buy_buttons' -%}
-            {%- render 'product-buy-buttons', product: product, form: form, block: block -%} {% endcomment %}
+          {%- when 'buy_buttons' -%}
+            {%- render 'product-buy-buttons', product: product, form: form, block: block -%}
 
             {% comment %}===============code for request for zone ============ {% endcomment %}
 
@@ -70,10 +70,10 @@
 
             {% comment %}===============code for request for zone ============ {% endcomment %}
 
-          {% comment %} {%- when 'purchase_buttons' -%}
+          {%- when 'purchase_buttons' -%}
             {% comment %}      snippet for purchase from distributor {% endcomment %}
             <div>Shipping Times: {{ product.metafields.custom.shipping_times }}</div>
-            {% render 'purchase-distributor-btn', block: block %} {% endcomment %}
+            {% render 'purchase-distributor-btn', block: block %}
             
           {%- when 'text' -%}
             {%- if block.settings.content != blank -%}
