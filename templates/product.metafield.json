@@ -396,23 +396,14 @@
         "8f46583b-4611-4c7f-a6af-44efaaa19b31": {
           "type": "video",
           "settings": {
-            "title": "Video",
-            "section-id": "shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"
+            "title": "Video"
           }
         },
         "29d1c919-1da0-497b-82ac-a44532ca48fd": {
           "type": "faq",
           "disabled": true,
           "settings": {
-            "title": "FAQ",
-            "section-id": "shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"
-          }
-        },
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44": {
-          "type": "static",
-          "settings": {
-            "title": "Faq",
-            "section-id": "shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
+            "title": "FAQ"
           }
         }
       },
@@ -421,8 +412,7 @@
         "5d72e470-00a7-4f81-a2ea-f0dca054d2f8",
         "c23ea137-c627-4180-b349-f608456af033",
         "8f46583b-4611-4c7f-a6af-44efaaa19b31",
-        "29d1c919-1da0-497b-82ac-a44532ca48fd",
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44"
+        "29d1c919-1da0-497b-82ac-a44532ca48fd"
       ],
       "settings": {
         "title": ""
@@ -445,6 +435,7 @@
     },
     "067e33fc-b471-498b-9aac-5d93bbadcb12": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "title": "Seamless LED Video Wall Installation",
         "description": "<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!</p>",
@@ -941,16 +932,7 @@
       "settings": {
         "label": "KNOWLEDGE CENTER",
         "title": "Knowledge Center",
-        "subtitle": "Everything you need to know about Pro Spectrum",
-        "show_contact_info": true,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p><a href=\"tel:1-855-449-4733\" title=\"tel:1-855-449-4733\">1-855-449-4733</a></p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p><a href=\"mailto:support@brightlinkav.com\" title=\"mailto:support@brightlinkav.com\">support@brightlinkav.com</a></p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
+        "subtitle": "Everything you need to know about Pro Spectrum"
       }
     },
     "product-recommendations": {
