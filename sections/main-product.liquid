@@ -211,16 +211,11 @@
 /* footer css end */
    
 
-    .divider-block {
-    padding: 20px 0;
-    background-color: #111;  /* Optional: Add background color */
-  }
-
-  .divider-block__line {
+    .divider-block__line {
     border: none;
     border-top: {{ block.settings.line_thickness }}px solid {{ block.settings.line_color }}; /* Line color and thickness */
-    width: {{ block.settings.line_width }}%;
-    margin: 0 auto; /* Centers the line */
+    width: {{ block.settings.line_width }}%; /* Line width */
+    margin: 20px auto; /* Centers the line with margin around */
   }
 
  {% endif %}
