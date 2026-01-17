@@ -11,12 +11,15 @@
     {% assign builder_description = config_builder_data.description | default: section.settings.subtitle | default: 'Configure your perfect LED display setup' %}
 
     <div class="custom-config__header">
-      {% if section.settings.label != blank %}
-        <span class="custom-config__label">{{ section.settings.label }}</span>
-      {% endif %}
-      <h2 class="custom-config__title">{{ builder_title }}</h2>
+      <div class="custom-config__header-text">
+        {% if section.settings.label != blank %}
+          <span class="custom-config__label">{{ section.settings.label }}</span>
+        {% endif %}
+        <h2 class="custom-config__title">{{ builder_title }}</h2>
+      </div>
       <p class="custom-config__subtitle">{{ builder_description }}</p>
     </div>
+    <div class="custom-config__content">
 
     <div class="custom-config__card">
       <!-- Viewing Distance Input -->
@@ -160,6 +163,7 @@
       </div>
       <p class="custom-config__payment-info">{{ section.settings.payment_info | default: 'NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted' }}</p>
       <a href="{{ section.settings.payment_link | default: '#' }}" class="custom-config__payment-link">{{ section.settings.payment_link_text | default: 'DISCUSS PAYMENT OPTIONS' }}</a>
+    </div>
     </div>
   </div>
 </section>
