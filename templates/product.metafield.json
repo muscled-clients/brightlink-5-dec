@@ -152,7 +152,7 @@
           "type": "buy_buttons",
           "settings": {
             "show_payment_button": true,
-            "show_purchase_btn": false
+            "show_purchase_btn": true
           }
         },
         "59761649-86b3-44c5-800a-493acb77417c": {
