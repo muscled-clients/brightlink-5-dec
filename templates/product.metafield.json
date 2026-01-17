@@ -12,14 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "divider_block_gTPhB6": {
-          "type": "Divider_Block",
-          "settings": {
-            "line_color": "#3caaff",
-            "line_width": 80,
-            "line_thickness": 2
-          }
-        },
         "product_meta": {
           "type": "product_meta",
           "settings": {
@@ -42,6 +34,14 @@
             "show_inventory_quantity": true,
             "icon2": "shopify://shop_images/div_a29e2173-a360-4068-81fc-d4250d2c3ca2.png",
             "low_inventory_threshold": 53
+          }
+        },
+        "divider_block_gTPhB6": {
+          "type": "Divider_Block",
+          "settings": {
+            "line_color": "#3caaff",
+            "line_width": 80,
+            "line_thickness": 2
           }
         },
         "description": {
@@ -242,9 +242,9 @@
         }
       },
       "block_order": [
-        "divider_block_gTPhB6",
         "product_meta",
         "variant_selector",
+        "divider_block_gTPhB6",
         "description",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
