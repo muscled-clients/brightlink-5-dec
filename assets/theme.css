@@ -13349,7 +13349,7 @@ shopify-payment-terms {
 
 .expandable-content[aria-expanded] {
   position: relative;
-  max-height: 320px;
+  max-height: 129px;
   overflow: hidden;
   transition: 0.2s ease-in-out;
 }
