@@ -72,18 +72,10 @@
 .custom-config__card {
   width: 100%;
   max-width: 700px;
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 16px;
-  padding: 30px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.custom-config__card:hover {
-  border-color: rgba(10, 132, 255, 0.4);
-  box-shadow:
-    0 0 40px rgba(10, 132, 255, 0.25),
-    0 15px 30px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
 }
 
 .custom-config__section {
@@ -447,10 +439,6 @@
     padding: 24px 30px;
   }
 
-  .custom-config__card {
-    padding: 25px 20px;
-  }
-
   .custom-config__input-row {
     flex-wrap: wrap;
     gap: 16px;
@@ -491,10 +479,6 @@
   .custom-config__content {
     max-width: calc(100% - 24px);
     padding: 20px;
-  }
-
-  .custom-config__card {
-    padding: 20px 15px;
   }
 
   .custom-config__input-row {
