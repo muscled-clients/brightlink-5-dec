@@ -103,7 +103,7 @@
                 {% endif %}
 
                 <div class="applications-tabs__config-card">
-                  <h4 class="applications-tabs__config-title">Common Configuration</h4>
+                  <h4 class="applications-tabs__config-title">{{ block.settings.config_title | default: 'Common Configuration' }}</h4>
                   <div class="applications-tabs__config-grid">
                     <div class="applications-tabs__config-row">
                       <span class="applications-tabs__config-label">{{ block.settings.config1_label | default: 'Size' }}</span>
@@ -145,7 +145,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
-                    Why Pro Spectrum?
+                    {{ block.settings.why_title | default: 'Why Pro Spectrum?' }}
                   </h4>
                   <ul class="applications-tabs__features-list">
                     {% if block.settings.feature1 != blank %}
@@ -402,7 +402,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
           "type": "header",
-          "content": "Why Pro Spectrum Features"
+          "content": "Why Section"
+        },
+        {
+          "type": "text",
+          "id": "why_title",
+          "label": "Why Section Title",
+          "default": "Why Pro Spectrum?"
         },
         {
           "type": "text",
@@ -488,7 +494,13 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
           "type": "header",
-          "content": "Specifications"
+          "content": "Configuration Section"
+        },
+        {
+          "type": "text",
+          "id": "config_title",
+          "label": "Configuration Title",
+          "default": "Common Configuration"
         },
         {
           "type": "text",
