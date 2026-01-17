@@ -21,6 +21,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 36px;
 }
 
 .custom-config__header {
@@ -354,35 +355,19 @@
 }
 
 .custom-config__payment {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(59, 130, 246, 0.15);
-  border-radius: 12px;
-  padding: 25px;
+  display: flex;
+  width: 1280px;
+  max-width: calc(100% - 40px);
+  padding: 24px 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
+  box-sizing: border-box;
   text-align: center;
-  width: 100%;
-  max-width: 700px;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-  box-shadow:
-    0 0 30px rgba(10, 132, 255, 0.1),
-    0 15px 30px rgba(0, 0, 0, 0.2);
-}
-
-.custom-config__payment:hover {
-  transform: translateY(-2px);
-  border-color: rgba(10, 132, 255, 0.5);
-  box-shadow:
-    0 0 60px rgba(10, 132, 255, 0.3),
-    0 0 100px rgba(10, 132, 255, 0.15),
-    0 20px 40px rgba(0, 0, 0, 0.35);
-}
-
-.custom-config__payment:hover .custom-config__payment-header {
-  color: #0A84FF;
-}
-
-.custom-config__payment:hover .custom-config__payment-info {
-  color: #0A84FF;
 }
 
 .custom-config__payment-header {
@@ -390,24 +375,21 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  margin-bottom: 12px;
   color: #ffffff;
   font-size: 16px;
   font-weight: 600;
-  transition: color 0.4s ease;
 }
 
 .custom-config__payment-header svg {
-  color: #FFD700;
+  color: #D4AF37;
 }
 
 .custom-config__payment-info {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0 0 15px;
+  color: #A0AEC0;
+  margin: 0;
   line-height: 1.5;
-  transition: color 0.4s ease;
 }
 
 .custom-config__payment-link {
@@ -464,6 +446,11 @@
 
   .custom-config__result-card .custom-config__result-value {
     font-size: 15px;
+  }
+
+  .custom-config__payment {
+    max-width: calc(100% - 32px);
+    padding: 20px 16px;
   }
 }
 
@@ -534,7 +521,8 @@
   }
 
   .custom-config__payment {
-    padding: 20px 15px;
+    max-width: calc(100% - 24px);
+    padding: 16px 12px;
   }
 
   .custom-config__payment-header {

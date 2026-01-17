@@ -150,6 +150,8 @@
       </div>
     </div>
 
+    </div>
+
     <div class="custom-config__payment">
       <div class="custom-config__payment-header">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -160,7 +162,6 @@
       </div>
       <p class="custom-config__payment-info">{{ section.settings.payment_info | default: 'NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted' }}</p>
       <a href="{{ section.settings.payment_link | default: '#' }}" class="custom-config__payment-link">{{ section.settings.payment_link_text | default: 'DISCUSS PAYMENT OPTIONS' }}</a>
-    </div>
     </div>
   </div>
 </section>
