@@ -1,23 +1,4 @@
-{% comment %} add bg image {% endcomment %}
 
-{% comment %} {% if request.page_type == 'product'
-  and template.name == 'product'
-  and template.suffix == 'metafield'
-  and section.settings.bg_image != blank
-%}
-  {% style %}
-    body.template-product-metafield {
-      background-image: url({{ section.settings.bg_image | image_url: width: 2400 }});
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      min-height: 100vh;
-    }
-  {% endstyle %}
-{% endif %} {% endcomment %}
-
-
-{% comment %} bg image end {% endcomment %}
 
 <style>
 
@@ -29,6 +10,11 @@
       background-repeat: no-repeat;
       background-position: center;
       min-height: 100vh;
+    }
+
+
+    .product-meta__title{
+      margin-bottom:0px !important;
     }
     shopify-payment-terms{
          display:none !important;
