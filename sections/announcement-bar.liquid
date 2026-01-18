@@ -107,7 +107,8 @@
 
 
 
-
+{% if product.template_suffix == 'metafield' %}
+   
 
 {%- if section.settings.show_announcement2 -%}
   {%- capture section_settings -%}
@@ -209,6 +210,8 @@
 
     document.documentElement.style.setProperty('--announcement-bar-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
   </script>
+{%- endif -%}
+
 {%- endif -%}
 
 
