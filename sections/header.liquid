@@ -403,7 +403,7 @@
                 {%- if customer -%}
                   <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.welcome' | t: first_name: customer.first_name | truncate: 20 }}</span>
                 {%- else -%}
-                  {% comment %} <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span> {% endcomment %}
+                  <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
                 {%- endif -%}
   
                 <div class="header__action-item-content">
