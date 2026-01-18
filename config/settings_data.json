@@ -328,6 +328,7 @@
       "newsletter": {
         "type": "newsletter",
         "settings": {
+          "show_newsletter": false,
           "title": "Be the first to know",
           "content": "<p>Get all the latest information on Events, Sales and Offers.<br/>Sign up for newsletter today.</p>",
           "show_text_bg": true,
