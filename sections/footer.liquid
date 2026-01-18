@@ -1,6 +1,6 @@
 
 
-
+  {%- if section.settings.show_social_media -%}
 
 
 <footer class="footer" data-section-id="{{ section.id }}" data-section-type="footer" role="contentinfo">
@@ -368,7 +368,7 @@
     </aside>
   {%- endif -%}
 </footer>
-
+ {%- endif -%}
 {% schema %}
 {
   "name": "Footer",
