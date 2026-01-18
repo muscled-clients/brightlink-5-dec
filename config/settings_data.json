@@ -239,7 +239,8 @@
       "announcement-bar": {
         "type": "announcement-bar",
         "settings": {
-          "show_announcement": true,
+          "show_announcement": false,
+          "show_announcement2": true,
           "background": "#001d55",
           "text_color": "#ffffff",
           "text": "<a href=\"tel:1-855-449-4733\">CALL US 1-855-449-4733</a>",
