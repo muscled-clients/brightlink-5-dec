@@ -1,3 +1,6 @@
+
+ {% if product.template_suffix == 'metafield' %}
+
 {%- if section.settings.show_announcement -%}
   {%- capture section_settings -%}
   {
@@ -100,6 +103,8 @@
   </script>
 {%- endif -%}
 
+
+ {%- endif -%}
 {% schema %}
 {
   "name": "Announcement bar",
