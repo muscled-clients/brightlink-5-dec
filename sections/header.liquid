@@ -403,7 +403,11 @@
                 {%- if customer -%}
                   <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.welcome' | t: first_name: customer.first_name | truncate: 20 }}</span>
                 {%- else -%}
-                  <span class="header__action-item-title hidden-pocket hidden-lap">Login</span>
+                    {% if product.template_suffix == 'metafield' %}
+                  <span class="header__action-item-title hidden-pocket hidden-lap">Sign in</span>
+                    {%- else -%}
+                      <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
+                    {%- endif -%}
                 {%- endif -%}
   
                 <div class="header__action-item-content">
