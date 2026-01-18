@@ -225,6 +225,7 @@
           ".copyright_info-item.copyright_info--links {margin-top: inherit;}"
         ],
         "settings": {
+          "show_footer": true,
           "show_social_media": true,
           "show_payment_icons": true,
           "show_locale_selector": true,
