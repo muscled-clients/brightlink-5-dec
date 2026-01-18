@@ -1,5 +1,5 @@
 
- {% if product.template_suffix == 'metafield' %}
+
 
 {%- if section.settings.show_announcement -%}
   {%- capture section_settings -%}
@@ -104,12 +104,12 @@
 {%- endif -%}
 
 
- {%- endif -%}
 
 
 
 
-{%- if section.settings.show_announcement -%}
+
+{%- if section.settings.show_announcement2 -%}
   {%- capture section_settings -%}
   {
     "showNewsletter": {{ section.settings.show_newsletter | json }}
