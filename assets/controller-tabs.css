@@ -234,10 +234,11 @@
 }
 
 .controller-tabs__panel-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: start;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+  width: 100%;
 }
 
 .controller-tabs__left {
@@ -481,16 +482,18 @@
 
 @media (max-width: 900px) {
   .controller-tabs__panel-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 30px;
   }
 
   .controller-tabs__left {
     order: 1;
+    width: 100%;
   }
 
   .controller-tabs__right {
     order: 2;
+    width: 100%;
   }
 }
 
