@@ -363,81 +363,116 @@
 }
 
 .controller-tabs__description p {
+  align-self: stretch;
+  color: #A0AEC0;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
   margin: 0;
 }
 
 .controller-tabs__read-more {
-  display: inline-block;
-  margin-top: 8px;
-  color: #3498db;
-  font-size: 13px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  color: #0A84FF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  transition: opacity 0.3s ease;
 }
 
 .controller-tabs__read-more:hover {
-  color: #5dade2;
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
 .controller-tabs__features-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .controller-tabs__features-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.85);
+  gap: 16px;
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
 }
 
-.controller-tabs__features-list li svg {
+.controller-tabs__feature-icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  padding: 4px 9px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  border: 0 solid #E5E7EB;
+  background: rgba(10, 132, 255, 0.20);
   flex-shrink: 0;
-  color: #3498db;
+}
+
+.controller-tabs__feature-icon svg {
+  width: 16px;
+  height: 16px;
+  color: #0A84FF;
 }
 
 .controller-tabs__button {
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  padding: 20px;
   justify-content: center;
-  gap: 8px;
-  padding: 14px 28px;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 8px;
+  border: 2px solid rgba(10, 132, 255, 0.50);
   background: transparent;
-  border: 1px solid rgba(52, 152, 219, 0.5);
-  border-radius: 6px;
-  color: #3498db;
-  font-size: 12px;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  letter-spacing: 0.5px;
+  line-height: normal;
   text-decoration: none;
+  cursor: pointer;
   transition: all 0.3s ease;
-  width: fit-content;
 }
 
 .controller-tabs__button:hover {
-  background: rgba(52, 152, 219, 0.1);
-  border-color: #3498db;
+  background: rgba(10, 132, 255, 0.10);
+  border-color: rgba(10, 132, 255, 0.70);
 }
 
 .controller-tabs__button svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 /* CTA Section */
 .controller-tabs__cta {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
-  width: 100%;
+  align-self: stretch;
 }
 
 .controller-tabs__price {
