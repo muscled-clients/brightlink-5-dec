@@ -1839,8 +1839,10 @@
 .product-intelligence__cta {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
+  gap: 24px;
+  align-self: stretch;
 }
 
 /* Primary Button */
