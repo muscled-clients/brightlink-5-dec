@@ -228,8 +228,10 @@
 /* Left Side - Text + Features */
 .product-intelligence__left {
   display: flex;
+  width: 716px;
   flex-direction: column;
-  flex: 1;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 /* Right Side - Image */
