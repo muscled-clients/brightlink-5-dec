@@ -244,10 +244,13 @@
 
 /* Text Content */
 .product-intelligence__text {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 30px;
+  align-self: stretch;
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
 }
 
 .product-intelligence__text p {
@@ -255,19 +258,23 @@
 }
 
 .product-intelligence__text p:last-child {
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .product-intelligence__read-more {
   display: inline-block;
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: #0A84FF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  text-decoration: underline;
+  transition: opacity 0.3s ease;
 }
 
 .product-intelligence__read-more:hover {
-  color: #5dade2;
+  opacity: 0.8;
 }
 
 /* Image */
