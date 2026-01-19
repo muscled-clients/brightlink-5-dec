@@ -115,14 +115,11 @@
 /* Tab Navigation */
 .product-intelligence__tabs {
   display: flex;
-  height: 56px;
-  padding: 0 20px;
+  padding: 0;
   align-items: center;
   gap: 20px;
   align-self: stretch;
   width: 100%;
-  margin-bottom: 40px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
@@ -135,29 +132,34 @@
 
 .product-intelligence__tab {
   display: flex;
+  height: 56px;
+  padding: 0 32px;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 0;
-  height: 100%;
+  gap: 12px;
+  flex: 1 0 0;
+  border-radius: 12px;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 14px;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 500;
+  line-height: normal;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
 }
 
 .product-intelligence__tab:hover {
   color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .product-intelligence__tab--active {
   color: #ffffff;
-  border-bottom-color: #3498db;
   background: rgba(52, 152, 219, 0.1);
 }
 
