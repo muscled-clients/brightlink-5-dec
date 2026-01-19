@@ -243,8 +243,10 @@
 
 .controller-tabs__left {
   display: flex;
+  width: 731px;
   flex-direction: column;
-  gap: 25px;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .controller-tabs__image-area {
