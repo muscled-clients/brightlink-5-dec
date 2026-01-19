@@ -142,9 +142,11 @@
 
                 <div class="controller-tabs__right">
                   <div class="controller-tabs__description">
-                    <p>{{ block.settings.description }}</p>
+                    <p class="controller-tabs__desc-text">{{ block.settings.description }}</p>
                     {% if block.settings.read_more_link != blank %}
                       <a href="{{ block.settings.read_more_link }}" class="controller-tabs__read-more">Read More</a>
+                    {% else %}
+                      <button type="button" class="controller-tabs__read-more controller-tabs__read-more-toggle">Read More</button>
                     {% endif %}
                   </div>
 
@@ -312,6 +314,23 @@ document.addEventListener('DOMContentLoaded', function() {
       switchToTab(newIndex);
     });
   }
+
+  // Read More toggle functionality
+  const readMoreToggles = section.querySelectorAll('.controller-tabs__read-more-toggle');
+  readMoreToggles.forEach(toggle => {
+    toggle.addEventListener('click', function() {
+      const description = this.closest('.controller-tabs__description');
+      const textEl = description.querySelector('.controller-tabs__desc-text');
+
+      if (textEl.classList.contains('controller-tabs__desc-text--expanded')) {
+        textEl.classList.remove('controller-tabs__desc-text--expanded');
+        this.textContent = 'Read More';
+      } else {
+        textEl.classList.add('controller-tabs__desc-text--expanded');
+        this.textContent = 'Read Less';
+      }
+    });
+  });
 });
 </script>
 

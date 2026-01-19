@@ -373,6 +373,20 @@
   margin: 0;
 }
 
+/* Truncated description with line clamp */
+.controller-tabs__description p.controller-tabs__desc-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.controller-tabs__description p.controller-tabs__desc-text--expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
 .controller-tabs__read-more {
   color: #0A84FF;
   font-family: Inter, sans-serif;
@@ -390,6 +404,13 @@
 
 .controller-tabs__read-more:hover {
   opacity: 0.8;
+}
+
+.controller-tabs__read-more-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 
 .controller-tabs__features-list {
