@@ -349,7 +349,9 @@
 .controller-tabs__right {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  align-items: flex-start;
+  gap: 24px;
+  flex: 1 0 0;
 }
 
 .controller-tabs__description {
