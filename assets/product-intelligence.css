@@ -154,13 +154,13 @@
 }
 
 .product-intelligence__tab:hover {
-  color: rgba(255, 255, 255, 0.9);
-  background: rgba(255, 255, 255, 0.05);
+  color: #0A84FF;
+  background: rgba(10, 132, 255, 0.08);
 }
 
 .product-intelligence__tab--active {
-  color: #ffffff;
-  background: rgba(52, 152, 219, 0.1);
+  color: #0A84FF;
+  background: rgba(10, 132, 255, 0.15);
 }
 
 .product-intelligence__tab-icon {
