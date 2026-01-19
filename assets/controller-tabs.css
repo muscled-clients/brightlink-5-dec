@@ -251,14 +251,15 @@
 
 .controller-tabs__image-area {
   position: relative;
-  background: linear-gradient(135deg, #0d1a2a 0%, #061018 100%);
-  border: 1px solid rgba(60, 100, 140, 0.2);
-  border-radius: 10px;
-  padding: 30px;
-  min-height: 280px;
+  width: 731px;
+  height: 460px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: linear-gradient(135deg, #0d1a2a 0%, #061018 100%);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  box-sizing: border-box;
 }
 
 .controller-tabs__certified-badge {
