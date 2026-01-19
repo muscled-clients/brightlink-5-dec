@@ -218,16 +218,18 @@
 
 /* Panel Content Layout */
 .product-intelligence__panel-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: stretch;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  align-self: stretch;
+  width: 100%;
 }
 
 /* Left Side - Text + Features */
 .product-intelligence__left {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 /* Right Side - Image */
@@ -235,6 +237,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex: 1;
 }
 
 /* Text Content */
@@ -1335,16 +1338,18 @@
 
 @media screen and (max-width: 1024px) {
   .product-intelligence__panel-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 30px;
   }
 
   .product-intelligence__left {
     order: 1;
+    width: 100%;
   }
 
   .product-intelligence__right {
     order: 2;
+    width: 100%;
   }
 
   .product-intelligence__features {
@@ -1438,20 +1443,19 @@
   }
 
   .product-intelligence__panel-content {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+    gap: 20px;
   }
 
   /* Image first, then text on mobile */
   .product-intelligence__left {
     order: 2;
-    min-width: 0;
-    max-width: 100%;
+    width: 100%;
   }
 
   .product-intelligence__right {
     order: 1;
-    min-width: 0;
-    max-width: 100%;
+    width: 100%;
   }
 
   .product-intelligence__text {
