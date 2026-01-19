@@ -301,10 +301,10 @@
 
 /* Feature Cards */
 .product-intelligence__features {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
 }
 
 .product-intelligence__feature-card {
@@ -1362,7 +1362,7 @@
   }
 
   .product-intelligence__features {
-    grid-template-columns: repeat(3, 1fr);
+    flex-wrap: wrap;
   }
 
   .product-intelligence__specs-list {
@@ -1482,16 +1482,16 @@
     height: auto;
   }
 
-  /* Feature cards: 2 in first row, 1 full width below */
+  /* Feature cards: wrap on mobile */
   .product-intelligence__features {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 12px;
     width: 100%;
   }
 
-  .product-intelligence__features .product-intelligence__feature-card:last-child {
-    grid-column: 1 / -1;
+  .product-intelligence__feature-card {
+    flex: 1 1 calc(50% - 6px);
+    min-width: 140px;
   }
 
   .product-intelligence__feature-card {
