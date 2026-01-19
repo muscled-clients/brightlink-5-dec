@@ -429,9 +429,9 @@
 }
 
 .controller-tabs__feature-icon svg {
-  width: 16px;
-  height: 16px;
-  color: #0A84FF;
+  width: 14px;
+  height: 10px;
+  fill: #0A84FF;
 }
 
 .controller-tabs__button {
