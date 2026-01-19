@@ -470,8 +470,9 @@
 .controller-tabs__cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
   align-self: stretch;
 }
 
