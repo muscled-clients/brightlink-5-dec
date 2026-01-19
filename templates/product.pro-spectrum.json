@@ -586,6 +586,7 @@
           "settings": {
             "tab_title": "Overview",
             "tab_icon": "overview",
+            "overview_image": "shopify://shop_images/Picture_1_1.png",
             "read_more_link": "",
             "show_features": true,
             "primary_btn_text": "ORDER NOW",
