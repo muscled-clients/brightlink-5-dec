@@ -269,6 +269,39 @@
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
+/* Results List Layout */
+.custom-config__results-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.custom-config__result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.custom-config__result-row:last-child {
+  border-bottom: none;
+}
+
+.custom-config__results-list .custom-config__result-label {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.custom-config__results-list .custom-config__result-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0A84FF;
+  text-align: right;
+}
+
 .custom-config__unit-toggle {
   display: flex;
   align-items: center;
