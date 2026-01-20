@@ -126,11 +126,15 @@
 }
 
 .custom-config__input-label {
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
+  height: 20px;
+  align-self: stretch;
+  color: #A0AEC0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.35px;
 }
 
 .custom-config__input,
@@ -272,33 +276,47 @@
 /* Results List Layout */
 .custom-config__results-list {
   display: flex;
+  width: 600px;
+  padding: 24px;
   flex-direction: column;
-  gap: 8px;
-  width: 100%;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 12px;
+  border: 0 solid #E5E7EB;
+  background: rgba(10, 132, 255, 0.05);
 }
 
 .custom-config__result-row {
   display: flex;
+  width: 552px;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.custom-config__result-row:last-child {
-  border-bottom: none;
+  border: 0 solid #E5E7EB;
+  background: rgba(0, 0, 0, 0.00);
 }
 
 .custom-config__results-list .custom-config__result-label {
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  width: 128px;
+  height: 24px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 24px;
 }
 
 .custom-config__results-list .custom-config__result-value {
-  font-size: 14px;
-  font-weight: 600;
+  width: 132px;
+  height: 24px;
+  flex-shrink: 0;
   color: #0A84FF;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
   text-align: right;
 }
 
