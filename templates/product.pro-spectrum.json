@@ -833,8 +833,9 @@
           "settings": {
             "tab_title": "60fps Processing",
             "icon": "processing",
-            "layout_type": "detailed",
+            "layout_type": "simple",
             "simple_title": "",
+            "image": "shopify://shop_images/image_3_4.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The system supports input and output signal processing at full 60FPS, ensuring smooth visuals with no lag or frame loss. This delivers a flawless display experience.",
             "read_more_link": "",
