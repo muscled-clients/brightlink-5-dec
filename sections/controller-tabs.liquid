@@ -88,12 +88,8 @@
               <div class="controller-tabs__panel-content">
                 <div class="controller-tabs__left">
                   <div class="controller-tabs__image-area">
-                    {% if block.settings.certified_badge != blank %}
-                      <div class="controller-tabs__certified-badge">{{ block.settings.certified_badge }}</div>
-                    {% endif %}
-
                     {% if block.settings.image != blank %}
-                      <img src="{{ block.settings.image | image_url: width: 500 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__product-image" loading="lazy" width="500" height="300">
+                      <img src="{{ block.settings.image | image_url: width: 731 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__product-image" loading="lazy">
                     {% else %}
                       <div class="controller-tabs__image-placeholder">
                         <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="rgba(255,255,255,0.1)">
