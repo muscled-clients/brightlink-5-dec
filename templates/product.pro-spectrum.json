@@ -800,8 +800,9 @@
           "settings": {
             "tab_title": "True 4k",
             "icon": "4k",
-            "layout_type": "detailed",
+            "layout_type": "simple",
             "simple_title": "",
+            "image": "shopify://shop_images/image_3_3.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The H Series provides true 4K (4K x 2K @ 60Hz, RGB 4:4:4, 10bit) signal collection, processing, and output, ensuring ultra-high resolution displays for professional-grade environments.",
             "read_more_link": "",
