@@ -85,7 +85,7 @@
               id="ctrl-panel-{{ block.id }}"
               data-panel-index="{{ forloop.index0 }}"
             >
-              <div class="controller-tabs__panel-content">
+              <div class="controller-tabs__panel-content {% if block.settings.layout_type == 'simple' %}controller-tabs__panel-content--simple{% endif %}">
                 <div class="controller-tabs__left">
                   <div class="controller-tabs__image-area">
                     {% if block.settings.image != blank %}
@@ -99,149 +99,159 @@
                     {% endif %}
                   </div>
 
-                  <div class="controller-tabs__config-section">
-                    <h4 class="controller-tabs__config-title">{{ block.settings.config_title | default: 'Your Configuration Includes:' }}</h4>
-                    <ul class="controller-tabs__config-list">
-                      {% if block.settings.config1 != blank %}
-                        <li>
-                          <span class="controller-tabs__config-dot"></span>
-                          {{ block.settings.config1 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.config2 != blank %}
-                        <li>
-                          <span class="controller-tabs__config-dot"></span>
-                          {{ block.settings.config2 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.config3 != blank %}
-                        <li>
-                          <span class="controller-tabs__config-dot"></span>
-                          {{ block.settings.config3 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.config4 != blank %}
-                        <li>
-                          <span class="controller-tabs__config-dot"></span>
-                          {{ block.settings.config4 }}
-                        </li>
-                      {% endif %}
-                      {% if block.settings.config5 != blank %}
-                        <li>
-                          <span class="controller-tabs__config-dot"></span>
-                          {{ block.settings.config5 }}
-                        </li>
-                      {% endif %}
-                    </ul>
-                  </div>
+                  {% if block.settings.layout_type != 'simple' %}
+                    <div class="controller-tabs__config-section">
+                      <h4 class="controller-tabs__config-title">{{ block.settings.config_title | default: 'Your Configuration Includes:' }}</h4>
+                      <ul class="controller-tabs__config-list">
+                        {% if block.settings.config1 != blank %}
+                          <li>
+                            <span class="controller-tabs__config-dot"></span>
+                            {{ block.settings.config1 }}
+                          </li>
+                        {% endif %}
+                        {% if block.settings.config2 != blank %}
+                          <li>
+                            <span class="controller-tabs__config-dot"></span>
+                            {{ block.settings.config2 }}
+                          </li>
+                        {% endif %}
+                        {% if block.settings.config3 != blank %}
+                          <li>
+                            <span class="controller-tabs__config-dot"></span>
+                            {{ block.settings.config3 }}
+                          </li>
+                        {% endif %}
+                        {% if block.settings.config4 != blank %}
+                          <li>
+                            <span class="controller-tabs__config-dot"></span>
+                            {{ block.settings.config4 }}
+                          </li>
+                        {% endif %}
+                        {% if block.settings.config5 != blank %}
+                          <li>
+                            <span class="controller-tabs__config-dot"></span>
+                            {{ block.settings.config5 }}
+                          </li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                  {% endif %}
                 </div>
 
                 <div class="controller-tabs__right">
-                  <div class="controller-tabs__description">
-                    <p class="controller-tabs__desc-text">{{ block.settings.description }}</p>
-                    {% if block.settings.read_more_link != blank %}
-                      <a href="{{ block.settings.read_more_link }}" class="controller-tabs__read-more">Read More</a>
-                    {% else %}
-                      <button type="button" class="controller-tabs__read-more controller-tabs__read-more-toggle">Read More</button>
-                    {% endif %}
-                  </div>
-
-                  <ul class="controller-tabs__features-list">
-                    {% if block.settings.feature1 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature1 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature2 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature2 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature3 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature3 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature4 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature4 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature5 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature5 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature6 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature6 }}
-                      </li>
-                    {% endif %}
-                    {% if block.settings.feature7 != blank %}
-                      <li>
-                        <span class="controller-tabs__feature-icon">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
-                            <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
-                          </svg>
-                        </span>
-                        {{ block.settings.feature7 }}
-                      </li>
-                    {% endif %}
-                  </ul>
-
-                  {% if block.settings.button_text != blank %}
-                    <a href="{{ block.settings.button_link }}" class="controller-tabs__button">
-                      {{ block.settings.button_text }}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </a>
+                  {% if block.settings.layout_type == 'simple' %}
+                    <h3 class="controller-tabs__title">{{ block.settings.simple_title | default: block.settings.tab_title }}</h3>
                   {% endif %}
 
-                  <!-- CTA Box -->
-                  <div class="controller-tabs__cta">
-                    {% if block.settings.price_text != blank %}
-                      <span class="controller-tabs__price">{{ block.settings.price_text }}</span>
+                  <div class="controller-tabs__description">
+                    <p class="controller-tabs__desc-text">{{ block.settings.description }}</p>
+                    {% if block.settings.layout_type != 'simple' %}
+                      {% if block.settings.read_more_link != blank %}
+                        <a href="{{ block.settings.read_more_link }}" class="controller-tabs__read-more">Read More</a>
+                      {% else %}
+                        <button type="button" class="controller-tabs__read-more controller-tabs__read-more-toggle">Read More</button>
+                      {% endif %}
                     {% endif %}
-                    <a href="{{ block.settings.primary_btn_link | default: '#order' }}" class="controller-tabs__btn">
-                      {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
-                    </a>
-                    <a href="{{ block.settings.secondary_btn_link | default: '#book-call' }}" class="controller-tabs__btn--secondary">
-                      {{ block.settings.secondary_btn_text | default: 'BOOK A CALL' }}
-                    </a>
                   </div>
+
+                  {% if block.settings.layout_type != 'simple' %}
+                    <ul class="controller-tabs__features-list">
+                      {% if block.settings.feature1 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature1 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature2 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature2 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature3 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature3 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature4 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature4 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature5 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature5 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature6 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature6 }}
+                        </li>
+                      {% endif %}
+                      {% if block.settings.feature7 != blank %}
+                        <li>
+                          <span class="controller-tabs__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="10" viewBox="0 0 14 10" fill="none">
+                              <path d="M13.7086 0.292969C14.0992 0.683594 14.0992 1.31797 13.7086 1.70859L5.70859 9.70859C5.31797 10.0992 4.68359 10.0992 4.29297 9.70859L0.292969 5.70859C-0.0976562 5.31797 -0.0976562 4.68359 0.292969 4.29297C0.683594 3.90234 1.31797 3.90234 1.70859 4.29297L5.00234 7.58359L12.2961 0.292969C12.6867 -0.0976562 13.3211 -0.0976562 13.7117 0.292969H13.7086Z" fill="#0A84FF"/>
+                            </svg>
+                          </span>
+                          {{ block.settings.feature7 }}
+                        </li>
+                      {% endif %}
+                    </ul>
+
+                    {% if block.settings.button_text != blank %}
+                      <a href="{{ block.settings.button_link }}" class="controller-tabs__button">
+                        {{ block.settings.button_text }}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                          <polyline points="15 3 21 3 21 9"></polyline>
+                          <line x1="10" y1="14" x2="21" y2="3"></line>
+                        </svg>
+                      </a>
+                    {% endif %}
+
+                    <!-- CTA Box -->
+                    <div class="controller-tabs__cta">
+                      {% if block.settings.price_text != blank %}
+                        <span class="controller-tabs__price">{{ block.settings.price_text }}</span>
+                      {% endif %}
+                      <a href="{{ block.settings.primary_btn_link | default: '#order' }}" class="controller-tabs__btn">
+                        {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
+                      </a>
+                      <a href="{{ block.settings.secondary_btn_link | default: '#book-call' }}" class="controller-tabs__btn--secondary">
+                        {{ block.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                      </a>
+                    </div>
+                  {% endif %}
                 </div>
               </div>
             </div>
@@ -385,6 +395,22 @@ document.addEventListener('DOMContentLoaded', function() {
             { "value": "flexible", "label": "Flexibility" }
           ],
           "default": "overview"
+        },
+        {
+          "type": "select",
+          "id": "layout_type",
+          "label": "Layout Type",
+          "options": [
+            { "value": "detailed", "label": "Detailed (Image + Config + Features + CTA)" },
+            { "value": "simple", "label": "Simple (Image + Title + Description only)" }
+          ],
+          "default": "detailed"
+        },
+        {
+          "type": "text",
+          "id": "simple_title",
+          "label": "Content Title (Simple Layout)",
+          "info": "Large title shown on right side for simple layout"
         },
         {
           "type": "image_picker",
