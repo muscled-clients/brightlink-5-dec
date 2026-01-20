@@ -70,20 +70,20 @@
   margin: 0;
 }
 
-/* Main Layout - Two Columns */
+/* Main Layout - Vertical Stack */
 .custom-config__main {
   display: flex;
+  flex-direction: column;
   width: 100%;
-  gap: 48px;
-  align-items: flex-start;
+  gap: 24px;
 }
 
-/* Left Side - Input Fields */
+/* Input Fields - Side by Side */
 .custom-config__inputs {
   display: flex;
   flex-direction: row;
   gap: 24px;
-  flex: 1;
+  width: 100%;
 }
 
 .custom-config__input-group {
@@ -127,12 +127,12 @@
   box-shadow: 0 0 15px rgba(10, 132, 255, 0.15);
 }
 
-/* Right Side - Results */
+/* Results Section */
 .custom-config__results {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  flex: 1;
+  gap: 8px;
+  width: 100%;
 }
 
 .custom-config__result-row {
