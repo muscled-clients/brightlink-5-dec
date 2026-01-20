@@ -866,8 +866,9 @@
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
-            "layout_type": "detailed",
+            "layout_type": "simple",
             "simple_title": "",
+            "image": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
             "read_more_link": "",
@@ -898,8 +899,9 @@
           "settings": {
             "tab_title": "Flexibility",
             "icon": "flexible",
-            "layout_type": "detailed",
+            "layout_type": "simple",
             "simple_title": "",
+            "image": "shopify://shop_images/image_4_1.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The H Series supports numerous layers with an unrestricted arrangement. Each output display/board provides 16 layers (up to 18 layers maximum per port). The layers can freely cross different output loading areas while keeping layer size the same. Layers can be in any position, overlapped, or unlimited scaled. It supports functions such as image capture, layer configuration, layer flip, and more. This all helps you realize your creativity and create a captivating visual effect.",
             "read_more_link": "",
