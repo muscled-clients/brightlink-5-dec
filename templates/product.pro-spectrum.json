@@ -769,6 +769,7 @@
             "icon": "integration",
             "layout_type": "simple",
             "simple_title": "",
+            "image": "shopify://shop_images/image_5_1.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The H Series integrates splice processing and display control through module mainframe connectivity, offering a simplified All-in-One structure. This reduces equipment failure rates and improves operation and maintenance.",
             "read_more_link": "",
