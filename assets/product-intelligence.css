@@ -305,7 +305,12 @@
   font-style: normal;
   font-weight: 700;
   line-height: 30px;
-  text-decoration: underline;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
   transition: opacity 0.3s ease;
 }
 
