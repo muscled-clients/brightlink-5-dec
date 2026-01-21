@@ -133,20 +133,23 @@
 
   /* Individual Card */
   .competitive-advantages__card {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: 16px;
+    border: 1px solid rgba(229, 231, 235, 0.10);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
     position: relative;
-    background: rgba(10, 14, 26, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(10, 132, 255, 0.2);
-    border-radius: 12px;
-    padding: 40px 30px;
     text-align: center;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 40px rgba(10, 132, 255, 0.15), 0 20px 40px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    height: 100%;
+    box-sizing: border-box;
   }
 
   .competitive-advantages__card::before {
@@ -183,6 +186,16 @@
   }
   .competitive-advantages__card:hover .competitive-advantages__check svg {
     fill: #0A84FF;
+  }
+
+  /* Card Body (First Frame) */
+  .competitive-advantages__card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 32px;
+    align-self: stretch;
   }
 
   /* Icon */
@@ -270,16 +283,22 @@
     transition: fill 0.4s ease;
   }
 
-  /* Card Footer */
+  /* Card Footer (Second Frame) */
   .competitive-advantages__card-footer {
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    border-radius: 8px;
+    border: 1px solid rgba(10, 132, 255, 0.30);
+    background: rgba(10, 132, 255, 0.10);
     position: relative;
     z-index: 1;
-    margin-top: auto;
-    padding: 20px 25px;
-    background: rgba(20, 60, 100, 0.25);
-    border: 1px solid rgba(60, 100, 140, 0.4);
-    border-radius: 12px;
     text-align: center;
+    box-sizing: border-box;
   }
   .competitive-advantages__card-label {
     display: inline-block;
@@ -506,7 +525,8 @@
       {% for block in section.blocks %}
         {% if block.type == 'card' %}
           <div class="competitive-advantages__card" {{ block.shopify_attributes }}>
-            <div class="competitive-advantages__icon">
+            <div class="competitive-advantages__card-body">
+              <div class="competitive-advantages__icon">
               {% if block.settings.icon_type == 'clock' %}
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
               {% elsif block.settings.icon_type == 'layers' %}
@@ -568,6 +588,7 @@
                 </li>
               {% endif %}
             </ul>
+            </div>
 
             {% if block.settings.footer_label != blank or block.settings.footer_desc != blank %}
               <div class="competitive-advantages__card-footer">
