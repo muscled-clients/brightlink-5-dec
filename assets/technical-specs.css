@@ -105,7 +105,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  width: 1272px;
+  width: 1280px;
   max-width: calc(100% - 40px);
   box-sizing: border-box;
 }
@@ -120,7 +120,7 @@
 /* Individual Card */
 .technical-specs__card {
   display: flex;
-  width: 303px;
+  width: 305px;
   height: 228px;
   padding: 32px;
   flex-direction: column;
