@@ -262,8 +262,13 @@
 }
 
 .knowledge-center__accordion-arrow {
-  color: rgba(255, 255, 255, 0.5);
+  width: 18px;
+  height: 10.284px;
   transition: transform 0.3s ease;
+}
+
+.knowledge-center__accordion-arrow path {
+  fill: #A0AEC0;
 }
 
 .knowledge-center__accordion.active .knowledge-center__accordion-arrow {
