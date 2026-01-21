@@ -269,12 +269,13 @@
 }
 
 .product-intelligence__text--truncated p {
-  display: inline;
+  display: contents;
   margin: 0;
 }
 
 .product-intelligence__text--truncated p::after {
   content: ' ';
+  white-space: pre;
 }
 
 .product-intelligence__text--truncated .product-intelligence__read-more {
