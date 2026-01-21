@@ -171,9 +171,27 @@
   box-sizing: border-box;
 }
 
+.experience-scale__metric-icon i {
+  display: flex;
+  width: 23.625px;
+  height: 30px;
+  padding: 1.125px 0 1.875px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .experience-scale__metric-icon svg {
-  width: 24px;
-  height: 24px;
+  display: flex;
+  width: 23.625px;
+  height: 27px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.experience-scale__metric-icon svg path {
   fill: #0A84FF;
 }
 
