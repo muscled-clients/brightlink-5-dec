@@ -145,17 +145,15 @@
 
 .experience-scale__metric {
   display: flex;
-  width: 100%;
-  height: 182px;
   padding: 24px;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 16px;
+  align-self: stretch;
   border-radius: 8px;
   border: 2px solid rgba(10, 132, 255, 0.40);
   background: linear-gradient(45deg, rgba(10, 132, 255, 0.05) 50%, rgba(10, 132, 255, 0.02) 120.71%);
-  box-shadow: 0 0 35px 0 rgba(10, 132, 255, 0.15);
+  box-shadow: 0 0 35.027px 0 rgba(10, 132, 255, 0.15);
   box-sizing: border-box;
   text-align: center;
 }
