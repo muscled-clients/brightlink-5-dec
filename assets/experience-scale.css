@@ -158,10 +158,38 @@
   text-align: center;
 }
 
+.experience-scale__metric-icon {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  padding: 15px 18.188px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  background: rgba(10, 132, 255, 0.10);
+  box-shadow: 0 0 22.5px 0 rgba(10, 132, 255, 0.40);
+  box-sizing: border-box;
+}
+
+.experience-scale__metric-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: #0A84FF;
+}
+
+.experience-scale__metric-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
 .experience-scale__metric-value {
   font-size: 42px;
   font-weight: 700;
-  color: #3b82f6;
+  color: #0A84FF;
   line-height: 1;
   margin: 0;
 }
@@ -178,10 +206,6 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.5);
   line-height: 1.4;
-}
-
-.experience-scale__metric-icon {
-  display: none;
 }
 
 .experience-scale__cta {
