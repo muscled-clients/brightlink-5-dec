@@ -84,7 +84,7 @@
 
 /* Subheading */
 .product-intelligence__subheading {
-  width: 846px;
+  width: 888px;
   max-width: 100%;
   color: #A0AEC0;
   text-align: center;
@@ -92,7 +92,7 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 28px;
+  line-height: normal;
   margin: 0;
 }
 
