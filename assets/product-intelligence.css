@@ -269,7 +269,7 @@
 }
 
 .product-intelligence__text--truncated .product-intelligence__read-more {
-  display: block;
+  display: inline;
 }
 
 .product-intelligence__text--expanded {
