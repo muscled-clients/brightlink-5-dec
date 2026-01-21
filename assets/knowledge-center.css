@@ -287,20 +287,25 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
+  width: 100%;
+}
+
+.knowledge-center__questions-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0;
 }
 
 .knowledge-center__accordion.active .knowledge-center__accordion-content {
   max-height: 1000px;
 }
 
-.knowledge-center__questions-list {
-  padding: 0;
-}
-
 .knowledge-center__question-item {
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  width: 100%;
 }
 
 .knowledge-center__question-item:last-child .knowledge-center__question-header {
