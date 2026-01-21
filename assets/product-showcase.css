@@ -154,18 +154,22 @@
 }
 
 .product-showcase__slide-title {
+  align-self: stretch;
   color: #FFF;
   font-family: Inter, sans-serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
   line-height: normal;
   margin: 0;
 }
 
 .product-showcase__slide-desc {
-  color: rgba(255, 255, 255, 0.7);
+  align-self: stretch;
+  color: #A0AEC0;
   font-family: Inter, sans-serif;
-  font-size: 14px;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 400;
   line-height: normal;
   margin: 0;
