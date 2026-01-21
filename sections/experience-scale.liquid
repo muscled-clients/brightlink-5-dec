@@ -71,8 +71,10 @@
             </div>
             <div class="experience-scale__metric-text">
               <span class="experience-scale__metric-value">{{ metric.value }}</span>
-              <span class="experience-scale__metric-label">{{ metric.label }}</span>
-              <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
+              <div class="experience-scale__metric-title-wrapper">
+                <span class="experience-scale__metric-label">{{ metric.label }}</span>
+                <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
+              </div>
             </div>
           </div>
         {% endfor %}
@@ -87,8 +89,10 @@
           </div>
           <div class="experience-scale__metric-text">
             <span class="experience-scale__metric-value">{{ section.settings.metric1_value | default: '36x' }}</span>
-            <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
-            <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
+            <div class="experience-scale__metric-title-wrapper">
+              <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
+              <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
+            </div>
           </div>
         </div>
         <div class="experience-scale__metric">
@@ -106,8 +110,10 @@
           </div>
           <div class="experience-scale__metric-text">
             <span class="experience-scale__metric-value">{{ section.settings.metric2_value | default: '4x' }}</span>
-            <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
-            <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
+            <div class="experience-scale__metric-title-wrapper">
+              <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
+              <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
+            </div>
           </div>
         </div>
         <div class="experience-scale__metric">
@@ -122,8 +128,10 @@
           </div>
           <div class="experience-scale__metric-text">
             <span class="experience-scale__metric-value">{{ section.settings.metric3_value | default: '141' }}</span>
-            <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
-            <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
+            <div class="experience-scale__metric-title-wrapper">
+              <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
+              <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
+            </div>
           </div>
         </div>
       {% endif %}

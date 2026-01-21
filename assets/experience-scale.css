@@ -205,25 +205,42 @@
 }
 
 .experience-scale__metric-value {
-  font-size: 42px;
-  font-weight: 700;
   color: #0A84FF;
-  line-height: 1;
+  font-family: Inter, sans-serif;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
   margin: 0;
 }
 
+.experience-scale__metric-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  align-self: stretch;
+}
+
 .experience-scale__metric-label {
-  font-size: 16px;
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 600;
-  color: #ffffff;
+  line-height: normal;
   margin: 0;
 }
 
 .experience-scale__metric-desc {
-  font-size: 13px;
+  align-self: stretch;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.4;
+  line-height: normal;
 }
 
 .experience-scale__cta {
