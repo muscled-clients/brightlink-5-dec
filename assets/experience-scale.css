@@ -96,6 +96,7 @@
 .experience-scale__display {
   display: flex;
   width: 955px;
+  height: 697px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
