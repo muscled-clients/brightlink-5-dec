@@ -97,9 +97,15 @@
   display: flex;
   width: 955px;
   height: 697px;
+  padding: 40px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  border-radius: 16px;
+  border: 2px solid rgba(10, 132, 255, 0.40);
+  background: linear-gradient(45deg, rgba(10, 132, 255, 0.05) 50%, rgba(10, 132, 255, 0.02) 120.71%);
+  box-shadow: 0 0 80px 0 rgba(10, 132, 255, 0.20);
   box-sizing: border-box;
 }
 
@@ -111,8 +117,9 @@
 
 .experience-scale__image {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
+  object-fit: cover;
 }
 
 .experience-scale__image-placeholder {
