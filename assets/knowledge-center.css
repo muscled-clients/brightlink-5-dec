@@ -310,6 +310,7 @@
 .knowledge-center__question-header {
   display: flex;
   padding: 28px 12px;
+  justify-content: space-between;
   align-items: center;
   gap: 16px;
   align-self: stretch;
@@ -320,6 +321,7 @@
   cursor: pointer;
   text-align: left;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .knowledge-center__question-header span {
