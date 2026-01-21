@@ -263,17 +263,22 @@
 /* Truncated description with line clamp */
 .product-intelligence__text--truncated {
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .product-intelligence__text--truncated p {
   display: inline;
+  margin: 0;
 }
 
 .product-intelligence__text--truncated p::after {
   content: ' ';
+}
+
+.product-intelligence__text--truncated .product-intelligence__read-more {
+  display: inline;
 }
 
 .product-intelligence__text--expanded {
