@@ -260,34 +260,21 @@
   margin-bottom: 0;
 }
 
-/* Truncated description with line clamp */
-.product-intelligence__text--truncated {
-  display: -webkit-box;
-  -webkit-line-clamp: 7;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+/* Truncated description */
+.product-intelligence__text--truncated p {
+  margin: 0 0 0 0;
 }
 
-.product-intelligence__text--truncated .product-intelligence__para {
-  display: block;
-}
-
-.product-intelligence__text--truncated .product-intelligence__read-more {
-  display: block;
-}
-
-.product-intelligence__text--expanded {
-  display: block;
-  -webkit-line-clamp: unset;
-  overflow: visible;
+.product-intelligence__text--truncated p:last-of-type {
+  margin-bottom: 0;
 }
 
 .product-intelligence__text--expanded p {
-  display: block;
+  margin: 0 0 20px 0;
 }
 
-.product-intelligence__text--expanded p::after {
-  content: none;
+.product-intelligence__text--expanded p:last-of-type {
+  margin-bottom: 0;
 }
 
 .product-intelligence__read-more-toggle {
