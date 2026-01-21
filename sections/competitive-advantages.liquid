@@ -110,11 +110,22 @@
     margin: 0;
   }
 
+  /* Content Area (Cards + CTA) */
+  .competitive-advantages__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
+  }
+
   /* Cards Grid (Desktop Default) */
   .competitive-advantages__cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    display: flex;
+    padding: 0 80px;
+    align-items: center;
+    gap: 40px;
+    align-self: stretch;
     width: 1280px;
     max-width: calc(100% - 40px);
     box-sizing: border-box;
@@ -490,7 +501,8 @@
       {% endif %}
     </div>
 
-    <div class="competitive-advantages__cards" id="ca-slider-{{ section.id }}">
+    <div class="competitive-advantages__content">
+      <div class="competitive-advantages__cards" id="ca-slider-{{ section.id }}">
       {% for block in section.blocks %}
         {% if block.type == 'card' %}
           <div class="competitive-advantages__card" {{ block.shopify_attributes }}>
@@ -599,6 +611,7 @@
           </a>
         {% endif %}
       </div>
+    </div>
     </div>
 
   </div>
