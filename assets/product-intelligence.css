@@ -262,11 +262,12 @@
 
 /* Truncated description */
 .product-intelligence__text--truncated p {
-  margin: 0 0 0 0;
+  display: block;
+  margin: 0;
 }
 
-.product-intelligence__text--truncated p:last-of-type {
-  margin-bottom: 0;
+.product-intelligence__text--truncated .product-intelligence__read-more {
+  display: block;
 }
 
 .product-intelligence__text--expanded p {
