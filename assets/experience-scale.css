@@ -46,7 +46,7 @@
 /* Content wrapper for side-by-side layout */
 .experience-scale__content {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   width: 1280px;
   max-width: calc(100% - 40px);
