@@ -69,7 +69,7 @@
           </a>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
-          <a href="{{ section.settings.button_2_link }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
+          <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
             {{ section.settings.button_2_text }}
           </a>
         {% endif %}
