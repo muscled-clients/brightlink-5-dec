@@ -250,7 +250,7 @@
             </a>
           {% endif %}
           {% if section.settings.secondary_btn_text != blank %}
-            <a href="{{ section.settings.secondary_btn_link }}" class="system-configuration__btn--secondary">
+            <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="system-configuration__btn--secondary">
               {{ section.settings.secondary_btn_text }}
             </a>
           {% endif %}
