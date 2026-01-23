@@ -1,0 +1,185 @@
+{{ 'feature-badges.css' | asset_url | stylesheet_tag }}
+
+<section class="feature-badges" id="feature-badges">
+  <div class="feature-badges__container">
+    <div class="feature-badges__wrapper">
+      <div class="feature-badges__grid" data-slider="features">
+        <div class="feature-badges__item">
+          <div class="feature-badges__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
+            </svg>
+          </div>
+          <h4 class="feature-badges__title">{{ section.settings.feature1_title | default: 'SINCE 2009' }}</h4>
+          <p class="feature-badges__text">{{ section.settings.feature1_text | default: 'Established Excellence' }}</p>
+        </div>
+
+        <div class="feature-badges__item">
+          <div class="feature-badges__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h4 class="feature-badges__title">{{ section.settings.feature2_title | default: '4-YEAR WARRANTY' }}</h4>
+          <p class="feature-badges__text">{{ section.settings.feature2_text | default: 'Comprehensive Coverage' }}</p>
+        </div>
+
+        <div class="feature-badges__item">
+          <div class="feature-badges__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <circle cx="12" cy="12" r="6"></circle>
+              <circle cx="12" cy="12" r="2"></circle>
+            </svg>
+          </div>
+          <h4 class="feature-badges__title">{{ section.settings.feature3_title | default: 'LIFETIME SUPPORT' }}</h4>
+          <p class="feature-badges__text">{{ section.settings.feature3_text | default: 'Always Here to Help' }}</p>
+        </div>
+
+        <div class="feature-badges__item">
+          <div class="feature-badges__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.801 10A10 10 0 1 1 17 3.335"></path>
+              <path d="m9 11 3 3L22 4"></path>
+            </svg>
+          </div>
+          <h4 class="feature-badges__title">{{ section.settings.feature4_title | default: 'CERTIFIED' }}</h4>
+          <p class="feature-badges__text">{{ section.settings.feature4_text | default: 'CE, RoHS, FCC, ISO9001' }}</p>
+        </div>
+      </div>
+      <div class="feature-badges__dots" data-dots="features">
+        <button class="feature-badges__dot feature-badges__dot--active" data-index="0" aria-label="Feature 1"></button>
+        <button class="feature-badges__dot" data-index="1" aria-label="Feature 2"></button>
+        <button class="feature-badges__dot" data-index="2" aria-label="Feature 3"></button>
+        <button class="feature-badges__dot" data-index="3" aria-label="Feature 4"></button>
+      </div>
+    </div>
+
+    <p class="feature-badges__footer">{{ section.settings.footer_text | default: 'Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions' }}</p>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.feature-badges');
+  if (!section) return;
+
+  const slider = section.querySelector('[data-slider="features"]');
+  const dotsContainer = section.querySelector('[data-dots="features"]');
+  if (!slider || !dotsContainer) return;
+
+  const dots = dotsContainer.querySelectorAll('.feature-badges__dot');
+
+  // Update dots on scroll
+  slider.addEventListener('scroll', function() {
+    const scrollLeft = slider.scrollLeft;
+    const itemWidth = slider.offsetWidth;
+    const activeIndex = Math.round(scrollLeft / itemWidth);
+
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('feature-badges__dot--active', index === activeIndex);
+    });
+  });
+
+  // Click on dots to navigate
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      const itemWidth = slider.offsetWidth;
+      slider.scrollTo({
+        left: index * itemWidth,
+        behavior: 'smooth'
+      });
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Feature Badges",
+  "tag": "section",
+  "class": "feature-badges-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Feature 1"
+    },
+    {
+      "type": "text",
+      "id": "feature1_title",
+      "label": "Feature 1 Title",
+      "default": "SINCE 2009"
+    },
+    {
+      "type": "text",
+      "id": "feature1_text",
+      "label": "Feature 1 Text",
+      "default": "Established Excellence"
+    },
+    {
+      "type": "header",
+      "content": "Feature 2"
+    },
+    {
+      "type": "text",
+      "id": "feature2_title",
+      "label": "Feature 2 Title",
+      "default": "4-YEAR WARRANTY"
+    },
+    {
+      "type": "text",
+      "id": "feature2_text",
+      "label": "Feature 2 Text",
+      "default": "Comprehensive Coverage"
+    },
+    {
+      "type": "header",
+      "content": "Feature 3"
+    },
+    {
+      "type": "text",
+      "id": "feature3_title",
+      "label": "Feature 3 Title",
+      "default": "LIFETIME SUPPORT"
+    },
+    {
+      "type": "text",
+      "id": "feature3_text",
+      "label": "Feature 3 Text",
+      "default": "Always Here to Help"
+    },
+    {
+      "type": "header",
+      "content": "Feature 4"
+    },
+    {
+      "type": "text",
+      "id": "feature4_title",
+      "label": "Feature 4 Title",
+      "default": "CERTIFIED"
+    },
+    {
+      "type": "text",
+      "id": "feature4_text",
+      "label": "Feature 4 Text",
+      "default": "CE, RoHS, FCC, ISO9001"
+    },
+    {
+      "type": "header",
+      "content": "Footer"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Feature Badges"
+    }
+  ]
+}
+{% endschema %}
