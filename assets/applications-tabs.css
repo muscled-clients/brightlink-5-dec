@@ -467,77 +467,100 @@
 }
 
 .applications-tabs__why-section {
-  margin-top: auto;
+  display: flex;
+  width: 383px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .applications-tabs__why-title {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 20px;
+  gap: 12px;
 }
 
-.applications-tabs__why-title svg {
-  color: #3498db;
+.applications-tabs__why-icon-svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.applications-tabs__why-text {
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
 }
 
 .applications-tabs__features-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .applications-tabs__features-list li {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.75);
+  gap: 16px;
+  align-self: stretch;
 }
 
 .applications-tabs__features-list li svg {
+  width: 16px;
+  height: 12px;
   flex-shrink: 0;
-  color: #3498db;
+}
+
+.applications-tabs__feature-text {
+  color: #A0AEC0;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
 }
 
 /* CTA Section */
 .applications-tabs__cta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  align-self: stretch;
 }
 
 .applications-tabs__btn {
   display: flex;
-  width: 100%;
+  height: 59px;
   padding: 20px 64px;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  align-self: stretch;
   border-radius: 8px;
   background: #0A84FF;
   box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
   color: #FFF;
   text-align: center;
   font-family: Inter, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   line-height: normal;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .applications-tabs__btn:hover {
@@ -562,6 +585,7 @@
   font-weight: 700;
   line-height: normal;
   text-decoration-line: underline;
+  text-decoration-style: solid;
   text-transform: uppercase;
   background: transparent;
   border: none;
