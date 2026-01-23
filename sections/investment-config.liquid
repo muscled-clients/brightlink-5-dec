@@ -14,23 +14,23 @@
       <!-- Left Card - Main Pricing -->
       <div class="investment-config__card">
         <div class="investment-config__card-upper">
-          <div class="investment-config__card-header">
-            <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
-          </div>
+          <div class="investment-config__card-upper-top">
+            <div class="investment-config__top-frame">
+              <div class="investment-config__label-name">
+                <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
+                <h3 class="investment-config__product-name">{{ section.settings.product_name | default: 'Brightlink Pro Spectrum 217"' }}</h3>
+              </div>
+              <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
+            </div>
 
-          <div class="investment-config__product-info">
-            <h3 class="investment-config__product-name">{{ section.settings.product_name | default: 'Brightlink Pro Spectrum 217"' }}</h3>
-            <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
-          </div>
-
-          <div class="investment-config__pricing">
-            <div class="investment-config__price-row">
+            <div class="investment-config__discount-frame">
               <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
               <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
             </div>
+
             <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
-            <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
           </div>
+          <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
         </div>
 
         <div class="investment-config__card-lower">
@@ -40,32 +40,32 @@
             <div class="investment-config__includes-col">
               {% if section.settings.include_1 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_1 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_2 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_2 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_3 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_3 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_4 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_4 }}</span>
                 </div>
@@ -74,32 +74,32 @@
             <div class="investment-config__includes-col">
               {% if section.settings.include_5 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_5 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_6 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_6 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_7 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_7 }}</span>
                 </div>
               {% endif %}
               {% if section.settings.include_8 != blank %}
                 <div class="investment-config__include-item">
-                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
                   </svg>
                   <span>{{ section.settings.include_8 }}</span>
                 </div>
@@ -111,17 +111,13 @@
           <div class="investment-config__buttons">
             <a href="{{ section.settings.primary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--primary">
               {{ section.settings.primary_button_text | default: 'CALCULATE MY PROJECT' }}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                <path d="M13.707 6.70897C14.0977 6.31832 14.0977 5.68391 13.707 5.29326L8.70674 0.292985C8.31609 -0.0976617 7.68168 -0.0976617 7.29103 0.292985C6.90038 0.683632 6.90038 1.31804 7.29103 1.70869L10.5881 5.00262H1.00006C0.4469 5.00262 0 5.44952 0 6.00268C0 6.55583 0.4469 7.00273 1.00006 7.00273H10.585L7.29416 10.2967C6.90351 10.6873 6.90351 11.3217 7.29416 11.7124C7.6848 12.103 8.31921 12.103 8.70986 11.7124L13.7101 6.71209L13.707 6.70897Z" fill="#0A84FF"/>
               </svg>
             </a>
             <a href="{{ section.settings.secondary_button_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="investment-config__btn investment-config__btn--secondary">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"></rect>
-                <line x1="16" x2="16" y1="2" y2="6"></line>
-                <line x1="8" x2="8" y1="2" y2="6"></line>
-                <line x1="3" x2="21" y1="10" y2="10"></line>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                <path d="M4.75 0.75C4.75 0.334375 4.41563 0 4 0C3.58437 0 3.25 0.334375 3.25 0.75V2H2C0.896875 2 0 2.89687 0 4V4.5V6V14C0 15.1031 0.896875 16 2 16H12C13.1031 16 14 15.1031 14 14V6V4.5V4C14 2.89687 13.1031 2 12 2H10.75V0.75C10.75 0.334375 10.4156 0 10 0C9.58438 0 9.25 0.334375 9.25 0.75V2H4.75V0.75ZM1.5 6H12.5V14C12.5 14.275 12.275 14.5 12 14.5H2C1.725 14.5 1.5 14.275 1.5 14V6Z" fill="white"/>
               </svg>
               {{ section.settings.secondary_button_text | default: 'SCHEDULE CONSULTATION' }}
             </a>
