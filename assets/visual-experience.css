@@ -150,11 +150,14 @@
 }
 
 .visual-experience__heading {
+  align-self: stretch;
+  color: #FFF;
+  font-family: Inter, sans-serif;
   font-size: 48px;
+  font-style: normal;
   font-weight: 700;
+  line-height: normal;
   letter-spacing: -2px;
-  color: #ffffff;
-  line-height: 1.2;
   margin: 0;
 }
 
