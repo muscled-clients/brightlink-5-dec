@@ -141,15 +141,24 @@
 .contact-discussion__card-icon {
   display: flex;
   width: 56px;
+  height: 56px;
   padding: 13px;
   flex-direction: column;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 11px;
   border-radius: 64px;
   background: rgba(10, 132, 255, 0.20);
   color: #0A84FF;
   box-sizing: border-box;
   transition: color 0.4s ease, background 0.4s ease;
+}
+
+/* Icon size for cards 2 and 3 */
+.contact-discussion__card:nth-child(2) .contact-discussion__card-icon,
+.contact-discussion__card:nth-child(3) .contact-discussion__card-icon {
+  width: 60px;
+  height: 60px;
 }
 
 .contact-discussion__card-title {
