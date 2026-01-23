@@ -144,7 +144,7 @@
                     <p>{{ block.settings.description }}</p>
                     <p>{{ block.settings.description2 }}</p>
                   </div>
-                  <a href="{{ block.settings.read_more_link | default: '#' }}" class="applications-tabs__read-more">{{ block.settings.read_more_text | default: 'Read More' }}</a>
+                  <button type="button" class="applications-tabs__read-more" data-read-more>{{ block.settings.read_more_text | default: 'Read More' }}</button>
                 </div>
 
                 <div class="applications-tabs__why-section">
@@ -296,6 +296,18 @@ document.addEventListener('DOMContentLoaded', function() {
       switchToTab(newIndex);
     });
   }
+
+  // Read More toggle functionality
+  const readMoreButtons = section.querySelectorAll('[data-read-more]');
+  readMoreButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const textElement = this.previousElementSibling;
+      if (textElement && textElement.classList.contains('applications-tabs__text')) {
+        const isExpanded = textElement.classList.toggle('applications-tabs__text--expanded');
+        this.textContent = isExpanded ? 'Read Less' : 'Read More';
+      }
+    });
+  });
 });
 </script>
 
@@ -412,11 +424,6 @@ document.addEventListener('DOMContentLoaded', function() {
           "id": "read_more_text",
           "label": "Read More Text",
           "default": "Read More"
-        },
-        {
-          "type": "url",
-          "id": "read_more_link",
-          "label": "Read More Link"
         },
         {
           "type": "header",

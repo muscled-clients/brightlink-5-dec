@@ -441,6 +441,11 @@
   content: ' ';
 }
 
+.applications-tabs__text--expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
 .applications-tabs__read-more {
   color: #0A84FF;
   font-family: Inter, sans-serif;
