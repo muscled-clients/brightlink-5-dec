@@ -135,14 +135,17 @@
         {% if section.settings.addon1_title != blank %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
-              <div class="investment-config__addon-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <path d="M4.07411 2.12946L0 10.2857H16.7143V0H7.52946C6.06696 0 4.73304 0.827679 4.07411 2.12946ZM19.2857 10.2857H36L31.9259 2.12946C31.267 0.827679 29.933 0 28.4705 0H19.2857V10.2857ZM36 12.8571H0V30.8571C0 33.6937 2.30625 36 5.14286 36H30.8571C33.6937 36 36 33.6937 36 30.8571V12.8571Z" fill="#0A84FF"/>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ section.settings.addon1_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ section.settings.addon1_desc }}</p>
               </div>
-              <h4 class="investment-config__addon-title">{{ section.settings.addon1_title }}</h4>
-              <p class="investment-config__addon-desc">{{ section.settings.addon1_desc }}</p>
               <span class="investment-config__addon-price">{{ section.settings.addon1_price }}</span>
             </div>
             <a href="{{ section.settings.addon1_link | default: '#' }}" class="investment-config__addon-btn">
@@ -155,13 +158,17 @@
         {% if section.settings.addon2_title != blank %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
-              <div class="investment-config__addon-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                </svg>
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ section.settings.addon2_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ section.settings.addon2_desc }}</p>
               </div>
-              <h4 class="investment-config__addon-title">{{ section.settings.addon2_title }}</h4>
-              <p class="investment-config__addon-desc">{{ section.settings.addon2_desc }}</p>
               <span class="investment-config__addon-price">{{ section.settings.addon2_price }}</span>
             </div>
             <a href="{{ section.settings.addon2_link | default: '#' }}" class="investment-config__addon-btn">
@@ -174,16 +181,20 @@
         {% if section.settings.addon3_title != blank %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
-              <div class="investment-config__addon-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="3" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="3" width="7" height="7"></rect>
-                  <rect x="14" y="14" width="7" height="7"></rect>
-                  <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="3" width="7" height="7"></rect>
+                      <rect x="14" y="14" width="7" height="7"></rect>
+                      <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ section.settings.addon3_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ section.settings.addon3_desc }}</p>
               </div>
-              <h4 class="investment-config__addon-title">{{ section.settings.addon3_title }}</h4>
-              <p class="investment-config__addon-desc">{{ section.settings.addon3_desc }}</p>
               <span class="investment-config__addon-price">{{ section.settings.addon3_price }}</span>
             </div>
             <a href="{{ section.settings.addon3_link | default: '#' }}" class="investment-config__addon-btn">

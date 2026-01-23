@@ -296,7 +296,7 @@
   display: flex;
   width: 413px;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   gap: 12px;
   flex-shrink: 0;
@@ -310,7 +310,6 @@
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
-  flex: 1;
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.10);
   background: rgba(255, 255, 255, 0.02);
@@ -326,37 +325,67 @@
   align-self: stretch;
 }
 
+.investment-config__addon-upper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  align-self: stretch;
+}
+
+.investment-config__addon-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  align-self: stretch;
+}
+
 .investment-config__addon-icon {
-  color: #0A84FF;
+  width: 36px;
+  height: 36px;
+  fill: #0A84FF;
 }
 
 .investment-config__addon-title {
-  font-size: 14px;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 600;
-  color: #ffffff;
+  line-height: normal;
   margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 1px;
 }
 
 .investment-config__addon-desc {
-  font-size: 12px;
+  align-self: stretch;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  line-height: 20px;
   margin: 0;
-  line-height: 1.4;
 }
 
 .investment-config__addon-price {
-  font-size: 32px;
-  font-weight: 700;
+  height: 36px;
+  align-self: stretch;
   color: #0A84FF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
   margin: 0;
 }
 
 .investment-config__addon-btn {
   display: flex;
-  padding: 12px 0;
+  padding: 14px 0;
   justify-content: center;
   align-items: center;
   gap: 10px;
@@ -365,13 +394,16 @@
   border: 1px solid rgba(10, 132, 255, 0.30);
   background: rgba(10, 132, 255, 0.10);
   color: #0A84FF;
-  font-size: 12px;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  line-height: normal;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .investment-config__addon-btn:hover {
