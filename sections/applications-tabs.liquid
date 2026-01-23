@@ -138,10 +138,13 @@
               </div>
 
               <div class="applications-tabs__right">
-                <h3 class="applications-tabs__content-heading">{{ block.settings.heading }}</h3>
-                <div class="applications-tabs__text">
-                  <p>{{ block.settings.description }}</p>
-                  <p>{{ block.settings.description2 }}</p>
+                <div class="applications-tabs__right-top">
+                  <h3 class="applications-tabs__content-heading">{{ block.settings.heading }}</h3>
+                  <div class="applications-tabs__text">
+                    <p>{{ block.settings.description }}</p>
+                    <p>{{ block.settings.description2 }}</p>
+                  </div>
+                  <a href="{{ block.settings.read_more_link | default: '#' }}" class="applications-tabs__read-more">{{ block.settings.read_more_text | default: 'Read More' }}</a>
                 </div>
 
                 <div class="applications-tabs__why-section">
@@ -403,6 +406,17 @@ document.addEventListener('DOMContentLoaded', function() {
           "id": "description2",
           "label": "Description 2",
           "default": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity."
+        },
+        {
+          "type": "text",
+          "id": "read_more_text",
+          "label": "Read More Text",
+          "default": "Read More"
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
         },
         {
           "type": "header",
