@@ -212,10 +212,9 @@
 /* Bottom Row - Book A Call + Price */
 .visual-experience__cta-footer {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start;
   gap: 16px;
-  width: 100%;
 }
 
 .visual-experience__btn--secondary {
