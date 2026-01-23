@@ -135,9 +135,9 @@
 .visual-experience__text {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  min-width: 0;
+  align-items: flex-start;
   gap: 24px;
+  flex: 1 0 0;
 }
 
 .visual-experience__heading {
