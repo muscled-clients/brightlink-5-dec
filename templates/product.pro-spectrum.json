@@ -1426,7 +1426,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "contact_discussion_4mTGeD": {
+    "contact_discussion_FhbiMV": {
       "type": "contact-discussion",
       "name": "Contact Discussion",
       "settings": {
@@ -1445,7 +1445,13 @@
         "demo_subtitle": "See Pro Spectrum In Person",
         "demo_info": "Virtual or in-person tours",
         "demo_button_text": "BOOK APPOINTMENT",
-        "demo_button_link": "",
+        "demo_button_link": ""
+      }
+    },
+    "feature_badges_QYYeLV": {
+      "type": "feature-badges",
+      "name": "Feature Badges",
+      "settings": {
         "feature1_title": "SINCE 2009",
         "feature1_text": "Established Excellence",
         "feature2_title": "4-YEAR WARRANTY",
@@ -1477,6 +1483,7 @@
     "custom_config_builder_KRqknj",
     "knowledge_center_KDhAHL",
     "visual_experience_wMKFfe",
-    "contact_discussion_4mTGeD"
+    "contact_discussion_FhbiMV",
+    "feature_badges_QYYeLV"
   ]
 }
