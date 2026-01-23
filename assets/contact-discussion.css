@@ -79,9 +79,11 @@
 }
 
 .contact-discussion__cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  width: 1280px;
+  max-width: 100%;
+  align-items: center;
+  gap: 40px;
 }
 
 .contact-discussion .contact-discussion__card {
