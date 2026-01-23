@@ -220,8 +220,6 @@
   align-items: flex-start;
   gap: 28px;
   align-self: stretch;
-  padding: 40px 20px;
-  box-sizing: border-box;
 }
 
 .applications-tabs__left {
