@@ -15,12 +15,14 @@
   position: relative;
   z-index: 1;
   width: 1280px;
-  max-width: calc(100% - 40px);
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 120px 60px 0;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  align-items: center;
+  gap: 60px;
+  box-sizing: border-box;
 }
 
 .feature-badges__wrapper {
@@ -28,19 +30,27 @@
 }
 
 .feature-badges__grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  display: flex;
+  width: 1280px;
+  max-width: 100%;
   padding: 40px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.00);
 }
 
 .feature-badges__item {
-  text-align: center;
-  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19px;
+  flex: 1 0 0;
+  padding: 40px;
   border-radius: 10px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  box-sizing: border-box;
 }
 
 .feature-badges__item:hover {
@@ -66,37 +76,63 @@
 
 .feature-badges__icon {
   display: flex;
-  align-items: center;
+  width: 48px;
+  padding: 12px 15px;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-  margin: 0 auto 15px;
-  color: #FFD700;
-  transition: color 0.4s ease;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26px;
+  background: rgba(212, 175, 55, 0.20);
+  color: #D4AF37;
+  box-sizing: border-box;
+  transition: color 0.4s ease, background 0.4s ease;
+}
+
+/* Frame 2: Title + Text */
+.feature-badges__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
 }
 
 .feature-badges__title {
-  font-size: 14px;
+  height: 28px;
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
   font-weight: 700;
-  color: #ffffff;
-  margin: 0 0 6px;
-  letter-spacing: 0.5px;
+  line-height: normal;
+  margin: 0;
   transition: color 0.4s ease, text-shadow 0.4s ease;
 }
 
 .feature-badges__text {
-  font-size: 13px;
+  height: 20px;
+  align-self: stretch;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  line-height: normal;
   margin: 0;
   transition: color 0.4s ease;
 }
 
 .feature-badges__footer {
+  color: #A0AEC0;
   text-align: center;
-  font-size: 14px;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  line-height: 26px;
   margin: 0;
 }
 
