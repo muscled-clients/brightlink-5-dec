@@ -12,16 +12,15 @@
 }
 
 .contact-discussion__container {
-  position: relative;
-  z-index: 1;
+  display: flex;
   width: 1440px;
   max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 60px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
 }
 
 .contact-discussion__header {
