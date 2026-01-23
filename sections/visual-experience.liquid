@@ -61,13 +61,15 @@
 
       <!-- Right Side - Text Content -->
       <div class="visual-experience__text">
-        {% if section.settings.heading != blank %}
-          <h2 class="visual-experience__heading">{{ section.settings.heading }}</h2>
-        {% endif %}
+        <div class="visual-experience__text-content">
+          {% if section.settings.heading != blank %}
+            <h2 class="visual-experience__heading">{{ section.settings.heading }}</h2>
+          {% endif %}
 
-        {% if section.settings.description != blank %}
-          <p class="visual-experience__description">{{ section.settings.description }}</p>
-        {% endif %}
+          {% if section.settings.description != blank %}
+            <p class="visual-experience__description">{{ section.settings.description }}</p>
+          {% endif %}
+        </div>
 
         <!-- CTA Box -->
         <div class="visual-experience__cta">
