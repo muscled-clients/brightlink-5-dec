@@ -195,9 +195,14 @@
 }
 
 .investment-config__price-note {
-  font-size: 13px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
+  align-self: stretch;
+  color: #64748B;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
   margin: 0;
 }
 
