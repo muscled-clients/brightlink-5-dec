@@ -148,9 +148,15 @@
               </div>
               <span class="investment-config__addon-price">{{ section.settings.addon1_price }}</span>
             </div>
-            <a href="{{ section.settings.addon1_link | default: '#' }}" class="investment-config__addon-btn">
-              {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
-            </a>
+            {% if section.settings.addon1_product %}
+              <button type="button" class="investment-config__addon-btn" data-variant-id="{{ section.settings.addon1_product.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
           </div>
         {% endif %}
 
@@ -394,9 +400,9 @@
       "default": "ADD TO ORDER"
     },
     {
-      "type": "url",
-      "id": "addon1_link",
-      "label": "Button Link"
+      "type": "product",
+      "id": "addon1_product",
+      "label": "Select Product for Add to Cart"
     },
     {
       "type": "header",
@@ -427,9 +433,9 @@
       "default": "ADD TO ORDER"
     },
     {
-      "type": "url",
-      "id": "addon2_link",
-      "label": "Button Link"
+      "type": "product",
+      "id": "addon2_product",
+      "label": "Select Product for Add to Cart"
     },
     {
       "type": "header",
@@ -460,9 +466,9 @@
       "default": "ADD TO ORDER"
     },
     {
-      "type": "url",
-      "id": "addon3_link",
-      "label": "Button Link"
+      "type": "product",
+      "id": "addon3_product",
+      "label": "Select Product for Add to Cart"
     }
   ],
   "presets": [
