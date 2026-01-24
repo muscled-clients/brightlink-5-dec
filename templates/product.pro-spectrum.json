@@ -217,31 +217,31 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_H8meNk": {
+    "hero_video_wall_R6Fg4a": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_tknYUi": {
+        "feature_da9mHp": {
           "type": "feature",
           "settings": {
             "feature_value": "217\"",
             "feature_label": "Diagonal Display"
           }
         },
-        "feature_bcH8Ej": {
+        "feature_iXtkTE": {
           "type": "feature",
           "settings": {
             "feature_value": "8.3M",
             "feature_label": "Total Pixels"
           }
         },
-        "feature_deLxyj": {
+        "feature_B6TYtQ": {
           "type": "feature",
           "settings": {
             "feature_value": "1.25mm",
             "feature_label": "Pixel Pitch"
           }
         },
-        "feature_WrmzyD": {
+        "feature_U6pf8f": {
           "type": "feature",
           "settings": {
             "feature_value": "2hrs",
@@ -250,15 +250,14 @@
         }
       },
       "block_order": [
-        "feature_tknYUi",
-        "feature_bcH8Ej",
-        "feature_deLxyj",
-        "feature_WrmzyD"
+        "feature_da9mHp",
+        "feature_iXtkTE",
+        "feature_B6TYtQ",
+        "feature_U6pf8f"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "217\" COB LED Video Wall",
@@ -267,7 +266,7 @@
         "price_text": "$19,250.00 (30% Deposit)",
         "shipping_text": "",
         "button_1_text": "Order Now",
-        "button_1_link": "shopify://products/20-x-rj45-sending-card-for-novastar-h-series-video-splicer",
+        "button_1_link": "shopify://products/brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
         "button_2_text": "Book A Call",
         "button_2_link": "",
         "label_font_size": 12,
@@ -283,9 +282,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196f3",
-        "button_hover_color": "#1976d2",
-        "series_label_color": "#ffd700",
+        "button_bg_color": "#2196F3",
+        "button_hover_color": "#1976D2",
+        "series_label_color": "#FFD700",
         "custom_class": ""
       }
     },
@@ -1193,17 +1192,17 @@
         "addon1_desc": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.",
         "addon1_price": "$249",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_link": "",
+        "addon1_product": "",
         "addon2_title": "EXTENDED WARRANTY",
         "addon2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
         "addon2_price": "$4,500",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_link": "",
+        "addon2_product": "",
         "addon3_title": "SPARE MODULE KIT",
         "addon3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
         "addon3_price": "$8,900",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_link": ""
+        "addon3_product": ""
       }
     },
     "custom_config_builder_KRqknj": {
@@ -1474,7 +1473,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_H8meNk",
+    "hero_video_wall_R6Fg4a",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
