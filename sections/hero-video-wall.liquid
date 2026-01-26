@@ -63,10 +63,10 @@
 
       <!-- CTA Buttons -->
       <div class="hero-video-wall__buttons">
-        {% if section.settings.button_1_text != blank %}
-          <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+        {% if section.settings.button_1_text != blank and section.settings.button_1_product %}
+          <button type="button" class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart" data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}">
             {{ section.settings.button_1_text }}
-          </a>
+          </button>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
           <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
@@ -130,6 +130,45 @@
     {% endif %}
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.js-add-to-cart').forEach(function(button) {
+    button.addEventListener('click', function() {
+      var variantId = this.getAttribute('data-variant-id');
+      var btn = this;
+      var originalText = btn.textContent;
+
+      if (!variantId) return;
+
+      btn.disabled = true;
+      btn.textContent = 'Adding...';
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id: variantId, quantity: 1 })
+      })
+      .then(function(response) { return response.json(); })
+      .then(function() {
+        btn.textContent = 'Added!';
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 2000);
+        document.dispatchEvent(new CustomEvent('cart:updated'));
+      })
+      .catch(function() {
+        btn.textContent = 'Error';
+        setTimeout(function() {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        }, 2000);
+      });
+    });
+  });
+});
+</script>
 
 {% schema %}
 {
@@ -223,9 +262,9 @@
       "default": "Order Now"
     },
     {
-      "type": "url",
-      "id": "button_1_link",
-      "label": "Button 1 Link"
+      "type": "product",
+      "id": "button_1_product",
+      "label": "Select Product for Add to Cart"
     },
     {
       "type": "header",
