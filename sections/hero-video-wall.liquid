@@ -152,11 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
       .then(function(response) { return response.json(); })
       .then(function() {
         btn.textContent = 'Added!';
-        setTimeout(function() {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 2000);
-        document.dispatchEvent(new CustomEvent('cart:updated'));
+        window.location.href = '/cart';
       })
       .catch(function() {
         btn.textContent = 'Error';
