@@ -63,10 +63,10 @@
 
       <!-- CTA Buttons -->
       <div class="hero-video-wall__buttons">
-        {% if section.settings.button_1_product %}
-          <button type="button" class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart" data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}">
-            Order Now
-          </button>
+        {% if section.settings.button_1_text != blank %}
+          <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
+            {{ section.settings.button_1_text }}
+          </a>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
           <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
@@ -130,57 +130,6 @@
     {% endif %}
   </div>
 </section>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const addToCartButtons = document.querySelectorAll('.js-add-to-cart');
-
-  addToCartButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      const variantId = this.getAttribute('data-variant-id');
-      const originalText = this.textContent;
-
-      if (!variantId) return;
-
-      // Disable button and show loading
-      this.disabled = true;
-      this.textContent = 'Adding...';
-
-      // Add to cart using Shopify Ajax API
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          id: variantId,
-          quantity: 1
-        })
-      })
-      .then(response => response.json())
-      .then(data => {
-        // Success - show added message
-        this.textContent = 'Added!';
-        setTimeout(() => {
-          this.textContent = originalText;
-          this.disabled = false;
-        }, 2000);
-
-        // Optional: Update cart count or open cart drawer
-        document.dispatchEvent(new CustomEvent('cart:updated'));
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        this.textContent = 'Error';
-        setTimeout(() => {
-          this.textContent = originalText;
-          this.disabled = false;
-        }, 2000);
-      });
-    });
-  });
-});
-</script>
 
 {% schema %}
 {
@@ -268,9 +217,15 @@ document.addEventListener('DOMContentLoaded', function() {
       "content": "Button 1"
     },
     {
-      "type": "product",
-      "id": "button_1_product",
-      "label": "Select Product for Add to Cart"
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Order Now"
+    },
+    {
+      "type": "url",
+      "id": "button_1_link",
+      "label": "Button 1 Link"
     },
     {
       "type": "header",
@@ -285,7 +240,8 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       "type": "url",
       "id": "button_2_link",
-      "label": "Button 2 Link"
+      "label": "Button 2 Link",
+      "default": "https://cal.com/tyson-edwards-brightlinkav"
     },
     {
       "type": "header",
