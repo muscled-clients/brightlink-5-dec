@@ -258,6 +258,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "217\" COB LED Video Wall",
@@ -266,7 +267,7 @@
         "price_text": "$19,250.00 (30% Deposit)",
         "shipping_text": "",
         "button_1_text": "Order Now",
-        "button_1_link": "shopify://products/brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+        "button_1_link": "",
         "button_2_text": "Book A Call",
         "button_2_link": "",
         "label_font_size": 12,
@@ -282,9 +283,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
