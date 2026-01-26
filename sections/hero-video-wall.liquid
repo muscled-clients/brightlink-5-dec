@@ -63,9 +63,9 @@
 
       <!-- CTA Buttons -->
       <div class="hero-video-wall__buttons">
-        {% if section.settings.button_1_text != blank and section.settings.button_1_product %}
+        {% if section.settings.button_1_product %}
           <button type="button" class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart" data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}">
-            {{ section.settings.button_1_text }}
+            Order Now
           </button>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
@@ -266,12 +266,6 @@ document.addEventListener('DOMContentLoaded', function() {
     {
       "type": "header",
       "content": "Button 1"
-    },
-    {
-      "type": "text",
-      "id": "button_1_text",
-      "label": "Button 1 Text",
-      "default": "Order Now"
     },
     {
       "type": "product",
