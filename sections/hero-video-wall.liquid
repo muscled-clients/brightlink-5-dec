@@ -63,16 +63,10 @@
 
       <!-- CTA Buttons -->
       <div class="hero-video-wall__buttons">
-        {% if section.settings.button_1_text != blank %}
-          {% if section.settings.button_1_product %}
-            <button type="button" class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart" data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}">
-              {{ section.settings.button_1_text }}
-            </button>
-          {% else %}
-            <a href="{{ section.settings.button_1_link }}" class="hero-video-wall__btn hero-video-wall__btn--primary">
-              {{ section.settings.button_1_text }}
-            </a>
-          {% endif %}
+        {% if section.settings.button_1_text != blank and section.settings.button_1_product %}
+          <button type="button" class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart" data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}">
+            {{ section.settings.button_1_text }}
+          </button>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
           <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="hero-video-wall__btn hero-video-wall__btn--secondary">
@@ -280,14 +274,9 @@ document.addEventListener('DOMContentLoaded', function() {
       "default": "Order Now"
     },
     {
-      "type": "url",
-      "id": "button_1_link",
-      "label": "Button 1 Link"
-    },
-    {
       "type": "product",
       "id": "button_1_product",
-      "label": "Product for Add to Cart (optional)"
+      "label": "Select Product for Add to Cart"
     },
     {
       "type": "header",
