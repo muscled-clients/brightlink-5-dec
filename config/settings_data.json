@@ -155,7 +155,6 @@
         ],
         "settings": {
           "enable_sticky_header": false,
-          "logo": "shopify://shop_images/Brightlink_Logo.png",
           "logo_max_width": 260,
           "mobile_logo_max_width": 80,
           "show_locale_selector": false,
