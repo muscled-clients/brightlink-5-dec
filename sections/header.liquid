@@ -147,10 +147,15 @@
             </a>
           {%- endcapture -%}
   
+          {%- assign hide_logo_style = '' -%}
+          {%- if request.page_type == 'product' and product.metafields.custom.hide_logo == true -%}
+            {%- assign hide_logo_style = 'opacity: 0; visibility: hidden; pointer-events: none;' -%}
+          {%- endif -%}
+
           {%- if request.page_type == 'index' -%}
-            <h1 class="header__logo">{{ header_logo }}</h1>
+            <h1 class="header__logo" style="{{ hide_logo_style }}">{{ header_logo }}</h1>
           {%- else -%}
-            <div class="header__logo">{{ header_logo }}</div>
+            <div class="header__logo" style="{{ hide_logo_style }}">{{ header_logo }}</div>
           {%- endif -%}
   
           {%- comment -%}
