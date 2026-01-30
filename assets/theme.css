@@ -7154,7 +7154,7 @@ select option {
 }
 
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
-  margin-left: 19 !important;
+  margin-left: 19px !important;
 }
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:last-child {
   margin-right: 0 !important;
