@@ -90,6 +90,7 @@
         "blocks": {
           "32b311f4-80ce-4fba-b3fc-bed158b52c4d": {
             "type": "mega_menu",
+            "disabled": true,
             "settings": {
               "menu_item": "HDMI & HDBaseT",
               "image_1": "shopify://shop_images/LED-walls.jpg",
@@ -104,7 +105,6 @@
           },
           "40f03877-bc13-4bed-a313-1fb15ce753f5": {
             "type": "mega_menu",
-            "disabled": true,
             "settings": {
               "menu_item": "Matrix Switchers",
               "image_1": "shopify://shop_images/driver-matrix-image.jpg",
