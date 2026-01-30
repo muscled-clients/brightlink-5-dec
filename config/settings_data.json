@@ -90,7 +90,6 @@
         "blocks": {
           "32b311f4-80ce-4fba-b3fc-bed158b52c4d": {
             "type": "mega_menu",
-            "disabled": true,
             "settings": {
               "menu_item": "HDMI & HDBaseT",
               "image_1": "shopify://shop_images/LED-walls.jpg",
