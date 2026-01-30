@@ -91,12 +91,9 @@
           "32b311f4-80ce-4fba-b3fc-bed158b52c4d": {
             "type": "mega_menu",
             "settings": {
-              "menu_item": "HDMI & HDBaseT",
-              "image_1": "shopify://shop_images/LED-walls.jpg",
+              "menu_item": "LED Video Walls",
               "image_1_heading": "LED VIDEO WALL SET SALE",
               "image_1_text": "",
-              "image_1_link": "shopify://collections/led-small-pitch-hd-video-walls",
-              "image_2": "shopify://shop_images/video-wall.jpg",
               "image_2_heading": "VIDEO WALL SET SALE",
               "image_2_text": "",
               "image_2_link": "shopify://collections/video-wall-sets"
@@ -107,11 +104,8 @@
             "disabled": true,
             "settings": {
               "menu_item": "Matrix Switchers",
-              "image_1": "shopify://shop_images/driver-matrix-image.jpg",
               "image_1_heading": "4K60 Seamless Modular Matrix",
               "image_1_text": "",
-              "image_1_link": "shopify://collections/4k60-seamless-modular-matrix",
-              "image_2": "shopify://shop_images/bl-pro-mix-hd-hdbt-2020-access_new_29c37f6f-0779-4cfb-8b1d-d65d2b968027.jpg",
               "image_2_heading": "4K30 Seamless Modular Matrix",
               "image_2_text": "",
               "image_2_link": "shopify://collections/4k30-seamless-modular-matrix"
@@ -122,11 +116,8 @@
             "disabled": true,
             "settings": {
               "menu_item": "Video Walls",
-              "image_1": "shopify://shop_images/LED-walls-SQUARE.jpg",
               "image_1_heading": "LED HD VIDEO WALLS",
               "image_1_text": "",
-              "image_1_link": "shopify://collections/led-small-pitch-hd-video-walls",
-              "image_2": "shopify://shop_images/4x4-package-55-inch.jpg",
               "image_2_heading": "LARGE SCALE VIDEO WALL SETS",
               "image_2_text": "",
               "image_2_link": "shopify://collections/video-wall-sets"
@@ -139,7 +130,6 @@
               "menu_item": "LED Video Walls",
               "image_1_heading": "Your image",
               "image_1_text": "Tell your story",
-              "image_1_link": "",
               "image_2_heading": "Your image",
               "image_2_text": "Tell your story",
               "image_2_link": ""
