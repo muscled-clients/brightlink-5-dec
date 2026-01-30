@@ -7112,6 +7112,9 @@ select option {
   min-height: 100%;
   /* overflow: auto; */
 }
+.mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
+    margin-left: 19 !important;
+}
 
 .mega-menu__inner--center {
   justify-content: center;
