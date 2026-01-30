@@ -37,7 +37,7 @@
           {%- endfor -%}
         {%- endcapture -%}
         
-        <div class="mega-menu__column-list">
+        <div class="mega-menu__column-list" style="width: {{ 230 | times: mega_menu.links.size }}px">
           {{- mega_menu_columns -}}
         </div>
       {%- endif -%}
@@ -54,20 +54,19 @@
 </div>
 
 <style>
-
-    .mega-menu__column-list {
-        display: grid !important;
-    }
-
-
-
-
   .mega-menu__column {
     display: inline-block;
     width: 230px;
     position: relative;
     padding: 10px;
   }
+ .mega-menu__linklist {
+    position: absolute;
+    left: 37% !important;
+ }
+
+
+
 
   .mega-menu__column:hover .mega-menu__linklist {
     display: block;
