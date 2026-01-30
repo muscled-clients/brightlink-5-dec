@@ -105,6 +105,7 @@
           },
           "40f03877-bc13-4bed-a313-1fb15ce753f5": {
             "type": "mega_menu",
+            "disabled": true,
             "settings": {
               "menu_item": "Matrix Switchers",
               "image_1": "shopify://shop_images/driver-matrix-image.jpg",
@@ -134,7 +135,6 @@
           },
           "mega_menu_KwAyxJ": {
             "type": "mega_menu",
-            "disabled": true,
             "settings": {
               "menu_item": "LED Video Walls",
               "image_1_heading": "Your image",
