@@ -1,4 +1,4 @@
-{%- if section.settings.desktop_navigation_layout == 'condensed' -%}
+{% comment %} {%- if section.settings.desktop_navigation_layout == 'condensed' -%}
   {%- assign is_condensed = true -%}
 {%- else -%}
   {%- assign is_condensed = false -%}
@@ -108,4 +108,6 @@
       {{- mega_menu_inner -}}
     </div>
   {%- endif -%}
-</div>
+</div> {% endcomment %}
+
+
