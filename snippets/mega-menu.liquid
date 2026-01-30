@@ -18,35 +18,12 @@
 
 <div id="{{ index }}" class="mega-menu {% if is_floating %}mega-menu--floating{% endif %}" data-type="menu" aria-hidden="true" role="list" {{ mega_menu_block.shopify_attributes }}>
   {%- capture mega_menu_inner -%}
-    {%- assign should_center = false -%}
-
-    {%- unless is_floating -%}
-      {%- assign should_center = true -%}
-    {%- endunless -%}
-
-    {%- assign has_two_images = false -%}
-
-    {%- if mega_menu_block.settings.image_1 != blank and mega_menu_block.settings.image_2 != blank -%}
-      {%- assign has_two_images = true -%}
-    {%- endif -%}
-
-    {%- assign mega_menu_classes = '' -%}
-
-    {%- if should_center and mega_menu.links.size <= 4 -%}
-      {%- if has_two_images -%}
-        {%- assign mega_menu_classes = 'mega-menu__inner--center' -%}
-      {%- else -%}
-        {%- assign mega_menu_classes = 'mega-menu__inner--center mega-menu__inner--large' -%}
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="mega-menu__inner {{ mega_menu_classes }}">
+    <div class="mega-menu__inner">
       {%- if mega_menu.links.size > 0 -%}
         {%- capture mega_menu_columns -%}
           {%- for link in mega_menu.links -%}
             <div class="mega-menu__column">
               <a href="{{ link.url }}" class="mega-menu__title heading">{{ link.title }}</a>
-
               {%- if link.links.size > 0 -%}
                 <ul class="mega-menu__linklist" role="list">
                   {%- for sub_link in link.links -%}
@@ -59,21 +36,11 @@
             </div>
           {%- endfor -%}
         {%- endcapture -%}
-
-        {%- if is_floating -%}
-          {%- comment -%}
-          IMPLEMENTATION NOTE: 230 is the size in pixel of a given column (it's 170 + 60 of margin). In order to avoid setting it in JS or
-                               having very complex HTML structure to achieve positioning, I used this trick.
-          {%- endcomment -%}
-          <div class="mega-menu__column-list" style="width: {{ 230 | times: mega_menu.links.size }}px">
-            {{- mega_menu_columns -}}
-          </div>
-        {%- else -%}
+        
+        <div class="mega-menu__column-list" style="width: {{ 230 | times: mega_menu.links.size }}px">
           {{- mega_menu_columns -}}
-        {%- endif -%}
+        </div>
       {%- endif -%}
-
-
     </div>
   {%- endcapture -%}
 
@@ -85,3 +52,38 @@
     </div>
   {%- endif -%}
 </div>
+
+<style>
+  .mega-menu__column {
+    display: inline-block;
+    width: 230px;
+    position: relative;
+    padding: 10px;
+  }
+
+  .mega-menu__column:hover .mega-menu__linklist {
+    display: block;
+  }
+
+  .mega-menu__linklist {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+  }
+
+  .mega-menu__linklist .mega-menu__item {
+    padding: 8px 12px;
+  }
+
+  .mega-menu__linklist .mega-menu__item:hover {
+    background-color: #f1f1f1;
+  }
+</style>
