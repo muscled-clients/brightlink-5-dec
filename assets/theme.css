@@ -7112,9 +7112,7 @@ select option {
   min-height: 100%;
   /* overflow: auto; */
 }
-.mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
-    margin-left: 19 !important;
-}
+
 
 .mega-menu__inner--center {
   justify-content: center;
@@ -7156,7 +7154,7 @@ select option {
 }
 
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
-  margin-left: 0 !important;
+  margin-left: 19 !important;
 }
 .mega-menu:not(.mega-menu--floating) .mega-menu__column:last-child {
   margin-right: 0 !important;
