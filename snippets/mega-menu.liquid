@@ -54,36 +54,37 @@
 </div>
 
 <style>
-  .mega-menu__column {
-    display: inline-block;
-    width: 230px;
-    position: relative;
-    padding: 10px;
-  }
+  ..mega-menu__column {
+  display: inline-block;
+  width: 230px !important;  /* Ensure the width is applied */
+  position: relative;
+  padding: 10px !important;  /* Ensure padding is applied */
+}
 
-  .mega-menu__column:hover .mega-menu__linklist {
-    display: block;
-  }
+.mega-menu__column:hover .mega-menu__linklist {
+  display: block !important;  /* Ensure submenu appears on hover */
+}
 
-  .mega-menu__linklist {
-    display: none;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    left: 100%;
-    top: 0;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    min-width: 200px;
-  }
+.mega-menu__linklist {
+  display: none !important;  /* Initially hide the submenu */
+  list-style-type: none;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute !important;
+  left: 100% !important;  /* Position submenu to the right */
+  top: 0 !important;  
+  background-color: white !important;
+  border: 1px solid #ccc !important;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2) !important;  /* Shadow for submenu */
+  min-width: 200px !important;  /* Minimum width for submenu */
+}
 
-  .mega-menu__linklist .mega-menu__item {
-    padding: 8px 12px;
-  }
+.mega-menu__linklist .mega-menu__item {
+  padding: 8px 12px !important;  /* Padding for submenu items */
+}
 
-  .mega-menu__linklist .mega-menu__item:hover {
-    background-color: #f1f1f1;
-  }
+.mega-menu__linklist .mega-menu__item:hover {
+  background-color: #f1f1f1 !important;  /* Highlight on hover */
+}
+
 </style>
