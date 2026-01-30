@@ -7310,7 +7310,7 @@ select option {
     left: 0;
     width: 100%;
     border-bottom: 1px solid var(--border-color);
-    background: var(--primary-background);
+    background: var(--header-background);
   }
 
   .nav-bar::after {
