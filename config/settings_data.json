@@ -135,6 +135,7 @@
           },
           "mega_menu_KwAyxJ": {
             "type": "mega_menu",
+            "disabled": true,
             "settings": {
               "menu_item": "LED Video Walls",
               "image_1_heading": "Your image",
