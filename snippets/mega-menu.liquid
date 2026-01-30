@@ -110,7 +110,84 @@
   {%- endif -%}
 </div> {% endcomment %}
 
+<style>
+  .mega-menu {
+  position: relative;
+}
 
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-item {
+  display: inline-block;
+  position: relative;
+  padding: 15px;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #333;
+  width: 250px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.submenu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.submenu-item {
+  padding: 10px;
+}
+
+.submenu-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+.third-level-menu {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #444;
+  width: 200px;
+}
+
+.third-level-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.third-level-link {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+
+.submenu-item:hover .third-level-menu {
+  display: block;
+}
+
+</style>
 <!-- Mega Menu Structure -->
 <div class="mega-menu">
   <ul class="menu-list">
