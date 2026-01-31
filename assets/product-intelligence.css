@@ -1032,10 +1032,10 @@
   border-radius: 8px;
 }
 
-.resource-card__icon svg {
+.resource-card__icon img {
   width: 20px;
   height: 20px;
-  fill: #3498db;
+  object-fit:cover;
 }
 
 .resource-card__download {
