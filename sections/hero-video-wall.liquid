@@ -55,9 +55,9 @@
       <!-- Price & CTA Section -->
     <div class="hero-video-wall__cta-wrapper">
       <!-- Price Badge -->
-      {% if section.settings.price_text != blank %}
+      {% if section.settings.button_1_product != blank %}
         <div class="hero-video-wall__price-badge">
-          {{ section.settings.price_text }}
+          {{ section.settings.button_1_product.price | money }}
         </div>
       {% endif %}
 
@@ -234,13 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       "type": "header",
-      "content": "Price & Shipping"
-    },
-    {
-      "type": "text",
-      "id": "price_text",
-      "label": "Price Badge Text",
-      "default": "$19,250.00 (30% Deposit)"
+      "content": "Shipping"
     },
     {
       "type": "text",
