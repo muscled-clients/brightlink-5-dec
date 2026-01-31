@@ -264,7 +264,6 @@
         "main_heading": "217\" COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
-        "price_text": "$19,250.00 (30% Deposit)",
         "shipping_text": "",
         "button_1_text": "Order Now",
         "button_1_product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
@@ -666,6 +665,12 @@
         "heading": "System Configuration",
         "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
         "display_image": "shopify://shop_images/div_6.png",
+        "info1_heading": "PIXEL PERFECT",
+        "info1_subheading": "Precision Alignment",
+        "info2_heading": "SEAMLESS",
+        "info2_subheading": "Zero Bezel Gap",
+        "info3_heading": "MODULAR",
+        "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
@@ -712,7 +717,7 @@
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
         "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/2_Without_Drop_Shadow_1.png",
+        "image": "shopify://shop_images/image_1_1.png",
         "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
@@ -723,7 +728,13 @@
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
-        "cta_link": ""
+        "cta_link": "",
+        "info1_heading": "Pixel Perfect",
+        "info1_subheading": "Crystal clear visuals at any distance",
+        "info2_heading": "Seamless Integration",
+        "info2_subheading": "Fits any space perfectly",
+        "info3_heading": "Professional Grade",
+        "info3_subheading": "Commercial reliability"
       }
     },
     "controller_tabs_PkVE8q": {
@@ -1210,7 +1221,6 @@
       "type": "custom-config-builder",
       "name": "Custom Config Builder",
       "settings": {
-        "label": "CONFIGURATION TOOL",
         "title": "Custom Configuration Builder",
         "subtitle": "Configure your perfect LED display setup",
         "quote_button_text": "GET CUSTOM QUOTE",
