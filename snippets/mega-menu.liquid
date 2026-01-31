@@ -24,10 +24,12 @@
           {%- for link in mega_menu.links -%}
             <div class="mega-menu__column">
               <span class="ctm-menu mega-menu__title heading">
-              <a href="{{ link.url }}" class="">{{ link.title }}</a>
+              <a href="{{ link.url }}" class="">{{ link.title }}
                 <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
                 <path d="M6.1 5L1.1 0L0 1.1L3.9 5L0 8.9L1.1 10L6.1 5Z" fill="white"/>
                 </svg>
+              </a>
+                
               </span>
               {%- if link.links.size > 0 -%}
                 <ul class="mega-menu__linklist" role="list">
