@@ -1389,9 +1389,9 @@
                             {% if file_url != blank %}
                               <span class="resource-card__badge">{{ file_extension }}</span>
                               <span class="resource-card__size" data-file-url="{{ file_url }}">Calculating...</span>
-                            {% else %}
+                            {% comment %} {% else %}
                               <span class="resource-card__badge"></span>
-                              <span class="resource-card__size"></span>
+                              <span class="resource-card__size"></span> {% endcomment %}
                             {% endif %}
                           </div>
                         </div>
