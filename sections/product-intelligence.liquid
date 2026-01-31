@@ -1440,7 +1440,7 @@
                 </div>
 
                 <!-- Use Case Section -->
-                <div class="support-usecase">
+                {% comment %} <div class="support-usecase">
                   <div class="support-usecase__image">
                     {% if block.settings.usecase_image != blank %}
                       <img src="{{ block.settings.usecase_image | image_url: width: 600 }}" alt="{{ pic_support_usecase_title }}" class="support-usecase__img" loading="lazy">
@@ -1523,7 +1523,7 @@
                       </ul>
                     </div>
                   </div>
-                </div>
+                </div> {% endcomment %}
               </div>
             </div>
           {% endif %}
