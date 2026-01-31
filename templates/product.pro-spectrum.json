@@ -614,7 +614,8 @@
           "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
-            "tab_icon": "included"
+            "tab_icon": "included",
+            "included_image_1": "shopify://shop_images/Rectangle_4_4.png"
           }
         },
         "installation_tab_rCMbMm": {
