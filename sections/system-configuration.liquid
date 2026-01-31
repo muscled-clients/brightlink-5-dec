@@ -56,24 +56,6 @@
           <span>Upload Display Image</span>
         </div>
       {% endif %}
-      
-      <!-- Heading/Subheading Container 1 -->
-      <div class="system-configuration__info-container system-configuration__info-container--1">
-        <h3 class="system-configuration__info-heading">PIXEL PERFECT</h3>
-        <p class="system-configuration__info-subheading">Precision Alignment</p>
-      </div>
-      
-      <!-- Heading/Subheading Container 2 -->
-      <div class="system-configuration__info-container system-configuration__info-container--2">
-        <h3 class="system-configuration__info-heading">SEAMLESS</h3>
-        <p class="system-configuration__info-subheading">Zero Bezel Gap</p>
-      </div>
-      
-      <!-- Heading/Subheading Container 3 -->
-      <div class="system-configuration__info-container system-configuration__info-container--3">
-        <h3 class="system-configuration__info-heading">MODULAR</h3>
-        <p class="system-configuration__info-subheading">Easy Assembly</p>
-      </div>
     </div>
 
     <!-- Detail Cards Section -->
@@ -278,72 +260,6 @@
   </div>
 </section>
 
-<style>
-  #system-configuration-{{ section.id }} {
-    --sc-bg-color: {{ section.settings.bg_color }};
-    --sc-label-color: {{ section.settings.label_color }};
-    --sc-accent-color: {{ section.settings.accent_color }};
-    --sc-padding-top: {{ section.settings.padding_top }}px;
-    --sc-padding-bottom: {{ section.settings.padding_bottom }}px;
-  }
-  
-  /* Additional CSS for the info containers */
-  .system-configuration__info-container {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7.442px;
-    position: absolute;
-    z-index: 10;
-  }
-  
-  .system-configuration__info-container--1 {
-    top: 37px;
-    left: 544px;
-  }
-  
-  .system-configuration__info-container--2 {
-    top: 291px;
-    right: 24px;
-  }
-  
-  .system-configuration__info-container--3 {
-    bottom: 106.56px;
-    right: 114px;
-  }
-  
-  .system-configuration__info-heading {
-    color: #0A84FF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: 2px;
-    align-self: stretch;
-    margin: 0;
-    text-transform: uppercase;
-  }
-  
-  .system-configuration__info-subheading {
-    color: #FFF;
-    text-align: center;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-    align-self: stretch;
-    margin: 0;
-  }
-  
-  /* Ensure visual area is positioned relative for absolute positioning of containers */
-  .system-configuration__visual {
-    position: relative;
-  }
-</style>
-
 {% schema %}
 {
   "name": "System Configuration",
@@ -380,46 +296,6 @@
       "type": "image_picker",
       "id": "display_image",
       "label": "LED Wall Image"
-    },
-    {
-      "type": "header",
-      "content": "Info Containers"
-    },
-    {
-      "type": "text",
-      "id": "info1_heading",
-      "label": "Container 1 Heading",
-      "default": "PIXEL PERFECT"
-    },
-    {
-      "type": "text",
-      "id": "info1_subheading",
-      "label": "Container 1 Subheading",
-      "default": "Precision Alignment"
-    },
-    {
-      "type": "text",
-      "id": "info2_heading",
-      "label": "Container 2 Heading",
-      "default": "SEAMLESS"
-    },
-    {
-      "type": "text",
-      "id": "info2_subheading",
-      "label": "Container 2 Subheading",
-      "default": "Zero Bezel Gap"
-    },
-    {
-      "type": "text",
-      "id": "info3_heading",
-      "label": "Container 3 Heading",
-      "default": "MODULAR"
-    },
-    {
-      "type": "text",
-      "id": "info3_subheading",
-      "label": "Container 3 Subheading",
-      "default": "Easy Assembly"
     },
     {
       "type": "header",
@@ -673,3 +549,13 @@
   ]
 }
 {% endschema %}
+
+<style>
+  #system-configuration-{{ section.id }} {
+    --sc-bg-color: {{ section.settings.bg_color }};
+    --sc-label-color: {{ section.settings.label_color }};
+    --sc-accent-color: {{ section.settings.accent_color }};
+    --sc-padding-top: {{ section.settings.padding_top }}px;
+    --sc-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+</style>
