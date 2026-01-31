@@ -58,22 +58,40 @@
       {% endif %}
       
       <!-- Heading/Subheading Container 1 -->
+      {% if section.settings.info1_heading != blank or section.settings.info1_subheading != blank %}
       <div class="system-configuration__info-container system-configuration__info-container--1">
-        <h3 class="system-configuration__info-heading">PIXEL PERFECT</h3>
-        <p class="system-configuration__info-subheading">Precision Alignment</p>
+        {% if section.settings.info1_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info1_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info1_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info1_subheading }}</p>
+        {% endif %}
       </div>
+      {% endif %}
       
       <!-- Heading/Subheading Container 2 -->
+      {% if section.settings.info2_heading != blank or section.settings.info2_subheading != blank %}
       <div class="system-configuration__info-container system-configuration__info-container--2">
-        <h3 class="system-configuration__info-heading">SEAMLESS</h3>
-        <p class="system-configuration__info-subheading">Zero Bezel Gap</p>
+        {% if section.settings.info2_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info2_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info2_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info2_subheading }}</p>
+        {% endif %}
       </div>
+      {% endif %}
       
       <!-- Heading/Subheading Container 3 -->
+      {% if section.settings.info3_heading != blank or section.settings.info3_subheading != blank %}
       <div class="system-configuration__info-container system-configuration__info-container--3">
-        <h3 class="system-configuration__info-heading">MODULAR</h3>
-        <p class="system-configuration__info-subheading">Easy Assembly</p>
+        {% if section.settings.info3_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info3_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info3_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info3_subheading }}</p>
+        {% endif %}
       </div>
+      {% endif %}
     </div>
 
     <!-- Detail Cards Section -->
