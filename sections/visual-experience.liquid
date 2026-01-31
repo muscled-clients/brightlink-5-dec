@@ -6,40 +6,58 @@
       <!-- Left Side - Slider -->
       <div class="visual-experience__slider">
         <div class="visual-experience__slides">
-          {% for block in section.blocks %}
-            {% if block.type == 'slide' %}
+          {% if section.blocks.size > 0 %}
+            <!-- Show slide blocks if added -->
+            {% for block in section.blocks %}
+              {% if block.type == 'slide' %}
+                <div
+                  class="visual-experience__slide {% if forloop.first %}visual-experience__slide--active{% endif %}"
+                  data-slide-index="{{ forloop.index0 }}"
+                  {{ block.shopify_attributes }}
+                >
+                  {% if block.settings.image != blank %}
+                    <img
+                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      alt="{{ block.settings.image_alt | default: section.settings.heading }}"
+                      loading="lazy"
+                      width="800"
+                      height="500"
+                    >
+                  {% else %}
+                    <div class="visual-experience__slide-placeholder">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
+                      </svg>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% else %}
+            <!-- Show product images if no blocks added -->
+            {% for image in product.images %}
               <div
                 class="visual-experience__slide {% if forloop.first %}visual-experience__slide--active{% endif %}"
                 data-slide-index="{{ forloop.index0 }}"
-                {{ block.shopify_attributes }}
               >
-                {% if block.settings.image != blank %}
-                  <img
-                    src="{{ block.settings.image | image_url: width: 800 }}"
-                    alt="{{ block.settings.image_alt | default: section.settings.heading }}"
-                    loading="lazy"
-                    width="800"
-                    height="500"
-                  >
-                {% else %}
-                  <div class="visual-experience__slide-placeholder">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                      <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
-                    </svg>
-                  </div>
-                {% endif %}
+                <img
+                  src="{{ image | image_url: width: 800 }}"
+                  alt="{{ image.alt | default: product.title }}"
+                  loading="lazy"
+                  width="800"
+                  height="500"
+                >
               </div>
-            {% endif %}
-          {% endfor %}
-
-          {% if section.blocks.size == 0 %}
-            <div class="visual-experience__slide visual-experience__slide--active">
-              <div class="visual-experience__slide-placeholder">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                  <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
-                </svg>
+            {% else %}
+              <!-- Fallback placeholder if no product images -->
+              <div class="visual-experience__slide visual-experience__slide--active">
+                <div class="visual-experience__slide-placeholder">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
+                  </svg>
+                </div>
               </div>
-            </div>
+            {% endfor %}
           {% endif %}
 
           <!-- Dots Navigation (inside slides for overlay) -->
@@ -53,6 +71,16 @@
                     aria-label="Go to slide {{ forloop.index }}"
                   ></button>
                 {% endif %}
+              {% endfor %}
+            </div>
+          {% elsif section.blocks.size == 0 and product.images.size > 1 %}
+            <div class="visual-experience__dots">
+              {% for image in product.images %}
+                <button
+                  class="visual-experience__dot {% if forloop.first %}visual-experience__dot--active{% endif %}"
+                  data-dot-index="{{ forloop.index0 }}"
+                  aria-label="Go to slide {{ forloop.index }}"
+                ></button>
               {% endfor %}
             </div>
           {% endif %}
@@ -222,18 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ],
   "presets": [
     {
-      "name": "Visual Experience",
-      "blocks": [
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        }
-      ]
+      "name": "Visual Experience"
     }
   ]
 }
