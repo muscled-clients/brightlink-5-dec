@@ -578,6 +578,85 @@
         "custom_class": ""
       }
     },
+    "product_intelligence_9PmCQa": {
+      "type": "product-intelligence",
+      "blocks": {
+        "overview_tab_77mfbB": {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "read_more_link": "",
+            "show_features": true,
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "specs_tab_BCRd9E": {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs",
+            "download_link": ""
+          }
+        },
+        "features_tab_dmG6Ne": {
+          "type": "features_tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features"
+          }
+        },
+        "included_tab_yEFBLK": {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
+        "installation_tab_E9bPWW": {
+          "type": "installation_tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "installer_link": ""
+          }
+        },
+        "support_tab_kcdFNU": {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        }
+      },
+      "block_order": [
+        "overview_tab_77mfbB",
+        "specs_tab_BCRd9E",
+        "features_tab_dmG6Ne",
+        "included_tab_yEFBLK",
+        "installation_tab_E9bPWW",
+        "support_tab_kcdFNU"
+      ],
+      "name": "Product Intelligence",
+      "settings": {
+        "section_label": "PRODUCT INTELLIGENCE CENTER",
+        "heading": "Complete Product Intelligence",
+        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#FFD700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": ""
+      }
+    },
     "product_intelligence_i3x89A": {
       "type": "product-intelligence",
       "blocks": {
@@ -1479,6 +1558,7 @@
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
     "technical_specs_9TtCQU",
+    "product_intelligence_9PmCQa",
     "product_intelligence_i3x89A",
     "system_configuration_HNRj7k",
     "experience_scale_gDgaxe",
