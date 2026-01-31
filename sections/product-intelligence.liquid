@@ -1387,9 +1387,7 @@
                           {% endif %}
                           <div class="resource-card__footer">
                             {% if file_url != blank %}
-                              {% if file_extension != blank %}
                               <span class="resource-card__badge">{{ file_extension }}</span>
-                              {% endif %}
                               <span class="resource-card__size" data-file-url="{{ file_url }}">Calculating...</span>
                             {% else %}
                               <span class="resource-card__badge"></span>
