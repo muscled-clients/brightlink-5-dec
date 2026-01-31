@@ -87,7 +87,7 @@ margin:0px!important;
   margin-right:16px !important;
   margin-bottom: 0px !important;
   width: 47% !important;
-  border-right: 1px solid gray !important;
+  {% comment %} border-right: 1px solid gray !important; {% endcomment %}
 } 
 @media screen and (min-width: 1000px) {
   .nav-bar {
@@ -135,7 +135,20 @@ font-family: Inter;
 border-radius: 12px !important;
 background: rgba(10, 132, 255, 0.15) !important;
 }
+.mega-menu__title {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
 
+.mega-menu__title::after {
+  content: "";
+  width: 2px;              /* line thickness */
+  height: 18px;            /* line height */
+  background-color: #ffffff; /* line color */
+  margin-left: 12px;       /* gap between title & line */
+  display: inline-block;
+}
 
 
 
