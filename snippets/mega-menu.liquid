@@ -29,6 +29,7 @@
                 </svg>
               </a>
               {%- if link.links.size > 0 -%}
+                {{ link.title }}
                 <ul class="mega-menu__linklist" role="list">
                   {%- for sub_link in link.links -%}
                     <li class="mega-menu__item">
