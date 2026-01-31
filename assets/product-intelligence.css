@@ -849,9 +849,29 @@
   margin-bottom: 18px;
 }
 
+.installation-requirement__icon i {
+  display: flex;
+  width: 24px;
+  height: 32px;
+  padding: 3px 0 5px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 0 solid #E5E7EB;
+  background: transparent;
+}
+
 .installation-requirement__icon svg {
+  display: flex;
   width: 24px;
   height: 24px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.installation-requirement__icon svg path {
   fill: #0066CC;
 }
 
