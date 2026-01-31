@@ -97,6 +97,9 @@
                         </svg>
                       </div>
                     {% endif %}
+                    {% if forloop.first and block.settings.certified_badge != blank %}
+                      <span class="controller-tabs__certified-badge">{{ block.settings.certified_badge }}</span>
+                    {% endif %}
                   </div>
 
                   {% if block.settings.layout_type != 'simple' %}

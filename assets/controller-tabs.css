@@ -313,17 +313,16 @@
 .controller-tabs__certified-badge {
   position: absolute;
   top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 6px 14px;
-  background: rgba(52, 152, 219, 0.15);
-  border: 1px solid rgba(52, 152, 219, 0.4);
+  right: 15px;
+  padding: 8px 16px;
+  background: #D4AF37;
   border-radius: 4px;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  letter-spacing: 1.5px;
-  color: #3498db;
+  letter-spacing: 1px;
+  color: #000;
   text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
 }
 
 .controller-tabs__product-image {
