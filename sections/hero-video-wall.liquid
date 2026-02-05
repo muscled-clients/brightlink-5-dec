@@ -34,43 +34,60 @@
 
   <!-- Content -->
   <div class="hero-video-wall__content">
-    <!-- Top Frame: Text Content -->
+    <!-- Top Frame: Series Label, Heading, Price -->
     <div class="hero-video-wall__text-frame">
       <!-- Series Label -->
       {% if series_label != blank %}
         <p class="hero-video-wall__series-label">{{ series_label }}</p>
       {% endif %}
 
-      <!-- Main Heading (use product title) -->
+      <!-- Main Heading -->
       {% if section.settings.main_heading != blank %}
         <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
       {% elsif product.title != blank %}
         <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
       {% endif %}
 
-      <!-- Subheading/Tagline -->
-      {% if tagline != blank %}
-        <p class="hero-video-wall__subheading">{{ tagline }}</p>
+      <!-- Price -->
+      {% if section.settings.button_1_product != blank %}
+        <div class="hero-video-wall__price-wrapper">
+          <span class="hero-video-wall__current-price">{{ section.settings.button_1_product.price | money }}</span>
+          {% if section.settings.button_1_product.compare_at_price > section.settings.button_1_product.price %}
+            <span class="hero-video-wall__compare-price">{{ section.settings.button_1_product.compare_at_price | money }}</span>
+          {% endif %}
+        </div>
       {% endif %}
+    </div>
 
-      <!-- Description -->
-      {% if description != blank %}
-        <p class="hero-video-wall__description">{{ description }}</p>
-      {% endif %}
+    <!-- Bottom Frame: Variant Selector + Buttons -->
+    <div class="hero-video-wall__bottom-frame">
+      <!-- Variant Selector Wrapper -->
+      <div class="hero-video-wall__variant-wrapper">
+        <!-- Variant Label -->
+        <p class="hero-video-wall__variant-label">{{ section.settings.variant_label | default: 'Select Your Ideal Video Wall' }}</p>
 
-      <!-- Price & CTA Section -->
-      <div class="hero-video-wall__cta-wrapper">
-        <!-- Price -->
-        {% if section.settings.button_1_product != blank %}
-          <div class="hero-video-wall__price-wrapper">
-            <span class="hero-video-wall__current-price">{{ section.settings.button_1_product.price | money }}</span>
-            {% if section.settings.button_1_product.compare_at_price > section.settings.button_1_product.price %}
-              <span class="hero-video-wall__compare-price">{{ section.settings.button_1_product.compare_at_price | money }}</span>
+        <!-- Variant Boxes -->
+        <div class="hero-video-wall__variant-boxes">
+          {% for block in section.blocks %}
+            {% if block.type == 'variant_option' %}
+              <div class="hero-video-wall__variant-box" {{ block.shopify_attributes }}>
+                <div class="hero-video-wall__box-content">
+                  <span class="hero-video-wall__box-value">{{ block.settings.variant_value }}</span>
+                  <span class="hero-video-wall__box-title">{{ block.settings.variant_title }}</span>
+                </div>
+                <div class="hero-video-wall__box-arrow">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                    <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+              </div>
             {% endif %}
-          </div>
-        {% endif %}
+          {% endfor %}
+        </div>
+      </div>
 
-        <!-- CTA Buttons -->
+      <!-- Buttons Frame -->
+      <div class="hero-video-wall__buttons-frame">
         <div class="hero-video-wall__buttons">
           {% if section.settings.button_1_text != blank and section.settings.button_1_product %}
             <button
@@ -96,60 +113,8 @@
             </a>
           {% endif %}
         </div>
-
-        <!-- Shipping Info -->
-        {% if section.settings.shipping_text != blank %}
-          <div class="hero-video-wall__shipping">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
-            </svg>
-            {{ section.settings.shipping_text }}
-          </div>
-        {% endif %}
       </div>
     </div>
-
-    <!-- Feature Boxes - Use metafield metrics if available, otherwise use blocks -->
-    <div class="hero-video-wall__features">
-      {% if hero_data.metrics.size > 0 %}
-        {% for metric in hero_data.metrics %}
-          <div class="hero-video-wall__feature-box">
-            <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
-            <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
-          </div>
-        {% endfor %}
-      {% else %}
-        {% for block in section.blocks %}
-          {% if block.type == 'feature' %}
-            <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
-              <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
-              <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
-            </div>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    </div>
-  </div>
-
-  <!-- Mobile Feature Boxes -->
-  <div class="hero-video-wall__features_mob">
-    {% if hero_data.metrics.size > 0 %}
-      {% for metric in hero_data.metrics %}
-        <div class="hero-video-wall__feature-box">
-          <span class="hero-video-wall__feature-value">{{ metric.value }}</span>
-          <span class="hero-video-wall__feature-label">{{ metric.label }}</span>
-        </div>
-      {% endfor %}
-    {% else %}
-      {% for block in section.blocks %}
-        {% if block.type == 'feature' %}
-          <div class="hero-video-wall__feature-box" {{ block.shopify_attributes }}>
-            <span class="hero-video-wall__feature-value">{{ block.settings.feature_value }}</span>
-            <span class="hero-video-wall__feature-label">{{ block.settings.feature_label }}</span>
-          </div>
-        {% endif %}
-      {% endfor %}
-    {% endif %}
   </div>
 </section>
 
@@ -294,6 +259,16 @@
       "type": "url",
       "id": "button_2_link",
       "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Variant Selector"
+    },
+    {
+      "type": "text",
+      "id": "variant_label",
+      "label": "Variant Selector Label",
+      "default": "Select Your Ideal Video Wall"
     },
     {
       "type": "header",
@@ -488,20 +463,20 @@
   ],
   "blocks": [
     {
-      "type": "feature",
-      "name": "Feature Box",
+      "type": "variant_option",
+      "name": "Variant Option",
       "settings": [
         {
           "type": "text",
-          "id": "feature_value",
-          "label": "Feature Value",
-          "default": "217\""
+          "id": "variant_value",
+          "label": "Value",
+          "default": "163\""
         },
         {
           "type": "text",
-          "id": "feature_label",
-          "label": "Feature Label",
-          "default": "Diagonal Display"
+          "id": "variant_title",
+          "label": "Title",
+          "default": "Diagonal"
         }
       ]
     }
@@ -511,31 +486,31 @@
       "name": "Hero Video Wall",
       "blocks": [
         {
-          "type": "feature",
+          "type": "variant_option",
           "settings": {
-            "feature_value": "217\"",
-            "feature_label": "Diagonal Display"
+            "variant_value": "163\"",
+            "variant_title": "Diagonal"
           }
         },
         {
-          "type": "feature",
+          "type": "variant_option",
           "settings": {
-            "feature_value": "8.3M",
-            "feature_label": "Total Pixels"
+            "variant_value": "0.9mm",
+            "variant_title": "Pixel Pitch"
           }
         },
         {
-          "type": "feature",
+          "type": "variant_option",
           "settings": {
-            "feature_value": "1.25mm",
-            "feature_label": "Pixel Pitch"
+            "variant_value": "8.2M",
+            "variant_title": "Total Pixels"
           }
         },
         {
-          "type": "feature",
+          "type": "variant_option",
           "settings": {
-            "feature_value": "2hrs",
-            "feature_label": "Installation Time"
+            "variant_value": "16:9",
+            "variant_title": "Aspect Ratio"
           }
         }
       ]
