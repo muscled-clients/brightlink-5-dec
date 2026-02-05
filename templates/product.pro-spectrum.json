@@ -217,48 +217,47 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_R6Fg4a": {
+    "hero_video_wall_cEkmbP": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_da9mHp": {
-          "type": "feature",
+        "variant_option_p4HP9j": {
+          "type": "variant_option",
           "settings": {
-            "feature_value": "217\"",
-            "feature_label": "Diagonal Display"
+            "variant_value": "163\"",
+            "variant_title": "Diagonal"
           }
         },
-        "feature_iXtkTE": {
-          "type": "feature",
+        "variant_option_QNnKFk": {
+          "type": "variant_option",
           "settings": {
-            "feature_value": "8.3M",
-            "feature_label": "Total Pixels"
+            "variant_value": "0.9mm",
+            "variant_title": "Pixel Pitch"
           }
         },
-        "feature_B6TYtQ": {
-          "type": "feature",
+        "variant_option_BziTrY": {
+          "type": "variant_option",
           "settings": {
-            "feature_value": "1.25mm",
-            "feature_label": "Pixel Pitch"
+            "variant_value": "8.2M",
+            "variant_title": "Total Pixels"
           }
         },
-        "feature_U6pf8f": {
-          "type": "feature",
+        "variant_option_ghtiG4": {
+          "type": "variant_option",
           "settings": {
-            "feature_value": "2hrs",
-            "feature_label": "Installation Time"
+            "variant_value": "16:9",
+            "variant_title": "Aspect Ratio"
           }
         }
       },
       "block_order": [
-        "feature_da9mHp",
-        "feature_iXtkTE",
-        "feature_B6TYtQ",
-        "feature_U6pf8f"
+        "variant_option_p4HP9j",
+        "variant_option_QNnKFk",
+        "variant_option_BziTrY",
+        "variant_option_ghtiG4"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "217\" COB LED Video Wall",
@@ -266,9 +265,10 @@
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
         "button_1_text": "Order Now",
-        "button_1_product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
+        "button_1_product": "",
         "button_2_text": "Book A Call",
         "button_2_link": "",
+        "variant_label": "Select Your Ideal Video Wall",
         "label_font_size": 12,
         "heading_font_size": 64,
         "heading_font_weight": "700",
@@ -282,9 +282,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196f3",
-        "button_hover_color": "#1976d2",
-        "series_label_color": "#ffd700",
+        "button_bg_color": "#2196F3",
+        "button_hover_color": "#1976D2",
+        "series_label_color": "#FFD700",
         "custom_class": ""
       }
     },
@@ -1484,7 +1484,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_R6Fg4a",
+    "hero_video_wall_cEkmbP",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
