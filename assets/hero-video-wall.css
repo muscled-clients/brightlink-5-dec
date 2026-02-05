@@ -284,14 +284,6 @@
   text-transform: uppercase;
 }
 
-/* Buttons Container */
-.hero-video-wall__buttons {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
 /* CTA Buttons */
 .hero-video-wall__btn {
   display: inline-flex;
