@@ -70,16 +70,32 @@
         <div class="hero-video-wall__variant-boxes">
           {% for block in section.blocks %}
             {% if block.type == 'variant_option' %}
-              <div class="hero-video-wall__variant-box" {{ block.shopify_attributes }}>
-                <div class="hero-video-wall__box-content">
-                  <span class="hero-video-wall__box-value">{{ block.settings.variant_value }}</span>
-                  <span class="hero-video-wall__box-title">{{ block.settings.variant_title }}</span>
+              <div class="hero-video-wall__variant-box-wrapper" {{ block.shopify_attributes }}>
+                <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+                  <div class="hero-video-wall__box-content">
+                    <span class="hero-video-wall__box-value">{{ block.settings.variant_value }}</span>
+                    <span class="hero-video-wall__box-title">{{ block.settings.variant_title }}</span>
+                  </div>
+                  <div class="hero-video-wall__box-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                      <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
-                <div class="hero-video-wall__box-arrow">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                    <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
+                {% if block.settings.variant_options != blank %}
+                  <div class="hero-video-wall__dropdown">
+                    {% assign options = block.settings.variant_options | split: '
+' %}
+                    {% for option in options %}
+                      {% assign trimmed_option = option | strip %}
+                      {% if trimmed_option != blank %}
+                        <div class="hero-video-wall__dropdown-item{% if trimmed_option == block.settings.variant_value %} active{% endif %}" data-value="{{ trimmed_option }}">
+                          {{ trimmed_option }}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
               </div>
             {% endif %}
           {% endfor %}
@@ -120,6 +136,63 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
+    // Variant Dropdown Toggle
+    document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wrapper = this.closest('.hero-video-wall__variant-box-wrapper');
+        var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
+        var isOpen = this.classList.contains('active');
+
+        // Close all other dropdowns
+        document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
+          t.classList.remove('active');
+          var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
+          if (d) d.classList.remove('open');
+        });
+
+        // Toggle current dropdown
+        if (!isOpen && dropdown) {
+          this.classList.add('active');
+          dropdown.classList.add('open');
+        }
+      });
+    });
+
+    // Dropdown Item Selection
+    document.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (item) {
+      item.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wrapper = this.closest('.hero-video-wall__variant-box-wrapper');
+        var valueEl = wrapper.querySelector('.hero-video-wall__box-value');
+        var toggle = wrapper.querySelector('.js-variant-dropdown-toggle');
+        var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
+
+        // Update active state
+        dropdown.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (i) {
+          i.classList.remove('active');
+        });
+        this.classList.add('active');
+
+        // Update displayed value
+        valueEl.textContent = this.getAttribute('data-value');
+
+        // Close dropdown
+        toggle.classList.remove('active');
+        dropdown.classList.remove('open');
+      });
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function () {
+      document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
+        t.classList.remove('active');
+        var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
+        if (d) d.classList.remove('open');
+      });
+    });
+
+    // Add to Cart
     document.querySelectorAll('.js-add-to-cart').forEach(function (button) {
       button.addEventListener('click', function () {
         var variantId = this.getAttribute('data-variant-id');
@@ -477,6 +550,12 @@
           "id": "variant_title",
           "label": "Title",
           "default": "Diagonal"
+        },
+        {
+          "type": "textarea",
+          "id": "variant_options",
+          "label": "Dropdown Options (one per line)",
+          "default": "163\"\n217\"\n271\""
         }
       ]
     }
