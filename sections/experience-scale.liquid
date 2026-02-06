@@ -4,7 +4,7 @@
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign scale_data = led_data.experience_scale %}
 
-<section class="experience-scale" id="experience-scale">
+<section class="experience-scale" id="experience-scale-{{ section.id }}">
   <div class="experience-scale__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
     {% assign scale_title = scale_data.title | default: section.settings.title | default: 'Experience the Scale' %}
@@ -23,123 +23,418 @@
 
     <div class="experience-scale__content">
       <div class="experience-scale__display">
-      <div class="experience-scale__image-wrapper">
-        {% if scale_image != blank %}
-          <img
-            src="{{ scale_image }}"
-            alt="{{ scale_title }}"
-            class="experience-scale__image"
-            loading="lazy"
-            width="1200"
-            height="600"
-          >
-        {% elsif section.settings.image != blank %}
-          <img
-            src="{{ section.settings.image | image_url: width: 1200 }}"
-            alt="{{ scale_title }}"
-            class="experience-scale__image"
-            loading="lazy"
-            width="1200"
-            height="600"
-          >
-        {% else %}
-          <div class="experience-scale__image-placeholder">
-            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <circle cx="8.5" cy="8.5" r="1.5"></circle>
-              <polyline points="21 15 16 10 5 21"></polyline>
-            </svg>
-            <span>Upload Display Image</span>
+        <div class="experience-scale__image-wrapper">
+          <!-- Desktop Image -->
+          {% if scale_image != blank %}
+            <img
+              src="{{ scale_image }}"
+              alt="{{ scale_title }}"
+              class="experience-scale__image experience-scale__image--desktop"
+              loading="lazy"
+              width="1200"
+              height="600"
+            >
+          {% elsif section.settings.image != blank %}
+            <img
+              src="{{ section.settings.image | image_url: width: 1200 }}"
+              alt="{{ scale_title }}"
+              class="experience-scale__image experience-scale__image--desktop"
+              loading="lazy"
+              width="1200"
+              height="600"
+            >
+          {% else %}
+            <div class="experience-scale__image-placeholder experience-scale__image-placeholder--desktop">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+              <span>Upload Display Image</span>
+            </div>
+          {% endif %}
+          
+          <!-- Mobile Image -->
+          {% if section.settings.mobile_image != blank %}
+            <img
+              src="{{ section.settings.mobile_image | image_url: width: 800 }}"
+              alt="{{ scale_title }} - Mobile"
+              class="experience-scale__image experience-scale__image--mobile"
+              loading="lazy"
+              width="800"
+              height="auto"
+            >
+          {% else %}
+            {% if scale_image != blank %}
+              <img
+                src="{{ scale_image }}"
+                alt="{{ scale_title }}"
+                class="experience-scale__image experience-scale__image--mobile"
+                loading="lazy"
+                width="800"
+                height="auto"
+              >
+            {% elsif section.settings.image != blank %}
+              <img
+                src="{{ section.settings.image | image_url: width: 800 }}"
+                alt="{{ scale_title }}"
+                class="experience-scale__image experience-scale__image--mobile"
+                loading="lazy"
+                width="800"
+                height="auto"
+              >
+            {% else %}
+              <div class="experience-scale__image-placeholder experience-scale__image-placeholder--mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                <span>Upload Mobile Image</span>
+              </div>
+            {% endif %}
+          {% endif %}
+          
+          <!-- Heading/Subheading Container 1 -->
+          {% if section.settings.info1_heading != blank or section.settings.info1_subheading != blank %}
+          <div class="experience-scale__info-container experience-scale__info-container--1">
+            {% if section.settings.info1_heading != blank %}
+              <h3 class="experience-scale__info-heading">{{ section.settings.info1_heading }}</h3>
+            {% endif %}
+            {% if section.settings.info1_subheading != blank %}
+              <p class="experience-scale__info-subheading">{{ section.settings.info1_subheading }}</p>
+            {% endif %}
           </div>
-        {% endif %}
-
-
-      </div>
+          {% endif %}
+          
+          <!-- Heading/Subheading Container 2 -->
+          {% if section.settings.info2_heading != blank or section.settings.info2_subheading != blank %}
+          <div class="experience-scale__info-container experience-scale__info-container--2">
+            {% if section.settings.info2_heading != blank %}
+              <h3 class="experience-scale__info-heading">{{ section.settings.info2_heading }}</h3>
+            {% endif %}
+            {% if section.settings.info2_subheading != blank %}
+              <p class="experience-scale__info-subheading">{{ section.settings.info2_subheading }}</p>
+            {% endif %}
+          </div>
+          {% endif %}
+          
+          <!-- Heading/Subheading Container 3 -->
+          {% if section.settings.info3_heading != blank or section.settings.info3_subheading != blank %}
+          <div class="experience-scale__info-container experience-scale__info-container--3">
+            {% if section.settings.info3_heading != blank %}
+              <h3 class="experience-scale__info-heading">{{ section.settings.info3_heading }}</h3>
+            {% endif %}
+            {% if section.settings.info3_subheading != blank %}
+              <p class="experience-scale__info-subheading">{{ section.settings.info3_subheading }}</p>
+            {% endif %}
+          </div>
+          {% endif %}
+          
+        </div>
       </div>
 
       <!-- Metrics - Use metafield data if available, otherwise use section settings -->
       <div class="experience-scale__metrics">
         {% if scale_data.metrics.size > 0 %}
-        {% for metric in scale_data.metrics %}
+          {% for metric in scale_data.metrics %}
+            <div class="experience-scale__metric">
+              <div class="experience-scale__metric-icon">
+                <i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
+                    <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#0A84FF"/>
+                  </svg>
+                </i>
+              </div>
+              <div class="experience-scale__metric-text">
+                <span class="experience-scale__metric-value">{{ metric.value }}</span>
+                <div class="experience-scale__metric-title-wrapper">
+                  <span class="experience-scale__metric-label">{{ metric.label }}</span>
+                  <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
           <div class="experience-scale__metric">
             <div class="experience-scale__metric-icon">
               <i>
                 <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
-                  <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#0A84FF"/>
+                  <path d="M2 8V2H8M16 2H22V8M22 19V25H16M8 25H2V19" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
               </i>
             </div>
             <div class="experience-scale__metric-text">
-              <span class="experience-scale__metric-value">{{ metric.value }}</span>
+              <span class="experience-scale__metric-value">{{ section.settings.metric1_value | default: '36x' }}</span>
               <div class="experience-scale__metric-title-wrapper">
-                <span class="experience-scale__metric-label">{{ metric.label }}</span>
-                <span class="experience-scale__metric-desc">{{ metric.detail }}</span>
+                <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
+                <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
               </div>
             </div>
           </div>
-        {% endfor %}
-      {% else %}
-        <div class="experience-scale__metric">
-          <div class="experience-scale__metric-icon">
-            <i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
-                <path d="M2 8V2H8M16 2H22V8M22 19V25H16M8 25H2V19" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </i>
-          </div>
-          <div class="experience-scale__metric-text">
-            <span class="experience-scale__metric-value">{{ section.settings.metric1_value | default: '36x' }}</span>
-            <div class="experience-scale__metric-title-wrapper">
-              <span class="experience-scale__metric-label">{{ section.settings.metric1_label | default: 'Larger' }}</span>
-              <span class="experience-scale__metric-desc">{{ section.settings.metric1_desc | default: 'than a typical 65" TV' }}</span>
+          <div class="experience-scale__metric">
+            <div class="experience-scale__metric-icon">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
+                  <rect x="2" y="2" width="8" height="8" rx="2" fill="#0A84FF"/>
+                  <rect x="14" y="2" width="8" height="8" rx="2" fill="#0A84FF"/>
+                  <rect x="2" y="17" width="8" height="8" rx="2" fill="#0A84FF"/>
+                  <rect x="14" y="17" width="8" height="8" rx="2" fill="#0A84FF"/>
+                  <rect x="2" y="9.5" width="8" height="8" rx="2" fill="#0A84FF" fill-opacity="0.5"/>
+                  <rect x="14" y="9.5" width="8" height="8" rx="2" fill="#0A84FF" fill-opacity="0.5"/>
+                </svg>
+              </i>
+            </div>
+            <div class="experience-scale__metric-text">
+              <span class="experience-scale__metric-value">{{ section.settings.metric2_value | default: '4x' }}</span>
+              <div class="experience-scale__metric-title-wrapper">
+                <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
+                <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="experience-scale__metric">
-          <div class="experience-scale__metric-icon">
-            <i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
-                <rect x="2" y="2" width="8" height="8" rx="2" fill="#0A84FF"/>
-                <rect x="14" y="2" width="8" height="8" rx="2" fill="#0A84FF"/>
-                <rect x="2" y="17" width="8" height="8" rx="2" fill="#0A84FF"/>
-                <rect x="14" y="17" width="8" height="8" rx="2" fill="#0A84FF"/>
-                <rect x="2" y="9.5" width="8" height="8" rx="2" fill="#0A84FF" fill-opacity="0.5"/>
-                <rect x="14" y="9.5" width="8" height="8" rx="2" fill="#0A84FF" fill-opacity="0.5"/>
-              </svg>
-            </i>
-          </div>
-          <div class="experience-scale__metric-text">
-            <span class="experience-scale__metric-value">{{ section.settings.metric2_value | default: '4x' }}</span>
-            <div class="experience-scale__metric-title-wrapper">
-              <span class="experience-scale__metric-label">{{ section.settings.metric2_label | default: 'Equivalent' }}</span>
-              <span class="experience-scale__metric-desc">{{ section.settings.metric2_desc | default: "to 17' diagonal display" }}</span>
+          <div class="experience-scale__metric">
+            <div class="experience-scale__metric-icon">
+              <i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
+                  <rect x="2" y="2" width="20" height="23" rx="2" stroke="#0A84FF" stroke-width="2.5"/>
+                  <line x1="2" y1="10" x2="12" y2="10" stroke="#0A84FF" stroke-width="2"/>
+                  <line x1="12" y1="10" x2="12" y2="25" stroke="#0A84FF" stroke-width="2"/>
+                </svg>
+              </i>
+            </div>
+            <div class="experience-scale__metric-text">
+              <span class="experience-scale__metric-value">{{ section.settings.metric3_value | default: '141' }}</span>
+              <div class="experience-scale__metric-title-wrapper">
+                <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
+                <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="experience-scale__metric">
-          <div class="experience-scale__metric-icon">
-            <i>
-              <svg xmlns="http://www.w3.org/2000/svg" width="23.625" height="27" viewBox="0 0 24 27" fill="none">
-                <rect x="2" y="2" width="20" height="23" rx="2" stroke="#0A84FF" stroke-width="2.5"/>
-                <line x1="2" y1="10" x2="12" y2="10" stroke="#0A84FF" stroke-width="2"/>
-                <line x1="12" y1="10" x2="12" y2="25" stroke="#0A84FF" stroke-width="2"/>
-              </svg>
-            </i>
-          </div>
-          <div class="experience-scale__metric-text">
-            <span class="experience-scale__metric-value">{{ section.settings.metric3_value | default: '141' }}</span>
-            <div class="experience-scale__metric-title-wrapper">
-              <span class="experience-scale__metric-label">{{ section.settings.metric3_label | default: 'sq ft' }}</span>
-              <span class="experience-scale__metric-desc">{{ section.settings.metric3_desc | default: 'of visual real estate' }}</span>
-            </div>
-          </div>
-        </div>
-      {% endif %}
+        {% endif %}
       </div>
     </div>
-
   </div>
 </section>
+
+<style>
+  /* Desktop styles for info containers */
+  #experience-scale-{{ section.id }} .experience-scale__info-container {
+    border-radius: 8px;
+    border: 1px solid rgba(10, 132, 255, 0.30);
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__info-container--1 {
+    right: 109px;
+    top: 70px;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__info-container--2 {
+    right: 69px;
+    top: 288.718px;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__info-container--3 {
+    right: 93px;
+    bottom: 37px;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__info-heading {
+    align-self: stretch;
+    color: #0A84FF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin: 0;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__info-subheading {
+    color: #A0AEC0;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    align-self: stretch;
+    margin: 0;
+  }
+  
+  /* Ensure image wrapper is positioned relative for absolute positioning of containers */
+  #experience-scale-{{ section.id }} .experience-scale__image-wrapper {
+    position: relative;
+  }
+  
+  /* Image styling - DESKTOP */
+  #experience-scale-{{ section.id }} .experience-scale__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* Show desktop image by default, hide mobile on desktop */
+  #experience-scale-{{ section.id }} .experience-scale__image--desktop {
+    display: block;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__image--mobile {
+    display: none;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__image-placeholder--desktop {
+    display: flex;
+  }
+  
+  #experience-scale-{{ section.id }} .experience-scale__image-placeholder--mobile {
+    display: none;
+  }
+  
+  /* Mobile styles using media query */
+  @media (max-width: 767px) {
+    #experience-scale-{{ section.id }} {
+      width: 375px;
+      padding: 0 16px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__container {
+      width: 100%;
+      max-width: 100%;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__display {
+      display: flex;
+      width: 343px;
+      height: 246.547px;
+      padding: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3.343px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      align-self: stretch;
+      aspect-ratio: 158 / 109;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image-wrapper {
+      width: 100%;
+      position: relative;
+    }
+    
+    /* Info container mobile styles */
+    #experience-scale-{{ section.id }} .experience-scale__info-container {
+      border-radius: 8px;
+      border: 1px solid rgba(10, 132, 255, 0.30);
+      background: rgba(0, 0, 0, 0.55);
+      display: flex;
+      padding: 8px 12px;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      position: absolute;
+      z-index: 10;
+      box-sizing: border-box;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__info-container--1 {
+      right: 16px;
+      top: 0px;
+      left: auto;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__info-container--2 {
+      right: 21px;
+      bottom: 75.547px;
+      top: auto;
+      left: auto;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__info-container--3 {
+      right: 35px;
+      bottom: 0px;
+      top: auto;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__info-heading {
+      color: #0A84FF;
+      text-align: center;
+      font-family: Inter;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      align-self: stretch;
+      margin: 0;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__info-subheading {
+      color: #A0AEC0;
+      text-align: center;
+      font-family: Inter;
+      font-size: 10px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+      align-self: stretch;
+      margin: 0;
+    }
+    
+    /* Hide desktop image, show mobile image on mobile */
+    #experience-scale-{{ section.id }} .experience-scale__image--desktop {
+      display: none;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image--mobile {
+      display: block;
+      height: 214.547px;
+      width: 100%;
+      aspect-ratio: 158/109;
+      object-fit: cover;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image-placeholder--desktop {
+      display: none;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image-placeholder--mobile {
+      display: flex;
+      height: 214.547px;
+      width: 100%;
+      aspect-ratio: 158/109;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image-placeholder--mobile svg {
+      width: 40px;
+      height: 40px;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 8px;
+    }
+    
+    #experience-scale-{{ section.id }} .experience-scale__image-placeholder--mobile span {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 12px;
+    }
+  }
+</style>
 
 {% schema %}
 {
@@ -171,12 +466,19 @@
     },
     {
       "type": "header",
-      "content": "Display Image"
+      "content": "Display Images"
     },
     {
       "type": "image_picker",
       "id": "image",
-      "label": "Display Image"
+      "label": "Desktop Display Image",
+      "info": "Recommended size: 1200x600px"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Display Image (Optional)",
+      "info": "Upload a different image for mobile. If not set, desktop image will be used. Recommended aspect ratio: 158:109"
     },
     {
       "type": "header",
@@ -258,6 +560,46 @@
       "type": "url",
       "id": "cta_link",
       "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Info Containers"
+    },
+    {
+      "type": "text",
+      "id": "info1_heading",
+      "label": "Container 1 Heading",
+      "default": "Pixel Perfect"
+    },
+    {
+      "type": "text",
+      "id": "info1_subheading",
+      "label": "Container 1 Subheading",
+      "default": "Crystal clear visuals at any distance"
+    },
+    {
+      "type": "text",
+      "id": "info2_heading",
+      "label": "Container 2 Heading",
+      "default": "Seamless Integration"
+    },
+    {
+      "type": "text",
+      "id": "info2_subheading",
+      "label": "Container 2 Subheading",
+      "default": "Fits any space perfectly"
+    },
+    {
+      "type": "text",
+      "id": "info3_heading",
+      "label": "Container 3 Heading",
+      "default": "Professional Grade"
+    },
+    {
+      "type": "text",
+      "id": "info3_subheading",
+      "label": "Container 3 Subheading",
+      "default": "Commercial reliability"
     }
   ],
   "presets": [

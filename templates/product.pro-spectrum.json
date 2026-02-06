@@ -217,59 +217,224 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_R6Fg4a": {
+    "hero_video_wall_mfYkCp": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_da9mHp": {
-          "type": "feature",
+        "product_config_tiQLTg": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "217\"",
-            "feature_label": "Diagonal Display"
+            "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "diagonal": "163\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.29M",
+            "aspect_ratio": "16:9"
           }
         },
-        "feature_iXtkTE": {
-          "type": "feature",
+        "product_config_CkAkVa": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "8.3M",
-            "feature_label": "Total Pixels"
+            "product": "",
+            "diagonal": "163\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.67M",
+            "aspect_ratio": "16:9"
           }
         },
-        "feature_B6TYtQ": {
-          "type": "feature",
+        "product_config_QxFtgi": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "1.25mm",
-            "feature_label": "Pixel Pitch"
+            "product": "",
+            "diagonal": "163\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.99M",
+            "aspect_ratio": "16:9"
           }
         },
-        "feature_U6pf8f": {
-          "type": "feature",
+        "product_config_iHpm6a": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "2hrs",
-            "feature_label": "Installation Time"
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.06M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_AfVKXN": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.54M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_axEex4": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.90M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_CYQAQW": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "11.29M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_yqtPMP": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "6.35M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_UmKWJd": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.06M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_VYmLir": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "14.75M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_bQHCUa": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "8.20M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_kcLFEQ": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.31M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_NkFyGY": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "12.44M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_zDHzW9": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "7.00M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_F4pqXi": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.48M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_6JwdFV": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "16.59M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        "product_config_LWJJ3g": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "9.33M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        "product_config_fpgQRh": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.97M",
+            "aspect_ratio": "24:9"
           }
         }
       },
       "block_order": [
-        "feature_da9mHp",
-        "feature_iXtkTE",
-        "feature_B6TYtQ",
-        "feature_U6pf8f"
+        "product_config_tiQLTg",
+        "product_config_CkAkVa",
+        "product_config_QxFtgi",
+        "product_config_iHpm6a",
+        "product_config_AfVKXN",
+        "product_config_axEex4",
+        "product_config_CYQAQW",
+        "product_config_yqtPMP",
+        "product_config_UmKWJd",
+        "product_config_VYmLir",
+        "product_config_bQHCUa",
+        "product_config_kcLFEQ",
+        "product_config_NkFyGY",
+        "product_config_zDHzW9",
+        "product_config_F4pqXi",
+        "product_config_6JwdFV",
+        "product_config_LWJJ3g",
+        "product_config_fpgQRh"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "217\" COB LED Video Wall",
+        "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
-        "price_text": "$19,250.00 (30% Deposit)",
         "shipping_text": "",
         "button_1_text": "Order Now",
-        "button_1_product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
+        "button_1_product": "",
         "button_2_text": "Book A Call",
         "button_2_link": "",
+        "variant_label": "Select Your Ideal Video Wall",
         "label_font_size": 12,
         "heading_font_size": 64,
         "heading_font_weight": "700",
@@ -665,7 +830,13 @@
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
         "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
-        "display_image": "shopify://shop_images/div_6.png",
+        "display_image": "shopify://shop_images/image_2_1.png",
+        "info1_heading": "PIXEL PERFECT",
+        "info1_subheading": "Precision Alignment",
+        "info2_heading": "SEAMLESS",
+        "info2_subheading": "Zero Bezel Gap",
+        "info3_heading": "MODULAR",
+        "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
@@ -712,7 +883,7 @@
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
         "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/2_Without_Drop_Shadow_1.png",
+        "image": "shopify://shop_images/image_1_1.png",
         "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
@@ -723,7 +894,13 @@
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
-        "cta_link": ""
+        "cta_link": "",
+        "info1_heading": "Pixel Perfect",
+        "info1_subheading": "Crystal clear visuals at any distance",
+        "info2_heading": "Seamless Integration",
+        "info2_subheading": "Fits any space perfectly",
+        "info3_heading": "Professional Grade",
+        "info3_subheading": "Commercial reliability"
       }
     },
     "controller_tabs_PkVE8q": {
@@ -736,7 +913,7 @@
             "icon": "overview",
             "layout_type": "detailed",
             "simple_title": "",
-            "image": "shopify://shop_images/Group_3_1.png",
+            "image": "shopify://shop_images/Rectangle_4_6.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
             "read_more_link": "",
@@ -1210,7 +1387,6 @@
       "type": "custom-config-builder",
       "name": "Custom Config Builder",
       "settings": {
-        "label": "CONFIGURATION TOOL",
         "title": "Custom Configuration Builder",
         "subtitle": "Configure your perfect LED display setup",
         "quote_button_text": "GET CUSTOM QUOTE",
@@ -1474,7 +1650,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_R6Fg4a",
+    "hero_video_wall_mfYkCp",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",

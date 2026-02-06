@@ -837,20 +837,42 @@
 }
 
 .installation-requirement__icon {
-  width: 50px;
-  height: 50px;
   display: flex;
-  align-items: center;
+  width: 64px;
+  height: 64px;
+  padding: 16px 20px;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(41, 128, 185, 0.15) 100%);
-  border-radius: 10px;
+  align-items: center;
+  border-radius: 8px;
+  border: 0 solid #E5E7EB;
+  background: rgba(0, 102, 204, 0.10);
   margin-bottom: 18px;
 }
 
+.installation-requirement__icon i {
+  display: flex;
+  width: 24px;
+  height: 32px;
+  padding: 3px 0 5px 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border: 0 solid #E5E7EB;
+  background: transparent;
+}
+
 .installation-requirement__icon svg {
+  display: flex;
   width: 24px;
   height: 24px;
-  fill: #3498db;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.installation-requirement__icon svg path {
+  fill: #0066CC;
 }
 
 .installation-requirement__title {
@@ -1009,10 +1031,10 @@
   background: linear-gradient(135deg, rgba(52, 152, 219, 0.2) 0%, rgba(41, 128, 185, 0.15) 100%);
   border-radius: 8px;
 }
-
+/* changes svg to img */
 .resource-card__icon img {
-  max-width: 20px;
-  max-height: 20px;
+  width: 20px;
+  height: 20px;
   object-fit:cover;
 }
 
@@ -1786,8 +1808,9 @@
   }
 
   .installation-requirement__icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
+    padding: 12px 14px;
   }
 
   .installation-requirement__icon svg {
