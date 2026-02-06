@@ -217,50 +217,54 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_cEkmbP": {
+    "hero_video_wall_bj3tcy": {
       "type": "hero-video-wall",
       "blocks": {
-        "variant_option_p4HP9j": {
+        "variant_option_QNNQNt": {
           "type": "variant_option",
           "settings": {
             "variant_value": "163\"",
-            "variant_title": "Diagonal"
+            "variant_title": "Diagonal",
+            "variant_options": "163\", 217\", 271\""
           }
         },
-        "variant_option_QNnKFk": {
+        "variant_option_RWbeeB": {
           "type": "variant_option",
           "settings": {
             "variant_value": "0.9mm",
-            "variant_title": "Pixel Pitch"
+            "variant_title": "Pixel Pitch",
+            "variant_options": "163\", 217\", 271\""
           }
         },
-        "variant_option_BziTrY": {
+        "variant_option_zYpTkt": {
           "type": "variant_option",
           "settings": {
             "variant_value": "8.2M",
-            "variant_title": "Total Pixels"
+            "variant_title": "Total Pixels",
+            "variant_options": "163\", 217\", 271\""
           }
         },
-        "variant_option_ghtiG4": {
+        "variant_option_aQwYUR": {
           "type": "variant_option",
           "settings": {
             "variant_value": "16:9",
-            "variant_title": "Aspect Ratio"
+            "variant_title": "Aspect Ratio",
+            "variant_options": "163\", 217\", 271\""
           }
         }
       },
       "block_order": [
-        "variant_option_p4HP9j",
-        "variant_option_QNnKFk",
-        "variant_option_BziTrY",
-        "variant_option_ghtiG4"
+        "variant_option_QNNQNt",
+        "variant_option_RWbeeB",
+        "variant_option_zYpTkt",
+        "variant_option_aQwYUR"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "217\" COB LED Video Wall",
+        "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -1484,7 +1488,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_cEkmbP",
+    "hero_video_wall_bj3tcy",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
