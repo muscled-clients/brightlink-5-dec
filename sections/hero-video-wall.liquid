@@ -84,8 +84,7 @@
                 </div>
                 {% if block.settings.variant_options != blank %}
                   <div class="hero-video-wall__dropdown">
-                    {% assign options = block.settings.variant_options | split: '
-' %}
+                    {% assign options = block.settings.variant_options | split: ',' %}
                     {% for option in options %}
                       {% assign trimmed_option = option | strip %}
                       {% if trimmed_option != blank %}
@@ -552,10 +551,10 @@
           "default": "Diagonal"
         },
         {
-          "type": "textarea",
+          "type": "text",
           "id": "variant_options",
-          "label": "Dropdown Options (one per line)",
-          "default": "163\"\n217\"\n271\""
+          "label": "Dropdown Options (comma separated)",
+          "default": "163\", 217\", 271\""
         }
       ]
     }
