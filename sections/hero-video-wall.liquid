@@ -67,19 +67,30 @@
     <!-- Product Configs Data -->
     <script id="hero-product-configs" type="application/json">
       [
+        {% assign config_index = 0 %}
         {% for block in section.blocks %}
-          {% if block.type == 'product_config' and block.settings.product != blank %}
+          {% if block.type == 'product_config' %}
+            {% if config_index > 0 %},{% endif %}
             {
               "diagonal": {{ block.settings.diagonal | json }},
               "pixel_pitch": {{ block.settings.pixel_pitch | json }},
               "total_pixels": {{ block.settings.total_pixels | json }},
               "aspect_ratio": {{ block.settings.aspect_ratio | json }},
-              "price": {{ block.settings.product.price | json }},
-              "compare_price": {{ block.settings.product.compare_at_price | json }},
-              "price_formatted": {{ block.settings.product.price | money | json }},
-              "compare_price_formatted": {{ block.settings.product.compare_at_price | money | json }},
-              "variant_id": {{ block.settings.product.selected_or_first_available_variant.id | json }}
-            }{% unless forloop.last %},{% endunless %}
+              {% if block.settings.product != blank %}
+                "price": {{ block.settings.product.price | json }},
+                "compare_price": {{ block.settings.product.compare_at_price | json }},
+                "price_formatted": {{ block.settings.product.price | money | json }},
+                "compare_price_formatted": {{ block.settings.product.compare_at_price | money | json }},
+                "variant_id": {{ block.settings.product.selected_or_first_available_variant.id | json }}
+              {% else %}
+                "price": null,
+                "compare_price": null,
+                "price_formatted": "",
+                "compare_price_formatted": "",
+                "variant_id": null
+              {% endif %}
+            }
+            {% assign config_index = config_index | plus: 1 %}
           {% endif %}
         {% endfor %}
       ]
