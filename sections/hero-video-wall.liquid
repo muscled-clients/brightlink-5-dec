@@ -49,15 +49,44 @@
       {% endif %}
 
       <!-- Price -->
-      {% if section.settings.button_1_product != blank %}
-        <div class="hero-video-wall__price-wrapper">
-          <span class="hero-video-wall__current-price">{{ section.settings.button_1_product.price | money }}</span>
-          {% if section.settings.button_1_product.compare_at_price > section.settings.button_1_product.price %}
-            <span class="hero-video-wall__compare-price">{{ section.settings.button_1_product.compare_at_price | money }}</span>
+      <div class="hero-video-wall__price-wrapper">
+        {% if first_config.settings.product != blank %}
+          <span class="hero-video-wall__current-price" id="hero-current-price">{{ first_config.settings.product.price | money }}</span>
+          {% if first_config.settings.product.compare_at_price > first_config.settings.product.price %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ first_config.settings.product.compare_at_price | money }}</span>
+          {% else %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
           {% endif %}
-        </div>
-      {% endif %}
+        {% else %}
+          <span class="hero-video-wall__current-price" id="hero-current-price"></span>
+          <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
+        {% endif %}
+      </div>
     </div>
+
+    <!-- Product Configs Data -->
+    <script id="hero-product-configs" type="application/json">
+      [
+        {% for block in section.blocks %}
+          {% if block.type == 'product_config' and block.settings.product != blank %}
+            {
+              "diagonal": {{ block.settings.diagonal | json }},
+              "pixel_pitch": {{ block.settings.pixel_pitch | json }},
+              "total_pixels": {{ block.settings.total_pixels | json }},
+              "aspect_ratio": {{ block.settings.aspect_ratio | json }},
+              "price": {{ block.settings.product.price | json }},
+              "compare_price": {{ block.settings.product.compare_at_price | json }},
+              "price_formatted": {{ block.settings.product.price | money | json }},
+              "compare_price_formatted": {{ block.settings.product.compare_at_price | money | json }},
+              "variant_id": {{ block.settings.product.selected_or_first_available_variant.id | json }}
+            }{% unless forloop.last %},{% endunless %}
+          {% endif %}
+        {% endfor %}
+      ]
+    </script>
+
+    {% comment %} Get first config as default {% endcomment %}
+    {% assign first_config = section.blocks | first %}
 
     <!-- Bottom Frame: Variant Selector + Buttons -->
     <div class="hero-video-wall__bottom-frame">
@@ -68,47 +97,68 @@
 
         <!-- Variant Boxes -->
         <div class="hero-video-wall__variant-boxes">
-          {% for block in section.blocks %}
-            {% if block.type == 'variant_option' %}
-              <div class="hero-video-wall__variant-box-wrapper" {{ block.shopify_attributes }}>
-                <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
-                  <div class="hero-video-wall__box-content">
-                    <span class="hero-video-wall__box-value">{{ block.settings.variant_value }}</span>
-                    <span class="hero-video-wall__box-title">{{ block.settings.variant_title }}</span>
-                  </div>
-                  <div class="hero-video-wall__box-arrow">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
-                      <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </div>
-                </div>
-                {% if block.settings.variant_options != blank %}
-                  <div class="hero-video-wall__dropdown">
-                    {% assign options = block.settings.variant_options | split: ',' %}
-                    {% for option in options %}
-                      {% assign trimmed_option = option | strip %}
-                      {% if trimmed_option != blank %}
-                        <div class="hero-video-wall__dropdown-item{% if trimmed_option == block.settings.variant_value %} active{% endif %}" data-value="{{ trimmed_option }}">
-                          {{ trimmed_option }}
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                  </div>
-                {% endif %}
+          <!-- Diagonal Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="diagonal">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-diagonal-value">{{ first_config.settings.diagonal | default: '163"' }}</span>
+                <span class="hero-video-wall__box-title">Diagonal</span>
               </div>
-            {% endif %}
-          {% endfor %}
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-diagonal-dropdown"></div>
+          </div>
+
+          <!-- Pixel Pitch Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="pixel_pitch">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-pitch-value">{{ first_config.settings.pixel_pitch | default: '0.9mm' }}</span>
+                <span class="hero-video-wall__box-title">Pixel Pitch</span>
+              </div>
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-pitch-dropdown"></div>
+          </div>
+
+          <!-- Total Pixels Box (read-only, auto-updates) -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="total_pixels">
+            <div class="hero-video-wall__variant-box">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-pixels-value">{{ first_config.settings.total_pixels | default: '8.29M' }}</span>
+                <span class="hero-video-wall__box-title">Total Pixels</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Aspect Ratio Box (read-only) -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="aspect_ratio">
+            <div class="hero-video-wall__variant-box">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-ratio-value">{{ first_config.settings.aspect_ratio | default: '16:9' }}</span>
+                <span class="hero-video-wall__box-title">Aspect Ratio</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <!-- Buttons Frame -->
       <div class="hero-video-wall__buttons-frame">
         <div class="hero-video-wall__buttons">
-          {% if section.settings.button_1_text != blank and section.settings.button_1_product %}
+          {% if section.settings.button_1_text != blank %}
             <button
               type="button"
               class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart"
-              data-variant-id="{{ section.settings.button_1_product.selected_or_first_available_variant.id }}"
+              data-variant-id="{% if first_config.settings.product != blank %}{{ first_config.settings.product.selected_or_first_available_variant.id }}{% endif %}"
             >
               {{ section.settings.button_1_text }}
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
@@ -135,7 +185,92 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
-    // Variant Dropdown Toggle
+    // Load product configs
+    var configsEl = document.getElementById('hero-product-configs');
+    var configs = configsEl ? JSON.parse(configsEl.textContent) : [];
+
+    // Current selection state
+    var selected = {
+      diagonal: document.getElementById('hero-diagonal-value') ? document.getElementById('hero-diagonal-value').textContent.trim() : '',
+      pixel_pitch: document.getElementById('hero-pitch-value') ? document.getElementById('hero-pitch-value').textContent.trim() : ''
+    };
+
+    // Build unique dropdown options
+    function getUniqueValues(key) {
+      var seen = {};
+      var result = [];
+      configs.forEach(function (c) {
+        if (!seen[c[key]]) {
+          seen[c[key]] = true;
+          result.push(c[key]);
+        }
+      });
+      return result;
+    }
+
+    function buildDropdown(dropdownId, values, selectedValue, boxKey) {
+      var dropdown = document.getElementById(dropdownId);
+      if (!dropdown) return;
+      dropdown.innerHTML = '';
+      values.forEach(function (val) {
+        var item = document.createElement('div');
+        item.className = 'hero-video-wall__dropdown-item' + (val === selectedValue ? ' active' : '');
+        item.setAttribute('data-value', val);
+        item.setAttribute('data-box', boxKey);
+        item.textContent = val;
+        dropdown.appendChild(item);
+      });
+    }
+
+    // Build initial dropdowns
+    var diagonals = getUniqueValues('diagonal');
+    var pitches = getUniqueValues('pixel_pitch');
+    buildDropdown('hero-diagonal-dropdown', diagonals, selected.diagonal, 'diagonal');
+    buildDropdown('hero-pitch-dropdown', pitches, selected.pixel_pitch, 'pixel_pitch');
+
+    // Find matching config and update hero
+    function updateHero() {
+      var match = null;
+      for (var i = 0; i < configs.length; i++) {
+        if (configs[i].diagonal === selected.diagonal && configs[i].pixel_pitch === selected.pixel_pitch) {
+          match = configs[i];
+          break;
+        }
+      }
+
+      if (match) {
+        // Update total pixels
+        var pixelsEl = document.getElementById('hero-pixels-value');
+        if (pixelsEl) pixelsEl.textContent = match.total_pixels;
+
+        // Update aspect ratio
+        var ratioEl = document.getElementById('hero-ratio-value');
+        if (ratioEl) ratioEl.textContent = match.aspect_ratio;
+
+        // Update price
+        var priceEl = document.getElementById('hero-current-price');
+        if (priceEl) priceEl.textContent = match.price_formatted;
+
+        // Update compare price
+        var comparePriceEl = document.getElementById('hero-compare-price');
+        if (comparePriceEl) {
+          if (match.compare_price && match.compare_price > match.price) {
+            comparePriceEl.textContent = match.compare_price_formatted;
+            comparePriceEl.style.display = '';
+          } else {
+            comparePriceEl.style.display = 'none';
+          }
+        }
+
+        // Update add-to-cart variant ID
+        var cartBtn = document.querySelector('.js-add-to-cart');
+        if (cartBtn && match.variant_id) {
+          cartBtn.setAttribute('data-variant-id', match.variant_id);
+        }
+      }
+    }
+
+    // Dropdown Toggle
     document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (toggle) {
       toggle.addEventListener('click', function (e) {
         e.stopPropagation();
@@ -150,7 +285,6 @@
           if (d) d.classList.remove('open');
         });
 
-        // Toggle current dropdown
         if (!isOpen && dropdown) {
           this.classList.add('active');
           dropdown.classList.add('open');
@@ -158,37 +292,48 @@
       });
     });
 
-    // Dropdown Item Selection
-    document.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (item) {
-      item.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var wrapper = this.closest('.hero-video-wall__variant-box-wrapper');
-        var valueEl = wrapper.querySelector('.hero-video-wall__box-value');
-        var toggle = wrapper.querySelector('.js-variant-dropdown-toggle');
-        var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
+    // Dropdown Item Selection (event delegation)
+    document.addEventListener('click', function (e) {
+      var item = e.target.closest('.hero-video-wall__dropdown-item');
+      if (!item) return;
 
-        // Update active state
-        dropdown.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (i) {
-          i.classList.remove('active');
-        });
-        this.classList.add('active');
+      e.stopPropagation();
+      var wrapper = item.closest('.hero-video-wall__variant-box-wrapper');
+      var boxKey = wrapper.getAttribute('data-box');
+      var newValue = item.getAttribute('data-value');
+      var valueEl = wrapper.querySelector('.hero-video-wall__box-value');
+      var toggle = wrapper.querySelector('.js-variant-dropdown-toggle');
+      var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
 
-        // Update displayed value
-        valueEl.textContent = this.getAttribute('data-value');
-
-        // Close dropdown
-        toggle.classList.remove('active');
-        dropdown.classList.remove('open');
+      // Update active state in dropdown
+      dropdown.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (i) {
+        i.classList.remove('active');
       });
+      item.classList.add('active');
+
+      // Update displayed value
+      valueEl.textContent = newValue;
+
+      // Update selection state
+      selected[boxKey] = newValue;
+
+      // Close dropdown
+      if (toggle) toggle.classList.remove('active');
+      dropdown.classList.remove('open');
+
+      // Update hero with matching product
+      updateHero();
     });
 
     // Close dropdowns when clicking outside
-    document.addEventListener('click', function () {
-      document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
-        t.classList.remove('active');
-        var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
-        if (d) d.classList.remove('open');
-      });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.hero-video-wall__variant-box-wrapper')) {
+        document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
+          t.classList.remove('active');
+          var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
+          if (d) d.classList.remove('open');
+        });
+      }
     });
 
     // Add to Cart
@@ -196,29 +341,29 @@
       button.addEventListener('click', function () {
         var variantId = this.getAttribute('data-variant-id');
         var btn = this;
-        var originalText = btn.textContent;
+        var originalHTML = btn.innerHTML;
 
         if (!variantId) return;
 
         btn.disabled = true;
-        btn.textContent = 'Adding...';
+        btn.innerHTML = 'Adding...';
 
         fetch('/cart/add.js', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ id: variantId, quantity: 1 }),
+          body: JSON.stringify({ id: parseInt(variantId), quantity: 1 }),
         })
           .then(function (response) {
             return response.json();
           })
           .then(function () {
-            btn.textContent = 'Added!';
+            btn.innerHTML = 'Added!';
             window.location.href = '/cart';
           })
           .catch(function () {
-            btn.textContent = 'Error';
+            btn.innerHTML = 'Error';
             setTimeout(function () {
-              btn.textContent = originalText;
+              btn.innerHTML = originalHTML;
               btn.disabled = false;
             }, 2000);
           });
@@ -535,26 +680,37 @@
   ],
   "blocks": [
     {
-      "type": "variant_option",
-      "name": "Variant Option",
+      "type": "product_config",
+      "name": "Product Config",
       "settings": [
         {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
           "type": "text",
-          "id": "variant_value",
-          "label": "Value",
+          "id": "diagonal",
+          "label": "Diagonal Size",
           "default": "163\""
         },
         {
           "type": "text",
-          "id": "variant_title",
-          "label": "Title",
-          "default": "Diagonal"
+          "id": "pixel_pitch",
+          "label": "Pixel Pitch",
+          "default": "0.9mm"
         },
         {
           "type": "text",
-          "id": "variant_options",
-          "label": "Dropdown Options (comma separated)",
-          "default": "163\", 217\", 271\""
+          "id": "total_pixels",
+          "label": "Total Pixels",
+          "default": "8.29M"
+        },
+        {
+          "type": "text",
+          "id": "aspect_ratio",
+          "label": "Aspect Ratio",
+          "default": "16:9"
         }
       ]
     }
@@ -564,31 +720,30 @@
       "name": "Hero Video Wall",
       "blocks": [
         {
-          "type": "variant_option",
+          "type": "product_config",
           "settings": {
-            "variant_value": "163\"",
-            "variant_title": "Diagonal"
+            "diagonal": "163\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.29M",
+            "aspect_ratio": "16:9"
           }
         },
         {
-          "type": "variant_option",
+          "type": "product_config",
           "settings": {
-            "variant_value": "0.9mm",
-            "variant_title": "Pixel Pitch"
+            "diagonal": "163\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.67M",
+            "aspect_ratio": "16:9"
           }
         },
         {
-          "type": "variant_option",
+          "type": "product_config",
           "settings": {
-            "variant_value": "8.2M",
-            "variant_title": "Total Pixels"
-          }
-        },
-        {
-          "type": "variant_option",
-          "settings": {
-            "variant_value": "16:9",
-            "variant_title": "Aspect Ratio"
+            "diagonal": "163\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.99M",
+            "aspect_ratio": "16:9"
           }
         }
       ]
