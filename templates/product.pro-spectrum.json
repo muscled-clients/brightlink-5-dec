@@ -217,47 +217,44 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_bj3tcy": {
+    "hero_video_wall_YLwQp9": {
       "type": "hero-video-wall",
       "blocks": {
-        "variant_option_QNNQNt": {
-          "type": "variant_option",
+        "product_config_kYPRTm": {
+          "type": "product_config",
           "settings": {
-            "variant_value": "163\"",
-            "variant_title": "Diagonal",
-            "variant_options": "163\", 217\", 271\""
+            "product": "",
+            "diagonal": "163\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.29M",
+            "aspect_ratio": "16:9"
           }
         },
-        "variant_option_RWbeeB": {
-          "type": "variant_option",
+        "product_config_fkAjLx": {
+          "type": "product_config",
           "settings": {
-            "variant_value": "0.9mm",
-            "variant_title": "Pixel Pitch",
-            "variant_options": "163\", 217\", 271\""
+            "product": "",
+            "diagonal": "163\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.67M",
+            "aspect_ratio": "16:9"
           }
         },
-        "variant_option_zYpTkt": {
-          "type": "variant_option",
+        "product_config_dFYeQk": {
+          "type": "product_config",
           "settings": {
-            "variant_value": "8.2M",
-            "variant_title": "Total Pixels",
-            "variant_options": "163\", 217\", 271\""
-          }
-        },
-        "variant_option_aQwYUR": {
-          "type": "variant_option",
-          "settings": {
-            "variant_value": "16:9",
-            "variant_title": "Aspect Ratio",
-            "variant_options": "163\", 217\", 271\""
+            "product": "",
+            "diagonal": "163\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.99M",
+            "aspect_ratio": "16:9"
           }
         }
       },
       "block_order": [
-        "variant_option_QNNQNt",
-        "variant_option_RWbeeB",
-        "variant_option_zYpTkt",
-        "variant_option_aQwYUR"
+        "product_config_kYPRTm",
+        "product_config_fkAjLx",
+        "product_config_dFYeQk"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -1488,7 +1485,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_bj3tcy",
+    "hero_video_wall_YLwQp9",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
