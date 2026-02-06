@@ -217,10 +217,10 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_YLwQp9": {
+    "hero_video_wall_mfYkCp": {
       "type": "hero-video-wall",
       "blocks": {
-        "product_config_kYPRTm": {
+        "product_config_tiQLTg": {
           "type": "product_config",
           "settings": {
             "product": "",
@@ -230,7 +230,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_fkAjLx": {
+        "product_config_CkAkVa": {
           "type": "product_config",
           "settings": {
             "product": "",
@@ -240,7 +240,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_dFYeQk": {
+        "product_config_QxFtgi": {
           "type": "product_config",
           "settings": {
             "product": "",
@@ -249,12 +249,177 @@
             "total_pixels": "2.99M",
             "aspect_ratio": "16:9"
           }
+        },
+        "product_config_iHpm6a": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.06M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_AfVKXN": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.54M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_axEex4": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "180\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.90M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        "product_config_CYQAQW": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "11.29M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_yqtPMP": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "6.35M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_UmKWJd": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "190\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.06M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_VYmLir": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "14.75M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_bQHCUa": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "8.20M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_kcLFEQ": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.31M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        "product_config_NkFyGY": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "12.44M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_zDHzW9": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "7.00M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_F4pqXi": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "227\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.48M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        "product_config_6JwdFV": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "16.59M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        "product_config_LWJJ3g": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "9.33M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        "product_config_fpgQRh": {
+          "type": "product_config",
+          "settings": {
+            "product": "",
+            "diagonal": "294\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.97M",
+            "aspect_ratio": "24:9"
+          }
         }
       },
       "block_order": [
-        "product_config_kYPRTm",
-        "product_config_fkAjLx",
-        "product_config_dFYeQk"
+        "product_config_tiQLTg",
+        "product_config_CkAkVa",
+        "product_config_QxFtgi",
+        "product_config_iHpm6a",
+        "product_config_AfVKXN",
+        "product_config_axEex4",
+        "product_config_CYQAQW",
+        "product_config_yqtPMP",
+        "product_config_UmKWJd",
+        "product_config_VYmLir",
+        "product_config_bQHCUa",
+        "product_config_kcLFEQ",
+        "product_config_NkFyGY",
+        "product_config_zDHzW9",
+        "product_config_F4pqXi",
+        "product_config_6JwdFV",
+        "product_config_LWJJ3g",
+        "product_config_fpgQRh"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -1485,7 +1650,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_YLwQp9",
+    "hero_video_wall_mfYkCp",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
