@@ -210,7 +210,7 @@
 }
 
 .knowledge-center__accordion:hover {
-  background: rgba(20, 30, 50, 0.8);
+  background: transparent;
   border-color: rgba(59, 130, 246, 0.25);
 }
 
