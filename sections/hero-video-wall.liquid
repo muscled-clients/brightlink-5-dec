@@ -64,11 +64,12 @@
       {% endif %}
 
       <!-- Price (static) -->
+      {% assign price_product = section.settings.button_1_product | default: first_config.settings.product %}
       <div class="hero-video-wall__price-wrapper">
-        {% if section.settings.button_1_product != blank %}
-          <span class="hero-video-wall__current-price" id="hero-current-price">{{ section.settings.button_1_product.price | money }}</span>
-          {% if section.settings.button_1_product.compare_at_price > section.settings.button_1_product.price %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ section.settings.button_1_product.compare_at_price | money }}</span>
+        {% if price_product != blank %}
+          <span class="hero-video-wall__current-price" id="hero-current-price">{{ price_product.price | money }}</span>
+          {% if price_product.compare_at_price > price_product.price %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ price_product.compare_at_price | money }}</span>
           {% else %}
             <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
           {% endif %}
