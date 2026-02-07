@@ -400,7 +400,7 @@ align-self: stretch;
 .system-configuration__features {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .system-configuration__feature {
