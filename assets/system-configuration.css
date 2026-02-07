@@ -135,7 +135,7 @@
 .system-configuration__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 40px;
   width: 1280px;
   max-width: calc(100% - 40px);
   box-sizing: border-box;
