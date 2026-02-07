@@ -196,6 +196,17 @@
             </div>
             <div class="hero-video-wall__dropdown" id="hero-ratio-dropdown"></div>
           </div>
+
+          <!-- View Product Button -->
+          <a
+            href="{% if first_config.settings.product != blank %}{{ first_config.settings.product.url }}?variant={{ first_matched_variant.id }}{% else %}#{% endif %}"
+            class="hero-video-wall__variant-box hero-video-wall__view-btn"
+            id="hero-view-product-btn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M7 4L13 10L7 16" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -324,9 +335,10 @@
         // Rebuild dropdowns to update active states
         buildAllDropdowns();
 
-        // Auto-redirect to the product page when dropdown changes
-        if (match.product_url) {
-          window.location.href = match.product_url;
+        // Update view product button URL
+        var viewBtn = document.getElementById('hero-view-product-btn');
+        if (viewBtn && match.product_url) {
+          viewBtn.href = match.product_url;
         }
       }
     }
