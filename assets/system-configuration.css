@@ -431,7 +431,7 @@ align-self: stretch;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 3px;
+  margin:0;
 }
 
 .system-configuration__feature-desc {
