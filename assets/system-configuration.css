@@ -283,8 +283,6 @@
 /* Specs Table */
 .system-configuration__specs-table {
   width: 100%;
-  border-top: 1px solid rgba(60, 100, 140, 0.2);
-  padding-top: 15px;
 }
 
 .system-configuration__spec-row {
