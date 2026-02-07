@@ -304,7 +304,7 @@
 }
 
 .system-configuration__spec-value {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #ffffff;
 }
@@ -649,12 +649,12 @@
   }
 
   .system-configuration__spec-label {
-    font-size: 12px;
+    font-size: 14px;
     color: rgba(255, 255, 255, 0.5);
   }
 
   .system-configuration__spec-value {
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: #ffffff;
   }
