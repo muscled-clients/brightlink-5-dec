@@ -407,6 +407,7 @@ align-self: stretch;
   display: flex;
   gap: 12px;
   align-items: flex-start;
+  padding-bottom: 10px;
 }
 
 .system-configuration__feature-icon {
