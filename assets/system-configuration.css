@@ -153,7 +153,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 20px 25px;
+      padding: 40px 40px 24px 40px;
 }
 
 .system-configuration__card-icon {
@@ -193,7 +193,7 @@
 
 /* Card Body */
 .system-configuration__card-body {
-  padding: 25px;
+  padding: 0px 40px 24px 40px;
 }
 
 /* Cabinet Card Specific */
@@ -608,12 +608,12 @@
   }
 
   .system-configuration__card-header {
-    padding: 20px 20px 15px;
+       padding: 40px 40px 24px 40px;
     border-bottom: none;
   }
 
   .system-configuration__card-body {
-    padding: 0 20px 20px;
+    padding: 0px 40px 24px 40px;
   }
 
   /* Cabinet images box on mobile */
