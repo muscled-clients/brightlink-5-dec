@@ -300,6 +300,8 @@
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
+  position: relative;
+  z-index: 1;
 }
 
 /* Buttons Container */
