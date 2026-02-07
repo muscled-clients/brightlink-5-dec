@@ -154,7 +154,6 @@
   align-items: center;
   gap: 12px;
   padding: 20px 25px;
-  border-bottom: 1px solid rgba(60, 100, 140, 0.15);
 }
 
 .system-configuration__card-icon {
