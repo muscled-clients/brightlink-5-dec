@@ -245,7 +245,7 @@
 }
 
 .system-configuration__cabinet-images-row img:last-child {
-  transform: translateX(-60px);
+  transform: translateX(-80px);
 }
 
 /* Module Placeholder - when no images uploaded */
