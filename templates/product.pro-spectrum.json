@@ -223,7 +223,7 @@
         "product_config_Wtkd3z": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-163-9mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "163\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.29M",
@@ -233,7 +233,7 @@
         "product_config_PzbmAP": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-163-1-25mm-1-2-4k-4-665-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "163\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "4.67M",
@@ -243,7 +243,7 @@
         "product_config_8wDdRF": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "163\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "2.99M",
@@ -253,7 +253,7 @@
         "product_config_kNTK4i": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -263,7 +263,7 @@
         "product_config_Xh7zW3": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-180-1-25mm-1-2-4k-4-536-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "4.54M",
@@ -273,7 +273,7 @@
         "product_config_KhTjTJ": {
           "type": "product_config",
           "settings": {
-            "product": "",
+            "product": "brightlink-pro-spectrum-180-21-9-1-56mm-1-5-x-1080p-2-903-040-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "2.90M",
@@ -448,9 +448,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
