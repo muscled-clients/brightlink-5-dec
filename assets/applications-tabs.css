@@ -102,7 +102,7 @@
 /* Content Card Container */
 .applications-tabs__content {
   display: flex;
-  padding: 20px;
+  padding: 12px 20px 40px 20px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
