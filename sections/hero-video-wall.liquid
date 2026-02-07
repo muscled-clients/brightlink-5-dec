@@ -48,16 +48,24 @@
         <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
       {% endif %}
 
-      <!-- Price -->
-      <div class="hero-video-wall__price-wrapper">
-        {% if first_config.settings.product != blank %}
-          <span class="hero-video-wall__current-price" id="hero-current-price">{{ first_config.settings.product.price | money }}</span>
-          {% if first_config.settings.product.compare_at_price > first_config.settings.product.price %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ first_config.settings.product.compare_at_price | money }}</span>
-          {% else %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
+      {% comment %} Get first config and match its variant by pixel pitch {% endcomment %}
+      {% assign first_config = section.blocks | first %}
+      {% assign first_matched_variant = nil %}
+      {% if first_config.settings.product != blank %}
+        {% for variant in first_config.settings.product.variants %}
+          {% if variant.title == first_config.settings.pixel_pitch or variant.option1 == first_config.settings.pixel_pitch %}
+            {% assign first_matched_variant = variant %}
+            {% break %}
           {% endif %}
-        {% elsif section.settings.button_1_product != blank %}
+        {% endfor %}
+        {% unless first_matched_variant %}
+          {% assign first_matched_variant = first_config.settings.product.selected_or_first_available_variant %}
+        {% endunless %}
+      {% endif %}
+
+      <!-- Price (static) -->
+      <div class="hero-video-wall__price-wrapper">
+        {% if section.settings.button_1_product != blank %}
           <span class="hero-video-wall__current-price" id="hero-current-price">{{ section.settings.button_1_product.price | money }}</span>
           {% if section.settings.button_1_product.compare_at_price > section.settings.button_1_product.price %}
             <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ section.settings.button_1_product.compare_at_price | money }}</span>
@@ -84,12 +92,22 @@
               "total_pixels": {{ block.settings.total_pixels | json }},
               "aspect_ratio": {{ block.settings.aspect_ratio | json }},
               {% if block.settings.product != blank %}
-                "price": {{ block.settings.product.price | json }},
-                "compare_price": {{ block.settings.product.compare_at_price | json }},
-                "price_formatted": {{ block.settings.product.price | money | json }},
-                "compare_price_formatted": {{ block.settings.product.compare_at_price | money | json }},
-                "product_url": {{ block.settings.product.url | json }},
-                "variant_id": {{ block.settings.product.selected_or_first_available_variant.id | json }}
+                {% assign matched_variant = nil %}
+                {% for variant in block.settings.product.variants %}
+                  {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
+                    {% assign matched_variant = variant %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% unless matched_variant %}
+                  {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
+                {% endunless %}
+                "price": {{ matched_variant.price | json }},
+                "compare_price": {{ matched_variant.compare_at_price | json }},
+                "price_formatted": {{ matched_variant.price | money | json }},
+                "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
+                "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
+                "variant_id": {{ matched_variant.id | json }}
               {% else %}
                 "price": null,
                 "compare_price": null,
@@ -104,9 +122,6 @@
         {% endfor %}
       ]
     </script>
-
-    {% comment %} Get first config as default {% endcomment %}
-    {% assign first_config = section.blocks | first %}
 
     <!-- Bottom Frame: Variant Selector + Buttons -->
     <div class="hero-video-wall__bottom-frame">
@@ -190,7 +205,7 @@
             <button
               type="button"
               class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart"
-              data-variant-id="{% if first_config.settings.product != blank %}{{ first_config.settings.product.selected_or_first_available_variant.id }}{% endif %}"
+              data-variant-id="{% if first_matched_variant %}{{ first_matched_variant.id }}{% endif %}"
             >
               {{ section.settings.button_1_text }}
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
@@ -298,23 +313,6 @@
         document.getElementById('hero-pitch-value').textContent = match.pixel_pitch;
         document.getElementById('hero-pixels-value').textContent = match.total_pixels;
         document.getElementById('hero-ratio-value').textContent = match.aspect_ratio;
-
-        // Update price
-        var priceEl = document.getElementById('hero-current-price');
-        if (priceEl && match.price_formatted) {
-          priceEl.textContent = match.price_formatted;
-        }
-
-        // Update compare price
-        var comparePriceEl = document.getElementById('hero-compare-price');
-        if (comparePriceEl) {
-          if (match.compare_price && match.compare_price > match.price) {
-            comparePriceEl.textContent = match.compare_price_formatted;
-            comparePriceEl.style.display = '';
-          } else {
-            comparePriceEl.style.display = 'none';
-          }
-        }
 
         // Update add-to-cart button variant ID
         var addToCartBtn = document.querySelector('.js-add-to-cart');
