@@ -283,6 +283,10 @@
 /* Specs Table */
 .system-configuration__specs-table {
   width: 100%;
+  display: flex;
+flex-direction: column;
+gap: 16px;
+align-self: stretch;
 }
 
 .system-configuration__spec-row {
