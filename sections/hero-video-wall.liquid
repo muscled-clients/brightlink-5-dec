@@ -187,16 +187,16 @@
       <div class="hero-video-wall__buttons-frame">
         <div class="hero-video-wall__buttons">
           {% if section.settings.button_1_text != blank %}
-            <a
-              href="{% if first_config.settings.product != blank %}{{ first_config.settings.product.url }}{% else %}#{% endif %}"
-              class="hero-video-wall__btn hero-video-wall__btn--primary js-hero-product-link"
-              id="hero-product-link"
+            <button
+              type="button"
+              class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart"
+              data-variant-id="{% if first_config.settings.product != blank %}{{ first_config.settings.product.selected_or_first_available_variant.id }}{% endif %}"
             >
               {{ section.settings.button_1_text }}
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
                 <path d="M13.707 6.70897C14.0977 6.31832 14.0977 5.68391 13.707 5.29326L8.70674 0.292985C8.31609 -0.0976617 7.68168 -0.0976617 7.29103 0.292985C6.90038 0.683632 6.90038 1.31804 7.29103 1.70869L10.5881 5.00262H1.00006C0.4469 5.00262 0 5.44952 0 6.00268C0 6.55583 0.4469 7.00273 1.00006 7.00273H10.585L7.29416 10.2967C6.90351 10.6873 6.90351 11.3217 7.29416 11.7124C7.6848 12.103 8.31921 12.103 8.70986 11.7124L13.7101 6.71209L13.707 6.70897Z" fill="white"/>
               </svg>
-            </a>
+            </button>
           {% endif %}
           {% if section.settings.button_2_text != blank %}
             <a
@@ -316,14 +316,19 @@
           }
         }
 
-        // Update product link URL
-        var productLink = document.getElementById('hero-product-link');
-        if (productLink && match.product_url) {
-          productLink.href = match.product_url;
+        // Update add-to-cart button variant ID
+        var addToCartBtn = document.querySelector('.js-add-to-cart');
+        if (addToCartBtn && match.variant_id) {
+          addToCartBtn.setAttribute('data-variant-id', match.variant_id);
         }
 
         // Rebuild dropdowns to update active states
         buildAllDropdowns();
+
+        // Auto-redirect to the product page when dropdown changes
+        if (match.product_url) {
+          window.location.href = match.product_url;
+        }
       }
     }
 
@@ -392,6 +397,45 @@
         });
       }
     });
+
+    // Add to Cart button
+    var addToCartBtn = document.querySelector('.js-add-to-cart');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function () {
+        var variantId = this.getAttribute('data-variant-id');
+        if (!variantId) return;
+
+        var btn = this;
+        var originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Adding...';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
+        })
+        .then(function (response) {
+          if (response.ok) {
+            btn.innerHTML = 'Added!';
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
+          } else {
+            btn.innerHTML = 'Error';
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
+          }
+        })
+        .catch(function () {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        });
+      });
+    }
 
   });
 </script>
