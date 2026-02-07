@@ -335,7 +335,7 @@ align-self: stretch;
 }
 
 .system-configuration__connection-images-box img {
-  height: 200px;
+  height: 220px;
   max-height: 220px;
   object-fit: contain;
   margin-bottom: 0px;
