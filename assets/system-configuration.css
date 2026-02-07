@@ -200,7 +200,7 @@
 .system-configuration__card--cabinet .system-configuration__card-body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 /* Card Image Container - shared by both cards */
@@ -315,7 +315,7 @@
 .system-configuration__card--connection .system-configuration__card-body {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
 }
 
 /* Connection Images Box - dark rounded container matching cabinet */
