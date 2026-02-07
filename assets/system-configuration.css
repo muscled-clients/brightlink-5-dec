@@ -241,7 +241,7 @@
 }
 
 .system-configuration__cabinet-images-row img:first-child {
-  transform: translateX(60px);
+  transform: translateX(70px);
 }
 
 .system-configuration__cabinet-images-row img:last-child {
@@ -633,11 +633,11 @@ align-self: stretch;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
-    transform: translateX(40px);
+    transform: translateX(50px);
   }
 
   .system-configuration__cabinet-images-row img:last-child {
-    transform: translateX(-40px);
+    transform: translateX(-60px);
   }
 
   /* Specs table - label on top, value below */
