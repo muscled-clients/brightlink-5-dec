@@ -218,7 +218,7 @@
   border: 1px solid rgba(52, 152, 219, 0.2);
   border-radius: 12px;
   padding: 16px;
-  margin-bottom: 16px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -619,7 +619,7 @@
   /* Cabinet images box on mobile */
   .system-configuration__cabinet-images-box {
     padding: 16px;
-    margin-bottom: 16px;
+    margin-bottom: 0px;
   }
 
   .system-configuration__cabinet-images-row {
