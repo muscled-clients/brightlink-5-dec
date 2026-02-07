@@ -338,7 +338,7 @@ align-self: stretch;
   height: 220px;
   max-height: 220px;
   object-fit: contain;
-  margin-bottom: 0px;
+  margin-bottom: 16px;
 }
 
 /* Lock Icon Wrapper inside box */
