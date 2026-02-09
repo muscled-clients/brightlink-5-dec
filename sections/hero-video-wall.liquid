@@ -23,10 +23,12 @@
       }}
     {% else %}
       <!-- Fallback background image -->
-      <div
-        class="hero-video-wall__fallback-bg"
-        style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"
-      ></div>
+      {% if section.settings.fallback_image != blank %}
+        <div
+          class="hero-video-wall__fallback-bg"
+          style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"
+        ></div>
+      {% endif %}
     {% endif %}
     <!-- Dark Overlay -->
     <div class="hero-video-wall__overlay"></div>
@@ -259,7 +261,6 @@
     // Load product configs
     var configsEl = document.getElementById('hero-product-configs');
     var configs = configsEl ? JSON.parse(configsEl.textContent) : [];
-    console.log('Hero configs:', configs);
 
     // Current selection state
     var selected = {
@@ -327,7 +328,6 @@
         }
       }
 
-      console.log('updateHero match:', match);
       if (match) {
         // Update all values
         selected.diagonal = match.diagonal;
