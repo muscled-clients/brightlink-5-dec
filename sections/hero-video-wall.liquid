@@ -338,6 +338,22 @@
         document.getElementById('hero-pixels-value').textContent = match.total_pixels;
         document.getElementById('hero-ratio-value').textContent = match.aspect_ratio;
 
+        // Update price
+        var currentPrice = document.getElementById('hero-current-price');
+        var comparePrice = document.getElementById('hero-compare-price');
+        if (currentPrice && match.price_formatted) {
+          currentPrice.textContent = match.price_formatted;
+        }
+        if (comparePrice) {
+          if (match.compare_price && match.compare_price > match.price) {
+            comparePrice.textContent = match.compare_price_formatted;
+            comparePrice.style.display = '';
+          } else {
+            comparePrice.textContent = '';
+            comparePrice.style.display = 'none';
+          }
+        }
+
         // Update add-to-cart button variant ID
         var addToCartBtn = document.querySelector('.js-add-to-cart');
         if (addToCartBtn && match.variant_id) {
