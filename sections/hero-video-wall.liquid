@@ -259,6 +259,7 @@
     // Load product configs
     var configsEl = document.getElementById('hero-product-configs');
     var configs = configsEl ? JSON.parse(configsEl.textContent) : [];
+    console.log('Hero configs:', configs);
 
     // Current selection state
     var selected = {
@@ -326,6 +327,7 @@
         }
       }
 
+      console.log('updateHero match:', match);
       if (match) {
         // Update all values
         selected.diagonal = match.diagonal;
