@@ -48,23 +48,35 @@
         <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
       {% endif %}
 
-      {% comment %} Get first config and match its variant by pixel pitch {% endcomment %}
-      {% assign first_config = section.blocks | first %}
+      {% comment %} Find the config matching the current product page, fallback to first {% endcomment %}
+      {% assign default_config = nil %}
+      {% for block in section.blocks %}
+        {% if block.type == 'product_config' and block.settings.product != blank %}
+          {% if block.settings.product.handle == product.handle %}
+            {% assign default_config = block %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% unless default_config %}
+        {% assign default_config = section.blocks | first %}
+      {% endunless %}
+
       {% assign first_matched_variant = nil %}
-      {% if first_config.settings.product != blank %}
-        {% for variant in first_config.settings.product.variants %}
-          {% if variant.title == first_config.settings.pixel_pitch or variant.option1 == first_config.settings.pixel_pitch %}
+      {% if default_config.settings.product != blank %}
+        {% for variant in default_config.settings.product.variants %}
+          {% if variant.title == default_config.settings.pixel_pitch or variant.option1 == default_config.settings.pixel_pitch %}
             {% assign first_matched_variant = variant %}
             {% break %}
           {% endif %}
         {% endfor %}
         {% unless first_matched_variant %}
-          {% assign first_matched_variant = first_config.settings.product.selected_or_first_available_variant %}
+          {% assign first_matched_variant = default_config.settings.product.selected_or_first_available_variant %}
         {% endunless %}
       {% endif %}
 
       <!-- Price (static) -->
-      {% assign price_product = section.settings.button_1_product | default: first_config.settings.product %}
+      {% assign price_product = section.settings.button_1_product | default: default_config.settings.product %}
       <div class="hero-video-wall__price-wrapper">
         {% if price_product != blank %}
           <span class="hero-video-wall__current-price" id="hero-current-price">{{ price_product.price | money }}</span>
@@ -137,7 +149,7 @@
           <div class="hero-video-wall__variant-box-wrapper" data-box="diagonal">
             <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
               <div class="hero-video-wall__box-content">
-                <span class="hero-video-wall__box-value" id="hero-diagonal-value">{{ first_config.settings.diagonal | default: '163"' }}</span>
+                <span class="hero-video-wall__box-value" id="hero-diagonal-value">{{ default_config.settings.diagonal | default: '163"' }}</span>
                 <span class="hero-video-wall__box-title">Diagonal</span>
               </div>
               <div class="hero-video-wall__box-arrow">
@@ -153,7 +165,7 @@
           <div class="hero-video-wall__variant-box-wrapper" data-box="pixel_pitch">
             <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
               <div class="hero-video-wall__box-content">
-                <span class="hero-video-wall__box-value" id="hero-pitch-value">{{ first_config.settings.pixel_pitch | default: '0.9mm' }}</span>
+                <span class="hero-video-wall__box-value" id="hero-pitch-value">{{ default_config.settings.pixel_pitch | default: '0.9mm' }}</span>
                 <span class="hero-video-wall__box-title">Pixel Pitch</span>
               </div>
               <div class="hero-video-wall__box-arrow">
@@ -169,7 +181,7 @@
           <div class="hero-video-wall__variant-box-wrapper" data-box="total_pixels">
             <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
               <div class="hero-video-wall__box-content">
-                <span class="hero-video-wall__box-value" id="hero-pixels-value">{{ first_config.settings.total_pixels | default: '8.29M' }}</span>
+                <span class="hero-video-wall__box-value" id="hero-pixels-value">{{ default_config.settings.total_pixels | default: '8.29M' }}</span>
                 <span class="hero-video-wall__box-title">Total Pixels</span>
               </div>
               <div class="hero-video-wall__box-arrow">
@@ -185,7 +197,7 @@
           <div class="hero-video-wall__variant-box-wrapper" data-box="aspect_ratio">
             <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
               <div class="hero-video-wall__box-content">
-                <span class="hero-video-wall__box-value" id="hero-ratio-value">{{ first_config.settings.aspect_ratio | default: '16:9' }}</span>
+                <span class="hero-video-wall__box-value" id="hero-ratio-value">{{ default_config.settings.aspect_ratio | default: '16:9' }}</span>
                 <span class="hero-video-wall__box-title">Aspect Ratio</span>
               </div>
               <div class="hero-video-wall__box-arrow">
@@ -199,7 +211,7 @@
 
           <!-- View Product Button -->
           <a
-            href="{% if first_config.settings.product != blank %}{{ first_config.settings.product.url }}?variant={{ first_matched_variant.id }}{% else %}#{% endif %}"
+            href="{% if default_config.settings.product != blank %}{{ default_config.settings.product.url }}?variant={{ first_matched_variant.id }}{% else %}#{% endif %}"
             class="hero-video-wall__variant-box hero-video-wall__view-btn"
             id="hero-view-product-btn"
           >
