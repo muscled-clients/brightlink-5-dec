@@ -1974,3 +1974,26 @@
     font-size: 12px;
   }
 }
+
+
+.product-intelligence__image {
+  /* Ensure the container handles overflow properly */
+  overflow: hidden;
+  position: relative;
+  display: inline-block; /* or block, depending on your layout */
+}
+
+.product-intelligence__image img {
+  /* Smooth transition for the transform property */
+  transition: transform 0.3s ease-in-out;
+  /* Ensure the image scales properly */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hover effect */
+.product-intelligence__image:hover img {
+  /* Scale the image on hover - adjust the value as needed */
+  transform: scale(1.05); /* 5% zoom - you can change this value */
+}
