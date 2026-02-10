@@ -296,11 +296,15 @@
 /* View Product Button */
 .hero-video-wall__view-btn {
   display: flex;
+  width: 64px;
+  height: 64px;
+  padding: 20px 16px;
   justify-content: center;
   align-items: center;
+  gap: 10px;
   flex: 0 0 auto;
-  width: 48px;
-  border-color: rgba(0, 106, 212, 0.80);
+  border-radius: 8px;
+  border: 1px solid rgba(10, 132, 255, 0.30);
   background: #006AD4;
   cursor: pointer;
   text-decoration: none;
