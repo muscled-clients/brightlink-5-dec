@@ -98,7 +98,30 @@
               data-tab-index="{{ forloop.index0 }}"
               {{ block.shopify_attributes }}
             >
-              <svg class="product-intelligence__tab-icon product-intelligence__tab-icon--{{ block.settings.tab_icon }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet">
+              <svg class="product-intelligence__tab-icon product-intelligence__tab-icon--{{ block.settings.tab_icon }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" <svg class="product-intelligence__tab-icon product-intelligence__tab-icon--{{ block.settings.tab_icon }}" 
+     xmlns="http://www.w3.org/2000/svg" 
+     viewBox="0 0 24 24"
+     style="width: {% case block.settings.tab_icon %}
+               {% when 'overview' %}18.002px
+               {% when 'specs' %}16px
+               {% when 'features' %}16.502px
+               {% when 'included' %}19.135px
+               {% when 'installation' %}16.001px
+               {% when 'support' %}18px
+               {% else %}20px
+             {% endcase %}; 
+            height: {% case block.settings.tab_icon %}
+               {% when 'overview' %}14px
+               {% when 'specs' %}16px
+               {% when 'features' %}16.002px
+               {% when 'included' %}13.903px
+               {% when 'installation' %}16px
+               {% when 'support' %}13.122px
+               {% else %}20px
+             {% endcase %};
+            fill: currentColor;">
+    <!-- Your SVG paths here -->
+
   {% case block.settings.tab_icon %}
     {% when 'overview' %}
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
