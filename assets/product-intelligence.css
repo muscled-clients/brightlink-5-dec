@@ -2043,3 +2043,76 @@ height: 13.122px;
   }
 }
 
+/* Remove all your existing icon size classes and replace with this: */
+
+/* Reset all tab icons to be square initially */
+.product-intelligence__tab-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  display: block;
+  flex-shrink: 0;
+}
+
+/* Create a wrapper for non-square icons */
+.product-intelligence__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+}
+
+/* Add an icon container with specific dimensions */
+.product-intelligence__tab::before {
+  content: '';
+  display: none; /* Hidden by default */
+  flex-shrink: 0;
+}
+
+/* Show and size the pseudo-element for each icon type */
+.product-intelligence__tab[data-icon="overview"]::before {
+  display: block;
+  width: 18.002px;
+  height: 14px;
+}
+
+.product-intelligence__tab[data-icon="specs"]::before {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.product-intelligence__tab[data-icon="features"]::before {
+  display: block;
+  width: 16.502px;
+  height: 16.002px;
+}
+
+.product-intelligence__tab[data-icon="included"]::before {
+  display: block;
+  width: 19.135px;
+  height: 13.903px;
+}
+
+.product-intelligence__tab[data-icon="installation"]::before {
+  display: block;
+  width: 16.001px;
+  height: 16px;
+}
+
+.product-intelligence__tab[data-icon="support"]::before {
+  display: block;
+  width: 18px;
+  height: 13.122px;
+}
+
+/* Position SVG absolutely inside the container */
+.product-intelligence__tab[data-icon] svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+}
