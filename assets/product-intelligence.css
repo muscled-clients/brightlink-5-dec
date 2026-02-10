@@ -458,7 +458,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 30px 20px 0px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -1603,7 +1603,7 @@
   }
 
   .specs-accordion__header {
-    padding: 15px 20px;
+    padding: 15px 20px 15px 0px;
   }
 
   .specs-table tbody {
