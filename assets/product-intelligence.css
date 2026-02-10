@@ -2043,3 +2043,42 @@ height: 13.122px;
   }
 }
 
+/* Simple scaling solution */
+.product-intelligence__tab-icon--overview {
+  transform: scale(0.75, 0.583); /* Scale to 18.002x14 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab-icon--specs {
+  transform: scale(0.667); /* Scale to 16x16 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab-icon--features {
+  transform: scale(0.688, 0.667); /* Scale to 16.502x16.002 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab-icon--included {
+  transform: scale(0.797, 0.579); /* Scale to 19.135x13.903 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab-icon--installation {
+  transform: scale(0.667); /* Scale to 16.001x16 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab-icon--support {
+  transform: scale(0.75, 0.547); /* Scale to 18x13.122 */
+  transform-origin: center;
+}
+
+/* All SVGs start at 24x24 */
+.product-intelligence__tab svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  display: block;
+  flex-shrink: 0;
+}
