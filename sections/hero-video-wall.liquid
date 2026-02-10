@@ -459,28 +459,11 @@
         .then(function (response) {
           if (response.ok) {
             btn.innerHTML = 'Added!';
-            // Update cart count and refresh mini-cart
-            fetch('/cart.js')
-              .then(function (r) { return r.json(); })
-              .then(function (cart) {
-                document.querySelectorAll('.header__cart-count').forEach(function (el) {
-                  el.textContent = cart.item_count;
-                });
-                // Refresh mini-cart HTML
-                return fetch(window.routes.cartUrl + '?section_id=mini-cart');
-              })
-              .then(function (r) { return r.text(); })
-              .then(function (html) {
-                var miniCart = document.getElementById('mini-cart');
-                if (miniCart) {
-                  var temp = document.createElement('div');
-                  temp.innerHTML = html;
-                  var newMiniCart = temp.querySelector('.mini-cart');
-                  if (newMiniCart) {
-                    miniCart.innerHTML = newMiniCart.innerHTML;
-                  }
-                }
-              });
+            // Trigger theme's built-in cart refresh
+            document.documentElement.dispatchEvent(new CustomEvent('product:added', {
+              bubbles: true,
+              detail: { quantity: 1 }
+            }));
             setTimeout(function () {
               btn.innerHTML = originalText;
               btn.disabled = false;
