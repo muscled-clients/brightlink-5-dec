@@ -72,12 +72,19 @@
 
     const slides = section.querySelectorAll('.product-showcase__slide');
     const dots = section.querySelectorAll('.product-showcase__dot');
+    const slidesContainer = section.querySelector('.product-showcase__slides');
 
     if (slides.length === 0) return;
 
     let currentIndex = 0;
     let autoSlideInterval;
     const autoSlideDelay = {{ section.settings.autoplay_speed }}000;
+    
+    // Drag variables
+    let isDragging = false;
+    let startPos = 0;
+    let currentPos = 0;
+    const dragThreshold = 50;
 
     function showSlide(index) {
       if (index >= slides.length) index = 0;
@@ -113,6 +120,48 @@
     function stopAutoSlide() {
       clearInterval(autoSlideInterval);
     }
+
+    // Mouse drag events
+    slidesContainer.addEventListener('mousedown', (e) => {
+      stopAutoSlide();
+      isDragging = true;
+      startPos = e.clientX;
+      slidesContainer.style.cursor = 'grabbing';
+    });
+
+    slidesContainer.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      currentPos = e.clientX;
+    });
+
+    slidesContainer.addEventListener('mouseup', () => {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      slidesContainer.style.cursor = '';
+      
+      const dragDistance = startPos - currentPos;
+      
+      if (Math.abs(dragDistance) > dragThreshold) {
+        if (dragDistance > 0) {
+          // Dragged left - next slide
+          showSlide(currentIndex + 1);
+        } else {
+          // Dragged right - previous slide
+          showSlide(currentIndex - 1);
+        }
+      }
+      
+      startAutoSlide();
+    });
+
+    slidesContainer.addEventListener('mouseleave', () => {
+      if (isDragging) {
+        isDragging = false;
+        slidesContainer.style.cursor = '';
+        startAutoSlide();
+      }
+    });
 
     // Dot click events
     dots.forEach((dot, index) => {
