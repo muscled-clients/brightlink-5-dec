@@ -2043,42 +2043,57 @@ height: 13.122px;
   }
 }
 
-/* Simple scaling solution */
-.product-intelligence__tab-icon--overview {
-  transform: scale(0.75, 0.583); /* Scale to 18.002x14 */
-  transform-origin: center;
-}
+/* Keep original SVG HTML with 24x24 viewBox */
 
-.product-intelligence__tab-icon--specs {
-  transform: scale(0.667); /* Scale to 16x16 */
-  transform-origin: center;
-}
-
-.product-intelligence__tab-icon--features {
-  transform: scale(0.688, 0.667); /* Scale to 16.502x16.002 */
-  transform-origin: center;
-}
-
-.product-intelligence__tab-icon--included {
-  transform: scale(0.797, 0.579); /* Scale to 19.135x13.903 */
-  transform-origin: center;
-}
-
-.product-intelligence__tab-icon--installation {
-  transform: scale(0.667); /* Scale to 16.001x16 */
-  transform-origin: center;
-}
-
-.product-intelligence__tab-icon--support {
-  transform: scale(0.75, 0.547); /* Scale to 18x13.122 */
-  transform-origin: center;
-}
-
-/* All SVGs start at 24x24 */
+/* CSS scaling solution */
 .product-intelligence__tab svg {
-  width: 24px;
-  height: 24px;
   fill: currentColor;
   display: block;
   flex-shrink: 0;
+  /* Original size */
+  width: 24px;
+  height: 24px;
+}
+
+/* Scale each SVG to your desired dimensions */
+.product-intelligence__tab svg.product-intelligence__tab-icon--overview {
+  width: 18.002px;
+  height: 14px;
+  transform: scale(0.75, 0.583); /* 18.002/24, 14/24 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--specs {
+  width: 16px;
+  height: 16px;
+  transform: scale(0.667); /* 16/24 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--features {
+  width: 16.502px;
+  height: 16.002px;
+  transform: scale(0.688, 0.667); /* 16.502/24, 16.002/24 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--included {
+  width: 19.135px;
+  height: 13.903px;
+  transform: scale(0.797, 0.579); /* 19.135/24, 13.903/24 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--installation {
+  width: 16.001px;
+  height: 16px;
+  transform: scale(0.667); /* 16.001/24 */
+  transform-origin: center;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--support {
+  width: 18px;
+  height: 13.122px;
+  transform: scale(0.75, 0.547); /* 18/24, 13.122/24 */
+  transform-origin: center;
 }
