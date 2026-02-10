@@ -155,23 +155,6 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox by default (injected by app)
-document.addEventListener('DOMContentLoaded', function () {
-  var observer = new MutationObserver(function (mutations) {
-    var termsCheckbox = document.querySelector('#mini-cart input[type="checkbox"][checked], .mini-cart input[type="checkbox"][checked]');
-    if (!termsCheckbox) {
-      termsCheckbox = document.querySelector('#cart-terms, #agree, [name="terms"], [name="agree"]');
-    }
-    if (termsCheckbox && termsCheckbox.checked) {
-      termsCheckbox.checked = false;
-      observer.disconnect();
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-  // Stop observing after 10 seconds
-  setTimeout(function () { observer.disconnect(); }, 10000);
-});
-
 $(document).ready(function(){
   mobileOnlySlider(".mySlider", true, false, 767);
 
