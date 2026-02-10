@@ -3,8 +3,8 @@
 <section class="product-showcase {{ section.settings.custom_class }}" id="product-showcase-{{ section.id }}">
   <div class="product-showcase__container">
     <!-- Header Section -->
-    <div class="product-showcase__header" style="width: 100%; max-width: 100%; padding: 0 5%; box-sizing: border-box;">
-      <div class="product-showcase__header-text" style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <div class="product-showcase__header">
+      <div class="product-showcase__header-text">
         {% if section.settings.section_label != blank %}
           <span class="product-showcase__label">{{ section.settings.section_label }}</span>
         {% endif %}
@@ -13,7 +13,7 @@
         {% endif %}
       </div>
       {% if section.settings.subheading != blank %}
-        <p class="product-showcase__subheading" style="max-width: 600px; margin: 20px auto 0; text-align: center;">{{ section.settings.subheading }}</p>
+        <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
       {% endif %}
     </div>
 
@@ -30,7 +30,7 @@
                   alt="{{ block.settings.slide_title | default: 'Product image' }}"
                   class="product-showcase__image"
                   loading="lazy"
-                  draggable="false"
+                  style="user-select: none; -webkit-user-drag: none;"
                 >
               {% else %}
                 <div class="product-showcase__placeholder">
@@ -84,8 +84,8 @@
     // Drag functionality variables
     let isDragging = false;
     let startX = 0;
-    let currentX = 0;
-    const dragThreshold = 50; // Minimum pixels to trigger slide change
+    let endX = 0;
+    const dragThreshold = 100; // Minimum pixels to trigger slide change
 
     function showSlide(index) {
       if (index >= slides.length) index = 0;
@@ -122,27 +122,26 @@
       clearInterval(autoSlideInterval);
     }
 
-    // Drag functionality for slides
-    function handleDragStart(e) {
+    // Simple drag detection
+    slidesContainer.addEventListener('mousedown', function(e) {
       stopAutoSlide();
       isDragging = true;
-      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      startX = e.clientX;
       slidesContainer.style.cursor = 'grabbing';
-    }
+    });
 
-    function handleDragMove(e) {
+    slidesContainer.addEventListener('mousemove', function(e) {
       if (!isDragging) return;
-      
-      currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-    }
+      endX = e.clientX;
+    });
 
-    function handleDragEnd(e) {
+    slidesContainer.addEventListener('mouseup', function() {
       if (!isDragging) return;
       
       isDragging = false;
       slidesContainer.style.cursor = '';
       
-      const dragDistance = startX - currentX;
+      const dragDistance = startX - endX;
       
       // If drag distance exceeds threshold, change slide
       if (Math.abs(dragDistance) > dragThreshold) {
@@ -157,21 +156,40 @@
       
       // Restart autoplay
       startAutoSlide();
-    }
+    });
 
-    // Add drag event listeners
-    slidesContainer.addEventListener('mousedown', handleDragStart);
-    slidesContainer.addEventListener('touchstart', handleDragStart);
-    
-    document.addEventListener('mousemove', handleDragMove);
-    document.addEventListener('touchmove', handleDragMove);
-    
-    document.addEventListener('mouseup', handleDragEnd);
-    document.addEventListener('touchend', handleDragEnd);
+    // Touch support for mobile
+    slidesContainer.addEventListener('touchstart', function(e) {
+      stopAutoSlide();
+      isDragging = true;
+      startX = e.touches[0].clientX;
+    });
 
-    // Prevent default drag behavior on images
-    section.querySelectorAll('.product-showcase__image').forEach(img => {
-      img.addEventListener('dragstart', (e) => e.preventDefault());
+    slidesContainer.addEventListener('touchmove', function(e) {
+      if (!isDragging) return;
+      endX = e.touches[0].clientX;
+    });
+
+    slidesContainer.addEventListener('touchend', function() {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      
+      const dragDistance = startX - endX;
+      
+      // If drag distance exceeds threshold, change slide
+      if (Math.abs(dragDistance) > dragThreshold) {
+        if (dragDistance > 0) {
+          // Swiped left - next slide
+          showSlide(currentIndex + 1);
+        } else {
+          // Swiped right - previous slide
+          showSlide(currentIndex - 1);
+        }
+      }
+      
+      // Restart autoplay
+      startAutoSlide();
     });
 
     // Dot click events
@@ -189,6 +207,15 @@
     // Pause on hover
     section.addEventListener('mouseenter', stopAutoSlide);
     section.addEventListener('mouseleave', startAutoSlide);
+    
+    // Reset drag if mouse leaves container
+    slidesContainer.addEventListener('mouseleave', function() {
+      if (isDragging) {
+        isDragging = false;
+        slidesContainer.style.cursor = '';
+        startAutoSlide();
+      }
+    });
   });
 </script>
 
@@ -396,12 +423,33 @@
   .product-showcase {
     margin-bottom: 120px;
     padding: 0 !important;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
-  /* Header full width styling */
+  /* HEADER - FULL WIDTH WITH CENTERED CONTENT */
   .product-showcase__header {
+    width: 100%;
+    max-width: 100vw;
+    padding: 60px 20px !important;
+    margin: 0 !important;
+    text-align: center;
     background-color: var(--ps-bg-color);
-    padding: 60px 5% !important;
+    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+  }
+
+  .product-showcase__header-text {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .product-showcase__label {
@@ -410,8 +458,8 @@
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
-    display: block;
     margin-bottom: 10px;
+    display: block;
   }
 
   .product-showcase__heading {
@@ -425,15 +473,22 @@
     font-size: var(--ps-subheading-size);
     color: var(--ps-subheading-color);
     line-height: 1.6;
+    max-width: 600px;
+    margin: 20px auto 0;
   }
 
-  /* Carousel cursor for dragging */
+  /* CAROUSEL - DRAG FUNCTIONALITY */
   .product-showcase__slides {
     cursor: grab;
+    user-select: none;
   }
 
   .product-showcase__slides:active {
     cursor: grabbing;
+  }
+
+  .product-showcase__image {
+    pointer-events: none;
   }
 
   @media screen and (max-width: 768px) {
@@ -442,7 +497,7 @@
     }
     
     .product-showcase__header {
-      padding: 40px 5% !important;
+      padding: 40px 15px !important;
     }
   }
 </style>
