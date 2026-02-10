@@ -1977,23 +1977,21 @@
 
 
 .product-intelligence__image {
-  /* Ensure the container handles overflow properly */
   overflow: hidden;
   position: relative;
-  display: inline-block; /* or block, depending on your layout */
+  display: inline-block;
 }
 
 .product-intelligence__image img {
-  /* Smooth transition for the transform property */
-  transition: transform 0.3s ease-in-out;
-  /* Ensure the image scales properly */
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth easing */
   width: 100%;
   height: auto;
   display: block;
+  transform-origin: center center; /* Zoom from the center */
 }
 
-/* Hover effect */
 .product-intelligence__image:hover img {
-  /* Scale the image on hover - adjust the value as needed */
-  transform: scale(1.05); /* 5% zoom - you can change this value */
+  transform: scale(1.08); /* 8% zoom */
+  /* Optional: add a slight brightness change for better effect */
+  filter: brightness(1.02);
 }
