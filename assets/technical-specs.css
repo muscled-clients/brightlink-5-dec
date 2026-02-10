@@ -480,3 +480,25 @@
     font-size: 13px;
   }
 }
+
+
+/* Technical Specs - Book A Call Button Hover Animation */
+.technical-specs__btn--secondary {
+  position: relative;
+  overflow: hidden;
+}
+
+.technical-specs__btn--secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: currentColor;
+  transition: width 0.3s ease-out;
+}
+
+.technical-specs__btn--secondary:hover::before {
+  width: 100%;
+}
