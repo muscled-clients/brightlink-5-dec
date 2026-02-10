@@ -162,44 +162,10 @@
   background: rgba(10, 132, 255, 0.15);
 }
 
-
-/* Base style for all tab icons */
 .product-intelligence__tab-icon {
-  width: 20px; /* default size */
-  height: 20px;
-  fill: currentColor;
-}
-
-/* Specific widths for each icon type */
-.product-intelligence__tab-icon--overview {
-  width: 18.002px;
-height: 14px;
-}
-
-.product-intelligence__tab-icon--specs {
   width: 16px;
-height: 16px;
-flex-shrink: 0;
-}
-
-.product-intelligence__tab-icon--features {
-width: 16.502px;
-height: 16.002px;
-}
-
-.product-intelligence__tab-icon--included {
- width: 19.135px;
-height: 13.903px;
-}
-
-.product-intelligence__tab-icon--installation {
- width: 16.001px;
-height: 16px;
-}
-
-.product-intelligence__tab-icon--support {
- width: 18px;
-height: 13.122px;
+  height: 16px;
+  fill: currentColor;
 }
 
 /* Tab Panels Container */
@@ -1776,44 +1742,10 @@ height: 13.122px;
     gap: 5px;
   }
 
- /* Base style for all tab icons */
-.product-intelligence__tab-icon {
-  width: 20px; /* default size */
-  height: 20px;
-  fill: currentColor;
-}
-
-/* Specific widths for each icon type */
-.product-intelligence__tab-icon--overview {
-  width: 18.002px;
-height: 14px;
-}
-
-.product-intelligence__tab-icon--specs {
-  width: 16px;
-height: 16px;
-flex-shrink: 0;
-}
-
-.product-intelligence__tab-icon--features {
-width: 16.502px;
-height: 16.002px;
-}
-
-.product-intelligence__tab-icon--included {
- width: 19.135px;
-height: 13.903px;
-}
-
-.product-intelligence__tab-icon--installation {
- width: 16.001px;
-height: 16px;
-}
-
-.product-intelligence__tab-icon--support {
- width: 18px;
-height: 13.122px;
-}
+  .product-intelligence__tab-icon {
+    width: 14px;
+    height: 14px;
+  }
 
   .product-intelligence__panel {
     padding: 20px 15px;
@@ -2041,50 +1973,4 @@ height: 13.122px;
     padding: 14px 32px;
     font-size: 12px;
   }
-}
-
-/* Container for SVG with specific dimensions */
-.tab-icon-container {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-/* Specific container sizes */
-.tab-icon-container--overview {
-  width: 18.002px;
-  height: 14px;
-}
-
-.tab-icon-container--specs {
-  width: 16px;
-  height: 16px;
-}
-
-.tab-icon-container--features {
-  width: 16.502px;
-  height: 16.002px;
-}
-
-.tab-icon-container--included {
-  width: 19.135px;
-  height: 13.903px;
-}
-
-.tab-icon-container--installation {
-  width: 16.001px;
-  height: 16px;
-}
-
-.tab-icon-container--support {
-  width: 18px;
-  height: 13.122px;
-}
-
-/* SVG inside container */
-.tab-icon-container svg {
-  width: 100%;
-  height: 100%;
-  fill: currentColor;
 }
