@@ -1742,10 +1742,37 @@
     gap: 5px;
   }
 
-  .product-intelligence__tab-icon {
-    width: 14px;
-    height: 14px;
-  }
+  /* Base style for all tab icons */
+.product-intelligence__tab-icon {
+  width: 20px; /* default size */
+  height: 20px;
+  fill: currentColor;
+}
+
+/* Specific widths for each icon type */
+.product-intelligence__tab-icon--overview {
+  width: 18px;
+}
+
+.product-intelligence__tab-icon--specs {
+  width: 22px;
+}
+
+.product-intelligence__tab-icon--features {
+  width: 20px;
+}
+
+.product-intelligence__tab-icon--included {
+  width: 21px;
+}
+
+.product-intelligence__tab-icon--installation {
+  width: 19px;
+}
+
+.product-intelligence__tab-icon--support {
+  width: 18px;
+}
 
   .product-intelligence__panel {
     padding: 20px 15px;
