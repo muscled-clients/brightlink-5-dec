@@ -380,6 +380,54 @@
   letter-spacing: 0.5px;
 }
 
+/* Button Content & Label (shared) */
+.hero-video-wall__btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.hero-video-wall__btn-label {
+  display: inline-block;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-video-wall__btn-label::after {
+  content: attr(data-label);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+}
+
+.hero-video-wall__btn:hover .hero-video-wall__btn-label {
+  transform: translateY(-100%);
+}
+
+/* Circle expand element */
+.hero-video-wall__btn-circle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  z-index: 1;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1), height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(50%, 50%);
+}
+
+.hero-video-wall__btn:hover .hero-video-wall__btn-circle {
+  width: 400%;
+  height: 400%;
+}
+
+/* Primary Button (Fill) */
 .hero-video-wall__btn--primary {
   display: flex;
   padding: 20px;
@@ -400,24 +448,11 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  z-index: 1;
-  transition: color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+  transition: box-shadow 0.4s ease;
 }
 
-.hero-video-wall__btn--primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+.hero-video-wall__btn--primary .hero-video-wall__btn-circle {
   background: #0052A3;
-  z-index: -1;
-  transition: left 0.4s ease;
-}
-
-.hero-video-wall__btn--primary:hover::before {
-  left: 0;
 }
 
 .hero-video-wall__btn--primary svg {
@@ -425,13 +460,14 @@
   height: 12px;
   fill: #FFF;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-video-wall__btn--primary:hover {
   box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.50);
 }
 
+/* Secondary Button (Stroke) */
 .hero-video-wall__btn--secondary {
   display: flex;
   padding: 20px 16px;
@@ -453,24 +489,11 @@
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  z-index: 1;
   transition: color 0.4s ease, border-color 0.4s ease;
 }
 
-.hero-video-wall__btn--secondary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+.hero-video-wall__btn--secondary .hero-video-wall__btn-circle {
   background: #FFF;
-  z-index: -1;
-  transition: left 0.4s ease;
-}
-
-.hero-video-wall__btn--secondary:hover::before {
-  left: 0;
 }
 
 .hero-video-wall__btn--secondary svg {
@@ -478,17 +501,20 @@
   height: 16px;
   fill: #FFF;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   transition: fill 0.4s ease;
 }
 
 .hero-video-wall__btn--secondary:hover {
   color: #0A0E1A;
-  border-color: #FFF;
 }
 
 .hero-video-wall__btn--secondary:hover svg {
   fill: #0A0E1A;
+}
+
+.hero-video-wall__btn--secondary:hover .hero-video-wall__btn-label::after {
+  color: #0A0E1A;
 }
 
 /* Shipping Info */
