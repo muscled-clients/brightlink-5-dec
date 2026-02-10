@@ -2043,3 +2043,45 @@ height: 13.122px;
   }
 }
 
+/* Update your icon CSS classes to target the SVG directly */
+.product-intelligence__tab svg.product-intelligence__tab-icon--overview {
+  width: 18.002px !important;
+  height: 14px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--specs {
+  width: 16px !important;
+  height: 16px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--features {
+  width: 16.502px !important;
+  height: 16.002px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--included {
+  width: 19.135px !important;
+  height: 13.903px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--installation {
+  width: 16.001px !important;
+  height: 16px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.product-intelligence__tab svg.product-intelligence__tab-icon--support {
+  width: 18px !important;
+  height: 13.122px !important;
+  fill: currentColor;
+  flex-shrink: 0;
+}
