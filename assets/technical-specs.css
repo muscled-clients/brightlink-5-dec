@@ -136,11 +136,10 @@
 }
 
 .technical-specs__card:hover {
-    transform: translateY(-2px);
-    border-color: rgba(10, 132, 255, 0.5);
-    box-shadow: 0 0 80px rgba(10, 132, 255, 0.35), 0 0 120px rgba(10, 132, 255, 0.2), 0 25px 50px rgba(0, 0, 0, 0.4);
+  border-color: rgba(10, 132, 255, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(10, 132, 255, 0.15);
 }
-
 
 /* Icon */
 .technical-specs__icon {
