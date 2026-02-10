@@ -525,9 +525,15 @@
   width: 100%;
 }
 
-/* When mouse leaves: show static underline again, hide animated underline */
+/* When mouse leaves: show static underline again, hide animated underline INSTANTLY */
 .competitive-advantages__btn--secondary:not(:hover)::before {
-  transition: width 0.2s ease;
+  width: 0 !important;
+  transition: none !important;
+}
+
+.competitive-advantages__btn--secondary:not(:hover)::after {
+  opacity: 1;
+  transition: opacity 0.2s ease 0.1s;
 }
 
 
