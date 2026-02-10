@@ -1976,22 +1976,3 @@
 }
 
 
-.product-intelligence__image {
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-}
-
-.product-intelligence__image img {
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* Smooth easing */
-  width: 100%;
-  height: auto;
-  display: block;
-  transform-origin: center center; /* Zoom from the center */
-}
-
-.product-intelligence__image:hover img {
-  transform: scale(1.08); /* 8% zoom */
-  /* Optional: add a slight brightness change for better effect */
-  filter: brightness(1.02);
-}
