@@ -4,17 +4,19 @@
   <div class="product-showcase__container">
     <!-- Header Section -->
     <div class="product-showcase__header">
-      <div class="product-showcase__header-text">
-        {% if section.settings.section_label != blank %}
-          <span class="product-showcase__label">{{ section.settings.section_label }}</span>
-        {% endif %}
-        {% if section.settings.heading != blank %}
-          <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
+      <div class="product-showcase__header-content">
+        <div class="product-showcase__header-text">
+          {% if section.settings.section_label != blank %}
+            <span class="product-showcase__label">{{ section.settings.section_label }}</span>
+          {% endif %}
+          {% if section.settings.heading != blank %}
+            <h2 class="product-showcase__heading">{{ section.settings.heading }}</h2>
+          {% endif %}
+        </div>
+        {% if section.settings.subheading != blank %}
+          <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
         {% endif %}
       </div>
-      {% if section.settings.subheading != blank %}
-        <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
-      {% endif %}
     </div>
 
     <!-- Image Carousel -->
@@ -72,16 +74,108 @@
 
     const slides = section.querySelectorAll('.product-showcase__slide');
     const dots = section.querySelectorAll('.product-showcase__dot');
+    const slidesContainer = section.querySelector('.product-showcase__slides');
 
     if (slides.length === 0) return;
 
     let currentIndex = 0;
     let autoSlideInterval;
     const autoSlideDelay = {{ section.settings.autoplay_speed }}000;
+    let isDragging = false;
+    let startPos = 0;
+    let currentTranslate = 0;
+    let prevTranslate = 0;
+    let animationID;
+    let currentSlide = 0;
+
+    // Touch/Mouse drag functionality
+    slidesContainer.addEventListener('mousedown', dragStart);
+    slidesContainer.addEventListener('touchstart', dragStart);
+    slidesContainer.addEventListener('mouseup', dragEnd);
+    slidesContainer.addEventListener('mouseleave', dragEnd);
+    slidesContainer.addEventListener('touchend', dragEnd);
+    slidesContainer.addEventListener('mousemove', drag);
+    slidesContainer.addEventListener('touchmove', drag);
+
+    // Prevent image drag default behavior
+    slidesContainer.querySelectorAll('img').forEach(img => {
+      img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
+
+    function dragStart(event) {
+      if (event.type === 'touchstart') {
+        startPos = event.touches[0].clientX;
+      } else {
+        startPos = event.clientX;
+      }
+      
+      isDragging = true;
+      animationID = requestAnimationFrame(animation);
+      slidesContainer.classList.add('product-showcase__slides--dragging');
+      
+      // Stop autoplay when dragging starts
+      stopAutoSlide();
+    }
+
+    function drag(event) {
+      if (!isDragging) return;
+      
+      event.preventDefault();
+      let currentPosition = 0;
+      
+      if (event.type === 'touchmove') {
+        currentPosition = event.touches[0].clientX;
+      } else {
+        currentPosition = event.clientX;
+      }
+      
+      currentTranslate = prevTranslate + currentPosition - startPos;
+    }
+
+    function dragEnd() {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      slidesContainer.classList.remove('product-showcase__slides--dragging');
+      
+      const movedBy = currentTranslate - prevTranslate;
+      
+      // Determine slide change based on drag distance
+      if (Math.abs(movedBy) > 100) {
+        if (movedBy < 0) {
+          // Swiped left - go to next slide
+          showSlide(currentIndex + 1);
+        } else {
+          // Swiped right - go to previous slide
+          showSlide(currentIndex - 1);
+        }
+      } else {
+        // Not enough movement, stay on current slide
+        setSlidePosition();
+      }
+      
+      // Restart autoplay
+      startAutoSlide();
+    }
+
+    function animation() {
+      setSlidePosition();
+      if (isDragging) requestAnimationFrame(animation);
+    }
+
+    function setSlidePosition() {
+      slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+    }
 
     function showSlide(index) {
       if (index >= slides.length) index = 0;
       if (index < 0) index = slides.length - 1;
+
+      // Reset translate for smooth transition
+      currentTranslate = 0;
+      prevTranslate = 0;
+      setSlidePosition();
 
       slides.forEach((slide, i) => {
         slide.classList.remove('product-showcase__slide--active');
@@ -336,11 +430,197 @@
   .product-showcase {
     margin-bottom: 120px;
     padding: 0 !important;
+    background-color: var(--ps-bg-color);
   }
 
+  .product-showcase__container {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  /* Header Section - Full Width */
+  .product-showcase__header {
+    width: 100%;
+    padding: 60px 5% 40px;
+    box-sizing: border-box;
+    text-align: center;
+    background-color: var(--ps-bg-color);
+  }
+
+  .product-showcase__header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .product-showcase__header-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .product-showcase__label {
+    font-size: var(--ps-label-size);
+    color: var(--ps-label-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .product-showcase__heading {
+    font-size: var(--ps-heading-size);
+    color: var(--ps-heading-color);
+    margin: 0;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .product-showcase__subheading {
+    font-size: var(--ps-subheading-size);
+    color: var(--ps-subheading-color);
+    margin: 0;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* Carousel Section */
+  .product-showcase__carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--ps-bg-color);
+  }
+
+  .product-showcase__slides {
+    display: flex;
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+  }
+
+  .product-showcase__slides--dragging {
+    transition: none;
+  }
+
+  .product-showcase__slide {
+    flex: 0 0 100%;
+    position: relative;
+    display: none;
+  }
+
+  .product-showcase__slide--active {
+    display: block;
+  }
+
+  .product-showcase__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .product-showcase__placeholder {
+    width: 100%;
+    height: 600px;
+    background: #2d3748;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+
+  .product-showcase__caption {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .product-showcase__slide-title {
+    color: white;
+    font-size: 24px;
+    margin: 0 0 10px 0;
+  }
+
+  .product-showcase__slide-desc {
+    color: #d1d5db;
+    font-size: 16px;
+    margin: 0;
+  }
+
+  .product-showcase__dots {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  .product-showcase__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--ps-dot-color);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.3s ease;
+  }
+
+  .product-showcase__dot--active {
+    background-color: var(--ps-dot-active-color);
+  }
+
+  /* Responsive Styles */
   @media screen and (max-width: 768px) {
     .product-showcase {
       margin-bottom: 50px;
+    }
+
+    .product-showcase__header {
+      padding: 40px 20px 30px;
+    }
+
+    .product-showcase__heading {
+      font-size: calc(var(--ps-heading-size) * 0.7);
+    }
+
+    .product-showcase__subheading {
+      font-size: calc(var(--ps-subheading-size) * 0.9);
+      padding: 0 20px;
+    }
+
+    .product-showcase__slide-title {
+      font-size: 20px;
+    }
+
+    .product-showcase__slide-desc {
+      font-size: 14px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .product-showcase__header {
+      padding: 30px 15px 25px;
+    }
+
+    .product-showcase__heading {
+      font-size: calc(var(--ps-heading-size) * 0.6);
+    }
+
+    .product-showcase__subheading {
+      font-size: calc(var(--ps-subheading-size) * 0.8);
     }
   }
 </style>
