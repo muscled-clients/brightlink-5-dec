@@ -2043,45 +2043,59 @@ height: 13.122px;
   }
 }
 
-/* Update your icon CSS classes to target the SVG directly */
-.product-intelligence__tab svg.product-intelligence__tab-icon--overview {
-  width: 18.002px !important;
-  height: 14px !important;
-  fill: currentColor;
-  flex-shrink: 0;
+/* Add this to your CSS */
+.product-intelligence__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
-.product-intelligence__tab svg.product-intelligence__tab-icon--specs {
-  width: 16px !important;
-  height: 16px !important;
-  fill: currentColor;
+/* Force all tab icons to fill their natural space */
+.product-intelligence__tab svg {
   flex-shrink: 0;
+  display: block;
 }
 
-.product-intelligence__tab svg.product-intelligence__tab-icon--features {
-  width: 16.502px !important;
-  height: 16.002px !important;
-  fill: currentColor;
-  flex-shrink: 0;
+/* Specific sizes - applied directly to SVG */
+svg.product-intelligence__tab-icon--overview {
+  width: 18.002px;
+  height: 14px;
+  min-width: 18.002px;
+  min-height: 14px;
 }
 
-.product-intelligence__tab svg.product-intelligence__tab-icon--included {
-  width: 19.135px !important;
-  height: 13.903px !important;
-  fill: currentColor;
-  flex-shrink: 0;
+svg.product-intelligence__tab-icon--specs {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
 }
 
-.product-intelligence__tab svg.product-intelligence__tab-icon--installation {
-  width: 16.001px !important;
-  height: 16px !important;
-  fill: currentColor;
-  flex-shrink: 0;
+svg.product-intelligence__tab-icon--features {
+  width: 16.502px;
+  height: 16.002px;
+  min-width: 16.502px;
+  min-height: 16.002px;
 }
 
-.product-intelligence__tab svg.product-intelligence__tab-icon--support {
-  width: 18px !important;
-  height: 13.122px !important;
-  fill: currentColor;
-  flex-shrink: 0;
+svg.product-intelligence__tab-icon--included {
+  width: 19.135px;
+  height: 13.903px;
+  min-width: 19.135px;
+  min-height: 13.903px;
+}
+
+svg.product-intelligence__tab-icon--installation {
+  width: 16.001px;
+  height: 16px;
+  min-width: 16.001px;
+  min-height: 16px;
+}
+
+svg.product-intelligence__tab-icon--support {
+  width: 18px;
+  height: 13.122px;
+  min-width: 18px;
+  min-height: 13.122px;
 }
