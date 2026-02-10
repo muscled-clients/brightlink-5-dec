@@ -3,8 +3,8 @@
 <section class="product-showcase {{ section.settings.custom_class }}" id="product-showcase-{{ section.id }}">
   <div class="product-showcase__container">
     <!-- Header Section -->
-    <div class="product-showcase__header">
-      <div class="product-showcase__header-text">
+    <div class="product-showcase__header" style="width: 100%; max-width: 100%; padding: 0 5%; box-sizing: border-box;">
+      <div class="product-showcase__header-text" style="max-width: 800px; margin: 0 auto; text-align: center;">
         {% if section.settings.section_label != blank %}
           <span class="product-showcase__label">{{ section.settings.section_label }}</span>
         {% endif %}
@@ -13,14 +13,14 @@
         {% endif %}
       </div>
       {% if section.settings.subheading != blank %}
-        <p class="product-showcase__subheading">{{ section.settings.subheading }}</p>
+        <p class="product-showcase__subheading" style="max-width: 600px; margin: 20px auto 0; text-align: center;">{{ section.settings.subheading }}</p>
       {% endif %}
     </div>
 
     <!-- Image Carousel -->
     <div class="product-showcase__carousel">
       <!-- Slides Container -->
-      <div class="product-showcase__slides">
+      <div class="product-showcase__slides" id="slides-container-{{ section.id }}">
         {% for block in section.blocks %}
           {% if block.type == 'slide' %}
             <div class="product-showcase__slide {% if forloop.first %}product-showcase__slide--active{% endif %}" data-slide-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
@@ -30,6 +30,7 @@
                   alt="{{ block.settings.slide_title | default: 'Product image' }}"
                   class="product-showcase__image"
                   loading="lazy"
+                  draggable="false"
                 >
               {% else %}
                 <div class="product-showcase__placeholder">
@@ -72,12 +73,19 @@
 
     const slides = section.querySelectorAll('.product-showcase__slide');
     const dots = section.querySelectorAll('.product-showcase__dot');
+    const slidesContainer = section.querySelector('.product-showcase__slides');
 
     if (slides.length === 0) return;
 
     let currentIndex = 0;
     let autoSlideInterval;
     const autoSlideDelay = {{ section.settings.autoplay_speed }}000;
+    
+    // Drag functionality variables
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    const dragThreshold = 50; // Minimum pixels to trigger slide change
 
     function showSlide(index) {
       if (index >= slides.length) index = 0;
@@ -113,6 +121,58 @@
     function stopAutoSlide() {
       clearInterval(autoSlideInterval);
     }
+
+    // Drag functionality for slides
+    function handleDragStart(e) {
+      stopAutoSlide();
+      isDragging = true;
+      startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+      slidesContainer.style.cursor = 'grabbing';
+    }
+
+    function handleDragMove(e) {
+      if (!isDragging) return;
+      
+      currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
+    }
+
+    function handleDragEnd(e) {
+      if (!isDragging) return;
+      
+      isDragging = false;
+      slidesContainer.style.cursor = '';
+      
+      const dragDistance = startX - currentX;
+      
+      // If drag distance exceeds threshold, change slide
+      if (Math.abs(dragDistance) > dragThreshold) {
+        if (dragDistance > 0) {
+          // Dragged left - next slide
+          showSlide(currentIndex + 1);
+        } else {
+          // Dragged right - previous slide
+          showSlide(currentIndex - 1);
+        }
+      }
+      
+      // Restart autoplay
+      startAutoSlide();
+    }
+
+    // Add drag event listeners
+    slidesContainer.addEventListener('mousedown', handleDragStart);
+    slidesContainer.addEventListener('touchstart', handleDragStart);
+    
+    document.addEventListener('mousemove', handleDragMove);
+    document.addEventListener('touchmove', handleDragMove);
+    
+    document.addEventListener('mouseup', handleDragEnd);
+    document.addEventListener('touchend', handleDragEnd);
+
+    // Prevent default drag behavior on images
+    section.querySelectorAll('.product-showcase__image').forEach(img => {
+      img.addEventListener('dragstart', (e) => e.preventDefault());
+    });
 
     // Dot click events
     dots.forEach((dot, index) => {
@@ -338,9 +398,51 @@
     padding: 0 !important;
   }
 
+  /* Header full width styling */
+  .product-showcase__header {
+    background-color: var(--ps-bg-color);
+    padding: 60px 5% !important;
+  }
+
+  .product-showcase__label {
+    font-size: var(--ps-label-size);
+    color: var(--ps-label-color);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .product-showcase__heading {
+    font-size: var(--ps-heading-size);
+    color: var(--ps-heading-color);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .product-showcase__subheading {
+    font-size: var(--ps-subheading-size);
+    color: var(--ps-subheading-color);
+    line-height: 1.6;
+  }
+
+  /* Carousel cursor for dragging */
+  .product-showcase__slides {
+    cursor: grab;
+  }
+
+  .product-showcase__slides:active {
+    cursor: grabbing;
+  }
+
   @media screen and (max-width: 768px) {
     .product-showcase {
       margin-bottom: 50px;
+    }
+    
+    .product-showcase__header {
+      padding: 40px 5% !important;
     }
   }
 </style>
