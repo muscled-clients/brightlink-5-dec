@@ -2,10 +2,9 @@
 
 .hero-video-wall-section {
   position: relative;
-  width: 1440px;
-  max-width: 100%;
+  width: 100%;
   height: 650px;
-  margin: 0 auto 120px auto;
+  margin: 0 0 120px 0;
   display: flex;
   flex-direction: column;
 }
