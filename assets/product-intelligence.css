@@ -163,8 +163,8 @@
 }
 
 .product-intelligence__tab-icon {
-  /* width: 16px;
-  height: 16px; */
+  width: 16px;
+  height: 16px;
   fill: currentColor;
 }
 
@@ -1743,8 +1743,8 @@
   }
 
   .product-intelligence__tab-icon {
-    /* width: 14px;
-    height: 14px; */
+    width: 14px;
+    height: 14px;
   }
 
   .product-intelligence__panel {
