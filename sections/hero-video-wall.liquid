@@ -459,14 +459,10 @@
         .then(function (response) {
           if (response.ok) {
             btn.innerHTML = 'Added!';
-            // Update cart count without page reload
-            fetch('/cart.js')
-              .then(function (r) { return r.json(); })
-              .then(function (cart) {
-                document.querySelectorAll('.header__cart-count').forEach(function (el) {
-                  el.textContent = cart.item_count;
-                });
-              });
+            // Trigger theme's product:added event to refresh mini-cart and cart count
+            document.dispatchEvent(new CustomEvent('product:added', {
+              bubbles: true
+            }));
             setTimeout(function () {
               btn.innerHTML = originalText;
               btn.disabled = false;
