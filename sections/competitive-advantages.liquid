@@ -486,7 +486,7 @@
   padding-bottom: 4px;
 }
 
-/* Permanent static underline (always visible) */
+/* Permanent static underline (always visible when NOT hovering) */
 .competitive-advantages__btn--secondary::after {
   content: '';
   position: absolute;
@@ -496,6 +496,7 @@
   height: 2px;
   background-color: currentColor;
   opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 /* Animated underline that appears on hover */
@@ -515,8 +516,18 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* On hover: hide static underline, show animated underline */
+.competitive-advantages__btn--secondary:hover::after {
+  opacity: 0;
+}
+
 .competitive-advantages__btn--secondary:hover::before {
   width: 100%;
+}
+
+/* When mouse leaves: show static underline again, hide animated underline */
+.competitive-advantages__btn--secondary:not(:hover)::before {
+  transition: width 0.2s ease;
 }
 
 
