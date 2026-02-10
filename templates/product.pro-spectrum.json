@@ -425,7 +425,7 @@
       "settings": {
         "video_url": "",
         "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
-        "overlay_opacity": 60,
+        "overlay_opacity": 0,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
