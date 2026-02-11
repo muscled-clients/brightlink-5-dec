@@ -134,7 +134,7 @@
 .product-intelligence__tab {
   display: flex;
   height: 56px;
-  padding: 0 16px;
+  padding: 0 32px;
   justify-content: center;
   align-items: center;
   gap: 8px;
