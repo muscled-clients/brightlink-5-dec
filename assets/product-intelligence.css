@@ -484,10 +484,12 @@
 }
 
 .specs-accordion__icon {
-  width: 20px;
-  height: 20px;
-  color: rgba(255, 255, 255, 0.5);
+  width: 14px;
+  height: 8px;
+  color: #0066CC;
+  fill: #0066CC;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
 }
 
 .specs-accordion--open .specs-accordion__icon {
