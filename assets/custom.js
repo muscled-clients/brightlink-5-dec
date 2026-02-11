@@ -157,11 +157,9 @@ document.addEventListener("shipping_country:change", async()=>{
 
 // Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
 $(document).ready(function(){
-  var termsObserver = new MutationObserver(function() {
+  function uncheckTermsCheckbox() {
     $('label:contains("Terms & Conditions")').prev('input[type="checkbox"]').each(function() {
-      if (this.checked) {
-        this.checked = false;
-      }
+      if (this.checked) { this.checked = false; }
     });
     $('input[type="checkbox"]').each(function() {
       var label = $('label[for="' + this.id + '"]');
@@ -169,6 +167,14 @@ $(document).ready(function(){
         this.checked = false;
       }
     });
+  }
+
+  var uncheckTimer = null;
+  var termsObserver = new MutationObserver(function() {
+    uncheckTermsCheckbox();
+    // Also recheck after a delay to catch app re-injections after cart updates
+    clearTimeout(uncheckTimer);
+    uncheckTimer = setTimeout(uncheckTermsCheckbox, 500);
   });
   termsObserver.observe(document.body, { childList: true, subtree: true });
 });
