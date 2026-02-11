@@ -871,8 +871,16 @@
 
 /* ========== INSTALLATION GUIDE TAB ========== */
 
-.product-intelligence__panel--installation {
-  padding: 40px 30px;
+.product-intelligence__panel--installation.product-intelligence__panel--active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 0;
+}
+
+.product-intelligence__panel--installation .installation-content {
+  width: 100%;
 }
 
 .installation-content {
