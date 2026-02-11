@@ -99,7 +99,7 @@
 /* Content Wrapper - Card Container */
 .product-intelligence__content {
   display: flex;
-  padding: 20px 0;
+  padding: 20px 32px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
@@ -179,8 +179,6 @@
 .product-intelligence__panel {
   display: none;
   width: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
 }
 
 .product-intelligence__panel--active {
