@@ -151,10 +151,10 @@
     box-sizing: border-box;
   }
 
-  /* Mouse-following glow effect */
+  /* Mouse-following glow effect - ALWAYS ACTIVE, NO HOVER REQUIRED */
   .competitive-advantages__card::after {
     content: "";
-    display: none;
+    display: block;
     position: absolute;
     z-index: -1;
     left: var(--glow-position-x, 50%);
@@ -163,18 +163,13 @@
     width: 100%;
     height: 120%;
     border-radius: 50%;
-    opacity: 0;
+    opacity: 0.8;
     pointer-events: none;
     background: radial-gradient(circle, rgba(10, 132, 255, 1), rgba(10, 132, 255, .7) 35%, rgba(10, 132, 255, .4), rgba(10, 132, 255, .2) 85%);
     filter: blur(30px);
     transition: opacity .1s ease-in-out, transform .1s ease-in-out;
     --glow-position-x: 40%;
     --glow-position-y: 40%;
-  }
-
-  .competitive-advantages__card:hover::after {
-    display: block;
-    opacity: 0.8;
   }
 
   {% comment %} .competitive-advantages__card::before {
@@ -1133,7 +1128,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const container = document.querySelector('#ca-slider-{{ section.id }}');
   const dots = document.querySelectorAll('#ca-dots-{{ section.id }} .slider-dot');
   
-  // Mouse-following glow effect
+  // Mouse-following glow effect - NO HOVER REQUIRED, ALWAYS ACTIVE
   const cards = document.querySelectorAll('.competitive-advantages__card');
   
   cards.forEach(card => {
