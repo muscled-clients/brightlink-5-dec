@@ -1078,8 +1078,16 @@
 
 /* ========== SUPPORT & RESOURCES TAB ========== */
 
-.product-intelligence__panel--support {
-  padding: 30px;
+.product-intelligence__panel--support.product-intelligence__panel--active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 0;
+}
+
+.product-intelligence__panel--support .support-content {
+  width: 100%;
 }
 
 .support-content {
