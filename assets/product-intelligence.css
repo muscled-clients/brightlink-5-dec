@@ -611,31 +611,39 @@
 }
 
 .specs-download__btn {
-  display: inline-flex;
+  display: flex;
+  padding: 16px 38px;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  border: none;
+  gap: 16px;
   border-radius: 8px;
-  color: #ffffff;
-  font-size: 13px;
+  border: none;
+  background: #0A84FF;
+  box-shadow: 0 0 30px 0 rgba(10, 132, 255, 0.40);
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
   font-weight: 600;
+  line-height: normal;
   text-decoration: none;
-  letter-spacing: 0.5px;
   transition: all 0.3s ease;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .specs-download__btn:hover {
-  background: linear-gradient(135deg, #5dade2 0%, #3498db 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+  background: #3399FF;
+  box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.55);
 }
 
 .specs-download__btn svg {
-  width: 18px;
-  height: 18px;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 /* ========== FEATURES & BENEFITS TAB ========== */
