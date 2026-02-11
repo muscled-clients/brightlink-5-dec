@@ -436,7 +436,7 @@
 
 /* ========== SPECIFICATIONS TAB ========== */
 
-.product-intelligence__panel--specs {
+.product-intelligence__panel--specs.product-intelligence__panel--active {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
