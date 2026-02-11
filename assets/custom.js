@@ -156,43 +156,35 @@ document.addEventListener("shipping_country:change", async()=>{
 
 
 // Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
-// Hide it via CSS before the app injects it, so the checked state is never visible
-(function(){
-  var style = document.createElement('style');
-  style.textContent = 'input[type="checkbox"] + label[for*="agree"], label:has(input[type="checkbox"]) { visibility: hidden; }';
-  document.head.appendChild(style);
-
-  $(document).ready(function(){
-    function uncheckTermsCheckbox() {
-      $('label:contains("Terms & Conditions")').each(function() {
-        var $label = $(this);
-        var $checkbox = $label.prev('input[type="checkbox"]');
-        if (!$checkbox.length) $checkbox = $label.find('input[type="checkbox"]');
-        if ($checkbox.length && $checkbox[0].checked) {
-          $checkbox[0].checked = false;
-        }
-        $label.css('visibility', 'visible');
-        $checkbox.css('visibility', 'visible');
-      });
-      $('input[type="checkbox"]').each(function() {
-        var label = $('label[for="' + this.id + '"]');
-        if (label.length && label.text().indexOf('Terms') !== -1) {
-          if (this.checked) { this.checked = false; }
-          $(this).css('visibility', 'visible');
-          label.css('visibility', 'visible');
-        }
-      });
-    }
-
-    var uncheckTimer = null;
-    var termsObserver = new MutationObserver(function() {
-      uncheckTermsCheckbox();
-      clearTimeout(uncheckTimer);
-      uncheckTimer = setTimeout(uncheckTermsCheckbox, 500);
+$(document).ready(function(){
+  function findAndUncheckTerms() {
+    $('input[type="checkbox"]').each(function() {
+      var $cb = $(this);
+      var $label = $cb.next('label');
+      if (!$label.length) $label = $('label[for="' + this.id + '"]');
+      if (!$label.length) $label = $cb.closest('label');
+      var text = $label.text() || '';
+      if (text.indexOf('Terms') !== -1 && this.checked) {
+        var $wrapper = $cb.closest('div, p, form, span');
+        $wrapper.css('opacity', '0');
+        this.checked = false;
+        setTimeout(function() { $wrapper.css('opacity', ''); }, 50);
+      }
     });
-    termsObserver.observe(document.body, { childList: true, subtree: true });
+  }
+
+  // MutationObserver for immediate detection when DOM changes
+  var uncheckTimer = null;
+  var termsObserver = new MutationObserver(function() {
+    findAndUncheckTerms();
+    clearTimeout(uncheckTimer);
+    uncheckTimer = setTimeout(findAndUncheckTerms, 300);
   });
-})();
+  termsObserver.observe(document.body, { childList: true, subtree: true });
+
+  // Periodic check as backup to catch any missed re-injections
+  setInterval(findAndUncheckTerms, 500);
+});
 
 $(document).ready(function(){
   mobileOnlySlider(".mySlider", true, false, 767);
