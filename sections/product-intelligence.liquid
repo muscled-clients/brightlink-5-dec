@@ -1048,6 +1048,16 @@
               id="panel-{{ block.id }}"
               data-panel-index="{{ forloop.index0 }}"
             >
+              <!-- What's Included Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path d="M2.37656 1.24219L0 6H9.75V0H4.39219C3.53906 0 2.76094 0.482812 2.37656 1.24219ZM11.25 6H21L18.6234 1.24219C18.2391 0.482812 17.4609 0 16.6078 0H11.25V6ZM21 7.5H0V18C0 19.6547 1.34531 21 3 21H18C19.6547 21 21 19.6547 21 18V7.5Z" fill="#0A84FF"/>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: "What's Included" }}</h2>
+              </div>
+
               <!-- What's Included Content -->
               <div class="included-content">
                 <div class="included-grid">

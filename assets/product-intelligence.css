@@ -776,8 +776,16 @@
 
 /* ========== WHAT'S INCLUDED TAB ========== */
 
-.product-intelligence__panel--included {
-  padding: 30px;
+.product-intelligence__panel--included.product-intelligence__panel--active {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 0;
+}
+
+.product-intelligence__panel--included .included-content {
+  width: 100%;
 }
 
 .included-content {
