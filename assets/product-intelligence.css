@@ -441,16 +441,18 @@
 }
 
 .specs-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
   padding: 0;
 }
 
 /* Accordion Styles */
 .specs-accordion {
-  border-bottom: 1px solid rgba(60, 100, 140, 0.2);
-}
-
-.specs-accordion:first-child {
-  border-top: none;
+  border-radius: 12px;
+  border: 1px solid rgba(10, 132, 255, 0.20);
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
 }
 
 .specs-accordion__header {
@@ -458,7 +460,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 30px;
+  padding: 20px 24px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -466,7 +468,7 @@
 }
 
 .specs-accordion__header:hover {
-  background: rgba(52, 152, 219, 0.05);
+  background: rgba(10, 132, 255, 0.05);
 }
 
 .specs-accordion__title {
