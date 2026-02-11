@@ -155,37 +155,29 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
-// CSS in custom.css hides :checked state; JS unchecks so the CSS rule stops applying.
+// Uncheck terms & conditions checkbox when app injects it (not on user click).
+// Only fires on childList mutations (new nodes added), so user can still manually check it.
 $(document).ready(function(){
-  function findAndUncheckTerms() {
+  function uncheckNewTermsCheckboxes() {
     $('input[type="checkbox"]').each(function() {
-      var el = this;
-      var $cb = $(el);
-      // Find associated label using all common patterns
-      var $label = $cb.next('label');
-      if (!$label.length) $label = $cb.prev('label');
-      if (!$label.length) $label = $('label[for="' + el.id + '"]');
-      if (!$label.length) $label = $cb.closest('label');
-      if (!$label.length) $label = $cb.parent().find('label');
-      var text = ($label.text() + ' ' + $cb.parent().text()) || '';
-      if (text.indexOf('Terms') !== -1 || text.indexOf('terms') !== -1 || text.indexOf('I accept') !== -1) {
-        if (el.checked) {
-          el.checked = false;
-          el.removeAttribute('checked');
-        }
+      if (!this.checked) return;
+      var text = ($(this).parent().text() || '') + ' ' + ($(this).next('label').text() || '') + ' ' + ($('label[for="' + this.id + '"]').text() || '');
+      if (text.indexOf('Terms') !== -1 || text.indexOf('I accept') !== -1) {
+        this.checked = false;
+        this.removeAttribute('checked');
       }
     });
   }
 
-  var uncheckTimer = null;
-  var termsObserver = new MutationObserver(function() {
-    findAndUncheckTerms();
-    clearTimeout(uncheckTimer);
-    uncheckTimer = setTimeout(findAndUncheckTerms, 200);
-  });
-  termsObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['checked'] });
-  setInterval(findAndUncheckTerms, 300);
+  new MutationObserver(function(mutations) {
+    var hasNewNodes = false;
+    for (var i = 0; i < mutations.length; i++) {
+      if (mutations[i].addedNodes.length > 0) { hasNewNodes = true; break; }
+    }
+    if (!hasNewNodes) return;
+    uncheckNewTermsCheckboxes();
+    setTimeout(uncheckNewTermsCheckboxes, 300);
+  }).observe(document.body, { childList: true, subtree: true });
 });
 
 $(document).ready(function(){

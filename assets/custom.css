@@ -446,18 +446,4 @@ section[data-section-id="template--15505473208504__blog-posts"] .article-item .a
   }
 }
 
-/* Hide ONLY the checkbox wrapper when checked — not buttons or other siblings.
-   When JS unchecks it, the :checked rules stop and the row appears unchecked. */
-#mini-cart *:has(> input[type="checkbox"]:checked),
-.mini-cart *:has(> input[type="checkbox"]:checked),
-[data-section-type="cart"] *:has(> input[type="checkbox"]:checked),
-#mini-cart label:has(input[type="checkbox"]:checked),
-.mini-cart label:has(input[type="checkbox"]:checked),
-[data-section-type="cart"] label:has(input[type="checkbox"]:checked) {
-  visibility: hidden !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
 
