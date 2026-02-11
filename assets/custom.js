@@ -156,13 +156,7 @@ document.addEventListener("shipping_country:change", async()=>{
 
 
 // Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
-// CSS hides any checked checkbox inside mini-cart so checked state is NEVER visible.
-// When JS unchecks it, the :checked rule stops applying and it appears unchecked naturally.
-(function(){
-  var s = document.createElement('style');
-  s.textContent = '.mini-cart input[type="checkbox"]:checked, .mini-cart input[type="checkbox"]:checked + label, .mini-cart input[type="checkbox"]:checked ~ label, .mini-cart *:has(> input[type="checkbox"]:checked) { opacity: 0 !important; }';
-  document.head.appendChild(s);
-})();
+// CSS in custom.css hides :checked state; JS unchecks so the CSS rule stops applying.
 $(document).ready(function(){
   function findAndUncheckTerms() {
     $('input[type="checkbox"]').each(function() {

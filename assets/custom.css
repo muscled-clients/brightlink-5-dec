@@ -446,3 +446,14 @@ section[data-section-id="template--15505473208504__blog-posts"] .article-item .a
   }
 }
 
+/* Hide checked checkbox inside mini-cart so checked state is never visible.
+   When JS unchecks it, the :checked rules stop applying and it appears unchecked. */
+#mini-cart input[type="checkbox"]:checked,
+#mini-cart input[type="checkbox"]:checked + *,
+#mini-cart input[type="checkbox"]:checked ~ *,
+.mini-cart input[type="checkbox"]:checked,
+.mini-cart input[type="checkbox"]:checked + *,
+.mini-cart input[type="checkbox"]:checked ~ * {
+  opacity: 0 !important;
+}
+
