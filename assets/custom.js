@@ -155,25 +155,22 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox by default
+// Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
 $(document).ready(function(){
   var termsObserver = new MutationObserver(function() {
     $('label:contains("Terms & Conditions")').prev('input[type="checkbox"]').each(function() {
       if (this.checked) {
         this.checked = false;
-        termsObserver.disconnect();
       }
     });
     $('input[type="checkbox"]').each(function() {
       var label = $('label[for="' + this.id + '"]');
       if (label.length && label.text().indexOf('Terms') !== -1 && this.checked) {
         this.checked = false;
-        termsObserver.disconnect();
       }
     });
   });
   termsObserver.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function() { termsObserver.disconnect(); }, 10000);
 });
 
 $(document).ready(function(){
