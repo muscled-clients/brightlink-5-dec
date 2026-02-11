@@ -526,7 +526,7 @@
 
 .specs-table tr {
   display: grid;
-  grid-template-columns: auto 1fr auto 1fr;
+  grid-template-columns: 1fr 1.5fr 1fr 1.5fr;
   gap: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -560,8 +560,8 @@
 }
 
 .specs-table__value:nth-child(2) {
-  text-align: right;
-  padding-right: 48px;
+  text-align: left;
+  padding-right: 24px;
 }
 
 .specs-table__value:last-child {
