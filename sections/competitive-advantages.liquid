@@ -151,6 +151,28 @@
     box-sizing: border-box;
   }
 
+  /* Mouse-following shadow effect */
+  .competitive-advantages__card::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    left: var(--shadow-position-x, 50%);
+    top: var(--shadow-position-y, 50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 120%;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(10, 132, 255, 1), rgba(10, 132, 255, .7) 35%, rgba(10, 132, 255, .4), rgba(10, 132, 255, .2) 85%);
+    filter: blur(30px);
+    transition: opacity 0.2s ease;
+  }
+
+  .competitive-advantages__card:hover::after {
+    opacity: 0.8;
+  }
+
   {% comment %} .competitive-advantages__card::before {
     content: '';
     position: absolute;
@@ -629,36 +651,11 @@
     }
     
     .slider-dot.active {
-      content: "";
-    display: none;
-    position: absolute;
-    z-index: -1;
-    left: var(--glow-position-x, 50%);
-    top: var(--glow-position-y, 50%);
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 120%;
-    border-radius: 50%;
-    opacity: 0;
-    pointer-events: none;
-    background: radial-gradient(circle, rgba(var(--color-accent), 1), rgba(var(--color-accent), .7) 35%, rgba(var(--color-accent), .4), rgba(var(--color-accent), .2) 85%);
-    filter: blur(30px);
-    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
       background-color: #0A84FF; /* Active Blue */
       opacity: 1;
-          --glow-position-x: 60%;
-    --glow-position-y: 43.22719734586541%;
     }
   }
   
-
-  .competitive-advantages__card::after{
-  
-          width: 100%;
-        height: 80%;
-                display: block;
-  
-  }
 </style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
@@ -1131,6 +1128,19 @@
 document.addEventListener("DOMContentLoaded", function() {
   const container = document.querySelector('#ca-slider-{{ section.id }}');
   const dots = document.querySelectorAll('#ca-dots-{{ section.id }} .slider-dot');
+  const cards = document.querySelectorAll('.competitive-advantages__card');
+  
+  // Mouse-following shadow effect
+  cards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      this.style.setProperty('--shadow-position-x', x + '%');
+      this.style.setProperty('--shadow-position-y', y + '%');
+    });
+  });
   
   if (!container || dots.length === 0) return;
 
