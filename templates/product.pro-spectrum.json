@@ -283,7 +283,7 @@
         "product_config_zByPib": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-9mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy",
+            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "11.29M",
@@ -425,7 +425,7 @@
       "settings": {
         "video_url": "",
         "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
-        "overlay_opacity": 50,
+        "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
