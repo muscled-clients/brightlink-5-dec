@@ -439,10 +439,13 @@
 .product-intelligence__panel--specs {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
   gap: 48px;
   padding: 0;
+}
+
+.product-intelligence__panel--specs .specs-content {
+  width: 100%;
 }
 
 /* Specs Heading */
