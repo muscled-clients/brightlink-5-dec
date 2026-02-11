@@ -156,6 +156,13 @@ document.addEventListener("shipping_country:change", async()=>{
 
 
 // Uncheck terms & conditions checkbox whenever it appears (including after cart updates)
+// CSS hides any checked checkbox inside mini-cart so checked state is NEVER visible.
+// When JS unchecks it, the :checked rule stops applying and it appears unchecked naturally.
+(function(){
+  var s = document.createElement('style');
+  s.textContent = '.mini-cart input[type="checkbox"]:checked, .mini-cart input[type="checkbox"]:checked + label, .mini-cart input[type="checkbox"]:checked ~ label, .mini-cart *:has(> input[type="checkbox"]:checked) { opacity: 0 !important; }';
+  document.head.appendChild(s);
+})();
 $(document).ready(function(){
   function findAndUncheckTerms() {
     $('input[type="checkbox"]').each(function() {
@@ -165,15 +172,11 @@ $(document).ready(function(){
       if (!$label.length) $label = $cb.closest('label');
       var text = $label.text() || '';
       if (text.indexOf('Terms') !== -1 && this.checked) {
-        var $wrapper = $cb.closest('div, p, form, span');
-        $wrapper.css('opacity', '0');
         this.checked = false;
-        setTimeout(function() { $wrapper.css('opacity', ''); }, 50);
       }
     });
   }
 
-  // MutationObserver for immediate detection when DOM changes
   var uncheckTimer = null;
   var termsObserver = new MutationObserver(function() {
     findAndUncheckTerms();
@@ -181,8 +184,6 @@ $(document).ready(function(){
     uncheckTimer = setTimeout(findAndUncheckTerms, 300);
   });
   termsObserver.observe(document.body, { childList: true, subtree: true });
-
-  // Periodic check as backup to catch any missed re-injections
   setInterval(findAndUncheckTerms, 500);
 });
 
