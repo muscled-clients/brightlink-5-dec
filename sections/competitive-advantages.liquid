@@ -149,9 +149,10 @@
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     box-sizing: border-box;
+    z-index: 2;
   }
 
-  /* Mouse-following shadow effect */
+  /* Mouse-following shadow effect - BEHIND the card */
   .competitive-advantages__card::after {
     content: "";
     position: absolute;
