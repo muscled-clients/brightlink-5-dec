@@ -437,7 +437,47 @@
 /* ========== SPECIFICATIONS TAB ========== */
 
 .product-intelligence__panel--specs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
   padding: 0;
+}
+
+/* Specs Heading */
+.specs-heading {
+  display: flex;
+  height: 48px;
+  align-items: flex-end;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.specs-heading__icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  padding: 8px 12px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: rgba(10, 132, 255, 0.10);
+  box-sizing: border-box;
+}
+
+.specs-heading__icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.specs-heading__title {
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 40px;
+  margin: 0;
 }
 
 .specs-content {
