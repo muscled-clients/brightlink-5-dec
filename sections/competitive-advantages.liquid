@@ -151,6 +151,32 @@
     box-sizing: border-box;
   }
 
+  /* Mouse-following glow effect */
+  .competitive-advantages__card::after {
+    content: "";
+    display: none;
+    position: absolute;
+    z-index: -1;
+    left: var(--glow-position-x, 50%);
+    top: var(--glow-position-y, 50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 120%;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(10, 132, 255, 1), rgba(10, 132, 255, .7) 35%, rgba(10, 132, 255, .4), rgba(10, 132, 255, .2) 85%);
+    filter: blur(30px);
+    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    --glow-position-x: 40%;
+    --glow-position-y: 40%;
+  }
+
+  .competitive-advantages__card:hover::after {
+    display: block;
+    opacity: 0.8;
+  }
+
   {% comment %} .competitive-advantages__card::before {
     content: '';
     position: absolute;
@@ -1106,6 +1132,20 @@
 document.addEventListener("DOMContentLoaded", function() {
   const container = document.querySelector('#ca-slider-{{ section.id }}');
   const dots = document.querySelectorAll('#ca-dots-{{ section.id }} .slider-dot');
+  
+  // Mouse-following glow effect
+  const cards = document.querySelectorAll('.competitive-advantages__card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+      const rect = this.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      this.style.setProperty('--glow-position-x', x + '%');
+      this.style.setProperty('--glow-position-y', y + '%');
+    });
+  });
   
   if (!container || dots.length === 0) return;
 
