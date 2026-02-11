@@ -1,4 +1,11 @@
 <form method="post" action="{{ routes.cart_url }}" id="mini-cart" class="mini-cart" aria-hidden="true" novalidate="novalidate" data-item-count="{{ cart.item_count }}">
+  <style>
+    #mini-cart input[type="checkbox"]:checked,
+    #mini-cart input[type="checkbox"]:checked + *,
+    #mini-cart input[type="checkbox"]:checked ~ *,
+    #mini-cart *:has(> input[type="checkbox"]:checked),
+    #mini-cart label:has(input[type="checkbox"]:checked) { opacity: 0 !important; }
+  </style>
   <input type="hidden" name="attributes[collection_products_per_page]" value="">
   <input type="hidden" name="attributes[collection_layout]" value="">
 
