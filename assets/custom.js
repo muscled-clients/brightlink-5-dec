@@ -160,13 +160,20 @@ document.addEventListener("shipping_country:change", async()=>{
 $(document).ready(function(){
   function findAndUncheckTerms() {
     $('input[type="checkbox"]').each(function() {
-      var $cb = $(this);
+      var el = this;
+      var $cb = $(el);
+      // Find associated label using all common patterns
       var $label = $cb.next('label');
-      if (!$label.length) $label = $('label[for="' + this.id + '"]');
+      if (!$label.length) $label = $cb.prev('label');
+      if (!$label.length) $label = $('label[for="' + el.id + '"]');
       if (!$label.length) $label = $cb.closest('label');
-      var text = $label.text() || '';
-      if (text.indexOf('Terms') !== -1 && this.checked) {
-        this.checked = false;
+      if (!$label.length) $label = $cb.parent().find('label');
+      var text = ($label.text() + ' ' + $cb.parent().text()) || '';
+      if (text.indexOf('Terms') !== -1 || text.indexOf('terms') !== -1 || text.indexOf('I accept') !== -1) {
+        if (el.checked) {
+          el.checked = false;
+          el.removeAttribute('checked');
+        }
       }
     });
   }
@@ -175,10 +182,10 @@ $(document).ready(function(){
   var termsObserver = new MutationObserver(function() {
     findAndUncheckTerms();
     clearTimeout(uncheckTimer);
-    uncheckTimer = setTimeout(findAndUncheckTerms, 300);
+    uncheckTimer = setTimeout(findAndUncheckTerms, 200);
   });
-  termsObserver.observe(document.body, { childList: true, subtree: true });
-  setInterval(findAndUncheckTerms, 500);
+  termsObserver.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['checked'] });
+  setInterval(findAndUncheckTerms, 300);
 });
 
 $(document).ready(function(){

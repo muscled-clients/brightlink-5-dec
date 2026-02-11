@@ -446,14 +446,25 @@ section[data-section-id="template--15505473208504__blog-posts"] .article-item .a
   }
 }
 
-/* Hide checked checkbox inside mini-cart so checked state is never visible.
+/* Hide checked checkbox inside cart areas so checked state is never visible.
    When JS unchecks it, the :checked rules stop applying and it appears unchecked. */
 #mini-cart input[type="checkbox"]:checked,
 #mini-cart input[type="checkbox"]:checked + *,
 #mini-cart input[type="checkbox"]:checked ~ *,
 .mini-cart input[type="checkbox"]:checked,
 .mini-cart input[type="checkbox"]:checked + *,
-.mini-cart input[type="checkbox"]:checked ~ * {
+.mini-cart input[type="checkbox"]:checked ~ *,
+[data-section-type="cart"] input[type="checkbox"]:checked,
+[data-section-type="cart"] input[type="checkbox"]:checked + *,
+[data-section-type="cart"] input[type="checkbox"]:checked ~ *,
+/* Parent wrappers containing a checked checkbox */
+#mini-cart *:has(> input[type="checkbox"]:checked),
+.mini-cart *:has(> input[type="checkbox"]:checked),
+[data-section-type="cart"] *:has(> input[type="checkbox"]:checked),
+/* Checkbox inside a label */
+#mini-cart label:has(input[type="checkbox"]:checked),
+.mini-cart label:has(input[type="checkbox"]:checked),
+[data-section-type="cart"] label:has(input[type="checkbox"]:checked) {
   opacity: 0 !important;
 }
 
