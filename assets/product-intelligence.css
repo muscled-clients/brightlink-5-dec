@@ -504,6 +504,11 @@
 
 .specs-accordion--open .specs-accordion__content {
   max-height: 2000px;
+  display: flex;
+  padding: 32px;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 /* Specs Table */
@@ -511,12 +516,12 @@
   width: 100%;
   border-collapse: collapse;
   margin: 0;
-  padding: 0 30px 20px 30px;
+  padding: 0;
 }
 
 .specs-table tbody {
   display: block;
-  padding: 0 30px 20px 30px;
+  padding: 0;
 }
 
 .specs-table tr {
