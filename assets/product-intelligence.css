@@ -116,7 +116,7 @@
 .product-intelligence__tabs {
   display: flex;
   height: 56px;
-  padding: 0 20px;
+  padding: 0;
   align-items: center;
   gap: 20px;
   align-self: stretch;
