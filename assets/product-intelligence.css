@@ -818,11 +818,10 @@
 .included-card__image {
   display: flex;
   width: 100%;
+  aspect-ratio: 16/10;
   justify-content: center;
   align-items: center;
-  padding: 33px;
   border-radius: 8px;
-  border: 0 solid #E5E7EB;
   background: linear-gradient(135deg, rgba(0, 102, 204, 0.10) 0%, rgba(0, 102, 204, 0.05) 70.71%);
   box-sizing: border-box;
   overflow: hidden;
@@ -839,6 +838,7 @@
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, rgba(120, 20, 30, 0.7) 0%, rgba(60, 10, 15, 0.9) 100%);
+  border-radius: 8px;
   position: relative;
 }
 
