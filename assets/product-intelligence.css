@@ -1079,12 +1079,15 @@
 /* Professional Support CTA */
 .installation-support {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
-  background: rgba(15, 25, 40, 0.8);
-  border: 1px solid rgba(60, 100, 140, 0.2);
-  border-radius: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 102, 204, 0.30);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 40px 0 rgba(0, 102, 204, 0.15);
   padding: 30px 35px;
+  box-sizing: border-box;
 }
 
 .installation-support__content {
@@ -1092,27 +1095,47 @@
 }
 
 .installation-support__title {
-  font-size: 18px;
+  display: flex;
+  width: 100%;
+  padding-top: 2px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  color: #FFF;
+  font-family: Inter, sans-serif;
+  font-size: 20px;
+  font-style: normal;
   font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 8px 0;
+  line-height: normal;
 }
 
 .installation-support__desc {
-  font-size: 14px;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  display: flex;
+  width: 100%;
+  padding-top: 3px;
+  justify-content: center;
+  align-items: center;
   margin: 0;
+  color: #A0AEC0;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .installation-support__btn {
-  display: inline-flex;
+  display: flex;
+  width: 240px;
+  padding: 16px 24px;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  padding: 14px 28px;
-  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-  border: none;
-  border-radius: 30px;
+  gap: 16px;
+  border-radius: 8px;
+  border: 0 solid #E5E7EB;
+  background: #0066CC;
+  box-shadow: 0 0 30px 0 rgba(0, 102, 204, 0.40);
+  box-sizing: border-box;
   color: #ffffff;
   font-size: 12px;
   font-weight: 600;
@@ -1129,8 +1152,12 @@
 }
 
 .installation-support__btn svg {
+  display: flex;
   width: 16px;
   height: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 /* ========== SUPPORT & RESOURCES TAB ========== */
