@@ -802,6 +802,10 @@
 }
 
 .included-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(15, 20, 25, 0.50);
@@ -843,8 +847,13 @@
 }
 
 .included-card__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   padding: 0;
   text-align: center;
+  width: 100%;
 }
 
 .included-card__badge {
