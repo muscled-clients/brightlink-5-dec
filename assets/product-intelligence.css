@@ -870,11 +870,14 @@
 }
 
 .included-card__desc {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.55);
+  font-style: normal;
+  font-family: Inter, sans-serif;
+  color: #A0AEC0;
+  text-align: center;
+  line-height: normal;
   margin: 0;
-  line-height: 1.6;
 }
 
 /* ========== INSTALLATION GUIDE TAB ========== */
