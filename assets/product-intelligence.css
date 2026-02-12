@@ -1012,8 +1012,7 @@
 }
 
 .installation-requirement {
-  width: 378px;
-  flex-shrink: 0;
+  flex: 1;
   text-align: left;
   box-sizing: border-box;
 }
