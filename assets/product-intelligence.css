@@ -1092,7 +1092,10 @@
 }
 
 .installation-support__content {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
 }
 
 .installation-support__title {
