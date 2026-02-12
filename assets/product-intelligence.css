@@ -800,9 +800,9 @@
 }
 
 .included-card {
-  background: rgba(15, 25, 40, 0.6);
-  border: 1px solid rgba(60, 100, 140, 0.2);
-  border-radius: 10px;
+  background: rgba(15, 20, 25, 0.50);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
   
   transition: all 0.3s ease;
   padding: 20px 20px 25px 20px;
