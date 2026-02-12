@@ -846,10 +846,14 @@
   background: rgba(0, 102, 204, 0.20);
   border: 0 solid #E5E7EB;
   border-radius: 9999px;
-  font-size: 10px;
+  font-size: 12px;
+  font-style: normal;
   font-weight: 600;
-  color: #3498db;
-  letter-spacing: 0.5px;
+  color: #0066CC;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  line-height: normal;
+  letter-spacing: 0.6px;
   text-transform: uppercase;
   margin-bottom: 12px;
 }
