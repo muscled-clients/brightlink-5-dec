@@ -1042,14 +1042,14 @@
         "tab_slider_YB8tqP": {
           "type": "tab_slider",
           "settings": {
-            "tab_title": "Image Quality",
+            "tab_title": "High Image Quality  Rebuild Original Vision",
             "icon": "quality",
             "layout_type": "simple",
             "simple_title": "",
             "image": "shopify://shop_images/image_3_5.png",
             "image_2": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "",
+            "description": "The H Series supports HDR (High Dynamic Range) and wide color gamut transmission, ensuring vibrant and detailed colors with excellent contrast. It improves details in both light and shadow for better visual experiences.",
             "read_more_link": "",
             "feature1": "",
             "feature2": "",
