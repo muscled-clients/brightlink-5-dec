@@ -335,8 +335,10 @@
 }
 
 .system-configuration__connection-images-box img {
-  height: 200px;
-  max-height: 220px;
+width:350px;
+max-width:350px;
+  height: 266px;
+  max-height: 266px;
   object-fit: contain;
   margin-bottom: 15px;
 }
