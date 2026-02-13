@@ -296,10 +296,13 @@ width: 269px;
 
 .system-configuration__spec-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(60, 100, 140, 0.15);
+height: 37px;
+padding-bottom: 13px;
+justify-content: center;
+align-items: center;
+gap: 206.453px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+background: rgba(0, 0, 0, 0.00);
 }
 
 .system-configuration__spec-row:last-child {
@@ -453,7 +456,7 @@ max-width:350px;
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
 }
 
 .system-configuration__feature-desc {
