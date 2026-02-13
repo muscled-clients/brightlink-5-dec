@@ -383,11 +383,12 @@
 
 /* Labels inside connection box */
 .system-configuration__connection-images-box .system-configuration__cabinet-label {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: #3498db;
   margin-bottom: 4px;
   text-align: center;
+  height:16px;
 }
 
 .system-configuration__connection-images-box .system-configuration__cabinet-sublabel {
