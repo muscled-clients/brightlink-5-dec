@@ -175,7 +175,7 @@
 <div class="footer-bottom">
         {%- if section.settings.show_payment_icons -%}
           <div class="footer__aside-item footer__aside-item--payment">
-            <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
+           
             <div class="payment-list">
               {% if section.settings.payment != blank %}
                 <img src="{{ section.settings.payment | img_url: 'master' }}" alt="">
