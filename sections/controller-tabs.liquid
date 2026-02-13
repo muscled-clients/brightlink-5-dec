@@ -34,7 +34,7 @@
       <div class="controller-tabs__dropdown">
         <select class="controller-tabs__select" aria-label="Select tab">
           {% for block in section.blocks %}
-            {% if block.type == 'tab' %}
+            {% if block.type == 'tab' or block.type == 'tab_slider' %}
               <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
             {% endif %}
           {% endfor %}
@@ -43,7 +43,7 @@
 
       <div class="controller-tabs__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
+          {% if block.type == 'tab' or block.type == 'tab_slider' %}
             <button
               class="controller-tabs__tab {% if forloop.first %}controller-tabs__tab--active{% endif %}"
               role="tab"
@@ -90,7 +90,7 @@
 
       <div class="controller-tabs__panels">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
+          {% if block.type == 'tab' or block.type == 'tab_slider' %}
             <div
               class="controller-tabs__panel {% if forloop.first %}controller-tabs__panel--active{% endif %}"
               role="tabpanel"
@@ -459,11 +459,6 @@ document.addEventListener('DOMContentLoaded', function() {
           "label": "Product Image"
         },
         {
-          "type": "image_picker",
-          "id": "image_2",
-          "label": "Product Image 2 (for slider)"
-        },
-        {
           "type": "text",
           "id": "certified_badge",
           "label": "Certified Badge Text",
@@ -609,6 +604,194 @@ document.addEventListener('DOMContentLoaded', function() {
           "id": "secondary_btn_text",
           "label": "Secondary Button Text",
           "default": "BOOK A CALL"
+        },
+        {
+          "type": "url",
+          "id": "secondary_btn_link",
+          "label": "Secondary Button Link"
+        }
+      ]
+    },
+    {
+      "type": "tab_slider",
+      "name": "Controller Tab (with Slider)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Image Quality"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Tab Icon",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "integration", "label": "Integration" },
+            { "value": "4k", "label": "4K" },
+            { "value": "processing", "label": "Processing" },
+            { "value": "quality", "label": "Quality" },
+            { "value": "flexible", "label": "Flexibility" }
+          ],
+          "default": "quality"
+        },
+        {
+          "type": "select",
+          "id": "layout_type",
+          "label": "Layout Type",
+          "options": [
+            { "value": "detailed", "label": "Detailed (Image + Config + Features + CTA)" },
+            { "value": "simple", "label": "Simple (Image + Title + Description only)" }
+          ],
+          "default": "simple"
+        },
+        {
+          "type": "text",
+          "id": "simple_title",
+          "label": "Content Title (Simple Layout)",
+          "info": "Large title shown on right side for simple layout"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Product Image 2 (for slider)"
+        },
+        {
+          "type": "text",
+          "id": "certified_badge",
+          "label": "Certified Badge Text",
+          "default": "CERTIFIED DISTRIBUTOR"
+        },
+        {
+          "type": "header",
+          "content": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
+        },
+        {
+          "type": "header",
+          "content": "Features"
+        },
+        {
+          "type": "text",
+          "id": "feature1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "text",
+          "id": "feature2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "text",
+          "id": "feature3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "text",
+          "id": "feature4",
+          "label": "Feature 4"
+        },
+        {
+          "type": "text",
+          "id": "feature5",
+          "label": "Feature 5"
+        },
+        {
+          "type": "text",
+          "id": "feature6",
+          "label": "Feature 6"
+        },
+        {
+          "type": "text",
+          "id": "feature7",
+          "label": "Feature 7"
+        },
+        {
+          "type": "header",
+          "content": "Configuration Includes"
+        },
+        {
+          "type": "text",
+          "id": "config_title",
+          "label": "Config Section Title"
+        },
+        {
+          "type": "text",
+          "id": "config1",
+          "label": "Config Item 1"
+        },
+        {
+          "type": "text",
+          "id": "config2",
+          "label": "Config Item 2"
+        },
+        {
+          "type": "text",
+          "id": "config3",
+          "label": "Config Item 3"
+        },
+        {
+          "type": "text",
+          "id": "config4",
+          "label": "Config Item 4"
+        },
+        {
+          "type": "text",
+          "id": "config5",
+          "label": "Config Item 5"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "CTA Box"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Price Text"
+        },
+        {
+          "type": "text",
+          "id": "primary_btn_text",
+          "label": "Primary Button Text"
+        },
+        {
+          "type": "url",
+          "id": "primary_btn_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_btn_text",
+          "label": "Secondary Button Text"
         },
         {
           "type": "url",
