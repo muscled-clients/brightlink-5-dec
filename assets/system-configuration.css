@@ -292,6 +292,12 @@ width: 269px;
   width: 100%;
   border-top: 1px solid rgba(60, 100, 140, 0.2);
   padding-top: 15px;
+  display: flex;
+
+flex-direction: column;
+justify-content: center;
+
+gap: 16px;
 }
 
 .system-configuration__spec-row {
