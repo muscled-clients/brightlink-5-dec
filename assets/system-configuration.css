@@ -100,7 +100,7 @@
   border-radius: 12px;
   box-sizing: border-box;
     background-image: url('https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     width: 1070px;
