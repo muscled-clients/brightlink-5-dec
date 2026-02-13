@@ -216,7 +216,7 @@
           "show_payment_icons": true,
           "show_locale_selector": true,
           "show_country_selector": true,
-          "copyright_menu": "copyright_info",
+          "copyright_menu": "",
           "show_cookie_bar": false,
           "text": "<p>Use this bar to show information about your cookie policy.</p>",
           "accept_button": ""
