@@ -181,8 +181,14 @@
           <p>{{ copyright_info }}</p>
         </div>
       </aside>
-      <div class="footer-bottom">
-{%- if section.settings.show_payment_icons -%}
+      
+
+
+
+    </div>
+  </div>
+<div class="footer-bottom">
+       {%- if section.settings.show_payment_icons -%}
           <div class="footer__aside-item footer__aside-item--payment">
             <div class="payment-list">
               {% if section.settings.payment != blank %}
@@ -357,9 +363,6 @@
           </div>
         {%- endif -%}
       </div>
-    </div>
-  </div>
-
   {%- comment -%}
     In order to reduce the number of static sections, we were asked by Shopify team to move the cookie bar to the footer instead of its own
     section. This feels a bit hacky but it works :).
