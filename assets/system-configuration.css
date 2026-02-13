@@ -444,6 +444,7 @@ max-width:350px;
 }
 
 .system-configuration__feature-text {
+    line-height: normal;
   flex: 1;
 }
 
