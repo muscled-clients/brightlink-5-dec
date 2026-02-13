@@ -165,22 +165,20 @@
             <div class="system-configuration__cabinet-images-box">
               {% if section.settings.cabinet_image != blank or section.settings.cabinet_image_2 != blank %}
                 <div class="system-configuration__cabinet-images-row">
-                 {% if section.settings.cabinet_image != blank %}
-  <img
-    src="{{ section.settings.cabinet_image | image_url }}"
-    alt="Individual Cabinet"
-    loading="lazy"
-    style="width: auto; height: auto; max-width: 269px; max-height: 269px;"
-  >
-{% endif %}
                   {% if section.settings.cabinet_image != blank %}
-  <img
-    src="{{ section.settings.cabinet_image | image_url }}"
-    alt="Individual Cabinet"
-    loading="lazy"
-    style="width: auto; height: auto; max-width: 269px; max-height: 269px;"
-  >
-{% endif %}
+                    <img
+                      src="{{ section.settings.cabinet_image | image_url: width: 269 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                  {% if section.settings.cabinet_image_2 != blank %}
+                    <img
+                      src="{{ section.settings.cabinet_image_2 | image_url: width: 269 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
                 </div>
               {% else %}
                 <!-- Placeholder modules -->
