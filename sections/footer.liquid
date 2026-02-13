@@ -159,11 +159,7 @@
                 {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
               {% endfor %}
             </div>
-          </div>
-        {%- endif -%}
-
-
-        <div class="footer__aside-item footer__aside-item--localization {% if country_selector == false and locale_selector == false %}hidden-pocket{% endif %}">
+            <div class="footer__aside-item footer__aside-item--localization {% if country_selector == false and locale_selector == false %}hidden-pocket{% endif %}">
           {%- if locale_selector or country_selector -%}
             {%- form 'localization', id: 'localization_form_footer', class: 'footer__localization-form' -%}
               {%- if locale_selector -%}
@@ -324,6 +320,11 @@
           {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br> {{ copyright_links }}   {%- endcapture -%}
           <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
+          </div>
+        {%- endif -%}
+
+
+        
         {% comment %}
                     {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
                       <div class="footer__aside-item footer__aside-item--payment">
