@@ -361,6 +361,8 @@
         </div>
           </div>
         {%- endif -%}
+         {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br> {{ copyright_links }}   {%- endcapture -%}
+          <p class="hidden-pocket">{{ copyright_info }}</p>
       </div>
   {%- comment -%}
     In order to reduce the number of static sections, we were asked by Shopify team to move the cookie bar to the footer instead of its own
