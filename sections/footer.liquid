@@ -130,17 +130,22 @@
           {%- assign locale_selector = true -%}
         {%- endif -%}
 
+        
+        
+        
+        
         <div class="support">
-          <p class="support-title">Support:</p>
-          <h4>1-855-44 WIRED(94733)</h4>
-        </div>
+                  <p class="support-title">Support:</p> <h4>1-855-44 WIRED(94733)</h4>
+                  </div>
 
         {%- if section.settings.show_social_media -%}
           {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
 
           {%- if social_media != blank -%}
             <div class="social">
+              
               <div class="footer__aside-item footer__aside-item--social">
+
                 <p class="footer__aside-title">{{ 'footer.general.follow_us' | t }}</p>
                 {{ social_media }}
               </div>
@@ -148,21 +153,38 @@
           {%- endif -%}
         {%- endif -%}
 
-      
+
+
+
+
+
+        
+
+
+        
+        {% comment %}
+                    {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+                      <div class="footer__aside-item footer__aside-item--payment">
+                        <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
+
+                        <div class="payment-list">
+                       {% assign enabled_payment_types = 'visa,master,paypal' | remove: ' ' | split: ',' %}
+          {% for type in enabled_payment_types %}
+                            {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {%- endif -%}
+        {% endcomment %}
 
         <div class="footer__aside-item footer__aside-item--copyright hidden-lap-and-up">
           <p>{{ copyright_info }}</p>
         </div>
       </aside>
-
-
-      
-    </div>
-  </div>
-<div class="footer-bottom"></div>
-        {%- if section.settings.show_payment_icons -%}
+      <div class="footer-bottom">
+{%- if section.settings.show_payment_icons -%}
           <div class="footer__aside-item footer__aside-item--payment">
-           
+            <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
             <div class="payment-list">
               {% if section.settings.payment != blank %}
                 <img src="{{ section.settings.payment | img_url: 'master' }}" alt="">
@@ -173,143 +195,143 @@
               {% endfor %}
             </div>
             <div class="footer__aside-item footer__aside-item--localization {% if country_selector == false and locale_selector == false %}hidden-pocket{% endif %}">
-              {%- if locale_selector or country_selector -%}
-                {%- form 'localization', id: 'localization_form_footer', class: 'footer__localization-form' -%}
-                  {%- if locale_selector -%}
-                    <div class="footer__localization-form-item">
-                      <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
-                      <span class="visually-hidden">{{ 'footer.general.language' | t }}</span>
+          {%- if locale_selector or country_selector -%}
+            {%- form 'localization', id: 'localization_form_footer', class: 'footer__localization-form' -%}
+              {%- if locale_selector -%}
+                <div class="footer__localization-form-item">
+                  <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
+                  <span class="visually-hidden">{{ 'footer.general.language' | t }}</span>
 
-                      <div class="value-picker-wrapper">
-                        <button
-                          type="button"
-                          class="select-button select-button--mini"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          aria-controls="footer-locale-picker"
-                          data-action="open-value-picker"
-                        >
-                          {{- localization.language.endonym_name | capitalize -}}
-                          {%- render 'icon', icon: 'arrow-bottom' -%}
-                        </button>
+                  <div class="value-picker-wrapper">
+                    <button
+                      type="button"
+                      class="select-button select-button--mini"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="footer-locale-picker"
+                      data-action="open-value-picker"
+                    >
+                      {{- localization.language.endonym_name | capitalize -}}
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+                    </button>
 
-                        <div
-                          id="footer-locale-picker"
-                          class="value-picker value-picker--small"
-                          data-picker-position="top"
-                          aria-hidden="true"
-                        >
-                          {% render 'icon', icon: 'nav-triangle-borderless' %}
+                    <div
+                      id="footer-locale-picker"
+                      class="value-picker value-picker--small"
+                      data-picker-position="top"
+                      aria-hidden="true"
+                    >
+                      {% render 'icon', icon: 'nav-triangle-borderless' %}
 
-                          <div class="value-picker__inner">
-                            <header class="value-picker__header">
-                              <span class="value-picker__title text--strong">{{ 'footer.general.language' | t }}</span>
+                      <div class="value-picker__inner">
+                        <header class="value-picker__header">
+                          <span class="value-picker__title text--strong">{{ 'footer.general.language' | t }}</span>
+                          <button
+                            type="button"
+                            class="value-picker__close"
+                            data-action="close-value-picker"
+                            aria-controls="footer-locale-picker"
+                            aria-label="{{ 'general.accessibility.close' | t }}"
+                          >
+                            {% render 'icon', icon: 'close' %}
+                          </button>
+                        </header>
+
+                        <ul class="value-picker__choice-list" role="list">
+                          {%- for language in localization.available_languages -%}
+                            <li class="value-picker__choice-list-item">
                               <button
-                                type="button"
-                                class="value-picker__close"
-                                data-action="close-value-picker"
-                                aria-controls="footer-locale-picker"
-                                aria-label="{{ 'general.accessibility.close' | t }}"
+                                type="submit"
+                                name="locale_code"
+                                class="value-picker__choice-item"
+                                value="{{ language.iso_code }}"
+                                {% if language.iso_code == localization.language.iso_code %}
+                                  aria-current="true"
+                                {% endif %}
                               >
-                                {% render 'icon', icon: 'close' %}
+                                {{- language.endonym_name | capitalize -}}
                               </button>
-                            </header>
-
-                            <ul class="value-picker__choice-list" role="list">
-                              {%- for language in localization.available_languages -%}
-                                <li class="value-picker__choice-list-item">
-                                  <button
-                                    type="submit"
-                                    name="locale_code"
-                                    class="value-picker__choice-item"
-                                    value="{{ language.iso_code }}"
-                                    {% if language.iso_code == localization.language.iso_code %}
-                                      aria-current="true"
-                                    {% endif %}
-                                  >
-                                    {{- language.endonym_name | capitalize -}}
-                                  </button>
-                                </li>
-                              {%- endfor -%}
-                            </ul>
-                          </div>
-                        </div>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
                       </div>
                     </div>
-                  {%- endif -%}
-
-                  {%- if country_selector -%}
-                    <div class="footer__localization-form-item">
-                      <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
-                      <span class="visually-hidden">{{ 'footer.general.country' | t }}</span>
-
-                      <div class="value-picker-wrapper">
-                        <button
-                          type="button"
-                          class="select-button select-button--mini"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          aria-controls="footer-currency-picker"
-                          data-action="open-value-picker"
-                        >
-                          {{- localization.country.name }} ({{ localization.country.currency.iso_code }}
-                          {% if localization.country.currency.symbol -%}
-                            {{- localization.country.currency.symbol }}
-                          {%- endif -%}
-                          )
-                          {%- render 'icon', icon: 'arrow-bottom' -%}
-                        </button>
-
-                        <div
-                          id="footer-currency-picker"
-                          class="value-picker value-picker--auto value-picker--small"
-                          data-picker-position="top"
-                          aria-hidden="true"
-                        >
-                          {% render 'icon', icon: 'nav-triangle-borderless' %}
-
-                          <div class="value-picker__inner value-picker__inner--restrict">
-                            <header class="value-picker__header">
-                              <span class="value-picker__title text--strong">{{ 'footer.general.country' | t }}</span>
-                              <button
-                                type="button"
-                                class="value-picker__close"
-                                data-action="close-value-picker"
-                                aria-controls="footer-currency-picker"
-                                aria-label="{{ 'general.accessibility.close' | t }}"
-                              >
-                                {% render 'icon', icon: 'close' %}
-                              </button>
-                            </header>
-
-                            <ul class="value-picker__choice-list" role="list">
-                              {%- for country in localization.available_countries -%}
-                                <li class="value-picker__choice-list-item">
-                                  <button
-                                    type="submit"
-                                    name="country_code"
-                                    class="value-picker__choice-item"
-                                    value="{{ country.iso_code }}"
-                                    {% if country.iso_code == localization.country.iso_code %}
-                                      aria-current="true"
-                                    {% endif %}
-                                  >
-                                    {{- country.name }} ({{ country.currency.iso_code }}
-                                    {% if country.currency.symbol %}{{ country.currency.symbol }}{%- endif -%}
-                                    )
-                                  </button>
-                                </li>
-                              {%- endfor -%}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  {%- endif -%}
-                {%- endform -%}
+                  </div>
+                </div>
               {%- endif -%}
 
-              {% capture copyright_links %}
+              {%- if country_selector -%}
+                <div class="footer__localization-form-item">
+                  <input type="hidden" name="country_code" value="{{ localization.country.iso_code }}">
+                  <span class="visually-hidden">{{ 'footer.general.country' | t }}</span>
+
+                  <div class="value-picker-wrapper">
+                    <button
+                      type="button"
+                      class="select-button select-button--mini"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="footer-currency-picker"
+                      data-action="open-value-picker"
+                    >
+                      {{- localization.country.name }} ({{ localization.country.currency.iso_code }}
+                      {% if localization.country.currency.symbol -%}
+                        {{- localization.country.currency.symbol }}
+                      {%- endif -%}
+                      )
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+                    </button>
+
+                    <div
+                      id="footer-currency-picker"
+                      class="value-picker value-picker--auto value-picker--small"
+                      data-picker-position="top"
+                      aria-hidden="true"
+                    >
+                      {% render 'icon', icon: 'nav-triangle-borderless' %}
+
+                      <div class="value-picker__inner value-picker__inner--restrict">
+                        <header class="value-picker__header">
+                          <span class="value-picker__title text--strong">{{ 'footer.general.country' | t }}</span>
+                          <button
+                            type="button"
+                            class="value-picker__close"
+                            data-action="close-value-picker"
+                            aria-controls="footer-currency-picker"
+                            aria-label="{{ 'general.accessibility.close' | t }}"
+                          >
+                            {% render 'icon', icon: 'close' %}
+                          </button>
+                        </header>
+
+                        <ul class="value-picker__choice-list" role="list">
+                          {%- for country in localization.available_countries -%}
+                            <li class="value-picker__choice-list-item">
+                              <button
+                                type="submit"
+                                name="country_code"
+                                class="value-picker__choice-item"
+                                value="{{ country.iso_code }}"
+                                {% if country.iso_code == localization.country.iso_code %}
+                                  aria-current="true"
+                                {% endif %}
+                              >
+                                {{- country.name }} ({{ country.currency.iso_code }}
+                                {% if country.currency.symbol %}{{ country.currency.symbol }}{%- endif -%}
+                                )
+                              </button>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endform -%}
+          {%- endif -%}
+
+          {% capture copyright_links %}
               {%- assign menu = linklists[section.settings.copyright_menu] -%}
                 {%- unless menu.empty? -%}
                   <div class="copyright_info-item copyright_info--links">
@@ -330,12 +352,15 @@
                 {%- endunless -%}
 			    {% endcapture %}
 
-              {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br> {{ copyright_links }}   {%- endcapture -%}
-              <p class="hidden-pocket">{{ copyright_info }}</p>
-            </div>
+          {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br> {{ copyright_links }}   {%- endcapture -%}
+          <p class="hidden-pocket">{{ copyright_info }}</p>
+        </div>
           </div>
         {%- endif -%}
       </div>
+    </div>
+  </div>
+
   {%- comment -%}
     In order to reduce the number of static sections, we were asked by Shopify team to move the cookie bar to the footer instead of its own
     section. This feels a bit hacky but it works :).
@@ -408,11 +433,11 @@
       "type": "header",
       "content": "Copyright Links"
     },
-    {
-      "type": "link_list",
-      "id": "copyright_menu",
-      "label": "Copyright Menu"
-    },
+	{
+          "type": "link_list",
+          "id": "copyright_menu",
+          "label": "Copyright Menu"
+        },
     {
       "type": "header",
       "content": "Cookie bar"
@@ -453,7 +478,7 @@
           "label": "Content",
           "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
         },
-        {
+		{
           "type": "text",
           "id": "wtitle",
           "label": "Heading",
@@ -465,7 +490,7 @@
           "label": "Content",
           "default": "<p>Use this text area to tell your customers about your brand and vision. You can change it in the theme editor.</p>"
         },
-        {
+		{
           "type": "text",
           "id": "wtitle1",
           "label": "Heading",
@@ -536,70 +561,71 @@
 }
 {% endschema %}
 
+
 <style>
-       #shopify-section-{{ section.id }} .footer{
-      border-top: 0.5px solid #A0AEC0;
-  background: rgba(10, 14, 26, 0.60);
-  display: flex;
-  width: 1440px;
-  padding-top: 80px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-      }
-      #shopify-section-{{ section.id }} .footer__block-item{
-      padding:0;
-      }
+     #shopify-section-{{ section.id }} .footer{
+    border-top: 0.5px solid #A0AEC0;
+background: rgba(10, 14, 26, 0.60);
+display: flex;
+width: 1440px;
+padding-top: 80px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 0 auto;
+    }
+    #shopify-section-{{ section.id }} .footer__block-item{
+    padding:0;
+    }
 
-   #shopify-section-{{ section.id }} .footer__title{
-  color: #FFF;
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  align-self: stretch;
+ #shopify-section-{{ section.id }} .footer__title{
+color: #FFF;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+align-self: stretch;
 
-  }
+}
 
-   #shopify-section-{{ section.id }} .footer__wrapper{
-  padding:0;
-  display: flex;
-  width: 1440px;
-      flex-direction: column;
-  }
+ #shopify-section-{{ section.id }} .footer__wrapper{
+padding:0;
+display: flex;
+width: 1440px;
+    flex-direction: column;
+}
 
-      #shopify-section-{{ section.id }} .footer__block-list{
-        margin:0;
+    #shopify-section-{{ section.id }} .footer__block-list{
+      margin:0;
+    display: flex;
+padding: 0 80px 80px 80px;
+justify-content: space-between;
+align-items: flex-start;
+align-self: stretch;
+    }
+
+       #shopify-section-{{ section.id }}  .container{
+        padding:0;
+      z-index:1;
+    }
+
+      #shopify-section-{{ section.id }} .footer__aside{
       display: flex;
-  padding: 0 80px 80px 80px;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
+padding: 32px 40px;
+justify-content: space-between;
+align-items: flex-end;
+align-self: stretch;
+background: rgba(10, 14, 26, 0.60);
+margin:0;
       }
 
-         #shopify-section-{{ section.id }}  .container{
-          padding:0;
-        z-index:1;
+         #shopify-section-{{ section.id }} .footer__aside-item{
+          display:flex;
+        gap:12px
       }
 
-        #shopify-section-{{ section.id }} .footer__aside{
-        display: flex;
-  padding: 32px 40px;
-  justify-content: space-between;
-  align-items: flex-end;
-  align-self: stretch;
-  background: rgba(10, 14, 26, 0.60);
-  margin:0;
-        }
-
-           #shopify-section-{{ section.id }} .footer__aside-item{
-            display:flex;
-          gap:12px
-        }
-
-       #shopify-section-{{ section.id }} .support{
-        display:flex;
-        }
+     #shopify-section-{{ section.id }} .support{
+      display:flex;
+      }
 </style>
