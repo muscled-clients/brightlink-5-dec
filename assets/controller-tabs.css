@@ -252,7 +252,7 @@
 
 .controller-tabs__panel-content--simple .controller-tabs__image-area {
   width: 731px;
-  height: 460px;
+  height: auto;
   border-radius: 12px;
   background-color: #001D55;
 }
@@ -303,7 +303,7 @@
 .controller-tabs__image-area {
   position: relative;
   width: 731px;
-  height: 460px;
+  height: auto;
   border: 1px solid rgba(255, 255, 255, 0.10);
   border-radius: 16px;
   box-sizing: border-box;
