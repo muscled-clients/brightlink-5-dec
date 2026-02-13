@@ -233,14 +233,14 @@
 .applications-tabs__image-wrapper {
   position: relative;
   width: 731px;
-  height: 410px;
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
 }
 
 .applications-tabs__image {
   width: 731px;
-  height: 410px;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
   object-position: center;
