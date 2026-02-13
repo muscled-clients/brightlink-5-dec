@@ -148,20 +148,7 @@
           {%- endif -%}
         {%- endif -%}
 
-        {% comment %}
-                    {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
-                      <div class="footer__aside-item footer__aside-item--payment">
-                        <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
-
-                        <div class="payment-list">
-                       {% assign enabled_payment_types = 'visa,master,paypal' | remove: ' ' | split: ',' %}
-          {% for type in enabled_payment_types %}
-                            {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
-                          {% endfor %}
-                        </div>
-                      </div>
-                    {%- endif -%}
-        {% endcomment %}
+      
 
         <div class="footer__aside-item footer__aside-item--copyright hidden-lap-and-up">
           <p>{{ copyright_info }}</p>
@@ -172,7 +159,7 @@
       
     </div>
   </div>
-<div class="footer-bottom">
+<div class="footer-bottom"></div>
         {%- if section.settings.show_payment_icons -%}
           <div class="footer__aside-item footer__aside-item--payment">
            
