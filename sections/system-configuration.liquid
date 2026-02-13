@@ -167,14 +167,14 @@
                 <div class="system-configuration__cabinet-images-row">
                   {% if section.settings.cabinet_image != blank %}
                     <img
-                      src="{{ section.settings.cabinet_image  }}"
+                      src="{{ section.settings.cabinet_image | image_url: width: 269 }}"
                       alt="Individual Cabinet"
                       loading="lazy"
                     >
                   {% endif %}
                   {% if section.settings.cabinet_image_2 != blank %}
                     <img
-                      src="{{ section.settings.cabinet_image_2 }}"
+                      src="{{ section.settings.cabinet_image_2 | image_url: width: 269 }}"
                       alt="Individual Cabinet"
                       loading="lazy"
                     >
