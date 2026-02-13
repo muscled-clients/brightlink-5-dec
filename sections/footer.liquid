@@ -130,6 +130,39 @@
           {%- assign locale_selector = true -%}
         {%- endif -%}
 
+        
+        
+        
+        
+        
+
+        {%- if section.settings.show_social_media -%}
+          {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
+
+          {%- if social_media != blank -%}
+            <div class="footer__aside-item footer__aside-item--social">
+              <p class="footer__aside-title">{{ 'footer.general.follow_us' | t }}</p>
+              {{ social_media }}
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+
+        {%- if section.settings.show_payment_icons -%}
+          <div class="footer__aside-item footer__aside-item--payment">
+            <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
+            <div class="payment-list">
+              {% if section.settings.payment != blank %}
+                <img src="{{ section.settings.payment | img_url: 'master' }}" alt="">
+              {% endif %}
+              {% assign enabled_payment_types = 'visa,master,paypal' | remove: ' ' | split: ',' %}
+              {% for type in enabled_payment_types %}
+                {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
+              {% endfor %}
+            </div>
+          </div>
+        {%- endif -%}
+
+
         <div class="footer__aside-item footer__aside-item--localization {% if country_selector == false and locale_selector == false %}hidden-pocket{% endif %}">
           {%- if locale_selector or country_selector -%}
             {%- form 'localization', id: 'localization_form_footer', class: 'footer__localization-form' -%}
@@ -286,38 +319,11 @@
                     </div>
                   </div>
                 {%- endunless -%}
-			{% endcapture %}
+			    {% endcapture %}
 
           {%- capture copyright_info -%}© {{ 'now' | date: '%Y' }} {{ shop.name }}<br> {{ copyright_links }}   {%- endcapture -%}
           <p class="hidden-pocket">{{ copyright_info }}</p>
         </div>
-
-        {%- if section.settings.show_social_media -%}
-          {%- capture social_media -%}{% render 'social-media', show_social_media_name: false %}{%- endcapture -%}
-
-          {%- if social_media != blank -%}
-            <div class="footer__aside-item footer__aside-item--social">
-              <p class="footer__aside-title">{{ 'footer.general.follow_us' | t }}</p>
-              {{ social_media }}
-            </div>
-          {%- endif -%}
-        {%- endif -%}
-
-        {%- if section.settings.show_payment_icons -%}
-          <div class="footer__aside-item footer__aside-item--payment">
-            <p class="footer__aside-title">{{ 'footer.general.we_accept' | t }}</p>
-            <div class="payment-list">
-              {% if section.settings.payment != blank %}
-                <img src="{{ section.settings.payment | img_url: 'master' }}" alt="">
-              {% endif %}
-              {% assign enabled_payment_types = 'visa,master,paypal' | remove: ' ' | split: ',' %}
-              {% for type in enabled_payment_types %}
-                {{ type | payment_type_svg_tag: class: 'payment-list__item' }}
-              {% endfor %}
-            </div>
-          </div>
-        {%- endif -%}
-
         {% comment %}
                     {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
                       <div class="footer__aside-item footer__aside-item--payment">
