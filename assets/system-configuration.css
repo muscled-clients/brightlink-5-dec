@@ -639,6 +639,7 @@ line-height: 28px; /* 140% */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    }
   .system-configuration__cards {
     grid-template-columns: 1fr;
     gap: 20px;
