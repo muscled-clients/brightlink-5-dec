@@ -100,6 +100,10 @@
   max-width: calc(100% - 40px);
   border-radius: 12px;
   box-sizing: border-box;
+    background-image: url('{{ section.settings.background_image | img_url: 'https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793' }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .system-configuration__display-image {
@@ -634,12 +638,7 @@ line-height: 28px; /* 140% */
   .system-configuration__visual {
     max-width: calc(100% - 40px);
   }
-.system-configuration__visual {
-    background-image: url('{{ section.settings.background_image | img_url: 'https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793' }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    }
+
   .system-configuration__cards {
     grid-template-columns: 1fr;
     gap: 20px;
