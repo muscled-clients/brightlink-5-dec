@@ -138,61 +138,7 @@
                   <input type="hidden" name="locale_code" value="{{ localization.language.iso_code }}">
                   <span class="visually-hidden">{{ 'footer.general.language' | t }}</span>
 
-                  <div class="value-picker-wrapper">
-                    <button
-                      type="button"
-                      class="select-button select-button--mini"
-                      aria-haspopup="true"
-                      aria-expanded="false"
-                      aria-controls="footer-locale-picker"
-                      data-action="open-value-picker"
-                    >
-                      {{- localization.language.endonym_name | capitalize -}}
-                      {%- render 'icon', icon: 'arrow-bottom' -%}
-                    </button>
-
-                    <div
-                      id="footer-locale-picker"
-                      class="value-picker value-picker--small"
-                      data-picker-position="top"
-                      aria-hidden="true"
-                    >
-                      {% render 'icon', icon: 'nav-triangle-borderless' %}
-
-                      <div class="value-picker__inner">
-                        <header class="value-picker__header">
-                          <span class="value-picker__title text--strong">{{ 'footer.general.language' | t }}</span>
-                          <button
-                            type="button"
-                            class="value-picker__close"
-                            data-action="close-value-picker"
-                            aria-controls="footer-locale-picker"
-                            aria-label="{{ 'general.accessibility.close' | t }}"
-                          >
-                            {% render 'icon', icon: 'close' %}
-                          </button>
-                        </header>
-
-                        <ul class="value-picker__choice-list" role="list">
-                          {%- for language in localization.available_languages -%}
-                            <li class="value-picker__choice-list-item">
-                              <button
-                                type="submit"
-                                name="locale_code"
-                                class="value-picker__choice-item"
-                                value="{{ language.iso_code }}"
-                                {% if language.iso_code == localization.language.iso_code %}
-                                  aria-current="true"
-                                {% endif %}
-                              >
-                                {{- language.endonym_name | capitalize -}}
-                              </button>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
+                 
                 </div>
               {%- endif -%}
 
@@ -317,6 +263,61 @@
             </div>
           </div>
         {%- endif -%}
+         <div class="value-picker-wrapper">
+                    <button
+                      type="button"
+                      class="select-button select-button--mini"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                      aria-controls="footer-locale-picker"
+                      data-action="open-value-picker"
+                    >
+                      {{- localization.language.endonym_name | capitalize -}}
+                      {%- render 'icon', icon: 'arrow-bottom' -%}
+                    </button>
+
+                    <div
+                      id="footer-locale-picker"
+                      class="value-picker value-picker--small"
+                      data-picker-position="top"
+                      aria-hidden="true"
+                    >
+                      {% render 'icon', icon: 'nav-triangle-borderless' %}
+
+                      <div class="value-picker__inner">
+                        <header class="value-picker__header">
+                          <span class="value-picker__title text--strong">{{ 'footer.general.language' | t }}</span>
+                          <button
+                            type="button"
+                            class="value-picker__close"
+                            data-action="close-value-picker"
+                            aria-controls="footer-locale-picker"
+                            aria-label="{{ 'general.accessibility.close' | t }}"
+                          >
+                            {% render 'icon', icon: 'close' %}
+                          </button>
+                        </header>
+
+                        <ul class="value-picker__choice-list" role="list">
+                          {%- for language in localization.available_languages -%}
+                            <li class="value-picker__choice-list-item">
+                              <button
+                                type="submit"
+                                name="locale_code"
+                                class="value-picker__choice-item"
+                                value="{{ language.iso_code }}"
+                                {% if language.iso_code == localization.language.iso_code %}
+                                  aria-current="true"
+                                {% endif %}
+                              >
+                                {{- language.endonym_name | capitalize -}}
+                              </button>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
 
         {% comment %}
                     {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
