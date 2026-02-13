@@ -1045,7 +1045,7 @@
             "tab_title": "Image Quality",
             "icon": "quality",
             "layout_type": "simple",
-            "simple_title": "",
+            "simple_title": "123",
             "image": "shopify://shop_images/image_3_5.png",
             "image_2": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
