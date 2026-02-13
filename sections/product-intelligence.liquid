@@ -16,11 +16,10 @@
 {% assign pic_specs_electrical = product.metafields.custom.pic_specs_electrical.value %}
 {% assign pic_specs_environmental = product.metafields.custom.pic_specs_environmental.value %}
 
-{% comment %} Specifications Tab - Downloads {% endcomment %}
-{% assign pic_specs_download_titles = product.metafields.custom.pic_specs_download_titles.value %}
-{% assign pic_specs_download_descriptions = product.metafields.custom.pic_specs_download_descriptions.value %}
-{% assign pic_specs_download_files = product.metafields.custom.pic_specs_download_files.value %}
-{% assign pic_specs_download_icons = product.metafields.custom.pic_specs_download_icons.value %}
+{% comment %} Specifications Tab - Download {% endcomment %}
+{% assign pic_specs_download_title = product.metafields.custom.pic_specs_download_title.value %}
+{% assign pic_specs_download_description = product.metafields.custom.pic_specs_download_description.value %}
+{% assign pic_specs_download_file = product.metafields.custom.pic_specs_download_file.value %}
 
 {% comment %} What's Included Tab (Lists) {% endcomment %}
 {% assign pic_included_badges = product.metafields.custom.pic_included_badges.value %}
@@ -608,82 +607,36 @@
                   </div>
                 </div>
 
-                <!-- Download Resources Section -->
-                {% if pic_specs_download_titles and pic_specs_download_titles.size > 0 %}
+                <!-- Download Resource Section -->
+                {% if pic_specs_download_title != blank and pic_specs_download_file != blank %}
+                  {% assign file_url = pic_specs_download_file.url %}
+                  {% assign file_name = file_url | split: '/' | last | split: '?' | first %}
+                  {% assign file_extension = file_name | split: '.' | last | upcase %}
                   <div class="support-resources">
                     <div class="support-resources__grid">
-                      {% for title in pic_specs_download_titles %}
-                        {% assign current_index = forloop.index0 %}
-                        {% assign file_url = '' %}
-                        {% assign file_name = '' %}
-                        {% assign file_extension = '' %}
-                        {% assign icon_url = '' %}
-                        {% for file in pic_specs_download_files %}
-                          {% if forloop.index0 == current_index %}
-                            {% assign file_url = file.url %}
-                            {% assign file_name = file_url | split: '/' | last | split: '?' | first %}
-                            {% assign file_extension = file_name | split: '.' | last | upcase %}
-                            {% break %}
-                          {% endif %}
-                        {% endfor %}
-                        {% for icon in pic_specs_download_icons %}
-                          {% if forloop.index0 == current_index %}
-                            {% assign icon_url = icon.src | default: icon | image_url %}
-                            {% break %}
-                          {% endif %}
-                        {% endfor %}
-                        <div class="resource-card" data-file-url="{{ file_url }}" data-card-index="{{ current_index }}">
-                          <div class="resource-card__header">
-                            <div class="resource-card__icon">
-                              {% if icon_url != blank %}
-                                <img src="{{ icon_url }}" alt="{{ title }}">
-                              {% else %}
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
-                                </svg>
-                              {% endif %}
-                            </div>
-                            {% if file_url != blank %}
-                              <div class="resource-card__download" onclick="downloadResourceFile('{{ file_url }}', '{{ file_name }}')">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                                </svg>
-                              </div>
-                            {% endif %}
+                      <div class="resource-card" data-file-url="{{ file_url }}" data-card-index="0">
+                        <div class="resource-card__header">
+                          <div class="resource-card__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                            </svg>
                           </div>
-                          <h4 class="resource-card__title">{{ title }}</h4>
-                          {% if pic_specs_download_descriptions[current_index] %}
-                            <p class="resource-card__desc">{{ pic_specs_download_descriptions[current_index] }}</p>
-                          {% endif %}
-                          <div class="resource-card__footer">
-                            {% if file_url != blank %}
-                              <span class="resource-card__badge">{{ file_extension }}</span>
-                              <span class="resource-card__size" data-file-url="{{ file_url }}">Calculating...</span>
-                            {% endif %}
+                          <div class="resource-card__download" onclick="downloadResourceFile('{{ file_url }}', '{{ file_name }}')">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                            </svg>
                           </div>
                         </div>
-                      {% endfor %}
+                        <h4 class="resource-card__title">{{ pic_specs_download_title }}</h4>
+                        {% if pic_specs_download_description != blank %}
+                          <p class="resource-card__desc">{{ pic_specs_download_description }}</p>
+                        {% endif %}
+                        <div class="resource-card__footer">
+                          <span class="resource-card__badge">{{ file_extension }}</span>
+                          <span class="resource-card__size" data-file-url="{{ file_url }}">Calculating...</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                {% elsif block.settings.download_link != blank %}
-                  <div class="specs-download">
-                    <div class="specs-download__content">
-                      <h3 class="specs-download__title">{{ block.settings.download_title | default: 'Download Complete Specifications' }}</h3>
-                      <p class="specs-download__text">{{ block.settings.download_text | default: 'Access detailed technical documentation, CAD files, and integration guides' }}</p>
-                    </div>
-                    <a href="{{ block.settings.download_link }}" class="specs-download__btn" target="_blank">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <g clip-path="url(#clip0_download)">
-                          <path d="M9 1C9 0.446875 8.55313 0 8 0C7.44688 0 7 0.446875 7 1V8.58438L4.70625 6.29063C4.31563 5.9 3.68125 5.9 3.29063 6.29063C2.9 6.68125 2.9 7.31563 3.29063 7.70625L7.29063 11.7063C7.68125 12.0969 8.31563 12.0969 8.70625 11.7063L12.7063 7.70625C13.0969 7.31563 13.0969 6.68125 12.7063 6.29063C12.3156 5.9 11.6812 5.9 11.2906 6.29063L9 8.58438V1ZM2 11C0.896875 11 0 11.8969 0 13V14C0 15.1031 0.896875 16 2 16H14C15.1031 16 16 15.1031 16 14V13C16 11.8969 15.1031 11 14 11H10.8281L9.4125 12.4156C8.63125 13.1969 7.36562 13.1969 6.58437 12.4156L5.17188 11H2ZM13.5 12.75C13.6989 12.75 13.8897 12.829 14.0303 12.9697C14.171 13.1103 14.25 13.3011 14.25 13.5C14.25 13.6989 14.171 13.8897 14.0303 14.0303C13.8897 14.171 13.6989 14.25 13.5 14.25C13.3011 14.25 13.1103 14.171 12.9697 14.0303C12.829 13.8897 12.75 13.6989 12.75 13.5C12.75 13.3011 12.829 13.1103 12.9697 12.9697C13.1103 12.829 13.3011 12.75 13.5 12.75Z" fill="white"/>
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_download">
-                            <rect width="16" height="16" fill="white"/>
-                          </clipPath>
-                        </defs>
-                      </svg>
-                      DOWNLOAD PDF
-                    </a>
                   </div>
                 {% endif %}
               </div>
@@ -2113,11 +2066,6 @@
             { "value": "support", "label": "Support (Question)" }
           ]
         },
-        {
-          "type": "url",
-          "id": "download_link",
-          "label": "PDF Download Link"
-        }
       ]
     },
     {
