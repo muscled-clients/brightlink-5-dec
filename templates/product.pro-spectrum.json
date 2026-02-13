@@ -1040,14 +1040,13 @@
           }
         },
         "tab_na9Fwa": {
-          "type": "tab_slider",
+          "type": "tab",
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
             "layout_type": "simple",
             "simple_title": "High Image Quality Rebuild Original Vision",
             "image": "shopify://shop_images/image_5_2.png",
-            "image_2": "shopify://shop_images/image_3_5.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
             "read_more_link": "",
@@ -1070,6 +1069,40 @@
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_slider_YB8tqP": {
+          "type": "tab_slider",
+          "settings": {
+            "tab_title": "Image Quality",
+            "icon": "quality",
+            "layout_type": "simple",
+            "simple_title": "",
+            "image": "shopify://shop_images/image_3_5.png",
+            "image_2": "shopify://shop_images/image_5_2.png",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "",
+            "read_more_link": "",
+            "feature1": "",
+            "feature2": "",
+            "feature3": "",
+            "feature4": "",
+            "feature5": "",
+            "feature6": "",
+            "feature7": "",
+            "config_title": "",
+            "config1": "",
+            "config2": "",
+            "config3": "",
+            "config4": "",
+            "config5": "",
+            "button_text": "",
+            "button_link": "",
+            "price_text": "",
+            "primary_btn_text": "",
+            "primary_btn_link": "",
+            "secondary_btn_text": "",
             "secondary_btn_link": ""
           }
         },
@@ -1113,6 +1146,7 @@
         "tab_gn7jTA",
         "tab_rbUgTX",
         "tab_na9Fwa",
+        "tab_slider_YB8tqP",
         "tab_yNLLwF"
       ],
       "name": "Controller Tabs",
