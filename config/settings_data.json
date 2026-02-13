@@ -219,7 +219,7 @@
           "copyright_menu": "copyright_info",
           "show_cookie_bar": false,
           "text": "<p>Use this bar to show information about your cookie policy.</p>",
-          "accept_button": "Accept"
+          "accept_button": ""
         }
       },
       "announcement-bar": {
