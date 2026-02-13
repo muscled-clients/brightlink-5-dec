@@ -1039,39 +1039,6 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_na9Fwa": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "Image Quality",
-            "icon": "quality",
-            "layout_type": "simple",
-            "simple_title": "High Image Quality Rebuild Original Vision",
-            "image": "shopify://shop_images/image_5_2.png",
-            "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
-            "read_more_link": "",
-            "feature1": "26 million pixel processing capacity",
-            "feature2": "Up to 32 layers and multiple screens",
-            "feature3": "HDR10 and HLG support",
-            "feature4": "Hot-swappable modular I/O design",
-            "feature5": "10-bit color processing",
-            "feature6": "Web-based control interface",
-            "feature7": "",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config4": "1× Preview card for real-time monitoring",
-            "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
-            "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
-            "primary_btn_text": "ORDER NOW",
-            "primary_btn_link": "",
-            "secondary_btn_text": "BOOK A CALL",
-            "secondary_btn_link": ""
-          }
-        },
         "tab_slider_YB8tqP": {
           "type": "tab_slider",
           "settings": {
@@ -1145,7 +1112,6 @@
         "tab_dbEQGP",
         "tab_gn7jTA",
         "tab_rbUgTX",
-        "tab_na9Fwa",
         "tab_slider_YB8tqP",
         "tab_yNLLwF"
       ],
