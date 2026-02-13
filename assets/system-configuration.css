@@ -256,7 +256,7 @@ width: 269px;
 }
 
 .system-configuration__cabinet-images-row img:last-child {
-  transform: translateX(-60px);
+  transform: translateX(0px);
 }
 
 /* Module Placeholder - when no images uploaded */
@@ -680,7 +680,7 @@ line-height: 28px; /* 140% */
   }
 
   .system-configuration__cabinet-images-row img:last-child {
-    transform: translateX(-40px);
+    transform: translateX(0px);
   }
 
   /* Specs table - label on top, value below */
@@ -819,7 +819,7 @@ line-height: 28px; /* 140% */
   }
 
   .system-configuration__cabinet-images-row img:last-child {
-    transform: translateX(-30px);
+    transform: translateX(0px);
   }
 
   .system-configuration__spec-row {
