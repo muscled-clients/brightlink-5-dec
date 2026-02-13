@@ -339,7 +339,7 @@ width:350px;
 max-width:350px;
   height: 266px;
   max-height: 266px;
-  object-fit: contain;
+  object-fit: none;
   margin-bottom: 15px;
 }
 
