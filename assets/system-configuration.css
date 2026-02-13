@@ -100,7 +100,7 @@
   max-width: calc(100% - 40px);
   border-radius: 12px;
   box-sizing: border-box;
-    background-image: url('{{ section.settings.background_image | img_url: 'https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793' }}');
+    background-image: url('https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
