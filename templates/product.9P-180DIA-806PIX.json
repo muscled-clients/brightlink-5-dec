@@ -830,7 +830,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 7×5 cabinet array delivering 8.06 million pixels across 163 inches of seamless display surface",
+        "subheading": "Precision-engineered 7×5 cabinet array delivering 8.06 million pixels across 180 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -888,7 +888,7 @@
         "metric1_value": "6x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "89x",
+        "metric2_value": "84x",
         "metric2_label": "Equivalent",
         "metric2_desc": "to 17\" diagonal display",
         "metric3_value": "76",
