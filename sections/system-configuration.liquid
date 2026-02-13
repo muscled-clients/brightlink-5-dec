@@ -188,9 +188,11 @@
                 </div>
               {% endif %}
               <!-- Labels inside the box -->
+              <div class="labels">
               <span class="system-configuration__cabinet-label">{{ section.settings.cabinet_visual_label | default: '4 COB Modules' }}</span>
               <span class="system-configuration__cabinet-sublabel">{{ section.settings.cabinet_visual_sublabel | default: '480 × 270 pixels per cabinet' }}</span>
             </div>
+          </div>
           </div>
 
           <div class="system-configuration__specs-table">
@@ -388,6 +390,13 @@ font-weight: 600;
 line-height: 32px; /* 133.333% */
 
 }
+
+  #system-configuration-{{ section.id }}  .labels{
+    display:flex;
+    
+  
+  }
+
  #system-configuration-{{ section.id }} .system-configuration__card-subtitle{
 color: #A0AEC0;
 font-family: Inter;
