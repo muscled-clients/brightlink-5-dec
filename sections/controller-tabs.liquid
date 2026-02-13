@@ -100,7 +100,18 @@
               <div class="controller-tabs__panel-content {% if block.settings.layout_type == 'simple' %}controller-tabs__panel-content--simple{% endif %}">
                 <div class="controller-tabs__left">
                   <div class="controller-tabs__image-area">
-                    {% if block.settings.image != blank %}
+                    {% if block.settings.image_2 != blank and block.settings.image != blank %}
+                      <div class="controller-tabs__slider" data-slider>
+                        <div class="controller-tabs__slider-track">
+                          <img src="{{ block.settings.image | image_url: width: 731 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__slider-img controller-tabs__slider-img--active" loading="lazy">
+                          <img src="{{ block.settings.image_2 | image_url: width: 731 }}" alt="{{ block.settings.tab_title }} - 2" class="controller-tabs__slider-img" loading="lazy">
+                        </div>
+                        <div class="controller-tabs__slider-dots">
+                          <button class="controller-tabs__slider-dot controller-tabs__slider-dot--active" data-slide="0" aria-label="Slide 1"></button>
+                          <button class="controller-tabs__slider-dot" data-slide="1" aria-label="Slide 2"></button>
+                        </div>
+                      </div>
+                    {% elsif block.settings.image != blank %}
                       <img src="{{ block.settings.image | image_url: width: 731 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__product-image" loading="lazy">
                     {% else %}
                       <div class="controller-tabs__image-placeholder">
@@ -336,6 +347,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Image slider functionality
+  section.querySelectorAll('[data-slider]').forEach(function(slider) {
+    const track = slider.querySelector('.controller-tabs__slider-track');
+    const dots = slider.querySelectorAll('.controller-tabs__slider-dot');
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        const slideIndex = parseInt(this.dataset.slide);
+        track.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
+        dots.forEach(function(d) { d.classList.remove('controller-tabs__slider-dot--active'); });
+        this.classList.add('controller-tabs__slider-dot--active');
+      });
+    });
+  });
+
   // Read More toggle functionality
   const readMoreToggles = section.querySelectorAll('.controller-tabs__read-more-toggle');
   readMoreToggles.forEach(toggle => {
@@ -431,6 +457,11 @@ document.addEventListener('DOMContentLoaded', function() {
           "type": "image_picker",
           "id": "image",
           "label": "Product Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Product Image 2 (for slider)"
         },
         {
           "type": "text",

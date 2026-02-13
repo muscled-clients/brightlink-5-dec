@@ -345,6 +345,52 @@
   justify-content: center;
 }
 
+/* Image Slider */
+.controller-tabs__slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.controller-tabs__slider-track {
+  display: flex;
+  transition: transform 0.4s ease;
+}
+
+.controller-tabs__slider-img {
+  width: 100%;
+  flex-shrink: 0;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.controller-tabs__slider-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.controller-tabs__slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s ease;
+}
+
+.controller-tabs__slider-dot--active {
+  background: #0A84FF;
+}
+
 .controller-tabs__config-section {
   display: flex;
   padding: 24px 16px;
