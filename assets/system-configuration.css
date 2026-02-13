@@ -240,6 +240,7 @@ flex-shrink: 0;
 }
 
 .system-configuration__cabinet-images-row img {
+width: 269px;
   height: 220px;
   max-height: 240px;
   object-fit: contain;
