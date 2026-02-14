@@ -449,9 +449,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -642,7 +642,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
+            "card_title": "8.29M PIXELS",
             "card_subtitle": "True 4K Resolution",
             "card_desc": "3840 x 2160 active pixels"
           }
@@ -651,7 +651,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "1.25MM",
+            "card_title": "0.9MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
@@ -830,7 +830,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
+        "subheading": "Precision-engineered 6×6 cabinet array delivering 8.2 million pixels across 163 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -847,7 +847,7 @@
         "cabinet_dimensions": "600mm × 337.5mm × 25mm",
         "cabinet_imperial": "23.62\" × 13.3\" × 1\"",
         "cabinet_weight": "3.7kg (8.3 lbs)",
-        "cabinet_resolution": "480 × 270 pixels",
+        "cabinet_resolution": "640 × 360 pixels",
         "cabinet_modules": "4 COB modules",
         "connection_image": "shopify://shop_images/div_5.png",
         "connection_title": "Cabinet Connection Detail",
@@ -883,15 +883,15 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "217 inches of immersive visual excellence",
+        "subtitle": "163 inches of immersive visual excellence",
         "image": "shopify://shop_images/image_1_1.png",
-        "metric1_value": "36x",
+        "metric1_value": "6x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "4x",
+        "metric2_value": "86x",
         "metric2_label": "Equivalent",
-        "metric2_desc": "to 17' diagonal display",
-        "metric3_value": "141",
+        "metric2_desc": "to 17\" diagonal display",
+        "metric3_value": "76",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
@@ -1348,14 +1348,14 @@
         "title": "Configure Your System",
         "subtitle": "Transparent pricing for professional installations",
         "card_label": "COMPLETE SYSTEM",
-        "product_name": "Brightlink Pro Spectrum 217\"",
-        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
+        "product_name": "Brightlink Pro Spectrum 163\"",
+        "product_specs": "8.2M Pixels | 0.9mm Pitch | Full 4K",
         "original_price": "$179,000",
         "current_price": "$149,000",
         "discount_text": "SAVE 17%",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "64 premium cabinets (8×8 array)",
+        "include_1": "36 premium cabinets (6×6 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
