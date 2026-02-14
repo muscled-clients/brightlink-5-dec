@@ -22,13 +22,11 @@
                 <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
               </div>
             </div>
-            <div class="investment-config__pricing">
-              <div class="investment-config__price-row">
-                <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
-                <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
-              </div>
-              <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
+            <div class="investment-config__price-row">
+              <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
+              <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
             </div>
+            <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
           </div>
           <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
         </div>

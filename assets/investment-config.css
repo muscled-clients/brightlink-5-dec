@@ -186,12 +186,6 @@
   margin: 0;
 }
 
-.investment-config__pricing {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
 .investment-config__price-row {
   display: flex;
   align-items: center;
