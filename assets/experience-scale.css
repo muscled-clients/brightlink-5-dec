@@ -238,6 +238,7 @@
   font-weight: 600;
   line-height: normal;
   margin: 0;
+      text-transform: uppercase;
 }
 
 .experience-scale__metric-desc {

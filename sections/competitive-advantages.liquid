@@ -160,13 +160,13 @@
     height: 100%;
     opacity: 0.08;
     pointer-events: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234a6080' fill-opacity='0.4'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  
   }
 
   .competitive-advantages__card:hover {
     transform: translateY(-2px);
     border-color: rgba(10, 132, 255, 0.5);
-    box-shadow: 0 0 80px rgba(10, 132, 255, 0.35), 0 0 120px rgba(10, 132, 255, 0.2), 0 25px 50px rgba(0, 0, 0, 0.4);
+  
   }
 
   /* Text Hover Effects */
@@ -585,6 +585,95 @@
       opacity: 1;
     }
   }
+
+
+
+
+
+/* Magnetic Glow Effect - Glow behind card, stays inside */
+.competitive-advantages__card {
+  position: relative;
+  
+  /* Glow position variables */
+  --glow-position-x: 50%;
+  --glow-position-y: 50%;
+  
+  /* Create stacking context */
+  isolation: isolate;
+  
+  /* DO NOT use overflow: hidden - it clips the glow badly */
+  /* Instead, we'll control the glow size and position */
+  
+  /* Ensure card has background */
+  background: inherit;
+  
+  /* Add subtle box-shadow to help contain the visual */
+  box-shadow: 0 0 0 0 transparent;
+}
+
+/* SOLID BACKGROUND LAYER - This blocks the glow */
+.competitive-advantages__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  
+  /* Use the card's background color */
+  background: inherit;
+  
+  /* If inherit doesn't work, use a solid color */
+  /* background: rgb(20, 20, 20); /* Match your card color */
+  
+  border-radius: inherit;
+  
+  /* Position between content and glow */
+  z-index: -1;
+  
+  /* Ensure it's solid */
+  opacity: 1;
+  pointer-events: none;
+}
+
+/* GLOW EFFECT */
+.competitive-advantages__card::after {
+  content: "";
+  position: absolute;
+  
+  /* Behind everything */
+  z-index: -2;
+  
+  /* Position based on cursor */
+  left: var(--glow-position-x);
+  top: var(--glow-position-y);
+  transform: translate(-50%, -50%);
+  
+  /* Smaller size so it naturally stays inside at edges */
+ width: 100%;
+    height: 80%;
+    background: radial-gradient(circle at center, rgb(2 107 255) 0%, rgba(10, 132, 255, 0.15) 25%, rgb(10 132 255 / 19%) 40%, #00000000 50%);
+    filter: blur(30px);
+  
+  /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  
+  pointer-events: none;
+  will-change: transform, opacity;
+  border-radius: 50%;
+  
+  /* This helps blend with card edges */
+  mix-blend-mode: normal;
+}
+
+/* Show glow on hover */
+.competitive-advantages__card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure content stays on top */
+.competitive-advantages__card > * {
+  position: relative;
+  z-index: 1;
+}
 </style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
@@ -1084,6 +1173,58 @@ document.addEventListener("DOMContentLoaded", function() {
         left: cardWidth * index,
         behavior: 'smooth'
       });
+    });
+  });
+});
+
+
+
+
+
+// Magnetic Glow Effect - Optimized for behind-card appearance
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.competitive-advantages__card');
+  
+  cards.forEach(card => {
+    let rafId = null;
+    
+    card.addEventListener('mousemove', (e) => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        
+        // Calculate mouse position as percentage of card
+        let x = ((e.clientX - rect.left) / rect.width) * 100;
+        let y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        // Constrain to keep glow from going too far to edges
+        // This prevents the glow from being cut off visually
+        const min = 15; // Minimum percentage from edge
+        const max = 85; // Maximum percentage from edge
+        
+        x = Math.min(Math.max(x, min), max);
+        y = Math.min(Math.max(y, min), max);
+        
+        // Set CSS variables
+        card.style.setProperty('--glow-position-x', x + '%');
+        card.style.setProperty('--glow-position-y', y + '%');
+        
+        rafId = null;
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      
+      // Smoothly return to center
+      card.style.setProperty('--glow-position-x', '50%');
+      card.style.setProperty('--glow-position-y', '50%');
     });
   });
 });

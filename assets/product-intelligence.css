@@ -99,7 +99,7 @@
 /* Content Wrapper - Card Container */
 .product-intelligence__content {
   display: flex;
-  padding: 20px 32px;
+  padding: 20px 20px 20px 32px;
   flex-direction: column;
   align-items: center;
   gap: 40px;
@@ -134,7 +134,7 @@
 .product-intelligence__tab {
   display: flex;
   height: 56px;
-  padding: 0 20px;
+  padding: 0px;
   justify-content: center;
   align-items: center;
   gap: 8px;
@@ -506,6 +506,8 @@
   padding: 24px 32px 25px 32px;
   justify-content: space-between;
   align-items: center;
+  padding: 20px 30px 20px 0px;
+  background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.00);
@@ -1828,7 +1830,7 @@
   }
 
   .specs-accordion__header {
-    padding: 15px 20px;
+    padding: 15px 20px 15px 0px;
   }
 
   .specs-table tbody {
@@ -2199,3 +2201,5 @@
     font-size: 12px;
   }
 }
+
+

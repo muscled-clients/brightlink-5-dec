@@ -30,6 +30,8 @@
                   alt="{{ block.settings.slide_title | default: 'Product image' }}"
                   class="product-showcase__image"
                   loading="lazy"
+                  oncontextmenu="return false;"
+                  ondragstart="return false;"
                 >
               {% else %}
                 <div class="product-showcase__placeholder">
@@ -66,70 +68,155 @@
 </section>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const section = document.getElementById('product-showcase-{{ section.id }}');
-    if (!section) return;
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.getElementById('product-showcase-{{ section.id }}');
+  if (!section) return;
 
-    const slides = section.querySelectorAll('.product-showcase__slide');
-    const dots = section.querySelectorAll('.product-showcase__dot');
+  const slides = section.querySelectorAll('.product-showcase__slide');
+  const dots = section.querySelectorAll('.product-showcase__dot');
+  const slidesContainer = section.querySelector('.product-showcase__slides');
 
-    if (slides.length === 0) return;
+  if (slides.length === 0) return;
 
-    let currentIndex = 0;
-    let autoSlideInterval;
-    const autoSlideDelay = {{ section.settings.autoplay_speed }}000;
+  let currentIndex = 0;
+  let autoSlideInterval;
+  const autoSlideDelay = {{ section.settings.autoplay_speed }}000;
+  
+  // Mouse drag variables
+  let mouseDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+  const threshold = 50; // pixels to drag before slide changes
 
-    function showSlide(index) {
-      if (index >= slides.length) index = 0;
-      if (index < 0) index = slides.length - 1;
+  function showSlide(index) {
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
 
-      slides.forEach((slide, i) => {
-        slide.classList.remove('product-showcase__slide--active');
-        if (i === index) {
-          slide.classList.add('product-showcase__slide--active');
-        }
-      });
-
-      dots.forEach((dot, i) => {
-        dot.classList.remove('product-showcase__dot--active');
-        if (i === index) {
-          dot.classList.add('product-showcase__dot--active');
-        }
-      });
-
-      currentIndex = index;
-    }
-
-    function nextSlide() {
-      showSlide(currentIndex + 1);
-    }
-
-    function startAutoSlide() {
-      if ({{ section.settings.autoplay | json }}) {
-        autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+    slides.forEach((slide, i) => {
+      slide.classList.remove('product-showcase__slide--active');
+      if (i === index) {
+        slide.classList.add('product-showcase__slide--active');
       }
-    }
-
-    function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
-    }
-
-    // Dot click events
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', function() {
-        stopAutoSlide();
-        showSlide(index);
-        startAutoSlide();
-      });
     });
 
-    // Start autoplay
-    startAutoSlide();
+    dots.forEach((dot, i) => {
+      dot.classList.remove('product-showcase__dot--active');
+      if (i === index) {
+        dot.classList.add('product-showcase__dot--active');
+      }
+    });
 
-    // Pause on hover
-    section.addEventListener('mouseenter', stopAutoSlide);
-    section.addEventListener('mouseleave', startAutoSlide);
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    showSlide(currentIndex + 1);
+  }
+
+  function startAutoSlide() {
+    if ({{ section.settings.autoplay | json }}) {
+      autoSlideInterval = setInterval(nextSlide, autoSlideDelay);
+    }
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  // ========== MOUSE DRAG FUNCTIONALITY ==========
+  
+  // Mouse down - start tracking
+  slidesContainer.addEventListener('mousedown', function(e) {
+    stopAutoSlide();
+    mouseDown = true;
+    startX = e.pageX - slidesContainer.offsetLeft;
+    slidesContainer.style.cursor = 'grabbing';
   });
+
+  // Mouse leave - stop tracking
+  slidesContainer.addEventListener('mouseleave', function() {
+    if (mouseDown) {
+      mouseDown = false;
+      slidesContainer.style.cursor = '';
+      startAutoSlide();
+    }
+  });
+
+  // Mouse up - check drag distance and change slide if needed
+  slidesContainer.addEventListener('mouseup', function(e) {
+    if (!mouseDown) return;
+    
+    mouseDown = false;
+    slidesContainer.style.cursor = '';
+    
+    const x = e.pageX - slidesContainer.offsetLeft;
+    const dragDistance = startX - x;
+    
+    // If dragged enough, change slide
+    if (Math.abs(dragDistance) > threshold) {
+      if (dragDistance > 0) {
+        // Dragged left - go to next slide
+        showSlide(currentIndex + 1);
+      } else {
+        // Dragged right - go to previous slide
+        showSlide(currentIndex - 1);
+      }
+    }
+    
+    startAutoSlide();
+  });
+
+  // Mouse move while dragging
+  slidesContainer.addEventListener('mousemove', function(e) {
+    if (!mouseDown) return;
+    e.preventDefault();
+  });
+
+  // ========== TOUCH SUPPORT FOR MOBILE ==========
+  
+  let touchStartX = 0;
+  let touchEndX = 0;
+  
+  slidesContainer.addEventListener('touchstart', function(e) {
+    stopAutoSlide();
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  
+  slidesContainer.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchStartX - touchEndX;
+    
+    if (Math.abs(swipeDistance) > threshold) {
+      if (swipeDistance > 0) {
+        // Swiped left - next slide
+        showSlide(currentIndex + 1);
+      } else {
+        // Swiped right - previous slide
+        showSlide(currentIndex - 1);
+      }
+    }
+    
+    startAutoSlide();
+  });
+
+  // ========== EXISTING FUNCTIONALITY ==========
+  
+  // Dot click events
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', function() {
+      stopAutoSlide();
+      showSlide(index);
+      startAutoSlide();
+    });
+  });
+
+  // Start autoplay
+  startAutoSlide();
+
+  // Pause on hover
+  section.addEventListener('mouseenter', stopAutoSlide);
+  section.addEventListener('mouseleave', startAutoSlide);
+});
 </script>
 
 {% schema %}
@@ -336,6 +423,23 @@
   .product-showcase {
     margin-bottom: 120px;
     padding: 0 !important;
+  }
+
+  /* Add cursor style for dragging */
+  .product-showcase__slides {
+    cursor: grab;
+  }
+
+  .product-showcase__slides:active {
+    cursor: grabbing;
+  }
+
+  /* Prevent image selection while dragging */
+  .product-showcase__image {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 
   @media screen and (max-width: 768px) {

@@ -63,6 +63,7 @@
 
 .feature-badges__item:hover .feature-badges__icon {
   color: #0A84FF;
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .feature-badges__item:hover .feature-badges__title {
