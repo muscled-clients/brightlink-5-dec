@@ -176,6 +176,17 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "text_dqPVzQ": {
+            "type": "text",
+            "settings": {
+              "title": "About the shop",
+              "content": "<p>Founded in 2007, Brightlink AV LTD, formerly BrightLink Cables, began as a humble Ebay store that sold just six different kinds of audio/video cables. Since then, it's grown into a company with hundreds of products, warehouses in three different countries, and customers from all over the world.</p>",
+              "wtitle": "Sales Working hours",
+              "wcontent": "<p>Monday - Friday: 9:00AM - 5:00PM PST</p><p>12am - 8pm EST </p>",
+              "wtitle1": "Support Working hours",
+              "wcontent1": "<p>Monday - Friday: 5am- 5pm PST </p><p>8am-8pm EST<br/><br/></p>"
+            }
+          },
           "footer-1": {
             "type": "links",
             "settings": {
@@ -196,12 +207,14 @@
           },
           "e2e46e99-8ac6-4d29-81d8-61020baf15a9": {
             "type": "links",
+            "disabled": true,
             "settings": {
               "menu": "quick-links"
             }
           }
         },
         "block_order": [
+          "text_dqPVzQ",
           "footer-1",
           "3897abb1-e786-4f16-b31a-18efb7374245",
           "a6935bc0-b9d3-4e5f-a80c-7a4878d8e18c",
