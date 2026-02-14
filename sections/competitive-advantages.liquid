@@ -585,6 +585,86 @@
       opacity: 1;
     }
   }
+
+
+
+
+
+/* Magnetic Glow Effect for Competitive Advantages Cards */
+.competitive-advantages__card {
+  position: relative;
+  
+  /* Glow position variables - unique per card */
+  --glow-position-x: 50%;
+  --glow-position-y: 50%;
+  
+  /* Create stacking context */
+  isolation: isolate;
+  
+  /* Ensure card has background */
+  background: inherit;
+}
+
+/* Background overlay - keeps content readable */
+.competitive-advantages__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Glow effect */
+.competitive-advantages__card::after {
+  content: "";
+  position: absolute;
+  z-index: -2; /* Behind everything */
+  
+  /* Position based on cursor */
+  left: var(--glow-position-x);
+  top: var(--glow-position-y);
+  transform: translate(-50%, -50%);
+  
+  /* Glow size */
+  width: 180%;
+  height: 180%;
+  
+  /* Gradient glow - using your store's accent color */
+  /* Replace the RGB values with your store's accent color */
+  background: radial-gradient(
+    circle at center,
+    rgba(186, 255, 2, 0.8) 0%,
+    rgba(186, 255, 2, 0.4) 30%,
+    rgba(186, 255, 2, 0.15) 60%,
+    transparent 80%
+  );
+  
+  /* Blur for soft glow effect */
+  filter: blur(40px);
+  
+  /* Hidden by default */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  
+  /* Performance optimization */
+  pointer-events: none;
+  will-change: transform, opacity;
+  border-radius: 50%;
+}
+
+/* Show glow on hover */
+.competitive-advantages__card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure all content stays above glow */
+.competitive-advantages__card > * {
+  position: relative;
+  z-index: 1;
+}
+
 </style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
