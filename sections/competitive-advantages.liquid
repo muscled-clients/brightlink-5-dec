@@ -590,71 +590,79 @@
 
 
 
-//* Magnetic Glow Effect - AGGRESSIVE FIX */
+/* Magnetic Glow Effect - Glow stays INSIDE card */
 .competitive-advantages__card {
   position: relative;
+  
+  /* Glow position variables - unique per card */
   --glow-position-x: 50%;
   --glow-position-y: 50%;
+  
+  /* Create stacking context */
   isolation: isolate;
+  
+  /* CRITICAL: Hide overflow to keep glow inside */
+  overflow: hidden;
 }
 
-/* SOLID BACKGROUND - Force opaque background */
+/* SOLID BACKGROUND LAYER */
 .competitive-advantages__card::before {
   content: "";
   position: absolute;
   inset: 0;
-  
-  /* FORCE an opaque background - match your card's color */
-  /* Option 1: If your card uses a CSS variable */
-  background: rgb(var(--color-background, 20, 20, 20));
-  
-  /* Option 2: If your card is white/light */
-  /* background: rgb(255, 255, 255); */
-  
-  /* Option 3: If your card is dark */
-  /* background: rgb(20, 20, 20); */
-  
+  background: inherit;
   border-radius: inherit;
   z-index: -1;
   pointer-events: none;
-  
-  /* Ensure no transparency */
-  opacity: 1;
 }
 
-/* Glow effect */
+/* GLOW EFFECT - Now constrained to card boundaries */
 .competitive-advantages__card::after {
   content: "";
   position: absolute;
-  z-index: -2; /* Behind the ::before layer */
   
+  /* Behind everything */
+  z-index: -2;
+  
+  /* Position based on cursor */
   left: var(--glow-position-x);
   top: var(--glow-position-y);
   transform: translate(-50%, -50%);
   
+  /* Glow size - adjusted to stay within card when at edges */
   width: 100%;
   height: 80%;
   
+  /* Gradient glow */
   background: radial-gradient(
     circle at center,
     rgba(186, 255, 2, 0.9) 0%,
     rgba(186, 255, 2, 0.5) 30%,
     rgba(186, 255, 2, 0.2) 60%,
-    transparent 85%
+    transparent 80%
   );
   
+  /* Slightly less blur for sharper edges */
   filter: blur(35px);
+  
+  /* Hidden by default */
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: opacity 0.3s ease;
+  
+  /* Performance optimization */
   pointer-events: none;
   will-change: transform, opacity;
+  
+  /* Round shape */
   border-radius: 50%;
 }
 
+/* Show glow on card hover */
 .competitive-advantages__card:hover::after {
   opacity: 1;
 }
 
+/* Ensure all content stays above */
 .competitive-advantages__card > * {
   position: relative;
   z-index: 1;
@@ -1166,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// Magnetic Glow Effect for Competitive Advantages Cards
+// Magnetic Glow Effect - With edge constraints
 document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.competitive-advantages__card');
   
@@ -1182,18 +1190,24 @@ document.addEventListener('DOMContentLoaded', function() {
         const rect = card.getBoundingClientRect();
         
         // Calculate mouse position relative to the card
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        let x = e.clientX - rect.left;
+        let y = e.clientY - rect.top;
         
         // Clamp values to keep glow within card bounds
-        const clampedX = Math.min(Math.max(x, 0), rect.width);
-        const clampedY = Math.min(Math.max(y, 0), rect.height);
+        // But add a small buffer (10px) to prevent glow from hitting edges
+        const buffer = 15;
+        const minPos = buffer;
+        const maxPosX = rect.width - buffer;
+        const maxPosY = rect.height - buffer;
         
-        // Convert to percentages for smoother positioning
-        const xPercent = (clampedX / rect.width) * 100;
-        const yPercent = (clampedY / rect.height) * 100;
+        x = Math.min(Math.max(x, minPos), maxPosX);
+        y = Math.min(Math.max(y, minPos), maxPosY);
         
-        // Set CSS variables for this specific card
+        // Convert to percentages
+        const xPercent = (x / rect.width) * 100;
+        const yPercent = (y / rect.height) * 100;
+        
+        // Set CSS variables
         card.style.setProperty('--glow-position-x', xPercent + '%');
         card.style.setProperty('--glow-position-y', yPercent + '%');
         
@@ -1207,25 +1221,30 @@ document.addEventListener('DOMContentLoaded', function() {
         rafId = null;
       }
       
-      // Reset glow position to center
+      // Reset to center
       card.style.setProperty('--glow-position-x', '50%');
       card.style.setProperty('--glow-position-y', '50%');
     });
     
-    // Optional: Add touch support for mobile
+    // Touch support
     card.addEventListener('touchmove', (e) => {
       e.preventDefault();
       const touch = e.touches[0];
       const rect = card.getBoundingClientRect();
       
-      const x = touch.clientX - rect.left;
-      const y = touch.clientY - rect.top;
+      let x = touch.clientX - rect.left;
+      let y = touch.clientY - rect.top;
       
-      const clampedX = Math.min(Math.max(x, 0), rect.width);
-      const clampedY = Math.min(Math.max(y, 0), rect.height);
+      const buffer = 15;
+      const minPos = buffer;
+      const maxPosX = rect.width - buffer;
+      const maxPosY = rect.height - buffer;
       
-      const xPercent = (clampedX / rect.width) * 100;
-      const yPercent = (clampedY / rect.height) * 100;
+      x = Math.min(Math.max(x, minPos), maxPosX);
+      y = Math.min(Math.max(y, minPos), maxPosY);
+      
+      const xPercent = (x / rect.width) * 100;
+      const yPercent = (y / rect.height) * 100;
       
       card.style.setProperty('--glow-position-x', xPercent + '%');
       card.style.setProperty('--glow-position-y', yPercent + '%');
