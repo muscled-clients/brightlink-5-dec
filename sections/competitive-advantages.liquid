@@ -1174,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// Magnetic Glow Effect - With edge constraints
+// Magnetic Glow Effect - Optimized for behind-card appearance
 document.addEventListener('DOMContentLoaded', function() {
   const cards = document.querySelectorAll('.competitive-advantages__card');
   
@@ -1189,27 +1189,21 @@ document.addEventListener('DOMContentLoaded', function() {
       rafId = requestAnimationFrame(() => {
         const rect = card.getBoundingClientRect();
         
-        // Calculate mouse position relative to the card
-        let x = e.clientX - rect.left;
-        let y = e.clientY - rect.top;
+        // Calculate mouse position as percentage of card
+        let x = ((e.clientX - rect.left) / rect.width) * 100;
+        let y = ((e.clientY - rect.top) / rect.height) * 100;
         
-        // Clamp values to keep glow within card bounds
-        // But add a small buffer (10px) to prevent glow from hitting edges
-        const buffer = 15;
-        const minPos = buffer;
-        const maxPosX = rect.width - buffer;
-        const maxPosY = rect.height - buffer;
+        // Constrain to keep glow from going too far to edges
+        // This prevents the glow from being cut off visually
+        const min = 15; // Minimum percentage from edge
+        const max = 85; // Maximum percentage from edge
         
-        x = Math.min(Math.max(x, minPos), maxPosX);
-        y = Math.min(Math.max(y, minPos), maxPosY);
-        
-        // Convert to percentages
-        const xPercent = (x / rect.width) * 100;
-        const yPercent = (y / rect.height) * 100;
+        x = Math.min(Math.max(x, min), max);
+        y = Math.min(Math.max(y, min), max);
         
         // Set CSS variables
-        card.style.setProperty('--glow-position-x', xPercent + '%');
-        card.style.setProperty('--glow-position-y', yPercent + '%');
+        card.style.setProperty('--glow-position-x', x + '%');
+        card.style.setProperty('--glow-position-y', y + '%');
         
         rafId = null;
       });
@@ -1221,36 +1215,7 @@ document.addEventListener('DOMContentLoaded', function() {
         rafId = null;
       }
       
-      // Reset to center
-      card.style.setProperty('--glow-position-x', '50%');
-      card.style.setProperty('--glow-position-y', '50%');
-    });
-    
-    // Touch support
-    card.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      const touch = e.touches[0];
-      const rect = card.getBoundingClientRect();
-      
-      let x = touch.clientX - rect.left;
-      let y = touch.clientY - rect.top;
-      
-      const buffer = 15;
-      const minPos = buffer;
-      const maxPosX = rect.width - buffer;
-      const maxPosY = rect.height - buffer;
-      
-      x = Math.min(Math.max(x, minPos), maxPosX);
-      y = Math.min(Math.max(y, minPos), maxPosY);
-      
-      const xPercent = (x / rect.width) * 100;
-      const yPercent = (y / rect.height) * 100;
-      
-      card.style.setProperty('--glow-position-x', xPercent + '%');
-      card.style.setProperty('--glow-position-y', yPercent + '%');
-    }, { passive: false });
-    
-    card.addEventListener('touchend', () => {
+      // Smoothly return to center
       card.style.setProperty('--glow-position-x', '50%');
       card.style.setProperty('--glow-position-y', '50%');
     });
