@@ -198,6 +198,7 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+  width:1280px;
 }
 
 .knowledge-center__accordion {
@@ -207,15 +208,20 @@
   align-self: stretch;
   overflow: hidden;
   transition: all 0.3s ease;
+  border-radius: 16px;
+background: rgba(255, 255, 255, 0.02);
+box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
+
 }
 
+
 .knowledge-center__accordion:hover {
-  background: rgba(20, 30, 50, 0.8);
+ 
   border-color: rgba(59, 130, 246, 0.25);
 }
 
 .knowledge-center__accordion.active {
-  background: rgba(20, 30, 50, 0.9);
+
   border-color: rgba(59, 130, 246, 0.3);
 }
 
@@ -233,6 +239,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  height:86px;
 }
 
 .knowledge-center__accordion-title-wrapper {
@@ -288,6 +295,7 @@
   overflow: hidden;
   transition: max-height 0.4s ease;
   width: 100%;
+  background:transparent;
 }
 
 .knowledge-center__questions-list {
@@ -295,6 +303,7 @@
   flex-direction: column;
   width: 100%;
   padding: 0;
+   background:transparent;
 }
 
 .knowledge-center__accordion.active .knowledge-center__accordion-content {

@@ -270,6 +270,8 @@
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 320px;
+    height: 47px;
 }
 
 .contact-discussion__card-btn:hover {

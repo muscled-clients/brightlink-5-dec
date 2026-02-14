@@ -292,7 +292,7 @@
                             </svg>
                           </div>
                           <h4 class="product-intelligence__feature-title">4-Year Warranty</h4>
-                          <p class="product-intelligence__feature-desc">Comprehensive coverage for complete peace of mind</p>
+                          <p class="product-intelligence__feature-desc">Comprehensive coverage</p>
                         </div>
                         <div class="product-intelligence__feature-card">
                           <div class="product-intelligence__feature-icon">
@@ -301,7 +301,7 @@
                             </svg>
                           </div>
                           <h4 class="product-intelligence__feature-title">Lifetime Support</h4>
-                          <p class="product-intelligence__feature-desc">Expert technical assistance whenever you need it</p>
+                          <p class="product-intelligence__feature-desc">855-449-4733</p>
                         </div>
                         <div class="product-intelligence__feature-card">
                           <div class="product-intelligence__feature-icon">
@@ -310,7 +310,7 @@
                             </svg>
                           </div>
                           <h4 class="product-intelligence__feature-title">Spare Parts</h4>
-                          <p class="product-intelligence__feature-desc">5% spare modules included with every system</p>
+                          <p class="product-intelligence__feature-desc">Included standard</p>
                         </div>
                       {% endif %}
                     </div>
@@ -2292,5 +2292,22 @@
     --pi-padding-top: {{ section.settings.padding_top }}px;
     --pi-padding-bottom: {{ section.settings.padding_bottom }}px;
   }
+/* Apply the hover zoom effect to the image in the Overview tab */
+.product-intelligence__right {
+  overflow: hidden; /* This will contain the zoomed image */
+  border-radius: 8px; /* Optional: if you want rounded corners */
+}
 
+.product-intelligence__image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center center; /* Zoom from the center */
+  display: block; /* Remove extra space below image */
+}
+
+/* Hover effect */
+.product-intelligence__right:hover .product-intelligence__image {
+  transform: scale(1.05); /* 5% zoom - adjust as needed */
+}
 </style>
