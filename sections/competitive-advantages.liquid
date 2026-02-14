@@ -590,33 +590,50 @@
 
 
 
-/* Magnetic Glow Effect - Glow stays INSIDE card */
+/* Magnetic Glow Effect - Glow behind card, stays inside */
 .competitive-advantages__card {
   position: relative;
   
-  /* Glow position variables - unique per card */
+  /* Glow position variables */
   --glow-position-x: 50%;
   --glow-position-y: 50%;
   
   /* Create stacking context */
   isolation: isolate;
   
-  /* CRITICAL: Hide overflow to keep glow inside */
-  overflow: hidden;
+  /* DO NOT use overflow: hidden - it clips the glow badly */
+  /* Instead, we'll control the glow size and position */
+  
+  /* Ensure card has background */
+  background: inherit;
+  
+  /* Add subtle box-shadow to help contain the visual */
+  box-shadow: 0 0 0 0 transparent;
 }
 
-/* SOLID BACKGROUND LAYER */
+/* SOLID BACKGROUND LAYER - This blocks the glow */
 .competitive-advantages__card::before {
   content: "";
   position: absolute;
   inset: 0;
+  
+  /* Use the card's background color */
   background: inherit;
+  
+  /* If inherit doesn't work, use a solid color */
+  /* background: rgb(20, 20, 20); /* Match your card color */
+  
   border-radius: inherit;
+  
+  /* Position between content and glow */
   z-index: -1;
+  
+  /* Ensure it's solid */
+  opacity: 1;
   pointer-events: none;
 }
 
-/* GLOW EFFECT - Now constrained to card boundaries */
+/* GLOW EFFECT */
 .competitive-advantages__card::after {
   content: "";
   position: absolute;
@@ -629,40 +646,40 @@
   top: var(--glow-position-y);
   transform: translate(-50%, -50%);
   
-  /* Glow size - adjusted to stay within card when at edges */
+  /* Smaller size so it naturally stays inside at edges */
   width: 100%;
-  height: 80%;
+  height: 100%;
   
   /* Gradient glow */
   background: radial-gradient(
     circle at center,
-    rgba(186, 255, 2, 0.9) 0%,
-    rgba(186, 255, 2, 0.5) 30%,
-    rgba(186, 255, 2, 0.2) 60%,
+    rgba(186, 255, 2, 0.8) 0%,
+    rgba(186, 255, 2, 0.4) 30%,
+    rgba(186, 255, 2, 0.15) 60%,
     transparent 80%
   );
   
-  /* Slightly less blur for sharper edges */
-  filter: blur(35px);
+  /* Blur for soft effect */
+  filter: blur(30px);
   
   /* Hidden by default */
   opacity: 0;
   transition: opacity 0.3s ease;
   
-  /* Performance optimization */
   pointer-events: none;
   will-change: transform, opacity;
-  
-  /* Round shape */
   border-radius: 50%;
+  
+  /* This helps blend with card edges */
+  mix-blend-mode: normal;
 }
 
-/* Show glow on card hover */
+/* Show glow on hover */
 .competitive-advantages__card:hover::after {
   opacity: 1;
 }
 
-/* Ensure all content stays above */
+/* Ensure content stays on top */
 .competitive-advantages__card > * {
   position: relative;
   z-index: 1;
