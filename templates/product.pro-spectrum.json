@@ -705,7 +705,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "weight",
-            "card_title": "3.78KG / 8.3LB",
+            "card_title": "3.78KG 8.3LB",
             "card_subtitle": "Lightweight Design",
             "card_desc": "Size per cabinet"
           }
@@ -837,8 +837,7 @@
         "info2_subheading": "Zero Bezel Gap",
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
-        "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
+        "cabinet_image": "shopify://shop_images/Frame_1410111166.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -888,19 +887,19 @@
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
         "metric2_value": "4x",
-        "metric2_label": "Equivalent",
-        "metric2_desc": "to 17' diagonal display",
-        "metric3_value": "141",
-        "metric3_label": "sq ft",
-        "metric3_desc": "of visual real estate",
+        "metric2_label": "EQUIVALENT TO",
+        "metric2_desc": "110\" commercial displays",
+        "metric3_value": "141 sq ft",
+        "metric3_label": "COVERS",
+        "metric3_desc": "square",
         "cta_text": "Configure Your Display",
         "cta_link": "",
-        "info1_heading": "Pixel Perfect",
-        "info1_subheading": "Crystal clear visuals at any distance",
-        "info2_heading": "Seamless Integration",
-        "info2_subheading": "Fits any space perfectly",
-        "info3_heading": "Professional Grade",
-        "info3_subheading": "Commercial reliability"
+        "info1_heading": "15.75 feet",
+        "info1_subheading": "(4.8 meters)",
+        "info2_heading": "8.86 feet",
+        "info2_subheading": "(2.7 meters)",
+        "info3_heading": "217\"",
+        "info3_subheading": "diagonal"
       }
     },
     "controller_tabs_PkVE8q": {

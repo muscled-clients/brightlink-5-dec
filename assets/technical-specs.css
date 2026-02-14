@@ -196,8 +196,8 @@
 
 .technical-specs__icon i svg {
   display: flex;
-  width: 24px;
-  height: 24px;
+  /* width: 24px;
+  height: 24px; */
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
@@ -398,8 +398,8 @@
   }
 
   .technical-specs__icon i svg {
-    width: 24px;
-    height: 24px;
+    /* width: 24px;
+    height: 24px; */
   }
 
   .technical-specs__card-title {
@@ -455,8 +455,8 @@
   }
 
   .technical-specs__icon i svg {
-    width: 22px;
-    height: 22px;
+    /* width: 22px;
+    height: 22px; */
   }
 
   .technical-specs__card-title {
@@ -480,3 +480,5 @@
     font-size: 13px;
   }
 }
+
+
