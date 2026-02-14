@@ -2,7 +2,8 @@
   position: relative;
   margin-bottom: 120px;
   padding: 0;
-  background: linear-gradient(180deg, #0a0e17 0%, #0d1321 50%, #0a0e17 100%);
+ background: rgba(0, 0, 0, 0.00);
+
 }
 
 @media screen and (max-width: 768px) {
