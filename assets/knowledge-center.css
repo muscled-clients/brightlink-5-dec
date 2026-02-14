@@ -198,6 +198,7 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+  width:1280px;
 }
 
 .knowledge-center__accordion {
