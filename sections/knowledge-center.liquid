@@ -56,6 +56,7 @@
       {% if faq_categories.size > 0 %}
         {% for category in faq_categories %}
           <div class="knowledge-center__accordion" data-category="{{ category.filter }}">
+            <div class="header-shadow">
             <button class="knowledge-center__accordion-header" aria-expanded="false">
               <div class="knowledge-center__accordion-title-wrapper">
                 <div class="knowledge-center__accordion-icon">
@@ -100,6 +101,7 @@
                 <path d="M9.90773 0.376447C9.40567 -0.125617 8.59032 -0.125617 8.08825 0.376447L0.376547 8.08815C-0.125517 8.59022 -0.125517 9.40557 0.376547 9.90763C0.878611 10.4097 1.69396 10.4097 2.19603 9.90763L9 3.10366L15.804 9.90362C16.306 10.4057 17.1214 10.4057 17.6235 9.90362C18.1255 9.40155 18.1255 8.5862 17.6235 8.08414L9.91175 0.37243L9.90773 0.376447Z" fill="#A0AEC0"/>
               </svg>
             </button>
+          </div>
             <div class="knowledge-center__accordion-content">
               <div class="knowledge-center__questions-list">
                 {% for qa in category.questions %}
