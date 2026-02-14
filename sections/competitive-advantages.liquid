@@ -1167,4 +1167,80 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 });
+
+
+
+
+
+// Magnetic Glow Effect for Competitive Advantages Cards
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.competitive-advantages__card');
+  
+  cards.forEach(card => {
+    let rafId = null;
+    
+    card.addEventListener('mousemove', (e) => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        
+        // Calculate mouse position relative to the card
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        // Clamp values to keep glow within card bounds
+        const clampedX = Math.min(Math.max(x, 0), rect.width);
+        const clampedY = Math.min(Math.max(y, 0), rect.height);
+        
+        // Convert to percentages for smoother positioning
+        const xPercent = (clampedX / rect.width) * 100;
+        const yPercent = (clampedY / rect.height) * 100;
+        
+        // Set CSS variables for this specific card
+        card.style.setProperty('--glow-position-x', xPercent + '%');
+        card.style.setProperty('--glow-position-y', yPercent + '%');
+        
+        rafId = null;
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      
+      // Reset glow position to center
+      card.style.setProperty('--glow-position-x', '50%');
+      card.style.setProperty('--glow-position-y', '50%');
+    });
+    
+    // Optional: Add touch support for mobile
+    card.addEventListener('touchmove', (e) => {
+      e.preventDefault();
+      const touch = e.touches[0];
+      const rect = card.getBoundingClientRect();
+      
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      
+      const clampedX = Math.min(Math.max(x, 0), rect.width);
+      const clampedY = Math.min(Math.max(y, 0), rect.height);
+      
+      const xPercent = (clampedX / rect.width) * 100;
+      const yPercent = (clampedY / rect.height) * 100;
+      
+      card.style.setProperty('--glow-position-x', xPercent + '%');
+      card.style.setProperty('--glow-position-y', yPercent + '%');
+    }, { passive: false });
+    
+    card.addEventListener('touchend', () => {
+      card.style.setProperty('--glow-position-x', '50%');
+      card.style.setProperty('--glow-position-y', '50%');
+    });
+  });
+});
 </script>
