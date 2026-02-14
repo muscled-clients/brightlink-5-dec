@@ -238,6 +238,7 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   cursor: pointer;
   transition: all 0.3s ease;
   box-sizing: border-box;
+  height:86px;
 }
 
 .knowledge-center__accordion-title-wrapper {
