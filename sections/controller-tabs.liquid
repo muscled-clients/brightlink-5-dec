@@ -34,7 +34,7 @@
       <div class="controller-tabs__dropdown">
         <select class="controller-tabs__select" aria-label="Select tab">
           {% for block in section.blocks %}
-            {% if block.type == 'tab' %}
+            {% if block.type == 'tab' or block.type == 'tab_slider' %}
               <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
             {% endif %}
           {% endfor %}
@@ -43,7 +43,7 @@
 
       <div class="controller-tabs__tabs" role="tablist">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
+          {% if block.type == 'tab' or block.type == 'tab_slider' %}
             <button
               class="controller-tabs__tab {% if forloop.first %}controller-tabs__tab--active{% endif %}"
               role="tab"
@@ -90,7 +90,7 @@
 
       <div class="controller-tabs__panels">
         {% for block in section.blocks %}
-          {% if block.type == 'tab' %}
+          {% if block.type == 'tab' or block.type == 'tab_slider' %}
             <div
               class="controller-tabs__panel {% if forloop.first %}controller-tabs__panel--active{% endif %}"
               role="tabpanel"
@@ -100,7 +100,18 @@
               <div class="controller-tabs__panel-content {% if block.settings.layout_type == 'simple' %}controller-tabs__panel-content--simple{% endif %}">
                 <div class="controller-tabs__left">
                   <div class="controller-tabs__image-area">
-                    {% if block.settings.image != blank %}
+                    {% if block.settings.image_2 != blank and block.settings.image != blank %}
+                      <div class="controller-tabs__slider" data-slider>
+                        <div class="controller-tabs__slider-track">
+                          <img src="{{ block.settings.image | image_url: width: 731 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__slider-img controller-tabs__slider-img--active" loading="lazy">
+                          <img src="{{ block.settings.image_2 | image_url: width: 731 }}" alt="{{ block.settings.tab_title }} - 2" class="controller-tabs__slider-img" loading="lazy">
+                        </div>
+                        <div class="controller-tabs__slider-dots">
+                          <button class="controller-tabs__slider-dot controller-tabs__slider-dot--active" data-slide="0" aria-label="Slide 1"></button>
+                          <button class="controller-tabs__slider-dot" data-slide="1" aria-label="Slide 2"></button>
+                        </div>
+                      </div>
+                    {% elsif block.settings.image != blank %}
                       <img src="{{ block.settings.image | image_url: width: 731 }}" alt="{{ block.settings.tab_title }}" class="controller-tabs__product-image" loading="lazy">
                     {% else %}
                       <div class="controller-tabs__image-placeholder">
@@ -336,6 +347,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // Image slider functionality
+  section.querySelectorAll('[data-slider]').forEach(function(slider) {
+    const track = slider.querySelector('.controller-tabs__slider-track');
+    const dots = slider.querySelectorAll('.controller-tabs__slider-dot');
+
+    dots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        const slideIndex = parseInt(this.dataset.slide);
+        track.style.transform = 'translateX(-' + (slideIndex * 100) + '%)';
+        dots.forEach(function(d) { d.classList.remove('controller-tabs__slider-dot--active'); });
+        this.classList.add('controller-tabs__slider-dot--active');
+      });
+    });
+  });
+
   // Read More toggle functionality
   const readMoreToggles = section.querySelectorAll('.controller-tabs__read-more-toggle');
   readMoreToggles.forEach(toggle => {
@@ -496,8 +522,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
           "type": "text",
           "id": "feature7",
-          "label": "Feature 7",
-          "default": "Real-time monitoring and diagnostics"
+          "label": "Feature 7"
         },
         {
           "type": "header",
@@ -519,13 +544,13 @@ document.addEventListener('DOMContentLoaded', function() {
           "type": "text",
           "id": "config2",
           "label": "Config Item 2",
-          "default": "1× HDMI 2.0 input card (4K@60Hz)"
+          "default": "32× CAT6 Ethernet outputs (2×16-port cards)"
         },
         {
           "type": "text",
           "id": "config3",
           "label": "Config Item 3",
-          "default": "32× CAT6 Ethernet outputs (2×16-port cards)"
+          "default": "1× HDMI 2.0 input card (4K@60Hz)"
         },
         {
           "type": "text",
@@ -586,6 +611,194 @@ document.addEventListener('DOMContentLoaded', function() {
           "label": "Secondary Button Link"
         }
       ]
+    },
+    {
+      "type": "tab_slider",
+      "name": "Tab with Slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Image Quality"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Tab Icon",
+          "options": [
+            { "value": "overview", "label": "Overview" },
+            { "value": "integration", "label": "Integration" },
+            { "value": "4k", "label": "4K" },
+            { "value": "processing", "label": "Processing" },
+            { "value": "quality", "label": "Quality" },
+            { "value": "flexible", "label": "Flexibility" }
+          ],
+          "default": "quality"
+        },
+        {
+          "type": "select",
+          "id": "layout_type",
+          "label": "Layout Type",
+          "options": [
+            { "value": "detailed", "label": "Detailed (Image + Config + Features + CTA)" },
+            { "value": "simple", "label": "Simple (Image + Title + Description only)" }
+          ],
+          "default": "simple"
+        },
+        {
+          "type": "text",
+          "id": "simple_title",
+          "label": "Content Title (Simple Layout)",
+          "info": "Large title shown on right side for simple layout"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product Image 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Product Image 2 (for slider)"
+        },
+        {
+          "type": "text",
+          "id": "certified_badge",
+          "label": "Certified Badge Text",
+          "default": "CERTIFIED DISTRIBUTOR"
+        },
+        {
+          "type": "header",
+          "content": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
+        },
+        {
+          "type": "header",
+          "content": "Features"
+        },
+        {
+          "type": "text",
+          "id": "feature1",
+          "label": "Feature 1"
+        },
+        {
+          "type": "text",
+          "id": "feature2",
+          "label": "Feature 2"
+        },
+        {
+          "type": "text",
+          "id": "feature3",
+          "label": "Feature 3"
+        },
+        {
+          "type": "text",
+          "id": "feature4",
+          "label": "Feature 4"
+        },
+        {
+          "type": "text",
+          "id": "feature5",
+          "label": "Feature 5"
+        },
+        {
+          "type": "text",
+          "id": "feature6",
+          "label": "Feature 6"
+        },
+        {
+          "type": "text",
+          "id": "feature7",
+          "label": "Feature 7"
+        },
+        {
+          "type": "header",
+          "content": "Configuration Includes"
+        },
+        {
+          "type": "text",
+          "id": "config_title",
+          "label": "Config Section Title"
+        },
+        {
+          "type": "text",
+          "id": "config1",
+          "label": "Config Item 1"
+        },
+        {
+          "type": "text",
+          "id": "config2",
+          "label": "Config Item 2"
+        },
+        {
+          "type": "text",
+          "id": "config3",
+          "label": "Config Item 3"
+        },
+        {
+          "type": "text",
+          "id": "config4",
+          "label": "Config Item 4"
+        },
+        {
+          "type": "text",
+          "id": "config5",
+          "label": "Config Item 5"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "CTA Box"
+        },
+        {
+          "type": "text",
+          "id": "price_text",
+          "label": "Price Text"
+        },
+        {
+          "type": "text",
+          "id": "primary_btn_text",
+          "label": "Primary Button Text"
+        },
+        {
+          "type": "url",
+          "id": "primary_btn_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_btn_text",
+          "label": "Secondary Button Text"
+        },
+        {
+          "type": "url",
+          "id": "secondary_btn_link",
+          "label": "Secondary Button Link"
+        }
+      ]
     }
   ],
   "presets": [
@@ -607,8 +820,8 @@ document.addEventListener('DOMContentLoaded', function() {
             "feature6": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD 1080p input cards",
-            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "button_text": "VIEW FULL CONTROLLER SPECS"
           }

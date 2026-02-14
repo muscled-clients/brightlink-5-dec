@@ -155,25 +155,29 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox by default
+// Uncheck terms & conditions checkbox when app injects it (not on user click).
+// Only fires on childList mutations (new nodes added), so user can still manually check it.
 $(document).ready(function(){
-  var termsObserver = new MutationObserver(function() {
-    $('label:contains("Terms & Conditions")').prev('input[type="checkbox"]').each(function() {
-      if (this.checked) {
-        this.checked = false;
-        termsObserver.disconnect();
-      }
-    });
+  function uncheckNewTermsCheckboxes() {
     $('input[type="checkbox"]').each(function() {
-      var label = $('label[for="' + this.id + '"]');
-      if (label.length && label.text().indexOf('Terms') !== -1 && this.checked) {
+      if (!this.checked) return;
+      var text = ($(this).parent().text() || '') + ' ' + ($(this).next('label').text() || '') + ' ' + ($('label[for="' + this.id + '"]').text() || '');
+      if (text.indexOf('Terms') !== -1 || text.indexOf('I accept') !== -1) {
         this.checked = false;
-        termsObserver.disconnect();
+        this.removeAttribute('checked');
       }
     });
-  });
-  termsObserver.observe(document.body, { childList: true, subtree: true });
-  setTimeout(function() { termsObserver.disconnect(); }, 10000);
+  }
+
+  new MutationObserver(function(mutations) {
+    var hasNewNodes = false;
+    for (var i = 0; i < mutations.length; i++) {
+      if (mutations[i].addedNodes.length > 0) { hasNewNodes = true; break; }
+    }
+    if (!hasNewNodes) return;
+    uncheckNewTermsCheckboxes();
+    setTimeout(uncheckNewTermsCheckboxes, 300);
+  }).observe(document.body, { childList: true, subtree: true });
 });
 
 $(document).ready(function(){
