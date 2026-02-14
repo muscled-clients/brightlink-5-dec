@@ -590,7 +590,7 @@
 
 
 
-/* Magnetic Glow Effect for Competitive Advantages Cards */
+//* Magnetic Glow Effect for Competitive Advantages Cards - FIXED */
 .competitive-advantages__card {
   position: relative;
   
@@ -601,48 +601,65 @@
   /* Create stacking context */
   isolation: isolate;
   
-  /* Ensure card has background */
-  background: inherit;
+  /* CRITICAL: Ensure card has opaque background */
+  background: inherit; /* This will use whatever background your card already has */
+  
+  /* If your card has transparent background, uncomment this:
+  background: rgb(var(--color-background, 20,20,20)); */
 }
 
-/* Background overlay - keeps content readable */
+/* SOLID BACKGROUND LAYER - This blocks the glow from showing through */
 .competitive-advantages__card::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0; /* Covers entire card */
+  
+  /* Use the card's existing background color */
   background: inherit;
-  border-radius: inherit;
+  
+  /* If background inherit doesn't work, use your theme's card background color */
+  /* background: rgb(var(--color-background, 20,20,20)); */
+  
+  border-radius: inherit; /* Match card's border radius */
+  
+  /* Position between content and glow */
   z-index: -1;
+  
+  /* Ensure it's solid/opaque */
+  opacity: 1;
+  
+  /* Don't block mouse events */
   pointer-events: none;
 }
 
-/* Glow effect */
+/* GLOW EFFECT - Now properly behind everything */
 .competitive-advantages__card::after {
   content: "";
   position: absolute;
-  z-index: -2; /* Behind everything */
+  
+  /* CRITICAL: Behind both content AND the background layer */
+  z-index: -2;
   
   /* Position based on cursor */
   left: var(--glow-position-x);
   top: var(--glow-position-y);
   transform: translate(-50%, -50%);
   
-  /* Glow size */
-  width: 100%;
-  height: 80%;
+  /* Glow size - larger than card */
+  width: 200%;
+  height: 200%;
   
   /* Gradient glow - using your store's accent color */
-  /* Replace the RGB values with your store's accent color */
   background: radial-gradient(
     circle at center,
-    rgba(186, 255, 2, 0.8) 0%,
-    rgba(186, 255, 2, 0.4) 30%,
-    rgba(186, 255, 2, 0.15) 60%,
-    transparent 80%
+    rgba(186, 255, 2, 0.9) 0%,
+    rgba(186, 255, 2, 0.5) 30%,
+    rgba(186, 255, 2, 0.2) 60%,
+    transparent 85%
   );
   
   /* Blur for soft glow effect */
-  filter: blur(40px);
+  filter: blur(45px);
   
   /* Hidden by default */
   opacity: 0;
@@ -651,20 +668,30 @@
   /* Performance optimization */
   pointer-events: none;
   will-change: transform, opacity;
+  
+  /* Round shape for natural glow */
   border-radius: 50%;
 }
 
-/* Show glow on hover */
+/* Show glow on card hover */
 .competitive-advantages__card:hover::after {
   opacity: 1;
 }
 
-/* Ensure all content stays above glow */
+/* Ensure all content stays above everything */
 .competitive-advantages__card > * {
   position: relative;
   z-index: 1;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .competitive-advantages__card::after {
+    filter: blur(35px);
+    width: 180%;
+    height: 180%;
+  }
+}
 </style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
