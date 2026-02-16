@@ -684,30 +684,48 @@
 
 
 
-/* Button with animated underline effect */
+/* Button with static underline and hover animation */
 .competitive-advantages__btn--secondary {
   position: relative;
   text-decoration: none; /* Remove default underline */
   display: inline-block;
-  padding-bottom: 2px; /* Space for the animated line */
-  overflow: hidden; /* Hide the line until animated */
+  padding-bottom: 3px; /* Space for the underline */
 }
 
-/* The animated underline */
+/* Static underline (always visible) */
+.competitive-advantages__btn--secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width always */
+  height: 1px; /* Thickness of underline */
+  background-color: currentColor; /* Uses the button's text color */
+  opacity: 0.3; /* Make it subtle when not hovered */
+  transition: opacity 0.3s ease;
+}
+
+/* Animated overlay underline (appears on hover) */
 .competitive-advantages__btn--secondary::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
   width: 0; /* Start with 0 width */
-  height: 1px; /* Thickness of underline */
+  height: 1px; /* Same thickness */
   background-color: currentColor; /* Uses the button's text color */
   transition: width 0.3s ease; /* Smooth animation */
+  z-index: 1; /* Ensure it appears above the static line */
 }
 
-/* On hover, animate the underline from left to right */
+/* On hover, animate the overlay underline from left to right */
 .competitive-advantages__btn--secondary:hover::after {
   width: 100%; /* Expands to full width */
+}
+
+/* Optional: make static line more visible on hover if desired */
+.competitive-advantages__btn--secondary:hover::before {
+  opacity: 0.1; /* Even more subtle when animated line appears */
 }
 </style>
 
