@@ -807,7 +807,7 @@ line-height: 28px; /* 140% */
 
 @media screen and (max-width: 480px) {
   .system-configuration__header {
-    padding: 30px 15px;
+    padding: 0px 16px;
   }
 
   .system-configuration__label {
