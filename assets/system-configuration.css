@@ -659,7 +659,11 @@ line-height: 28px; /* 140% */
   }
 
   .system-configuration__header {
-    padding: 40px 20px;
+    display: flex;
+        gap: 12px;
+        border: none;
+        background: none;
+        padding: 0 16px;
   }
 
   .system-configuration__header-text {
