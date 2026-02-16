@@ -405,6 +405,7 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   }
 
   .knowledge-center__label {
+    font-size:14px;
     font-family: Inter, sans-serif;
     color: #D4AF37;
   }
@@ -550,7 +551,7 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   }
 
   .knowledge-center__label {
-    font-size: 12px;
+    font-size: 14px;
     font-family: Inter, sans-serif;
     color: #D4AF37;
   }
