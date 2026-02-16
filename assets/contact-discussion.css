@@ -314,6 +314,9 @@ background: rgba(255, 255, 255, 0.02);
 
       gap: 12px;
 }
+.contact-discussion__card-frame1{
+  gap:8px;
+}
 .contact-discussion__card-icon{
 
   display: flex;
