@@ -600,9 +600,7 @@ background: rgba(255, 255, 255, 0.02);
 
 .knowledge-center__accordion.active .knowledge-center__accordion-content {
   max-height: 1000px;
-  position: relative;
-  background: transparent !important;
-  background-color: transparent !important;
+  background: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0) !important;
   background-image: none !important;
-  isolation: isolate; /* Creates new stacking context */
 }
