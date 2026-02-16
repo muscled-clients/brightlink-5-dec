@@ -451,7 +451,7 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
     gap: 8px;
 }
   .knowledge-center__filter-select {
-    width: 100%;
+    width: 344px;
     padding: 14px 40px 14px 16px;
     font-size: 15px;
     font-weight: 500;
