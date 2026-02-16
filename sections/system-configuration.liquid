@@ -323,9 +323,9 @@
 
         <div class="system-configuration__cta-buttons">
           {% if section.settings.primary_btn_text != blank %}
-            <a href="{{ section.settings.primary_btn_link }}" class="system-configuration__btn">
+            <button type="button" class="system-configuration__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
               {{ section.settings.primary_btn_text }}
-            </a>
+            </button>
           {% endif %}
           {% if section.settings.secondary_btn_text != blank %}
             <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="system-configuration__btn--secondary">
