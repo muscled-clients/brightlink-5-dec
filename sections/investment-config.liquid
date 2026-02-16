@@ -143,7 +143,7 @@
               <span class="investment-config__addon-price">{{ section.settings.addon1_price }}</span>
             </div>
             {% if section.settings.addon1_product %}
-              <button type="button" class="investment-config__addon-btn" data-variant-id="{{ section.settings.addon1_product.selected_or_first_available_variant.id }}">
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon1_product.selected_or_first_available_variant.id }}">
                 {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
               </button>
             {% else %}
@@ -171,9 +171,15 @@
               </div>
               <span class="investment-config__addon-price">{{ section.settings.addon2_price }}</span>
             </div>
-            <a href="{{ section.settings.addon2_link | default: '#' }}" class="investment-config__addon-btn">
-              {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
-            </a>
+            {% if section.settings.addon2_product %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon2_product.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
           </div>
         {% endif %}
 
@@ -194,9 +200,15 @@
               </div>
               <span class="investment-config__addon-price">{{ section.settings.addon3_price }}</span>
             </div>
-            <a href="{{ section.settings.addon3_link | default: '#' }}" class="investment-config__addon-btn">
-              {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
-            </a>
+            {% if section.settings.addon3_product %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon3_product.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
           </div>
         {% endif %}
       </div>
