@@ -1809,29 +1809,54 @@
       var variantId = btn.getAttribute('data-variant-id');
       if (!variantId) return;
 
-      var originalText = btn.textContent.trim();
+      var originalText = btn.innerHTML;
       btn.disabled = true;
-      btn.textContent = 'Adding...';
+      btn.innerHTML = 'Adding...';
 
       fetch('/cart/add.js', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
       })
-      .then(function(response) { return response.json(); })
-      .then(function(data) {
-        btn.textContent = 'Added!';
-        setTimeout(function() {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 2000);
+      .then(function(response) {
+        if (response.ok) {
+          btn.innerHTML = 'Added!';
+          // Update cart count and refresh mini-cart
+          fetch('/cart.js')
+            .then(function(r) { return r.json(); })
+            .then(function(cart) {
+              document.querySelectorAll('.header__cart-count').forEach(function(el) {
+                el.textContent = cart.item_count;
+              });
+              return fetch((window.routes ? window.routes.cartUrl : '/cart') + '?section_id=mini-cart');
+            })
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+              var miniCart = document.getElementById('mini-cart');
+              if (miniCart) {
+                var temp = document.createElement('div');
+                temp.innerHTML = html;
+                var newMiniCart = temp.querySelector('.mini-cart');
+                if (newMiniCart) {
+                  miniCart.innerHTML = newMiniCart.innerHTML;
+                }
+              }
+            });
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
+        } else {
+          btn.innerHTML = 'Error';
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
+        }
       })
-      .catch(function(error) {
-        btn.textContent = 'Error';
-        setTimeout(function() {
-          btn.textContent = originalText;
-          btn.disabled = false;
-        }, 2000);
+      .catch(function() {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
       });
     });
   }
