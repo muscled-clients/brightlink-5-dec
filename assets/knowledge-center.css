@@ -87,6 +87,7 @@
   width: 1280px;
   max-width: 100%;
   box-sizing: border-box;
+  margin:0 auto;
 }
 
 .knowledge-center__search-wrapper {
