@@ -309,6 +309,11 @@ background: rgba(255, 255, 255, 0.02);
         box-shadow: none;
 
 }
+
+.contact-discussion__header-text{
+
+      gap: 12px;
+}
   .contact-discussion {
     padding: 0;
   }
