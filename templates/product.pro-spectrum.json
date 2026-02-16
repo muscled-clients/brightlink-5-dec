@@ -1564,10 +1564,7 @@
           "settings": {
             "product": "",
             "image": "shopify://shop_images/image_3_2.png",
-            "image_alt": "",
-            "image_width": 800,
-            "image_height": 500,
-            "image_fit": "cover"
+            "image_alt": ""
           }
         },
         "slide_EUNEyn": {
@@ -1575,10 +1572,7 @@
           "settings": {
             "product": "",
             "image": "shopify://shop_images/image_8.png",
-            "image_alt": "",
-            "image_width": 800,
-            "image_height": 500,
-            "image_fit": "cover"
+            "image_alt": ""
           }
         },
         "slide_nFdytN": {
@@ -1586,10 +1580,7 @@
           "settings": {
             "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
-            "image_alt": "",
-            "image_width": 570,
-            "image_height": 395,
-            "image_fit": "fill"
+            "image_alt": ""
           }
         }
       },
@@ -1602,9 +1593,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
-        "default_image_width": 800,
-        "default_image_height": 500,
-        "default_image_fit": "cover",
+        "image_width": 700,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
