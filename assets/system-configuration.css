@@ -92,6 +92,8 @@
 
 /* ========== VISUAL AREA ========== */
 
+/* ========== VISUAL AREA ========== */
+
 .system-configuration__visual {
   position: relative;
   border-radius: 17.017px;
@@ -99,16 +101,27 @@
   background: rgba(10, 14, 26, 0.60);
   box-shadow: 0 0 63.814px 0 rgba(10, 132, 255, 0.20);
   height: 698px;
+  width: 1070px;
   align-self: stretch;
   box-sizing: border-box;
+  overflow: hidden; /* Keeps the after element within the border radius */
+  margin:0 auto;
+}
+
+/* Background image as after element with margins */
+.system-configuration__visual::after {
+  content: '';
+  position: absolute;
+  top: 60px;
+  left: 61px;
+  width: calc(100% - 122px); /* 61px from left + 61px from right = 122px total */
+  height: calc(100% - 120px); /* 60px from top + 60px from bottom = 120px total */
   background-image: url('https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-blend-mode: normal;
-  width: 1070px;
-  height: 601.875px;
-  margin:0 auto;
+  pointer-events: none;
+  border-radius: inherit; /* Optional: matches parent border radius */
 }
 
 
