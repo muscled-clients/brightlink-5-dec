@@ -114,8 +114,8 @@
   position: absolute;
   top: 60px;
   left: 61px;
-  width: calc(100% - 122px); /* 61px from left + 61px from right = 122px total */
-  height: calc(100% - 120px); /* 60px from top + 60px from bottom = 120px total */
+ width: 1157px;
+height: 578px;
   background-image: url('https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793');
   background-size: contain;
   background-position: center;
