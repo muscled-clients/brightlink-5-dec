@@ -14,8 +14,83 @@
       <!-- Left Card - Main Pricing -->
       {% assign main_product = section.settings.main_product %}
       {% if main_product %}
-        {% assign main_title = main_product.title %}
-        {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
+        {% assign product_info = main_product.title | split: 'COB LED' | first | strip %}
+        {% assign info_words = product_info | split: ' ' %}
+
+        {%- comment -%} Product name: build up to the size word (contains ") {%- endcomment -%}
+        {% assign main_title = '' %}
+        {% assign found_size = false %}
+        {% for w in info_words %}
+          {% unless found_size %}
+            {% if main_title == blank %}
+              {% assign main_title = w %}
+            {% else %}
+              {% assign main_title = main_title | append: ' ' | append: w %}
+            {% endif %}
+            {% if w contains '"' %}
+              {% assign found_size = true %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% unless found_size %}
+          {% assign main_title = product_info | truncate: 40 %}
+        {% endunless %}
+
+        {%- comment -%} Extract pitch: first word containing "mm" {%- endcomment -%}
+        {% assign main_pitch = '' %}
+        {% for w in info_words %}
+          {% assign cw = w | remove: '(' | remove: ')' | remove: ',' %}
+          {% if cw contains 'mm' and main_pitch == blank %}
+            {% assign main_pitch = cw %}
+          {% endif %}
+        {% endfor %}
+
+        {%- comment -%} Extract resolution {%- endcomment -%}
+        {% assign main_resolution = '' %}
+        {% assign lower_info = product_info | downcase %}
+        {% if lower_info contains 'full 4k' %}
+          {% assign main_resolution = 'Full 4K' %}
+        {% elsif lower_info contains '4k' %}
+          {% assign main_resolution = '4K' %}
+        {% elsif lower_info contains '1080p' %}
+          {% assign main_resolution = '1080p' %}
+        {% endif %}
+
+        {%- comment -%} Extract pixel count: number before "Million Pixels" {%- endcomment -%}
+        {% assign main_pixels = '' %}
+        {% assign mp_parts = product_info | split: ' Million Pixels' %}
+        {% if mp_parts.size == 1 %}{% assign mp_parts = product_info | split: ' million Pixels' %}{% endif %}
+        {% if mp_parts.size == 1 %}{% assign mp_parts = product_info | split: ' million pixels' %}{% endif %}
+        {% if mp_parts.size > 1 %}
+          {% assign bmp_words = mp_parts[0] | strip | split: ' ' %}
+          {% assign main_pixels = bmp_words | last | remove: '(' | remove: ')' %}
+        {% endif %}
+
+        {%- comment -%} Format pixels to M (e.g., 8,064,000 → 8.06M) {%- endcomment -%}
+        {% assign pixels_display = '' %}
+        {% if main_pixels != blank %}
+          {% if main_pixels contains '.' %}
+            {% assign pixels_display = main_pixels | append: 'M' %}
+          {% else %}
+            {% assign px_num = main_pixels | remove: ',' | plus: 0 %}
+            {% if px_num > 100000 %}
+              {% assign px_hund = px_num | divided_by: 10000 %}
+              {% assign px_m = px_hund | divided_by: 100.0 %}
+              {% assign pixels_display = px_m | append: 'M' %}
+            {% else %}
+              {% assign pixels_display = main_pixels %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {%- comment -%} Build specs line: "8.06M Pixels | .9mm Pitch | 4K" {%- endcomment -%}
+        {% capture main_desc %}{% if pixels_display != blank %}{{ pixels_display }} Pixels{% endif %}{% if main_pitch != blank %}{% if pixels_display != blank %} | {% endif %}{{ main_pitch }} Pitch{% endif %}{% if main_resolution != blank %}{% if main_pitch != blank or pixels_display != blank %} | {% endif %}{{ main_resolution }}{% endif %}{% endcapture %}
+        {% assign main_desc = main_desc | strip %}
+        {% if main_desc == blank %}
+          {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
+        {% endif %}
+
+        {%- comment -%} Pricing {%- endcomment -%}
         {% assign main_current_price = main_product.price | money %}
         {% if main_product.compare_at_price > main_product.price %}
           {% assign main_original_price = main_product.compare_at_price | money %}
