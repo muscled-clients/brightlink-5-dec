@@ -349,7 +349,7 @@ flex-shrink: 0;
     font-size: 20px;
   }
   .contact-discussion__container {
-    gap: 40px;
+    gap: 32px;
   }
 
   .contact-discussion__header {
@@ -456,7 +456,7 @@ align-items: center;
 
 @media (max-width: 480px) {
   .contact-discussion__container {
-    gap: 30px;
+    gap: 32px;
   }
 
   .contact-discussion__header {
