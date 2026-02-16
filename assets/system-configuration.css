@@ -640,6 +640,8 @@ line-height: 28px; /* 140% */
 
     content: "";
     position: absolute;
+    top: 16px; 
+    left: 16px; 
     background-image: url(/cdn/shop/files/Grid44.png?v=1771003793);
     background-size: contain;
     background-position: center;
