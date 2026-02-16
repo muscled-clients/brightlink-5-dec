@@ -685,10 +685,6 @@ line-height: 28px; /* 140% */
     color: #A0AEC0;
   }
 
-  .system-configuration__visual {
-    max-width: calc(100% - 40px);
-  }
-
   .system-configuration__cards {
     grid-template-columns: 1fr;
     gap: 20px;
