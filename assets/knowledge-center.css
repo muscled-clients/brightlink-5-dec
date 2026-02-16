@@ -483,9 +483,6 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
             width: 344px;
   }
 
-  .knowledge-center__accordion:first-child {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
 
   .knowledge-center__accordion:hover {
     background: transparent;
