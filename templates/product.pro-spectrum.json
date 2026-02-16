@@ -1589,7 +1589,7 @@
             "image_alt": "",
             "image_width": 570,
             "image_height": 395,
-            "image_fit": "contain"
+            "image_fit": "fill"
           }
         }
       },
