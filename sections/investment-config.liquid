@@ -12,21 +12,43 @@
 
     <div class="investment-config__content">
       <!-- Left Card - Main Pricing -->
+      {% assign main_product = section.settings.main_product %}
+      {% if main_product %}
+        {% assign main_title = main_product.title %}
+        {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
+        {% assign main_current_price = main_product.price | money %}
+        {% if main_product.compare_at_price > main_product.price %}
+          {% assign main_original_price = main_product.compare_at_price | money %}
+          {% assign savings = main_product.compare_at_price | minus: main_product.price | times: 100 | divided_by: main_product.compare_at_price %}
+          {% assign main_discount = 'SAVE ' | append: savings | append: '%' %}
+        {% else %}
+          {% assign main_original_price = '' %}
+          {% assign main_discount = '' %}
+        {% endif %}
+      {% else %}
+        {% assign main_title = 'Brightlink Pro Spectrum 217"' %}
+        {% assign main_desc = '8.2M Pixels | 1.25mm Pitch | Full 4K' %}
+        {% assign main_current_price = '$149,000' %}
+        {% assign main_original_price = '$179,000' %}
+        {% assign main_discount = 'SAVE 17%' %}
+      {% endif %}
       <div class="investment-config__card">
         <div class="investment-config__card-upper">
           <div class="investment-config__card-upper-frame">
             <div class="investment-config__product-frame">
               <div class="investment-config__product-info">
                 <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
-                <h3 class="investment-config__product-name">{{ section.settings.product_name | default: 'Brightlink Pro Spectrum 217"' }}</h3>
-                <p class="investment-config__product-specs">{{ section.settings.product_specs | default: '8.2M Pixels | 1.25mm Pitch | Full 4K' }}</p>
+                <h3 class="investment-config__product-name">{{ main_title }}</h3>
+                <p class="investment-config__product-specs">{{ main_desc }}</p>
               </div>
             </div>
+            {% if main_original_price != '' %}
             <div class="investment-config__price-row">
-              <span class="investment-config__original-price">{{ section.settings.original_price | default: '$179,000' }}</span>
-              <span class="investment-config__discount-badge">{{ section.settings.discount_text | default: 'SAVE 17%' }}</span>
+              <span class="investment-config__original-price">{{ main_original_price }}</span>
+              <span class="investment-config__discount-badge">{{ main_discount }}</span>
             </div>
-            <div class="investment-config__current-price">{{ section.settings.current_price | default: '$149,000' }}</div>
+            {% endif %}
+            <div class="investment-config__current-price">{{ main_current_price }}</div>
           </div>
           <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
         </div>
@@ -279,38 +301,9 @@
       "default": "COMPLETE SYSTEM"
     },
     {
-      "type": "text",
-      "id": "product_name",
-      "label": "Product Name",
-      "default": "Brightlink Pro Spectrum 217\""
-    },
-    {
-      "type": "text",
-      "id": "product_specs",
-      "label": "Product Specs",
-      "default": "8.2M Pixels | 1.25mm Pitch | Full 4K"
-    },
-    {
-      "type": "header",
-      "content": "Pricing"
-    },
-    {
-      "type": "text",
-      "id": "original_price",
-      "label": "Original Price",
-      "default": "$179,000"
-    },
-    {
-      "type": "text",
-      "id": "current_price",
-      "label": "Current Price",
-      "default": "$149,000"
-    },
-    {
-      "type": "text",
-      "id": "discount_text",
-      "label": "Discount Badge Text",
-      "default": "SAVE 17%"
+      "type": "product",
+      "id": "main_product",
+      "label": "Select Main Product"
     },
     {
       "type": "text",
