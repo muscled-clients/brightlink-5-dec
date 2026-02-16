@@ -339,7 +339,9 @@ flex-shrink: 0;
   .contact-discussion {
     padding: 0;
   }
-
+  .contact-discussion__card-phone {
+    font-size: 20px;
+  }
   .contact-discussion__container {
     gap: 40px;
   }
