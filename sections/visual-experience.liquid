@@ -15,16 +15,44 @@
                   data-slide-index="{{ forloop.index0 }}"
                   {{ block.shopify_attributes }}
                 >
-                  {% if block.settings.image != blank %}
+                  {% if block.settings.product != blank %}
+                    {% assign slide_product = all_products[block.settings.product] %}
+                    {% if slide_product.featured_image != blank %}
+                      <img
+                        src="{{ slide_product.featured_image | image_url: width: block.settings.image_width | default: 800 }}"
+                        alt="{{ slide_product.featured_image.alt | default: slide_product.title }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_width | default: 800 }}"
+                        height="{{ block.settings.image_height | default: 500 }}"
+                        style="width: 100%; height: {{ block.settings.image_height | default: 500 }}px; object-fit: {{ block.settings.image_fit }};"
+                      >
+                    {% elsif block.settings.image != blank %}
+                      <img
+                        src="{{ block.settings.image | image_url: width: block.settings.image_width | default: 800 }}"
+                        alt="{{ block.settings.image_alt | default: section.settings.heading }}"
+                        loading="lazy"
+                        width="{{ block.settings.image_width | default: 800 }}"
+                        height="{{ block.settings.image_height | default: 500 }}"
+                        style="width: 100%; height: {{ block.settings.image_height | default: 500 }}px; object-fit: {{ block.settings.image_fit }};"
+                      >
+                    {% else %}
+                      <div class="visual-experience__slide-placeholder" style="height: {{ block.settings.image_height | default: 500 }}px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                          <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
+                        </svg>
+                      </div>
+                    {% endif %}
+                  {% elsif block.settings.image != blank %}
                     <img
-                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      src="{{ block.settings.image | image_url: width: block.settings.image_width | default: 800 }}"
                       alt="{{ block.settings.image_alt | default: section.settings.heading }}"
                       loading="lazy"
-                      width="800"
-                      height="500"
+                      width="{{ block.settings.image_width | default: 800 }}"
+                      height="{{ block.settings.image_height | default: 500 }}"
+                      style="width: 100%; height: {{ block.settings.image_height | default: 500 }}px; object-fit: {{ block.settings.image_fit }};"
                     >
                   {% else %}
-                    <div class="visual-experience__slide-placeholder">
+                    <div class="visual-experience__slide-placeholder" style="height: {{ block.settings.image_height | default: 500 }}px;">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
                       </svg>
@@ -41,17 +69,18 @@
                 data-slide-index="{{ forloop.index0 }}"
               >
                 <img
-                  src="{{ image | image_url: width: 800 }}"
+                  src="{{ image | image_url: width: section.settings.default_image_width | default: 800 }}"
                   alt="{{ image.alt | default: product.title }}"
                   loading="lazy"
-                  width="800"
-                  height="500"
+                  width="{{ section.settings.default_image_width | default: 800 }}"
+                  height="{{ section.settings.default_image_height | default: 500 }}"
+                  style="width: 100%; height: {{ section.settings.default_image_height | default: 500 }}px; object-fit: {{ section.settings.default_image_fit | default: 'cover' }};"
                 >
               </div>
             {% else %}
               <!-- Fallback placeholder if no product images -->
               <div class="visual-experience__slide visual-experience__slide--active">
-                <div class="visual-experience__slide-placeholder">
+                <div class="visual-experience__slide-placeholder" style="height: {{ section.settings.default_image_height | default: 500 }}px;">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
                   </svg>
@@ -119,6 +148,72 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Section-specific styles for Visual Experience */
+  #visual-experience-{{ section.id }} .visual-experience__slide img {
+    width: 100%;
+    display: block;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__slide-placeholder {
+    width: 100%;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__slide-placeholder svg {
+    width: 80px;
+    height: 80px;
+    fill: #999;
+  }
+
+  /* Ensure product images display properly */
+  #visual-experience-{{ section.id }} .visual-experience__slide {
+    display: none;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__slide--active {
+    display: block;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.3s ease;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__dot--active {
+    background: white;
+  }
+
+  #visual-experience-{{ section.id }} .visual-experience__dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+  }
+</style>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
@@ -199,6 +294,45 @@ document.addEventListener('DOMContentLoaded', function() {
     },
     {
       "type": "header",
+      "content": "Default Image Settings"
+    },
+    {
+      "type": "number",
+      "id": "default_image_width",
+      "label": "Default Image Width (px)",
+      "default": 800,
+      "info": "Width in pixels for images when no blocks are added"
+    },
+    {
+      "type": "number",
+      "id": "default_image_height",
+      "label": "Default Image Height (px)",
+      "default": 500,
+      "info": "Height in pixels for images when no blocks are added"
+    },
+    {
+      "type": "select",
+      "id": "default_image_fit",
+      "label": "Default Image Fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover (crops to fit)"
+        },
+        {
+          "value": "contain",
+          "label": "Contain (fits entirely)"
+        },
+        {
+          "value": "fill",
+          "label": "Fill (stretches)"
+        }
+      ],
+      "default": "cover",
+      "info": "How images should fit in the container when no blocks are added"
+    },
+    {
+      "type": "header",
       "content": "CTA Buttons"
     },
     {
@@ -236,21 +370,69 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Slide",
       "settings": [
         {
+          "type": "product",
+          "id": "product",
+          "label": "Product",
+          "info": "Select a product to show its featured image"
+        },
+        {
           "type": "image_picker",
           "id": "image",
-          "label": "Slide Image"
+          "label": "Custom Slide Image",
+          "info": "Upload a custom image (used if no product is selected)"
         },
         {
           "type": "text",
           "id": "image_alt",
-          "label": "Image Alt Text"
+          "label": "Image Alt Text",
+          "info": "Alternative text for the image (only applies to custom images)"
+        },
+        {
+          "type": "header",
+          "content": "Image Size Settings"
+        },
+        {
+          "type": "number",
+          "id": "image_width",
+          "label": "Image Width (px)",
+          "default": 800,
+          "info": "Width in pixels for this slide's image"
+        },
+        {
+          "type": "number",
+          "id": "image_height",
+          "label": "Image Height (px)",
+          "default": 500,
+          "info": "Height in pixels for this slide's image"
+        },
+        {
+          "type": "select",
+          "id": "image_fit",
+          "label": "Image Fit",
+          "options": [
+            {
+              "value": "cover",
+              "label": "Cover (crops to fit)"
+            },
+            {
+              "value": "contain",
+              "label": "Contain (fits entirely)"
+            },
+            {
+              "value": "fill",
+              "label": "Fill (stretches)"
+            }
+          ],
+          "default": "cover",
+          "info": "How the image should fit in the container"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Visual Experience"
+      "name": "Visual Experience",
+      "category": "Custom"
     }
   ]
 }
