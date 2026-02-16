@@ -314,6 +314,19 @@ background: rgba(255, 255, 255, 0.02);
 
       gap: 12px;
 }
+.contact-discussion__card-icon{
+
+  display: flex;
+width: 40px;
+height: 40px;
+padding: 2.857px 8.572px 2.857px 8.571px;
+justify-content: center;
+align-items: center;
+aspect-ratio: 1/1;
+border-radius: 7142.143px;
+border: 0 solid #E5E7EB;
+background: rgba(10, 132, 255, 0.20);
+}
   .contact-discussion {
     padding: 0;
   }
