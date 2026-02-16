@@ -1330,7 +1330,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "investment_config_9xqzkP": {
+    "investment_config_XArH8k": {
       "type": "investment-config",
       "name": "Investment Config",
       "settings": {
@@ -1357,10 +1357,19 @@
         "primary_button_link": "",
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
+        "addon1_title": "BL-VT PRO VACUUM TOOL",
+        "addon1_desc": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.",
+        "addon1_price": "$249",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "20-x-rj45-sending-card-for-novastar-h-series-video-splicer",
+        "addon1_product": "",
+        "addon2_title": "EXTENDED WARRANTY",
+        "addon2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
+        "addon2_price": "$4,500",
         "addon2_btn_text": "ADD TO ORDER",
         "addon2_product": "",
+        "addon3_title": "SPARE MODULE KIT",
+        "addon3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
+        "addon3_price": "$8,900",
         "addon3_btn_text": "ADD TO ORDER",
         "addon3_product": ""
       }
@@ -1642,7 +1651,7 @@
     "experience_scale_gDgaxe",
     "controller_tabs_PkVE8q",
     "applications_tabs_mzRTEp",
-    "investment_config_9xqzkP",
+    "investment_config_XArH8k",
     "custom_config_builder_KRqknj",
     "knowledge_center_KDhAHL",
     "visual_experience_wMKFfe",
