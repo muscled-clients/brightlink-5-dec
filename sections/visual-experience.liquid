@@ -19,11 +19,12 @@
                     {% assign slide_product = all_products[block.settings.product] %}
                     {% if slide_product.featured_image != blank %}
                       <img
-                        src="{{ slide_product.featured_image | image_url: width: 800 }}"
+                        src="{{ slide_product.featured_image | image_url: width: section.settings.image_width }}"
                         alt="{{ slide_product.featured_image.alt | default: slide_product.title }}"
                         loading="lazy"
-                        width="800"
-                        height="500"
+                        width="{{ section.settings.image_width }}"
+                        height="{{ section.settings.image_height }}"
+                        style="object-fit: {{ section.settings.image_fit }};"
                       >
                     {% else %}
                       <div class="visual-experience__slide-placeholder">
@@ -34,11 +35,12 @@
                     {% endif %}
                   {% elsif block.settings.image != blank %}
                     <img
-                      src="{{ block.settings.image | image_url: width: 800 }}"
+                      src="{{ block.settings.image | image_url: width: section.settings.image_width }}"
                       alt="{{ block.settings.image_alt | default: section.settings.heading }}"
                       loading="lazy"
-                      width="800"
-                      height="500"
+                      width="{{ section.settings.image_width }}"
+                      height="{{ section.settings.image_height }}"
+                      style="object-fit: {{ section.settings.image_fit }};"
                     >
                   {% else %}
                     <div class="visual-experience__slide-placeholder">
@@ -58,11 +60,12 @@
                 data-slide-index="{{ forloop.index0 }}"
               >
                 <img
-                  src="{{ image | image_url: width: 800 }}"
+                  src="{{ image | image_url: width: section.settings.image_width }}"
                   alt="{{ image.alt | default: product.title }}"
                   loading="lazy"
-                  width="800"
-                  height="500"
+                  width="{{ section.settings.image_width }}"
+                  height="{{ section.settings.image_height }}"
+                  style="object-fit: {{ section.settings.image_fit }};"
                 >
               </div>
             {% else %}
@@ -263,6 +266,55 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "description",
       "label": "Description",
       "default": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!"
+    },
+    {
+      "type": "header",
+      "content": "Image Settings"
+    },
+    {
+      "type": "range",
+      "id": "image_width",
+      "label": "Image Width (px)",
+      "min": 400,
+      "max": 2000,
+      "step": 50,
+      "default": 800,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Image Height (px)",
+      "min": 300,
+      "max": 1200,
+      "step": 50,
+      "default": 500,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image Fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover (crops to fit)"
+        },
+        {
+          "value": "contain",
+          "label": "Contain (shows full image)"
+        },
+        {
+          "value": "fill",
+          "label": "Fill (stretches)"
+        },
+        {
+          "value": "scale-down",
+          "label": "Scale Down"
+        }
+      ],
+      "default": "cover",
+      "info": "Determines how images fit within the container"
     },
     {
       "type": "header",
