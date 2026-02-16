@@ -327,6 +327,12 @@ border-radius: 7142.143px;
 border: 0 solid #E5E7EB;
 background: rgba(10, 132, 255, 0.20);
 }
+
+.contact-discussion__card-icon svg{
+  width: 22.857px;
+height: 22.857px;
+flex-shrink: 0;
+}
   .contact-discussion {
     padding: 0;
   }
