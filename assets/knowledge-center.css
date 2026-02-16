@@ -390,7 +390,14 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
   }
 
   .knowledge-center__header {
-    padding: 40px 20px;
+   padding: 0;
+        display: flex;
+        width: 344px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border: none;
+        background: none;
   }
 
   .knowledge-center__header-text {
@@ -532,7 +539,14 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
 
 @media (max-width: 480px) {
   .knowledge-center__header {
-    padding: 30px 15px;
+  padding: 0;
+        display: flex;
+        width: 344px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        border: none;
+        background: none;
   }
 
   .knowledge-center__label {
