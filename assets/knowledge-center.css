@@ -79,7 +79,7 @@
 
 .knowledge-center__content {
   display: flex;
-  padding: 0 80px;
+  padding: 0;
   flex-direction: column;
   align-items: center;
   gap: 40px;
