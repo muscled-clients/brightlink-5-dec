@@ -676,6 +676,39 @@
   position: relative;
   z-index: 1;
 }
+
+
+
+
+
+
+
+
+/* Button with animated underline effect */
+.competitive-advantages__btn--secondary {
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  display: inline-block;
+  padding-bottom: 2px; /* Space for the animated line */
+  overflow: hidden; /* Hide the line until animated */
+}
+
+/* The animated underline */
+.competitive-advantages__btn--secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Start with 0 width */
+  height: 1px; /* Thickness of underline */
+  background-color: currentColor; /* Uses the button's text color */
+  transition: width 0.3s ease; /* Smooth animation */
+}
+
+/* On hover, animate the underline from left to right */
+.competitive-advantages__btn--secondary:hover::after {
+  width: 100%; /* Expands to full width */
+}
 </style>
 
 <section class="competitive-advantages {{ section.settings.custom_class }}" id="competitive-advantages-{{ section.id }}">
