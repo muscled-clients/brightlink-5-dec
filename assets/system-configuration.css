@@ -663,7 +663,7 @@ line-height: 28px; /* 140% */
   }
 
   .system-configuration__header-text {
-    gap: 16px;
+    gap: 12px;
   }
 
   .system-configuration__label {
