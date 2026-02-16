@@ -1527,7 +1527,7 @@
                     </div>
                     <h4 class="support-contact__email">{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}</h4>
                     <p class="support-contact__response">{{ pic_support_contact.email.response | default: 'Response within 1-2 hours during business hours' }}</p>
-                    <a href="mailto:{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                    <button type="button" class="support-contact__btn support-contact__btn--secondary" onclick="navigator.clipboard.writeText('{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}').then(function(){var b=event.target;b.textContent='EMAIL COPIED!';setTimeout(function(){b.textContent='COPY EMAIL'},2000)})">COPY EMAIL</button>
                   </div>
 
                   <div class="support-contact__card support-contact__card--lifetime">
