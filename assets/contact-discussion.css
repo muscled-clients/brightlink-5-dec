@@ -309,9 +309,6 @@ background: rgba(255, 255, 255, 0.02);
         box-shadow: none;
 
 }
-    .contact-discussion__label {
-      font-size:14px;
-    }
   .contact-discussion {
     padding: 0;
   }
@@ -326,7 +323,7 @@ background: rgba(255, 255, 255, 0.02);
   }
 
   .contact-discussion__label {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .contact-discussion__title {
