@@ -867,3 +867,32 @@ line-height: 28px; /* 140% */
     font-size: 13px;
   }
 }
+/* ========== VISUAL AREA ========== */
+
+.system-configuration__visual {
+  position: relative;
+  border-radius: 17.017px;
+  border: 1.064px solid rgba(10, 132, 255, 0.30);
+  background: rgba(10, 14, 26, 0.60);
+  box-shadow: 0 0 63.814px 0 rgba(10, 132, 255, 0.20);
+  height: 698px;
+  align-self: stretch;
+  box-sizing: border-box;
+  
+  /* Background image on top of the color */
+  background-image: url('https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Grid44.png?v=1771003793');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* This ensures the background color shows behind the image */
+  background-blend-mode: normal;
+  
+  width: 1070px;
+  height: 601.875px; /* This will be overridden by the height:698px above */
+}
+
+/* If you want the background color to blend with the image differently, you can use: */
+/* background-blend-mode: overlay; */
+/* background-blend-mode: multiply; */
+/* background-blend-mode: screen; */
