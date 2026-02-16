@@ -598,9 +598,12 @@ background: rgba(255, 255, 255, 0.02);
 }
 
 
-.knowledge-center__accordion.active .knowledge-center__accordion-content {
-  max-height: 1000px;
-  background: rgba(0, 0, 0, 0) !important;
-  background-color: rgba(0, 0, 0, 0) !important;
+.knowledge-center__accordion.active .knowledge-center__accordion-content,
+.knowledge-center__accordion.active .knowledge-center__questions-list,
+.knowledge-center__accordion.active .knowledge-center__question-item,
+.knowledge-center__accordion.active .knowledge-center__question-header,
+.knowledge-center__accordion.active .knowledge-center__answer {
+  background: transparent !important;
+  background-color: transparent !important;
   background-image: none !important;
 }
