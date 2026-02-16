@@ -50,7 +50,7 @@
 {% assign pic_support_heading = product.metafields.custom.pic_support_heading.value %}
 {% assign pic_support_resource_titles = product.metafields.custom.pic_support_resource_titles.value %}
 {% assign pic_support_resource_descriptions = product.metafields.custom.pic_support_resource_descriptions.value %}
-{% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %}
+{% comment %} {% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %} {% endcomment %}
 {% assign pic_support_resource_files = product.metafields.custom.pic_support_and_resource_files.value %}
 {% assign pic_support_resource_icons = product.metafields.custom.pic_support_resource_icons.value %}
 
@@ -1772,9 +1772,7 @@
 
   // Function to download resource file
   function downloadResourceFile(fileUrl, fileName) {
-    console.log('download button clicked');
     if (!fileUrl) return;
-    console.log('download button clicked inside');
     // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = fileUrl;
@@ -2277,15 +2275,6 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
-        },
-        {
-          "type": "header",
-          "content": "Use Case Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "usecase_image",
-          "label": "Use Case Image"
         }
       ]
     }
