@@ -437,7 +437,7 @@ box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
 
   .knowledge-center__filter-dropdown {
     display: block !important;
-    margin-bottom: 24px;
+    margin:0;
   }
 .knowledge-center__search-box {
     border-radius: 10px;
