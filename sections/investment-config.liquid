@@ -126,8 +126,16 @@
       <!-- Right Side - Add-on Cards -->
       <div class="investment-config__addons">
         <!-- Add-on Card 1: Vacuum Tool -->
-        {% if section.settings.addon1_title != blank or section.settings.addon1_product != blank %}
-          {% assign addon1 = section.settings.addon1_product %}
+        {% assign addon1 = section.settings.addon1_product %}
+        {% if addon1 %}
+          {% assign addon1_title = addon1.title %}
+          {% assign addon1_desc = addon1.description | strip_html | truncate: 120 %}
+          {% assign addon1_price = addon1.price | money %}
+        {% else %}
+          {% assign addon1_title = 'BL-VT PRO VACUUM TOOL' %}
+          {% assign addon1_desc = 'Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.' %}
+          {% assign addon1_price = '$249' %}
+        {% endif %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
               <div class="investment-config__addon-upper">
@@ -137,14 +145,14 @@
                       <path d="M4.07411 2.12946L0 10.2857H16.7143V0H7.52946C6.06696 0 4.73304 0.827679 4.07411 2.12946ZM19.2857 10.2857H36L31.9259 2.12946C31.267 0.827679 29.933 0 28.4705 0H19.2857V10.2857ZM36 12.8571H0V30.8571C0 33.6937 2.30625 36 5.14286 36H30.8571C33.6937 36 36 33.6937 36 30.8571V12.8571Z" fill="#0A84FF"/>
                     </svg>
                   </div>
-                  <h4 class="investment-config__addon-title">{{ section.settings.addon1_title | default: addon1.title }}</h4>
+                  <h4 class="investment-config__addon-title">{{ addon1_title }}</h4>
                 </div>
-                <p class="investment-config__addon-desc">{{ section.settings.addon1_desc | default: addon1.description | strip_html | truncate: 120 }}</p>
+                <p class="investment-config__addon-desc">{{ addon1_desc }}</p>
               </div>
-              <span class="investment-config__addon-price">{{ section.settings.addon1_price | default: addon1.price | money }}</span>
+              <span class="investment-config__addon-price">{{ addon1_price }}</span>
             </div>
-            {% if section.settings.addon1_product %}
-              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon1_product.selected_or_first_available_variant.id }}">
+            {% if addon1 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon1.selected_or_first_available_variant.id }}">
                 {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
               </button>
             {% else %}
@@ -156,8 +164,16 @@
         {% endif %}
 
         <!-- Add-on Card 2: Extended Warranty -->
-        {% if section.settings.addon2_title != blank or section.settings.addon2_product != blank %}
-          {% assign addon2 = section.settings.addon2_product %}
+        {% assign addon2 = section.settings.addon2_product %}
+        {% if addon2 %}
+          {% assign addon2_title = addon2.title %}
+          {% assign addon2_desc = addon2.description | strip_html | truncate: 120 %}
+          {% assign addon2_price = addon2.price | money %}
+        {% else %}
+          {% assign addon2_title = 'EXTENDED WARRANTY' %}
+          {% assign addon2_desc = 'Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.' %}
+          {% assign addon2_price = '$4,500' %}
+        {% endif %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
               <div class="investment-config__addon-upper">
@@ -167,14 +183,14 @@
                       <path d="M16.9678 0C17.293 0 17.6183 0.0706991 17.9152 0.205027L31.2278 5.85389C32.7832 6.51139 33.9427 8.04556 33.9356 9.89788C33.9003 16.9112 31.0157 29.7431 18.8343 35.5758C17.6536 36.1414 16.282 36.1414 15.1014 35.5758C2.91991 29.7431 0.0353817 16.9112 3.21574e-05 9.89788C-0.00703776 8.04556 1.15243 6.51139 2.70781 5.85389L16.0275 0.205027C16.3174 0.0706991 16.6426 0 16.9678 0ZM16.9678 4.7227V31.447C26.7243 26.7243 29.3472 16.2679 29.4109 9.99686L16.9678 4.7227Z" fill="#0A84FF"/>
                     </svg>
                   </div>
-                  <h4 class="investment-config__addon-title">{{ section.settings.addon2_title | default: addon2.title }}</h4>
+                  <h4 class="investment-config__addon-title">{{ addon2_title }}</h4>
                 </div>
-                <p class="investment-config__addon-desc">{{ section.settings.addon2_desc | default: addon2.description | strip_html | truncate: 120 }}</p>
+                <p class="investment-config__addon-desc">{{ addon2_desc }}</p>
               </div>
-              <span class="investment-config__addon-price">{{ section.settings.addon2_price | default: addon2.price | money }}</span>
+              <span class="investment-config__addon-price">{{ addon2_price }}</span>
             </div>
-            {% if section.settings.addon2_product %}
-              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon2_product.selected_or_first_available_variant.id }}">
+            {% if addon2 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon2.selected_or_first_available_variant.id }}">
                 {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
               </button>
             {% else %}
@@ -186,8 +202,16 @@
         {% endif %}
 
         <!-- Add-on Card 3: Spare Module Kit -->
-        {% if section.settings.addon3_title != blank or section.settings.addon3_product != blank %}
-          {% assign addon3 = section.settings.addon3_product %}
+        {% assign addon3 = section.settings.addon3_product %}
+        {% if addon3 %}
+          {% assign addon3_title = addon3.title %}
+          {% assign addon3_desc = addon3.description | strip_html | truncate: 120 %}
+          {% assign addon3_price = addon3.price | money %}
+        {% else %}
+          {% assign addon3_title = 'SPARE MODULE KIT' %}
+          {% assign addon3_desc = 'Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.' %}
+          {% assign addon3_price = '$8,900' %}
+        {% endif %}
           <div class="investment-config__addon-card">
             <div class="investment-config__addon-content">
               <div class="investment-config__addon-upper">
@@ -197,14 +221,14 @@
                       <path d="M4.07411 2.12946L0 10.2857H16.7143V0H7.52946C6.06696 0 4.73304 0.827679 4.07411 2.12946ZM19.2857 10.2857H36L31.9259 2.12946C31.267 0.827679 29.933 0 28.4705 0H19.2857V10.2857ZM36 12.8571H0V30.8571C0 33.6937 2.30625 36 5.14286 36H30.8571C33.6937 36 36 33.6937 36 30.8571V12.8571Z" fill="#0A84FF"/>
                     </svg>
                   </div>
-                  <h4 class="investment-config__addon-title">{{ section.settings.addon3_title | default: addon3.title }}</h4>
+                  <h4 class="investment-config__addon-title">{{ addon3_title }}</h4>
                 </div>
-                <p class="investment-config__addon-desc">{{ section.settings.addon3_desc | default: addon3.description | strip_html | truncate: 120 }}</p>
+                <p class="investment-config__addon-desc">{{ addon3_desc }}</p>
               </div>
-              <span class="investment-config__addon-price">{{ section.settings.addon3_price | default: addon3.price | money }}</span>
+              <span class="investment-config__addon-price">{{ addon3_price }}</span>
             </div>
-            {% if section.settings.addon3_product %}
-              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ section.settings.addon3_product.selected_or_first_available_variant.id }}">
+            {% if addon3 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon3.selected_or_first_available_variant.id }}">
                 {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
               </button>
             {% else %}
@@ -386,24 +410,6 @@
     },
     {
       "type": "text",
-      "id": "addon1_title",
-      "label": "Title",
-      "default": "BL-VT PRO VACUUM TOOL"
-    },
-    {
-      "type": "textarea",
-      "id": "addon1_desc",
-      "label": "Description",
-      "default": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams."
-    },
-    {
-      "type": "text",
-      "id": "addon1_price",
-      "label": "Price",
-      "default": "$249"
-    },
-    {
-      "type": "text",
       "id": "addon1_btn_text",
       "label": "Button Text",
       "default": "ADD TO ORDER"
@@ -419,24 +425,6 @@
     },
     {
       "type": "text",
-      "id": "addon2_title",
-      "label": "Title",
-      "default": "EXTENDED WARRANTY"
-    },
-    {
-      "type": "textarea",
-      "id": "addon2_desc",
-      "label": "Description",
-      "default": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support."
-    },
-    {
-      "type": "text",
-      "id": "addon2_price",
-      "label": "Price",
-      "default": "$4,500"
-    },
-    {
-      "type": "text",
       "id": "addon2_btn_text",
       "label": "Button Text",
       "default": "ADD TO ORDER"
@@ -449,24 +437,6 @@
     {
       "type": "header",
       "content": "Add-on 3: Spare Module Kit"
-    },
-    {
-      "type": "text",
-      "id": "addon3_title",
-      "label": "Title",
-      "default": "SPARE MODULE KIT"
-    },
-    {
-      "type": "textarea",
-      "id": "addon3_desc",
-      "label": "Description",
-      "default": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations."
-    },
-    {
-      "type": "text",
-      "id": "addon3_price",
-      "label": "Price",
-      "default": "$8,900"
     },
     {
       "type": "text",
