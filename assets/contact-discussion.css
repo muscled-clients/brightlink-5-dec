@@ -32,6 +32,10 @@ background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  display: flex;
+width: 343px;
+flex-direction: column;
+align-items: center;
 }
 
 .contact-discussion__header-text {
