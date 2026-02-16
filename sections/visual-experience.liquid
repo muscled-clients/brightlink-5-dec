@@ -144,11 +144,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const slides = section.querySelectorAll('.visual-experience__slide');
   const dots = section.querySelectorAll('.visual-experience__dot');
+  const sliderContainer = section.querySelector('.visual-experience__slides');
 
   if (slides.length <= 1) return;
 
   let currentIndex = 0;
   let autoSlideInterval;
+  let isDragging = false;
+  let startX = 0;
+  let currentX = 0;
+  let dragThreshold = 50; // Minimum drag distance to change slide
 
   function goToSlide(index) {
     slides.forEach(slide => slide.classList.remove('visual-experience__slide--active'));
@@ -164,6 +169,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const next = (currentIndex + 1) % slides.length;
     goToSlide(next);
   }
+
+  function previousSlide() {
+    const prev = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(prev);
+  }
+
+  // Mouse drag functionality
+  sliderContainer.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX;
+    sliderContainer.style.cursor = 'grabbing';
+    clearInterval(autoSlideInterval);
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    currentX = e.pageX;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    
+    const dragDistance = currentX - startX;
+    
+    if (Math.abs(dragDistance) > dragThreshold) {
+      if (dragDistance > 0) {
+        previousSlide(); // Dragged right - go to previous slide
+      } else {
+        nextSlide(); // Dragged left - go to next slide
+      }
+    }
+    
+    isDragging = false;
+    sliderContainer.style.cursor = 'grab';
+    startAutoSlide();
+  });
+
+  // Prevent default drag behavior on images
+  sliderContainer.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+  });
 
   // Dot click handlers
   dots.forEach((dot, index) => {
@@ -189,6 +236,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Pause on hover
   section.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
   section.addEventListener('mouseleave', startAutoSlide);
+
+  // Set initial cursor style
+  sliderContainer.style.cursor = 'grab';
 });
 </script>
 
