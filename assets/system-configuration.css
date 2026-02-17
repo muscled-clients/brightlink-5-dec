@@ -670,7 +670,13 @@ line-height: 28px; /* 140% */
   .system-configuration__header-text {
     gap: 12px;
   }
-
+.system-configuration__connection-images-box img {
+width: 240px;
+height: 182.4px;
+  max-height: 266px;
+  object-fit: none;
+  margin-bottom: 15px;
+}
   .system-configuration__label {
     font-family: Inter, sans-serif;
     color: #D4AF37;
