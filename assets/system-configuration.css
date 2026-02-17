@@ -885,7 +885,7 @@ line-height: normal;
   .system-configuration__features {
     border-top: none;
     padding-top: 0;
-    gap: 18px;
+    gap: 12px;
   }
 
   .system-configuration__feature-title {
