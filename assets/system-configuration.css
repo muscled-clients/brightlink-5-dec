@@ -883,6 +883,7 @@ line-height: normal;
         width: 312px;
         height: 242px;
          margin: 0 auto;
+         padding:0;
 }
 
   .system-configuration__connection-images-box {
