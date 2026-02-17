@@ -733,6 +733,16 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
    }
+   .system-configuration__card-subtitle{
+
+color: #A0AEC0;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+
+   }
   .system-configuration__card-header {
     padding: 20px 20px 15px;
     border-bottom: none;
