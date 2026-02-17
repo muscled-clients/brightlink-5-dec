@@ -744,8 +744,10 @@ line-height: 20px; /* 142.857% */
 
    }
   .system-configuration__card-header {
-    padding: 20px 20px 15px;
-    border-bottom: none;
+   display: flex;
+align-items: center;
+gap: 16px;
+align-self: stretch;
   }
 
   .system-configuration__card-body {
@@ -899,7 +901,10 @@ background: rgba(10, 132, 255, 0.10);
   }
 
   .system-configuration__card-header {
-    padding: 18px 15px 12px;
+    display: flex;
+align-items: center;
+gap: 16px;
+align-self: stretch;
   }
 
   .system-configuration__card-body {
