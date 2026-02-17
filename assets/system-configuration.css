@@ -677,7 +677,7 @@ line-height: 28px; /* 140% */
 
   .system-configuration__heading {
     font-size: 32px;
-    letter-spacing: -1px;
+    letter-spacing: -2px;
     font-family: Inter, sans-serif;
     color: #FFF;
   }
