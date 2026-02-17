@@ -17,6 +17,103 @@
         "content": true
       }
     },
+    "tabbed_hero_banner_BWaJRt": {
+      "type": "tabbed-hero-banner",
+      "blocks": {
+        "tab_zcRtkx": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Industry Standard"
+          }
+        },
+        "tab_PUeCNV": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Nova Star Certified"
+          }
+        },
+        "tab_hgCyHA": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Trusted by Fortune 500"
+          }
+        }
+      },
+      "block_order": [
+        "tab_zcRtkx",
+        "tab_PUeCNV",
+        "tab_hgCyHA"
+      ],
+      "name": "Tabbed Hero Banner",
+      "settings": {
+        "max_width": 1200,
+        "min_height": 500,
+        "mobile_min_height": 500,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_image": "shopify://shop_images/4b2f9f15ece5c3557bb91ccecf407979d70d3f4f.png",
+        "mobile_background_image": "shopify://shop_images/4b2f9f15ece5c3557bb91ccecf407979d70d3f4f.png",
+        "overlay_color": "#000000",
+        "overlay_opacity": 0.6,
+        "show_tabs_mobile": "none",
+        "tab_gap": 10,
+        "tabs_margin_bottom": 30,
+        "tab_padding_vertical": 10,
+        "tab_padding_horizontal": 20,
+        "mobile_tab_padding_vertical": 8,
+        "mobile_tab_padding_horizontal": 15,
+        "tab_background": "#3b82f6",
+        "tab_text_color": "#ffffff",
+        "tab_hover_background": "rgba(255, 255, 255, 0.2)",
+        "tab_hover_border_color": "rgba(255, 255, 255, 0.5)",
+        "tab_active_background": "#3b82f6",
+        "tab_active_border_color": "#3b82f6",
+        "tab_active_text_color": "#ffffff",
+        "tab_border_radius": 25,
+        "tab_font_size": 14,
+        "mobile_tab_font_size": 12,
+        "tab_font_weight": "500",
+        "title_font_size": 48,
+        "mobile_title_font_size": 28,
+        "title_font_weight": "700",
+        "title_color": "#ffffff",
+        "title_margin_bottom": 20,
+        "title_line_height": "1.2",
+        "subtitle_font_size": 18,
+        "mobile_subtitle_font_size": 16,
+        "subtitle_color": "#e5e5e5",
+        "subtitle_margin_bottom": 40,
+        "subtitle_max_width": 600,
+        "subtitle_line_height": "1.5",
+        "text_shadow": "0 2px 4px rgba(0, 0, 0, 0.3)",
+        "button_gap": 20,
+        "button_padding_vertical": 14,
+        "button_padding_horizontal": 35,
+        "mobile_button_padding_vertical": 16,
+        "mobile_button_padding_horizontal": 30,
+        "button_border_radius": 10,
+        "button_font_size": 16,
+        "mobile_button_font_size": 14,
+        "button_font_weight": "600",
+        "primary_button_background": "#3b82f6",
+        "primary_button_text_color": "#ffffff",
+        "primary_button_border_color": "#3b82f6",
+        "primary_button_hover_background": "#2563eb",
+        "primary_button_hover_border_color": "#2563eb",
+        "secondary_button_background": "transparent",
+        "secondary_button_text_color": "#ffffff",
+        "secondary_button_border_color": "#ffffff",
+        "secondary_button_hover_background": "#ffffff",
+        "secondary_button_hover_border_color": "#ffffff",
+        "secondary_button_hover_text_color": "#000000",
+        "default_title": "Get Your LED Specifications in 60 Seconds",
+        "default_subtitle": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
+        "default_primary_button_text": "Calculate My Display",
+        "default_primary_button_link": "",
+        "default_secondary_button_text": "Talk to Expert",
+        "default_secondary_button_link": ""
+      }
+    },
     "led_display_calculator_rb8Eex": {
       "type": "led-display-calculator",
       "blocks": {
@@ -186,10 +283,374 @@
         "screen_step3_title": "3. Get Recommendation",
         "screen_default_result_label": "Enter dimensions above"
       }
+    },
+    "project_cost_estimator_ayt3K3": {
+      "type": "project-cost-estimator",
+      "blocks": {
+        "pricing_package_ADJeXx": {
+          "type": "pricing_package",
+          "settings": {
+            "package_name": "Standard Package",
+            "package_price": "Under $50,000",
+            "features": "1.9mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Standard mounting solution|Basic control system|1-year warranty",
+            "button_text": "Request Quote",
+            "button_link": "",
+            "is_popular": false,
+            "popular_badge_text": "POPULAR",
+            "view_details_text": "View Details"
+          }
+        },
+        "pricing_package_LQMtg7": {
+          "type": "pricing_package",
+          "settings": {
+            "package_name": "Premium Package",
+            "package_price": "$50,000 - $100,000",
+            "features": "1.5mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Premium mounting system|Advanced control system|3-year warranty|Installation included",
+            "button_text": "Request Quote",
+            "button_link": "",
+            "is_popular": true,
+            "popular_badge_text": "POPULAR",
+            "view_details_text": "View Details"
+          }
+        },
+        "pricing_package_YcFMVE": {
+          "type": "pricing_package",
+          "settings": {
+            "package_name": "Enterprise Package",
+            "package_price": "Over $100,000",
+            "features": "1.2mm COB LED Display|Custom dimensions|Custom mounting solution|Enterprise control system|5-year warranty|Installation & training|Ongoing support",
+            "button_text": "Request Quote",
+            "button_link": "",
+            "is_popular": false,
+            "popular_badge_text": "POPULAR",
+            "view_details_text": "View Details"
+          }
+        }
+      },
+      "block_order": [
+        "pricing_package_ADJeXx",
+        "pricing_package_LQMtg7",
+        "pricing_package_YcFMVE"
+      ],
+      "name": "Project Cost Estimator",
+      "settings": {
+        "show_title": true,
+        "section_title": "Project Cost Estimator",
+        "section_icon": "⭐",
+        "disclaimer_text": "Prices are estimates only. Contact us for a detailed quote specific to your project requirements.",
+        "max_width": 1240,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "background_gradient_start": "#1e3c72",
+        "background_gradient_end": "#2a5298",
+        "inner_background": "#1e293b66",
+        "inner_border_color": "#47556980",
+        "inner_border_radius": 20,
+        "title_color": "#ffffff",
+        "accent_color": "#3b82f6",
+        "card_background": "#1e293b80",
+        "card_border_color": "#47556980",
+        "card_border_radius": 15,
+        "popular_card_background": "#3b82f6",
+        "popular_gradient_start": "#3b82f6",
+        "popular_gradient_end": "#1d4ed8",
+        "popular_border_color": "#2563eb",
+        "popular_text_color": "#ffffff",
+        "badge_background": "#3b82f6",
+        "badge_text_color": "#ffffff",
+        "title_font_size": 36,
+        "mobile_title_font_size": 28,
+        "package_name_font_size": 24,
+        "package_price_font_size": 28,
+        "mobile_package_name_font_size": 20,
+        "mobile_package_price_font_size": 20,
+        "disclaimer_font_size": 14,
+        "package_name_color": "#ffffff",
+        "package_price_color": "#ffffff",
+        "disclaimer_color": "#a8c5e5",
+        "feature_check_icon": "✓",
+        "feature_text_color": "#e5e5e5",
+        "feature_icon_color": "#22c55e",
+        "popular_feature_color": "#ffffff",
+        "popular_feature_icon_color": "#ffffff",
+        "button_font_size": 16,
+        "button_padding_vertical": 14,
+        "button_padding_horizontal": 30,
+        "button_border_radius": 10,
+        "button_background": "#3b82f6",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#3b82f6",
+        "button_hover_background": "#3b82f6cc",
+        "button_hover_border_color": "#3b82f6",
+        "popular_button_background": "#ffffff33",
+        "popular_button_text_color": "#ffffff",
+        "popular_button_border_color": "#ffffff80",
+        "popular_button_hover_background": "#ffffff4d",
+        "popular_button_hover_border_color": "#ffffff",
+        "accordion_arrow_icon": "▼",
+        "accordion_arrow_color": "#a8c5e5",
+        "view_details_button_background": "#ffffff",
+        "view_details_button_text_color": "#3b82f6",
+        "view_details_button_border_color": "#ffffff"
+      }
+    },
+    "consultation_cta_wXDXEn": {
+      "type": "consultation-cta",
+      "name": "Consultation CTA",
+      "settings": {
+        "background_image": "shopify://shop_images/led-wall_1.png",
+        "overlay_color": "#00000066",
+        "overlay_opacity": 0.6,
+        "max_width": 1240,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "inner_padding_vertical": 60,
+        "inner_padding_horizontal": 40,
+        "mobile_inner_padding_vertical": 30,
+        "mobile_inner_padding_horizontal": 20,
+        "title": "Ready to Move Forward?",
+        "subtitle": "Get your custom LED specification today",
+        "main_button_text": "Get Free Consultation",
+        "main_button_icon": "📅",
+        "main_button_link": "",
+        "mini_title": "Free for $50k+ projects",
+        "mini_title_icon": "⭐",
+        "request_button_text": "Request Custom Quote",
+        "request_button_icon": "📋",
+        "request_button_link": "",
+        "download_button_text": "Download Complete Guide",
+        "download_button_icon": "📥",
+        "pdf_file_url": "",
+        "title_font_size": 48,
+        "mobile_title_font_size": 32,
+        "subtitle_font_size": 18,
+        "mobile_subtitle_font_size": 16,
+        "title_color": "#ffffff",
+        "subtitle_color": "#ffffff",
+        "text_color": "#ffffff",
+        "mini_title_color": "#fbbf24",
+        "accent_color": "#fbbf24",
+        "text_shadow": "0 2px 4px rgba(0, 0, 0, 0.5)",
+        "button_font_size": 16,
+        "action_button_font_size": 14,
+        "button_border_radius": 10,
+        "main_button_padding_vertical": 16,
+        "main_button_padding_horizontal": 35,
+        "action_button_padding_vertical": 12,
+        "action_button_padding_horizontal": 25,
+        "main_button_background": "#ffffff",
+        "main_button_text_color": "#000000",
+        "main_button_hover_background": "#f0f0f0",
+        "action_button_background": "#8b4513cc",
+        "action_button_text_color": "#ffffff",
+        "action_button_border_color": "#8b4513",
+        "action_button_hover_background": "#8b4513",
+        "contact_card_background": "#1e2a47cc",
+        "contact_card_border_radius": 15,
+        "contact_card_padding": 30,
+        "mobile_contact_card_padding": 20,
+        "contact_header_text": "Speak with LED Experts",
+        "contact_header_icon": "🎧",
+        "contact_title_font_size": 20,
+        "mobile_contact_title_font_size": 18,
+        "phone_label": "Call Now",
+        "phone_number": "(855) 44-WIRED",
+        "phone_icon": "📞",
+        "email": "support@brightlinkav.com",
+        "email_icon": "✉️",
+        "website": "brightlinkav.com",
+        "website_icon": "🌐",
+        "contact_text_color": "#ffffff",
+        "contact_label_color": "#a8c5e5",
+        "contact_accent_color": "#3b82f6",
+        "show_availability": true,
+        "availability_status_text": "Same-day response guaranteed",
+        "availability_details": "Mon-Fri: 8AM-6PM CST\nEmergency support: 24/7",
+        "status_color": "#22c55e"
+      }
+    },
+    "led_science_section_3tiayK": {
+      "type": "led-science-section",
+      "blocks": {
+        "technology_block_P6iknC": {
+          "type": "technology_block",
+          "settings": {
+            "block_title": "Pixel Pitch & Visual Acuity",
+            "block_description": "Pixel pitch refers to the distance between the centers of adjacent LED pixels, measured in millimeters. This specification directly impacts image quality and optimal viewing distance.",
+            "block_image": "shopify://shop_images/div_48e7bc55-d885-4fec-b6a2-c142d046e5b9.png",
+            "features": "Visual Acuity Principle:The human eye can resolve details of approximately 1/60 of a degree of arc. This scientific principle guides our recommendations for optimal viewing distances.|Pixel Pitch Formula:For text-based content, the minimum viewing distance should be approximately 1000 times the pixel pitch. For video content, this can be reduced to about 500 times the pixel pitch."
+          }
+        },
+        "technology_block_xT8X7D": {
+          "type": "technology_block",
+          "settings": {
+            "block_title": "COB LED Technology",
+            "block_description": "Chip-on-Board (COB) technology represents the latest advancement in LED display manufacturing, offering superior performance over traditional Surface-Mounted Device (SMD) LEDs.",
+            "block_image": "shopify://shop_images/img_38876aa8-3494-4ead-b6d3-0273224b4670.png",
+            "features": "Superior Durability:COB technology encapsulates multiple LED chips in a single module, providing better protection against impact, moisture, and dust compared to traditional SMD LEDs.|Enhanced Visual Performance:COB displays offer higher contrast ratios, better black levels, and improved viewing angles, resulting in more vibrant and consistent image quality in all lighting conditions."
+          }
+        },
+        "download_block_yHPpyW": {
+          "type": "download_block",
+          "settings": {
+            "download_title": "Download Our LED Specification Guide",
+            "download_description": "Get our comprehensive guide to LED display specifications and installation best practices for your project success.",
+            "download_features": "Detailed pixel pitch comparison charts|COB vs. SMD technology comparison|Installation and maintenance guidelines",
+            "button_text": "Download PDF Guide",
+            "pdf_url": "",
+            "download_image": "shopify://shop_images/image_4.png"
+          }
+        }
+      },
+      "block_order": [
+        "technology_block_P6iknC",
+        "technology_block_xT8X7D",
+        "download_block_yHPpyW"
+      ],
+      "name": "LED Science Section",
+      "settings": {
+        "show_header": true,
+        "section_title": "The Science Behind LED Displays",
+        "section_subtitle": "Understanding the technology that powers our premium LED solutions",
+        "max_width": 1240,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "background_gradient_start": "#1e3c72",
+        "background_gradient_end": "#2a5298",
+        "card_background": "#2b395ecc",
+        "card_border_color": "#8b9dc34d",
+        "card_border_radius": 15,
+        "title_font_size": 36,
+        "subtitle_font_size": 18,
+        "mobile_title_font_size": 28,
+        "mobile_subtitle_font_size": 16,
+        "title_color": "#ffffff",
+        "subtitle_color": "#a8c5e5",
+        "block_title_font_size": 22,
+        "block_description_font_size": 14,
+        "block_title_color": "#3b82f6",
+        "block_description_color": "#e5e5e5",
+        "feature_check_icon": "✓",
+        "feature_background": "#3b82f61a",
+        "feature_border_color": "#3b82f633",
+        "feature_icon_background": "#3b82f6",
+        "feature_icon_color": "#ffffff",
+        "feature_title_color": "#ffffff",
+        "feature_text_color": "#a8c5e5",
+        "download_title_font_size": 28,
+        "download_description_font_size": 16,
+        "download_title_color": "#ffffff",
+        "download_description_color": "#e5e5e5",
+        "download_feature_color": "#e5e5e5",
+        "download_feature_icon": "✓",
+        "download_feature_icon_color": "#22c55e",
+        "download_icon": "⬇",
+        "button_font_size": 16,
+        "button_padding_vertical": 14,
+        "button_padding_horizontal": 28,
+        "button_background": "#3b82f6",
+        "button_text_color": "#ffffff",
+        "button_border_color": "#3b82f6",
+        "button_hover_background": "#2563eb",
+        "button_hover_border_color": "#2563eb",
+        "accordion_header_background": "#3b82f6",
+        "accordion_title_color": "#ffffff",
+        "accordion_arrow_color": "#ffffff",
+        "sub_accordion_background": "#3b82f61a",
+        "sub_accordion_border": "#3b82f633",
+        "sub_accordion_title_color": "#ffffff"
+      }
+    },
+    "success_stories_section_rCL8eC": {
+      "type": "success-stories-section",
+      "blocks": {
+        "story_card_cw7WHQ": {
+          "type": "story_card",
+          "settings": {
+            "badge_text": "Conference Room",
+            "card_title": "Mesa Arizona",
+            "card_description": "1.5mm COB LED video wall installation for executive boardroom, improving presentation clarity and client engagement.",
+            "show_specs": true,
+            "spec_size": "18' × 8'",
+            "spec_pitch": "1.5mm pitch"
+          }
+        },
+        "story_card_qh94gz": {
+          "type": "story_card",
+          "settings": {
+            "badge_text": "Control Room",
+            "card_title": "Epic.io",
+            "card_description": "24/7 operation control center with 1.2mm fine-pitch LED display wall for critical monitoring applications.",
+            "show_specs": true,
+            "spec_size": "24' × 7'",
+            "spec_pitch": "1.2mm pitch"
+          }
+        },
+        "story_card_AkcQte": {
+          "type": "story_card",
+          "settings": {
+            "badge_text": "Retail Display",
+            "card_title": "University of Honolulu",
+            "card_description": "Custom curved 2.5mm LED display creating an immersive brand experience for customers in flagship store.",
+            "show_specs": true,
+            "spec_size": "20' × 6' (curved)",
+            "spec_pitch": "2.5mm pitch"
+          }
+        }
+      },
+      "block_order": [
+        "story_card_cw7WHQ",
+        "story_card_qh94gz",
+        "story_card_AkcQte"
+      ],
+      "name": "Success Stories",
+      "settings": {
+        "show_header": true,
+        "section_title": "Success Stories",
+        "section_subtitle": "See how our LED solutions have transformed spaces for leading organizations",
+        "max_width": 1240,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "background_gradient_start": "#1e3c72",
+        "background_gradient_end": "#2a5298",
+        "card_background": "#2b395ee6",
+        "card_border_color": "#8b9dc34d",
+        "card_border_radius": 15,
+        "image_placeholder_bg": "#2a3f5f",
+        "title_font_size": 40,
+        "subtitle_font_size": 18,
+        "card_title_font_size": 24,
+        "card_description_font_size": 14,
+        "title_color": "#ffffff",
+        "subtitle_color": "#a8c5e5",
+        "card_title_color": "#ffffff",
+        "card_description_color": "#e5e5e5",
+        "badge_background": "#3b82f633",
+        "badge_text_color": "#60a5fa",
+        "size_icon": "📐",
+        "pitch_icon": "⚙",
+        "specs_border_color": "#8b9dc34d",
+        "spec_text_color": "#a8c5e5",
+        "spec_icon_color": "#3b82f6",
+        "mobile_title_font_size": 28,
+        "mobile_subtitle_font_size": 16,
+        "mobile_card_title_font_size": 20,
+        "mobile_card_description_font_size": 14,
+        "nav_button_background": "#2b395ecc",
+        "nav_button_color": "#ffffff",
+        "nav_button_hover_background": "#3b82f6",
+        "dot_active_color": "#3b82f6",
+        "dot_inactive_color": "#8b9dc380"
+      }
     }
   },
   "order": [
     "main",
-    "led_display_calculator_rb8Eex"
+    "tabbed_hero_banner_BWaJRt",
+    "led_display_calculator_rb8Eex",
+    "project_cost_estimator_ayt3K3",
+    "consultation_cta_wXDXEn",
+    "led_science_section_3tiayK",
+    "success_stories_section_rCL8eC"
   ]
 }
