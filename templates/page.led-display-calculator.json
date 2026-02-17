@@ -400,7 +400,8 @@
             "download_description": "Get our comprehensive guide to LED display specifications and installation best practices for your project success.",
             "download_features": "Detailed pixel pitch comparison charts|COB vs. SMD technology comparison|Installation and maintenance guidelines",
             "button_text": "Download PDF Guide",
-            "pdf_url": ""
+            "pdf_url": "",
+            "download_image": "shopify://shop_images/image_4.png"
           }
         }
       },
