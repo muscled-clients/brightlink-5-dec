@@ -810,6 +810,8 @@ padding:16px;
     align-items: flex-start;
     gap: 4px;
     padding: 0;
+            width: 312px;
+        height: 51px;
   }
 
   .system-configuration__spec-label {
@@ -975,7 +977,9 @@ line-height: normal;
   }
 
   .system-configuration__spec-row {
-    padding: 10px 0;
+     padding: 0;
+            width: 312px;
+        height: 51px;
   }
 
   .system-configuration__spec-label {
