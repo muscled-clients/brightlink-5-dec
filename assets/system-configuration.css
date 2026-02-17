@@ -813,8 +813,13 @@ padding:16px;
   }
 
   .system-configuration__spec-label {
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
+   color: #A0AEC0;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+width: 279px;
   }
 
   .system-configuration__spec-value {
@@ -970,7 +975,13 @@ line-height: normal;
   }
 
   .system-configuration__spec-label {
-    font-size: 11px;
+     color: #A0AEC0;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+width: 279px;
   }
 
   .system-configuration__spec-value {
