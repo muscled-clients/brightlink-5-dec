@@ -92,6 +92,17 @@
   margin: 0;
 }
 
+/* Specs Line */
+.hero-video-wall__specs-line {
+  color: #D1D5DB;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
 /* Main Heading */
 .hero-video-wall__main-heading {
   color: #FFF;
