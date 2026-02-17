@@ -202,12 +202,10 @@ height: 578px;
 }
 
 .system-configuration__card-title {
-   color: #FFF;
-font-family: Inter, sans-serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 2px 0;
 }
 
 .system-configuration__card-subtitle {
@@ -725,6 +723,15 @@ line-height: normal;
         width: 100%;
         margin: 0 auto;
         height: 272px;
+   }
+   .system-configuration__card-title{
+
+    color: #FFF;
+font-family: Inter, sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
    }
   .system-configuration__card-header {
     padding: 20px 20px 15px;
