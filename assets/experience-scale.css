@@ -436,7 +436,13 @@ line-height: normal;
   }
 
   .experience-scale__metric-desc {
-    font-size: 11px;
+    color: #A0AEC0;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   }
 }
 
@@ -515,7 +521,13 @@ text-transform: uppercase;
   }
 
   .experience-scale__metric-desc {
-    font-size: 10px;
+    color: #A0AEC0;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   }
 
   .experience-scale__btn {
