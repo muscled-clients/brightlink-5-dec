@@ -449,9 +449,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "2-4 HOURS",
+            "card_title": "1 DAY",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -642,7 +642,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
+            "card_title": "14.75M PIXELS",
             "card_subtitle": "True 4K Resolution",
             "card_desc": "3840 x 2160 active pixels"
           }
@@ -651,7 +651,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "1.25MM",
+            "card_title": "0.9MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
@@ -829,7 +829,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
+        "subheading": "Precision-engineered 8×8 cabinet array delivering 14.75 million pixels across 217 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -840,13 +840,13 @@
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
-        "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
+        "cabinet_visual_sublabel": "640 × 360 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
         "cabinet_subtitle": "Precision-engineered modular unit",
         "cabinet_dimensions": "600mm × 337.5mm × 25mm",
         "cabinet_imperial": "23.62\" × 13.3\" × 1\"",
         "cabinet_weight": "3.7kg (8.3 lbs)",
-        "cabinet_resolution": "480 × 270 pixels",
+        "cabinet_resolution": "640 × 360 pixels",
         "cabinet_modules": "4 COB modules",
         "connection_image": "shopify://shop_images/div_5.png",
         "connection_title": "Cabinet Connection Detail",
@@ -883,13 +883,13 @@
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
         "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/image_1_1.png",
-        "metric1_value": "36x",
+        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
+        "metric1_value": "11x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "4x",
+        "metric2_value": "160x",
         "metric2_label": "Equivalent",
-        "metric2_desc": "to 17' diagonal display",
+        "metric2_desc": "to 17'' diagonal display",
         "metric3_value": "141",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
