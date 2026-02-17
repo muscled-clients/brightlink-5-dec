@@ -764,6 +764,7 @@ flex: 1 0 0;
 align-items: center;
 gap: 16px;
 align-self: stretch;
+padding:16px;
   }
 
   .system-configuration__card-body {
