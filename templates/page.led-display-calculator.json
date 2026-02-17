@@ -380,6 +380,7 @@
           "settings": {
             "block_title": "Pixel Pitch & Visual Acuity",
             "block_description": "Pixel pitch refers to the distance between the centers of adjacent LED pixels, measured in millimeters. This specification directly impacts image quality and optimal viewing distance.",
+            "block_image": "shopify://shop_images/div_48e7bc55-d885-4fec-b6a2-c142d046e5b9.png",
             "features": "Visual Acuity Principle:The human eye can resolve details of approximately 1/60 of a degree of arc. This scientific principle guides our recommendations for optimal viewing distances.|Pixel Pitch Formula:For text-based content, the minimum viewing distance should be approximately 1000 times the pixel pitch. For video content, this can be reduced to about 500 times the pixel pitch."
           }
         },
@@ -388,6 +389,7 @@
           "settings": {
             "block_title": "COB LED Technology",
             "block_description": "Chip-on-Board (COB) technology represents the latest advancement in LED display manufacturing, offering superior performance over traditional Surface-Mounted Device (SMD) LEDs.",
+            "block_image": "shopify://shop_images/img_38876aa8-3494-4ead-b6d3-0273224b4670.png",
             "features": "Superior Durability:COB technology encapsulates multiple LED chips in a single module, providing better protection against impact, moisture, and dust compared to traditional SMD LEDs.|Enhanced Visual Performance:COB displays offer higher contrast ratios, better black levels, and improved viewing angles, resulting in more vibrant and consistent image quality in all lighting conditions."
           }
         },
