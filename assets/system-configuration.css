@@ -717,6 +717,13 @@ line-height: normal;
         width: 100%;
         margin: 0 auto;
   }
+   .system-configuration__connection-images-box {
+
+            max-width: 312px;
+        width: 100%;
+        margin: 0 auto;
+        height: 272px;
+   }
   .system-configuration__card-header {
     padding: 20px 20px 15px;
     border-bottom: none;
