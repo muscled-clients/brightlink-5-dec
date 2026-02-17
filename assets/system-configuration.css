@@ -655,7 +655,7 @@ line-height: 28px; /* 140% */
 }
 
   .system-configuration__container {
-    gap: 40px;
+    gap: 16px;
   }
 
   .system-configuration__header {
