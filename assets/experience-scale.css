@@ -367,6 +367,7 @@ line-height: normal;
   .experience-scale__content {
     max-width: calc(100% - 40px);
     flex-direction: column;
+    gap: 16px;
   }
 
   .experience-scale__display {
