@@ -823,9 +823,13 @@ width: 279px;
   }
 
   .system-configuration__spec-value {
-    font-size: 15px;
-    font-weight: 600;
-    color: #ffffff;
+  color: #FFF;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+align-self: stretch;
   }
 
   /* Connection images box on mobile */
@@ -985,7 +989,13 @@ width: 279px;
   }
 
   .system-configuration__spec-value {
-    font-size: 14px;
+      color: #FFF;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+align-self: stretch;
   }
 
   .system-configuration__lock-icon-wrapper {
