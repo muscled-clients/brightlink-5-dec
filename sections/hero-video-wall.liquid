@@ -38,6 +38,20 @@
   <div class="hero-video-wall__content">
     <!-- Top Frame: Series Label, Heading, Price -->
     <div class="hero-video-wall__text-frame">
+      {% comment %} Find the config matching the current product page, fallback to first {% endcomment %}
+      {% assign default_config = nil %}
+      {% for block in section.blocks %}
+        {% if block.type == 'product_config' and block.settings.product != blank %}
+          {% if block.settings.product.handle == product.handle %}
+            {% assign default_config = block %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% unless default_config %}
+        {% assign default_config = section.blocks | first %}
+      {% endunless %}
+
       <!-- Series Label -->
       {% if series_label != blank %}
         <p class="hero-video-wall__series-label">{{ series_label }}</p>
@@ -56,20 +70,6 @@
       {% elsif product.title != blank %}
         <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
       {% endif %}
-
-      {% comment %} Find the config matching the current product page, fallback to first {% endcomment %}
-      {% assign default_config = nil %}
-      {% for block in section.blocks %}
-        {% if block.type == 'product_config' and block.settings.product != blank %}
-          {% if block.settings.product.handle == product.handle %}
-            {% assign default_config = block %}
-            {% break %}
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-      {% unless default_config %}
-        {% assign default_config = section.blocks | first %}
-      {% endunless %}
 
       {% assign first_matched_variant = nil %}
       {% if default_config.settings.product != blank %}
