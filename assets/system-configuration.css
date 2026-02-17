@@ -885,7 +885,12 @@ line-height: normal;
   }
 
   .system-configuration__feature-title {
-    font-size: 14px;
+   color: #FFF;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
   }
 
   .system-configuration__feature-desc {
@@ -1039,7 +1044,12 @@ align-self: stretch;
   }
 
   .system-configuration__feature-title {
-    font-size: 13px;
+   color: #FFF;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
   }
 
   .system-configuration__feature-desc {
