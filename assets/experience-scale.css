@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
   align-self: stretch;
   width: 1440px;
   max-width: 100%;
@@ -312,7 +312,7 @@
     width:343px;
     height:92px;
     padding:0;
-    gap:12;
+    gap:12px;
   }
 
   .experience-scale__header-text {
