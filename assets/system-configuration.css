@@ -746,8 +746,8 @@ line-height: normal;
   }
 
   .system-configuration__cabinet-images-row img {
-    height: 150px;
-    max-height: 160px;
+           width: 240px;
+        height: 160px;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
@@ -891,8 +891,8 @@ line-height: normal;
   }
 
   .system-configuration__cabinet-images-row img {
-    height: 120px;
-    max-height: 130px;
+           width: 240px;
+        height: 160px;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
