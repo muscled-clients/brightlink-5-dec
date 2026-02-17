@@ -625,10 +625,14 @@
 @media screen and (max-width: 768px) {
   .hero-video-wall-section {
     min-height: auto;
+    height: auto;
   }
 
   .hero-video-wall__content {
-    padding: 60px 20px 30px;
+    width: 100%;
+    margin: 40px 0 30px 0;
+    padding: 40px 20px 30px;
+    gap: 16px;
   }
 
   .hero-video-wall__series-label {
@@ -637,20 +641,91 @@
     letter-spacing: 1px;
   }
 
+  .hero-video-wall__specs-line {
+    font-size: 13px;
+  }
+
   .hero-video-wall__main-heading {
     font-size: 32px;
   }
 
   .hero-video-wall__subheading {
+    width: 100%;
     font-size: 16px;
+    line-height: 22px;
+    margin-top: 8px;
   }
 
   .hero-video-wall__description {
     font-size: 13px;
+    max-width: 100%;
+  }
+
+  .hero-video-wall__price-wrapper {
+    gap: 10px;
+  }
+
+  .hero-video-wall__current-price {
+    font-size: 24px;
+  }
+
+  .hero-video-wall__compare-price {
+    font-size: 24px;
   }
 
   .hero-video-wall__price-badge {
     font-size: 13px;
+  }
+
+  .hero-video-wall__variant-wrapper {
+    padding: 16px 14px;
+    gap: 14px;
+  }
+
+  .hero-video-wall__variant-label {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .hero-video-wall__variant-boxes {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .hero-video-wall__variant-box-wrapper {
+    flex: 1 0 calc(50% - 6px);
+    min-width: calc(50% - 6px);
+  }
+
+  .hero-video-wall__variant-box-wrapper[data-box="aspect_ratio"] ~ .hero-video-wall__view-btn {
+    flex: 0 0 auto;
+  }
+
+  .hero-video-wall__view-btn {
+    width: 100%;
+    height: 48px;
+    flex: 1 0 100%;
+  }
+
+  .hero-video-wall__box-value {
+    font-size: 14px;
+  }
+
+  .hero-video-wall__box-title {
+    font-size: 11px;
+  }
+
+  .hero-video-wall__buttons {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-video-wall__btn--primary,
+  .hero-video-wall__btn--secondary {
+    padding: 14px 16px;
+    font-size: 14px;
   }
 
   .hero-video-wall__btn {
@@ -695,12 +770,35 @@
 }
 
 @media screen and (max-width: 480px) {
+  .hero-video-wall__content {
+    padding: 30px 16px 24px;
+    gap: 12px;
+  }
+
+  .hero-video-wall__specs-line {
+    font-size: 11px;
+  }
+
   .hero-video-wall__main-heading {
     font-size: 26px;
   }
 
   .hero-video-wall__subheading {
     font-size: 14px;
+    line-height: 20px;
+  }
+
+  .hero-video-wall__current-price {
+    font-size: 20px;
+  }
+
+  .hero-video-wall__compare-price {
+    font-size: 20px;
+  }
+
+  .hero-video-wall__variant-label {
+    font-size: 14px;
+    line-height: 20px;
   }
 
   .hero-video-wall__feature-box {
