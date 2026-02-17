@@ -404,11 +404,16 @@ flex-shrink: 0;
 
   /* Show icons on mobile */
   .experience-scale__metric-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    color: #3b82f6;
+   display: flex;
+width: 40px;
+height: 40px;
+padding: 10px 12.125px;
+justify-content: center;
+align-items: center;
+border-radius: 8px;
+border: 0 solid #E5E7EB;
+background: rgba(10, 132, 255, 0.10);
+box-shadow: 0 0 15px 0 rgba(10, 132, 255, 0.40);
   }
 
   .experience-scale__metric-value {
