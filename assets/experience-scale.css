@@ -417,7 +417,12 @@ box-shadow: 0 0 15px 0 rgba(10, 132, 255, 0.40);
   }
 
   .experience-scale__metric-value {
-    font-size: 32px;
+    color: #0A84FF;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
   }
 
   .experience-scale__metric-label {
@@ -487,7 +492,12 @@ line-height: normal;
 
 
   .experience-scale__metric-value {
-    font-size: 26px;
+   color: #0A84FF;
+font-family: Inter;
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
   }
 
   .experience-scale__metric-label {
