@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "title": true,
+        "content": true
+      }
+    },
+    "led_display_calculator_rb8Eex": {
+      "type": "led-display-calculator",
+      "blocks": {
+        "application_type_W6LX7H": {
+          "type": "application_type",
+          "settings": {
+            "title": "Home Theaters",
+            "pitch_range": "0.7mm - 0.9mm",
+            "description": "Premium home cinema rooms requiring ultra-fine detail",
+            "data_type": "home-theaters"
+          }
+        },
+        "application_type_CbbiiW": {
+          "type": "application_type",
+          "settings": {
+            "title": "Control Rooms",
+            "pitch_range": "0.9mm - 1.875mm",
+            "description": "Security, monitoring, and command centers",
+            "data_type": "control-rooms"
+          }
+        },
+        "application_type_JiQCeD": {
+          "type": "application_type",
+          "settings": {
+            "title": "Retail Displays",
+            "pitch_range": "1.825mm - 3.9mm",
+            "description": "Stores, lobbies, and commercial displays",
+            "data_type": "retail-displays"
+          }
+        },
+        "application_type_6eb7wH": {
+          "type": "application_type",
+          "settings": {
+            "title": "Conference Rooms",
+            "pitch_range": "1.56mm - 2.5mm",
+            "description": "Professional presentation arenas with easy text readability",
+            "data_type": "conference-rooms"
+          }
+        },
+        "application_type_nmaB8e": {
+          "type": "application_type",
+          "settings": {
+            "title": "Events Venues",
+            "pitch_range": "3.9mm - 10mm+",
+            "description": "Large venues and outdoor events",
+            "data_type": "events-venues"
+          }
+        },
+        "preset_ratio_epEWPV": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "4K Ultra HD (3840×2160) 16:9",
+            "width": "3840",
+            "height": "2160"
+          }
+        },
+        "preset_ratio_nYpG9i": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "Full HD (1920×1080) 16:9",
+            "width": "1920",
+            "height": "1080"
+          }
+        },
+        "preset_ratio_XUQYDr": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "HD-Ready (1280×720) 16:9",
+            "width": "1280",
+            "height": "720"
+          }
+        },
+        "preset_ratio_KyjYhF": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "WUXGA (1920×1200) 16:10",
+            "width": "1920",
+            "height": "1200"
+          }
+        },
+        "preset_ratio_DTUADe": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "UWQHD (3440×1440) 21:9",
+            "width": "3440",
+            "height": "1440"
+          }
+        },
+        "preset_ratio_zdnQHx": {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "NTSC/PAL 4:3",
+            "width": "4",
+            "height": "3"
+          }
+        }
+      },
+      "block_order": [
+        "application_type_W6LX7H",
+        "application_type_CbbiiW",
+        "application_type_JiQCeD",
+        "application_type_6eb7wH",
+        "application_type_nmaB8e",
+        "preset_ratio_epEWPV",
+        "preset_ratio_nYpG9i",
+        "preset_ratio_XUQYDr",
+        "preset_ratio_KyjYhF",
+        "preset_ratio_DTUADe",
+        "preset_ratio_zdnQHx"
+      ],
+      "name": "LED Display Calculator",
+      "settings": {
+        "show_header": true,
+        "main_title": "LED Display Calculator",
+        "main_subtitle": "Calculate optimal pixel pitch and screen dimensions for your project",
+        "max_width": 1240,
+        "title_size": 48,
+        "subtitle_size": 18,
+        "background_gradient_start": "#1e3c72",
+        "background_gradient_end": "#2a5298",
+        "title_color": "#ffffff",
+        "subtitle_color": "#a8c5e5",
+        "heading_color": "#ffffff",
+        "text_color": "#ffffff",
+        "label_color": "#8b9dc3",
+        "accent_color": "#3b82f6",
+        "result_color": "#fbbf24",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "pixel_icon": "⭐",
+        "pixel_section_title": "Pixel Pitch Calculator",
+        "pixel_step1_title": "1. Enter Viewing Distance",
+        "unit_label": "Select Unit",
+        "feet_button_text": "Feet & Inches",
+        "meters_button_text": "Meters & Centimeters",
+        "distance_label": "Enter Distance",
+        "feet_placeholder": "Feet",
+        "inches_placeholder": "Inches",
+        "meters_placeholder": "Meters",
+        "cm_placeholder": "Centimeters",
+        "pixel_step2_title": "2. Select Application Type",
+        "pixel_step3_title": "3. Get Recommendation",
+        "pixel_result_label": "Optimal Pixel Pitch",
+        "screen_icon": "⭐",
+        "screen_section_title": "Screen Size Calculator",
+        "screen_step1_title": "1. Choose Aspect Ratio",
+        "info_icon": "ⓘ",
+        "aspect_width_placeholder": "16",
+        "aspect_height_placeholder": "9",
+        "default_aspect_width": "16",
+        "default_aspect_height": "9",
+        "screen_step2_title": "2. Enter Any Known Dimension",
+        "dimension_hint": "Enter any measurement you know - the other two will be calculated automatically",
+        "diagonal_label": "Diagonal",
+        "diagonal_desc": "Like TV size (55\", 75\")",
+        "diagonal_placeholder": "55",
+        "width_label": "Width",
+        "width_desc": "Horizontal screen size",
+        "width_placeholder": "47.9",
+        "height_label": "Height",
+        "height_desc": "Vertical screen size",
+        "height_placeholder": "27.0",
+        "inches_unit": "inches",
+        "feet_unit": "feet",
+        "cm_unit": "cm",
+        "meters_unit": "meters",
+        "screen_step3_title": "3. Get Recommendation",
+        "screen_default_result_label": "Enter dimensions above"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "led_display_calculator_rb8Eex"
+  ]
+}
