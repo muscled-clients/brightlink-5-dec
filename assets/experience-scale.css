@@ -309,7 +309,9 @@
   }
 
   .experience-scale__header {
-    padding: 40px 20px;
+    width:343px;
+    height:92px;
+    padding:0;
     gap:12;
   }
 
