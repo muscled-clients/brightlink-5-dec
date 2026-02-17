@@ -804,7 +804,7 @@ height: 16px;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
-    transform: translateX(40px);
+    transform: translateX(36px);
   }
 
   .system-configuration__cabinet-images-row img:last-child {
@@ -1018,7 +1018,7 @@ line-height: normal;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
-    transform: translateX(30px);
+    transform: translateX(36px);
   }
 
   .system-configuration__cabinet-images-row img:last-child {
