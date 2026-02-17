@@ -1,0 +1,1187 @@
+{% comment %}
+  LED Science Section
+  Complex section with technology blocks and mobile accordions
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_gradient_start }};
+    background: linear-gradient(135deg, {{ section.settings.background_gradient_start }} 0%, {{ section.settings.background_gradient_end }} 100%);
+    padding: 68px 0 68px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .led-science-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Header Section */
+  #shopify-section-{{ section.id }} .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  #shopify-section-{{ section.id }} .section-title {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .section-subtitle {
+   color: #D1D5DB;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  /* Desktop Technology Blocks */
+  #shopify-section-{{ section.id }} .technology-blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 88px;
+    margin-bottom: 93px;
+  }
+
+  #shopify-section-{{ section.id }} .tech-block {
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .tech-block-header {
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .tech-block-title {
+    color: #60A5FA;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .tech-block-description {
+    color: #D1D5DB;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .tech-block-image {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .tech-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .tech-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    /* padding: 15px; */
+    /* background: {{ section.settings.feature_background }};
+    border-radius: 8px;
+    border: 1px solid {{ section.settings.feature_border_color }}; */
+  }
+
+  #shopify-section-{{ section.id }} .feature-icon {
+    background: {{ section.settings.feature_icon_background }};
+    color: {{ section.settings.feature_icon_color }};
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .feature-content h4 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 28px;
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .feature-content p {
+    color: #D1D5DB;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  /* Download Section */
+  #shopify-section-{{ section.id }} .download-section {
+    padding: 32px 44px;
+    display: grid;
+    grid-template-columns: 1fr 384px;
+    gap: 40px;
+    align-items: center;
+    border-radius: 16px;
+    border: 0 solid #E5E7EB;
+    background: #334155;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.10), 0 10px 15px 0 rgba(0, 0, 0, 0.10);
+  }
+
+  #shopify-section-{{ section.id }} .download-content h3 {
+    color: #FFF;
+    font-family: Inter;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .download-description {
+    color: #D1D5DB;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .download-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+  }
+
+  #shopify-section-{{ section.id }} .download-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #D1D5DB;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    margin-bottom: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  #shopify-section-{{ section.id }} .download-feature-icon {
+    color: {{ section.settings.download_feature_icon_color }};
+    font-size: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: {{ section.settings.button_padding_vertical }}px {{ section.settings.button_padding_horizontal }}px;
+    background: {{ section.settings.button_background }};
+    color: {{ section.settings.button_text_color }};
+    border: 2px solid {{ section.settings.button_border_color }};
+    border-radius: 8px;
+    font-size: {{ section.settings.button_font_size }}px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+   #shopify-section-{{ section.id }} .download-button span {
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .download-button:hover {
+    background: {{ section.settings.button_hover_background }};
+    border-color: {{ section.settings.button_hover_border_color }};
+    transform: translateY(-2px);
+  }
+
+  #shopify-section-{{ section.id }} .download-image {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  /* Mobile Accordions */
+  #shopify-section-{{ section.id }} .mobile-accordions {
+    display: none;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .mobile-accordion {
+    border: 0 solid #E5E7EB;
+    background: rgba(15, 23, 42, 0.50);
+    border-radius: {{ section.settings.card_border_radius }}px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-header {
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: {{ section.settings.accordion_header_background }};
+  }
+
+  #shopify-section-{{ section.id }} .accordion-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: {{ section.settings.accordion_title_color }};
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-toggle {
+    background: none;
+    border: none;
+    color: {{ section.settings.accordion_arrow_color }};
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-toggle.active {
+    transform: rotate(180deg);
+  }
+
+  #shopify-section-{{ section.id }} .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-content.active {
+    max-height: 2000px;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-body {
+    padding: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-description {
+    font-size: 14px;
+    color: {{ section.settings.block_description_color }};
+    line-height: 1.5;
+    margin: 0 0 20px 0;
+  }
+
+  #shopify-section-{{ section.id }} .accordion-image {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  /* Sub Accordions */
+  #shopify-section-{{ section.id }} .sub-accordion {
+        border-radius: 9.003px;
+    border: 0 solid #E5E7EB;
+    background: #0C1222;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-title {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20.257px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 31.511px;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-toggle {
+    background: none;
+    border: none;
+    color: {{ section.settings.accordion_arrow_color }};
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-toggle.active {
+    transform: rotate(180deg);
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-content.active {
+    max-height: 500px;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-body {
+    padding: 15px;
+    padding-top: 0;
+  }
+
+  #shopify-section-{{ section.id }} .sub-accordion-text {
+    font-size: 14px;
+    color: {{ section.settings.feature_text_color }};
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .download-image-container {
+      padding: 18px 45px;
+      border-radius: 12px;
+    border: 1px solid #475569;
+    background: #1E293B;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.10), 0 10px 15px 0 rgba(0, 0, 0, 0.10);
+  }
+
+  /* Mobile Download Section */
+  #shopify-section-{{ section.id }} .mobile-download {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .download-image-label {
+    color: #9CA3AF;
+text-align: center;
+font-family: Inter;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+display: block;
+margin-top: 7.8px;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} {
+      padding: 35px 0;
+    }
+    #shopify-section-{{ section.id }} .led-science-container {
+      padding: 0 18px;
+    }
+
+     #shopify-section-{{ section.id }} .accordion-header {
+      padding: 18px 18px 18px 6px;
+    }
+
+    #shopify-section-{{ section.id }} .section-header {
+      margin-bottom: 40px;
+    }
+
+    #shopify-section-{{ section.id }} .accordion-title {
+          color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    }
+
+    #shopify-section-{{ section.id }} .section-title {
+      font-size: {{ section.settings.mobile_title_font_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .section-subtitle {
+      font-size: {{ section.settings.mobile_subtitle_font_size }}px;
+    }
+
+    #shopify-section-{{ section.id }} .technology-blocks {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .mobile-accordions {
+      display: block;
+    }
+
+    #shopify-section-{{ section.id }} .download-section {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .mobile-download {
+      display: block;
+      border-radius: 9.026px;
+    border: 0 solid #E5E7EB;
+    background: #0F172A;
+      padding: 25px 20px;
+      text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .mobile-download h3 {
+      color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+      margin: 0 0 15px 0;
+    }
+
+    #shopify-section-{{ section.id }} .mobile-download-description {
+      text-align: left;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 15.795px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+      margin: 0 0 20px 0;
+    }
+
+    #shopify-section-{{ section.id }} .mobile-download-image {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .download-image-label {
+          margin-top: 0;
+    margin-bottom: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .download-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+{%- endstyle -%}
+
+<div class="led-science-container">
+  
+  <!-- Header Section -->
+  {% if section.settings.show_header %}
+    <div class="section-header">
+      <h2 class="section-title">{{ section.settings.section_title }}</h2>
+      {% if section.settings.section_subtitle != blank %}
+        <p class="section-subtitle">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  <!-- Desktop Technology Blocks -->
+  <div class="technology-blocks">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'technology_block' %}
+          <div class="tech-block" {{ block.shopify_attributes }}>
+            <div class="tech-block-header">
+              <h3 class="tech-block-title">{{ block.settings.block_title }}</h3>
+              {% if block.settings.block_description != blank %}
+                <p class="tech-block-description">{{ block.settings.block_description }}</p>
+              {% endif %}
+            </div>
+            
+            {% if block.settings.block_image != blank %}
+              <img src="{{ block.settings.block_image | image_url: width: 400 }}" alt="{{ block.settings.block_title }}" class="tech-block-image">
+            {% endif %}
+
+            {% if block.settings.features != blank %}
+              <ul class="tech-features">
+                {% assign features = block.settings.features | split: '|' %}
+                {% for feature in features %}
+                  {% assign feature_parts = feature | split: ':' %}
+                  {% if feature_parts.size == 2 %}
+                    <li class="tech-feature">
+                      <span class="feature-icon">{{ section.settings.feature_check_icon }}</span>
+                      <div class="feature-content">
+                        <h4>{{ feature_parts[0] | strip }}</h4>
+                        <p>{{ feature_parts[1] | strip }}</p>
+                      </div>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+
+  <!-- Mobile Accordions -->
+  <div class="mobile-accordions">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'technology_block' %}
+          <div class="mobile-accordion" data-accordion-id="{{ block.id }}">
+            <div class="accordion-header" onclick="toggleMainAccordion('{{ block.id }}')">
+              <h3 class="accordion-title">{{ block.settings.block_title }}</h3>
+              <button class="accordion-toggle" id="toggle-{{ block.id }}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+  <path d="M7.32147 9.40607C7.76108 9.84567 8.47499 9.84567 8.91459 9.40607L15.6669 2.65378C16.1065 2.21418 16.1065 1.50026 15.6669 1.06066C15.2273 0.621056 14.5134 0.621056 14.0738 1.06066L8.11628 7.01815L2.15878 1.06418C1.71918 0.624573 1.00527 0.624573 0.565664 1.06418C0.126061 1.50378 0.126061 2.21769 0.565664 2.65729L7.31796 9.40959L7.32147 9.40607Z" fill="white"/>
+</svg></button>
+            </div>
+            
+            <div class="accordion-content" id="content-{{ block.id }}">
+              <div class="accordion-body">
+                {% if block.settings.block_description != blank %}
+                  <p class="accordion-description">{{ block.settings.block_description }}</p>
+                {% endif %}
+                
+                {% if block.settings.block_image != blank %}
+                  <img src="{{ block.settings.block_image | image_url: width: 400 }}" alt="{{ block.settings.block_title }}" class="accordion-image">
+                {% endif %}
+
+                {% if block.settings.features != blank %}
+                  {% assign features = block.settings.features | split: '|' %}
+                  {% for feature in features %}
+                    {% assign feature_parts = feature | split: ':' %}
+                    {% if feature_parts.size == 2 %}
+                      <div class="sub-accordion" data-sub-accordion-id="{{ block.id }}-{{ forloop.index }}">
+                        <div class="sub-accordion-header" onclick="toggleSubAccordion('{{ block.id }}-{{ forloop.index }}')">
+                          <h4 class="sub-accordion-title">{{ feature_parts[0] | strip }}</h4>
+                          <button class="sub-accordion-toggle" id="sub-toggle-{{ block.id }}-{{ forloop.index }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="10" viewBox="0 0 16 10" fill="none">
+  <path d="M7.32147 9.40607C7.76108 9.84567 8.47499 9.84567 8.91459 9.40607L15.6669 2.65378C16.1065 2.21418 16.1065 1.50026 15.6669 1.06066C15.2273 0.621056 14.5134 0.621056 14.0738 1.06066L8.11628 7.01815L2.15878 1.06418C1.71918 0.624573 1.00527 0.624573 0.565664 1.06418C0.126061 1.50378 0.126061 2.21769 0.565664 2.65729L7.31796 9.40959L7.32147 9.40607Z" fill="white"/>
+</svg>
+                          </button>
+                        </div>
+                        <div class="sub-accordion-content" id="sub-content-{{ block.id }}-{{ forloop.index }}">
+                          <div class="sub-accordion-body">
+                            <p class="sub-accordion-text">{{ feature_parts[1] | strip }}</p>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              </div>
+            </div>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+
+  <!-- Desktop Download Section -->
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'download_block' %}
+        <div class="download-section" {{ block.shopify_attributes }}>
+          <div class="download-content">
+            <h3>{{ block.settings.download_title }}</h3>
+            {% if block.settings.download_description != blank %}
+              <p class="download-description">{{ block.settings.download_description }}</p>
+            {% endif %}
+            
+            {% if block.settings.download_features != blank %}
+              <ul class="download-features">
+                {% assign features = block.settings.download_features | split: '|' %}
+                {% for feature in features %}
+                  <li class="download-feature">
+                    <span class="download-feature-icon">{{ section.settings.download_feature_icon }}</span>
+                    {{ feature | strip }}
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            
+            {% if block.settings.button_text != blank and block.settings.pdf_url != blank %}
+              <a href="{{ block.settings.pdf_url }}" class="download-button" download>
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M9 1C9 0.446875 8.55313 0 8 0C7.44688 0 7 0.446875 7 1V8.58438L4.70625 6.29063C4.31563 5.9 3.68125 5.9 3.29063 6.29063C2.9 6.68125 2.9 7.31563 3.29063 7.70625L7.29063 11.7063C7.68125 12.0969 8.31563 12.0969 8.70625 11.7063L12.7063 7.70625C13.0969 7.31563 13.0969 6.68125 12.7063 6.29063C12.3156 5.9 11.6812 5.9 11.2906 6.29063L9 8.58438V1ZM2 11C0.896875 11 0 11.8969 0 13V14C0 15.1031 0.896875 16 2 16H14C15.1031 16 16 15.1031 16 14V13C16 11.8969 15.1031 11 14 11H10.8281L9.4125 12.4156C8.63125 13.1969 7.36562 13.1969 6.58437 12.4156L5.17188 11H2ZM13.5 12.75C13.6989 12.75 13.8897 12.829 14.0303 12.9697C14.171 13.1103 14.25 13.3011 14.25 13.5C14.25 13.6989 14.171 13.8897 14.0303 14.0303C13.8897 14.171 13.6989 14.25 13.5 14.25C13.3011 14.25 13.1103 14.171 12.9697 14.0303C12.829 13.8897 12.75 13.6989 12.75 13.5C12.75 13.3011 12.829 13.1103 12.9697 12.9697C13.1103 12.829 13.3011 12.75 13.5 12.75Z" fill="white"/>
+</svg></span>
+                {{ block.settings.button_text }}
+              </a>
+            {% endif %}
+          </div>
+          
+          {% if block.settings.download_image != blank %}
+            <div class="download-image-container">
+              <img src="{{ block.settings.download_image | image_url: width: 300 }}" alt="{{ block.settings.download_title }}" class="download-image">
+              <span class="download-image-label">2025 Edition</span>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Mobile Download Section -->
+        <div class="mobile-download">
+          <h3>{{ block.settings.download_title }}</h3>
+          {% if block.settings.download_description != blank %}
+            <p class="mobile-download-description">{{ block.settings.download_description }}</p>
+          {% endif %}
+          
+          {% if block.settings.download_image != blank %}
+            <img src="{{ block.settings.download_image | image_url: width: 300 }}" alt="{{ block.settings.download_title }}" class="mobile-download-image">
+            <span class="download-image-label">2025 Edition</span>
+          {% endif %}
+          
+          {% if block.settings.button_text != blank and block.settings.pdf_url != blank %}
+            <a href="{{ block.settings.pdf_url }}" class="download-button" download>
+              <span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+  <path d="M9 1C9 0.446875 8.55313 0 8 0C7.44688 0 7 0.446875 7 1V8.58438L4.70625 6.29063C4.31563 5.9 3.68125 5.9 3.29063 6.29063C2.9 6.68125 2.9 7.31563 3.29063 7.70625L7.29063 11.7063C7.68125 12.0969 8.31563 12.0969 8.70625 11.7063L12.7063 7.70625C13.0969 7.31563 13.0969 6.68125 12.7063 6.29063C12.3156 5.9 11.6812 5.9 11.2906 6.29063L9 8.58438V1ZM2 11C0.896875 11 0 11.8969 0 13V14C0 15.1031 0.896875 16 2 16H14C15.1031 16 16 15.1031 16 14V13C16 11.8969 15.1031 11 14 11H10.8281L9.4125 12.4156C8.63125 13.1969 7.36562 13.1969 6.58437 12.4156L5.17188 11H2ZM13.5 12.75C13.6989 12.75 13.8897 12.829 14.0303 12.9697C14.171 13.1103 14.25 13.3011 14.25 13.5C14.25 13.6989 14.171 13.8897 14.0303 14.0303C13.8897 14.171 13.6989 14.25 13.5 14.25C13.3011 14.25 13.1103 14.171 12.9697 14.0303C12.829 13.8897 12.75 13.6989 12.75 13.5C12.75 13.3011 12.829 13.1103 12.9697 12.9697C13.1103 12.829 13.3011 12.75 13.5 12.75Z" fill="white"/>
+</svg></span>
+              {{ block.settings.button_text }}
+            </a>
+          {% endif %}
+        </div>
+      {% endcase %}
+    {% endfor %}
+
+</div>
+
+<script>
+function toggleMainAccordion(blockId) {
+  const sectionId = '{{ section.id }}';
+  const section = document.getElementById('shopify-section-' + sectionId);
+  
+  const targetContent = section.querySelector('#content-' + blockId);
+  const targetToggle = section.querySelector('#toggle-' + blockId);
+  
+  if (targetContent && targetToggle) {
+    const isActive = targetContent.classList.contains('active');
+    
+    if (isActive) {
+      targetContent.classList.remove('active');
+      targetToggle.classList.remove('active');
+    } else {
+      targetContent.classList.add('active');
+      targetToggle.classList.add('active');
+    }
+  }
+}
+
+function toggleSubAccordion(subId) {
+  const sectionId = '{{ section.id }}';
+  const section = document.getElementById('shopify-section-' + sectionId);
+  
+  const targetContent = section.querySelector('#sub-content-' + subId);
+  const targetToggle = section.querySelector('#sub-toggle-' + subId);
+  
+  if (targetContent && targetToggle) {
+    const isActive = targetContent.classList.contains('active');
+    
+    if (isActive) {
+      targetContent.classList.remove('active');
+      targetToggle.classList.remove('active');
+    } else {
+      targetContent.classList.add('active');
+      targetToggle.classList.add('active');
+    }
+  }
+}
+</script>
+
+{% schema %}
+{
+  "name": "LED Science Section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Section Header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "The Science Behind LED Displays"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Understanding the technology that powers our premium LED solutions"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum Width",
+      "min": 800,
+      "max": 1600,
+      "step": 40,
+      "default": 1240,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 10,
+      "default": 80,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Background & Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_start",
+      "label": "Background Gradient Start",
+      "default": "#1e3c72"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_end",
+      "label": "Background Gradient End",
+      "default": "#2a5298"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "rgba(43, 57, 94, 0.8)"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "rgba(139, 157, 195, 0.3)"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card Border Radius",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_font_size",
+      "label": "Title Font Size",
+      "min": 28,
+      "max": 48,
+      "step": 4,
+      "default": 36,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_font_size",
+      "label": "Subtitle Font Size",
+      "min": 16,
+      "max": 24,
+      "step": 2,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_font_size",
+      "label": "Mobile Title Font Size",
+      "min": 24,
+      "max": 36,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_subtitle_font_size",
+      "label": "Mobile Subtitle Font Size",
+      "min": 14,
+      "max": 20,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "header",
+      "content": "Technology Block Settings"
+    },
+    {
+      "type": "range",
+      "id": "block_title_font_size",
+      "label": "Block Title Font Size",
+      "min": 18,
+      "max": 28,
+      "step": 2,
+      "default": 22,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "block_description_font_size",
+      "label": "Block Description Font Size",
+      "min": 14,
+      "max": 18,
+      "step": 2,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "block_title_color",
+      "label": "Block Title Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "block_description_color",
+      "label": "Block Description Color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "header",
+      "content": "Feature Settings"
+    },
+    {
+      "type": "text",
+      "id": "feature_check_icon",
+      "label": "Feature Check Icon",
+      "default": "✓"
+    },
+    {
+      "type": "color",
+      "id": "feature_background",
+      "label": "Feature Background",
+      "default": "rgba(59, 130, 246, 0.1)"
+    },
+    {
+      "type": "color",
+      "id": "feature_border_color",
+      "label": "Feature Border Color",
+      "default": "rgba(59, 130, 246, 0.2)"
+    },
+    {
+      "type": "color",
+      "id": "feature_icon_background",
+      "label": "Feature Icon Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "feature_icon_color",
+      "label": "Feature Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "feature_title_color",
+      "label": "Feature Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "feature_text_color",
+      "label": "Feature Text Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "header",
+      "content": "Download Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "download_title_font_size",
+      "label": "Download Title Font Size",
+      "min": 24,
+      "max": 36,
+      "step": 2,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "download_description_font_size",
+      "label": "Download Description Font Size",
+      "min": 14,
+      "max": 18,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "download_title_color",
+      "label": "Download Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "download_description_color",
+      "label": "Download Description Color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "color",
+      "id": "download_feature_color",
+      "label": "Download Feature Color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "text",
+      "id": "download_feature_icon",
+      "label": "Download Feature Icon",
+      "default": "✓"
+    },
+    {
+      "type": "color",
+      "id": "download_feature_icon_color",
+      "label": "Download Feature Icon Color",
+      "default": "#22c55e"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "download_icon",
+      "label": "Download Icon",
+      "default": "⬇"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "label": "Button Font Size",
+      "min": 14,
+      "max": 18,
+      "step": 2,
+      "default": 16,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_vertical",
+      "label": "Button Padding Vertical",
+      "min": 10,
+      "max": 20,
+      "step": 2,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "button_padding_horizontal",
+      "label": "Button Padding Horizontal",
+      "min": 20,
+      "max": 40,
+      "step": 4,
+      "default": 28,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button Hover Background",
+      "default": "#2563eb"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button Hover Border Color",
+      "default": "#2563eb"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Accordion Settings"
+    },
+    {
+      "type": "color",
+      "id": "accordion_header_background",
+      "label": "Accordion Header Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "accordion_title_color",
+      "label": "Accordion Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "accordion_arrow_color",
+      "label": "Accordion Arrow Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "sub_accordion_background",
+      "label": "Sub Accordion Background",
+      "default": "rgba(59, 130, 246, 0.1)"
+    },
+    {
+      "type": "color",
+      "id": "sub_accordion_border",
+      "label": "Sub Accordion Border",
+      "default": "rgba(59, 130, 246, 0.2)"
+    },
+    {
+      "type": "color",
+      "id": "sub_accordion_title_color",
+      "label": "Sub Accordion Title Color",
+      "default": "#ffffff"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "technology_block",
+      "name": "Technology Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "block_title",
+          "label": "Block Title",
+          "default": "Pixel Pitch & Visual Acuity"
+        },
+        {
+          "type": "textarea",
+          "id": "block_description",
+          "label": "Block Description",
+          "default": "Pixel pitch refers to the distance between the centers of adjacent LED pixels, measured in millimeters. This specification directly impacts image quality and optimal viewing distance."
+        },
+        {
+          "type": "image_picker",
+          "id": "block_image",
+          "label": "Block Image"
+        },
+        {
+          "type": "textarea",
+          "id": "features",
+          "label": "Features (Format: Title:Description|Title:Description)",
+          "default": "Visual Acuity Principle:The human eye can resolve details of approximately 1/60 of a degree of arc. This scientific principle guides our recommendations for optimal viewing distances.|Pixel Pitch Formula:For text-based content, the minimum viewing distance should be approximately 1000 times the pixel pitch. For video content, this can be reduced to about 500 times the pixel pitch."
+        }
+      ]
+    },
+    {
+      "type": "download_block",
+      "name": "Download Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "download_title",
+          "label": "Download Title",
+          "default": "Download Our LED Specification Guide"
+        },
+        {
+          "type": "textarea",
+          "id": "download_description",
+          "label": "Download Description",
+          "default": "Get our comprehensive guide to LED display specifications and installation best practices for your project success."
+        },
+        {
+          "type": "textarea",
+          "id": "download_features",
+          "label": "Download Features (separate with |)",
+          "default": "Detailed pixel pitch comparison charts|COB vs. SMD technology comparison|Installation and maintenance guidelines"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Download PDF Guide"
+        },
+        {
+          "type": "url",
+          "id": "pdf_url",
+          "label": "PDF File URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "download_image",
+          "label": "Download Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LED Science Section",
+      "blocks": [
+        {
+          "type": "technology_block",
+          "settings": {
+            "block_title": "Pixel Pitch & Visual Acuity",
+            "block_description": "Pixel pitch refers to the distance between the centers of adjacent LED pixels, measured in millimeters. This specification directly impacts image quality and optimal viewing distance.",
+            "features": "Visual Acuity Principle:The human eye can resolve details of approximately 1/60 of a degree of arc. This scientific principle guides our recommendations for optimal viewing distances.|Pixel Pitch Formula:For text-based content, the minimum viewing distance should be approximately 1000 times the pixel pitch. For video content, this can be reduced to about 500 times the pixel pitch."
+          }
+        },
+        {
+          "type": "technology_block",
+          "settings": {
+            "block_title": "COB LED Technology",
+            "block_description": "Chip-on-Board (COB) technology represents the latest advancement in LED display manufacturing, offering superior performance over traditional Surface-Mounted Device (SMD) LEDs.",
+            "features": "Superior Durability:COB technology encapsulates multiple LED chips in a single module, providing better protection against impact, moisture, and dust compared to traditional SMD LEDs.|Enhanced Visual Performance:COB displays offer higher contrast ratios, better black levels, and improved viewing angles, resulting in more vibrant and consistent image quality in all lighting conditions."
+          }
+        },
+        {
+          "type": "download_block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

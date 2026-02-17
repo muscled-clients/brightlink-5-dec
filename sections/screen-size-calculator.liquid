@@ -1,0 +1,894 @@
+{% comment %}
+  Screen Size Calculator Section
+  Calculate screen dimensions based on aspect ratio and any known dimension
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_gradient_start }} !important;
+    background: linear-gradient(135deg, {{ section.settings.background_gradient_start }} 0%, {{ section.settings.background_gradient_end }} 100%) !important;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .screen-size-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-calculator-section {
+    background: {{ section.settings.card_background }};
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-top: {{ section.settings.margin_top }}px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-star-icon {
+    font-size: 28px;
+    margin-right: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-section-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .screen-calculator-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-step {
+    margin-bottom: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-step h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .screen-info-icon {
+    font-size: 14px;
+    color: {{ section.settings.label_color }};
+    cursor: help;
+  }
+
+  #shopify-section-{{ section.id }} .screen-aspect-ratio-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-aspect-ratio-inputs input {
+    width: 80px;
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .screen-ratio-separator {
+    color: {{ section.settings.label_color }};
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  #shopify-section-{{ section.id }} .screen-preset-ratios {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-preset-btn {
+    padding: 10px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #8b9dc3;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .screen-preset-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .screen-preset-btn.selected {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: {{ section.settings.accent_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-hint {
+    font-size: 14px;
+    color: {{ section.settings.label_color }};
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-label {
+    flex: 0 0 120px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-label span:first-child {
+    font-size: 16px;
+    color: {{ section.settings.text_color }};
+    margin-bottom: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-desc {
+    font-size: 12px;
+    color: {{ section.settings.label_color }};
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row input {
+    flex: 1;
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row select {
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    cursor: pointer;
+    min-width: 100px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row select option {
+    background: #2a3f5f;
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row input:focus,
+  #shopify-section-{{ section.id }} .screen-dimension-row select:focus {
+    outline: none;
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .screen-dimension-row input.calculated {
+    color: {{ section.settings.result_color }};
+    font-weight: 600;
+  }
+
+  #shopify-section-{{ section.id }} .screen-recommendation-section {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .screen-recommendation-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .screen-recommendation-box {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(43, 57, 94, 0.9);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  #shopify-section-{{ section.id }} .screen-result-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: {{ section.settings.result_color }};
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .screen-result-label {
+    font-size: 18px;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .screen-calculator-content {
+      grid-template-columns: 1fr;
+    }
+    
+    #shopify-section-{{ section.id }} .screen-section-header h2 {
+      font-size: 24px;
+    }
+    
+    #shopify-section-{{ section.id }} .screen-dimension-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    
+    #shopify-section-{{ section.id }} .screen-dimension-label {
+      flex: none;
+    }
+  }
+{%- endstyle -%}
+
+<div class="screen-size-container">
+  <div class="screen-calculator-section">
+    <div class="screen-section-header">
+      <span class="screen-star-icon">{{ section.settings.icon }}</span>
+      <h2>{{ section.settings.section_title }}</h2>
+    </div>
+
+    <div class="screen-calculator-content">
+      <div class="screen-left-panel">
+        <div class="screen-step">
+          <h3>{{ section.settings.step1_title }} <span class="screen-info-icon">{{ section.settings.info_icon }}</span></h3>
+          <div class="screen-aspect-ratio-inputs">
+            <input type="number" id="screen-aspect-width-{{ section.id }}" placeholder="{{ section.settings.aspect_width_placeholder }}" value="{{ section.settings.default_aspect_width }}" min="1">
+            <span class="screen-ratio-separator">:</span>
+            <input type="number" id="screen-aspect-height-{{ section.id }}" placeholder="{{ section.settings.aspect_height_placeholder }}" value="{{ section.settings.default_aspect_height }}" min="1">
+          </div>
+          <div class="screen-preset-ratios">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'preset_ratio' %}
+                  <button class="screen-preset-btn" data-width="{{ block.settings.width }}" data-height="{{ block.settings.height }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.label }}
+                  </button>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="screen-right-panel">
+        <div class="screen-step">
+          <h3>{{ section.settings.step2_title }}</h3>
+          <p class="screen-dimension-hint">{{ section.settings.dimension_hint }}</p>
+          
+          <div class="screen-dimension-input-group">
+            <div class="screen-dimension-row">
+              <div class="screen-dimension-label">
+                <span>{{ section.settings.diagonal_label }}</span>
+                <span class="screen-dimension-desc">{{ section.settings.diagonal_desc }}</span>
+              </div>
+              <input type="number" id="screen-diagonal-input-{{ section.id }}" placeholder="{{ section.settings.diagonal_placeholder }}" step="0.1">
+              <select id="screen-diagonal-unit-{{ section.id }}">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+            
+            <div class="screen-dimension-row">
+              <div class="screen-dimension-label">
+                <span>{{ section.settings.width_label }}</span>
+                <span class="screen-dimension-desc">{{ section.settings.width_desc }}</span>
+              </div>
+              <input type="number" id="screen-width-input-{{ section.id }}" placeholder="{{ section.settings.width_placeholder }}" step="0.1">
+              <select id="screen-width-unit-{{ section.id }}">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+            
+            <div class="screen-dimension-row">
+              <div class="screen-dimension-label">
+                <span>{{ section.settings.height_label }}</span>
+                <span class="screen-dimension-desc">{{ section.settings.height_desc }}</span>
+              </div>
+              <input type="number" id="screen-height-input-{{ section.id }}" placeholder="{{ section.settings.height_placeholder }}" step="0.1">
+              <select id="screen-height-unit-{{ section.id }}">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="screen-recommendation-section">
+      <h3>{{ section.settings.step3_title }}</h3>
+      <div class="screen-recommendation-box">
+        <div class="screen-result-value" id="screen-result-value-{{ section.id }}">--</div>
+        <div class="screen-result-label" id="screen-result-label-{{ section.id }}">{{ section.settings.default_result_label }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionId = '{{ section.id }}';
+  
+  // Unit conversion factors to inches (base unit)
+  const TO_INCHES = {
+    'inches': 1,
+    'feet': 12,
+    'cm': 0.393701,
+    'meters': 39.3701
+  };
+
+  // Calculate screen dimensions from aspect ratio and one known dimension
+  function calculateScreenDimensions(aspectRatioWidth, aspectRatioHeight, knownValue, knownDimension, unit = 'inches') {
+    const aspectRatioDiagonal = Math.sqrt(aspectRatioWidth ** 2 + aspectRatioHeight ** 2);
+    
+    let diagonal, width, height;
+    
+    if (knownDimension === 'diagonal') {
+      diagonal = knownValue;
+      const factor = diagonal / aspectRatioDiagonal;
+      width = aspectRatioWidth * factor;
+      height = aspectRatioHeight * factor;
+    } else if (knownDimension === 'width') {
+      width = knownValue;
+      const factor = width / aspectRatioWidth;
+      diagonal = aspectRatioDiagonal * factor;
+      height = aspectRatioHeight * factor;
+    } else if (knownDimension === 'height') {
+      height = knownValue;
+      const factor = height / aspectRatioHeight;
+      diagonal = aspectRatioDiagonal * factor;
+      width = aspectRatioWidth * factor;
+    }
+    
+    return {
+      diagonal: Math.round(diagonal * 10) / 10,
+      width: Math.round(width * 10) / 10,
+      height: Math.round(height * 10) / 10,
+      unit: unit
+    };
+  }
+
+  // Convert units
+  function convertUnits(value, fromUnit, toUnit) {
+    const valueInInches = value * TO_INCHES[fromUnit];
+    return valueInInches / TO_INCHES[toUnit];
+  }
+
+  // Update screen size calculations
+  function updateScreenCalculations(triggeredBy) {
+    const aspectWidth = parseFloat(document.getElementById('screen-aspect-width-' + sectionId).value) || 16;
+    const aspectHeight = parseFloat(document.getElementById('screen-aspect-height-' + sectionId).value) || 9;
+    
+    const diagonalInput = document.getElementById('screen-diagonal-input-' + sectionId);
+    const widthInput = document.getElementById('screen-width-input-' + sectionId);
+    const heightInput = document.getElementById('screen-height-input-' + sectionId);
+    
+    const diagonalUnit = document.getElementById('screen-diagonal-unit-' + sectionId).value;
+    const widthUnit = document.getElementById('screen-width-unit-' + sectionId).value;
+    const heightUnit = document.getElementById('screen-height-unit-' + sectionId).value;
+    
+    let knownValue, knownDimension, inputUnit;
+    
+    if (triggeredBy === 'diagonal' && diagonalInput.value) {
+      knownValue = parseFloat(diagonalInput.value);
+      knownDimension = 'diagonal';
+      inputUnit = diagonalUnit;
+    } else if (triggeredBy === 'width' && widthInput.value) {
+      knownValue = parseFloat(widthInput.value);
+      knownDimension = 'width';
+      inputUnit = widthUnit;
+    } else if (triggeredBy === 'height' && heightInput.value) {
+      knownValue = parseFloat(heightInput.value);
+      knownDimension = 'height';
+      inputUnit = heightUnit;
+    } else {
+      document.getElementById('screen-result-value-' + sectionId).textContent = '--';
+      document.getElementById('screen-result-label-' + sectionId).textContent = '{{ section.settings.default_result_label }}';
+      return;
+    }
+    
+    const result = calculateScreenDimensions(aspectWidth, aspectHeight, knownValue, knownDimension, inputUnit);
+    
+    if (triggeredBy !== 'diagonal') {
+      const diagonalConverted = convertUnits(result.diagonal, inputUnit, diagonalUnit);
+      diagonalInput.value = Math.round(diagonalConverted * 10) / 10;
+      diagonalInput.classList.add('calculated');
+    } else {
+      diagonalInput.classList.remove('calculated');
+    }
+    
+    if (triggeredBy !== 'width') {
+      const widthConverted = convertUnits(result.width, inputUnit, widthUnit);
+      widthInput.value = Math.round(widthConverted * 10) / 10;
+      widthInput.classList.add('calculated');
+    } else {
+      widthInput.classList.remove('calculated');
+    }
+    
+    if (triggeredBy !== 'height') {
+      const heightConverted = convertUnits(result.height, inputUnit, heightUnit);
+      heightInput.value = Math.round(heightConverted * 10) / 10;
+      heightInput.classList.add('calculated');
+    } else {
+      heightInput.classList.remove('calculated');
+    }
+    
+    // Display all dimensions in the result
+    const diagonalInInches = convertUnits(result.diagonal, inputUnit, 'inches');
+    const widthInInches = convertUnits(result.width, inputUnit, 'inches');
+    const heightInInches = convertUnits(result.height, inputUnit, 'inches');
+    
+    document.getElementById('screen-result-value-' + sectionId).textContent = Math.round(diagonalInInches * 10) / 10 + '"';
+    document.getElementById('screen-result-label-' + sectionId).textContent = 
+      'W: ' + Math.round(widthInInches * 10) / 10 + '" × H: ' + Math.round(heightInInches * 10) / 10 + '"';
+  }
+
+  // Aspect ratio inputs
+  const aspectWidth = document.getElementById('screen-aspect-width-' + sectionId);
+  const aspectHeight = document.getElementById('screen-aspect-height-' + sectionId);
+  
+  if (aspectWidth && aspectHeight) {
+    aspectWidth.addEventListener('input', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .screen-dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+    
+    aspectHeight.addEventListener('input', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .screen-dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  }
+
+  // Preset ratio buttons
+  const presetButtons = document.querySelectorAll('#shopify-section-' + sectionId + ' .screen-preset-btn');
+  presetButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      presetButtons.forEach(btn => btn.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      const width = this.dataset.width;
+      const height = this.dataset.height;
+      
+      // Extract aspect ratio from resolution
+      function gcd(a, b) {
+        return b === 0 ? a : gcd(b, a % b);
+      }
+      
+      const divisor = gcd(parseInt(width), parseInt(height));
+      const aspectW = parseInt(width) / divisor;
+      const aspectH = parseInt(height) / divisor;
+      
+      document.getElementById('screen-aspect-width-' + sectionId).value = aspectW;
+      document.getElementById('screen-aspect-height-' + sectionId).value = aspectH;
+      
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .screen-dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  });
+
+  // Dimension inputs
+  const diagonalInput = document.getElementById('screen-diagonal-input-' + sectionId);
+  const widthInput = document.getElementById('screen-width-input-' + sectionId);
+  const heightInput = document.getElementById('screen-height-input-' + sectionId);
+  
+  if (diagonalInput) {
+    diagonalInput.addEventListener('input', function() {
+      if (this.value) {
+        widthInput.value = '';
+        heightInput.value = '';
+        updateScreenCalculations('diagonal');
+      }
+    });
+  }
+  
+  if (widthInput) {
+    widthInput.addEventListener('input', function() {
+      if (this.value) {
+        diagonalInput.value = '';
+        heightInput.value = '';
+        updateScreenCalculations('width');
+      }
+    });
+  }
+  
+  if (heightInput) {
+    heightInput.addEventListener('input', function() {
+      if (this.value) {
+        diagonalInput.value = '';
+        widthInput.value = '';
+        updateScreenCalculations('height');
+      }
+    });
+  }
+
+  // Unit selectors
+  const unitSelectors = document.querySelectorAll('#shopify-section-' + sectionId + ' .screen-dimension-row select');
+  unitSelectors.forEach(selector => {
+    selector.addEventListener('change', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .screen-dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Screen Size Calculator",
+  "settings": [
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Section Icon",
+      "default": "⭐"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Screen Size Calculator"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "1. Choose Aspect Ratio"
+    },
+    {
+      "type": "text",
+      "id": "info_icon",
+      "label": "Info Icon",
+      "default": "ⓘ"
+    },
+    {
+      "type": "text",
+      "id": "aspect_width_placeholder",
+      "label": "Aspect Width Placeholder",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "aspect_height_placeholder",
+      "label": "Aspect Height Placeholder",
+      "default": "9"
+    },
+    {
+      "type": "text",
+      "id": "default_aspect_width",
+      "label": "Default Aspect Width",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "default_aspect_height",
+      "label": "Default Aspect Height",
+      "default": "9"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "2. Enter Any Known Dimension"
+    },
+    {
+      "type": "text",
+      "id": "dimension_hint",
+      "label": "Dimension Hint",
+      "default": "Enter any measurement you know - the other two will be calculated automatically"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_label",
+      "label": "Diagonal Label",
+      "default": "Diagonal"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_desc",
+      "label": "Diagonal Description",
+      "default": "Like TV size (55\", 75\")"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_placeholder",
+      "label": "Diagonal Placeholder",
+      "default": "55"
+    },
+    {
+      "type": "text",
+      "id": "width_label",
+      "label": "Width Label",
+      "default": "Width"
+    },
+    {
+      "type": "text",
+      "id": "width_desc",
+      "label": "Width Description",
+      "default": "Horizontal screen size"
+    },
+    {
+      "type": "text",
+      "id": "width_placeholder",
+      "label": "Width Placeholder",
+      "default": "47.9"
+    },
+    {
+      "type": "text",
+      "id": "height_label",
+      "label": "Height Label",
+      "default": "Height"
+    },
+    {
+      "type": "text",
+      "id": "height_desc",
+      "label": "Height Description",
+      "default": "Vertical screen size"
+    },
+    {
+      "type": "text",
+      "id": "height_placeholder",
+      "label": "Height Placeholder",
+      "default": "27.0"
+    },
+    {
+      "type": "text",
+      "id": "inches_unit",
+      "label": "Inches Unit Label",
+      "default": "inches"
+    },
+    {
+      "type": "text",
+      "id": "feet_unit",
+      "label": "Feet Unit Label",
+      "default": "feet"
+    },
+    {
+      "type": "text",
+      "id": "cm_unit",
+      "label": "Centimeters Unit Label",
+      "default": "cm"
+    },
+    {
+      "type": "text",
+      "id": "meters_unit",
+      "label": "Meters Unit Label",
+      "default": "meters"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "3. Get Recommendation"
+    },
+    {
+      "type": "text",
+      "id": "default_result_label",
+      "label": "Default Result Label",
+      "default": "Enter dimensions above"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum Width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_start",
+      "label": "Background Gradient Start",
+      "default": "#1e3c72"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_end",
+      "label": "Background Gradient End",
+      "default": "#2a5298"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "rgba(30, 42, 71, 0.9)"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#8b9dc3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "result_color",
+      "label": "Result Color",
+      "default": "#fbbf24"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "preset_ratio",
+      "name": "Preset Ratio",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "4K Ultra HD (3840×2160) 16:9"
+        },
+        {
+          "type": "text",
+          "id": "width",
+          "label": "Resolution Width",
+          "default": "3840"
+        },
+        {
+          "type": "text",
+          "id": "height",
+          "label": "Resolution Height",
+          "default": "2160"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Screen Size Calculator",
+      "blocks": [
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "4K Ultra HD (3840×2160) 16:9",
+            "width": "3840",
+            "height": "2160"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "Full HD (1920×1080) 16:9",
+            "width": "1920",
+            "height": "1080"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "HD-Ready (1280×720) 16:9",
+            "width": "1280",
+            "height": "720"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "WUXGA (1920×1200) 16:10",
+            "width": "1920",
+            "height": "1200"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "UWQHD (3440×1440) 21:9",
+            "width": "3440",
+            "height": "1440"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "NTSC/PAL 4:3",
+            "width": "4",
+            "height": "3"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
