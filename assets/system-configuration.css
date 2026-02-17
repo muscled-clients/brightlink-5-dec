@@ -878,8 +878,9 @@ line-height: normal;
   }
 .system-configuration__cabinet-images-box{
 
-  max-width: 345px;
-        width: 100%;
+        width: 312px;
+        height: 242px;
+
 }
   .system-configuration__cabinet-images-box,
   .system-configuration__connection-images-box {
