@@ -817,6 +817,7 @@ line-height: normal;
   /* CTA section */
   .system-configuration__cta-section {
     padding-top: 30px;
+    display:none;
   }
 
   .system-configuration__cta-heading {
