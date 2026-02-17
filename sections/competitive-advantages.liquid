@@ -802,9 +802,9 @@
 
       <div class="competitive-advantages__buttons">
         {% if section.settings.button_text != blank %}
-          <a href="{{ section.settings.button_link | default: '#' }}" class="competitive-advantages__btn">
+          <button type="button" class="competitive-advantages__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
             {{ section.settings.button_text }}
-          </a>
+          </button>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
           <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="competitive-advantages__btn--secondary">

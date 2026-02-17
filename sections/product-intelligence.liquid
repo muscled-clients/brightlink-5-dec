@@ -50,7 +50,7 @@
 {% assign pic_support_heading = product.metafields.custom.pic_support_heading.value %}
 {% assign pic_support_resource_titles = product.metafields.custom.pic_support_resource_titles.value %}
 {% assign pic_support_resource_descriptions = product.metafields.custom.pic_support_resource_descriptions.value %}
-{% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %}
+{% comment %} {% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %} {% endcomment %}
 {% assign pic_support_resource_files = product.metafields.custom.pic_support_and_resource_files.value %}
 {% assign pic_support_resource_icons = product.metafields.custom.pic_support_resource_icons.value %}
 
@@ -318,9 +318,9 @@
 
                   <!-- CTA Box -->
                   <div class="product-intelligence__cta">
-                    <a href="{{ block.settings.primary_btn_link | default: '#order' }}" class="product-intelligence__btn">
+                    <button type="button" class="product-intelligence__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
                       {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
-                    </a>
+                    </button>
                     <a href="{{ block.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="product-intelligence__btn--secondary">
                       {{ block.settings.secondary_btn_text | default: 'BOOK A CALL' }}
                     </a>
@@ -364,7 +364,7 @@
               <!-- Specifications Content -->
               <div class="specs-content">
                 <!-- Display Specifications Accordion -->
-                <div class="specs-accordion" data-accordion>
+                <div class="specs-accordion specs-accordion--open" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">{{ block.settings.display_section_title | default: 'Display Specifications' }}</span>
                     <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
@@ -446,7 +446,7 @@
                 </div>
 
                 <!-- Physical Specifications Accordion -->
-                <div class="specs-accordion" data-accordion>
+                <div class="specs-accordion specs-accordion--open" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">{{ block.settings.physical_section_title | default: 'Physical Specifications' }}</span>
                     <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
@@ -510,7 +510,7 @@
                 </div>
 
                 <!-- Electrical Specifications Accordion -->
-                <div class="specs-accordion" data-accordion>
+                <div class="specs-accordion specs-accordion--open" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">{{ block.settings.electrical_section_title | default: 'Electrical Specifications' }}</span>
                     <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
@@ -556,7 +556,7 @@
                 </div>
 
                 <!-- Environmental & Durability Accordion -->
-                <div class="specs-accordion" data-accordion>
+                <div class="specs-accordion specs-accordion--open" data-accordion>
                   <button class="specs-accordion__header" type="button">
                     <span class="specs-accordion__title">{{ block.settings.environmental_section_title | default: 'Environmental & Durability' }}</span>
                     <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
@@ -1399,7 +1399,7 @@
                     <h3 class="installation-support__title">{{ pic_install_support_title | default: 'Need Professional Installation Support?' }}</h3>
                     <p class="installation-support__desc">{{ pic_install_support_description | default: 'Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.' }}</p>
                   </div>
-                  <a href="{{ block.settings.installer_link }}" class="installation-support__btn">
+                  <a href="{{ block.settings.installer_link | default: 'https://brightlinkav.com/pages/installer-zone' }}" class="installation-support__btn">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <g clip-path="url(#clip0_10_2020)">
                         <path d="M5.15312 0.768478C4.9125 0.187228 4.27812 -0.122147 3.67188 0.0434781L0.921875 0.793478C0.378125 0.943478 0 1.43723 0 1.99973C0 9.73098 6.26875 15.9997 14 15.9997C14.5625 15.9997 15.0563 15.6216 15.2063 15.0779L15.9563 12.3279C16.1219 11.7216 15.8125 11.0872 15.2312 10.8466L12.2312 9.5966C11.7219 9.3841 11.1313 9.53098 10.7844 9.9591L9.52188 11.4997C7.32188 10.4591 5.54063 8.67785 4.5 6.47785L6.04063 5.21848C6.46875 4.86848 6.61562 4.28098 6.40312 3.7716L5.15312 0.771603V0.768478Z" fill="white"/>
@@ -1527,7 +1527,7 @@
                     </div>
                     <h4 class="support-contact__email">{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}</h4>
                     <p class="support-contact__response">{{ pic_support_contact.email.response | default: 'Response within 1-2 hours during business hours' }}</p>
-                    <a href="mailto:{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                    <a href="https://mail.google.com/mail/?view=cm&to={{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}" target="_blank" rel="noopener" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
                   </div>
 
                   <div class="support-contact__card support-contact__card--lifetime">
@@ -1772,9 +1772,7 @@
 
   // Function to download resource file
   function downloadResourceFile(fileUrl, fileName) {
-    console.log('download button clicked');
     if (!fileUrl) return;
-    console.log('download button clicked inside');
     // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = fileUrl;
@@ -1797,6 +1795,68 @@
         console.error('Download error:', error);
         window.open(fileUrl, '_blank');
       });
+  }
+
+  // Global Add to Cart handler for all ORDER NOW buttons
+  if (!window._sectionAddToCartInit) {
+    window._sectionAddToCartInit = true;
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.js-section-add-to-cart');
+      if (!btn) return;
+
+      var variantId = btn.getAttribute('data-variant-id');
+      if (!variantId) return;
+
+      var originalText = btn.innerHTML;
+      btn.disabled = true;
+      btn.innerHTML = 'Adding...';
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
+      })
+      .then(function(response) {
+        if (response.ok) {
+          btn.innerHTML = 'Added!';
+          // Update cart count and refresh mini-cart
+          fetch('/cart.js')
+            .then(function(r) { return r.json(); })
+            .then(function(cart) {
+              document.querySelectorAll('.header__cart-count').forEach(function(el) {
+                el.textContent = cart.item_count;
+              });
+              return fetch((window.routes ? window.routes.cartUrl : '/cart') + '?section_id=mini-cart');
+            })
+            .then(function(r) { return r.text(); })
+            .then(function(html) {
+              var miniCart = document.getElementById('mini-cart');
+              if (miniCart) {
+                var temp = document.createElement('div');
+                temp.innerHTML = html;
+                var newMiniCart = temp.querySelector('.mini-cart');
+                if (newMiniCart) {
+                  miniCart.innerHTML = newMiniCart.innerHTML;
+                }
+              }
+            });
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
+        } else {
+          btn.innerHTML = 'Error';
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
+        }
+      })
+      .catch(function() {
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    });
   }
 </script>
 
@@ -2215,15 +2275,6 @@
             { "value": "installation", "label": "Installation (Tool)" },
             { "value": "support", "label": "Support (Question)" }
           ]
-        },
-        {
-          "type": "header",
-          "content": "Use Case Image"
-        },
-        {
-          "type": "image_picker",
-          "id": "usecase_image",
-          "label": "Use Case Image"
         }
       ]
     }

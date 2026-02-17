@@ -1329,7 +1329,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "investment_config_9xqzkP": {
+    "investment_config_XArH8k": {
       "type": "investment-config",
       "name": "Investment Config",
       "settings": {
@@ -1337,11 +1337,6 @@
         "title": "Configure Your System",
         "subtitle": "Transparent pricing for professional installations",
         "card_label": "COMPLETE SYSTEM",
-        "product_name": "Brightlink Pro Spectrum 217\"",
-        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
-        "original_price": "$179,000",
-        "current_price": "$149,000",
-        "discount_text": "SAVE 17%",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
         "include_1": "64 premium cabinets (8×8 array)",
@@ -1356,21 +1351,12 @@
         "primary_button_link": "",
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
-        "addon1_title": "BL-VT PRO VACUUM TOOL",
-        "addon1_desc": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.",
-        "addon1_price": "$249",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "",
-        "addon2_title": "EXTENDED WARRANTY",
-        "addon2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
-        "addon2_price": "$4,500",
+        "addon1_product": "brightlink-bl-vt-pro-led-display-vacuum-tool-effortless-front-maintenance-for-led-video-walls",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_product": "",
-        "addon3_title": "SPARE MODULE KIT",
-        "addon3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
-        "addon3_price": "$8,900",
+        "addon2_product": "1-year-extended-warranty",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_product": ""
+        "addon3_product": "brightlink-s-new-large-scale-138-14-x-500mm-x-1000mm-panel-3-91mm-pitch-led-display-16-9-ration-3-91mm-458-752-pixels-hd-1080p-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller-mounts-4-year-warranty"
       }
     },
     "custom_config_builder_KRqknj": {
@@ -1650,7 +1636,7 @@
     "experience_scale_gDgaxe",
     "controller_tabs_PkVE8q",
     "applications_tabs_mzRTEp",
-    "investment_config_9xqzkP",
+    "investment_config_XArH8k",
     "custom_config_builder_KRqknj",
     "knowledge_center_KDhAHL",
     "visual_experience_wMKFfe",
