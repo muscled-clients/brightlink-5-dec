@@ -770,6 +770,7 @@ padding:16px;
 
   .system-configuration__card-body {
     padding: 0 16px 16px;
+        height: 665px;
   }
 
   /* Cabinet images box on mobile */
