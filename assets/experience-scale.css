@@ -380,6 +380,8 @@ line-height: normal;
     gap: 12px;
     max-width: none;
     margin: 15px 0 30px;
+            width: 344px;
+        margin: 0 auto;
   }
 
   .experience-scale__metric {
@@ -462,6 +464,8 @@ line-height: normal;
 
   .experience-scale__metrics {
     gap: 10px;
+            width: 344px;
+        margin: 0 auto;
   }
 
   .experience-scale__metric {
