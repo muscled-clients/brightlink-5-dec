@@ -833,6 +833,17 @@ font-weight: 600;
 line-height: normal;
 align-self: stretch;
   }
+  .system-configuration__cabinet-label{
+
+    color: #0A84FF;
+text-align: center;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+letter-spacing: 0.382px;
+  }
 
   /* Connection images box on mobile */
   .system-configuration__connection-images-box {
