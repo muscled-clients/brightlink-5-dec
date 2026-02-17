@@ -860,7 +860,9 @@ line-height: 28px; /* 140% */
 }
   .system-configuration__cabinet-images-box,
   .system-configuration__connection-images-box {
-    padding: 20px 15px 12px;
+            max-width: 345px;
+        width: 100%;
+        margin: 0 auto;
   }
 
   .system-configuration__cabinet-images-row img {
