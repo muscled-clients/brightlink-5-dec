@@ -858,6 +858,9 @@ height: 48px;
 padding: 12px 15px;
 justify-content: center;
 align-items: center;
+border-radius: 9px;
+border: 1px solid rgba(10, 132, 255, 0.30);
+background: rgba(10, 132, 255, 0.10);
   }
 }
 
