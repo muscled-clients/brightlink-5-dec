@@ -772,6 +772,7 @@ gap: 16px;
 align-self: stretch;
 padding:16px;
   }
+  .system-configuration__feature-icon,
 .system-configuration__feature-icon svg{
 
   width: 16px;
