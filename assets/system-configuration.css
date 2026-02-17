@@ -844,6 +844,16 @@ font-weight: 600;
 line-height: normal;
 letter-spacing: 0.382px;
   }
+  .system-configuration__cabinet-sublabel{
+color: #A0AEC0;
+text-align: center;
+font-family: Inter;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+  }
 
   /* Connection images box on mobile */
   .system-configuration__connection-images-box {
