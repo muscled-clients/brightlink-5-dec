@@ -772,7 +772,11 @@ gap: 16px;
 align-self: stretch;
 padding:16px;
   }
+.system-configuration__feature-icon svg{
 
+  width: 16px;
+height: 16px;
+}
   .system-configuration__card-body {
     padding: 0 16px 16px;
         height: 665px;
