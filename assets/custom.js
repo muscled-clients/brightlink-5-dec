@@ -155,31 +155,6 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox when app injects it (not on user click).
-// Only fires on childList mutations (new nodes added), so user can still manually check it.
-$(document).ready(function(){
-  function uncheckNewTermsCheckboxes() {
-    $('input[type="checkbox"]').each(function() {
-      if (!this.checked) return;
-      var text = ($(this).parent().text() || '') + ' ' + ($(this).next('label').text() || '') + ' ' + ($('label[for="' + this.id + '"]').text() || '');
-      if (text.indexOf('Terms') !== -1 || text.indexOf('I accept') !== -1) {
-        this.checked = false;
-        this.removeAttribute('checked');
-      }
-    });
-  }
-
-  new MutationObserver(function(mutations) {
-    var hasNewNodes = false;
-    for (var i = 0; i < mutations.length; i++) {
-      if (mutations[i].addedNodes.length > 0) { hasNewNodes = true; break; }
-    }
-    if (!hasNewNodes) return;
-    uncheckNewTermsCheckboxes();
-    setTimeout(uncheckNewTermsCheckboxes, 300);
-  }).observe(document.body, { childList: true, subtree: true });
-});
-
 $(document).ready(function(){
   mobileOnlySlider(".mySlider", true, false, 767);
 

@@ -1,0 +1,859 @@
+{% comment %}
+  Pixel Pitch Calculator Section
+  Calculate optimal pixel pitch based on viewing distance and application type
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_gradient_start }} !important;
+    background: linear-gradient(135deg, {{ section.settings.background_gradient_start }} 0%, {{ section.settings.background_gradient_end }} 100%) !important;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-pitch-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-pitch-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-pitch-header h1 {
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: {{ section.settings.title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-pitch-header p {
+    font-size: {{ section.settings.subtitle_size }}px;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-calculator-section {
+    background: {{ section.settings.card_background }};
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  #shopify-section-{{ section.id }} .pixel-section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-star-icon {
+    font-size: 28px;
+    margin-right: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-section-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-calculator-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-left-panel,
+  #shopify-section-{{ section.id }} .pixel-right-panel {
+    background: rgba(43, 57, 94, 0.6);
+    border: 1px solid rgba(139, 157, 195, 0.3);
+    border-radius: 15px;
+    padding: 25px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-step {
+    margin-bottom: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-step h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-unit-selector {
+    margin-bottom: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-unit-selector p,
+  #shopify-section-{{ section.id }} .pixel-distance-inputs p {
+    font-size: 14px;
+    color: {{ section.settings.label_color }};
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-button-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-unit-btn {
+    flex: 1;
+    padding: 12px 20px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid transparent;
+    border-radius: 10px;
+    color: #8b9dc3;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-unit-btn.active {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: {{ section.settings.accent_color }};
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-unit-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .pixel-input-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-input-group.hidden {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"] {
+    flex: 1;
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"]::placeholder {
+    color: #8b9dc3;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"]:focus {
+    outline: none;
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .pixel-application-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-card {
+    padding: 20px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 1px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 48%;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-card:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-card.selected {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-header h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-pitch-range {
+    font-size: 13px;
+    color: {{ section.settings.accent_color }};
+    background: rgba(59, 130, 246, 0.2);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-option-card p {
+    font-size: 13px;
+    color: #8b9dc3;
+    line-height: 1.4;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-recommendation-section {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-recommendation-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pixel-recommendation-box {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(43, 57, 94, 0.9);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  #shopify-section-{{ section.id }} .pixel-result-value {
+    font-size: 48px;
+    font-weight: 700;
+    color: {{ section.settings.result_color }};
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .pixel-result-label {
+    font-size: 18px;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .pixel-calculator-content {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    
+    #shopify-section-{{ section.id }} .pixel-application-options {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-option-card:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-left-panel,
+    #shopify-section-{{ section.id }} .pixel-right-panel {
+      padding: 15px;
+      margin: 0 10px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-button-group {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-unit-btn {
+      width: 100%;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 14px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-input-group {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #shopify-section-{{ section.id }} input[type="number"] {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-option-card {
+      padding: 15px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-option-header h4 {
+      font-size: 16px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-option-card p {
+      font-size: 13px;
+      margin-top: 8px;
+    }
+    
+    #shopify-section-{{ section.id }} .pixel-pitch-header h1 {
+      font-size: 28px;
+    }
+    
+    #shopify-section-{{ section.id }} .pixel-section-header h2 {
+      font-size: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .pixel-recommendation-box {
+      margin: 0 10px;
+      padding: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="pixel-pitch-container">
+  {% if section.settings.show_header %}
+    <header class="pixel-pitch-header">
+      <h1>{{ section.settings.main_title }}</h1>
+      <p>{{ section.settings.main_subtitle }}</p>
+    </header>
+  {% endif %}
+
+  <div class="pixel-calculator-section">
+    <div class="pixel-section-header">
+      <span class="pixel-star-icon">{{ section.settings.icon }}</span>
+      <h2>{{ section.settings.section_title }}</h2>
+    </div>
+
+    <div class="pixel-calculator-content">
+      <div class="pixel-left-panel">
+        <div class="pixel-step">
+          <h3>{{ section.settings.step1_title }}</h3>
+          <div class="pixel-unit-selector">
+            <p>{{ section.settings.unit_label }}</p>
+            <div class="pixel-button-group">
+              <button class="pixel-unit-btn active" data-unit="feet">{{ section.settings.feet_button_text }}</button>
+              <button class="pixel-unit-btn" data-unit="meters">{{ section.settings.meters_button_text }}</button>
+            </div>
+          </div>
+          <div class="pixel-distance-inputs">
+            <p>{{ section.settings.distance_label }}</p>
+            <div class="pixel-input-group" id="pixel-feet-inches-group">
+              <input type="number" id="pixel-feet-input" placeholder="{{ section.settings.feet_placeholder }}" min="0">
+              <input type="number" id="pixel-inches-input" placeholder="{{ section.settings.inches_placeholder }}" min="0" step="0.1">
+            </div>
+            <div class="pixel-input-group hidden" id="pixel-meters-cm-group">
+              <input type="number" id="pixel-meters-input" placeholder="{{ section.settings.meters_placeholder }}" min="0">
+              <input type="number" id="pixel-cm-input" placeholder="{{ section.settings.cm_placeholder }}" min="0" step="1">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pixel-right-panel">
+        <div class="pixel-step">
+          <h3>{{ section.settings.step2_title }}</h3>
+          <div class="pixel-application-options">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'application_type' %}
+                  <div class="pixel-option-card" data-type="{{ block.settings.data_type }}" {{ block.shopify_attributes }}>
+                    <div class="pixel-option-header">
+                      <h4>{{ block.settings.title }}</h4>
+                      <span class="pixel-pitch-range">{{ block.settings.pitch_range }}</span>
+                    </div>
+                    <p>{{ block.settings.description }}</p>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pixel-recommendation-section">
+      <h3>{{ section.settings.step3_title }}</h3>
+      <div class="pixel-recommendation-box">
+        <div class="pixel-result-value" id="pixel-result-value">--</div>
+        <div class="pixel-result-label">{{ section.settings.result_label }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionId = '{{ section.id }}';
+  
+  // Excel data for optimal viewing distances
+  const EXCEL_OPTIMAL_DATA = {
+    0.7: { meters: 1.8, feet: 5.7 },
+    0.9: { meters: 2.3, feet: 7.4 },
+    1.25: { meters: 3.1, feet: 10.3 },
+    1.56: { meters: 3.9, feet: 12.8 },
+    1.875: { meters: 4.7, feet: 15.4 },
+    2: { meters: 5.0, feet: 16.4 },
+    2.5: { meters: 6.3, feet: 20.5 },
+    3: { meters: 7.5, feet: 24.6 },
+    3.91: { meters: 9.8, feet: 32.1 },
+    5: { meters: 12.5, feet: 41.0 },
+    8: { meters: 20.0, feet: 65.6 },
+    10: { meters: 25.0, feet: 82.0 },
+    20: { meters: 50.0, feet: 164.0 }
+  };
+
+  const PIXEL_PITCHES = [0.7, 0.9, 1.25, 1.56, 1.875, 2, 2.5, 3, 3.91, 5, 8, 10, 20];
+
+  const APPLICATION_RANGES = {
+    'home-theaters': { min: 0.7, max: 0.9 },
+    'control-rooms': { min: 0.9, max: 1.875 },
+    'retail-displays': { min: 1.825, max: 3.9 },
+    'conference-rooms': { min: 1.56, max: 2.5 },
+    'events-venues': { min: 3.9, max: 20 }
+  };
+
+  let currentUnit = 'feet';
+  let selectedApplication = null;
+
+  function calculatePixelPitch(distanceValue, unit = 'feet') {
+    let distanceMeters, distanceFeet;
+    
+    if (unit === 'feet') {
+      distanceMeters = distanceValue * 0.3048;
+      distanceFeet = distanceValue;
+    } else if (unit === 'meters') {
+      distanceMeters = distanceValue;
+      distanceFeet = distanceValue * 3.28084;
+    }
+    
+    const tolerance = 0.05;
+    
+    for (const [pitch, data] of Object.entries(EXCEL_OPTIMAL_DATA)) {
+      if (Math.abs(data.meters - distanceMeters) < tolerance) {
+        return parseFloat(pitch);
+      }
+      if (Math.abs(data.feet - distanceFeet) < tolerance) {
+        return parseFloat(pitch);
+      }
+    }
+    
+    const calculatedPitch = distanceMeters / 2.5;
+    
+    let closestPitch = PIXEL_PITCHES[0];
+    let minDiff = Math.abs(PIXEL_PITCHES[0] - calculatedPitch);
+    
+    for (const pitch of PIXEL_PITCHES) {
+      const diff = Math.abs(pitch - calculatedPitch);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestPitch = pitch;
+      }
+    }
+    
+    return closestPitch;
+  }
+
+  function getTotalDistance() {
+    let totalDistance = 0;
+    
+    if (currentUnit === 'feet') {
+      const feet = parseFloat(document.getElementById('pixel-feet-input').value) || 0;
+      const inches = parseFloat(document.getElementById('pixel-inches-input').value) || 0;
+      totalDistance = feet + (inches / 12);
+    } else {
+      const meters = parseFloat(document.getElementById('pixel-meters-input').value) || 0;
+      const cm = parseFloat(document.getElementById('pixel-cm-input').value) || 0;
+      totalDistance = meters + (cm / 100);
+    }
+    
+    return totalDistance;
+  }
+
+  function updateRecommendation() {
+    const distance = getTotalDistance();
+    
+    if (distance > 0) {
+      let pixelPitch = calculatePixelPitch(distance, currentUnit === 'feet' ? 'feet' : 'meters');
+      
+      if (selectedApplication && APPLICATION_RANGES[selectedApplication]) {
+        const range = APPLICATION_RANGES[selectedApplication];
+        
+        if (pixelPitch < range.min) {
+          pixelPitch = range.min;
+        } else if (pixelPitch > range.max) {
+          pixelPitch = range.max;
+        }
+        
+        const validPitches = PIXEL_PITCHES.filter(p => p >= range.min && p <= range.max);
+        if (validPitches.length > 0) {
+          let closest = validPitches[0];
+          let minDiff = Math.abs(validPitches[0] - pixelPitch);
+          
+          for (const pitch of validPitches) {
+            const diff = Math.abs(pitch - pixelPitch);
+            if (diff < minDiff) {
+              minDiff = diff;
+              closest = pitch;
+            }
+          }
+          pixelPitch = closest;
+        }
+      }
+      
+      document.getElementById('pixel-result-value').textContent = pixelPitch + 'mm';
+    } else {
+      document.getElementById('pixel-result-value').textContent = '--';
+    }
+  }
+
+  // Unit selector buttons
+  const unitButtons = document.querySelectorAll('#shopify-section-' + sectionId + ' .pixel-unit-btn');
+  unitButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      unitButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      currentUnit = this.dataset.unit;
+      
+      const feetInchesGroup = document.getElementById('pixel-feet-inches-group');
+      const metersCmGroup = document.getElementById('pixel-meters-cm-group');
+      
+      if (currentUnit === 'feet') {
+        feetInchesGroup.classList.remove('hidden');
+        metersCmGroup.classList.add('hidden');
+      } else {
+        feetInchesGroup.classList.add('hidden');
+        metersCmGroup.classList.remove('hidden');
+      }
+      
+      updateRecommendation();
+    });
+  });
+
+  // Application type cards
+  const optionCards = document.querySelectorAll('#shopify-section-' + sectionId + ' .pixel-option-card');
+  optionCards.forEach(card => {
+    card.addEventListener('click', function() {
+      optionCards.forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      selectedApplication = this.dataset.type;
+      updateRecommendation();
+    });
+  });
+
+  // Distance input listeners
+  const inputs = document.querySelectorAll('#shopify-section-' + sectionId + ' input[type="number"]');
+  inputs.forEach(input => {
+    input.addEventListener('input', updateRecommendation);
+    input.addEventListener('change', updateRecommendation);
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Pixel Pitch Calculator",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "LED Display Calculator"
+    },
+    {
+      "type": "text",
+      "id": "main_subtitle",
+      "label": "Main Subtitle",
+      "default": "Calculate optimal pixel pitch and screen dimensions for your project"
+    },
+    {
+      "type": "text",
+      "id": "icon",
+      "label": "Section Icon",
+      "default": "⭐"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Pixel Pitch Calculator"
+    },
+    {
+      "type": "text",
+      "id": "step1_title",
+      "label": "Step 1 Title",
+      "default": "1. Enter Viewing Distance"
+    },
+    {
+      "type": "text",
+      "id": "unit_label",
+      "label": "Unit Selection Label",
+      "default": "Select Unit"
+    },
+    {
+      "type": "text",
+      "id": "feet_button_text",
+      "label": "Feet Button Text",
+      "default": "Feet & Inches"
+    },
+    {
+      "type": "text",
+      "id": "meters_button_text",
+      "label": "Meters Button Text",
+      "default": "Meters & Centimeters"
+    },
+    {
+      "type": "text",
+      "id": "distance_label",
+      "label": "Distance Label",
+      "default": "Enter Distance"
+    },
+    {
+      "type": "text",
+      "id": "feet_placeholder",
+      "label": "Feet Placeholder",
+      "default": "Feet"
+    },
+    {
+      "type": "text",
+      "id": "inches_placeholder",
+      "label": "Inches Placeholder",
+      "default": "Inches"
+    },
+    {
+      "type": "text",
+      "id": "meters_placeholder",
+      "label": "Meters Placeholder",
+      "default": "Meters"
+    },
+    {
+      "type": "text",
+      "id": "cm_placeholder",
+      "label": "Centimeters Placeholder",
+      "default": "Centimeters"
+    },
+    {
+      "type": "text",
+      "id": "step2_title",
+      "label": "Step 2 Title",
+      "default": "2. Select Application Type"
+    },
+    {
+      "type": "text",
+      "id": "step3_title",
+      "label": "Step 3 Title",
+      "default": "3. Get Recommendation"
+    },
+    {
+      "type": "text",
+      "id": "result_label",
+      "label": "Result Label",
+      "default": "Optimal Pixel Pitch"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum Width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "default": 1200,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title Font Size",
+      "min": 24,
+      "max": 72,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle Font Size",
+      "min": 14,
+      "max": 24,
+      "step": 2,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_start",
+      "label": "Background Gradient Start",
+      "default": "#1e3c72"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_end",
+      "label": "Background Gradient End",
+      "default": "#2a5298"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "rgba(30, 42, 71, 0.9)"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#8b9dc3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "result_color",
+      "label": "Result Color",
+      "default": "#fbbf24"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "application_type",
+      "name": "Application Type",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Home Theaters"
+        },
+        {
+          "type": "text",
+          "id": "pitch_range",
+          "label": "Pitch Range",
+          "default": "0.7mm - 0.9mm"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Premium home cinema rooms requiring ultra-fine detail"
+        },
+        {
+          "type": "text",
+          "id": "data_type",
+          "label": "Data Type (for calculations)",
+          "default": "home-theaters",
+          "info": "Use: home-theaters, control-rooms, retail-displays, conference-rooms, or events-venues"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Pixel Pitch Calculator",
+      "blocks": [
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Home Theaters",
+            "pitch_range": "0.7mm - 0.9mm",
+            "description": "Premium home cinema rooms requiring ultra-fine detail",
+            "data_type": "home-theaters"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Control Rooms",
+            "pitch_range": "0.9mm - 1.875mm",
+            "description": "Security, monitoring, and command centers",
+            "data_type": "control-rooms"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Retail Displays",
+            "pitch_range": "1.825mm - 3.9mm",
+            "description": "Stores, lobbies, and commercial displays",
+            "data_type": "retail-displays"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Conference Rooms",
+            "pitch_range": "1.56mm - 2.5mm",
+            "description": "Professional presentation arenas with easy text readability",
+            "data_type": "conference-rooms"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Events Venues",
+            "pitch_range": "3.9mm - 10mm+",
+            "description": "Large venues and outdoor events",
+            "data_type": "events-venues"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

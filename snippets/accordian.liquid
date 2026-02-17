@@ -132,7 +132,6 @@
 {% assign metafield = product.metafields.custom.block_product_information.value %}
 {% assign metaTitle = block.settings['title-name-space'] %}
 {% assign metaContent = block.settings['content-name-space'] %}
-{% assign metaImage = block.settings['meta-content-image'] %}
 
 <details
   data-loop="{{ index }}"
@@ -173,7 +172,7 @@
         </div>
       {%- else -%}
         <span
-          class="accordion-title test1"
+          class="accordion-title"
           {% if size == 'lg' %}
             class="h6"
           {% endif %}
@@ -251,7 +250,7 @@
       </div>
     {% else %}
       <div
-        class="accordion__content test-meta-content {% if readBtn %}d8-show-readmore {% endif %}"
+        class="accordion__content {% if readBtn %}d8-show-readmore {% endif %}"
         style="
           --content-font-size: {{ block.settings.content-font-size }}px;
           --content-font-size-mobile: {{ block.settings.content-font-size-mobile }}px;
@@ -261,9 +260,6 @@
           {{- metafield[metaContent] | metafield_tag -}}
         {%- else %}
           {{- content -}}
-        {% endif %}
-        {% if metaImage != blank %}
-         <img src="{{- metaImage | image_url -}}" height="auto" width="200">
         {% endif %}
       </div>
     {% endif %}

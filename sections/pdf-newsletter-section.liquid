@@ -1,0 +1,590 @@
+{% comment %}
+  PDF Download & Newsletter Subscription Section
+  Two-column section with PDF download and email signup
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_gradient_start }};
+    background: linear-gradient(135deg, {{ section.settings.background_gradient_start }} 0%, {{ section.settings.background_gradient_end }} 100%);
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .pdf-newsletter-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .pdf-newsletter-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    gap: 22px;
+    align-items: center;
+  }
+
+  /* PDF Download Block */
+  #shopify-section-{{ section.id }} .pdf-download-block {
+    background: {{ section.settings.card_background }};
+    border: 1px solid {{ section.settings.card_border_color }};
+    border-radius: {{ section.settings.card_border_radius }}px;
+    padding: 35px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    height: 100%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  #shopify-section-{{ section.id }} .pdf-download-block:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+
+  #shopify-section-{{ section.id }} .pdf-icon {
+    background: {{ section.settings.pdf_icon_background }};
+    color: {{ section.settings.pdf_icon_color }};
+    padding: 18.25px 24.33px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .pdf-content h3 {
+    font-size: {{ section.settings.pdf_title_font_size }}px;
+    font-weight: 600;
+    color: {{ section.settings.pdf_title_color }};
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  #shopify-section-{{ section.id }} .pdf-content p {
+    font-size: {{ section.settings.pdf_description_font_size }}px;
+    color: {{ section.settings.pdf_description_color }};
+    margin: 0;
+    line-height: 1.429;
+  }
+
+  /* Newsletter Block */
+  #shopify-section-{{ section.id }} .newsletter-block {
+    background: {{ section.settings.card_background }};
+    border: 1px solid {{ section.settings.card_border_color }};
+    border-radius: {{ section.settings.card_border_radius }}px;
+    height: 100%;
+    padding: 35px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .email-icon {
+    background: {{ section.settings.email_icon_background }};
+    color: {{ section.settings.email_icon_color }};
+    width: 73px;
+    height: 100%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-content {
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-content h3 {
+    font-size: {{ section.settings.email_title_font_size }}px;
+    font-weight: 600;
+    color: {{ section.settings.email_title_color }};
+    margin: 0 0 5px 0;
+    line-height: 1.2;
+  }
+
+  #shopify-section-{{ section.id }} .newsletter-form {
+    display: flex;
+    gap: 0;
+  }
+
+  #shopify-section-{{ section.id }} .email-input {
+    /* flex: 1; */
+    padding: 0 16px;
+    border: 0.851px solid {{ section.settings.input_border_color }};
+    border-radius: 6.806px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    font-size: 14px;
+    background: {{ section.settings.input_background }};
+    color: {{ section.settings.input_text_color }};
+    font-family: inherit;
+  }
+
+  #shopify-section-{{ section.id }} .email-input::placeholder {
+    color: {{ section.settings.input_placeholder_color }};
+  }
+
+  #shopify-section-{{ section.id }} .email-input:focus {
+    outline: none;
+    border-color: {{ section.settings.input_focus_border_color }};
+  }
+
+  #shopify-section-{{ section.id }} .send-button {
+    padding: 6px 24px;
+    background: {{ section.settings.send_button_background }};
+    color: {{ section.settings.send_button_text_color }};
+    border: 2px solid {{ section.settings.send_button_border_color }};
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #shopify-section-{{ section.id }} .send-button:hover {
+    background: {{ section.settings.send_button_hover_background }};
+    border-color: {{ section.settings.send_button_hover_border_color }};
+    transform: translateY(-1px);
+  }
+
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .pdf-newsletter-container {
+      padding: 0 25px;
+    }
+
+    #shopify-section-{{ section.id }} .pdf-newsletter-grid {
+      /* grid-template-columns: 1fr; */
+      justify-content: space-between;
+      /* gap: 20px; */
+    }
+
+    #shopify-section-{{ section.id }} .pdf-download-block,
+    #shopify-section-{{ section.id }} .newsletter-block {
+      gap: 18px;
+    /* background: #1E3A8A; */
+    padding: 20px;
+    align-items: center;
+    border-radius: 6px;
+    border: 0 solid #E5E7EB;
+    background: #1E3A8A;
+    }
+
+    #shopify-section-{{ section.id }} .pdf-icon,
+    #shopify-section-{{ section.id }} .email-icon {
+      background: none;
+    padding: 0;
+    width: auto;
+    height: auto;
+    }
+
+    #shopify-section-{{ section.id }} .pdf-content h3,
+    #shopify-section-{{ section.id }} .newsletter-content h3 {
+      color: #FFF;
+    /* text-align: center; */
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+    }
+
+    #shopify-section-{{ section.id }} .pdf-content p {
+      font-size: {{ section.settings.mobile_description_font_size }}px;
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .newsletter-form {
+      flex-direction: column;
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .send-button {
+      width: 100%;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+    }
+  }
+{%- endstyle -%}
+
+<div class="pdf-newsletter-container">
+  <div class="pdf-newsletter-grid">
+    
+    <!-- PDF Download Block -->
+    {% if section.settings.pdf_file != blank %}
+      <a href="{{ section.settings.pdf_file }}" class="pdf-download-block" download>
+        <div class="pdf-icon">
+           <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+  <g clip-path="url(#clip0_31_2761)">
+    <path d="M14.0208 1.77083C14.0208 0.929622 13.3412 0.25 12.5 0.25C11.6588 0.25 10.9792 0.929622 10.9792 1.77083V13.3054L7.49077 9.81699C6.89669 9.22292 5.93191 9.22292 5.33784 9.81699C4.74376 10.4111 4.74376 11.3758 5.33784 11.9699L11.4212 18.0533C12.0152 18.6473 12.98 18.6473 13.5741 18.0533L19.6574 11.9699C20.2515 11.3758 20.2515 10.4111 19.6574 9.81699C19.0634 9.22292 18.0986 9.22292 17.5045 9.81699L14.0208 13.3054V1.77083ZM3.37501 16.9792C1.69734 16.9792 0.333344 18.3432 0.333344 20.0208V21.5417C0.333344 23.2193 1.69734 24.5833 3.37501 24.5833H21.625C23.3027 24.5833 24.6667 23.2193 24.6667 21.5417V20.0208C24.6667 18.3432 23.3027 16.9792 21.625 16.9792H16.8011L14.6482 19.1321C13.46 20.3202 11.5352 20.3202 10.3471 19.1321L8.1989 16.9792H3.37501ZM20.8646 19.6406C21.1671 19.6406 21.4572 19.7608 21.6711 19.9747C21.885 20.1886 22.0052 20.4787 22.0052 20.7812C22.0052 21.0838 21.885 21.3739 21.6711 21.5878C21.4572 21.8017 21.1671 21.9219 20.8646 21.9219C20.5621 21.9219 20.272 21.8017 20.0581 21.5878C19.8441 21.3739 19.724 21.0838 19.724 20.7812C19.724 20.4787 19.8441 20.1886 20.0581 19.9747C20.272 19.7608 20.5621 19.6406 20.8646 19.6406Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_31_2761">
+      <path d="M0.333344 0.25H24.6667V24.5833H0.333344V0.25Z" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+        </div>
+        <div class="pdf-content">
+          <h3>{{ section.settings.pdf_title }}</h3>
+          {% if section.settings.pdf_description != blank %}
+            <p>{{ section.settings.pdf_description }}</p>
+          {% endif %}
+        </div>
+      </a>
+    {% else %}
+      <div class="pdf-download-block">
+        <div class="pdf-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+  <g clip-path="url(#clip0_31_2761)">
+    <path d="M14.0208 1.77083C14.0208 0.929622 13.3412 0.25 12.5 0.25C11.6588 0.25 10.9792 0.929622 10.9792 1.77083V13.3054L7.49077 9.81699C6.89669 9.22292 5.93191 9.22292 5.33784 9.81699C4.74376 10.4111 4.74376 11.3758 5.33784 11.9699L11.4212 18.0533C12.0152 18.6473 12.98 18.6473 13.5741 18.0533L19.6574 11.9699C20.2515 11.3758 20.2515 10.4111 19.6574 9.81699C19.0634 9.22292 18.0986 9.22292 17.5045 9.81699L14.0208 13.3054V1.77083ZM3.37501 16.9792C1.69734 16.9792 0.333344 18.3432 0.333344 20.0208V21.5417C0.333344 23.2193 1.69734 24.5833 3.37501 24.5833H21.625C23.3027 24.5833 24.6667 23.2193 24.6667 21.5417V20.0208C24.6667 18.3432 23.3027 16.9792 21.625 16.9792H16.8011L14.6482 19.1321C13.46 20.3202 11.5352 20.3202 10.3471 19.1321L8.1989 16.9792H3.37501ZM20.8646 19.6406C21.1671 19.6406 21.4572 19.7608 21.6711 19.9747C21.885 20.1886 22.0052 20.4787 22.0052 20.7812C22.0052 21.0838 21.885 21.3739 21.6711 21.5878C21.4572 21.8017 21.1671 21.9219 20.8646 21.9219C20.5621 21.9219 20.272 21.8017 20.0581 21.5878C19.8441 21.3739 19.724 21.0838 19.724 20.7812C19.724 20.4787 19.8441 20.1886 20.0581 19.9747C20.272 19.7608 20.5621 19.6406 20.8646 19.6406Z" fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_31_2761">
+      <path d="M0.333344 0.25H24.6667V24.5833H0.333344V0.25Z" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+        </div>
+        <div class="pdf-content">
+          <h3>{{ section.settings.pdf_title }}</h3>
+          {% if section.settings.pdf_description != blank %}
+            <p>{{ section.settings.pdf_description }}</p>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- Newsletter Block -->
+    <div class="newsletter-block">
+      <div class="email-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 18" fill="none">
+  <path d="M2.25 0C1.00781 0 0 1.00781 0 2.25C0 2.95781 0.332813 3.62344 0.9 4.05L11.1 11.7C11.6344 12.0984 12.3656 12.0984 12.9 11.7L23.1 4.05C23.6672 3.62344 24 2.95781 24 2.25C24 1.00781 22.9922 0 21.75 0H2.25ZM0 5.25V15C0 16.6547 1.34531 18 3 18H21C22.6547 18 24 16.6547 24 15V5.25L13.8 12.9C12.7312 13.7016 11.2688 13.7016 10.2 12.9L0 5.25Z" fill="white"/>
+</svg>
+      </div>
+      <div class="newsletter-content">
+        <h3>{{ section.settings.email_title }}</h3>
+        <form class="newsletter-form" action="{{ routes.root_url }}contact#contact_form" method="post" accept-charset="UTF-8">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+          <input 
+            type="email" 
+            name="contact[email]" 
+            class="email-input" 
+            placeholder="{{ section.settings.email_placeholder }}"
+            required
+          >
+          <button type="submit" class="send-button">
+            {{ section.settings.send_button_text }}
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "PDF Download & Newsletter",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum Width",
+      "min": 800,
+      "max": 1600,
+      "step": 40,
+      "default": 1240,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 120,
+      "step": 5,
+      "default": 60,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Background & Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_start",
+      "label": "Background Gradient Start",
+      "default": "#1e3c72"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_end",
+      "label": "Background Gradient End",
+      "default": "#2a5298"
+    },
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "rgba(43, 57, 94, 0.8)"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card Border Color",
+      "default": "rgba(139, 157, 195, 0.3)"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "label": "Card Border Radius",
+      "min": 5,
+      "max": 30,
+      "step": 5,
+      "default": 15,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "PDF Download Settings"
+    },
+    {
+      "type": "url",
+      "id": "pdf_file",
+      "label": "PDF File URL"
+    },
+    {
+      "type": "text",
+      "id": "pdf_title",
+      "label": "PDF Title",
+      "default": "Download PDF Specification"
+    },
+    {
+      "type": "text",
+      "id": "pdf_description",
+      "label": "PDF Description",
+      "default": "Complete technical details"
+    },
+    {
+      "type": "color",
+      "id": "pdf_icon_background",
+      "label": "PDF Icon Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "pdf_icon_color",
+      "label": "PDF Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "pdf_title_color",
+      "label": "PDF Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "pdf_description_color",
+      "label": "PDF Description Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "range",
+      "id": "pdf_title_font_size",
+      "label": "PDF Title Font Size",
+      "min": 16,
+      "max": 28,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "pdf_description_font_size",
+      "label": "PDF Description Font Size",
+      "min": 12,
+      "max": 18,
+      "step": 2,
+      "default": 14,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Email Newsletter Settings"
+    },
+    {
+      "type": "text",
+      "id": "email_title",
+      "label": "Email Title",
+      "default": "Email Specification"
+    },
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email Placeholder",
+      "default": "Enter your email"
+    },
+    {
+      "type": "text",
+      "id": "send_button_text",
+      "label": "Send Button Text",
+      "default": "Send"
+    },
+    {
+      "type": "color",
+      "id": "email_icon_background",
+      "label": "Email Icon Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "email_icon_color",
+      "label": "Email Icon Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "email_title_color",
+      "label": "Email Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "email_title_font_size",
+      "label": "Email Title Font Size",
+      "min": 16,
+      "max": 28,
+      "step": 2,
+      "default": 20,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Form Input Settings"
+    },
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input Background",
+      "default": "rgba(255, 255, 255, 0.1)"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input Border Color",
+      "default": "rgba(139, 157, 195, 0.3)"
+    },
+    {
+      "type": "color",
+      "id": "input_focus_border_color",
+      "label": "Input Focus Border Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "input_placeholder_color",
+      "label": "Input Placeholder Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "header",
+      "content": "Send Button Settings"
+    },
+    {
+      "type": "color",
+      "id": "send_button_background",
+      "label": "Send Button Background",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "send_button_text_color",
+      "label": "Send Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "send_button_border_color",
+      "label": "Send Button Border Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "send_button_hover_background",
+      "label": "Send Button Hover Background",
+      "default": "#2563eb"
+    },
+    {
+      "type": "color",
+      "id": "send_button_hover_border_color",
+      "label": "Send Button Hover Border Color",
+      "default": "#2563eb"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Typography"
+    },
+    {
+      "type": "range",
+      "id": "mobile_title_font_size",
+      "label": "Mobile Title Font Size",
+      "min": 16,
+      "max": 24,
+      "step": 2,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "mobile_description_font_size",
+      "label": "Mobile Description Font Size",
+      "min": 12,
+      "max": 16,
+      "step": 2,
+      "default": 12,
+      "unit": "px"
+    }
+  ],
+  "presets": [
+    {
+      "name": "PDF Download & Newsletter"
+    }
+  ]
+}
+{% endschema %}
