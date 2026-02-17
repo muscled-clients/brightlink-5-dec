@@ -28,7 +28,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   align-self: stretch;
   width: 1440px;
   max-width: 100%;
