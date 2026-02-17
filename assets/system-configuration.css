@@ -371,6 +371,7 @@ height: 24px;
   display: flex;
   flex-direction: column;
   gap: 24px;
+  height: 665px;
 }
 
 /* Connection Images Box - dark rounded container matching cabinet */
