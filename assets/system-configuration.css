@@ -402,7 +402,7 @@ max-width:350px;
   height: 266px;
   max-height: 266px;
   object-fit: none;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 /* Lock Icon Wrapper inside box */
@@ -688,7 +688,7 @@ line-height: 28px; /* 140% */
 width: 240px;
 height: 182.4px;
   object-fit: cover;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
   .system-configuration__label {
     font-family: Inter, sans-serif;
