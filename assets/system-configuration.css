@@ -204,7 +204,12 @@ height: 578px;
   height: 18px;
   fill: #3498db;
 }
+.cabinet-svg{
 
+  width: 22.5px;
+height: 18px;
+flex-shrink: 0;
+}
 .system-configuration__card-titles {
   flex: 1;
 }
