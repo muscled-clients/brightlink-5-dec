@@ -850,6 +850,15 @@ line-height: 20px; /* 142.857% */
     max-width: 400px;
     padding: 16px 48px;
   }
+  .system-configuration__card-icon{
+
+    display: flex;
+width: 48px;
+height: 48px;
+padding: 12px 15px;
+justify-content: center;
+align-items: center;
+  }
 }
 
 @media screen and (max-width: 480px) {
