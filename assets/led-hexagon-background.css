@@ -191,6 +191,13 @@
   z-index: 1;
 }
 
+/* Ensure footer sits above the hexagon background on LED pages */
+.advanced-spectrum-page #shopify-section-footer {
+  position: relative;
+  z-index: 2;
+  background: #0a0e1a;
+}
+
 /* LED template page base styling */
 .advanced-spectrum-page {
   background-color: #0A0E1A;

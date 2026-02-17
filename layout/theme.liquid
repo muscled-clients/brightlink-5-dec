@@ -269,9 +269,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {%- unless template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
       {% section 'newsletter' %}
       {% section 'static-text-with-icons' %}
-      {% section 'footer' %}
+      
     {%- endunless -%}
-
+{% section 'footer' %}
     <ul hidden>
       <li id="a11y-new-window-message">{{ 'general.accessibility.new_window' | t }}</li>
     </ul>
