@@ -329,10 +329,15 @@ letter-spacing: 2px;
   }
 
   .experience-scale__title {
-    font-size: 32px;
-    letter-spacing: -1px;
+   color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -2px;
     font-family: Inter, sans-serif;
-    color: #FFF;
   }
 
   .experience-scale__subtitle {
@@ -412,9 +417,15 @@ letter-spacing: 2px;
   }
 
   .experience-scale__title {
-    font-size: 28px;
+   color: #FFF;
+text-align: center;
+font-family: Inter;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -2px;
     font-family: Inter, sans-serif;
-    color: #FFF;
   }
 
   .experience-scale__subtitle {
