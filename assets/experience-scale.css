@@ -331,7 +331,14 @@
     display:flex;
     gap:12px;
   }
-
+.experience-scale__metric-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  align-self: stretch;
+}
   .experience-scale__header-text {
     gap: 12px;
   }
