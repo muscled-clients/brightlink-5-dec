@@ -742,6 +742,7 @@ line-height: normal;
 
   .system-configuration__cabinet-images-row {
     margin-bottom: 12px;
+    transform: rotate(90deg);
   }
 
   .system-configuration__cabinet-images-row img {
