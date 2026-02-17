@@ -364,7 +364,13 @@ font-weight: 400;
 line-height: normal;
     font-family: Inter, sans-serif;
   }
+.experience-scale__metric-icon svg{
 
+width: 15.75px;
+height: 18px;
+flex-shrink: 0;
+
+}
   .experience-scale__content {
     max-width: calc(100% - 40px);
     flex-direction: column;
