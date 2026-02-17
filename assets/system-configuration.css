@@ -206,7 +206,7 @@ height: 578px;
 }
 .cabinet-svg{
 
-  width: 22.5px;
+  width: 22.5px!important;
 height: 18px;
 flex-shrink: 0;
 }
