@@ -202,10 +202,12 @@ height: 578px;
 }
 
 .system-configuration__card-title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0 0 2px 0;
+   color: #FFF;
+font-family: Inter, sans-serif;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
 }
 
 .system-configuration__card-subtitle {
