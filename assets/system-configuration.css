@@ -673,8 +673,7 @@ line-height: 28px; /* 140% */
 .system-configuration__connection-images-box img {
 width: 240px;
 height: 182.4px;
-  max-height: 266px;
-  object-fit: none;
+  object-fit: cover;
   margin-bottom: 15px;
 }
   .system-configuration__label {
