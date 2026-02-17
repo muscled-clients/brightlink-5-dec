@@ -12,7 +12,7 @@
 
     <div class="investment-config__content">
       <!-- Left Card - Main Pricing -->
-      {% assign main_product = section.settings.main_product | default: product %}
+      {% assign main_product = product %}
       {% if main_product %}
         {% assign product_info = main_product.title | split: 'COB LED' | first | strip %}
         {% assign info_words = product_info | split: ' ' %}
@@ -374,11 +374,6 @@
       "id": "card_label",
       "label": "Card Label",
       "default": "COMPLETE SYSTEM"
-    },
-    {
-      "type": "product",
-      "id": "main_product",
-      "label": "Select Main Product"
     },
     {
       "type": "text",
