@@ -905,7 +905,14 @@ font-style: normal;
 font-weight: 400;
 line-height: 20px; /* 142.857% */
   }
+.system-configuration__feature{
 
+  display: flex;
+padding-bottom: 10px;
+align-items: flex-start;
+gap: 12px;
+align-self: stretch;
+}
   /* CTA section */
   .system-configuration__cta-section {
     padding-top: 30px;
