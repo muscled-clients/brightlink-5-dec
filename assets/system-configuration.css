@@ -880,9 +880,9 @@ line-height: normal;
 
         width: 312px;
         height: 242px;
-
+         margin: 0 auto;
 }
-  .system-configuration__cabinet-images-box,
+
   .system-configuration__connection-images-box {
             max-width: 345px;
         width: 100%;
