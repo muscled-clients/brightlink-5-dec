@@ -695,7 +695,7 @@ line-height: normal;
 
   .system-configuration__cards {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
     max-width: calc(100% - 40px);
   }
 
