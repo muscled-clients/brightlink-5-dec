@@ -792,8 +792,8 @@ padding:16px;
   }
 
   .system-configuration__cabinet-images-row img {
-           width: 240px;
-        height: 160px;
+                  width: 160px;
+        height: 240px;
   }
 
   .system-configuration__cabinet-images-row img:first-child {
