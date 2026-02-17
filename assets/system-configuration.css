@@ -768,7 +768,7 @@ padding:16px;
   }
 
   .system-configuration__card-body {
-    padding: 0 20px 20px;
+    padding: 0 16px 16px;
   }
 
   /* Cabinet images box on mobile */
@@ -925,7 +925,7 @@ align-self: stretch;
   }
 
   .system-configuration__card-body {
-    padding: 0 15px 18px;
+    padding: 0 16px 16px;
   }
 
   .system-configuration__card-title {
