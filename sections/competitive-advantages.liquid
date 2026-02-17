@@ -39,8 +39,7 @@
     position: relative;
     z-index: 2;
     display: flex;
-    width: 1440px;
-    max-width: 100%;
+   width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 60px;
@@ -55,8 +54,7 @@
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    width: 1440px;
-    max-width: 100%;
+    width: 100%;
     text-align: center;
     border-top: 1px solid rgba(10, 132, 255, 0.20);
     background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.00) 10.46%, rgba(0, 0, 0, 0.00) 20.92%, rgba(255, 255, 255, 0.02) 31.37%, rgba(255, 255, 255, 0.02) 41.83%, rgba(0, 0, 0, 0.00) 52.29%, rgba(0, 0, 0, 0.00) 62.75%, rgba(255, 255, 255, 0.02) 73.21%);
@@ -117,6 +115,8 @@
     align-items: center;
     gap: 40px;
     align-self: stretch;
+    max-width: 1440px;
+    margin: 0 auto;
   }
 
   /* Cards Grid (Desktop Default) */
@@ -142,7 +142,7 @@
     align-self: stretch;
     border-radius: 16px;
     border: 1px solid rgba(229, 231, 235, 0.10);
-    background: rgba(255, 255, 255, 0.02);
+    background: #090f1c;
     box-shadow: 0 0 40px 0 rgba(10, 132, 255, 0.15);
     position: relative;
     text-align: center;
@@ -160,6 +160,7 @@
     height: 100%;
     opacity: 0.08;
     pointer-events: none;
+    background: #090f1c;
   
   }
 
@@ -631,6 +632,7 @@
   /* Ensure it's solid */
   opacity: 1;
   pointer-events: none;
+  background: #090f1c;
 }
 
 /* GLOW EFFECT */
@@ -673,6 +675,57 @@
 .competitive-advantages__card > * {
   position: relative;
   z-index: 1;
+}
+
+
+
+
+
+
+
+
+/* Button with static underline and hover animation */
+.competitive-advantages__btn--secondary {
+  position: relative;
+  text-decoration: none; /* Remove default underline */
+  display: inline-block;
+  padding-bottom: 3px; /* Space for the underline */
+}
+
+/* Static underline (always visible) */
+.competitive-advantages__btn--secondary::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width always */
+  height: 1px; /* Thickness of underline */
+  background-color: currentColor; /* Uses the button's text color */
+  opacity: 0.3; /* Make it subtle when not hovered */
+  transition: opacity 0.3s ease;
+}
+
+/* Animated overlay underline (appears on hover) */
+.competitive-advantages__btn--secondary::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Start with 0 width */
+  height: 1px; /* Same thickness */
+  background-color: currentColor; /* Uses the button's text color */
+  transition: width 0.3s ease; /* Smooth animation */
+  z-index: 1; /* Ensure it appears above the static line */
+}
+
+/* On hover, animate the overlay underline from left to right */
+.competitive-advantages__btn--secondary:hover::after {
+  width: 100%; /* Expands to full width */
+}
+
+/* Optional: make static line more visible on hover if desired */
+.competitive-advantages__btn--secondary:hover::before {
+  opacity: 0.1; /* Even more subtle when animated line appears */
 }
 </style>
 

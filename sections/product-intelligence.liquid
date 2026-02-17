@@ -2362,3 +2362,57 @@
   transform: scale(1.05); /* 5% zoom - adjust as needed */
 }
 </style>
+
+
+
+
+<script>
+// Magnetic Glow Effect for Support Contact Card - Optimized for behind-card appearance
+document.addEventListener('DOMContentLoaded', function() {
+  const supportCards = document.querySelectorAll('.support-contact__card');
+  
+  supportCards.forEach(card => {
+    let rafId = null;
+    
+    card.addEventListener('mousemove', (e) => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+      }
+      
+      rafId = requestAnimationFrame(() => {
+        const rect = card.getBoundingClientRect();
+        
+        // Calculate mouse position as percentage of card
+        let x = ((e.clientX - rect.left) / rect.width) * 100;
+        let y = ((e.clientY - rect.top) / rect.height) * 100;
+        
+        // Constrain to keep glow from going too far to edges
+        // This prevents the glow from being cut off visually
+        const min = 15; // Minimum percentage from edge
+        const max = 85; // Maximum percentage from edge
+        
+        x = Math.min(Math.max(x, min), max);
+        y = Math.min(Math.max(y, min), max);
+        
+        // Set CSS variables
+        card.style.setProperty('--glow-position-x', x + '%');
+        card.style.setProperty('--glow-position-y', y + '%');
+        
+        rafId = null;
+      });
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      if (rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = null;
+      }
+      
+      // Smoothly return to center
+      card.style.setProperty('--glow-position-x', '50%');
+      card.style.setProperty('--glow-position-y', '50%');
+    });
+  });
+});
+
+</script>
