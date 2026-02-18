@@ -253,7 +253,7 @@
         "product_config_RhYpfg": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -764,8 +764,7 @@
           "type": "specs_tab",
           "settings": {
             "tab_title": "Specifications",
-            "tab_icon": "specs",
-            "download_link": ""
+            "tab_icon": "specs"
           }
         },
         "features_tab_wEjVQ8": {
@@ -1140,8 +1139,6 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "feature6": "Wide viewing angles for passing traffic",
-            "feature7": "Scalable architecture for future expansion",
             "stat1_label": "Rec Viewing",
             "stat1_value": "20-50 feet",
             "stat2_label": "Typical Size",
@@ -1179,8 +1176,6 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "feature6": "Wide viewing angles for passing traffic",
-            "feature7": "Scalable architecture for future expansion",
             "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
@@ -1218,8 +1213,6 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "feature6": "Wide viewing angles for passing traffic",
-            "feature7": "Scalable architecture for future expansion",
             "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
@@ -1257,8 +1250,6 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "feature6": "Wide viewing angles for passing traffic",
-            "feature7": "Scalable architecture for future expansion",
             "stat1_label": "Rec Viewing",
             "stat1_value": "5-20 feet",
             "stat2_label": "Typical Size",
@@ -1296,8 +1287,6 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "feature6": "Wide viewing angles for passing traffic",
-            "feature7": "Scalable architecture for future expansion",
             "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
