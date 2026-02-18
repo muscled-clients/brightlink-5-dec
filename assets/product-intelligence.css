@@ -1875,16 +1875,12 @@
     height: auto;
   }
 
-  /* Feature cards: wrap on mobile */
+  /* Feature cards: 2-col grid, last card full width */
   .product-intelligence__features {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 12px;
     width: 100%;
-  }
-
-  .product-intelligence__feature-card {
-    flex: 1 1 calc(50% - 6px);
-    min-width: 140px;
   }
 
   .product-intelligence__feature-card {
@@ -1899,6 +1895,11 @@
     min-width: 0;
   }
 
+  /* If the last card is odd (3rd, 5th, etc.), span full width */
+  .product-intelligence__feature-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
   .product-intelligence__feature-icon {
     flex-shrink: 0;
     width: 36px;
@@ -1911,12 +1912,14 @@
     font-weight: 600;
     margin-bottom: 4px;
     color: #ffffff;
+    height: auto;
   }
 
   .product-intelligence__feature-desc {
     font-size: 12px;
     color: rgba(255, 255, 255, 0.6);
     line-height: 1.4;
+    height: auto;
   }
 
   /* Specs Tab Responsive */
