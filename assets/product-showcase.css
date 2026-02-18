@@ -226,6 +226,7 @@
     height: auto;
     aspect-ratio: unset;
     max-width: calc(100% - 40px);
+    padding-bottom: 70px;
   }
 
   .product-showcase__slides {
@@ -253,11 +254,12 @@
     line-height: 24px;
   }
 
-  /* Caption: below image, not overlapping */
+  /* Caption: absolutely positioned below image so slide height = image only */
   .product-showcase__caption {
-    position: relative;
+    position: absolute;
+    top: 100%;
+    left: 0;
     bottom: auto;
-    left: auto;
     width: 100%;
     max-width: 100%;
     height: auto;
@@ -279,19 +281,15 @@
     color: #A0AEC0;
   }
 
-  /* Dots: reposition as relative, centered below image */
-  .product-showcase__slide {
-    position: relative;
-  }
-
+  /* Dots: absolute on the image */
   .product-showcase__dots {
-    position: relative;
-    bottom: auto;
-    left: auto;
-    transform: none;
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
     width: auto;
     padding: 10px 16px;
-    margin: -30px auto 0;
+    margin: 0;
     display: flex;
     justify-content: center;
     z-index: 10;
