@@ -1755,54 +1755,66 @@
       }
     });
 
-    // Installation Requirements Slider (mobile)
+    // Installation Requirements Slider (mobile) - show/hide approach
     (function() {
       var reqGrid = section.querySelector('.installation-requirements__grid');
       var reqDots = section.querySelectorAll('.installation-requirements__dot');
       if (!reqGrid || reqDots.length === 0) return;
 
-      function setActiveDot(index) {
+      var items = reqGrid.querySelectorAll('.installation-requirement');
+      if (items.length === 0) return;
+
+      var currentSlide = 0;
+
+      // Only activate on mobile
+      function isMobile() { return window.innerWidth <= 768; }
+
+      function showSlide(index) {
+        if (index < 0 || index >= items.length) return;
+        currentSlide = index;
+        items.forEach(function(item) { item.classList.remove('installation-requirement--active'); });
+        items[index].classList.add('installation-requirement--active');
         reqDots.forEach(function(d, i) {
           d.classList.toggle('installation-requirements__dot--active', i === index);
         });
       }
 
-      function getActiveIndex() {
-        var items = reqGrid.querySelectorAll('.installation-requirement');
-        if (items.length === 0) return 0;
-        var itemWidth = items[0].offsetWidth;
-        if (itemWidth === 0) return 0;
-        return Math.round(reqGrid.scrollLeft / itemWidth);
-      }
+      // Show first slide on load
+      if (isMobile()) showSlide(0);
 
-      // Dot click handler
+      // Re-check on resize
+      window.addEventListener('resize', function() {
+        if (isMobile()) {
+          showSlide(currentSlide);
+        } else {
+          // On desktop, show all
+          items.forEach(function(item) { item.classList.remove('installation-requirement--active'); });
+        }
+      });
+
+      // Dot click
       reqDots.forEach(function(dot) {
         dot.addEventListener('click', function() {
-          var slideIndex = parseInt(dot.getAttribute('data-req-slide'));
-          var items = reqGrid.querySelectorAll('.installation-requirement');
-          if (items[slideIndex]) {
-            var itemWidth = items[0].offsetWidth;
-            reqGrid.scrollTo({ left: slideIndex * itemWidth, behavior: 'smooth' });
-          }
-          setActiveDot(slideIndex);
+          showSlide(parseInt(dot.getAttribute('data-req-slide')));
         });
       });
 
-      // Update dots on scroll end (swipe)
-      var scrollTimer;
-      reqGrid.addEventListener('scroll', function() {
-        clearTimeout(scrollTimer);
-        scrollTimer = setTimeout(function() {
-          setActiveDot(getActiveIndex());
-        }, 150);
-      });
+      // Swipe detection
+      var touchStartX = 0;
+      reqGrid.addEventListener('touchstart', function(e) {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
 
-      // Also listen for touchend as backup
-      reqGrid.addEventListener('touchend', function() {
-        setTimeout(function() {
-          setActiveDot(getActiveIndex());
-        }, 350);
-      });
+      reqGrid.addEventListener('touchend', function(e) {
+        var diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0 && currentSlide < items.length - 1) {
+            showSlide(currentSlide + 1);
+          } else if (diff < 0 && currentSlide > 0) {
+            showSlide(currentSlide - 1);
+          }
+        }
+      }, { passive: true });
     })();
 
   });
