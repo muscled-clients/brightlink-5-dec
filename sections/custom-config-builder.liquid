@@ -3,6 +3,7 @@
 {% comment %} Get LED template data from product metafield {% endcomment %}
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign config_builder_data = led_data.config_builder %}
+{% assign price_per_cabinet = product.metafields.custom.price_per_cabinet.value | default: 0 %}
 
 <section class="custom-config" id="custom-config">
   <div class="custom-config__container">
@@ -88,13 +89,15 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // Cabinet specifications (can be customized per product via metafields)
+  // Cabinet specifications
   const CABINET_SPECS = {
     widthInches: 23.62,    // Cabinet width in inches (600mm)
     heightInches: 13.3,    // Cabinet height in inches (337.5mm)
     pixelsWide: 480,       // Pixels per cabinet width
     pixelsHigh: 270,       // Pixels per cabinet height
-    pricePerCabinet: 2328  // Price per cabinet in USD
+    pricePerCabinet: {{ price_per_cabinet }},  // From product metafield
+    controllerCost: 6000,  // Novastar controller cost
+    sellMultiplier: 4      // Sell price = total cost × 4
   };
 
   // DOM Elements
@@ -129,15 +132,20 @@ document.addEventListener('DOMContentLoaded', function() {
     // Diagonal in inches
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
 
-    // Estimated price
-    const estimatedPrice = totalCabinets * CABINET_SPECS.pricePerCabinet;
+    // Estimated price: (cabinets × price_per_cabinet + controller) × sell_multiplier
+    const totalCost = (totalCabinets * CABINET_SPECS.pricePerCabinet) + CABINET_SPECS.controllerCost;
+    const sellPrice = totalCost * CABINET_SPECS.sellMultiplier;
 
     // Update display
     resultResolution.textContent = totalResolution.toLocaleString() + ' pixels';
     resultSize.textContent = widthFeet + "' × " + heightFeet + "'";
     resultDiagonal.textContent = Math.round(diagonalInches) + '"';
     resultCabinets.textContent = totalCabinets + ' units';
-    resultPrice.textContent = '$' + estimatedPrice.toLocaleString();
+    if (CABINET_SPECS.pricePerCabinet > 0) {
+      resultPrice.textContent = '$' + sellPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    } else {
+      resultPrice.textContent = 'Contact for pricing';
+    }
   }
 
   // Event listeners
