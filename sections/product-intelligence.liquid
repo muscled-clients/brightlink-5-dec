@@ -1878,25 +1878,47 @@
     const reqDots = section.querySelectorAll('.installation-requirements__dot');
     if (!reqGrid || reqDots.length === 0) return;
 
+    function setActiveDot(index) {
+      reqDots.forEach(function(d, i) {
+        d.classList.toggle('installation-requirements__dot--active', i === index);
+      });
+    }
+
+    function getActiveIndex() {
+      var items = reqGrid.querySelectorAll('.installation-requirement');
+      if (items.length === 0) return 0;
+      var itemWidth = items[0].offsetWidth;
+      if (itemWidth === 0) return 0;
+      return Math.round(reqGrid.scrollLeft / itemWidth);
+    }
+
     // Dot click handler
     reqDots.forEach(function(dot) {
       dot.addEventListener('click', function() {
-        const slideIndex = parseInt(dot.getAttribute('data-req-slide'));
-        const scrollTarget = slideIndex * reqGrid.offsetWidth;
-        reqGrid.scrollTo({ left: scrollTarget, behavior: 'smooth' });
+        var slideIndex = parseInt(dot.getAttribute('data-req-slide'));
+        var items = reqGrid.querySelectorAll('.installation-requirement');
+        if (items[slideIndex]) {
+          var itemWidth = items[0].offsetWidth;
+          reqGrid.scrollTo({ left: slideIndex * itemWidth, behavior: 'smooth' });
+        }
+        setActiveDot(slideIndex);
       });
     });
 
-    // Scroll handler to update active dot
-    var scrollTimeout;
+    // Update dots on scroll end (swipe)
+    var scrollTimer;
     reqGrid.addEventListener('scroll', function() {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(function() {
-        var activeIndex = Math.round(reqGrid.scrollLeft / reqGrid.offsetWidth);
-        reqDots.forEach(function(d, i) {
-          d.classList.toggle('installation-requirements__dot--active', i === activeIndex);
-        });
-      }, 50);
+      clearTimeout(scrollTimer);
+      scrollTimer = setTimeout(function() {
+        setActiveDot(getActiveIndex());
+      }, 150);
+    });
+
+    // Also listen for touchend as backup
+    reqGrid.addEventListener('touchend', function() {
+      setTimeout(function() {
+        setActiveDot(getActiveIndex());
+      }, 350);
     });
   })();
 </script>
