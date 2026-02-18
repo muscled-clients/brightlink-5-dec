@@ -2041,11 +2041,15 @@
     line-height: 1.5;
   }
 
-  /* Requirements: horizontal slider with dots */
+  /* Requirements: strip card styling from outer container */
   .installation-requirements {
-    padding: 20px 16px;
-    overflow: hidden;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
     gap: 16px;
+    overflow: visible;
   }
 
   .installation-requirements__title {
@@ -2055,6 +2059,7 @@
     height: auto;
   }
 
+  /* Move card styling to the grid (slider) */
   .installation-requirements__grid {
     display: flex;
     overflow-x: auto;
@@ -2063,6 +2068,11 @@
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-overflow-scrolling: touch;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 60px 0 rgba(0, 102, 204, 0.20);
+    padding: 24px 0;
   }
 
   .installation-requirements__grid::-webkit-scrollbar {
@@ -2073,7 +2083,7 @@
     flex: 0 0 100%;
     scroll-snap-align: center;
     text-align: center;
-    padding: 0 16px;
+    padding: 0 20px;
     box-sizing: border-box;
   }
 
