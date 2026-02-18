@@ -543,14 +543,14 @@
       display: none;
     }
 
-    /* Card Sizing - Full Width (100%) */
+    /* Card Sizing - Use vw to guarantee fit within viewport */
     .competitive-advantages__card {
-      flex: 0 0 100%; /* Full width per slide */
-      width: 100%;
-      max-width: none;
+      flex: 0 0 calc(100vw - 40px);
+      width: calc(100vw - 40px);
+      max-width: calc(100vw - 40px);
       scroll-snap-align: center;
       margin: 0;
-      overflow: hidden; /* Safe on mobile - no hover glow */
+      overflow: hidden;
       min-width: 0;
     }
     
@@ -590,14 +590,21 @@
 
     /* CTA Mobile Fix */
     .competitive-advantages__cta {
-      width: 100%;
-      padding: 0 20px;
+      width: calc(100vw - 40px);
+      max-width: calc(100vw - 40px);
       box-sizing: border-box;
     }
 
     .competitive-advantages__btn {
       width: 100%;
       padding: 16px 24px;
+      box-sizing: border-box;
+    }
+
+    .competitive-advantages__price {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
     }
 
     /* Card padding tighter on mobile */
@@ -661,7 +668,14 @@
       line-height: 20px;
     }
 
+    .competitive-advantages__cards {
+      padding: 0 16px 24px 16px;
+    }
+
     .competitive-advantages__card {
+      flex: 0 0 calc(100vw - 32px);
+      width: calc(100vw - 32px);
+      max-width: calc(100vw - 32px);
       padding: 20px 16px;
       gap: 24px;
     }
@@ -684,8 +698,9 @@
       font-size: 14px;
     }
 
-    .competitive-advantages__cards {
-      padding: 0 16px 24px 16px;
+    .competitive-advantages__cta {
+      width: calc(100vw - 32px);
+      max-width: calc(100vw - 32px);
     }
   }
 
