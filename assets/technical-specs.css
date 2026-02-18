@@ -111,15 +111,16 @@
 /* Cards Row */
 .technical-specs__row {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 20px;
+  width: 100%;
 }
 
 /* Individual Card */
 .technical-specs__card {
   display: flex;
-  width: 305px;
-  height: 228px;
+  flex: 1 1 0;
+  min-width: 0;
   padding: 32px;
   flex-direction: column;
   justify-content: center;
@@ -330,10 +331,9 @@
 
 /* ========== RESPONSIVE ========== */
 
-@media screen and (max-width: 1200px) {
-  .technical-specs__grid {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+@media screen and (max-width: 1024px) {
+  .technical-specs__heading {
+    font-size: 36px;
   }
 
   .technical-specs__card {
@@ -342,17 +342,6 @@
 
   .technical-specs__card-title {
     font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .technical-specs__grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-
-  .technical-specs__heading {
-    font-size: 36px;
   }
 }
 
@@ -379,25 +368,23 @@
     line-height: 24px;
   }
 
+  /* Switch to CSS Grid and flatten rows */
   .technical-specs__grid {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
+    width: 100%;
     max-width: calc(100% - 40px);
   }
 
+  .technical-specs__row {
+    display: contents;
+  }
+
   .technical-specs__card {
+    width: auto;
+    height: auto;
     padding: 24px 16px;
-  }
-
-  .technical-specs__icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 16px;
-  }
-
-  .technical-specs__icon i svg {
-    /* width: 24px;
-    height: 24px; */
   }
 
   .technical-specs__card-title {
@@ -412,16 +399,23 @@
     font-size: 12px;
   }
 
+  /* CTA mobile fix */
+  .technical-specs__cta {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
   .technical-specs__btn {
     width: 100%;
-    max-width: 400px;
     padding: 16px 48px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .technical-specs__header {
-    padding: 30px 15px;
+    padding: 30px 16px;
   }
 
   .technical-specs__label {
@@ -437,24 +431,18 @@
   }
 
   .technical-specs__grid {
-    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    max-width: calc(100% - 30px);
+    max-width: calc(100% - 32px);
   }
 
   .technical-specs__card {
     padding: 20px 12px;
+    gap: 16px;
   }
 
   .technical-specs__icon {
     width: 44px;
     height: 44px;
-    margin-bottom: 12px;
-  }
-
-  .technical-specs__icon i svg {
-    /* width: 22px;
-    height: 22px; */
   }
 
   .technical-specs__card-title {
@@ -471,7 +459,11 @@
 
   .technical-specs__btn {
     padding: 14px 32px;
-    font-size: 12px;
+    font-size: 14px;
+  }
+
+  .technical-specs__cta {
+    padding: 0 16px;
   }
 
   .technical-specs__price {
