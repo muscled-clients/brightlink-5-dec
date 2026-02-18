@@ -58,7 +58,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  margin: 71px 0 112px 80px;
+  margin: 74px 0 74px 80px;
   box-sizing: border-box;
 }
 
@@ -67,7 +67,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
+  gap: 24px;
   align-self: stretch;
 }
 
@@ -152,7 +152,14 @@
   max-width: 500px;
 }
 
-/* Bottom Frame - deprecated, now part of text-frame */
+/* Bottom Frame */
+.hero-video-wall__bottom-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: stretch;
+}
 
 /* Variant Selector Wrapper */
 .hero-video-wall__variant-wrapper {
