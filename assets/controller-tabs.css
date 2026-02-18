@@ -677,6 +677,31 @@ background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 
     order: 2;
     width: 100%;
   }
+
+  /* Fix simple layout specificity: match compound selector */
+  .controller-tabs__panel-content--simple .controller-tabs__left {
+    width: 100%;
+  }
+
+  .controller-tabs__panel-content--simple .controller-tabs__image-area {
+    width: 100%;
+  }
+
+  .controller-tabs__panel-content--simple .controller-tabs__title {
+    width: 100%;
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .controller-tabs__panel-content--simple .controller-tabs__description p {
+    font-size: 15px;
+    line-height: 24px;
+  }
+
+  /* Prevent slide animation overflow */
+  .controller-tabs__panels {
+    overflow: hidden;
+  }
 }
 
 /* Dropdown - Hidden on desktop */
@@ -802,8 +827,14 @@ background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 
     gap: 20px;
   }
 
-  .controller-tabs__description {
+  .controller-tabs__description p {
     font-size: 13px;
+    line-height: 22px;
+  }
+
+  /* Config list: single column on mobile */
+  .controller-tabs__config-list {
+    grid-template-columns: 1fr;
   }
 
   .controller-tabs__features-list {
@@ -882,8 +913,18 @@ background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 
     font-size: 12px;
   }
 
-  .controller-tabs__description {
+  .controller-tabs__description p {
     font-size: 12px;
+    line-height: 20px;
+  }
+
+  .controller-tabs__panel-content--simple .controller-tabs__title {
+    font-size: 24px;
+  }
+
+  .controller-tabs__panel-content--simple .controller-tabs__description p {
+    font-size: 13px;
+    line-height: 20px;
   }
 
   .controller-tabs__features-list li {
