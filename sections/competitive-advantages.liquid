@@ -550,6 +550,8 @@
       max-width: none;
       scroll-snap-align: center;
       margin: 0;
+      overflow: hidden; /* Safe on mobile - no hover glow */
+      min-width: 0;
     }
     
     /* Dots Container - Custom Styling */
@@ -603,11 +605,38 @@
       padding: 24px 20px;
     }
 
+    .competitive-advantages__card-body,
+    .competitive-advantages__card-header,
+    .competitive-advantages__card-text,
+    .competitive-advantages__features,
+    .competitive-advantages__feature {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .competitive-advantages__feature span:last-child {
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
     .competitive-advantages__card-title {
       font-size: 28px;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .competitive-advantages__card-subtitle,
+    .competitive-advantages__card-meta {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .competitive-advantages__card-footer {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
       word-wrap: break-word;
       overflow-wrap: break-word;
     }
