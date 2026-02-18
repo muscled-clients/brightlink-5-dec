@@ -17,7 +17,7 @@
 }
 #system-configuration-{{ section.id }} .system-configuration__card-title{
 color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 24px;
 font-style: normal;
 font-weight: 600;
@@ -353,7 +353,7 @@ background: rgba(0, 0, 0, 0.00);
 
 .system-configuration__spec-label {
  color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -363,7 +363,7 @@ height: 20px;
 
 .system-configuration__spec-value {
 color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 16px;
 font-style: normal;
 font-weight: 600;
@@ -523,7 +523,7 @@ max-width:350px;
   margin: 0 0 12px 0;
   color: #FFF;
 text-align: center;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 48px;
 font-style: normal;
 font-weight: 700;
@@ -537,7 +537,7 @@ line-height: 48px; /* 100% */
   margin-right: auto;
   color: #94A3B8;
 text-align: center;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 20px;
 font-style: normal;
 font-weight: 400;
@@ -751,7 +751,7 @@ line-height: normal;
    .system-configuration__card-subtitle{
 
 color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px!important;
 font-style: normal;
 font-weight: 400;
@@ -828,7 +828,7 @@ height: 16px;
 
   .system-configuration__spec-label {
    color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -838,7 +838,7 @@ width: 279px;
 
   .system-configuration__spec-value {
   color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
@@ -849,7 +849,7 @@ align-self: stretch;
 
     color: #0A84FF;
 text-align: center;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 12px;
 font-style: normal;
 font-weight: 600;
@@ -859,7 +859,7 @@ letter-spacing: 0.382px;
   .system-configuration__cabinet-sublabel{
 color: #A0AEC0;
 text-align: center;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 12px;
 font-style: normal;
 font-weight: 400;
@@ -893,7 +893,7 @@ line-height: normal;
 
   .system-configuration__feature-title {
    color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
@@ -902,7 +902,7 @@ line-height: normal;
 
   .system-configuration__feature-desc {
   color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -1033,7 +1033,7 @@ line-height: normal;
 
   .system-configuration__spec-label {
      color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
@@ -1043,7 +1043,7 @@ width: 279px;
 
   .system-configuration__spec-value {
       color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
@@ -1063,7 +1063,7 @@ align-self: stretch;
 
   .system-configuration__feature-title {
    color: #FFF;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 600;
@@ -1072,7 +1072,7 @@ line-height: normal;
 
   .system-configuration__feature-desc {
     color: #A0AEC0;
-font-family: Inter;
+font-family: Inter, sans-serif;
 font-size: 14px;
 font-style: normal;
 font-weight: 400;
