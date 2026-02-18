@@ -308,6 +308,14 @@ background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 
   overflow: hidden;
 }
 
+.controller-tabs__product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
 .controller-tabs__certified-badge {
   position: absolute;
   top: 15px;
