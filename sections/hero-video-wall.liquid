@@ -102,54 +102,51 @@
           <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
         {% endif %}
       </div>
-    </div>
 
-    <!-- Product Configs Data -->
-    <script id="hero-product-configs" type="application/json">
-      [
-        {% assign config_index = 0 %}
-        {% for block in section.blocks %}
-          {% if block.type == 'product_config' %}
-            {% if config_index > 0 %},{% endif %}
-            {
-              "diagonal": {{ block.settings.diagonal | json }},
-              "pixel_pitch": {{ block.settings.pixel_pitch | json }},
-              "total_pixels": {{ block.settings.total_pixels | json }},
-              "aspect_ratio": {{ block.settings.aspect_ratio | json }},
-              {% if block.settings.product != blank %}
-                {% assign matched_variant = nil %}
-                {% for variant in block.settings.product.variants %}
-                  {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
-                    {% assign matched_variant = variant %}
-                    {% break %}
-                  {% endif %}
-                {% endfor %}
-                {% unless matched_variant %}
-                  {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
-                {% endunless %}
-                "price": {{ matched_variant.price | json }},
-                "compare_price": {{ matched_variant.compare_at_price | json }},
-                "price_formatted": {{ matched_variant.price | money | json }},
-                "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
-                "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
-                "variant_id": {{ matched_variant.id | json }}
-              {% else %}
-                "price": null,
-                "compare_price": null,
-                "price_formatted": "",
-                "compare_price_formatted": "",
-                "product_url": null,
-                "variant_id": null
-              {% endif %}
-            }
-            {% assign config_index = config_index | plus: 1 %}
-          {% endif %}
-        {% endfor %}
-      ]
-    </script>
+      <!-- Product Configs Data -->
+      <script id="hero-product-configs" type="application/json">
+        [
+          {% assign config_index = 0 %}
+          {% for block in section.blocks %}
+            {% if block.type == 'product_config' %}
+              {% if config_index > 0 %},{% endif %}
+              {
+                "diagonal": {{ block.settings.diagonal | json }},
+                "pixel_pitch": {{ block.settings.pixel_pitch | json }},
+                "total_pixels": {{ block.settings.total_pixels | json }},
+                "aspect_ratio": {{ block.settings.aspect_ratio | json }},
+                {% if block.settings.product != blank %}
+                  {% assign matched_variant = nil %}
+                  {% for variant in block.settings.product.variants %}
+                    {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
+                      {% assign matched_variant = variant %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                  {% unless matched_variant %}
+                    {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
+                  {% endunless %}
+                  "price": {{ matched_variant.price | json }},
+                  "compare_price": {{ matched_variant.compare_at_price | json }},
+                  "price_formatted": {{ matched_variant.price | money | json }},
+                  "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
+                  "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
+                  "variant_id": {{ matched_variant.id | json }}
+                {% else %}
+                  "price": null,
+                  "compare_price": null,
+                  "price_formatted": "",
+                  "compare_price_formatted": "",
+                  "product_url": null,
+                  "variant_id": null
+                {% endif %}
+              }
+              {% assign config_index = config_index | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+        ]
+      </script>
 
-    <!-- Bottom Frame: Variant Selector + Buttons -->
-    <div class="hero-video-wall__bottom-frame">
       <!-- Variant Selector Wrapper -->
       <div class="hero-video-wall__variant-wrapper">
         <!-- Variant Label -->

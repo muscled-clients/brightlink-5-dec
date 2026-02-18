@@ -152,14 +152,7 @@
   max-width: 500px;
 }
 
-/* Bottom Frame */
-.hero-video-wall__bottom-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-  align-self: stretch;
-}
+/* Bottom Frame - deprecated, now part of text-frame */
 
 /* Variant Selector Wrapper */
 .hero-video-wall__variant-wrapper {
@@ -687,10 +680,6 @@
 
   .hero-video-wall__price-badge {
     font-size: 12px;
-  }
-
-  .hero-video-wall__bottom-frame {
-    gap: 12px;
   }
 
   .hero-video-wall__variant-wrapper {
