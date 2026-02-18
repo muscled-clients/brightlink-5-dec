@@ -32,6 +32,7 @@
   @media screen and (max-width: 768px) {
     .competitive-advantages {
       margin-bottom: 50px;
+      overflow: visible;
     }
   }
 
@@ -524,6 +525,11 @@
       line-height: 24px;
     }
 
+    .competitive-advantages__content {
+      gap: 30px;
+      overflow: visible;
+    }
+
     /* Slider Container */
     .competitive-advantages__cards {
       display: flex;
@@ -531,67 +537,86 @@
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
-      gap: 20px;
+      scroll-padding: 0 20px;
+      gap: 0;
       padding: 0 20px 30px 20px;
       margin: 0;
-      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    
+
     .competitive-advantages__cards::-webkit-scrollbar {
       display: none;
     }
 
-    /* Card Sizing - Use vw to guarantee fit within viewport */
+    /* Card Sizing */
     .competitive-advantages__card {
-      flex: 0 0 calc(100vw - 40px);
-      width: calc(100vw - 40px);
-      max-width: calc(100vw - 40px);
-      scroll-snap-align: center;
+      flex: 0 0 100%;
+      width: 100%;
+      max-width: 100%;
+      scroll-snap-align: start;
       margin: 0;
       overflow: hidden;
-      min-width: 0;
+      padding: 24px 20px;
+      box-sizing: border-box;
     }
-    
-    /* Dots Container - Custom Styling */
+
+    /* Force inner elements to respect card width */
+    .competitive-advantages__card-body,
+    .competitive-advantages__card-header,
+    .competitive-advantages__card-text,
+    .competitive-advantages__features,
+    .competitive-advantages__feature,
+    .competitive-advantages__card-footer {
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .competitive-advantages__card-title {
+      font-size: 28px;
+    }
+
+    /* Dots Container */
     .mobile-slider-dots {
-      display: flex;
+      display: flex !important;
       justify-content: center;
       align-items: center;
-      
-      /* Exact Requested Styles */
       border: 1px solid #0A84FF1A;
-      width: fit-content; /* Adapts to content padding */
+      width: fit-content;
       height: 18px;
       border-radius: 16px;
       gap: 12px;
       padding: 4px 20px;
       opacity: 1;
-
-      /* Positioning */
-      margin: -20px auto 0 auto; /* Pull up slightly */
+      margin: -20px auto 0 auto;
       position: relative;
     }
-    
+
     .slider-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.4); /* Inactive Grey */
+      background-color: rgba(255, 255, 255, 0.4);
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    
+
     .slider-dot.active {
-      background-color: #0A84FF; /* Active Blue */
+      background-color: #0A84FF;
       opacity: 1;
     }
 
     /* CTA Mobile Fix */
     .competitive-advantages__cta {
-      width: calc(100vw - 40px);
-      max-width: calc(100vw - 40px);
+      display: flex !important;
+      width: 100%;
+      max-width: 100%;
+      padding: 0 20px;
       box-sizing: border-box;
     }
 
@@ -605,51 +630,6 @@
       word-wrap: break-word;
       overflow-wrap: break-word;
       max-width: 100%;
-    }
-
-    /* Card padding tighter on mobile */
-    .competitive-advantages__card {
-      padding: 24px 20px;
-    }
-
-    .competitive-advantages__card-body,
-    .competitive-advantages__card-header,
-    .competitive-advantages__card-text,
-    .competitive-advantages__features,
-    .competitive-advantages__feature {
-      min-width: 0;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-
-    .competitive-advantages__feature span:last-child {
-      min-width: 0;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    .competitive-advantages__card-title {
-      font-size: 28px;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    .competitive-advantages__card-subtitle,
-    .competitive-advantages__card-meta {
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    .competitive-advantages__card-footer {
-      min-width: 0;
-      max-width: 100%;
-      box-sizing: border-box;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-
-    .competitive-advantages__content {
-      gap: 30px;
     }
   }
 
@@ -670,12 +650,10 @@
 
     .competitive-advantages__cards {
       padding: 0 16px 24px 16px;
+      scroll-padding: 0 16px;
     }
 
     .competitive-advantages__card {
-      flex: 0 0 calc(100vw - 32px);
-      width: calc(100vw - 32px);
-      max-width: calc(100vw - 32px);
       padding: 20px 16px;
       gap: 24px;
     }
@@ -699,8 +677,7 @@
     }
 
     .competitive-advantages__cta {
-      width: calc(100vw - 32px);
-      max-width: calc(100vw - 32px);
+      padding: 0 16px;
     }
   }
 
