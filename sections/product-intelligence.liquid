@@ -1391,6 +1391,19 @@
                       </div>
                     {% endif %}
                   </div>
+
+                  <!-- Requirements Slider Dots (mobile only) -->
+                  <div class="installation-requirements__dots">
+                    {% if pic_install_requirements_titles and pic_install_requirements_titles.size > 0 %}
+                      {% for title in pic_install_requirements_titles %}
+                        <button class="installation-requirements__dot {% if forloop.first %}installation-requirements__dot--active{% endif %}" data-req-slide="{{ forloop.index0 }}" aria-label="Requirement {{ forloop.index }}"></button>
+                      {% endfor %}
+                    {% else %}
+                      <button class="installation-requirements__dot installation-requirements__dot--active" data-req-slide="0" aria-label="Requirement 1"></button>
+                      <button class="installation-requirements__dot" data-req-slide="1" aria-label="Requirement 2"></button>
+                      <button class="installation-requirements__dot" data-req-slide="2" aria-label="Requirement 3"></button>
+                    {% endif %}
+                  </div>
                 </div>
 
                 <!-- Professional Support CTA -->
@@ -1858,6 +1871,40 @@
       });
     });
   }
+
+  // Installation Requirements Slider (mobile)
+  (function() {
+    const reqGrid = section.querySelector('.installation-requirements__grid');
+    const reqDots = section.querySelectorAll('.installation-requirements__dot');
+    if (!reqGrid || reqDots.length === 0) return;
+
+    // Dot click handler
+    reqDots.forEach(function(dot) {
+      dot.addEventListener('click', function() {
+        const slideIndex = parseInt(dot.getAttribute('data-req-slide'));
+        const items = reqGrid.children;
+        if (items[slideIndex]) {
+          reqGrid.scrollTo({ left: items[slideIndex].offsetLeft - reqGrid.offsetLeft, behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Scroll handler to update active dot
+    reqGrid.addEventListener('scroll', function() {
+      const items = reqGrid.children;
+      const scrollLeft = reqGrid.scrollLeft;
+      const gridWidth = reqGrid.offsetWidth;
+      let activeIndex = 0;
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].offsetLeft - reqGrid.offsetLeft <= scrollLeft + gridWidth * 0.5) {
+          activeIndex = i;
+        }
+      }
+      reqDots.forEach(function(d, i) {
+        d.classList.toggle('installation-requirements__dot--active', i === activeIndex);
+      });
+    });
+  })();
 </script>
 
 {% schema %}
