@@ -57,19 +57,22 @@
         <p class="hero-video-wall__series-label">{{ series_label }}</p>
       {% endif %}
 
-      <!-- Product Specs Line -->
-      <p class="hero-video-wall__specs-line" id="hero-specs-line">
-        {%- if default_config -%}
-          {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
-        {%- endif -%}
-      </p>
+      <!-- Specs + Heading Frame -->
+      <div class="hero-video-wall__heading-frame">
+        <!-- Product Specs Line -->
+        <p class="hero-video-wall__specs-line" id="hero-specs-line">
+          {%- if default_config -%}
+            {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
+          {%- endif -%}
+        </p>
 
-      <!-- Main Heading -->
-      {% if section.settings.main_heading != blank %}
-        <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
-      {% elsif product.title != blank %}
-        <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
-      {% endif %}
+        <!-- Main Heading -->
+        {% if section.settings.main_heading != blank %}
+          <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+        {% elsif product.title != blank %}
+          <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
+        {% endif %}
+      </div>
 
       {% assign first_matched_variant = nil %}
       {% if default_config.settings.product != blank %}

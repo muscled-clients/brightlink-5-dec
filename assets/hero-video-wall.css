@@ -92,6 +92,14 @@
   margin: 0;
 }
 
+/* Specs + Heading Frame */
+.hero-video-wall__heading-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
 /* Specs Line */
 .hero-video-wall__specs-line {
   color: #D1D5DB;
