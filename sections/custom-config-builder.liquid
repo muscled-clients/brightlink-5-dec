@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
     pixelsHigh: 270,       // Pixels per cabinet height
     pricePerCabinet: {{ price_per_cabinet }},  // From product metafield
     controllerCost: 6000,  // Novastar controller cost
-    sellMultiplier: 4      // Sell price = total cost × 4
+    cabinetMarkup: 3       // 3× markup on cabinet cost only
   };
 
   // DOM Elements
@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Diagonal in inches
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
 
-    // Estimated price: (cabinets × price_per_cabinet + controller) × sell_multiplier
-    const totalCost = (totalCabinets * CABINET_SPECS.pricePerCabinet) + CABINET_SPECS.controllerCost;
-    const sellPrice = totalCost * CABINET_SPECS.sellMultiplier;
+    // Sell price: (cabinets × price_per_cabinet × 3) + controller
+    const cabinetCost = totalCabinets * CABINET_SPECS.pricePerCabinet;
+    const sellPrice = (cabinetCost * CABINET_SPECS.cabinetMarkup) + CABINET_SPECS.controllerCost;
 
     // Update display
     resultResolution.textContent = totalResolution.toLocaleString() + ' pixels';
