@@ -90,10 +90,10 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Cabinet specifications (can be customized per product via metafields)
   const CABINET_SPECS = {
-    width: 500,        // Cabinet width in mm
-    height: 500,       // Cabinet height in mm
-    pixelsWide: 360,   // Pixels per cabinet width
-    pixelsHigh: 360,   // Pixels per cabinet height
+    widthInches: 23.62,    // Cabinet width in inches (600mm)
+    heightInches: 13.3,    // Cabinet height in inches (337.5mm)
+    pixelsWide: 480,       // Pixels per cabinet width
+    pixelsHigh: 270,       // Pixels per cabinet height
     pricePerCabinet: 2328  // Price per cabinet in USD
   };
 
@@ -120,15 +120,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const totalPixelsHigh = cabinetsHigh * CABINET_SPECS.pixelsHigh;
     const totalResolution = totalPixelsWide * totalPixelsHigh;
 
-    // Physical size in feet (convert from mm)
-    const widthMm = cabinetsWide * CABINET_SPECS.width;
-    const heightMm = cabinetsHigh * CABINET_SPECS.height;
-    const widthFeet = (widthMm / 304.8).toFixed(2);
-    const heightFeet = (heightMm / 304.8).toFixed(2);
+    // Physical size in inches, then convert to feet
+    const widthInches = cabinetsWide * CABINET_SPECS.widthInches;
+    const heightInches = cabinetsHigh * CABINET_SPECS.heightInches;
+    const widthFeet = (widthInches / 12).toFixed(2);
+    const heightFeet = (heightInches / 12).toFixed(2);
 
     // Diagonal in inches
-    const widthInches = widthMm / 25.4;
-    const heightInches = heightMm / 25.4;
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
 
     // Estimated price
