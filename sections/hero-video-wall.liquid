@@ -348,7 +348,7 @@
       }
 
       if (match) {
-        // Update all values
+        // Update dropdown values only
         selected.diagonal = match.diagonal;
         selected.pixel_pitch = match.pixel_pitch;
         selected.total_pixels = match.total_pixels;
@@ -359,38 +359,10 @@
         document.getElementById('hero-pixels-value').textContent = match.total_pixels;
         document.getElementById('hero-ratio-value').textContent = match.aspect_ratio;
 
-        // Update specs line
-        var specsLine = document.getElementById('hero-specs-line');
-        if (specsLine) {
-          specsLine.textContent = match.diagonal + ' | ' + match.pixel_pitch + ' Pitch | ' + match.total_pixels + ' Pixels | ' + match.aspect_ratio;
-        }
-
-        // Update price
-        var currentPrice = document.getElementById('hero-current-price');
-        var comparePrice = document.getElementById('hero-compare-price');
-        if (currentPrice && match.price_formatted) {
-          currentPrice.textContent = match.price_formatted;
-        }
-        if (comparePrice) {
-          if (match.compare_price && match.compare_price > match.price) {
-            comparePrice.textContent = match.compare_price_formatted;
-            comparePrice.style.display = '';
-          } else {
-            comparePrice.textContent = '';
-            comparePrice.style.display = 'none';
-          }
-        }
-
-        // Update add-to-cart button variant ID
-        var addToCartBtn = document.querySelector('.js-add-to-cart');
-        if (addToCartBtn && match.variant_id) {
-          addToCartBtn.setAttribute('data-variant-id', match.variant_id);
-        }
-
         // Rebuild dropdowns to update active states
         buildAllDropdowns();
 
-        // Update view product button URL
+        // Update view product button URL (clicking > redirects to selected product)
         var viewBtn = document.getElementById('hero-view-product-btn');
         if (viewBtn && match.product_url) {
           viewBtn.href = match.product_url;
