@@ -1882,27 +1882,21 @@
     reqDots.forEach(function(dot) {
       dot.addEventListener('click', function() {
         const slideIndex = parseInt(dot.getAttribute('data-req-slide'));
-        const items = reqGrid.children;
-        if (items[slideIndex]) {
-          reqGrid.scrollTo({ left: items[slideIndex].offsetLeft - reqGrid.offsetLeft, behavior: 'smooth' });
-        }
+        const scrollTarget = slideIndex * reqGrid.offsetWidth;
+        reqGrid.scrollTo({ left: scrollTarget, behavior: 'smooth' });
       });
     });
 
     // Scroll handler to update active dot
+    var scrollTimeout;
     reqGrid.addEventListener('scroll', function() {
-      const items = reqGrid.children;
-      const scrollLeft = reqGrid.scrollLeft;
-      const gridWidth = reqGrid.offsetWidth;
-      let activeIndex = 0;
-      for (let i = 0; i < items.length; i++) {
-        if (items[i].offsetLeft - reqGrid.offsetLeft <= scrollLeft + gridWidth * 0.5) {
-          activeIndex = i;
-        }
-      }
-      reqDots.forEach(function(d, i) {
-        d.classList.toggle('installation-requirements__dot--active', i === activeIndex);
-      });
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(function() {
+        var activeIndex = Math.round(reqGrid.scrollLeft / reqGrid.offsetWidth);
+        reqDots.forEach(function(d, i) {
+          d.classList.toggle('installation-requirements__dot--active', i === activeIndex);
+        });
+      }, 50);
     });
   })();
 </script>
