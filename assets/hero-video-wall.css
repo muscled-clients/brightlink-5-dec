@@ -67,8 +67,16 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 24px;
+  gap: 16px;
   align-self: stretch;
+}
+
+/* Inner content frame: series label + heading */
+.hero-video-wall__top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 /* Series Label */
