@@ -508,6 +508,14 @@
     "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
+        "slide_L8Y6p8": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/709da93b58a882c4e95393e37603a5f05c57ab88.png",
+            "slide_title": "test123",
+            "slide_description": "test123"
+          }
+        },
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
@@ -534,6 +542,7 @@
         }
       },
       "block_order": [
+        "slide_L8Y6p8",
         "slide_3AqnPF",
         "slide_YTbLzi",
         "slide_j9d3Vx"
