@@ -4,6 +4,8 @@
 {% assign led_data = product.metafields.custom.led_template_data.value %}
 {% assign config_builder_data = led_data.config_builder %}
 {% assign price_per_cabinet = product.metafields.custom.price_per_cabinet.value | default: 0 %}
+{% assign cabinet_markup = product.metafields.custom.cabinet_markup.value | default: 3 %}
+{% assign controller_markup = product.metafields.custom.controller_markup.value | default: 1 %}
 
 <section class="custom-config" id="custom-config">
   <div class="custom-config__container">
@@ -97,7 +99,8 @@ document.addEventListener('DOMContentLoaded', function() {
     pixelsHigh: 270,       // Pixels per cabinet height
     pricePerCabinet: {{ price_per_cabinet }},  // From product metafield
     controllerCost: 6000,  // Novastar controller cost
-    cabinetMarkup: 3       // 3× markup on cabinet cost only
+    cabinetMarkup: {{ cabinet_markup }},      // Markup multiplier on cabinet cost (3 for PS COB, 4 for AS COB)
+    controllerMarkup: {{ controller_markup }} // Markup multiplier on controller (1 = at cost for PS COB, 4 for AS COB)
   };
 
   // DOM Elements
@@ -132,9 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Diagonal in inches
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
 
-    // Sell price: (cabinets × price_per_cabinet × 3) + controller
+    // Sell price: (cabinets × price × cabinetMarkup) + (controller × controllerMarkup)
     const cabinetCost = totalCabinets * CABINET_SPECS.pricePerCabinet;
-    const sellPrice = (cabinetCost * CABINET_SPECS.cabinetMarkup) + CABINET_SPECS.controllerCost;
+    const sellPrice = (cabinetCost * CABINET_SPECS.cabinetMarkup) + (CABINET_SPECS.controllerCost * CABINET_SPECS.controllerMarkup);
 
     // Update display
     resultResolution.textContent = totalResolution.toLocaleString() + ' pixels';
