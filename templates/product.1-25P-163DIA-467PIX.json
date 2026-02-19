@@ -838,8 +838,8 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
-        "display_image": "shopify://shop_images/image_2_1.png",
+        "subheading": "Precision-engineered 6×6 cabinet array delivering 4.67 million pixels across 163 inches of seamless display surface",
+        "display_image": "shopify://shop_images/COB_6x6_FRONT1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
@@ -891,7 +891,7 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "217 inches of immersive visual excellence",
+        "subtitle": "163 inches of immersive visual excellence",
         "image": "shopify://shop_images/image_1_1.png",
         "metric1_value": "36x",
         "metric1_label": "Larger",
