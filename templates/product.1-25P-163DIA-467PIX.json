@@ -508,14 +508,6 @@
     "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_xnVVbK": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/6x6_FRONT1.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
-          }
-        },
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
@@ -542,7 +534,6 @@
         }
       },
       "block_order": [
-        "slide_xnVVbK",
         "slide_3AqnPF",
         "slide_YTbLzi",
         "slide_j9d3Vx"
