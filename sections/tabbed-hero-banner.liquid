@@ -235,8 +235,9 @@
       
       <div class="hero-buttons-container">
         {% if section.settings.default_primary_button_text != blank %}
-          <a href="{{ section.settings.default_primary_button_link }}" 
-             class="hero-button hero-button-primary">
+          <a href="{{ section.settings.default_primary_button_link | default: '#led-display-calculator' }}"
+             class="hero-button hero-button-primary"
+             {% unless section.settings.default_primary_button_link %}onclick="event.preventDefault(); document.getElementById('led-display-calculator').scrollIntoView({behavior: 'smooth'});"{% endunless %}>
             {{ section.settings.default_primary_button_text }}
           </a>
         {% endif %}
