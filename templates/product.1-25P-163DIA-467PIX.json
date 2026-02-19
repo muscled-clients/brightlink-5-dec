@@ -508,14 +508,6 @@
     "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_xnVVbK": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/6x6_FRONT1.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
-          }
-        },
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
@@ -542,7 +534,6 @@
         }
       },
       "block_order": [
-        "slide_xnVVbK",
         "slide_3AqnPF",
         "slide_YTbLzi",
         "slide_j9d3Vx"
@@ -1557,6 +1548,7 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1564,6 +1556,7 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1571,6 +1564,7 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1585,6 +1579,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "image_width": 800,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
