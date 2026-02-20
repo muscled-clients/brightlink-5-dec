@@ -129,8 +129,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Physical size in inches, then convert to feet
     const widthInches = cabinetsWide * CABINET_SPECS.widthInches;
     const heightInches = cabinetsHigh * CABINET_SPECS.heightInches;
-    const widthFeet = (widthInches / 12).toFixed(2);
-    const heightFeet = (heightInches / 12).toFixed(2);
+    const widthFeet = (widthInches / 12).toFixed(1);
+    const heightFeet = (heightInches / 12).toFixed(1);
 
     // Diagonal in inches
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
