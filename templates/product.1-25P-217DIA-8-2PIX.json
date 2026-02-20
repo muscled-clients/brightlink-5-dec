@@ -424,6 +424,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
+        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
@@ -448,9 +449,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
         "custom_class": ""
       }
     },
@@ -1547,6 +1548,7 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1554,6 +1556,7 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1561,6 +1564,7 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1575,6 +1579,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "image_width": 800,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
