@@ -253,7 +253,7 @@
         "product_config_kNTK4i": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -283,7 +283,7 @@
         "product_config_zByPib": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "11.29M",
@@ -313,7 +313,7 @@
         "product_config_KPie9a": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "217\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "14.75M",
@@ -831,14 +831,13 @@
         "heading": "System Configuration",
         "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
         "display_image": "shopify://shop_images/New_Project_1.png",
-        "mobile_image": "shopify://shop_images/image_2_3.png",
-        "info1_heading": "8 CABINETS WIDE",
-        "info1_subheading": "4,800mm (15.75 feet)",
-        "info2_heading": "8 CABINETS HIGH",
-        "info2_subheading": "2,700mm (8.86 feet)",
-        "info3_heading": "217\" DIAGONAL",
-        "info3_subheading": "8,294,400 TOTAL PIXELS",
-        "cabinet_image": "shopify://shop_images/Frame_1410111166_2.png",
+        "info1_heading": "PIXEL PERFECT",
+        "info1_subheading": "Precision Alignment",
+        "info2_heading": "SEAMLESS",
+        "info2_subheading": "Zero Bezel Gap",
+        "info3_heading": "MODULAR",
+        "info3_subheading": "Easy Assembly",
+        "cabinet_image": "shopify://shop_images/Frame_1410111166.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -1330,7 +1329,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "investment_config_XArH8k": {
+    "investment_config_9xqzkP": {
       "type": "investment-config",
       "name": "Investment Config",
       "settings": {
@@ -1338,6 +1337,11 @@
         "title": "Configure Your System",
         "subtitle": "Transparent pricing for professional installations",
         "card_label": "COMPLETE SYSTEM",
+        "product_name": "Brightlink Pro Spectrum 217\"",
+        "product_specs": "8.2M Pixels | 1.25mm Pitch | Full 4K",
+        "original_price": "$179,000",
+        "current_price": "$149,000",
+        "discount_text": "SAVE 17%",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
         "include_1": "64 premium cabinets (8×8 array)",
@@ -1352,12 +1356,21 @@
         "primary_button_link": "",
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
+        "addon1_title": "BL-VT PRO VACUUM TOOL",
+        "addon1_desc": "Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.",
+        "addon1_price": "$249",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "brightlink-bl-vt-pro-led-display-vacuum-tool-effortless-front-maintenance-for-led-video-walls",
+        "addon1_product": "",
+        "addon2_title": "EXTENDED WARRANTY",
+        "addon2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
+        "addon2_price": "$4,500",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_product": "1-year-extended-warranty",
+        "addon2_product": "",
+        "addon3_title": "SPARE MODULE KIT",
+        "addon3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
+        "addon3_price": "$8,900",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_product": "brightlink-s-new-large-scale-138-14-x-500mm-x-1000mm-panel-3-91mm-pitch-led-display-16-9-ration-3-91mm-458-752-pixels-hd-1080p-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller-mounts-4-year-warranty"
+        "addon3_product": ""
       }
     },
     "custom_config_builder_KRqknj": {
@@ -1549,7 +1562,6 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
-            "product": "test-brightlink-av-new-large-scale-163-max-spectrum-led-display-high-definition-1-875mm-small-pitch-16-9-ration-2-073-600-pixels-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1557,7 +1569,6 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1565,7 +1576,6 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1580,9 +1590,6 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
-        "image_width": 570,
-        "image_height": 395,
-        "image_fit": "contain",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
@@ -1643,7 +1650,7 @@
     "experience_scale_gDgaxe",
     "controller_tabs_PkVE8q",
     "applications_tabs_mzRTEp",
-    "investment_config_XArH8k",
+    "investment_config_9xqzkP",
     "custom_config_builder_KRqknj",
     "knowledge_center_KDhAHL",
     "visual_experience_wMKFfe",

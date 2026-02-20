@@ -253,7 +253,7 @@
         "product_config_wHM7qD": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -283,7 +283,7 @@
         "product_config_khtpcR": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "11.29M",
@@ -313,7 +313,7 @@
         "product_config_Arg9qB": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "217\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "14.75M",
@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY",
+            "card_title": "1 DAY INSTALL",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -707,7 +707,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Size per cabinet"
+            "card_desc": "Weight per cabinet"
           }
         }
       },
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD 1080p input cards",
+            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
             "config2": "40× CAT6 Ethernet outputs (2×20-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",

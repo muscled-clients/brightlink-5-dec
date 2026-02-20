@@ -253,7 +253,7 @@
         "product_config_RQxibA": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -283,7 +283,7 @@
         "product_config_7YyFXP": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "11.29M",
@@ -313,7 +313,7 @@
         "product_config_kEtHD6": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "217\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "14.75M",
@@ -508,14 +508,6 @@
     "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_xnVVbK": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/6x6_FRONT1.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
-          }
-        },
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
@@ -542,7 +534,6 @@
         }
       },
       "block_order": [
-        "slide_xnVVbK",
         "slide_3AqnPF",
         "slide_YTbLzi",
         "slide_j9d3Vx"
@@ -651,9 +642,9 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
+            "card_title": "4.67M PIXELS",
             "card_subtitle": "True 4K Resolution",
-            "card_desc": "3840 x 2160 active pixels"
+            "card_desc": "2880 x 1620 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -838,8 +829,8 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
-        "display_image": "shopify://shop_images/image_2_1.png",
+        "subheading": "Precision-engineered 6×6 cabinet array delivering 4.67 million pixels across 163 inches of seamless display surface",
+        "display_image": "shopify://shop_images/COB_6x6_FRONT1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
@@ -891,8 +882,8 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/image_1_1.png",
+        "subtitle": "163 inches of immersive visual excellence",
+        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
         "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",

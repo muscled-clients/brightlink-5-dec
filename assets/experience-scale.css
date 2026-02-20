@@ -305,89 +305,39 @@
 
 @media (max-width: 768px) {
   .experience-scale__container {
-    gap: 32px;
-    position: relative;
-  z-index: 2;
-  display: flex;
-  width: 1440px;
-  max-width: 100%;
-  flex-direction: column;
-  align-items: flex-start;
-  margin: 0 auto;
-  padding: 0;
-  margin-bottom: 60px;
+    gap: 40px;
   }
-.experience-scale__metric-title-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  align-self: stretch;
-}
+
   .experience-scale__header {
-    width:343px;
-    height:92px;
-    padding:0;
-    display:flex;
-    gap:12px;
+    padding: 40px 20px;
   }
-.experience-scale__metric-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  align-self: stretch;
-}
+
   .experience-scale__header-text {
-    gap: 12px;
+    gap: 16px;
   }
 
   .experience-scale__label {
     font-family: Inter, sans-serif;
     color: #D4AF37;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 2px;
   }
 
   .experience-scale__title {
-   color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 28px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: -2px;
+    font-size: 32px;
+    letter-spacing: -1px;
     font-family: Inter, sans-serif;
+    color: #FFF;
   }
 
   .experience-scale__subtitle {
-   color: #A0AEC0;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-size: 16px;
+    line-height: 24px;
     font-family: Inter, sans-serif;
+    color: #A0AEC0;
   }
-.experience-scale__metric-icon svg{
 
-width: 15.75px;
-height: 18px;
-flex-shrink: 0;
-
-}
   .experience-scale__content {
     max-width: calc(100% - 40px);
     flex-direction: column;
-    gap: 16px;
   }
 
   .experience-scale__display {
@@ -401,8 +351,6 @@ flex-shrink: 0;
     gap: 12px;
     max-width: none;
     margin: 15px 0 30px;
-            width: 344px;
-        margin: 0 auto;
   }
 
   .experience-scale__metric {
@@ -417,86 +365,49 @@ flex-shrink: 0;
 
   /* Show icons on mobile */
   .experience-scale__metric-icon {
-   display: flex;
-width: 40px;
-height: 40px;
-padding: 10px 12.125px;
-justify-content: center;
-align-items: center;
-border-radius: 8px;
-border: 0 solid #E5E7EB;
-background: rgba(10, 132, 255, 0.10);
-box-shadow: 0 0 15px 0 rgba(10, 132, 255, 0.40);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    color: #3b82f6;
   }
 
   .experience-scale__metric-value {
-    color: #0A84FF;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+    font-size: 32px;
   }
 
   .experience-scale__metric-label {
-  color: #FFF;
-font-family: Inter, sans-serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
+    font-size: 12px;
+    letter-spacing: 1px;
     text-transform: uppercase;
   }
 
   .experience-scale__metric-desc {
-    color: #A0AEC0;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 480px) {
   .experience-scale__header {
-    padding: 0px;
+    padding: 30px 15px;
   }
 
   .experience-scale__label {
-   color: #D4AF37;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-letter-spacing: 2px;
+    font-size: 12px;
     font-family: Inter, sans-serif;
+    color: #D4AF37;
   }
 
   .experience-scale__title {
-   color: #FFF;
-text-align: center;
-font-family: Inter;
-font-size: 28px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-letter-spacing: -2px;
+    font-size: 28px;
     font-family: Inter, sans-serif;
+    color: #FFF;
   }
 
   .experience-scale__subtitle {
-   color: #A0AEC0;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-size: 14px;
     font-family: Inter, sans-serif;
+    color: #A0AEC0;
   }
 
   .experience-scale__content {
@@ -505,8 +416,6 @@ line-height: normal;
 
   .experience-scale__metrics {
     gap: 10px;
-            width: 344px;
-        margin: 0 auto;
   }
 
   .experience-scale__metric {
@@ -515,32 +424,15 @@ line-height: normal;
 
 
   .experience-scale__metric-value {
-   color: #0A84FF;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+    font-size: 26px;
   }
 
   .experience-scale__metric-label {
-  color: #FFF;
-font-family: Inter, sans-serif;
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: normal;
-text-transform: uppercase;
+    font-size: 11px;
   }
 
   .experience-scale__metric-desc {
-    color: #A0AEC0;
-text-align: center;
-font-family: Inter;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    font-size: 10px;
   }
 
   .experience-scale__btn {

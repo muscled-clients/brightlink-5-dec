@@ -191,6 +191,17 @@
   z-index: 1;
 }
 
+/* Ensure announcement bar and header sit above the hexagon background on LED pages */
+.advanced-spectrum-page #shopify-section-announcement-bar {
+  position: relative;
+  z-index: 2;
+}
+
+.advanced-spectrum-page #shopify-section-header {
+  position: relative;
+  z-index: 2;
+}
+
 /* Ensure footer sits above the hexagon background on LED pages */
 .advanced-spectrum-page #shopify-section-footer {
   position: relative;
