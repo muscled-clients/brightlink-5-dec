@@ -1,3 +1,11 @@
+/* Search highlight */
+mark.kc-highlight {
+  background-color: rgba(10, 132, 255, 0.3);
+  color: #fff;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
 .knowledge-center {
   position: relative;
   margin-bottom: 120px;
@@ -85,10 +93,10 @@
   flex-direction: column;
   align-items: center;
   gap: 40px;
-  align-self: stretch;
   width: 1280px;
   max-width: 100%;
   box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .knowledge-center__search-wrapper {
@@ -96,6 +104,7 @@
   flex-direction: column;
   align-items: center;
   gap: 48px;
+  align-self: stretch;
 }
 
 .knowledge-center__search-box {
@@ -198,7 +207,7 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
-  width:1280px;
+  width: 100%;
 }
 
 .knowledge-center__accordion {

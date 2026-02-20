@@ -261,40 +261,19 @@
     "hero_video_wall_PQqxeL": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_zKWMGn": {
-          "type": "feature",
+        "product_config_lR1": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "217\"",
-            "feature_label": "Diagonal Display"
-          }
-        },
-        "feature_d7BGfx": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "8.3M",
-            "feature_label": "Total Pixels"
-          }
-        },
-        "feature_Jwryyq": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "1.25mm",
-            "feature_label": "Pixel Pitch"
-          }
-        },
-        "feature_c7gEgx": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "2hrs",
-            "feature_label": "Installation Time"
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "8.3M",
+            "aspect_ratio": "16:9"
           }
         }
       },
       "block_order": [
-        "feature_zKWMGn",
-        "feature_d7BGfx",
-        "feature_Jwryyq",
-        "feature_c7gEgx"
+        "product_config_lR1"
       ],
       "name": "Hero Video Wall",
       "settings": {
