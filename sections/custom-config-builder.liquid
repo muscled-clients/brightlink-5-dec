@@ -42,7 +42,7 @@
         </div>
         <div class="custom-config__result-row">
           <span class="custom-config__result-label">Physical Size:</span>
-          <span class="custom-config__result-value" id="result-size">15.75' × 8.86'</span>
+          <span class="custom-config__result-value" id="result-size">15.75' × 8.86' (189" × 106")</span>
         </div>
         <div class="custom-config__result-row">
           <span class="custom-config__result-label">Diagonal:</span>
@@ -141,7 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update display
     resultResolution.textContent = totalResolution.toLocaleString() + ' pixels';
-    resultSize.textContent = widthFeet + "' × " + heightFeet + "'";
+    resultSize.textContent = widthFeet + "' × " + heightFeet + "' (" + Math.round(widthInches) + '" × ' + Math.round(heightInches) + '")';
     resultDiagonal.textContent = Math.round(diagonalInches) + '"';
     resultCabinets.textContent = totalCabinets + ' units';
     if (CABINET_SPECS.pricePerCabinet > 0) {
