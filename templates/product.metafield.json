@@ -310,6 +310,7 @@
         "trusted_item_J3gipQ",
         "trusted_item_N9GzhU"
       ],
+      "disabled": true,
       "name": "Product Trusted",
       "settings": {
         "heading": "Trusted By Industry Leaders",
@@ -322,6 +323,56 @@
         "border_color": "#ffffff0f",
         "pattern_opacity": 14,
         "items_opacity": 70
+      }
+    },
+    "trusted_leaders_b4gYEb": {
+      "type": "trusted-leaders",
+      "blocks": {
+        "company_MbTKRH": {
+          "type": "company",
+          "settings": {
+            "company_name": "SpaceX",
+            "company_link": ""
+          }
+        },
+        "company_aMCFwf": {
+          "type": "company",
+          "settings": {
+            "company_name": "University of Hawaii",
+            "company_link": ""
+          }
+        },
+        "company_P9GeyC": {
+          "type": "company",
+          "settings": {
+            "company_name": "Epic Games",
+            "company_link": ""
+          }
+        },
+        "company_AbqGgV": {
+          "type": "company",
+          "settings": {
+            "company_name": "City of Mesa",
+            "company_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "company_MbTKRH",
+        "company_aMCFwf",
+        "company_P9GeyC",
+        "company_AbqGgV"
+      ],
+      "name": "Trusted Leaders",
+      "settings": {
+        "heading": "Trusted By Industry Leaders",
+        "slider_speed": 20,
+        "heading_font_size": 24,
+        "company_font_size": 18,
+        "bg_color": "#0a0f14",
+        "text_color": "#ffffff",
+        "separator_color": "#3a4a5e",
+        "custom_class": ""
       }
     },
     "1651673745108066c9": {
@@ -1092,6 +1143,7 @@
   "order": [
     "main",
     "product_trusted_6e7QXQ",
+    "trusted_leaders_b4gYEb",
     "1651673745108066c9",
     "16506275679eb630d5",
     "1650627394e28c2243",
