@@ -161,8 +161,15 @@
             </a>
           {%- endcapture -%}
   
-          {%- if request.page_type == 'index' -%}
-            <h1 class="header__logo">{{ header_logo }}</h1>
+          {%- if request.page_type == 'index' -%} 
+            <h1 class="header__logo">{{ header_logo }}</h1> 
+          {%- elsif product.template_suffix == 'metafield' -%}
+             <img class="header__logo-image"
+                     style="max-width: {{ section.settings.logo_max_width }}px"
+                     width="{{ section.settings.metafield_logo.width }}"
+                     height="{{ section.settings.metafield_logo.height }}"
+                     src="{{ section.settings.metafield_logo | img_url: image_size, scale: 2 }}"
+                     alt="{{ section.settings.logo.alt | default: shop.name | escape }}">
           {%- else -%}
             <div class="header__logo">{{ header_logo }}</div>
           {%- endif -%}
@@ -410,7 +417,11 @@
                 {%- if customer -%}
                   <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.welcome' | t: first_name: customer.first_name | truncate: 20 }}</span>
                 {%- else -%}
-                  <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
+                    {% if product.template_suffix == 'metafield' %}
+                  <span class="header__action-item-title hidden-pocket hidden-lap">Sign in</span>
+                    {%- else -%}
+                      <span class="header__action-item-title hidden-pocket hidden-lap">{{ 'header.general.login' | t }}</span>
+                    {%- endif -%}
                 {%- endif -%}
   
                 <div class="header__action-item-content">
@@ -576,6 +587,8 @@
         }
       }
     {%- endif -%}
+
+    
   
     {%- if settings.header_background == settings.secondary_background -%}
       .search-bar__top {
@@ -708,6 +721,13 @@
         "label": "Image",
         "info": "400 x 120px .png recommended"
       },
+       {
+        "type": "image_picker",
+        "id": "metafield_logo",
+        "label": "Image",
+        "info": "400 x 120px .png recommended"
+      },
+    
       {
         "type": "range",
         "id": "logo_max_width",
@@ -718,6 +738,7 @@
         "label": "Image width",
         "default": 140
       },
+     
       {
         "type": "range",
         "id": "mobile_logo_max_width",
@@ -858,60 +879,6 @@
             "id": "menu_item",
             "label": "Menu item",
             "info": "Enter menu item to apply a mega menu dropdown. [Learn more](https://support.maestrooo.com/article/180-navigation-enabling-and-configuring-mega-navigation)."
-          },
-          {
-            "type": "header",
-            "content": "Image 1"
-          },
-          {
-            "type": "image_picker",
-            "id": "image_1",
-            "label": "Image",
-            "info": "600 x 400px .jpg recommended"
-          },
-          {
-            "type": "text",
-            "id": "image_1_heading",
-            "label": "Heading",
-            "default": "Your image"
-          },
-          {
-            "type": "text",
-            "id": "image_1_text",
-            "label": "Text",
-            "default": "Tell your story"
-          },
-          {
-            "type": "url",
-            "id": "image_1_link",
-            "label": "Link"
-          },
-          {
-            "type": "header",
-            "content": "Image 2"
-          },
-          {
-            "type": "image_picker",
-            "id": "image_2",
-            "label": "Image",
-            "info": "600 x 400px .jpg recommended"
-          },
-          {
-            "type": "text",
-            "id": "image_2_heading",
-            "label": "Heading",
-            "default": "Your image"
-          },
-          {
-            "type": "text",
-            "id": "image_2_text",
-            "label": "Text",
-            "default": "Tell your story"
-          },
-          {
-            "type": "url",
-            "id": "image_2_link",
-            "label": "Link"
           }
         ]
       }
