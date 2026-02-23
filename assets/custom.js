@@ -155,36 +155,27 @@ document.addEventListener("shipping_country:change", async()=>{
 })
 
 
-// Uncheck terms & conditions checkbox when app injects it (not on user click).
-// Uses CSS to hide the checkbox until unchecked, preventing the checked flash.
+// Uncheck terms & conditions checkbox when app injects it.
+// CSS in theme.liquid head hides checkbox until unchecked, preventing the checked flash.
 $(document).ready(function(){
-  // Inject CSS to hide terms checkboxes that are checked (prevents flash)
-  var style = document.createElement('style');
-  style.textContent = 'input[type="checkbox"][data-terms-hide] { visibility: hidden; } input[type="checkbox"][data-terms-hide] + label { visibility: hidden; }';
-  document.head.appendChild(style);
-
-  function uncheckNewTermsCheckboxes() {
+  function uncheckTermsCheckboxes() {
     $('input[type="checkbox"]').each(function() {
       var text = ($(this).parent().text() || '') + ' ' + ($(this).next('label').text() || '') + ' ' + ($('label[for="' + this.id + '"]').text() || '');
       if (text.indexOf('Terms') !== -1 || text.indexOf('I accept') !== -1) {
-        if (this.checked) {
-          this.setAttribute('data-terms-hide', '');
-          this.checked = false;
-          this.removeAttribute('checked');
-        }
-        // Remove hide attribute after unchecking so it becomes visible
-        this.removeAttribute('data-terms-hide');
+        this.checked = false;
+        this.removeAttribute('checked');
+        this.classList.add('terms-ready');
       }
     });
   }
 
   new MutationObserver(function(mutations) {
-    var hasNewNodes = false;
     for (var i = 0; i < mutations.length; i++) {
-      if (mutations[i].addedNodes.length > 0) { hasNewNodes = true; break; }
+      if (mutations[i].addedNodes.length > 0) {
+        uncheckTermsCheckboxes();
+        return;
+      }
     }
-    if (!hasNewNodes) return;
-    uncheckNewTermsCheckboxes();
   }).observe(document.body, { childList: true, subtree: true });
 });
 
