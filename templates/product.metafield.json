@@ -389,6 +389,7 @@
         "slide_HU3QPk": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Large-Scale-LED-Video-Wall-5_c84639bd-2033-4f4f-a8a1-c31f20c82694.png",
             "slide_title": "Immersive Entertainment",
             "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
@@ -396,6 +397,7 @@
         "slide_EMrqBB": {
           "type": "slide",
           "settings": {
+            "slide_image": "shopify://shop_images/Large-Scale-LED-Video-Wall-6_0b8e5710-9a4f-43b4-ac93-1ef9a4e0074b.png",
             "slide_title": "Corporate Communications",
             "slide_description": "Professional displays for boardrooms and lobbies"
           }
