@@ -381,8 +381,9 @@
         "slide_abp8bX": {
           "type": "slide",
           "settings": {
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
+            "slide_image": "shopify://shop_images/image_8.png",
+            "slide_title": "Entertainment Venues",
+            "slide_description": "Immersive displays that energize fans & elevate live viewing ."
           }
         },
         "slide_HU3QPk": {
