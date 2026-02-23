@@ -156,15 +156,24 @@ document.addEventListener("shipping_country:change", async()=>{
 
 
 // Uncheck terms & conditions checkbox when app injects it (not on user click).
-// Only fires on childList mutations (new nodes added), so user can still manually check it.
+// Uses CSS to hide the checkbox until unchecked, preventing the checked flash.
 $(document).ready(function(){
+  // Inject CSS to hide terms checkboxes that are checked (prevents flash)
+  var style = document.createElement('style');
+  style.textContent = 'input[type="checkbox"][data-terms-hide] { visibility: hidden; } input[type="checkbox"][data-terms-hide] + label { visibility: hidden; }';
+  document.head.appendChild(style);
+
   function uncheckNewTermsCheckboxes() {
     $('input[type="checkbox"]').each(function() {
-      if (!this.checked) return;
       var text = ($(this).parent().text() || '') + ' ' + ($(this).next('label').text() || '') + ' ' + ($('label[for="' + this.id + '"]').text() || '');
       if (text.indexOf('Terms') !== -1 || text.indexOf('I accept') !== -1) {
-        this.checked = false;
-        this.removeAttribute('checked');
+        if (this.checked) {
+          this.setAttribute('data-terms-hide', '');
+          this.checked = false;
+          this.removeAttribute('checked');
+        }
+        // Remove hide attribute after unchecking so it becomes visible
+        this.removeAttribute('data-terms-hide');
       }
     });
   }
@@ -176,7 +185,6 @@ $(document).ready(function(){
     }
     if (!hasNewNodes) return;
     uncheckNewTermsCheckboxes();
-    setTimeout(uncheckNewTermsCheckboxes, 300);
   }).observe(document.body, { childList: true, subtree: true });
 });
 
