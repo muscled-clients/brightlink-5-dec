@@ -642,16 +642,16 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
-            "card_subtitle": "True 4K Resolution",
-            "card_desc": "3840 x 2160 active pixels"
+            "card_title": "4.48M PIXELS",
+            "card_subtitle": "1.5x 1080p Resolution",
+            "card_desc": "3456 x 1296 active pixels"
           }
         },
         "spec_card_AHg3xw": {
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "1.25MM",
+            "card_title": "1.56MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
