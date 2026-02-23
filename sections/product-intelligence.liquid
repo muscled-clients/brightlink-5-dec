@@ -1894,43 +1894,32 @@
       })
       .then(function(response) {
         if (response.ok) {
-          btn.innerHTML = 'Added!';
-          // Update cart count and refresh mini-cart
-          fetch('/cart.js')
-            .then(function(r) { return r.json(); })
-            .then(function(cart) {
-              document.querySelectorAll('.header__cart-count').forEach(function(el) {
-                el.textContent = cart.item_count;
-              });
-              return fetch((window.routes ? window.routes.cartUrl : '/cart') + '?section_id=mini-cart');
-            })
-            .then(function(r) { return r.text(); })
-            .then(function(html) {
-              var miniCart = document.getElementById('mini-cart');
-              if (miniCart) {
-                var temp = document.createElement('div');
-                temp.innerHTML = html;
-                var newMiniCart = temp.querySelector('.mini-cart');
-                if (newMiniCart) {
-                  miniCart.innerHTML = newMiniCart.innerHTML;
-                }
-              }
-            });
-          setTimeout(function() {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }, 2000);
+          return response.json();
         } else {
-          btn.innerHTML = 'Error';
-          setTimeout(function() {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }, 2000);
+          throw new Error('Add to cart failed');
         }
       })
+      .then(function(data) {
+          btn.innerHTML = 'Added!';
+          // Dispatch product:added event to trigger theme's cart popup
+          document.documentElement.dispatchEvent(new CustomEvent('product:added', {
+            bubbles: true,
+            detail: {
+              variant: data.items ? data.items[0] : data,
+              quantity: 1
+            }
+          }));
+          setTimeout(function() {
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+          }, 2000);
+        })
       .catch(function() {
-        btn.innerHTML = originalText;
-        btn.disabled = false;
+        btn.innerHTML = 'Error';
+        setTimeout(function() {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 2000);
       });
     });
   }
