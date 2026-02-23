@@ -862,14 +862,6 @@
       "disabled": true,
       "settings": {}
     },
-    "8327b273-eeb3-49bf-b10e-565925283e64": {
-      "type": "faq-heading",
-      "disabled": true,
-      "settings": {
-        "faq-heading": "FAQ",
-        "faq-text": "Have questions? We’re here to help"
-      }
-    },
     "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9": {
       "type": "faq-custom",
       "blocks": {
@@ -1328,7 +1320,6 @@
     "be5fcda4-e747-4686-bf2c-597f15159877",
     "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136",
     "cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b",
-    "8327b273-eeb3-49bf-b10e-565925283e64",
     "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9",
     "3e27d268-c437-4a2e-96e6-cc76a3f32a17",
     "product-recommendations",
