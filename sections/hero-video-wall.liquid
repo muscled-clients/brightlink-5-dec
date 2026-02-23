@@ -463,7 +463,7 @@
         .then(function (data) {
           btn.innerHTML = 'Added!';
           // Dispatch product:added event to trigger theme's cart popup
-          document.documentElement.dispatchEvent(new CustomEvent('product:added', {
+          btn.dispatchEvent(new CustomEvent('product:added', {
             bubbles: true,
             detail: {
               variant: data.items ? data.items[0] : data,
