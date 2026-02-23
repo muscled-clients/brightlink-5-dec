@@ -55,9 +55,9 @@
     <div class="knowledge-center__faq-list">
       {% if faq_categories.size > 0 %}
         {% for category in faq_categories %}
-          <div class="knowledge-center__accordion" data-category="{{ category.filter }}">
-           
-              <button class="knowledge-center__accordion-header" aria-expanded="false">
+          <div class="knowledge-center__accordion{% if forloop.first %} active{% endif %}" data-category="{{ category.filter }}">
+
+              <button class="knowledge-center__accordion-header" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
                 <div class="knowledge-center__accordion-title-wrapper">
                 <div class="knowledge-center__accordion-icon">
                   {% case category.icon %}
@@ -127,8 +127,8 @@
       {% else %}
         {% for block in section.blocks %}
           {% if block.type == 'faq_category' %}
-          <div class="knowledge-center__accordion" data-category="{{ block.settings.category }}" {{ block.shopify_attributes }}>
-            <button class="knowledge-center__accordion-header" aria-expanded="false">
+          <div class="knowledge-center__accordion{% if forloop.first %} active{% endif %}" data-category="{{ block.settings.category }}" {{ block.shopify_attributes }}>
+            <button class="knowledge-center__accordion-header" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}">
               <div class="knowledge-center__accordion-title-wrapper">
                 <div class="knowledge-center__accordion-icon">
                   {% case block.settings.icon %}
@@ -334,34 +334,83 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  function clearHighlights(container) {
+    container.querySelectorAll('mark.kc-highlight').forEach(mark => {
+      const parent = mark.parentNode;
+      parent.replaceChild(document.createTextNode(mark.textContent), mark);
+      parent.normalize();
+    });
+  }
+
+  function highlightText(element, term) {
+    const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
+    const matches = [];
+    while (walker.nextNode()) {
+      const node = walker.currentNode;
+      const idx = node.textContent.toLowerCase().indexOf(term);
+      if (idx !== -1) matches.push({ node, idx });
+    }
+    matches.reverse().forEach(({ node, idx }) => {
+      const range = document.createRange();
+      range.setStart(node, idx);
+      range.setEnd(node, idx + term.length);
+      const mark = document.createElement('mark');
+      mark.className = 'kc-highlight';
+      range.surroundContents(mark);
+    });
+  }
+
   const searchInput = document.querySelector('.knowledge-center__search-input');
   if (searchInput) {
     searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase();
+      const searchTerm = this.value.toLowerCase().trim();
       const questionItems = document.querySelectorAll('.knowledge-center__question-item');
 
-      if (searchTerm.length > 0) {
-        accordions.forEach(accordion => {
-          accordion.classList.add('active');
-          accordion.querySelector('.knowledge-center__accordion-header').setAttribute('aria-expanded', 'true');
-        });
+      // Clear all previous highlights
+      document.querySelectorAll('.knowledge-center__faq-list').forEach(el => clearHighlights(el));
 
-        questionItems.forEach(item => {
-          const questionText = item.querySelector('.knowledge-center__question-header span').textContent.toLowerCase();
-          if (questionText.includes(searchTerm)) {
-            item.style.display = 'block';
+      if (searchTerm.length > 0) {
+        // For each accordion, check its questions and hide/show accordingly
+        accordions.forEach(accordion => {
+          const items = accordion.querySelectorAll('.knowledge-center__question-item');
+          let matchCount = 0;
+
+          items.forEach(item => {
+            const questionText = item.querySelector('.knowledge-center__question-header span').textContent.toLowerCase();
+            const answerText = item.querySelector('.knowledge-center__answer').textContent.toLowerCase();
+            if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+              item.style.display = '';
+              highlightText(item.querySelector('.knowledge-center__question-header span'), searchTerm);
+              highlightText(item.querySelector('.knowledge-center__answer'), searchTerm);
+              matchCount++;
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          if (matchCount > 0) {
+            accordion.style.display = '';
+            accordion.classList.add('active');
+            accordion.querySelector('.knowledge-center__accordion-header').setAttribute('aria-expanded', 'true');
           } else {
-            item.style.display = 'none';
+            accordion.style.display = 'none';
           }
         });
       } else {
+        // Reset everything
         accordions.forEach(accordion => {
+          accordion.style.display = '';
           accordion.classList.remove('active');
           accordion.querySelector('.knowledge-center__accordion-header').setAttribute('aria-expanded', 'false');
         });
         questionItems.forEach(item => {
-          item.style.display = 'block';
+          item.style.display = '';
         });
+        // Re-apply category filter if one is active
+        const activeFilter = document.querySelector('.knowledge-center__filter-btn.active');
+        if (activeFilter && activeFilter.dataset.filter !== 'all') {
+          filterAccordions(activeFilter.dataset.filter);
+        }
       }
     });
   }

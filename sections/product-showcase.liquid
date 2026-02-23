@@ -19,6 +19,18 @@
 
     <!-- Image Carousel -->
     <div class="product-showcase__carousel">
+      <!-- Arrow Navigation -->
+      <button class="product-showcase__arrow product-showcase__arrow--prev" aria-label="Previous slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M15 18L9 12L15 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="product-showcase__arrow product-showcase__arrow--next" aria-label="Next slide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 18L15 12L9 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
       <!-- Slides Container -->
       <div class="product-showcase__slides">
         {% for block in section.blocks %}
@@ -199,8 +211,29 @@ document.addEventListener('DOMContentLoaded', function() {
     startAutoSlide();
   });
 
+  // ========== ARROW NAVIGATION ==========
+
+  const prevArrow = section.querySelector('.product-showcase__arrow--prev');
+  const nextArrow = section.querySelector('.product-showcase__arrow--next');
+
+  if (prevArrow) {
+    prevArrow.addEventListener('click', function() {
+      stopAutoSlide();
+      showSlide(currentIndex - 1);
+      startAutoSlide();
+    });
+  }
+
+  if (nextArrow) {
+    nextArrow.addEventListener('click', function() {
+      stopAutoSlide();
+      showSlide(currentIndex + 1);
+      startAutoSlide();
+    });
+  }
+
   // ========== EXISTING FUNCTIONALITY ==========
-  
+
   // Dot click events
   dots.forEach((dot, index) => {
     dot.addEventListener('click', function() {

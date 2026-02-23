@@ -261,40 +261,19 @@
     "hero_video_wall_PQqxeL": {
       "type": "hero-video-wall",
       "blocks": {
-        "feature_zKWMGn": {
-          "type": "feature",
+        "product_config_lR1": {
+          "type": "product_config",
           "settings": {
-            "feature_value": "217\"",
-            "feature_label": "Diagonal Display"
-          }
-        },
-        "feature_d7BGfx": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "8.3M",
-            "feature_label": "Total Pixels"
-          }
-        },
-        "feature_Jwryyq": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "1.25mm",
-            "feature_label": "Pixel Pitch"
-          }
-        },
-        "feature_c7gEgx": {
-          "type": "feature",
-          "settings": {
-            "feature_value": "2hrs",
-            "feature_label": "Installation Time"
+            "product": "",
+            "diagonal": "217\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "8.3M",
+            "aspect_ratio": "16:9"
           }
         }
       },
       "block_order": [
-        "feature_zKWMGn",
-        "feature_d7BGfx",
-        "feature_Jwryyq",
-        "feature_c7gEgx"
+        "product_config_lR1"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -306,7 +285,6 @@
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "button_1_text": "Configure Your System",
-        "button_1_link": "",
         "button_2_text": "Explore Specifications",
         "button_2_link": "",
         "label_font_size": 12,
@@ -374,8 +352,6 @@
         "bg_color": "#0a0f14",
         "text_color": "#ffffff",
         "separator_color": "#3a4a5e",
-        "padding_top": 50,
-        "padding_bottom": 50,
         "custom_class": ""
       }
     },
@@ -428,8 +404,6 @@
         "subheading_color": "#a0a0a0",
         "dot_color": "#4a5d75",
         "dot_active_color": "#ffffff",
-        "padding_top": 60,
-        "padding_bottom": 60,
         "custom_class": ""
       }
     },
@@ -618,18 +592,8 @@
           "settings": {
             "tab_title": "Overview",
             "tab_icon": "overview",
-            "tab_content": "<p>Add your overview content here. Describe your product features, benefits, and key selling points.</p>",
             "read_more_link": "",
-            "show_features": true,
-            "feature_1_title": "4-Year Warranty",
-            "feature_1_desc": "Comprehensive coverage for complete peace of mind",
-            "feature_1_icon": "warranty",
-            "feature_2_title": "Lifetime Support",
-            "feature_2_desc": "Expert technical assistance whenever you need it",
-            "feature_2_icon": "support",
-            "feature_3_title": "Spare Parts",
-            "feature_3_desc": "5% spare modules included with every system",
-            "feature_3_icon": "parts"
+            "show_features": true
           }
         },
         "specs_tab_a39LMz": {
@@ -637,69 +601,6 @@
           "settings": {
             "tab_title": "Specifications",
             "tab_icon": "specs",
-            "display_section_title": "Display Specifications",
-            "pixel_pitch": "1.25mm",
-            "led_type": "COB (Chip-on-Board)",
-            "led_packaging": "TOP",
-            "led_config": "1R 1G 1B",
-            "module_resolution": "320 x 270 pixels (W×H)",
-            "cabinet_resolution": "480 × 270 pixels (W×H)",
-            "screen_resolution": "3840 × 2160 pixels (Full 4K)",
-            "total_pixels": "8,294,400",
-            "scanning_method": "S45",
-            "refresh_rate": "≥3840Hz",
-            "drive_mode": "1/43s",
-            "brightness": "600cd/m² (Standard), 1000cd/m² (Optional)",
-            "contrast_ratio": "≥8000:1",
-            "colors": "281 Trillion",
-            "gray_scale": "16-bit",
-            "color_temp": "3000~9500K (Adjustable)",
-            "luminance_uniformity": "≥98%",
-            "chromatic_uniformity": "±0.003Cx,Cy",
-            "viewing_angle": "170° Horizontal / 160° Vertical (>50%)",
-            "view_distance": "2m ~ 50m (6' ~ 165')",
-            "frame_rate": "50/60Hz",
-            "physical_section_title": "Physical Specifications",
-            "module_size": "150mm × 337.5mm (W×H)",
-            "module_weight": "340g ±10g",
-            "cabinet_size": "600mm × 337.5mm × 25mm (W×H×D)",
-            "cabinet_size_imperial": "23.62\" × 13.3\" × 1\"",
-            "cabinet_weight": "3.78kg (8.3 lbs)",
-            "screen_dimensions": "4.8m × 2.7m (15.75' × 8.86')",
-            "screen_diagonal": "217 Inches",
-            "total_screen_area": "12.96m² (141 sq ft)",
-            "cabinet_quantity": "64 units (8 wide × 8 high)",
-            "modules_per_cabinet": "4 units (1 wide × 4 high)",
-            "cabinet_material": "Die-Cast Aluminum",
-            "aspect_ratio": "16:9",
-            "installation_type": "Wall mount, stacking, or hanging",
-            "service_access": "100% front serviceable",
-            "protection_level": "IP30",
-            "electrical_section_title": "Electrical Specifications",
-            "input_voltage": "AC 100-240V, 50/60Hz",
-            "supply_voltage": "DC 4.2V",
-            "max_current": "4A",
-            "peak_power": "≤350W/m²",
-            "avg_power": "≤190W/m²",
-            "power_interface": "Three-pole flat connector",
-            "signal_interface": "RJ45 (Ethernet)",
-            "control_mode": "Synchronous or Asynchronous",
-            "receiver_card": "A10S-PLUS-N / A8S-N / A8S-PRO",
-            "environmental_section_title": "Environmental & Durability",
-            "operating_temp": "-20°C to +50°C (-4°F to 122°F)",
-            "storage_temp": "-40°C to +70°C (-40°F to 158°F)",
-            "operating_humidity": "10% - 95% RH (non-condensing)",
-            "storage_humidity": "10% - 95% RH (non-condensing)",
-            "lifespan": "≥100,000 hours",
-            "mtbf": "≥10,000 hours",
-            "certifications": "CE, RoHS, FCC, CCC, ISO9001",
-            "waterproof": "Yes (sealed modules)",
-            "dustproof": "Yes",
-            "anti_oxidation": "Yes",
-            "anti_static": "Yes",
-            "anti_impact": "Yes (COB protective layer)",
-            "download_title": "Download Complete Specifications",
-            "download_text": "Access detailed technical documentation, CAD files, and integration guides",
             "download_link": ""
           }
         },
@@ -707,16 +608,14 @@
           "type": "features_tab",
           "settings": {
             "tab_title": "Features & Benefits",
-            "tab_icon": "features",
-            "tab_content": ""
+            "tab_icon": "features"
           }
         },
         "included_tab_jEfxxe": {
           "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
-            "tab_icon": "included",
-            "tab_content": ""
+            "tab_icon": "included"
           }
         },
         "installation_tab_ipqyc4": {
@@ -724,7 +623,6 @@
           "settings": {
             "tab_title": "Installation Guide",
             "tab_icon": "installation",
-            "tab_content": "",
             "installer_link": ""
           }
         },
@@ -732,8 +630,7 @@
           "type": "support_tab",
           "settings": {
             "tab_title": "Support & Resources",
-            "tab_icon": "support",
-            "tab_content": ""
+            "tab_icon": "support"
           }
         }
       },
@@ -841,11 +738,11 @@
             "feature4": "Hot-swappable modular I/O design",
             "feature5": "10-bit color processing",
             "feature6": "Web-based control interface",
-            "feature7": "",
+            "feature7": "Real-time monitoring and diagnostics",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -869,8 +766,8 @@
             "feature7": "API for custom integrations",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -894,8 +791,8 @@
             "feature7": "Seamless switching",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -919,8 +816,8 @@
             "feature7": "Broadcast-ready output",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -944,8 +841,8 @@
             "feature7": "Noise reduction",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -969,8 +866,8 @@
             "feature7": "Rack-mountable chassis",
             "config_title": "Your Configuration Includes:",
             "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config2": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -1005,11 +902,8 @@
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
-            "feature1_title": "4-Year Warranty",
             "feature1": "24/7 operation with 100,000-hour lifespan",
-            "feature2_title": "Lifetime Support",
             "feature2": "Anti-reflective surface for bright environments",
-            "feature3_title": "Spare Parts",
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
@@ -1043,11 +937,8 @@
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
-            "feature1_title": "4-Year Warranty",
             "feature1": "24/7 operation with 100,000-hour lifespan",
-            "feature2_title": "Lifetime Support",
             "feature2": "Anti-reflective surface for bright environments",
-            "feature3_title": "Spare Parts",
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
@@ -1081,11 +972,8 @@
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
-            "feature1_title": "4-Year Warranty",
             "feature1": "24/7 operation with 100,000-hour lifespan",
-            "feature2_title": "Lifetime Support",
             "feature2": "Anti-reflective surface for bright environments",
-            "feature3_title": "Spare Parts",
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
@@ -1119,11 +1007,8 @@
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
-            "feature1_title": "4-Year Warranty",
             "feature1": "24/7 operation with 100,000-hour lifespan",
-            "feature2_title": "Lifetime Support",
             "feature2": "Anti-reflective surface for bright environments",
-            "feature3_title": "Spare Parts",
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
@@ -1157,11 +1042,8 @@
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
-            "feature1_title": "4-Year Warranty",
             "feature1": "24/7 operation with 100,000-hour lifespan",
-            "feature2_title": "Lifetime Support",
             "feature2": "Anti-reflective surface for bright environments",
-            "feature3_title": "Spare Parts",
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
@@ -1258,7 +1140,6 @@
       "type": "custom-config-builder",
       "name": "Custom Config Builder",
       "settings": {
-        "label": "CONFIGURATION TOOL",
         "title": "Custom Configuration Builder",
         "subtitle": "Configure your perfect LED display setup",
         "quote_button_text": "GET CUSTOM QUOTE",

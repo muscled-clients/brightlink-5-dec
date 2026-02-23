@@ -38,18 +38,6 @@
   <div class="hero-video-wall__content">
     <!-- Top Frame: Series Label, Heading, Price -->
     <div class="hero-video-wall__text-frame">
-      <!-- Series Label -->
-      {% if series_label != blank %}
-        <p class="hero-video-wall__series-label">{{ series_label }}</p>
-      {% endif %}
-
-      <!-- Main Heading -->
-      {% if section.settings.main_heading != blank %}
-        <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
-      {% elsif product.title != blank %}
-        <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
-      {% endif %}
-
       {% comment %} Find the config matching the current product page, fallback to first {% endcomment %}
       {% assign default_config = nil %}
       {% for block in section.blocks %}
@@ -63,6 +51,31 @@
       {% unless default_config %}
         {% assign default_config = section.blocks | first %}
       {% endunless %}
+
+      <!-- Top Content: Series Label + Heading Frame -->
+      <div class="hero-video-wall__top-content">
+        <!-- Series Label -->
+        {% if series_label != blank %}
+          <p class="hero-video-wall__series-label">{{ series_label }}</p>
+        {% endif %}
+
+        <!-- Specs + Heading Frame -->
+        <div class="hero-video-wall__heading-frame">
+          <!-- Product Specs Line -->
+          <p class="hero-video-wall__specs-line" id="hero-specs-line">
+            {%- if default_config -%}
+              {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
+            {%- endif -%}
+          </p>
+
+          <!-- Main Heading -->
+          {% if section.settings.main_heading != blank %}
+            <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+          {% elsif product.title != blank %}
+            <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
+          {% endif %}
+        </div>
+      </div>
 
       {% assign first_matched_variant = nil %}
       {% if default_config.settings.product != blank %}
