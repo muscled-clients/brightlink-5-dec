@@ -375,6 +375,55 @@
         "custom_class": ""
       }
     },
+    "product_showcase_UJDRXQ": {
+      "type": "product-showcase",
+      "blocks": {
+        "slide_abp8bX": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "Real-Time Financial Data at Scale",
+            "slide_description": "Mission-critical market visualization with zero latency"
+          }
+        },
+        "slide_HU3QPk": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "Immersive Entertainment",
+            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+          }
+        },
+        "slide_EMrqBB": {
+          "type": "slide",
+          "settings": {
+            "slide_title": "Corporate Communications",
+            "slide_description": "Professional displays for boardrooms and lobbies"
+          }
+        }
+      },
+      "block_order": [
+        "slide_abp8bX",
+        "slide_HU3QPk",
+        "slide_EMrqBB"
+      ],
+      "name": "Product Showcase",
+      "settings": {
+        "section_label": "PRODUCT SHOWCASE",
+        "heading": "Experience Premium Engineering",
+        "subheading": "Every detail crafted for visual excellence",
+        "autoplay": true,
+        "autoplay_speed": 10,
+        "label_font_size": 12,
+        "heading_font_size": 40,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#FFD700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "dot_color": "#4a5d75",
+        "dot_active_color": "#ffffff",
+        "custom_class": ""
+      }
+    },
     "1651673745108066c9": {
       "type": "custom-bundle",
       "disabled": true,
@@ -1304,6 +1353,7 @@
     "main",
     "product_trusted_6e7QXQ",
     "trusted_leaders_b4gYEb",
+    "product_showcase_UJDRXQ",
     "1651673745108066c9",
     "16506275679eb630d5",
     "1650627394e28c2243",
