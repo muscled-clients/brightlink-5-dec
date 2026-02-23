@@ -1234,6 +1234,7 @@
         "7b953808-534d-4aff-9d49-f24f20616f51",
         "b11407ce-5799-4bc4-9e0c-3ba3b829a62d"
       ],
+      "disabled": true,
       "settings": {
         "label": "KNOWLEDGE CENTER",
         "title": "Knowledge Center",
