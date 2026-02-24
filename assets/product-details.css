@@ -395,7 +395,6 @@
   border-collapse: collapse;
   margin: 0;
   padding: 0;
-  table-layout: fixed;
 }
 
 .pd-specs-table tbody {
@@ -407,7 +406,6 @@
   display: grid;
   grid-template-columns: 1fr 1.5fr 1fr 1.5fr;
   gap: 0;
-  width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -428,7 +426,6 @@
   font-weight: 500;
   line-height: 24px;
   white-space: nowrap;
-  padding-right: 32px;
 }
 
 .pd-specs-table__value {
@@ -437,6 +434,15 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+}
+
+.pd-specs-table__value:nth-child(2) {
+  text-align: right;
+  padding-right: 24px;
+}
+
+.pd-specs-table__value:last-child {
+  text-align: right;
 }
 
 /* ========== WHAT'S INCLUDED TAB ========== */
