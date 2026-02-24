@@ -385,10 +385,7 @@
 
 .pd-specs-accordion--open .pd-specs-accordion__content {
   max-height: 2000px;
-  display: flex;
   padding: 32px;
-  justify-content: center;
-  align-items: center;
   box-sizing: border-box;
 }
 
@@ -398,17 +395,19 @@
   border-collapse: collapse;
   margin: 0;
   padding: 0;
+  table-layout: fixed;
 }
 
 .pd-specs-table tbody {
   display: block;
-  padding: 0;
+  width: 100%;
 }
 
 .pd-specs-table tr {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 0;
+  width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
