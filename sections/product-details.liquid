@@ -207,26 +207,34 @@
                 {{ block.settings.title | default: 'Specifications' }}
               </h2>
 
-              {% for spec_table in product_specification %}
-                {% if spec_table.title != blank %}
-                  <div class="product-details__spec-table-title">{{ spec_table.title }}</div>
-                {% endif %}
-
-                <table class="product-details__spec-table">
-                  <tbody>
-                    {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
-                    {% for row in table_data %}
-                      {% assign cols = row | split: ':' %}
-                      {% if cols.size >= 2 %}
-                        <tr>
-                          <td>{{ cols[0] }}</td>
-                          <td>{{ cols[1] }}</td>
-                        </tr>
-                      {% endif %}
-                    {% endfor %}
-                  </tbody>
-                </table>
-              {% endfor %}
+              <div class="pd-specs-content">
+                {% for spec_table in product_specification %}
+                  <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
+                    <button class="pd-specs-accordion__header" type="button">
+                      <span class="pd-specs-accordion__title">{{ spec_table.title | default: 'Specifications' }}</span>
+                      <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                        <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                      </svg>
+                    </button>
+                    <div class="pd-specs-accordion__content">
+                      <table class="pd-specs-table">
+                        <tbody>
+                          {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
+                          {% for row in table_data %}
+                            {% assign cols = row | split: ':' %}
+                            {% if cols.size >= 2 %}
+                              <tr>
+                                <td class="pd-specs-table__label">{{ cols[0] }}</td>
+                                <td class="pd-specs-table__value">{{ cols[1] }}</td>
+                              </tr>
+                            {% endif %}
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
             </div>
             {% assign first_active = false %}
             {% assign panel_index = panel_index | plus: 1 %}
@@ -428,6 +436,17 @@ document.addEventListener('DOMContentLoaded', function() {
       switchTab(tabId, newIndex);
     });
   }
+
+  /* Specs accordion toggle */
+  var accordions = section.querySelectorAll('[data-pd-accordion]');
+  accordions.forEach(function(accordion) {
+    var header = accordion.querySelector('.pd-specs-accordion__header');
+    if (header) {
+      header.addEventListener('click', function() {
+        accordion.classList.toggle('pd-specs-accordion--open');
+      });
+    }
+  });
 
   /* Video play */
   var playButtons = section.querySelectorAll('.product-details__video-play-btn');
