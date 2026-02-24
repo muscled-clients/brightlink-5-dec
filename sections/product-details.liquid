@@ -347,25 +347,13 @@
 
                   {% else %}
                     <video
-                      id="pd-shopify-video-{{ block.id }}"
+                      controls
                       playsinline
                       preload="auto"
-                      style="width:100%;height:100%;border-radius:16px;background:#000;display:none;"
+                      style="width:100%;height:100%;border-radius:16px;background:#000;"
                     >
                       <source src="{{ video_url }}" type="video/mp4">
                     </video>
-                    <div class="product-details__video-poster" id="pd-video-poster-{{ block.id }}" style="width:100%;height:100%;background:#111;border-radius:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;">
-                      <button
-                        class="product-details__video-play-btn"
-                        data-shopify-video="pd-shopify-video-{{ block.id }}"
-                        data-poster="pd-video-poster-{{ block.id }}"
-                        aria-label="Play video"
-                      >
-                        <svg viewBox="0 0 24 24" fill="#000">
-                          <polygon points="5 3 19 12 5 21 5 3"/>
-                        </svg>
-                      </button>
-                    </div>
                   {% endif %}
                 </div>
               {% endif %}
@@ -496,21 +484,6 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
-
-      /* Shopify uploaded video */
-      var shopifyVideoId = this.getAttribute('data-shopify-video');
-      var posterId = this.getAttribute('data-poster');
-      if (shopifyVideoId) {
-        var video = document.getElementById(shopifyVideoId);
-        var poster = document.getElementById(posterId);
-        if (video && poster) {
-          poster.style.display = 'none';
-          video.style.display = 'block';
-          video.controls = true;
-          video.play();
-        }
-        return;
-      }
 
       /* YouTube video */
       var videoId = this.getAttribute('data-video-id');
