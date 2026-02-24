@@ -606,15 +606,44 @@
     "product_details_tL3YDp": {
       "type": "product-details",
       "blocks": {
+        "feaures_n7JkNH": {
+          "type": "feaures",
+          "settings": {
+            "title": "Features"
+          }
+        },
         "specification_xeGYb4": {
           "type": "specification",
           "settings": {
             "title": "Specifications"
           }
+        },
+        "whats_included_WK6zAf": {
+          "type": "whats_included",
+          "settings": {
+            "title": "What's Included",
+            "content": ""
+          }
+        },
+        "video_Vd99c8": {
+          "type": "video",
+          "settings": {
+            "title": "Video"
+          }
+        },
+        "downloads_EcUVWi": {
+          "type": "downloads",
+          "settings": {
+            "title": "Download"
+          }
         }
       },
       "block_order": [
-        "specification_xeGYb4"
+        "feaures_n7JkNH",
+        "specification_xeGYb4",
+        "whats_included_WK6zAf",
+        "video_Vd99c8",
+        "downloads_EcUVWi"
       ],
       "name": "Product Details",
       "settings": {
