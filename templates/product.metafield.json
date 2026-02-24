@@ -547,14 +547,6 @@
         "title": "Why choose us"
       }
     },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "disabled": true,
-      "settings": {
-        "title": "Recently viewed",
-        "show_quick_buy": false
-      }
-    },
     "custom_slider_pcr_metafield_AHJeFW": {
       "type": "custom-slider-pcr-metafield",
       "name": "Custom Slider Metafield",
@@ -607,6 +599,24 @@
         "8f46583b-4611-4c7f-a6af-44efaaa19b31",
         "29d1c919-1da0-497b-82ac-a44532ca48fd"
       ],
+      "settings": {
+        "title": ""
+      }
+    },
+    "product_details_tL3YDp": {
+      "type": "product-details",
+      "blocks": {
+        "specification_xeGYb4": {
+          "type": "specification",
+          "settings": {
+            "title": "Specifications"
+          }
+        }
+      },
+      "block_order": [
+        "specification_xeGYb4"
+      ],
+      "name": "Product Details",
       "settings": {
         "title": ""
       }
@@ -1360,9 +1370,9 @@
     "1651673745108066c9",
     "16506275679eb630d5",
     "1650627394e28c2243",
-    "recently-viewed-products",
     "custom_slider_pcr_metafield_AHJeFW",
     "c175c6e0-d557-480c-8ba5-1443a9670d19",
+    "product_details_tL3YDp",
     "knowledge_center_3QHTWy",
     "3acf3b7d-451e-4a29-90ab-488fc5d406f9",
     "63baf964-4391-49c8-8684-83eeda216181",
