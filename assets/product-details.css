@@ -68,18 +68,19 @@
 .product-details__tab {
   display: flex;
   height: 56px;
-  padding: 0 32px;
+  padding: 0px;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   flex: 1 1 0;
   border-radius: 12px;
   background: transparent;
   border: none;
-  color: #FFF;
+  color: #A0AEC0;
   text-align: center;
   font-family: Inter, sans-serif;
   font-size: 16px;
+  font-style: normal;
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
@@ -88,13 +89,12 @@
 }
 
 .product-details__tab:hover {
-  color: #0A84FF;
+  color: #FFFFFF;
 }
 
 .product-details__tab--active {
   color: #0A84FF;
   background: rgba(10, 132, 255, 0.15);
-  border-radius: 12px;
 }
 
 .product-details__tab-icon {
