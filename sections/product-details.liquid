@@ -174,7 +174,12 @@
                     {{ feature_group.title | default: 'Features & Benefits' }}
                   </h2>
 
-                  <div class="product-details__features-content">
+                  {% assign has_image = false %}
+                  {% if feature_group.feature_images.value and feature_group.feature_images.value.size > 0 %}
+                    {% assign has_image = true %}
+                  {% endif %}
+
+                  <div class="product-details__features-content{% unless has_image %} product-details__features-content--full{% endunless %}">
                     <div class="product-details__features-list-wrapper">
                       <ul class="product-details__features-list">
                         {% assign features = feature_group.list | newline_to_br | split: '<br />' %}
@@ -191,7 +196,7 @@
                       </ul>
                     </div>
 
-                    {% if feature_group.feature_images.value and feature_group.feature_images.value.size > 0 %}
+                    {% if has_image %}
                       <div class="product-details__features-image">
                         {% assign feature_img = feature_group.feature_images.value | first %}
                         <img

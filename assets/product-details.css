@@ -238,6 +238,11 @@
   align-items: start;
 }
 
+/* Full-width layout when no image present */
+.product-details__features-content--full {
+  grid-template-columns: 1fr;
+}
+
 .product-details__features-list {
   display: flex;
   flex-direction: column;
