@@ -1,7 +1,10 @@
-{% assign product_specification = product.metafields.custom.specification_table2.value %}
 {% assign product_features = product.metafields.custom.accordion_features2.value %}
+{% assign pd_specs_display = product.metafields.custom.pd_specs_display.value %}
+{% assign pd_specs_physical = product.metafields.custom.pd_specs_physical.value %}
+{% assign pd_specs_electrical = product.metafields.custom.pd_specs_electrical.value %}
+{% assign pd_specs_environmental = product.metafields.custom.pd_specs_environmental.value %}
 
-{% if product_specification == blank and product_features == blank and product.metafields.custom.section_video.value == blank and product.metafields.custom.accordion_downloads.value == blank %}
+{% if pd_specs_display == blank and pd_specs_physical == blank and pd_specs_electrical == blank and pd_specs_environmental == blank and product_features == blank and product.metafields.custom.section_video.value == blank and product.metafields.custom.accordion_downloads.value == blank %}
   <style>
     #shopify-section-{{ section.id }} {
       display: none;
@@ -208,32 +211,249 @@
               </h2>
 
               <div class="pd-specs-content">
-                {% for spec_table in product_specification %}
-                  <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
-                    <button class="pd-specs-accordion__header" type="button">
-                      <span class="pd-specs-accordion__title">{{ spec_table.title | default: 'Specifications' }}</span>
-                      <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
-                        <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
-                      </svg>
-                    </button>
-                    <div class="pd-specs-accordion__content">
-                      <table class="pd-specs-table">
-                        <tbody>
-                          {% assign table_data = spec_table.body | newline_to_br | split: '<br />' %}
-                          {% for row in table_data %}
-                            {% assign cols = row | split: ':' %}
-                            {% if cols.size >= 2 %}
-                              <tr>
-                                <td class="pd-specs-table__label">{{ cols[0] }}</td>
-                                <td class="pd-specs-table__value">{{ cols[1] }}</td>
-                              </tr>
-                            {% endif %}
-                          {% endfor %}
-                        </tbody>
-                      </table>
-                    </div>
+                <!-- Display Specifications Accordion -->
+                <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
+                  <button class="pd-specs-accordion__header" type="button">
+                    <span class="pd-specs-accordion__title">Display Specifications</span>
+                    <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="pd-specs-accordion__content">
+                    <table class="pd-specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="pd-specs-table__label">Pixel Pitch</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.pixel_pitch | default: '1.25mm' }}</td>
+                          <td class="pd-specs-table__label">LED Type</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.led_type | default: 'COB (Chip-on-Board)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">LED Packaging</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.led_packaging | default: '1010' }}</td>
+                          <td class="pd-specs-table__label">LED Composition</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.led_config | default: '1R 1G 1B' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Module Resolution</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.module_resolution | default: '320 × 270 pixels (W×H)' }}</td>
+                          <td class="pd-specs-table__label">Cabinet Resolution</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.cabinet_resolution | default: '480 × 270 pixels (W×H)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Screen Resolution</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.screen_resolution | default: '3840 × 2160 pixels (Full 4K)' }}</td>
+                          <td class="pd-specs-table__label">Total Pixels</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.total_pixels | default: '8,294,400' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Scanning Method</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.scanning_method | default: '1/45' }}</td>
+                          <td class="pd-specs-table__label">Refresh Rate</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.refresh_rate | default: '≥3840Hz' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Drive Mode</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.drive_mode | default: '1/43s' }}</td>
+                          <td class="pd-specs-table__label">Brightness</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.brightness | default: '600cd/m² (Standard), 1000cd/m² (Optional)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Contrast Ratio</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.contrast_ratio | default: '≥8000:1' }}</td>
+                          <td class="pd-specs-table__label">Colors</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.colors | default: '281 Trillion' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Gray Scale</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.gray_scale | default: '16-bit' }}</td>
+                          <td class="pd-specs-table__label">Color Temperature</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.color_temp | default: '3000-9300K (Adjustable)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Luminance Uniformity</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.luminance_uniformity | default: '≥98%' }}</td>
+                          <td class="pd-specs-table__label">Chromatic Uniformity</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.chromatic_uniformity | default: '±0.003Cx,Cy' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Viewing Angle</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.viewing_angle | default: '170° Horizontal / 160° Vertical (±10°)' }}</td>
+                          <td class="pd-specs-table__label">View Distance</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.view_distance | default: "2m - 50m (6' - 165')" }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Frame Rate</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_display.frame_rate | default: '50/60Hz' }}</td>
+                          <td class="pd-specs-table__label"></td>
+                          <td class="pd-specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
                   </div>
-                {% endfor %}
+                </div>
+
+                <!-- Physical Specifications Accordion -->
+                <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
+                  <button class="pd-specs-accordion__header" type="button">
+                    <span class="pd-specs-accordion__title">Physical Specifications</span>
+                    <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="pd-specs-accordion__content">
+                    <table class="pd-specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="pd-specs-table__label">Module Size</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.module_size | default: '150mm × 337.5mm (W×H)' }}</td>
+                          <td class="pd-specs-table__label">Module Weight</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.module_weight | default: '340g ±10g' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Cabinet Size</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.cabinet_size | default: '600mm × 337.5mm × 25mm (W×H×D)' }}</td>
+                          <td class="pd-specs-table__label">Cabinet Size (Imperial)</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.cabinet_size_imperial | default: '23.62" × 13.3" × 1"' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Cabinet Weight</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.cabinet_weight | default: '3.78kg (8.3 lbs)' }}</td>
+                          <td class="pd-specs-table__label">Screen Dimensions</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.screen_dimensions | default: "4.8m × 2.7m (15.75' × 8.86')" }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Screen Diagonal</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.screen_diagonal | default: '217 Inches' }}</td>
+                          <td class="pd-specs-table__label">Total Screen Area</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.total_screen_area | default: '12.96m² (141 sq ft)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Cabinet Quantity</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.cabinet_quantity | default: '64 units (8 wide × 8 high)' }}</td>
+                          <td class="pd-specs-table__label">Modules per Cabinet</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.modules_per_cabinet | default: '4 units (1 wide × 4 high)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Cabinet Material</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.cabinet_material | default: 'Die-Cast Aluminum' }}</td>
+                          <td class="pd-specs-table__label">Aspect Ratio</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.aspect_ratio | default: '16:9' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Installation Type</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.installation_type | default: 'Wall mount, stacking, or hanging' }}</td>
+                          <td class="pd-specs-table__label">Service Access</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.service_access | default: '100% front serviceable' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Protection Level</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_physical.protection_level | default: 'IP30' }}</td>
+                          <td class="pd-specs-table__label"></td>
+                          <td class="pd-specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Electrical Specifications Accordion -->
+                <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
+                  <button class="pd-specs-accordion__header" type="button">
+                    <span class="pd-specs-accordion__title">Electrical Specifications</span>
+                    <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="pd-specs-accordion__content">
+                    <table class="pd-specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="pd-specs-table__label">Input Voltage</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.input_voltage | default: 'AC 100-240V, 50/60Hz' }}</td>
+                          <td class="pd-specs-table__label">Supply Voltage</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.supply_voltage | default: 'DC 4.2V' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Maximum Current (per module)</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.max_current | default: '4A' }}</td>
+                          <td class="pd-specs-table__label">Peak Power Consumption</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.peak_power | default: '≤350W/m²' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Average Power Consumption</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.avg_power | default: '≤190W/m²' }}</td>
+                          <td class="pd-specs-table__label">Power Interface</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.power_interface | default: 'Three-pole flat connector' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Signal Interface</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.signal_interface | default: 'RJ45 (Ethernet)' }}</td>
+                          <td class="pd-specs-table__label">Control Mode</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.control_mode | default: 'Synchronous or Asynchronous' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Standard Receiver Card</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_electrical.receiver_card | default: 'A10S-PLUS-N / A8S-N / A8S-PRO' }}</td>
+                          <td class="pd-specs-table__label"></td>
+                          <td class="pd-specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Environmental & Durability Accordion -->
+                <div class="pd-specs-accordion pd-specs-accordion--open" data-pd-accordion>
+                  <button class="pd-specs-accordion__header" type="button">
+                    <span class="pd-specs-accordion__title">Environmental & Durability</span>
+                    <svg class="pd-specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="pd-specs-accordion__content">
+                    <table class="pd-specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="pd-specs-table__label">Operating Temperature</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.operating_temp | default: '-20°C to +50°C (-4°F to 122°F)' }}</td>
+                          <td class="pd-specs-table__label">Storage Temperature</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.storage_temp | default: '-40°C to +70°C (-40°F to 158°F)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Operating Humidity</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.operating_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                          <td class="pd-specs-table__label">Storage Humidity</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.storage_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Lifespan</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.lifespan | default: '≥100,000 hours' }}</td>
+                          <td class="pd-specs-table__label">MTBF</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.mtbf | default: '≥10,000 hours' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Certifications</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.certifications | default: 'CE, RoHS, FCC, CCC, ISO9001' }}</td>
+                          <td class="pd-specs-table__label">Waterproof</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.waterproof | default: 'Yes (sealed modules)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Dustproof</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.dustproof | default: 'Yes' }}</td>
+                          <td class="pd-specs-table__label">Anti-oxidation</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.anti_oxidation | default: 'Yes' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="pd-specs-table__label">Anti-static</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.anti_static | default: 'Yes' }}</td>
+                          <td class="pd-specs-table__label">Anti-impact</td>
+                          <td class="pd-specs-table__value">{{ pd_specs_environmental.anti_impact | default: 'Yes (COB protective layer)' }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
             {% assign first_active = false %}
