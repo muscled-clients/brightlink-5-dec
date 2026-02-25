@@ -528,7 +528,7 @@
 }
 
 .product-details__download-item-name {
-  color: #FFF;
+  color: #FFFFFF !important;
   font-family: Inter, sans-serif;
   font-size: 24px;
   font-weight: 600;
