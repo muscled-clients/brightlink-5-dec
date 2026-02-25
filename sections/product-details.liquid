@@ -329,8 +329,9 @@
                     {% assign video_id = video_url | split: '/shorts/' | last | split: '?' | first %}
                   {% endif %}
 
+                  {% assign custom_thumb = product.metafields.custom.section_video.value.video_thumbnail.value %}
                   <img
-                    src="https://img.youtube.com/vi/{{ video_id }}/maxresdefault.jpg"
+                    src="{% if custom_thumb != blank %}{{ custom_thumb | image_url: width: 1280 }}{% else %}https://img.youtube.com/vi/{{ video_id }}/maxresdefault.jpg{% endif %}"
                     alt="Video thumbnail"
                     loading="lazy"
                   >
