@@ -569,20 +569,33 @@
 
 @media screen and (max-width: 768px) {
   .product-details__download-item {
-    flex-direction: column;
+    flex-direction: row;
     height: auto;
-    padding: 20px;
-    align-items: flex-start;
-    gap: 15px;
+    padding: 16px 16px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 12px;
   }
 
   .product-details__download-item-name {
-    font-size: 18px;
+    font-size: 14px;
+    line-height: 20px;
+    flex: 1;
   }
 
   .product-details__download-btn {
-    width: 100%;
-    justify-content: center;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border-radius: 8px;
+    font-size: 0;
+    gap: 0;
+  }
+
+  .product-details__download-btn svg {
+    width: 18px;
+    height: 18px;
   }
 }
 
