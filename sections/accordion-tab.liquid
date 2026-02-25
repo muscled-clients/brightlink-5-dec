@@ -1,0 +1,1415 @@
+<style>
+  td, th {
+      padding: 20px 20px 20px 20px;
+      font-family: 'Montserrat';
+      color: #636363;
+      font-weight: 400;
+  }
+  tbody tr td:first-child {
+    font-weight: 500;
+    color: black;
+  }
+  tbody tr:first-child td{
+    font-weight: 600;
+    color: black;
+  }
+  .show-border {
+    border-top: 1px solid #C2C2C2 !important;
+    word-wrap: break-word;
+  }
+  #shopify-section-{{ section.id }} .main-tabs-container{
+    padding: 15px;
+    background: lightgray;
+    margin: 40px 0;
+  }
+  #shopify-section-{{ section.id }} .tabs-wrapper {
+    max-width: 1400px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .tab-button {
+    background: transparent;
+    color: #000;
+    cursor: pointer;
+    padding: 16px 20px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 40px;
+    width: 210px;
+  }
+
+  input.tab-to-scroll:checked + label {
+      background: #00A7E1 !important;
+      color: #fff !important;
+  }
+
+
+
+  #shopify-section-{{ section.id }} .main-tabs-container.sticky{
+    position: fixed;
+    width: 100%;
+    max-width: 100%;
+    top: 140px;
+    z-index: 999999;
+  }
+  
+  .active {
+      filter: none !important;
+      border: none;
+  }
+  .accordion-section{
+    padding-left: 80px;
+    padding-right: 80px;
+    padding-top: {{ section.settings.padding-top }}px;
+    padding-bottom: {{ section.settings.padding-bottom }}px;
+    max-width: 1360px;
+    margin: auto;
+  }
+  .accordion-header{
+    display: flex !important;
+    gap: 100px !important;
+    justify-content: center !important;
+    margin-bottom: 60px;
+    font-size: 24px;
+    line-height: 120%;
+    font-family: Montserrat;
+    color: #000;
+    font-weight: 600;
+  }
+  
+  .accordion-header div{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    min-width: fit-content;
+  }
+  .accordion-header li {
+    list-style: none;
+    margin: 0px;
+    padding-bottom: 10px;
+  }
+
+  .tab-container hr{
+    margin: 0px;
+    display: none ;
+    border: 1px solid #076CEC;
+    width: 100%;
+  }
+  .tab-container:hover{
+      color: #076CEC; 
+  }
+  .tab-container:hover .devider-line{
+      display: block;
+  }
+  .active{
+    color: #076CEC; 
+  }
+
+  .active .devider-line{
+    display: block;
+  }
+
+  .tab-data{
+    display: none; 
+  }
+  .active-body{
+    display: block !important;
+  }
+  table.my-table-s{
+    margin: 20px auto;
+    margin-bottom: 0;
+    width: 100%;
+    border-color: transparent !important;
+/*     box-shadow: none  !important; */
+  }
+  tbody{
+    border-color: transparent !important;
+  }
+  thead{
+    background: #076CEC;
+    text-align: left;
+    color: white;
+  }
+
+  .accordion-section th, .accordion-section td{
+    border-color: transparent;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .features{
+     padding: 20px 80px; 
+    background: #F9F9FA;
+    position: relative;
+  }
+  .features .vertical-button{
+    position: absolute;
+    rotate: -90deg;
+    top:45%;
+    right: -110px;
+    background: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+  }
+  .features h2{
+    width: 100%;
+    text-align: center;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 120%;
+    
+  }
+
+  .features ul li{
+    display: flex;
+    gap:10px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .features p{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
+
+  .features ul {
+    padding-inline-start: 40px;
+    margin-block-start: 20px;
+    margin-block-end: 20px;
+  }
+
+  .download-card{
+    width: 100%;
+    max-width: 994px;
+    margin:10px auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 30px;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
+  .download-card-ic-info{
+    display: flex;
+    gap: 14px;
+    align-items: center;
+  }
+  .download-card button{
+    border: none;
+    padding: 5px 15px;
+    background: #076CEC;
+    border-radius: 50px;
+    color: white;
+  }
+  .table-product-section{
+    display: flex;
+    justify-content: flex-end;
+    gap: 0px;
+    /* padding-top: 20px; */
+    padding-bottom: 20px;
+    margin-left: auto;
+  }
+  .table-total-product-1{
+    width: 25%;
+  }
+  .table-total-product-2{
+    width: 50%;
+  }
+  .table-total-product-3{
+    width: 75%;
+  }
+
+  .table-product-section div{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+    overflow: hidden;
+    gap:10px;
+  }
+  .table-product-section button{
+    background: #4190d2;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    min-width: 90%;
+    border-radius: 5px;
+  }
+  .table-product-section h3{
+/*     white-space: nowrap;
+    text-overflow: clip; */
+    max-width: 90%;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: Montserrat;
+    color: #000;
+  }
+  .table-product-section button {
+      padding: 10px;
+      font-size: 16px;
+  }
+
+  
+  
+
+  .table-product-section img{
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.3);
+    height: 300px;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+
+  .video-tab-footer-buttons{
+    display: flex;
+    gap:20px;
+  }
+  .video-tab-footer{
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .video-tab-footer h3{
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 29px;
+      color: #076CEC;
+      margin: 0px;
+    }
+    .video-tab-footer p{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+  .accordion-body{
+    padding-right: {{ section.settings.right-side-spacing }}px;
+  }
+  
+  @media screen and (max-width: 768px){
+    .accordion-body{
+      padding-right: {{ section.settings.right-side-mobile-spacing }}px;
+    }
+    .table-product-section img{
+      height: 91.3px;
+    }
+    .video-tab-footer-buttons{
+      display: flex;
+      gap:10px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+    }
+    .video-tab-footer{
+      flex-direction: column;
+      margin-top: 10px;
+    }
+    .video-tab-footer h3{
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: #076CEC;
+    }
+    .video-tab-footer p{
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .youtube-video{
+      height: 186.69px; 
+    }
+    .table-product-section{
+      width: 75%;
+      padding-bottom: 0px;
+    }
+    .table-product-section h3, .table-product-section button {
+      font-size: 10px;
+    }
+    .table-product-section button {
+      padding: 10px;
+      width: 96%;
+    }
+    .download-card{
+      padding: 14px 20px;
+    }
+    .accordion-section{
+      padding: 20px;
+    }
+    .accordion-header{
+      overflow: auto;
+      padding: 0px;
+      gap: 10px !important;
+  /*    justify-content: flex-start !important;  */
+      justify-content: space-between !important;
+      font-size:14px;
+      margin-bottom: 20px;
+    }
+    .tab-data{
+      overflow: auto;
+      border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    }
+    .tab-data table{
+/*       min-width: 700px; */
+    }
+    .accordion-section .features{
+      padding: 20px;
+    }
+    .accordion-section .features ul{
+      padding: 0px;
+    }
+    .accordion-section th, .accordion-section td{
+      font-size: 10px;
+    }
+  }
+
+  
+</style>
+{% if section.settings.metafields_data %}
+<section class='accordion-section'>
+  <div>
+    <ul id="accordion-tab-header-metadata" class='accordion-header'>
+    </ul>
+    <div id="accordion-tab-body-metadata" class='accordion-body'>
+      
+    </div>
+  </div>
+</section>
+<script>
+  function accordionTab(){
+  try{
+    if (!{{ section.settings.metafields_data }}){
+      return
+    }
+    let data = {{ product.metafields.custom.tabs_data }}
+
+    let body = document.getElementById("accordion-tab-body-metadata")
+    let theadelem = document.getElementById("accordion-tab-header-metadata")
+
+    if (!data || !theadelem || !body ){
+      return
+    }
+      
+    let tabheader = ""
+    let tabbody = ""
+    const tabs=data.data
+      
+    for (let i=0; i<tabs.length; i++){
+      const tab = tabs[i]
+      
+      let active = ""
+      let activeBody = ""
+      if (i==0){
+        active="active"
+        activeBody = "active-body"
+      }
+      if (tab.tab_type=="download"){
+        tabheader += `<div class="tab-container ${active}">
+        <li id='${tab.tab_id}'>${tab.tab_title}</li>
+        <hr class='devider-line' />
+      </div>`
+        //run for loop
+        let downloadsdata = ""
+
+        for (let dw=0; dw<tab.data.length; dw++){
+          const dwdata= tab.data[dw]
+          downloadsdata +=`<div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>${dwdata.title}</h3>
+            </div>
+            <button onclick='redirect("${dwdata.url}")'>Download</button>
+          </div>`
+        }
+
+        
+        //modify dom
+        tabbody +=`<div class='tab-data ${activeBody}' data='${tab.tab_id}'>
+        <div class='downloads'>
+          ${downloadsdata}
+        </div>
+        </div>`
+      } else if (tab.tab_type=="video"){
+        tabheader += `<div class="tab-container ${active}">
+        <li id='${tab.tab_id}'>${tab.tab_title}</li>
+        <hr class='devider-line' />
+      </div>`
+        
+        tabbody +=`<div class='tab-data ${activeBody}' data='${tab.tab_id}'></div>`
+      } else if (tab.tab_type=="icon-text"){
+        let iconTextData = tab.data
+        tabheader += `<div class="tab-container ${active}">
+        <li id='${tab.tab_id}'>${tab.tab_title}</li>
+        <hr class='devider-line' />
+      </div>`
+        let icontxtdata = ""
+        for (let ico=0; ico<iconTextData.length; ico++){
+          let td = iconTextData[ico]
+          icontxtdata +=`<li><div><img width="24px" height="24px" src="${td.icon}" /> </div><p>${td.title}</p></li>`
+        }
+        tabbody +=`<div class='tab-data ${activeBody}' data='${tab.tab_id}'>
+                <div class='features'>
+                  <h2>${tab.tab_title}</h2>
+                  <ul>
+                    ${icontxtdata}
+                  </ul>
+                </div>
+              </div>`
+      } else if (tab.tab_type=="table"){
+        tabheader += `<div class="tab-container ${active}">
+        <li id='${tab.tab_id}'>${tab.tab_title}</li>
+        <hr class='devider-line' />
+      </div>`
+        //forloop header
+        let tableheaderdata = tab.data.header
+        let tHead =""
+        for (let th=0; th<tableheaderdata.length; th++){
+          const spth=tableheaderdata[th]
+          let tHd = ""
+          for (let thd=0; thd<spth.length; thd++){
+            tHd += `<th>${spth[thd]}</th>`
+          }
+          tHead =`<tr>${tHd}</tr>`
+        }
+        
+        //forloop body
+        let tablebodydata = tab.data.body
+        let tBody = ""
+        for (let tb=0; tb<tablebodydata.length; tb++){
+          const sptd=tablebodydata[tb]
+          let tDd =""
+          for (let tdd=0; tdd<sptd.length; tdd++){
+            tDd += `<td>${sptd[tdd]}</td>`
+          }
+          let bg = `background: #E6F0FF;`
+          if (tb%2==0){
+            bg = ""
+          }
+          tBody += `<tr style="${bg}" >${tDd}</tr>`
+        }
+        
+        tabbody +=`<div class='tab-data ${activeBody}' data='${tab.tab_id}'>
+          
+            <table>
+              <thead>
+                ${tHead}
+              </thead>
+              <tbody>
+                ${tBody}
+              </tbody>
+            </table>
+          
+        </div>`
+      } else {
+        console.log("Tabs type none")
+      }
+  
+    }
+
+    theadelem.innerHTML = tabheader
+    body.innerHTML  = tabbody
+
+    }catch(error){
+      console.log(error)
+    }
+    
+  }
+  accordionTab()
+</script>
+{% else %}
+{% assign tabTitlesExist = false %}
+  
+<div class="main-tabs-container" sticky="shopify-section-{{ section.id }}" top="200">
+  <div class="tabs-wrapper">
+    {% for block in section.blocks %}
+      {% if block.settings.tab-id and block.settings.tab-id != blank %}
+        {% assign tabTitlesExist = true %}
+        <div class="tab-container {% if forloop.first %}active{% endif %}" scrollTo="scroll-{{ block.id }}">
+          <input
+            class="hidden tab-to-scroll"
+            type="radio"
+            id="tab-id-{{ block.id }}"
+            name="tab"
+            hidden
+            {% if forloop.first %}
+            checked
+            {% endif %} />
+
+        <label for="tab-id-{{ block.id }}" class="tab-button">
+            {{ block.settings.tab-id }}
+          </label>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+
+<section class='accordion-section' id="section--{{ section.id }}">
+  <div>
+  {% comment %}}
+    <ul class='accordion-header'>
+    {% for block in section.blocks %}
+      {% if block.settings.tab-id and block.settings.tab-id != blank %}
+      <div class="tab-container {% if forloop.first %}active{% endif %}">
+        <li id="tab-id-{{ block.id }}">{{ block.settings.tab-id }}</li>
+        <hr class='devider-line' />
+      </div>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endcomment %}
+    <div class='accordion-body'>
+      {% for block in section.blocks %}
+        {% if block.type == 'video' %}
+        <div class='tab-data {% if forloop.first %} active-body {% endif %}' data='tab-id-{{ block.id }}' id="scroll-{{ block.id }}">
+          {% if block.settings.media %}
+          <div class='accordion-body-video'>
+            {% if block.settings.media-host == 'youtube' %}
+              <iframe class='youtube-video' width="100%" height="600px" src="{{ block.settings.media | replace: "https://youtu.be/", "https://www.youtube.com/embed/" }}" title="Operation of overhead stirrer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            {% elsif block.settings.media-host == 'vimeo' %}
+              {{ block.settings.media | external_video_url: loop: '1', muted: '1' | external_video_tag }}
+            {% elsif block.settings.media-host == 'shopify' %}
+              {{ block.settings.media | external_video_url: loop: '1', muted: '1' | external_video_tag }}
+            {% endif %}
+          </div>
+            {% endif %}
+          <div class='video-tab-footer'>
+            <div>
+              <h3>{{ block.settings.info-title-1 }}</h3>
+              <p>{{ block.settings.info-description-1 }}</p>
+            </div>
+            <div>
+              <h3>{{ block.settings.info-title-2 }}</h3>
+              <p>{{ block.settings.info-description-2 }}</p>
+            </div>
+            <div>
+              <h3>{{ block.settings.info-title-3 }}</h3>
+              <p>{{ block.settings.info-description-3 }}</p>
+            </div>
+            <div class='video-tab-footer-buttons'>
+              <div>{% render 'navigation-button' %}</div>
+              <div>{% render 'navigation-button', next:true %}</div>
+            </div>
+          </div>
+        </div>
+      {% elsif block.type == 'icontext' %}
+      <div class='tab-data {% if forloop.first %} active-body {% endif %}' data='tab-id-{{ block.id }}' id="scroll-{{ block.id }}">
+        <div class='features'>
+          <h2>{{ block.settings.title }}</h2>
+          <ul>
+          {% if block.settings.text1 %}
+            <li>
+            {% if block.settings.icon1 %}
+              <div>
+                {{ block.settings.icon1 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text1 }}</p>
+            </li>
+            {% endif %}
+          {% if block.settings.text2 %}
+            <li>
+            {% if block.settings.icon2 %}
+              <div>
+                {{ block.settings.icon2 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text2 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text3 %}
+            <li>
+            {% if block.settings.icon3 %}
+              <div>
+                {{ block.settings.icon3 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text3 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text4 %}
+            <li>
+            {% if block.settings.icon4 %}
+              <div>
+                {{ block.settings.icon4 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text4 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text5 %}
+            <li>
+            {% if block.settings.icon5 %}
+              <div>
+                {{ block.settings.icon5 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text5 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text6 %}
+            <li>
+            {% if block.settings.icon6 %}
+              <div>
+                {{ block.settings.icon6 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text6 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text7 %}
+            <li>
+            {% if block.settings.icon7 %}
+              <div>
+                {{ block.settings.icon7 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text7 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text8 %}
+            <li>
+            {% if block.settings.icon8 %}
+              <div>
+                {{ block.settings.icon8 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text8 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text9 %}
+            <li>
+            {% if block.settings.icon9 %}
+              <div>
+                {{ block.settings.icon9 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text9 }}</p>
+            </li>
+            {% endif %}
+        {% if block.settings.text10 %}
+            <li>
+            {% if block.settings.icon10 %}
+              <div>
+                {{ block.settings.icon10 }}
+              </div>
+              {% endif %}
+                <p>{{ block.settings.text10 }}</p>
+            </li>
+            {% endif %}
+          </ul>
+
+<!--           vertical button  -->
+<!--           <button class='vertical-button'>Features</button> -->
+        </div>
+      </div>
+      {% elsif block.type == 'table' %}
+
+      <style>
+        .specification-product-card-body{
+          width: 100%;
+          max-width: {{ block.settings.product-card-width }}; 
+        }
+          .table-product-section{
+              max-width: {{ block.settings.max_width }}px !important;
+          }
+          @media screen and (min-width: 768px){
+            .first_column_width{
+              width: {{ block.settings.first_column_width }};
+            }
+          }
+        @media screen and (max-width: 768px){
+          .specification-product-card-body{
+            width: 100%;
+            max-width: {{ block.settings.product-card-width-mobile }}; 
+          }
+          .table-product-section{
+            
+              min-width: {{ block.settings.min_width }}px !important;
+
+          }
+          .tab-data table{
+              min-width: {{ block.settings.min_width }}px !important;
+          }
+        }
+      </style>
+      <div class='tab-data {% if block.settings.show_table_border %}show-table-border{% endif %} {% if forloop.first %} active-body {% endif %}' data='tab-id-{{ block.id }}' id="scroll-{{ block.id }}">
+        {% if block.settings.show_variant_product or block.settings.product1 != blank or block.settings.product2 != blank or block.settings.product3 != blank or block.settings.product4 != blank  %}
+        <div class='table-product-section'>
+        {% if block.settings.show_variant_product %}
+          {% for variant in product.variants limit:4 %}
+            <div class="specification-product-card-body">
+            <img src='{{ variant.featured_image | image_url }}' loading='lazy' width='100%' height='100%' />
+            <h3>{{ variant.title }}</h3>
+            
+            <form style="width: 95%;" action="/cart/add" data-productid="{{product.id}}"  method="post"> 
+              <input type="hidden" name="id" data-productid="{{product.id}}" class="product-select" value="{{ variant.id }}" data-variant-title="{{ variant.title }}" />
+              <button type="submit" style="margin: auto; width: 100%;">Add To Cart</button>
+            </form>
+<!--             <button onclick='redirectTo("{{ variant.url }}")'>Add to cart</button> -->
+          </div>
+          {% endfor %}
+        {% else %}
+        
+          {% if block.settings.product1 != blank %}
+          <div class="specification-product-card-body" style="border:0px solid red;">
+            <img src='{{ block.settings.product1.featured_image | image_url }}' loading='lazy' width='100%' height='100%' />
+            <h3>{{ block.settings.product1.title | truncatewords:2 }}</h3>
+            <form style="width: 95%;" action="/cart/add" data-productid="{{block.settings.product1.id}}"  method="post"> 
+              <input type="hidden" name="id" data-productid="{{block.settings.product1.id}}" class="product-select" value="{{ block.settings.product1.variants.first.id }}" data-variant-title="{{ block.settings.product1.title }}" />
+              <button type="submit" style="margin: auto; width: 100%;">Add To Cart</button>
+            </form>
+<!--             <button onclick='redirectTo("{{ block.settings.product1.url }}")'>Add to cart</button> -->
+          </div>
+            {% endif %}
+        {% if block.settings.product2 != blank  %}
+          <div class="specification-product-card-body">
+            <img src='{{ block.settings.product2.featured_image | image_url }}' loading='lazy' width='100%' height='100%' />
+            <h3>{{ block.settings.product2.title | truncatewords:2}}</h3>
+            <form style="width: 95%;" action="/cart/add" data-productid="{{block.settings.product2.id}}"  method="post"> 
+              <input type="hidden" name="id" data-productid="{{block.settings.product2.id}}" class="product-select" value="{{ block.settings.product2.variants.first.id }}" data-variant-title="{{ block.settings.product2.title }}" />
+              <button type="submit" style="margin: auto; width: 100%;">Add To Cart</button>
+            </form>
+<!--             <button onclick='redirectTo("{{ block.settings.product2.url }}")' >Add to cart</button> -->
+          </div>
+        {% endif %}
+        {% if block.settings.product3 != blank  %}
+          <div class="specification-product-card-body">
+            <img src='{{ block.settings.product3.featured_image | image_url }}' loading='lazy' width='100%' height='100%' />
+            <h3>{{ block.settings.product3.title | truncatewords:2}}</h3>
+            <form style="width: 95%;" action="/cart/add" data-productid="{{block.settings.product3.id}}"  method="post"> 
+              <input type="hidden" name="id" data-productid="{{block.settings.product3.id}}" class="product-select" value="{{ block.settings.product3.variants.first.id }}" data-variant-title="{{ block.settings.product3.title }}" />
+              <button type="submit" style="margin: auto; width: 100%;">Add To Cart</button>
+            </form>
+<!--             <button onclick='redirectTo("{{ block.settings.product3.url }}")' >Add to cart</button> -->
+          </div>
+          {% endif %}
+          {% if block.settings.product4 != blank  %}
+          <div class="specification-product-card-body">
+            <img src='{{ block.settings.product4.featured_image | image_url }}' loading='lazy' width='100%' height='100%' />
+            <h3>{{ block.settings.product4.title | truncatewords:2 }}</h3>
+            <form style="width: 95%;" action="/cart/add" data-productid="{{block.settings.product4.id}}"  method="post"> 
+              <input type="hidden" name="id" data-productid="{{block.settings.product4.id}}" class="product-select" value="{{ block.settings.product4.variants.first.id }}" data-variant-title="{{ block.settings.product4.title }}" />
+              <button type="submit" style="margin: auto; width: 100%;">Add To Cart</button>
+            </form>
+<!--             <button onclick='redirectTo("{{ block.settings.product4.url }}")' >Add to cart</button> -->
+          </div>
+          {% endif %}
+        {% endif %}
+        </div>
+        {% endif %}
+          
+        <table style=' min-width: {{ block.settings.min_width }}px;' class="my-table-s">
+          <tbody>
+            {% assign table_data = product.metafields.custom.specification_table | newline_to_br | split: '<br />' %}
+            {% for row in table_data %}
+              <tr>
+                  {% assign temp = row | split: ',' %}
+                  {% assign check = false %}
+                  {% for col in temp %}
+                    {% assign clean = col | strip %}
+                    {% if forloop.index == 1 and clean != '' %}
+                      {% assign check = true %}
+                    {% endif %}
+                    <td {% if check %}
+                      class="show-border"
+                    {% endif %}>
+                    {{ clean }}
+                    </td>
+                  {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+          {% render 'see-more' %}
+      </div>
+      {% elsif block.type == 'download' %}
+      <div class='tab-data {% if forloop.first %} active-body {% endif %}' data='tab-id-{{ block.id }}' id="scroll-{{ block.id }}">
+        <div class='downloads'>
+        {% if block.settings.pdftitle1 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ block.settings.pdftitle1 }}</h3>
+            </div>
+            <button onclick='redirect("{{ block.settings.pdfurl1 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if block.settings.pdftitle2 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ block.settings.pdftitle2 }}</h3>
+            </div>
+            <button onclick='redirect("{{ block.settings.pdfurl2 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if block.settings.pdftitle3 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ block.settings.pdftitle3 }}</h3>
+            </div>
+            <button onclick='redirect("{{ block.settings.pdfurl3 }}")'>Download</button>
+          </div>
+          {% endif %}
+        {% if block.settings.pdftitle4 != blank %}
+          <div class='download-card'>
+            <div class='download-card-ic-info'>
+              <iconify-icon width="24" icon="ci:file-pdf"></iconify-icon>
+              <h3>{{ block.settings.pdftitle4 }}</h3>
+            </div>
+            <button onclick='redirect("{{ block.settings.pdfurl4 }}")'>Download</button>
+          </div>
+          {% endif %}
+      </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{% endif %}
+
+
+
+<script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js"></script>
+
+<script>
+//metafield data object
+
+           
+
+  
+  
+  const mytabs = document.querySelectorAll('.tab-container')
+  const mytabsbody = document.querySelectorAll('.tab-data')
+
+  
+  if (mytabs.length>0){
+    for (let i=0; i<mytabs.length; i++){
+      
+      mytabs[i].addEventListener("click", function(e){
+        for (let idx=0; idx<mytabs.length; idx++){
+          const mylist = mytabs[idx].classList;
+          if (mytabs[idx]==e.target.parentNode){
+            mylist.add("active");
+          } else{
+            mylist.remove("active");
+          }
+        }
+        for(let bi=0; bi<mytabsbody.length; bi++){
+          const bodylist = mytabsbody[bi].classList
+          if (mytabsbody[bi].getAttribute("data")==e.target.parentNode.children[0].getAttribute("id")){
+            bodylist.add("active-body");
+          } else{
+            bodylist.remove("active-body");
+          }
+        }
+      });
+    }
+  }
+  function redirect(url){
+    window.open(url, "_blank");
+  }
+  function redirectTo(url){
+    window.location.href=url
+  }
+
+  try{
+    let productCard = document.querySelectorAll(".specification-product-card-body")
+    let width = document.querySelector(".first_column_width").parentNode.children[1].offsetWidth
+    for (let i=0; i<productCard.length; i++){
+      productCard[i].style.width = `${width}px`
+    }
+  } catch(err){
+    console.log(err)
+  }
+
+  {% comment %} new tab functionality {% endcomment %}
+   document.querySelectorAll(`[scrollTo]`).forEach((elem) => {
+    elem.addEventListener("click", (event) => {
+      let id = event.currentTarget.getAttribute("scrollTo")
+      if (id) {
+        const element = document.getElementById(id);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if(rect.top <= 0){
+            window.scrollTo({
+              top: element.offsetTop - 250,
+              left: 0,
+              behavior: "smooth",
+            });
+          }
+        }
+      }
+      const stickyEvent = new Event('update:sticky');
+      document.dispatchEvent(stickyEvent);
+    })
+  })
+
+  window.addEventListener('scroll', function() {
+    const stickyEvent = new Event('update:sticky');
+    document.dispatchEvent(stickyEvent);
+  });
+
+  document.addEventListener("update:sticky", ()=>{
+    document.querySelectorAll("[sticky]").forEach((elem)=>{
+      let top = 200
+      if(elem.getAttribute("top")){
+        top = elem.getAttribute("top") * 1
+      }
+      const id=elem.getAttribute("sticky") || null
+      if(!id)return
+      document.querySelectorAll(`#${id}`).forEach((sticky)=>{
+        const rect = sticky.getBoundingClientRect();
+        if(rect.top < top){
+          elem.classList.add("sticky")
+        }else{
+          elem.classList.remove("sticky")
+        }
+      })
+    })
+  })
+  
+  
+</script>
+
+{% schema %}
+  {
+    "name": "Accordian Tab",
+    "max_blocks": 4,
+    "settings": [
+      {
+        "type":"checkbox",
+        "id":"metafields_data",
+        "label":"Metafields Data",
+        "default":false
+      },
+      {
+        "type":"number",
+        "id":"right-side-spacing",
+        "label":"Right side spacing",
+        "default":0
+      },
+      {
+        "type":"number",
+        "id":"padding-top",
+        "label":"Padding top",
+        "default":40
+      },
+      {
+        "type":"number",
+        "id":"padding-bottom",
+        "label":"Padding Bottom",
+        "default":40
+      },
+      {
+        "type":"number",
+        "id":"right-side-mobile-spacing",
+        "label":"Right side mobile spacing",
+        "default":0
+      }
+    ],
+    "blocks":[
+      {
+        "type":"icontext",
+        "name":"Icon Text",
+        "settings":[
+          {
+            "type":"text",
+            "id":"tab-id",
+            "label":"Tab Title"
+          },
+          {
+            "type":"text",
+            "id":"title",
+            "label":"Title"
+          },
+          {
+            "type":"liquid",
+            "id":"icon1",
+            "label":"Icon 1"
+          },
+          {
+            "type":"text",
+            "id":"text1",
+            "label":"Text 1"
+          },
+          {
+            "type":"liquid",
+            "id":"icon2",
+            "label":"Icon 2"
+          },
+          {
+            "type":"text",
+            "id":"text2",
+            "label":"Text 2"
+          },
+          {
+            "type":"liquid",
+            "id":"icon3",
+            "label":"Icon 3"
+          },
+          {
+            "type":"text",
+            "id":"text3",
+            "label":"Text 3"
+          },
+          {
+            "type":"liquid",
+            "id":"icon4",
+            "label":"Icon 4"
+          },
+          {
+            "type":"text",
+            "id":"text4",
+            "label":"Text 4"
+          },
+          {
+            "type":"liquid",
+            "id":"icon5",
+            "label":"Icon 5"
+          },
+          {
+            "type":"text",
+            "id":"text5",
+            "label":"Text 5"
+          },
+          {
+            "type":"liquid",
+            "id":"icon6",
+            "label":"Icon 6"
+          },
+          {
+            "type":"text",
+            "id":"text6",
+            "label":"Text 6"
+          },
+          {
+            "type":"liquid",
+            "id":"icon7",
+            "label":"Icon 7"
+          },
+          {
+            "type":"text",
+            "id":"text7",
+            "label":"Text 7"
+          },
+          {
+            "type":"liquid",
+            "id":"icon8",
+            "label":"Icon 8"
+          },
+          {
+            "type":"text",
+            "id":"text8",
+            "label":"Text 8"
+          },
+          {
+            "type":"liquid",
+            "id":"icon9",
+            "label":"Icon 9"
+          },
+          {
+            "type":"text",
+            "id":"text9",
+            "label":"Text 9"
+          },
+          {
+            "type":"liquid",
+            "id":"icon10",
+            "label":"Icon 10"
+          },
+          {
+            "type":"text",
+            "id":"text10",
+            "label":"Text 10"
+          }
+        ] 
+      },
+      {
+       "type":"table",
+        "name":"Table",
+        "settings":[
+          {
+            "type":"checkbox",
+            "id":"show_table_border",
+            "label":"Show table borders",
+            "default":false
+          },
+          {
+            "type":"color",
+            "id":"first_col_bg_color",
+            "label":"First column background color"
+          },
+          {
+            "type":"color",
+            "id":"row_bg_color",
+            "label":"Row background color"
+          },
+          {
+            "type":"number",
+            "id":"min_width",
+            "label":"Set minimum width",
+            "default":700
+          },
+          {
+            "type":"number",
+            "id":"max_width",
+            "label":"Set max width",
+            "default":1200
+          },
+          {
+            "type":"text",
+            "id":"tab-id",
+            "label":"Tab Title"
+          },
+          {
+            "type":"checkbox",
+            "id":"show_variant_product",
+            "label":"Show Variant Product",
+            "default":false
+          },
+          {
+            "type":"text",
+            "id":"product-card-width",
+            "label":"Product card width",
+            "info":"insert card width in 100px or 100%",
+            "default":"33%"
+          },
+          {
+            "type":"text",
+            "id":"first_column_width",
+            "label":"first column width",
+            "info":"insert first column width in 100px",
+            "default":"300px"
+          },
+          {
+            "type":"text",
+            "id":"product-card-width-mobile",
+            "label":"product card width mobile",
+            "info":"insert card width in 100px or 100%",
+            "default":"33%"
+          },
+          {
+            "type":"product",
+            "id":"product1",
+            "label":"Product 1"
+          },
+          {
+            "type":"product",
+            "id":"product2",
+            "label":"Product 2"
+          },
+          {
+            "type":"product",
+            "id":"product3",
+            "label":"Product 3"
+          },
+          {
+            "type":"product",
+            "id":"product4",
+            "label":"Product 4"
+          },
+          {
+            "type":"textarea",
+            "id":"table_heading",
+            "label":"Table heading (separate by ',')"
+          }
+        ]
+      },
+      {
+        "type":"download",
+        "name":"Download",
+        "settings":[
+          {
+            "type":"text",
+            "id":"tab-id",
+            "label":"Tab Title"
+          },
+          {
+            "type":"text",
+            "id":"pdftitle1",
+            "label":"Pdf Title 1"
+          },
+          {
+            "type":"url",
+            "id":"pdfurl1",
+            "label":"Pdf Url 1"
+          },
+          {
+            "type":"text",
+            "id":"pdftitle2",
+            "label":"Pdf Title 2"
+          },
+          {
+            "type":"url",
+            "id":"pdfurl2",
+            "label":"Pdf Url 2"
+          },
+          {
+            "type":"text",
+            "id":"pdftitle3",
+            "label":"Pdf Title 3"
+          },
+          {
+            "type":"url",
+            "id":"pdfurl3",
+            "label":"Pdf Url 3"
+          },
+          {
+            "type":"text",
+            "id":"pdftitle4",
+            "label":"Pdf Title 4"
+          },
+          {
+            "type":"url",
+            "id":"pdfurl4",
+            "label":"Pdf Url 4"
+          }
+        ]
+      },
+      {
+        "type":"video",
+        "name":"Video",
+        "settings":[
+          {
+            "type":"text",
+            "id":"tab-id",
+            "label":"Tab Title"
+          },
+          {
+            "type": "select",
+            "id": "media-host",
+            "label": "Vertical alignment",
+            "options": [
+              {
+                "value": "youtube",
+                "label": "Youtube"
+              },
+              {
+                "value": "vimeo",
+                "label": "Vimeo"
+              },
+              {
+                "value": "shopify",
+                "label": "Shopify"
+              }
+            ],
+            "default": "youtube"
+          },
+          {
+            "type":"url",
+            "id":"media",
+            "label":"Media url"
+          },
+          {
+            "type":"text",
+            "id":"info-title-1",
+            "label":"Video Info Title 1"
+          },
+          {
+            "type":"text",
+            "id":"info-description-1",
+            "label":"Video Info Description 1"
+          },
+          {
+            "type":"text",
+            "id":"info-title-2",
+            "label":"Video Info Title 2"
+          },
+          {
+            "type":"text",
+            "id":"info-description-2",
+            "label":"Video Info Description 2"
+          },
+          {
+            "type":"text",
+            "id":"info-title-3",
+            "label":"Video Info Title 3"
+          },
+          {
+            "type":"text",
+            "id":"info-description-3",
+            "label":"Video Info Description 3"
+          }
+        ]
+      }
+    ],
+    "presets":[
+      {
+        "name":"Accordian Tab"
+      }
+    ]
+  }
+{% endschema %}
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var rows = Array.from(document.querySelectorAll('tbody tr'));
+  var buttonP = document.getElementById('toggleRowsP');
+  var buttonC = document.getElementById('toggleRowsC');
+
+  console.log("rows:",rows)
+  console.log("buttonP:",buttonP)
+  console.log("buttonC:",buttonC)
+
+      rows.forEach(function(row, index) {
+      row.style.display = index >= 10 && buttonC.textContent === 'Show Less' ? 'none' : '';
+    });
+    
+    buttonC.textContent = buttonC.textContent === 'Show Less' ? 'Show More' : 'Show Less';
+  
+  function updateRows() {
+    rows.forEach(function(row, index) {
+      row.style.display = index >= 10 && buttonC.textContent === 'Show Less' ? 'none' : '';
+    });
+    
+    buttonC.textContent = buttonC.textContent === 'Show Less' ? 'Show More' : 'Show Less';
+  }
+
+  // Initialize rows to only show the first 10
+  updateRows();
+
+  // Add event listener to button
+  buttonP.addEventListener('click', updateRows);
+});
+</script>

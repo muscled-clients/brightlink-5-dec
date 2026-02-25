@@ -1,0 +1,187 @@
+{% if block.settings.show_purchase_btns %}
+
+
+<style>
+
+
+.rqst-quote-s {
+    width: 100%;
+    /* width: 447px; */
+    height: 69px;
+    padding: 0px;
+    background: transparent !important;
+    color: black;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 29px;
+    border-radius: 50px;
+    border: 1px solid #4190d2;
+}
+
+      /*   custom css */
+    .amazon-dist-block{
+    padding: 20px 20px 20px 20px;
+    display:none;
+    background: #F7F7F7;
+    background: #F2F2F2;
+
+    width: 100%;
+    height: 140px;
+    }
+/*    .amazon-dist-block.active {
+      background: #F2F2F2;
+     padding-bottom: 15px;
+  } */
+    .amazon-dist-block .distributor-heading{
+      font-size: 16px;
+    }
+    .amazon-dist-block .distributor-heading span{
+      color: #202223;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .amazon-dist-block .amazon-icon{
+/*       background: black;
+      padding: 0px 10px 0 10px;
+      width: 12%; */
+      margin-top: 10px;
+    }
+    .amazon-dist-block .amazon-icon svg{
+      margin-top: 10px;
+    }
+    .amazon-dist-block .amazon-icon svg g{
+          fill: white;
+    }
+    amazon-dist-block .amazon-icon svg g path{
+      fill: white;
+    }
+.btn-with_text {
+  display:flex;
+  gap:20px;
+}
+     .amazon-dist-block.active .btn-with_text{
+      background: linear-gradient(0deg, #EE9B33 0%, #F6DC9E 100%);
+/*       padding: 0px 0px 5px 5px; */
+/*       border-radius: 7px; */
+      display: flex;
+/*         width: 70%; */
+      margin: auto;
+    }
+/*     .amazon-dist-block.active .amazon-icon{
+
+      border-radius: 5px;
+      dislay:flex;
+     margin-top: 6px;
+    } */
+/*     .amazon-dist-block.active .btn-with_text h4{
+      color: black;
+      font-weight: bolder;
+      margin:auto ;
+    } */
+/*     .amazon-dist-block.active .distributor-heading{
+    padding: 0px 0px 10px 0px;
+    } */
+  #shopify-section-{{ section.id }} .distributor-logo{
+    height: 60px;
+  border-radius: 10px;
+  }
+
+@media screen and (max-width:1000px){
+.amazon-dist-block {
+    padding: 20px 20px 20px 20px;
+    display: none;
+    background: #F7F7F7;
+    background: #F2F2F2;
+    width: 100%;
+    height: 107.5px;
+}
+.amazon-dist-block .distributor-heading {
+    font-size: 14px;
+    line-height: 20px;
+}
+.amazon-dist-block .distributor-heading span {
+    color: #202223;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+}
+#shopify-section-{{ section.id }} .distributor-logo{
+    height: 37.5px;
+  border-radius: 10px;
+  }
+.btn-with_text {
+    display: flex;
+    gap: 10px;
+}
+}
+</style>
+
+
+
+
+ <button class="rqst-quote-s" id="request-a-quote-btn-{{ block.id }}" >Purchase From Distributor</button>
+            <div class="amazon-dist-block" id="amazon_dist_block_s">
+                        <div class="distributor-heading">
+                          <span>Choose distributor</span>
+                        </div>
+            
+                        <div class="btn-with_text">
+                        
+                          
+                          <a href="{{ block.settings.amazon_link }}" class="amazon-icon" style="display:block;">
+                            <span >
+                              {% comment %}
+                              {% render 'amazon-icon' %}
+                              {% endcomment %}
+                              <img class="distributor-logo" src="{{ block.settings.distributor_logo | img_url:'1400x' }}">
+                            </span>
+                          </a>
+                            <a href="{{ block.settings.amazon_link2 }}" class="amazon-icon" style="display:block;">
+                            <span >
+                              {% comment %}
+                              {% render 'amazon-icon' %}
+                              {% endcomment %}
+                              <img class="distributor-logo" src="{{ block.settings.distributor_logo2 | img_url:'1400x' }}">
+                            </span>
+                          </a>
+                         
+                         
+                        </div>
+             </div>
+
+
+
+
+<script>
+const purchase_from_distributor = document.getElementById("request-a-quote-btn-{{ block.id }}")
+  let clicked = true;
+purchase_from_distributor.addEventListener("click", (event)=>{
+  event.preventDefault();
+  console.log("clicked:")
+  
+  const amazon_dist_block_s = document.getElementById("amazon_dist_block_s")
+
+   if (clicked) {
+      amazon_dist_block_s.style.display = 'block';
+     clicked = false;
+     console.log("display:block")
+    } else {
+      amazon_dist_block_s.style.display = 'none';
+     clicked = true;
+     console.log("display:none")
+    }
+    return clicked;
+
+})
+</script>
+
+
+
+{% endif %}  

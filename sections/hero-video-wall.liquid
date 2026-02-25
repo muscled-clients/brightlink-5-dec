@@ -1,0 +1,1068 @@
+{{ 'hero-video-wall.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign hero_data = led_data.hero %}
+
+{% comment %} Use metafield data with fallback to section settings {% endcomment %}
+{% assign series_label = hero_data.series_label | default: section.settings.series_label %}
+{% assign tagline = hero_data.tagline | default: section.settings.subheading %}
+{% assign description = hero_data.description | default: section.settings.description %}
+
+<section class="hero-video-wall-section {{ section.settings.custom_class }}" id="hero-video-wall-{{ section.id }}">
+  <!-- Background Video -->
+  <div class="hero-video-wall__video-container">
+    {% if section.settings.video_url != blank %}
+      <video class="hero-video-wall__video" autoplay muted loop playsinline>
+        <source src="{{ section.settings.video_url }}" type="video/mp4">
+      </video>
+    {% elsif section.settings.video_file != blank %}
+      {{
+        section.settings.video_file
+        | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, class: 'hero-video-wall__video'
+      }}
+    {% else %}
+      <!-- Fallback background image -->
+      {% if section.settings.fallback_image != blank %}
+        <div
+          class="hero-video-wall__fallback-bg"
+          style="background-image: url('{{ section.settings.fallback_image | image_url: width: 1920 }}');"
+        ></div>
+      {% endif %}
+    {% endif %}
+    <!-- Dark Overlay -->
+    <div class="hero-video-wall__overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="hero-video-wall__content">
+    <!-- Top Frame: Series Label, Heading, Price -->
+    <div class="hero-video-wall__text-frame">
+      {% comment %} Find the config matching the current product page, fallback to first {% endcomment %}
+      {% assign default_config = nil %}
+      {% for block in section.blocks %}
+        {% if block.type == 'product_config' and block.settings.product != blank %}
+          {% if block.settings.product.handle == product.handle %}
+            {% assign default_config = block %}
+            {% break %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      {% unless default_config %}
+        {% assign default_config = section.blocks | first %}
+      {% endunless %}
+
+      <!-- Top Content: Series Label + Heading Frame -->
+      <div class="hero-video-wall__top-content">
+        <!-- Series Label -->
+        {% if series_label != blank %}
+          <p class="hero-video-wall__series-label">{{ series_label }}</p>
+        {% endif %}
+
+        <!-- Specs + Heading Frame -->
+        <div class="hero-video-wall__heading-frame">
+          <!-- Product Specs Line -->
+          <p class="hero-video-wall__specs-line" id="hero-specs-line">
+            {%- if default_config -%}
+              {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
+            {%- endif -%}
+          </p>
+
+          <!-- Main Heading -->
+          {% if section.settings.main_heading != blank %}
+            <h1 class="hero-video-wall__main-heading">{{ section.settings.main_heading }}</h1>
+          {% elsif product.title != blank %}
+            <h1 class="hero-video-wall__main-heading">{{ product.title }}</h1>
+          {% endif %}
+        </div>
+      </div>
+
+      {% assign first_matched_variant = nil %}
+      {% if default_config.settings.product != blank %}
+        {% for variant in default_config.settings.product.variants %}
+          {% if variant.title == default_config.settings.pixel_pitch or variant.option1 == default_config.settings.pixel_pitch %}
+            {% assign first_matched_variant = variant %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+        {% unless first_matched_variant %}
+          {% assign first_matched_variant = default_config.settings.product.selected_or_first_available_variant %}
+        {% endunless %}
+      {% endif %}
+
+      <!-- Price (static) -->
+      {% assign price_product = section.settings.button_1_product | default: default_config.settings.product %}
+      <div class="hero-video-wall__price-wrapper">
+        {% if price_product != blank %}
+          <span class="hero-video-wall__current-price" id="hero-current-price">{{ price_product.price | money }}</span>
+          {% if price_product.compare_at_price > price_product.price %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ price_product.compare_at_price | money }}</span>
+          {% else %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
+          {% endif %}
+        {% else %}
+          <span class="hero-video-wall__current-price" id="hero-current-price"></span>
+          <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Product Configs Data -->
+    <script id="hero-product-configs" type="application/json">
+      [
+        {% assign config_index = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'product_config' %}
+            {% if config_index > 0 %},{% endif %}
+            {
+              "diagonal": {{ block.settings.diagonal | json }},
+              "pixel_pitch": {{ block.settings.pixel_pitch | json }},
+              "total_pixels": {{ block.settings.total_pixels | json }},
+              "aspect_ratio": {{ block.settings.aspect_ratio | json }},
+              {% if block.settings.product != blank %}
+                {% assign matched_variant = nil %}
+                {% for variant in block.settings.product.variants %}
+                  {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
+                    {% assign matched_variant = variant %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% unless matched_variant %}
+                  {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
+                {% endunless %}
+                "price": {{ matched_variant.price | json }},
+                "compare_price": {{ matched_variant.compare_at_price | json }},
+                "price_formatted": {{ matched_variant.price | money | json }},
+                "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
+                "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
+                "variant_id": {{ matched_variant.id | json }}
+              {% else %}
+                "price": null,
+                "compare_price": null,
+                "price_formatted": "",
+                "compare_price_formatted": "",
+                "product_url": null,
+                "variant_id": null
+              {% endif %}
+            }
+            {% assign config_index = config_index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      ]
+    </script>
+
+    <!-- Bottom Frame: Variant Selector + Buttons -->
+    <div class="hero-video-wall__bottom-frame">
+      <!-- Variant Selector Wrapper -->
+      <div class="hero-video-wall__variant-wrapper">
+        <!-- Variant Label -->
+        <p class="hero-video-wall__variant-label">{{ section.settings.variant_label | default: 'Select Your Ideal Video Wall' }}</p>
+
+        <!-- Variant Boxes -->
+        <div class="hero-video-wall__variant-boxes">
+          <!-- Diagonal Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="diagonal">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-diagonal-value">{{ default_config.settings.diagonal | default: '163"' }}</span>
+                <span class="hero-video-wall__box-title">Diagonal</span>
+              </div>
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-diagonal-dropdown"></div>
+          </div>
+
+          <!-- Pixel Pitch Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="pixel_pitch">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-pitch-value">{{ default_config.settings.pixel_pitch | default: '0.9mm' }}</span>
+                <span class="hero-video-wall__box-title">Pixel Pitch</span>
+              </div>
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-pitch-dropdown"></div>
+          </div>
+
+          <!-- Total Pixels Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="total_pixels">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-pixels-value">{{ default_config.settings.total_pixels | default: '8.29M' }}</span>
+                <span class="hero-video-wall__box-title">Total Pixels</span>
+              </div>
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-pixels-dropdown"></div>
+          </div>
+
+          <!-- Aspect Ratio Box -->
+          <div class="hero-video-wall__variant-box-wrapper" data-box="aspect_ratio">
+            <div class="hero-video-wall__variant-box js-variant-dropdown-toggle">
+              <div class="hero-video-wall__box-content">
+                <span class="hero-video-wall__box-value" id="hero-ratio-value">{{ default_config.settings.aspect_ratio | default: '16:9' }}</span>
+                <span class="hero-video-wall__box-title">Aspect Ratio</span>
+              </div>
+              <div class="hero-video-wall__box-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7" fill="none">
+                  <path d="M1 1L6 6L11 1" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+            <div class="hero-video-wall__dropdown" id="hero-ratio-dropdown"></div>
+          </div>
+
+          <!-- View Product Button -->
+          <a
+            href="{% if default_config.settings.product != blank %}{{ default_config.settings.product.url }}?variant={{ first_matched_variant.id }}{% else %}#{% endif %}"
+            class="hero-video-wall__variant-box hero-video-wall__view-btn inactive"
+            id="hero-view-product-btn"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
+              <path d="M1 1L7 7L1 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Buttons Frame -->
+      <div class="hero-video-wall__buttons-frame">
+        <div class="hero-video-wall__buttons">
+          {% if section.settings.button_1_text != blank %}
+            <button
+              type="button"
+              class="hero-video-wall__btn hero-video-wall__btn--primary js-add-to-cart"
+              data-variant-id="{% if first_matched_variant %}{{ first_matched_variant.id }}{% endif %}"
+            >
+              <span class="hero-video-wall__btn-content">
+                <span class="hero-video-wall__btn-label" data-label="{{ section.settings.button_1_text }}">{{ section.settings.button_1_text }}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                  <path d="M13.707 6.70897C14.0977 6.31832 14.0977 5.68391 13.707 5.29326L8.70674 0.292985C8.31609 -0.0976617 7.68168 -0.0976617 7.29103 0.292985C6.90038 0.683632 6.90038 1.31804 7.29103 1.70869L10.5881 5.00262H1.00006C0.4469 5.00262 0 5.44952 0 6.00268C0 6.55583 0.4469 7.00273 1.00006 7.00273H10.585L7.29416 10.2967C6.90351 10.6873 6.90351 11.3217 7.29416 11.7124C7.6848 12.103 8.31921 12.103 8.70986 11.7124L13.7101 6.71209L13.707 6.70897Z" fill="white"/>
+                </svg>
+              </span>
+              <span class="hero-video-wall__btn-circle"></span>
+            </button>
+          {% endif %}
+          {% if section.settings.button_2_text != blank %}
+            <a
+              href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}"
+              class="hero-video-wall__btn hero-video-wall__btn--secondary"
+            >
+              <span class="hero-video-wall__btn-content">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+                  <path d="M5.5675 3.98915V1.06671H1.0666C1.1516 4.73582 2.6666 8.29826 5.2908 10.8583C7.91501 13.44 11.3925 14.8691 15.0617 14.9116L15.0608 12.0316C15.0608 11.7333 15.2958 11.4983 15.5942 11.4983C15.8925 11.4983 16.1275 11.7333 16.1275 12.0316V15.4667C16.1275 15.765 15.8925 16 15.5942 16H15.21C11.1991 16 7.40158 14.4425 4.54335 11.6267C1.64245 8.78914 0 4.84248 0 0.789161V0.533332C0 0.235007 0.235007 0 0.533332 0H6.10174C6.40007 0 6.63507 0.235007 6.63507 0.533332V4.15999C6.63507 4.26666 6.59258 4.37332 6.55008 4.45831L5.71675 5.65332L10.4743 10.2617L11.6693 9.4509C11.7543 9.38673 11.861 9.3659 11.9676 9.3659H15.5943C15.8926 9.3659 16.1276 9.60091 16.1276 9.89923C16.1276 10.1976 15.8926 10.4326 15.5943 10.4326L12.1385 10.4317L10.7093 11.4134C10.496 11.5626 10.2185 11.5417 10.0268 11.3492L4.65022 6.10167C4.45855 5.93084 4.43689 5.63251 4.58605 5.41918L5.5675 3.98915ZM10.4099 0C10.1116 0 9.8766 0.23505 9.8766 0.533375C9.8766 0.831699 10.1116 1.06671 10.4099 1.06671C13.0124 1.06671 15.125 3.17836 15.125 5.78179C15.125 6.08011 15.36 6.31512 15.6583 6.31512C15.9567 6.31512 16.1917 6.08011 16.1917 5.78179C16.17 2.6027 13.5892 0 10.4099 0ZM10.3882 2.0267C10.0899 2.0267 9.85484 2.26171 9.85484 2.56004C9.85484 2.85836 10.0899 3.09337 10.3882 3.09337C11.8823 3.09337 13.0766 4.30919 13.0766 5.78179C13.0766 6.08011 13.3116 6.31512 13.6099 6.31512C13.9083 6.31512 14.1433 6.08011 14.1433 5.78179C14.1433 3.71263 12.4583 2.0267 10.3882 2.0267Z" fill="white"/>
+                </svg>
+                <span class="hero-video-wall__btn-label" data-label="{{ section.settings.button_2_text }}">{{ section.settings.button_2_text }}</span>
+              </span>
+              <span class="hero-video-wall__btn-circle"></span>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Load product configs
+    var configsEl = document.getElementById('hero-product-configs');
+    var configs = configsEl ? JSON.parse(configsEl.textContent) : [];
+
+    // Current selection state
+    var selected = {
+      diagonal: document.getElementById('hero-diagonal-value') ? document.getElementById('hero-diagonal-value').textContent.trim() : '',
+      pixel_pitch: document.getElementById('hero-pitch-value') ? document.getElementById('hero-pitch-value').textContent.trim() : '',
+      total_pixels: document.getElementById('hero-pixels-value') ? document.getElementById('hero-pixels-value').textContent.trim() : '',
+      aspect_ratio: document.getElementById('hero-ratio-value') ? document.getElementById('hero-ratio-value').textContent.trim() : ''
+    };
+
+    // Build unique dropdown options
+    function getUniqueValues(key) {
+      var seen = {};
+      var result = [];
+      configs.forEach(function (c) {
+        if (c[key] && !seen[c[key]]) {
+          seen[c[key]] = true;
+          result.push(c[key]);
+        }
+      });
+      return result;
+    }
+
+    function buildDropdown(dropdownId, values, selectedValue) {
+      var dropdown = document.getElementById(dropdownId);
+      if (!dropdown) return;
+      dropdown.innerHTML = '';
+      values.forEach(function (val) {
+        var item = document.createElement('div');
+        item.className = 'hero-video-wall__dropdown-item' + (val === selectedValue ? ' active' : '');
+        item.setAttribute('data-value', val);
+        item.textContent = val;
+        dropdown.appendChild(item);
+      });
+    }
+
+    // Build all dropdowns
+    function buildAllDropdowns() {
+      buildDropdown('hero-diagonal-dropdown', getUniqueValues('diagonal'), selected.diagonal);
+      buildDropdown('hero-pitch-dropdown', getUniqueValues('pixel_pitch'), selected.pixel_pitch);
+      buildDropdown('hero-pixels-dropdown', getUniqueValues('total_pixels'), selected.total_pixels);
+      buildDropdown('hero-ratio-dropdown', getUniqueValues('aspect_ratio'), selected.aspect_ratio);
+    }
+
+    buildAllDropdowns();
+
+    // Find matching config and update hero
+    function updateHero(changedKey) {
+      var match = null;
+
+      if (changedKey === 'diagonal' || changedKey === 'pixel_pitch') {
+        // Find config matching diagonal + pixel_pitch
+        for (var i = 0; i < configs.length; i++) {
+          if (configs[i].diagonal === selected.diagonal && configs[i].pixel_pitch === selected.pixel_pitch) {
+            match = configs[i];
+            break;
+          }
+        }
+      } else {
+        // Find first config matching the changed key
+        for (var i = 0; i < configs.length; i++) {
+          if (configs[i][changedKey] === selected[changedKey]) {
+            match = configs[i];
+            break;
+          }
+        }
+      }
+
+      if (match) {
+        // Update all values
+        selected.diagonal = match.diagonal;
+        selected.pixel_pitch = match.pixel_pitch;
+        selected.total_pixels = match.total_pixels;
+        selected.aspect_ratio = match.aspect_ratio;
+
+        document.getElementById('hero-diagonal-value').textContent = match.diagonal;
+        document.getElementById('hero-pitch-value').textContent = match.pixel_pitch;
+        document.getElementById('hero-pixels-value').textContent = match.total_pixels;
+        document.getElementById('hero-ratio-value').textContent = match.aspect_ratio;
+
+        // Update price
+        var currentPrice = document.getElementById('hero-current-price');
+        var comparePrice = document.getElementById('hero-compare-price');
+        if (currentPrice && match.price_formatted) {
+          currentPrice.textContent = match.price_formatted;
+        }
+        if (comparePrice) {
+          if (match.compare_price && match.compare_price > match.price) {
+            comparePrice.textContent = match.compare_price_formatted;
+            comparePrice.style.display = '';
+          } else {
+            comparePrice.textContent = '';
+            comparePrice.style.display = 'none';
+          }
+        }
+
+        // Update add-to-cart button variant ID
+        var addToCartBtn = document.querySelector('.js-add-to-cart');
+        if (addToCartBtn && match.variant_id) {
+          addToCartBtn.setAttribute('data-variant-id', match.variant_id);
+        }
+
+        // Rebuild dropdowns to update active states
+        buildAllDropdowns();
+
+        // Update view product button URL and activate it
+        var viewBtn = document.getElementById('hero-view-product-btn');
+        if (viewBtn && match.product_url) {
+          viewBtn.href = match.product_url;
+          viewBtn.classList.remove('inactive');
+        }
+      }
+    }
+
+    // Dropdown Toggle
+    document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (toggle) {
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var wrapper = this.closest('.hero-video-wall__variant-box-wrapper');
+        var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
+        var isOpen = this.classList.contains('active');
+
+        // Close all other dropdowns
+        document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
+          t.classList.remove('active');
+          var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
+          if (d) d.classList.remove('open');
+        });
+
+        if (!isOpen && dropdown) {
+          this.classList.add('active');
+          dropdown.classList.add('open');
+        }
+      });
+    });
+
+    // Dropdown Item Selection (event delegation)
+    document.addEventListener('click', function (e) {
+      var item = e.target.closest('.hero-video-wall__dropdown-item');
+      if (!item) return;
+
+      e.stopPropagation();
+      var wrapper = item.closest('.hero-video-wall__variant-box-wrapper');
+      var boxKey = wrapper.getAttribute('data-box');
+      var newValue = item.getAttribute('data-value');
+      var valueEl = wrapper.querySelector('.hero-video-wall__box-value');
+      var toggle = wrapper.querySelector('.js-variant-dropdown-toggle');
+      var dropdown = wrapper.querySelector('.hero-video-wall__dropdown');
+
+      // Update active state in dropdown
+      dropdown.querySelectorAll('.hero-video-wall__dropdown-item').forEach(function (i) {
+        i.classList.remove('active');
+      });
+      item.classList.add('active');
+
+      // Update displayed value
+      valueEl.textContent = newValue;
+
+      // Update selection state
+      selected[boxKey] = newValue;
+
+      // Close dropdown
+      if (toggle) toggle.classList.remove('active');
+      dropdown.classList.remove('open');
+
+      // Update hero with matching product
+      updateHero(boxKey);
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.hero-video-wall__variant-box-wrapper')) {
+        document.querySelectorAll('.js-variant-dropdown-toggle').forEach(function (t) {
+          t.classList.remove('active');
+          var d = t.closest('.hero-video-wall__variant-box-wrapper').querySelector('.hero-video-wall__dropdown');
+          if (d) d.classList.remove('open');
+        });
+      }
+    });
+
+    // Add to Cart button
+    var addToCartBtn = document.querySelector('.js-add-to-cart');
+    if (addToCartBtn) {
+      addToCartBtn.addEventListener('click', function () {
+        var variantId = this.getAttribute('data-variant-id');
+        if (!variantId) return;
+
+        var btn = this;
+        var originalText = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = 'Adding...';
+
+        fetch('/cart/add.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
+        })
+        .then(function (response) {
+          if (response.ok) {
+            btn.innerHTML = 'Added!';
+            // Update cart count and refresh mini-cart
+            fetch('/cart.js')
+              .then(function (r) { return r.json(); })
+              .then(function (cart) {
+                document.querySelectorAll('.header__cart-count').forEach(function (el) {
+                  el.textContent = cart.item_count;
+                });
+                // Refresh mini-cart HTML
+                return fetch(window.routes.cartUrl + '?section_id=mini-cart');
+              })
+              .then(function (r) { return r.text(); })
+              .then(function (html) {
+                var miniCart = document.getElementById('mini-cart');
+                if (miniCart) {
+                  var temp = document.createElement('div');
+                  temp.innerHTML = html;
+                  var newMiniCart = temp.querySelector('.mini-cart');
+                  if (newMiniCart) {
+                    miniCart.innerHTML = newMiniCart.innerHTML;
+                  }
+                }
+                // Dispatch product:added event to trigger the theme's mini-cart drawer
+                document.documentElement.dispatchEvent(new CustomEvent('product:added', {
+                  bubbles: true,
+                  detail: {
+                    quantity: 1
+                  }
+                }));
+              });
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
+          } else {
+            btn.innerHTML = 'Error';
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
+          }
+        })
+        .catch(function () {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        });
+      });
+    }
+
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Hero Video Wall",
+  "tag": "section",
+  "class": "hero-video-wall-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Video Settings"
+    },
+    {
+      "type": "url",
+      "id": "video_url",
+      "label": "Video URL (MP4)",
+      "info": "Enter a direct link to an MP4 video file"
+    },
+    {
+      "type": "video",
+      "id": "video_file",
+      "label": "Or Upload Video",
+      "info": "Upload a video from Shopify's file storage"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback Background Image",
+      "info": "Displayed if no video is provided"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 60,
+      "unit": "%",
+      "label": "Overlay Opacity"
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "text",
+      "id": "series_label",
+      "label": "Series Label",
+      "default": "PRO SPECTRUM SERIES"
+    },
+    {
+      "type": "text",
+      "id": "main_heading",
+      "label": "Main Heading",
+      "default": "COB LED Video Wall"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "The Pinnacle of Visual Excellence"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology."
+    },
+    {
+      "type": "header",
+      "content": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "shipping_text",
+      "label": "Shipping Info Text"
+    },
+    {
+      "type": "header",
+      "content": "Button 1"
+    },
+    {
+      "type": "text",
+      "id": "button_1_text",
+      "label": "Button 1 Text",
+      "default": "Order Now"
+    },
+    {
+      "type": "product",
+      "id": "button_1_product",
+      "label": "Select Product"
+    },
+    {
+      "type": "header",
+      "content": "Button 2"
+    },
+    {
+      "type": "text",
+      "id": "button_2_text",
+      "label": "Button 2 Text",
+      "default": "Book A Call"
+    },
+    {
+      "type": "url",
+      "id": "button_2_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Variant Selector"
+    },
+    {
+      "type": "text",
+      "id": "variant_label",
+      "label": "Variant Selector Label",
+      "default": "Select Your Ideal Video Wall"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Series Label"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Series Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Main Heading"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 32,
+      "max": 100,
+      "step": 2,
+      "default": 64,
+      "unit": "px",
+      "label": "Heading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "heading_font_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Subheading"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 16,
+      "max": 50,
+      "step": 2,
+      "default": 36,
+      "unit": "px",
+      "label": "Subheading Font Size"
+    },
+    {
+      "type": "select",
+      "id": "subheading_font_weight",
+      "label": "Subheading Font Weight",
+      "options": [
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "checkbox",
+      "id": "subheading_italic",
+      "label": "Subheading Italic",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography - Description"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Description Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Feature Boxes"
+    },
+    {
+      "type": "range",
+      "id": "feature_value_font_size",
+      "min": 20,
+      "max": 50,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Feature Value Font Size"
+    },
+    {
+      "type": "range",
+      "id": "feature_label_font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Feature Label Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Typography - Buttons"
+    },
+    {
+      "type": "range",
+      "id": "button_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 14,
+      "unit": "px",
+      "label": "Button Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "label_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Series Label Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "button_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Buttons Background Opacity"
+    },
+    {
+      "type": "range",
+      "id": "feature_box_bg_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40,
+      "unit": "%",
+      "label": "Feature Boxes Background Opacity"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background Color",
+      "default": "#2196F3"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button Hover Color",
+      "default": "#1976D2"
+    },
+    {
+      "type": "color",
+      "id": "series_label_color",
+      "label": "Series Label Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class",
+      "info": "Add custom class for additional styling"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_config",
+      "name": "Product Config",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "diagonal",
+          "label": "Diagonal Size",
+          "default": "163\""
+        },
+        {
+          "type": "text",
+          "id": "pixel_pitch",
+          "label": "Pixel Pitch",
+          "default": "0.9mm"
+        },
+        {
+          "type": "text",
+          "id": "total_pixels",
+          "label": "Total Pixels",
+          "default": "8.29M"
+        },
+        {
+          "type": "text",
+          "id": "aspect_ratio",
+          "label": "Aspect Ratio",
+          "default": "16:9"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Video Wall",
+      "blocks": [
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "163\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.29M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "163\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.67M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "163\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.99M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "180\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "8.06M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "180\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "4.54M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "180\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "2.90M",
+            "aspect_ratio": "21:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "190\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "11.29M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "190\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "6.35M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "190\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.06M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "217\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "14.75M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "217\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "8.20M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "217\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.31M",
+            "aspect_ratio": "16:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "227\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "12.44M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "227\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "7.00M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "227\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.48M",
+            "aspect_ratio": "24:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "294\"",
+            "pixel_pitch": "0.9mm",
+            "total_pixels": "16.59M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "294\"",
+            "pixel_pitch": "1.25mm",
+            "total_pixels": "9.33M",
+            "aspect_ratio": "32:9"
+          }
+        },
+        {
+          "type": "product_config",
+          "settings": {
+            "diagonal": "294\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "5.97M",
+            "aspect_ratio": "24:9"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #hero-video-wall-{{ section.id }} {
+    --hero-btn-bg: {{ section.settings.button_bg_color }};
+    --hero-btn-hover: {{ section.settings.button_hover_color }};
+    --hero-series-color: {{ section.settings.series_label_color }};
+    --hero-label-bg-opacity: {{ section.settings.label_bg_opacity | divided_by: 100.0 }};
+    --hero-feature-bg-opacity: {{ section.settings.feature_box_bg_opacity | divided_by: 100.0 }};
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__series-label {
+    color: var(--hero-series-color);
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn--primary {
+    background-color: var(--hero-btn-bg);
+  }
+
+  #hero-video-wall-{{ section.id }} .hero-video-wall__btn--primary:hover {
+    background-color: var(--hero-btn-hover);
+  }
+</style>

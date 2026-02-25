@@ -1,0 +1,819 @@
+{% if template.name == 'product' %}
+  {% if product.metafields.custom.section_custom_slider_pcr.value.first_slide_title.value == blank and product.metafields.custom.section_custom_slider_pcr.value.first_slide_description.value == blank %}
+    <style>
+      #shopify-section-{{ section.id }}, 
+      .custom-slider-pcr-mobile-{{ section.id }} {
+        display: none;
+      }
+    </style>
+  {% endif %}
+  {% endif %}
+
+{% style %}
+  #shopify-section-{{ section.id }} * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #shopify-section-{{ section.id }} .mobile_icons {
+    display:none;
+  }
+
+  #shopify-section-{{ section.id }} .mobile_version_icon_section {
+    display:none;
+  }
+
+  #shopify-section-{{ section.id }} .container-bg {
+    /* background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("bg.png"); */
+    background-size: cover;
+    background-position: center;
+    padding: 0 30px;
+    padding-top: 50px;
+    overflow: hidden;
+    /* height: 90vh; */
+    height: 600px;
+    /* filter: brightness(50%); */
+    width:{{ section.settings.wrapper-container-width }}%;
+  }
+
+  #shopify-section-{{ section.id }} .transform {
+    position: absolute;
+    transform: translateX(1000px);
+    /* display: none; */
+  }
+
+  #shopify-section-{{ section.id }} .remove-none {
+    transform: translateX(-1000px);
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .content-sl {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  }
+
+  #shopify-section-{{ section.id }} .text-content {
+    position: absolute;
+    width: 40%;
+    top: 45px;
+    left: 5%;
+    height: 100%;
+    color: white;
+  }
+
+  #shopify-section-{{ section.id }} .image img {
+    width: 400px;
+    transition: 0.6s ease;
+    position: absolute;
+    top: 80px;
+    right: 6%;
+  }
+
+  #shopify-section-{{ section.id }} .hide {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .text {
+    transition: 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .text.my-text-parent {
+    max-width:580px;
+  }
+
+  #shopify-section-{{ section.id }} .fadeout {
+    animation: fadeOut 3s;
+  }
+
+  @keyframes fadeOut {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  #shopify-section-{{ section.id }} .text .heading h2 {
+    font-size: 35px;
+  }
+
+  #shopify-section-{{ section.id }} .heading {
+    text-align: left;
+    width: max-content;
+  }
+
+  #shopify-section-{{ section.id }} .description {
+    text-align: left;
+    width: max-content;
+    max-width: 580px;
+  }
+
+  #shopify-section-{{ section.id }} .text .description p {
+    font-size: 20px;
+    line-height: 150%;
+    font-weight: lighter;
+    margin-top: 10px;
+    color: #989796;
+    font-weight: 500;
+  }
+
+  #shopify-section-{{ section.id }} .container-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("{{ section.settings.bg_img | img_url }}");
+  }
+
+  #shopify-section-{{ section.id }} .text .heading h2 {
+    color:white;
+    font-weight:bold;
+  }
+
+  #shopify-section-{{ section.id }} .container-bg-wrapper {
+    max-width:1200px;
+    max-width:100%;
+    margin:auto;
+    margin-top:150px;
+    margin-bottom:150px;
+  }
+
+  /**************** round buttons ******************/
+  #shopify-section-{{ section.id }} .icons-h {
+    display: flex;
+    max-width: 350px;
+    justify-content: space-between;
+  }
+
+  #shopify-section-{{ section.id }} .icon-h {
+    width: 70px;
+    height: 70px;
+    margin: 40px 0;
+    /* border-radius: 50%; */
+    /* border: 3px solid #989796; */
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    transition: 0.3s ease;
+    filter: invert(30%) sepia(3%) saturate(117%) hue-rotate(349deg)
+      brightness(88%) contrast(80%);
+    cursor: pointer;
+  }
+
+  #shopify-section-{{ section.id }} .icon-h img {
+    height: 70px;
+    width: 70px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  #shopify-section-{{ section.id }} .active {
+    filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
+      brightness(109%) contrast(100%);
+    /* border: 3px solid white; */
+  }
+
+  #shopify-section-{{ section.id }} .icon-h:hover {
+    filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
+      brightness(109%) contrast(100%);
+    /* border: 3px solid white; */
+  }
+
+  @media screen and (max-width: 1200px) {
+    #shopify-section-{{ section.id }} .image img {
+      right: 0%;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    #shopify-section-{{ section.id }} .text-content {
+      top: 50px;
+    }
+  }
+
+  @media screen and (max-width:980px){
+    #shopify-section-{{ section.id }} .image img{
+      width:350px;
+      top:140px;
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    #shopify-section-{{ section.id }} .text-content {
+      left: 2%;
+    }
+    #shopify-section-{{ section.id }} .image img {
+      top: 100px;
+      right: 0;
+      width:50%;
+    }
+  }
+
+  /* Restored commented-out code */
+  /* @media screen and (max-width: 800px) {
+    #shopify-section-{{ section.id }} .container-bg{
+      width:95%;
+      margin:auto;
+    }
+    #shopify-section-{{ section.id }} .icons-h {
+      width: 260px;
+    }
+    #shopify-section-{{ section.id }} .icon-h {
+      margin: 30px 0;
+    }
+    #shopify-section-{{ section.id }} .text .heading h2{
+      font-size:24px;
+    }
+    #shopify-section-{{ section.id }} .text .description p{
+      font-size:15px;
+    }
+    #shopify-section-{{ section.id }} .image img{
+      right:-15px;
+    }
+  } */
+
+  /* @media screen and (max-width: 750px) {
+    #shopify-section-{{ section.id }} .icon-h {
+      width: 50px;
+      height: 50px;
+    }
+    #shopify-section-{{ section.id }} .icons-h {
+      width: 100%;
+    }
+
+    #shopify-section-{{ section.id }} .icon-h img {
+      height: 25px;
+      width: 25px;
+    }
+  } */
+
+  /* @media screen and (max-width: 550px) {
+    #shopify-section-{{ section.id }} .container-bg {
+      height: 400px;
+    }
+    #shopify-section-{{ section.id }} .image img {
+      width: 100px;
+    }
+
+    #shopify-section-{{ section.id }} .icons-h {
+      width: 120%;
+    }
+
+    #shopify-section-{{ section.id }} .heading {
+      width: 120%;
+    }
+  } */
+
+  /* @media screen and (max-width: 520px) {
+    #shopify-section-{{ section.id }} .container-bg {
+      height: 100vh;
+    }
+    #shopify-section-{{ section.id }} .text-content {
+      left: 37%;
+      top: 280px;
+      transform: translate(-50%, -50%);
+    }
+    #shopify-section-{{ section.id }} .icons-h {
+      width: 150%;
+      margin: -30px 0;
+    }
+
+    #shopify-section-{{ section.id }} .image img {
+      width: 80px;
+      top: -10px;
+      right: 45%;
+    }
+    #shopify-section-{{ section.id }} .text .heading h2 {
+      font-size: 30px;
+    }
+    #shopify-section-{{ section.id }} .description p {
+      line-height: 1;
+    }
+  } */
+  /* End of restored commented-out code */
+
+  /* D4 is writing code for mobile at 375 */
+  @media screen and (max-width: 800px) {
+    #shopify-section-{{ section.id }} .desktop_icons {
+      display:none;
+    }
+    #shopify-section-{{ section.id }} .mobile_icons {
+      display:flex;
+      width: 47.63px;
+    }
+    #shopify-section-{{ section.id }} .desktop_version_icon_section {
+      display:none;
+    }
+
+    #shopify-section-{{ section.id }} .mobile_version_icon_section{
+      display: grid;
+      margin-top: 20px;
+      margin-bottom: 80px;
+      /* justify-content: center; */
+    }
+    #shopify-section-{{ section.id }} .container-bghh {
+      width: 100%;
+      height: 590px;
+      max-width: fit-content;
+      max-width: 100%;
+      background: #262729;
+      margin-left: 0px;
+      margin-right: 0px;
+
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url(https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Rectangle_2263.png?v=1695750176);
+      background-size: cover;
+      background-position: center;
+      /* padding: 0 30px;
+      padding-top: 50px;
+      overflow: hidden; */
+    }
+
+    #shopify-section-{{ section.id }} .text-contenthh {
+      padding: 30px 20px 30px 20px;
+    }
+
+    #shopify-section-{{ section.id }} .icons-hhh {
+      display:flex;
+      justify-content: center;
+      gap:25px;
+      margin-bottom: 10px;
+    }
+    #shopify-section-{{ section.id }} .icon-hhh {
+      transition: 0.3s ease;
+      opacity:0.5;
+      cursor: pointer;
+    }
+
+    #shopify-section-{{ section.id }} .icon-hhh:hover {
+      filter: invert(20%) sepia(23%) saturate(2%) hue-rotate(259deg)
+        brightness(109%) contrast(100%);
+    }
+
+    #shopify-section-{{ section.id }} .activehh {
+      transition: 0.3s ease;
+      opacity:1;
+    }
+
+    #shopify-section-{{ section.id }} .texthh {
+      transition: 0.3s ease;
+    }
+    #shopify-section-{{ section.id }} .sliding-texthh {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+    #shopify-section-{{ section.id }} .fadeouthh {
+      animation: fadeOut 3s;
+    }
+
+    @keyframes fadeOuthh {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+    #shopify-section-{{ section.id }} .headinghh{
+        margin-bottom: 10px;
+    }
+    #shopify-section-{{ section.id }} .headinghh h2{
+      font-family: 'Lato';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      color: #FFFFFF;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    #shopify-section-{{ section.id }} .descriptionhh p{
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 150%;
+      /* or 21px */
+      text-align: center;
+      color: #FFFFFF;
+      text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    #shopify-section-{{ section.id }} .imagehh {
+      display: flex;
+      justify-content: center;
+      position:relative;
+    }
+    #shopify-section-{{ section.id }} .imagehh img {
+      width:335px;
+      height: 300px;
+      height:auto;
+      position:absolute;
+      transition: 0.6s ease;
+    }
+    #shopify-section-{{ section.id }} .transformhh {
+      position: absolute;
+      transform: translateX(1000px);
+    }
+  }
+{% endstyle %}
+
+
+<div class="custom-slider-pcr-{{ section.id }} container-bg-wrapper desktop_version_icon_section">
+  <div class="container-bg">
+    <div class="content-sl">
+      <div class="text-content">
+        <div class="icons-h">
+          <div class="icon-h" onclick="changeSlide(0)">
+            {% if section.settings.slide1_icon != blank and section.settings.slide1_title != blank %}
+              <img src="{{ section.settings.slide1_icon | img_url }}" alt="{{ section.settings.slide1_title }}">
+            {% endif %}
+          </div>
+          <div class="icon-h" onclick="changeSlide(1)">
+            {% if section.settings.slide2_icon != blank and section.settings.slide2_title != blank %}
+              <img src="{{ section.settings.slide2_icon | img_url }}" alt="{{ section.settings.slide2_title }}">
+            {% endif %}
+          </div>
+          <div class="icon-h" onclick="changeSlide(2)">
+            {% if section.settings.slide3_icon != blank and section.settings.slide3_title != blank %}
+              <img src="{{ section.settings.slide3_icon | img_url }}" alt="{{ section.settings.slide3_title }}">
+            {% endif %}
+          </div>
+            <div class="icon-h" onclick="changeSlide(3)">
+            {% if section.settings.slide4_icon != blank and section.settings.slide4_title != blank %}
+              <img src="{{ section.settings.slide4_icon | img_url }}" alt="{{ section.settings.slide4_title }}">
+            {% endif %}
+          </div>
+        </div>
+        <div class="sliding-text">
+          <div class="text my-text-parent" style="position:inherit;">
+            <div class="heading">
+              <h2>{{ section.settings.slide1_title }}</h2>
+            </div>
+            <div class="description">
+              <p>
+                {{ section.settings.slide1_description }}
+              </p>
+            </div>
+          </div>
+          <div class="text my-text-parent" style="position:inherit;">
+            <div class="heading">
+              <h2>{{ section.settings.slide2_title }}</h2>
+            </div>
+            <div class="description">
+              <p>
+                {{ section.settings.slide2_description }}
+              </p>
+            </div>
+          </div>
+          <div class="text my-text-parent" style="position:inherit;">
+            <div class="heading">
+              <h2>{{ section.settings.slide3_title }}</h2>
+            </div>
+            <div class="description">
+              <p>
+                {{ section.settings.slide3_description }}
+              </p>
+            </div>
+          </div>
+
+          <div class="text my-text-parent" style="position:inherit;">
+            <div class="heading">
+              <h2>{{ section.settings.slide4_title }}</h2>
+            </div>
+            <div class="description">
+              <p>
+                {{ section.settings.slide4_description }}
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- main image -->
+      <div class="image">
+        {% if section.settings.slide1_image != blank %}
+          <img
+            src="{{  section.settings.slide1_image | img_url: "720x" }}"
+            alt="{{ section.settings.slide1_title }}"
+          >
+        {% else %}
+          <img
+            src="{{ "pcr-product-slide.png"|asset_url }}"
+            alt=""
+          >
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide2_image| img_url: "1400x" }}" alt="{{ section.settings.slide2_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide3_image | img_url: "1400x" }}" alt="{{ section.settings.slide3_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide4_image | img_url: "1400x" }}" alt="{{ section.settings.slide4_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="emptyspace"></div>
+</div>
+
+<!-- mobile version -->
+<div class="custom-slider-pcr-mobile-{{ section.id }} container-bg-wrapperhh mobile_version_icon_section">
+  <div class="container-bghh">
+    <div class="content-slhh">
+      <div class="text-contenthh">
+        <div class="icons-hhh">
+          <div class="icon-hhh" onclick="changeSlidehh(0)">
+            {% if section.settings.slide1_icon != blank and section.settings.slide1_title != blank %}
+              <img
+                class="desktop_icons"
+                src="{{ section.settings.slide1_icon | img_url }}"
+                alt="{{ section.settings.slide1_title }}"
+              >
+              <img
+                class="mobile_icons"
+                src="{{ section.settings.slide1_mobile | img_url }}"
+                alt="{{ section.settings.slide1_title }}"
+              >
+            {% endif %}
+          </div>
+          <div class="icon-hhh" onclick="changeSlidehh(1)">
+            {% if section.settings.slide2_icon != blank and section.settings.slide2_title != blank %}
+              <img
+                class="desktop_icons"
+                src="{{ section.settings.slide2_icon | img_url }}"
+                alt="{{ section.settings.slide2_title }}"
+              >
+              <img
+                class="mobile_icons"
+                src="{{ section.settings.slide2_mobile | img_url }}"
+                alt="{{ section.settings.slide2_title }}"
+              >
+            {% endif %}
+          </div>
+          <div class="icon-hhh" onclick="changeSlidehh(2)">
+            {% if section.settings.slide3_icon != blank and section.settings.slide3_title != blank %}
+              <img
+                class="desktop_icons"
+                src="{{ section.settings.slide3_icon | img_url }}"
+                alt="{{ section.settings.slide3_title }}"
+              >
+              <img
+                class="mobile_icons"
+                src="{{ section.settings.slide3_mobile | img_url }}"
+                alt="{{ section.settings.slide3_title }}"
+              >
+            {% endif %}
+          </div>
+
+          <div class="icon-hhh" onclick="changeSlidehh(3)">
+            {% if section.settings.slide4_icon != blank and section.settings.slide4_title != blank %}
+              <img
+                class="desktop_icons"
+                src="{{ section.settings.slide4_icon | img_url }}"
+                alt="{{ section.settings.slide4_title }}"
+              >
+              <img
+                class="mobile_icons"
+                src="{{ section.settings.slide4_mobile | img_url }}"
+                alt="{{ section.settings.slide4_title }}"
+              >
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="sliding-texthh">
+          <div class="texthh" style="position:inherit;">
+            <div class="headinghh">
+              <h2>{{ section.settings.slide1_title }}</h2>
+            </div>
+            <div class="descriptionhh">
+              <p>
+                {{ section.settings.slide1_description }}
+              </p>
+            </div>
+          </div>
+
+          <div class="texthh">
+            <div class="headinghh">
+              <h2>{{ section.settings.slide2_title }}</h2>
+            </div>
+            <div class="descriptionhh">
+              <p>
+                {{ section.settings.slide2_description }}
+              </p>
+            </div>
+          </div>
+
+          <div class="texthh">
+            <div class="headinghh">
+              <h2>{{ section.settings.slide3_title }}</h2>
+            </div>
+            <div class="descriptionhh">
+              <p>
+                {{ section.settings.slide3_description }}
+              </p>
+            </div>
+          </div>
+
+          <div class="texthh">
+            <div class="headinghh">
+              <h2>{{ section.settings.slide4_title }}</h2>
+            </div>
+            <div class="descriptionhh">
+              <p>
+                {{ section.settings.slide4_description }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- main image -->
+      <div class="imagehh">
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{  section.settings.slide1_image | img_url: "1400x" }}" alt="{{ section.settings.slide1_title }}">
+        {% else %}
+          <img
+            src="{{ "pcr-product-slide.png"|asset_url }}"
+            alt=""
+          >
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide2_image| img_url: "1400x" }}" alt="{{ section.settings.slide2_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide3_image | img_url: "1400x" }}" alt="{{ section.settings.slide3_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+
+        {% if section.settings.slide1_image != blank %}
+          <img src="{{ section.settings.slide4_image | img_url: "1400x" }}" alt="{{ section.settings.slide4_title }}">
+        {% else %}
+          <img src="{{ "pcr-product-slide.png"|asset_url }}" alt="">
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="emptyspace"></div>
+</div>
+
+<!-- mobile  version ended -->
+
+<script src="{{ 'custom-slider.js' | asset_url}}"></script>
+
+{% schema %}
+{
+  "name": "Custom Slider PCR",
+  "settings": [
+    {
+  "type": "checkbox",
+  "id": "emptySpace",
+  "label": "Add Empty Space",
+  "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "slide1_title",
+      "label": "Slide 1 Title"
+    },
+     {
+      "type":"range",
+      "id":"wrapper-container-width",
+      "min":70,
+      "max":100,
+      "step":1,
+      "label":"Container Width",
+      "default":100
+    },
+    {
+      "type": "image_picker",
+      "id": "slide1_image",
+      "label": "Slide 1 Image"
+    },
+    {
+      "type": "richtext",
+      "id": "slide1_description",
+      "label": "Slide 1 Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide1_icon",
+      "label": "Slide 1 Icon(SVG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide1_mobile",
+      "label": "Slide 1 Mobile Icon(SVG)"
+    },
+    {
+      "type": "text",
+      "id": "slide2_title",
+      "label": "Slide 2 Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide2_image",
+      "label": "Slide 2 Image"
+    },
+    {
+      "type": "richtext",
+      "id": "slide2_description",
+      "label": "Slide 2 Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide2_icon",
+      "label": "Slide 2 Icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide2_mobile",
+      "label": "Slide 2 Mobile Icon"
+    },
+    {
+      "type": "text",
+      "id": "slide3_title",
+      "label": "Slide 3 Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide3_image",
+      "label": "Slide 3 Image"
+    },
+    {
+      "type": "richtext",
+      "id": "slide3_description",
+      "label": "Slide 3 Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide3_icon",
+      "label": "Slide 3 Icon(SVG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide3_mobile",
+      "label": "Slide 3 Mobile Icon(SVG)"
+    },
+      {
+      "type": "text",
+      "id": "slide4_title",
+      "label": "Slide 4 Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide4_image",
+      "label": "Slide 4 Image"
+    },
+    {
+      "type": "richtext",
+      "id": "slide4_description",
+      "label": "Slide 4 Description"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide4_icon",
+      "label": "Slide 4 Icon(SVG)"
+    },
+    {
+      "type": "image_picker",
+      "id": "slide4_mobile",
+      "label": "Slide 4 Mobile Icon(SVG)"
+    }
+
+  ],
+  "presets":[
+    {
+      "name":"Custom Slider Pcr"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

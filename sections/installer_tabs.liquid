@@ -1,0 +1,661 @@
+<style>
+
+  @media screen and (min-width: 700px) {
+    .tab-content.current{
+          display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: center;
+    }
+  }
+  @media only screen and (max-width: 600px){
+    .tab-content .tab-content_item {
+        min-height: auto !important;
+        margin: 0 0% 7% 0;
+    }
+    #custom-select-wrapper{
+      padding: 30px 30px 5px 30px !important
+    }
+    .tab-content{
+      padding: 0 30px 45px 30px !important;
+    }
+  }
+  #section__{{ section.id }}{
+    background: #F9F9FA;
+  }
+  #section__{{ section.id }} .container{
+        padding: 30px var(--desktop-container-gutter) 0px 30px;
+  }
+
+input[type=checkbox], input[type=radio], label{
+  cursor: pointer;
+}
+#custom-select-wrapper{
+  display: flex;
+    justify-content: space-between;
+    padding: 30px 88px 5px 75px;
+}
+  #custom-select {
+    width: 300px;
+    /* overflow-y: auto; */
+    border: 1px solid #ccc;
+    position: absolute;
+    /* top: 30px; */
+    background: #FFFF;
+    left: 5.2%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+  #custom-select a{
+        padding: 0px 15px 15px 15px;
+        color: #4190D2;
+  }
+  .hidden {
+    display: none;
+  }
+  .option-item {
+    display: flex;
+        cursor: pointer;
+    align-items: center;
+    gap: 5px;
+  }
+  .option-item input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  #arrow-wrapper {
+  display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    vertical-align: middle;
+    display: inline-grid;
+}
+
+#arrow {
+  font-weight: bold;
+    font-size: 12px;
+}
+  #search-box{
+    width: 270px;
+    margin: 15px;
+    display: flex;
+    padding: 8px 12px;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 4px;
+    border: 1px solid var(--border-shadow-border-shadow, #AEB4B9);
+    background: var(--surface-default, #FFF);
+  }
+  #option-container, #option-container-canada{
+        padding: 15px 15px 15px 15px;
+    border-top: 1px solid #E1E3E5;
+  }
+  #show-all-provinces-canada,#show-all-states{
+    /* display: none; */
+    line-height: 15px;
+  }
+</style>
+
+<div id="section__{{ section.id }}" class="installer_tabs_wrapper section__{{ section.id }}">
+  <div class="container">
+    <ul class="tabs">
+      <li class="tab-link current" data-tab="tab-1">USA</li>
+      <li class="tab-link" data-tab="tab-2">Canada</li>
+    </ul>
+  </div>
+    
+    <div id="custom-select-wrapper">
+      <button id="dropdown-button">
+        Select State
+        <span id="arrow-wrapper">
+          <svg id="arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
+            <g id="Group 39758">
+              <circle id="Ellipse 119" cx="8" cy="8.5" r="8" fill="#636363"/>
+              <path id="Vector" d="M8 10.4993L5 7.49982L6.00047 6.5L8 8.49965L9.99953 6.5L11 7.49982L8 10.4993Z" fill="white"/>
+            </g>
+          </svg>
+        </span>
+      </button>
+      <div class="zones-counter">6 Zones</div>
+    </div>
+    <div id="custom-select" class="hidden">
+      <div class="search-input-main">
+        <input type="text" id="search-box" placeholder="Search states">
+      </div>
+      <ul id="option-container">
+      </ul>
+      <ul id="option-container-canada" style="display: none;">
+      </ul>
+      <a href="#" id="show-all-states"></a>
+      <a href="#" id="show-all-provinces-canada"></a>
+    </div>
+    <div id="tab-1" class="tab-content tab-content--usa current">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'usa' -%}
+            <div class="tab-content_item tab-content_item{{ forloop.index }} tab-content-{{ block.type }}">
+              <div class="tab_content_wrap">
+                {% if block.settings.logo != blank %}
+                  <div class="content_image">
+                    <img src="{{ block.settings.logo | img_url:"200x" }}" alt="">
+                  </div>
+                {% endif %}
+                {% if block.settings.type != blank %}
+                  <div class="content_type"><b>Type:-</b> {{ block.settings.type }}</div>
+                {% endif %}
+                {% if block.settings.address != blank %}
+                  <div class="content_address">
+                    {{ block.settings.address }}
+                  </div>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <div class="content_email"><b>Email:-</b> {{ block.settings.email }}</div>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <div class="content_phone"><b>Phone:-</b> {{ block.settings.phone }}</div>
+                {% endif %}
+                {% if block.settings.years_in_business != blank %}
+                  <div class="content_years_in_business">
+                    <b>Years in Business:-</b> {{ block.settings.years_in_business }}
+                  </div>
+                {% endif %}
+                {% if block.settings.hours != blank %}
+                  <div class="content_hours"><b>Hours:-</b> {{ block.settings.hours }}</div>
+                {% endif %}
+                {% if block.settings.website != blank %}
+                  <div class="content_website"><b>Website:-</b> {{ block.settings.website }}</div>
+                {% endif %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+    <div id="tab-2" class="tab-content tab-content--canada">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'canada' -%}
+            <div class="tab-content_item tab-content_item{{ forloop.index }} tab-content-{{ block.type }}">
+              <div class="tab_content_wrap">
+                {% if block.settings.logo != blank %}
+                  <div class="content_image">
+                    <img src="{{ block.settings.logo | img_url:"200x" }}" alt="">
+                  </div>
+                {% endif %}
+                {% if block.settings.type != blank %}
+                  <div class="content_type"><b>Type:-</b> {{ block.settings.type }}</div>
+                {% endif %}
+                {% if block.settings.address != blank %}
+                  <div class="content_address">
+                    {{ block.settings.address }}
+                  </div>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <div class="content_email"><b>Email:-</b> {{ block.settings.email }}</div>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <div class="content_phone"><b>Phone:-</b> {{ block.settings.phone }}</div>
+                {% endif %}
+                {% if block.settings.years_in_business != blank %}
+                  <div class="content_years_in_business">
+                    <b>Years in Business:-</b> {{ block.settings.years_in_business }}
+                  </div>
+                {% endif %}
+                {% if block.settings.hours != blank %}
+                  <div class="content_hours"><b>Hours:-</b> {{ block.settings.hours }}</div>
+                {% endif %}
+                {% if block.settings.website != blank %}
+                  <div class="content_website"><b>Website:-</b> {{ block.settings.website }}</div>
+                {% endif %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+  $(document).ready(function() {
+  // Show or hide dropdown
+  $("#dropdown-button").click(function(event) {
+    event.stopPropagation();
+    $("#custom-select").toggleClass("hidden");
+
+    // Update the arrow based on the dropdown's state
+    if ($("#custom-select").hasClass("hidden")) {
+      $("#arrow").removeClass("rotate");  // Reset rotation
+    } else {
+      $("#arrow").addClass("rotate");  // Rotate 180 degrees
+    }
+  });
+
+  // Search functionality
+  $("#search-box").on("keyup", function() {
+    const value = $(this).val().toLowerCase();
+    $("#option-container li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        showAllStates.style.display = 'none';
+    });
+  });
+
+  // Close dropdown when clicking outside of it
+  $(document).click(function() {
+    $("#custom-select").addClass("hidden");
+      $("#arrow").removeClass("rotate");  // Reset to down arrow
+  });
+
+  // Prevent propagation of click event when clicking inside the dropdown
+  $("#custom-select").click(function(event) {
+    event.stopPropagation();
+  });
+});
+
+</script>
+<script>
+  var states = ["Alaska", "Alabama", "Arkansas", "American Samoa", "Arizona", "California", "Colorado", "Connecticut", "District of Columbia", "Delaware", "Florida", "Georgia", "Guam", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Puerto Rico", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Virgin Islands", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"];
+  
+  var checked_states = [];
+  var contentAddresses = document.querySelectorAll('.tab_content_wrap .content_address');
+  
+  contentAddresses.forEach(function(contentAddress) {
+      states.forEach(function(state) {
+          if (contentAddress.innerHTML.includes(state) && !checked_states.includes(state)) {
+              checked_states.push(state);
+          }
+      });
+  });
+  
+  var optionContainer = document.getElementById('option-container');
+  var showAllStates = document.getElementById('show-all-states');
+  
+  checked_states.forEach(function(state, index) {
+      var li = document.createElement('li');
+      li.className = 'option-item';
+      
+      if(index >= 5) {
+        li.style.display = 'none'; // Hide states beyond the first five
+      }
+  
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.value = state;
+      input.id = 'checkbox-' + state.replace(/\s+/g, '-').toLowerCase();
+      
+      var label = document.createElement('label');
+      label.htmlFor = input.id;
+      label.appendChild(document.createTextNode(state));
+  
+      li.appendChild(input);
+      li.appendChild(label);
+      optionContainer.appendChild(li);
+  });
+
+  var is_usa_show_all = true;
+  showAllStates.addEventListener('click', function(event) {
+      event.preventDefault();
+      var allStates = optionContainer.querySelectorAll('.option-item');
+      allStates.forEach(function(state) {
+          if (state.style.display === 'none') {
+              state.style.display = 'flex';
+          }
+      });
+      showAllStates.style.display = 'none';
+      is_usa_show_all = false;
+  });
+  
+  showAllStates.textContent = "Show all " + checked_states.length + " states";
+  if(checked_states.length < 5){
+    showAllStates.style.display = 'none';
+  }
+  let checkboxes = document.querySelectorAll('[type="checkbox"]');
+  let cards = document.querySelectorAll('.tab-content-usa');
+  
+  checkboxes.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+          // When a checkbox is selected, deselect other checkboxes
+          checkboxes.forEach(function(innerCheckbox) {
+              if (innerCheckbox !== checkbox && innerCheckbox.checked) {
+                  innerCheckbox.checked = false;
+              }
+          });
+  
+          // Check if any checkbox is selected
+          let isAnyCheckboxSelected = Array.from(checkboxes).some(chk => chk.checked);
+  
+          cards.forEach(function(card) {
+              if (isAnyCheckboxSelected && card.querySelector('.content_address').textContent.includes(checkbox.value) && checkbox.checked) {
+                  card.style.display = 'flex';
+              } else if (!isAnyCheckboxSelected) {
+                  card.style.display = 'flex';  // If no checkbox is selected, show all cards
+              } else {
+                  card.style.display = 'none';
+              }
+          });
+      });
+  });
+
+  $("#search-box").on("keyup", function() {
+    const value = $(this).val().toLowerCase();
+    $("#option-container-canada li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      showAllProvinces.style.display = 'none';
+    });
+  });
+
+  // Close dropdown when clicking outside of it
+  $(document).click(function() {
+    $("#custom-select").addClass("hidden");
+      $("#arrow").removeClass("rotate");  // Reset to down arrow
+  });
+
+  // Prevent propagation of click event when clicking inside the dropdown
+  $("#custom-select").click(function(event) {
+    event.stopPropagation();
+  });
+  
+  var provinces = ['Alberta', 'British Columbia', 'Manitoba', 'New Brunswick', 'Newfoundland and Labrador', 'Northwest Territories', 'Nova Scotia', 'Nunavut', 'Ontario', 'Prince Edward Island', 'Quebec', 'Saskatchewan', 'Yukon Territory']
+
+  var checked_provinces = [];
+  var contentAddresses = document.querySelectorAll('.tab-content-canada .tab_content_wrap .content_address');
+  
+  contentAddresses.forEach(function(contentAddress) {
+      provinces.forEach(function(province) {
+          if (contentAddress.innerHTML.includes(province) && !checked_provinces.includes(province)) {
+              checked_provinces.push(province);
+          }
+      });
+  });
+  console.log("checked_provinces: ", checked_provinces);
+  var optionContainer_canada = document.getElementById('option-container-canada');
+  var showAllProvinces = document.getElementById('show-all-provinces-canada');
+  
+  checked_provinces.forEach(function(province, index) {
+      var li = document.createElement('li');
+      li.className = 'option-item';
+      
+      if(index >= 5) {
+        li.style.display = 'none'; // Hide states beyond the first five
+      }
+  
+      var input = document.createElement('input');
+      input.type = 'checkbox';
+      input.value = province;
+      input.id = 'checkbox-' + province.replace(/\s+/g, '-').toLowerCase();
+      
+      var label = document.createElement('label');
+      label.htmlFor = input.id;
+      label.appendChild(document.createTextNode(province));
+  
+      li.appendChild(input);
+      li.appendChild(label);
+      optionContainer_canada.appendChild(li);
+  });
+  var is_canada_show_all = true;
+  showAllProvinces.addEventListener('click', function(event) {
+      event.preventDefault();
+      var allProvinces = optionContainer_canada.querySelectorAll('.tab-content-canada .option-item');
+      allProvinces.forEach(function(province) {
+          if (province.style.display === 'none') {
+              province.style.display = 'flex';
+          }
+      });
+      showAllProvinces.style.display = 'none';
+      is_canada_show_all = false;
+  });
+  showAllProvinces.textContent = "Show all " + checked_provinces.length + " provinces";
+  console.log("checked_provinces: ", checked_provinces.length);
+  
+  
+  let checkboxes_canada = document.querySelectorAll('[type="checkbox"]');
+  let cards_canada = document.querySelectorAll('.tab-content-canada');
+  
+  checkboxes_canada.forEach(function(checkbox) {
+      checkbox.addEventListener('change', function() {
+          console.log("Canada changed");
+          // When a checkbox is selected, deselect other checkboxes
+          checkboxes_canada.forEach(function(innerCheckbox) {
+              if (innerCheckbox !== checkbox && innerCheckbox.checked) {
+                  innerCheckbox.checked = false;
+              }
+          });
+  
+          // Check if any checkbox is selected
+          let isAnyCheckboxSelected = Array.from(checkboxes_canada).some(chk => chk.checked);
+  
+          cards_canada.forEach(function(card) {
+              if (isAnyCheckboxSelected && card.querySelector('.content_address').textContent.includes(checkbox.value) && checkbox.checked) {
+                  card.style.display = 'flex';
+              } else if (!isAnyCheckboxSelected) {
+                  card.style.display = 'flex';  // If no checkbox is selected, show all cards
+              } else {
+                  card.style.display = 'none';
+              }
+          });
+      });
+  });
+  let showallcanada = document.getElementById('show-all-provinces-canada');
+  if(checked_states.length >= 5){
+    showAllStates.style.display = 'flex';
+  }
+  showallcanada.style.display = 'none';
+  document.querySelectorAll('.tab-link').forEach(function(tab) {
+    tab.addEventListener('click', function(e) {
+        checkboxes_canada.forEach(function(innerCheckbox) {
+            innerCheckbox.checked = false;
+        });
+        let checkboxes = document.querySelectorAll('[type="checkbox"]');
+        checkboxes.forEach(function(innerCheckbox) {
+            innerCheckbox.checked = false;
+        });
+        cards_canada.forEach(function(card) {
+            card.style.display = 'flex';
+        });
+        cards.forEach(function(card) {
+            card.style.display = 'flex';
+        });
+        // References to the containers
+        let usaContainer = document.getElementById('option-container');
+        let canadaContainer = document.getElementById('option-container-canada');
+      
+        let showallusa = document.getElementById('show-all-states');
+        
+
+        // If 'USA' tab is clicked, hide the USA container and show the Canada container
+        if (e.target.textContent === 'USA') {
+            console.log("USA");
+            usaContainer.style.display = 'block';
+            canadaContainer.style.display = 'none';
+            if(checked_states.length >= 5 && is_usa_show_all){
+              showAllStates.style.display = 'flex';
+            }
+            showallcanada.style.display = 'none';
+        } 
+        // If 'Canada' tab is clicked, show the USA container and hide the Canada container
+        else if (e.target.textContent === 'Canada') {
+            console.log("CANADA");
+            usaContainer.style.display = 'none';
+            canadaContainer.style.display = 'block';
+
+            showallusa.style.display = 'none';
+            if(checked_provinces.length >= 5 && is_canada_show_all){
+              showAllProvinces.style.display = 'flex';
+            }
+        }
+
+    });
+  });
+</script>
+<style>
+    /* .container .tab-content_item:nth-child(4n+1){
+      margin-left: 20px;
+    } */
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+    }
+    ul.tabs li {
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    ul.tabs li.current{
+      color: #fff;
+      border-radius: 40px;
+      padding: 16px 80px;
+      line-height: 15px;
+      background: #4190D2;
+    }
+
+    .tab-content {
+      display: none;
+      background: #F9F9FA;
+      padding: 0 32px 45px 48px;
+    }
+    .tab-content_item {
+      border: 2px solid;
+      padding: 45px 32px;
+      width: 22%;
+      display: block;
+      margin: 0 2% 2% 0;
+      float:left;
+      min-height:605px;
+    }
+    .tab-content.current{
+      display: block;
+      float:left;
+      width:100%;
+    }
+    .content_website {
+    font-size: 9px;
+  }
+   .content_email {
+    font-size: 9px;
+  }
+</style>
+{% schema %}
+{
+  "name": "Installer Tab",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "usa",
+      "name": "USA",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "type",
+            "label": "Type"
+          },
+          {
+            "type": "richtext",
+            "id": "address",
+            "label": "Address",
+            "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          },
+          {
+            "type": "text",
+            "id": "email",
+            "label": "Email"
+          },
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone"
+          },
+          {
+            "type": "text",
+            "id": "years_in_business",
+            "label": "Years in Business"
+          },
+          {
+            "type": "text",
+            "id": "hours",
+            "label": "Hours"
+          },
+          {
+            "type": "text",
+            "id": "website",
+            "label": "Website"
+          }
+        ]
+      },
+      {
+        "type": "canada",
+        "name": "Canada",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "type",
+            "label": "Type"
+          },
+          {
+            "type": "richtext",
+            "id": "address",
+            "label": "Address",
+            "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          },
+          {
+            "type": "text",
+            "id": "email",
+            "label": "Email"
+          },
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone"
+          },
+          {
+            "type": "text",
+            "id": "years_in_business",
+            "label": "Years in Business"
+          },
+          {
+            "type": "text",
+            "id": "hours",
+            "label": "Hours"
+          },
+          {
+            "type": "text",
+            "id": "website",
+            "label": "Website"
+          }
+        ]
+      }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Installer Tab",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

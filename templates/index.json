@@ -1,0 +1,1326 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_YLmRPr": {
+      "type": "hero-banner",
+      "settings": {
+        "background_type": "image",
+        "background_image": "shopify://shop_images/Rectangle_34624293_3ddc54ba-9bf0-4e92-83e8-0eb9b3cf2730.png",
+        "video_url": "",
+        "tagline": "built to perfection",
+        "subtext": "Brightlink Large Scale Video Walls",
+        "heading": "High‑Performance \nLED Video Walls",
+        "btn-txt": "Order Now",
+        "btn_arrow": "shopify://shop_images/Vector_4a5e5495-f37d-4828-ba29-fc194f06e2ff.svg",
+        "btn-url": "shopify://collections/all"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "product_card_xiXCrm": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_cdGJeB": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_wKAMBz": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_xEMGCE": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_3b86tR": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_xiXCrm",
+        "product_card_cdGJeB",
+        "product_card_wKAMBz",
+        "product_card_xEMGCE",
+        "product_card_3b86tR"
+      ],
+      "settings": {
+        "eyebrow": "Featured Products",
+        "title": "Featured Products",
+        "arrow_left": "shopify://shop_images/Frame_1_e1d25764-50bd-46a4-9185-c136c5c2f09e.svg",
+        "arrow_right": "shopify://shop_images/Frame_851cfce8-7adc-4555-be03-2681b511161c.svg"
+      }
+    },
+    "categories_4y3Xa9": {
+      "type": "categories",
+      "blocks": {
+        "category_jANNLD": {
+          "type": "category",
+          "settings": {
+            "position": "wide_bottom",
+            "title": "LED Video Walls",
+            "description": "Lorem ipsum dolor sit amet",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/709da93b58a882c4e95393e37603a5f05c57ab88.png",
+            "link": ""
+          }
+        },
+        "category_4x96ch": {
+          "type": "category",
+          "settings": {
+            "position": "small_right",
+            "title": "HDMI & HDBaseT",
+            "description": "Lorem ipsum dolor sit amet",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/f0c7ab204f2356a8edb426a1f6070a7b60f732dc.png",
+            "link": ""
+          }
+        },
+        "category_maYVt4": {
+          "type": "category",
+          "settings": {
+            "position": "small_left",
+            "title": "Matrix Switchers",
+            "description": "Lorem ipsum dolor sit amet",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/f46d68cb3c43bba113b1648129c593062ad2c2c5.png",
+            "link": ""
+          }
+        },
+        "category_BjUaH4": {
+          "type": "category",
+          "settings": {
+            "position": "large_left",
+            "title": "LCD Video Walls",
+            "description": "Lorem ipsum dolor sit amet",
+            "button_label": "Shop Now",
+            "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_jANNLD",
+        "category_4x96ch",
+        "category_maYVt4",
+        "category_BjUaH4"
+      ],
+      "name": "Categories",
+      "settings": {
+        "eyebrow": "Categories",
+        "title": "Shop Across Categories"
+      }
+    },
+    "1649252187120e07e2": {
+      "type": "offers",
+      "blocks": {
+        "164925218767066472-0": {
+          "type": "offer",
+          "settings": {
+            "title": "HDMI",
+            "content": "<p><a href=\"/collections/hdmi\" title=\"HDMI\">Shop all</a></p>"
+          }
+        },
+        "164925218767066472-1": {
+          "type": "offer",
+          "settings": {
+            "title": "Matrix Switchers",
+            "content": "<p><a href=\"/collections/matrix-switchers\" title=\"MATRIX SWITCHERS\">Shop all</a></p>"
+          }
+        },
+        "21f5444a-a378-4ee5-ba6d-d63a96970846": {
+          "type": "offer",
+          "settings": {
+            "title": "Video Walls",
+            "content": "<p><a href=\"/collections/video-walls\" title=\"VIDEO WALLS\">Shop all</a></p>"
+          }
+        },
+        "70163970-30c5-45bc-8a22-ea2dcc014c32": {
+          "type": "offer",
+          "settings": {
+            "title": "Control App",
+            "content": "<p><a href=\"https://brightlink-av.myshopify.com/pages/control-app\" title=\"https://brightlink-av.myshopify.com/pages/control-app\">Shop all</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "164925218767066472-0",
+        "164925218767066472-1",
+        "21f5444a-a378-4ee5-ba6d-d63a96970846",
+        "70163970-30c5-45bc-8a22-ea2dcc014c32"
+      ],
+      "disabled": true,
+      "settings": {
+        "items_per_row": 4,
+        "stack_mobile": false
+      }
+    },
+    "16492530616aecbde7": {
+      "type": "promotion-list",
+      "blocks": {
+        "16492530611fd2b9d9-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BL-EXT-IP-4KVW-TX-Back-angle_7.png",
+            "show_overlay": false,
+            "overlay_opacity": 35,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "NEW IN",
+            "content": "Brighthlink HDMI Over\nIP Extenders with Video\nWall",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#6f42ef",
+            "button_text": "",
+            "button_link": "shopify://products/brightlink-4k-hdmi-over-ip-receiver-poe-for-source-input-device-part-of-brightlink-s-any-size-hdmi-over-ip-matrix-system-with-app-control-video-walls-up-to-8x16-displays-h-264-up-to-400ft-120m-over-cat6-and-usb-kvm-extension-receiver-only"
+          }
+        },
+        "16492530611fd2b9d9-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/32X32-FRONT-ANGLE_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "SALE",
+            "content": "Brightlink 18x18, 32x32,\n72x72 Professional\nModular Matrix",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#fc2a68",
+            "button_text": "",
+            "button_link": "shopify://collections/32-hdmi-in-32-hdbaset-out-1"
+          }
+        },
+        "16492530611fd2b9d9-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/49-img_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "MUST HAVE",
+            "content": "Brightlink Video Wall\nDisplays and A/V\nDistribution Systems",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#26c1ce",
+            "button_text": "",
+            "button_link": "shopify://collections/featured-collection"
+          }
+        }
+      },
+      "block_order": [
+        "16492530611fd2b9d9-0",
+        "16492530611fd2b9d9-1",
+        "16492530611fd2b9d9-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "expand_items": false,
+        "section_size": "medium",
+        "stack_mobile": false
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "disabled": true,
+      "settings": {
+        "collection": "featured-collection",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "1649253065b5c37fdc": {
+      "type": "image-with-text-overlay",
+      "disabled": true,
+      "settings": {
+        "image": "shopify://shop_images/1100-750.jpg",
+        "title": "With Brightlink you buy quality",
+        "content": "<p>Best quality, best price and best support</p>",
+        "content_position": "left",
+        "container_width": "container--extra-narrow",
+        "button_background": "#4190d2",
+        "button_text_color": "#ffffff",
+        "button_text": "Learn More about Us",
+        "link": "shopify://pages/about-us",
+        "show_image_overlay": true,
+        "color": "#4190d2"
+      }
+    },
+    "1649255295fc71f591": {
+      "type": "collection-with-image",
+      "disabled": true,
+      "settings": {
+        "collection": "interactive-flat-panel",
+        "products_count": 12,
+        "show_quick_buy": false,
+        "background": "#ececec",
+        "text_color": "#000000",
+        "title": "interactive flat Panel",
+        "content": "Brightlink's Interactive panel uses the newest technologies",
+        "button_background": "#4190d2",
+        "button_text_color": "#ffffff",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/interactive-flat-panel"
+      }
+    },
+    "16494220438a45d148": {
+      "type": "custom_text-with-icons",
+      "blocks": {
+        "1649422043660c14e9-0": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "custom_icon": "shopify://shop_images/Shipping.png",
+            "title": "Fast free shipping*",
+            "content": "<p>*On most in stock items for USA orders.</p>"
+          }
+        },
+        "1649422043660c14e9-1": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "bi-returns",
+            "custom_icon": "shopify://shop_images/Returns.png",
+            "title": "30 Days Returns*",
+            "content": "<p>*On most in stock items </p>"
+          }
+        },
+        "1649422043660c14e9-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "custom_icon": "shopify://shop_images/Secure_Payments.png",
+            "title": "Secure Payment*",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "1649422043660c14e9-0",
+        "1649422043660c14e9-1",
+        "1649422043660c14e9-2"
+      ],
+      "disabled": true,
+      "settings": {
+        "stack_mobile": false,
+        "title": "Why choose us"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "disabled": true,
+      "settings": {
+        "blog": "news",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    },
+    "1649256439108e0b94": {
+      "type": "judgeme_carousel_section",
+      "settings": {
+        "maxwidth": 1440
+      }
+    },
+    "1649247497e551faac": {
+      "type": "logo-list",
+      "blocks": {
+        "16492474970ee22a66-0": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Mobile_Alabama.png",
+            "link": "https://www.cityofmobile.org/",
+            "text": "<p>City of Mobile Alabama</p>"
+          }
+        },
+        "16492474970ee22a66-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/New_Tech_Solutions.png",
+            "link": "http://www.newtechsolutions.com/",
+            "text": "<p>For more than 15 years NTS has been providing IT products, Service and infrastructure management to federal customers worldwide. We have proudly served hundreds of agencies and sub agencies with large procurements and complex solutions.</p>"
+          }
+        },
+        "16492474970ee22a66-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Clippard_4C_Logo.png",
+            "link": "https://clippard.com/",
+            "text": ""
+          }
+        },
+        "16492474970ee22a66-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Moxies.png",
+            "link": "https://us.moxies.com/",
+            "text": "<p>At Moxie's we focus on quality food made with fresh ingredients. Our restaurants and menus are inspired by the communities we are part of, from the team we hire to the food we make, it’s an expression of the neighborhoods we inhabit.</p>"
+          }
+        },
+        "16492474970ee22a66-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/The_Reynolds_Company.png",
+            "link": "https://www.reynoldsonline.com/",
+            "text": "<p>The Reynolds Company is proud of our team and processes in our goal to become the premier Industrial and Commercial electrical supplier throughout Texas and Louisiana</p>"
+          }
+        },
+        "16492474970ee22a66-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sea_Corp.png",
+            "link": "https://www.seacorp.com/",
+            "text": "<p>Systems Engineering Associates Corporation (SEA CORP) is a veteran-owned business based in Middletown, RI. Founded in 1981, we have been providing services to the Navy for over 35 years.</p>"
+          }
+        },
+        "7ac38e85-ad00-4610-9ea6-f36084351269": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/NASA.png",
+            "link": "https://www.nasa.gov/about/index.html",
+            "text": "<p>The National Aeronautics and Space Administration</p>"
+          }
+        },
+        "abaa9730-b831-4c28-bbd3-8f18cb970338": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/MicroAge.png",
+            "link": "https://microage.com/",
+            "text": "<p>At MicroAge, our experts partner with you to prepare for whatever comes next. That partnership starts with more than four decades of industry experience and deep knowledge and certifications across technologies and verticals to discover new approaches, lasting results, and relationships built on trust.</p>"
+          }
+        },
+        "12fbee50-d9d4-423e-9a10-08a1b8b49d11": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Peppermill.png",
+            "link": "https://www.peppermillreno.com/",
+            "text": "<p>Peppermill Reno Resort<br/>Experience the eco-conscious Peppermill Resort Spa Casino, Reno’s Premier AAA Four Diamond resort</p>"
+          }
+        },
+        "e0b0682b-c1ac-4079-84cf-ec5b16947d57": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Exelon.png",
+            "link": "https://www.exeloncorp.com/locations/power-plants/dresden-generating-station",
+            "text": "<p>Dresden Generating Station’s two nuclear reactors generate more than 1,800 megawatts of zero-emissions energy</p>"
+          }
+        },
+        "8cce11a3-80cf-4899-9532-779144e2f1fd": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Pafe_Pictures.png",
+            "link": "https://www.pacepictures.com/",
+            "text": "<p>Pace Pictures is a full-service sound and picture finishing facility. It offers a range of post services including color grading, editorial finishing, visual effects, titling, sound design, sound mixing, media management and related services, available individually, or as turnkey solutions.</p>"
+          }
+        },
+        "e1e66e26-2659-472a-bb02-d4f76661c1ae": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/L3HARRIS.png",
+            "link": "https://www.l3t.com/mapps/en/index.html",
+            "text": "<p>L3 MAPPS is a leading global supplier of control and simulation solutions for the marine, power generation and space sectors.</p>"
+          }
+        },
+        "444ec77b-f5c5-4a90-a292-ec98d16e4b67": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Costco.png",
+            "link": "https://www.costco.com/",
+            "text": "<p>Costco Wholesale Electronics / TV department</p>"
+          }
+        },
+        "e2641973-5c47-473e-8d58-87002cd1355a": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Graybar.png",
+            "link": "https://www.graybar.com/",
+            "text": "<p>Graybar, a Fortune 500 company, specializes in supply chain management services, and is a leading North American distributor of high quality components, equipment, and materials. We  serve the construction market, the commercial, institutional, and government (CIG) market, and the industrial and utility markets.</p>"
+          }
+        },
+        "7502846a-bd08-4066-a3c3-3b193ad4e386": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Port_Canaveral.png",
+            "link": "https://www.portcanaveral.com/",
+            "text": "<p>As the gateway to Central Florida, Port Canaveral provides facilities for shippers who seek to save time and money as benefits of its proximity to major markets and efficient transportation links. </p>"
+          }
+        },
+        "9da20214-962e-4755-855e-34e347c71639": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Knite.png",
+            "link": "https://knitec.com/",
+            "text": "<p>KNITEC, INC. IS THE LARGEST AND MOST RESPONSIVE TURN-KEY COMMERCIAL / HOSPITALITY / PROFESSIONAL TELEVISION DEALER IN THE COUNTRY</p>"
+          }
+        },
+        "6485b93d-0bbf-41fc-9df8-982a9b4276f1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Bostons_Pizza.png",
+            "link": "",
+            "text": "<p> If you’re looking for a reason not to cook, need a place to watch the game with friends, or you’re spending time with family, we’ve made sure there’s something for everybody.</p>"
+          }
+        },
+        "24bca2fc-3d4b-45b1-8a25-1719d510c5d3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Federal_Aviation_Administration.png",
+            "link": "https://www.faa.gov/",
+            "text": "<p>FEDERAL AVIATION ADMINISTRATION</p>"
+          }
+        },
+        "7a36ed71-7534-4321-9e06-fb175c5bba85": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ITEC.png",
+            "link": "https://www.itec.com/",
+            "text": "<p>Since 1985, and with the help of our clients, ITEC Entertainment has grown to become a global industry leader of worldwide entertainment solutions. Founded in the theme park capital of the world, we established our roots by providing innovative entertainment design and production solutions that ignite the dreams of hundreds of millions of people all over the world.</p>"
+          }
+        },
+        "32f10c39-d91d-4799-bf54-e0f996e9b120": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Princess_Cruises.png",
+            "link": "https://www.princess.com/",
+            "text": "<p>Choosing a cruise line that allows you to experience the most at every stop along the way is priority one. Discover what makes each port unique through the insights of local experts and crew members who sail with us to over 380 destinations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16492474970ee22a66-0",
+        "16492474970ee22a66-1",
+        "16492474970ee22a66-2",
+        "16492474970ee22a66-3",
+        "16492474970ee22a66-4",
+        "16492474970ee22a66-5",
+        "7ac38e85-ad00-4610-9ea6-f36084351269",
+        "abaa9730-b831-4c28-bbd3-8f18cb970338",
+        "12fbee50-d9d4-423e-9a10-08a1b8b49d11",
+        "e0b0682b-c1ac-4079-84cf-ec5b16947d57",
+        "8cce11a3-80cf-4899-9532-779144e2f1fd",
+        "e1e66e26-2659-472a-bb02-d4f76661c1ae",
+        "444ec77b-f5c5-4a90-a292-ec98d16e4b67",
+        "e2641973-5c47-473e-8d58-87002cd1355a",
+        "7502846a-bd08-4066-a3c3-3b193ad4e386",
+        "9da20214-962e-4755-855e-34e347c71639",
+        "6485b93d-0bbf-41fc-9df8-982a9b4276f1",
+        "24bca2fc-3d4b-45b1-8a25-1719d510c5d3",
+        "7a36ed71-7534-4321-9e06-fb175c5bba85",
+        "32f10c39-d91d-4799-bf54-e0f996e9b120"
+      ],
+      "disabled": true,
+      "settings": {
+        "title": "Our Trusted Clients",
+        "link_title": "View All",
+        "link": "shopify://pages/ourcustomers"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "title": "Newsletter",
+        "content": "<p>A short sentence describing what someone will receive by subscribing</p>",
+        "show_text_bg": false,
+        "background": "#1e2d7d",
+        "text": "#ffffff"
+      }
+    },
+    "environment_showcase_abWkD6": {
+      "type": "environment-showcase",
+      "blocks": {
+        "tab_slide_DNNLAq": {
+          "type": "tab_slide",
+          "settings": {
+            "tab_label": "Digital Signage",
+            "image": "shopify://shop_images/65f8b514a965824b2c6dddf7f113777fca14f0cb.png"
+          }
+        },
+        "tab_slide_HGbtLT": {
+          "type": "tab_slide",
+          "settings": {
+            "tab_label": "Executive Boardrooms",
+            "image": "shopify://shop_images/f4ee37e9e49cadcc004d95a5cd3028418867455a.png"
+          }
+        },
+        "tab_slide_qDBn3r": {
+          "type": "tab_slide",
+          "settings": {
+            "tab_label": "Broadcast Studios",
+            "image": "shopify://shop_images/34cd5d753aa1ae65ca38f80a8c964d12c297ff3d.png"
+          }
+        },
+        "tab_slide_jTYTKQ": {
+          "type": "tab_slide",
+          "settings": {
+            "tab_label": "Control Centers",
+            "image": "shopify://shop_images/987c09ef75a14214b55e88058512f3bda418f600.jpg"
+          }
+        },
+        "tab_slide_XiHYBt": {
+          "type": "tab_slide",
+          "settings": {
+            "tab_label": "Retail & Hospitality",
+            "image": "shopify://shop_images/Large-Scale-LED-Video-Wall-5_c84639bd-2033-4f4f-a8a1-c31f20c82694.png"
+          }
+        }
+      },
+      "block_order": [
+        "tab_slide_DNNLAq",
+        "tab_slide_HGbtLT",
+        "tab_slide_qDBn3r",
+        "tab_slide_jTYTKQ",
+        "tab_slide_XiHYBt"
+      ],
+      "name": "Environment Showcase",
+      "settings": {
+        "eyebrow": "Where Performance Meets Purpose",
+        "title": "Built for Every Environment"
+      }
+    },
+    "why_brightlink_blogs_A4CmCU": {
+      "type": "why-brightlink-blogs",
+      "blocks": {
+        "feature_card_6WVjKP": {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        "feature_card_pt6QTh": {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        "feature_card_iiDLcq": {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        "feature_card_LrEnPc": {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_6WVjKP",
+        "feature_card_pt6QTh",
+        "feature_card_iiDLcq",
+        "feature_card_LrEnPc"
+      ],
+      "name": "Why Brightlink",
+      "settings": {
+        "eyebrow": "Blogs",
+        "title": "Why Brightlink"
+      }
+    },
+    "controller_tabs_iVMpAc": {
+      "type": "controller-tabs",
+      "blocks": {
+        "tab_mRDmqy": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Overview",
+            "icon": "overview",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "image": "shopify://shop_images/9c60d0523fa3bf389b0fb337ddd1ae621ba4a66a_c467b31d-15c5-4a24-ad89-9cf35937a782.png",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "10-bit color processing",
+            "feature5": "Web-based control interface",
+            "feature6": "Real-time monitoring and diagnostics",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD 1080p input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_cWNUak": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Complex Integration",
+            "icon": "integration",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The H Series integrates splice processing and display control through module mainframe connectivity, offering a simplified All-in-One structure. This reduces equipment failure rates and improves operation and maintenance.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_Bbrdmz": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "True 4k",
+            "icon": "4k",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The H Series provides true 4K (4K x 2K @ 60Hz, RGB 4:4:4, 10bit) signal collection, processing, and output, ensuring ultra-high resolution displays for professional-grade environments.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_zK9tkf": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "60fps Processing",
+            "icon": "processing",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The system supports input and output signal processing at full 60FPS, ensuring smooth visuals with no lag or frame loss. This delivers a flawless display experience.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_JUDYpb": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Image Quality",
+            "icon": "quality",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "tab_KWe4Ga": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Flexibility",
+            "icon": "flexible",
+            "layout_type": "detailed",
+            "simple_title": "",
+            "certified_badge": "CERTIFIED DISTRIBUTOR",
+            "description": "The H Series supports numerous layers with an unrestricted arrangement. Each output display/board provides 16 layers (up to 18 layers maximum per port). The layers can freely cross different output loading areas while keeping layer size the same. Layers can be in any position, overlapped, or unlimited scaled. It supports functions such as image capture, layer configuration, layer flip, and more. This all helps you realize your creativity and create a captivating visual effect.",
+            "read_more_link": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
+            "feature7": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
+            "config5": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_link": "",
+            "price_text": "$10,250.00 (30% DEPOSIT)",
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "tab_mRDmqy",
+        "tab_cWNUak",
+        "tab_Bbrdmz",
+        "tab_zK9tkf",
+        "tab_JUDYpb",
+        "tab_KWe4Ga"
+      ],
+      "name": "Controller Tabs",
+      "settings": {
+        "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
+        "title": "NovaStar H2 Controller",
+        "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
+        "badge_text": "Authorized NovaStar Partner"
+      }
+    },
+    "compare_before_after_TYKzmC": {
+      "type": "compare-before-after",
+      "blocks": {
+        "product_card_YgFdP4": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_RMeH3D": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_QKz3nT": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_YgFdP4",
+        "product_card_RMeH3D",
+        "product_card_QKz3nT"
+      ],
+      "name": "Before & After",
+      "settings": {
+        "eyebrow": "Before & After",
+        "title": "Enjoy Stunning Visuals with Our New HDR Video Walls",
+        "background_image": "shopify://shop_images/44ba0439de31f35d8b9363bfc148a766cdf17289.png",
+        "image_before": "shopify://shop_images/34cd5d753aa1ae65ca38f80a8c964d12c297ff3d.png",
+        "image_after": "shopify://shop_images/Rectangle_34624318.png",
+        "before_label_text": "New Version:",
+        "before_badge": "HDR",
+        "after_label_text": "Previous Version:",
+        "after_badge": "SDR"
+      }
+    },
+    "blog_post_9GqNfr": {
+      "type": "blog-post",
+      "blocks": {
+        "blog_card_n3Keqf": {
+          "type": "blog_card",
+          "settings": {
+            "image": "shopify://shop_images/987c09ef75a14214b55e88058512f3bda418f600.jpg",
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025",
+            "link": ""
+          }
+        },
+        "blog_card_yJmJFp": {
+          "type": "blog_card",
+          "settings": {
+            "image": "shopify://shop_images/987c09ef75a14214b55e88058512f3bda418f600.jpg",
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025",
+            "link": ""
+          }
+        },
+        "blog_card_gPtdz6": {
+          "type": "blog_card",
+          "settings": {
+            "image": "shopify://shop_images/987c09ef75a14214b55e88058512f3bda418f600.jpg",
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025",
+            "link": ""
+          }
+        },
+        "blog_card_nx9T9x": {
+          "type": "blog_card",
+          "settings": {
+            "image": "shopify://shop_images/987c09ef75a14214b55e88058512f3bda418f600.jpg",
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "blog_card_n3Keqf",
+        "blog_card_yJmJFp",
+        "blog_card_gPtdz6",
+        "blog_card_nx9T9x"
+      ],
+      "name": "Featured Blogs",
+      "settings": {
+        "eyebrow": "Blogs",
+        "title": "Featured Blogs"
+      }
+    },
+    "our_trusted_partners_PpkmtE": {
+      "type": "our-trusted-partners",
+      "blocks": {
+        "logo_TkpTYd": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Vector_1_c5130f6a-3f28-4538-8c74-e0d1573b475e.svg"
+          }
+        },
+        "logo_mV3aPy": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo.svg"
+          }
+        },
+        "logo_fVdccz": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Vector_2.svg"
+          }
+        },
+        "logo_jMrfrn": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Company_logo.svg"
+          }
+        },
+        "logo_BMfJ6x": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Vector_2.svg"
+          }
+        },
+        "logo_JHPxE8": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group.svg"
+          }
+        },
+        "logo_KTVDHk": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Layer_1_1.svg"
+          }
+        },
+        "logo_nNUkzN": {
+          "type": "logo",
+          "settings": {
+            "logo": "shopify://shop_images/Group_48097195.svg"
+          }
+        }
+      },
+      "block_order": [
+        "logo_TkpTYd",
+        "logo_mV3aPy",
+        "logo_fVdccz",
+        "logo_jMrfrn",
+        "logo_BMfJ6x",
+        "logo_JHPxE8",
+        "logo_KTVDHk",
+        "logo_nNUkzN"
+      ],
+      "name": "Trusted Partners",
+      "settings": {
+        "eyebrow": "Our Valued Partners",
+        "title": "Our Trusted Clients"
+      }
+    },
+    "best_seller_K7yGCM": {
+      "type": "best-seller",
+      "blocks": {
+        "product_card_xyGTzd": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS -Windows 11 OPS Included- Wireless Screen Mirroring Built-in 48M professional camera -8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_YTJrWi": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS -Windows 11 OPS Included- Wireless Screen Mirroring Built-in 48M professional camera -8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_ETMtFn": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS -Windows 11 OPS Included- Wireless Screen Mirroring Built-in 48M professional camera -8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_Ldbz6F": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS -Windows 11 OPS Included- Wireless Screen Mirroring Built-in 48M professional camera -8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        },
+        "product_card_LWqUgC": {
+          "type": "product_card",
+          "settings": {
+            "image": "shopify://shop_images/636b63b2d73df90dd945681cc521cd91744e4686.png",
+            "title": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS -Windows 11 OPS Included- Wireless Screen Mirroring Built-in 48M professional camera -8-array microphones",
+            "price": "$7,997.00",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_xyGTzd",
+        "product_card_YTJrWi",
+        "product_card_ETMtFn",
+        "product_card_Ldbz6F",
+        "product_card_LWqUgC"
+      ],
+      "name": "Bestseller of the Week",
+      "settings": {
+        "eyebrow": "Featured Products",
+        "title": "Bestseller of the Week"
+      }
+    },
+    "knowledge_center_fAADX7": {
+      "type": "knowledge-center",
+      "blocks": {
+        "faq_category_UafpHU": {
+          "type": "faq_category",
+          "settings": {
+            "title": "About Brightlink",
+            "category": "all",
+            "icon": "info",
+            "question_1": "How long has Brightlink been in business?",
+            "answer_1": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions to customers worldwide.",
+            "question_2": "What makes Brightlink different from competitors?",
+            "answer_2": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support.",
+            "question_3": "Where is Brightlink located and operated?",
+            "answer_3": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better.",
+            "question_4": "Does Brightlink have a physical showroom?",
+            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action and speak with our experts.",
+            "question_5": "Who are Brightlink's typical customers?",
+            "answer_5": "Our customers range from small businesses to large corporations, including retail stores, event venues, churches, and entertainment facilities.",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_GzagUX": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Product & Technical",
+            "category": "product",
+            "icon": "monitor",
+            "question_1": "What types of LED displays does Brightlink offer?",
+            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions for various applications.",
+            "question_2": "What is the pixel pitch and why does it matter?",
+            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality for closer viewing distances.",
+            "question_3": "How long do Brightlink LED displays last?",
+            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance and care.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_EUFnrX": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Installation & Setup",
+            "category": "support",
+            "icon": "tool",
+            "question_1": "Do you provide installation services?",
+            "answer_1": "Yes, we offer professional installation services to ensure your LED display is set up correctly and optimally.",
+            "question_2": "What are the power requirements?",
+            "answer_2": "Power requirements vary by display size and model. Our team will provide specific requirements during the consultation process.",
+            "question_3": "How long does installation take?",
+            "answer_3": "Installation time depends on the project scope, but most standard installations can be completed within 1-3 days.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_9gtLrJ": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Support & Warranty",
+            "category": "support",
+            "icon": "headphones",
+            "question_1": "What warranty do you offer?",
+            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years depending on the product line.",
+            "question_2": "How do I get technical support?",
+            "answer_2": "Our technical support team is available via phone, email, and live chat to assist with any issues or questions.",
+            "question_3": "Do you offer on-site support?",
+            "answer_3": "Yes, we provide on-site support services for complex issues that cannot be resolved remotely.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_XJEbfQ": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Shipping & Delivery",
+            "category": "shipping",
+            "icon": "truck",
+            "question_1": "How long does shipping take?",
+            "answer_1": "Shipping times vary based on location and product availability. Standard delivery is typically 2-4 weeks for custom orders.",
+            "question_2": "Do you ship internationally?",
+            "answer_2": "Yes, we ship to most countries worldwide. International shipping times and costs vary by destination.",
+            "question_3": "How is the product packaged for shipping?",
+            "answer_3": "All products are carefully packaged in protective materials and custom crating to ensure safe delivery.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_46cQcR": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Payment & Financing",
+            "category": "payment",
+            "icon": "credit-card",
+            "question_1": "What payment methods do you accept?",
+            "answer_1": "We accept major credit cards, bank transfers, and various financing options for qualified customers.",
+            "question_2": "Do you offer financing options?",
+            "answer_2": "Yes, we offer flexible financing plans to help make your LED display investment more manageable.",
+            "question_3": "Is a deposit required?",
+            "answer_3": "A deposit is typically required for custom orders. The amount varies based on the project scope.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_z8FbxA": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Business & Partnerships",
+            "category": "partnerships",
+            "icon": "handshake",
+            "question_1": "Do you offer reseller programs?",
+            "answer_1": "Yes, we have partnership programs for resellers and integrators. Contact us for more information.",
+            "question_2": "Can I become a Brightlink dealer?",
+            "answer_2": "We welcome qualified dealers to join our network. Please reach out to our partnership team for requirements.",
+            "question_3": "Do you offer bulk discounts?",
+            "answer_3": "Yes, we offer competitive pricing for bulk orders and long-term partnership agreements.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_category_UafpHU",
+        "faq_category_GzagUX",
+        "faq_category_EUFnrX",
+        "faq_category_9gtLrJ",
+        "faq_category_XJEbfQ",
+        "faq_category_46cQcR",
+        "faq_category_z8FbxA"
+      ],
+      "name": "Knowledge Center",
+      "settings": {
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum",
+        "search_placeholder": "Search for answers...",
+        "filter_all": "All",
+        "filter_product": "Product",
+        "filter_support": "Support",
+        "filter_shipping": "Shipping",
+        "filter_payment": "Payment",
+        "filter_partnerships": "Partnerships"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_YLmRPr",
+    "slideshow",
+    "categories_4y3Xa9",
+    "1649252187120e07e2",
+    "16492530616aecbde7",
+    "featured-collection",
+    "1649253065b5c37fdc",
+    "1649255295fc71f591",
+    "16494220438a45d148",
+    "blog-posts",
+    "1649256439108e0b94",
+    "1649247497e551faac",
+    "newsletter",
+    "environment_showcase_abWkD6",
+    "why_brightlink_blogs_A4CmCU",
+    "controller_tabs_iVMpAc",
+    "compare_before_after_TYKzmC",
+    "blog_post_9GqNfr",
+    "our_trusted_partners_PpkmtE",
+    "best_seller_K7yGCM",
+    "knowledge_center_fAADX7"
+  ]
+}

@@ -1,0 +1,546 @@
+{% if product.metafields.custom.section_comparison_table.value.product_1 == blank %}
+  <style>
+    #shopify-section-{{ section.id }} {
+      display: none;
+    }
+  </style>
+{% endif %}
+
+{% comment %} ================= product cards ============  {% endcomment %}
+<style>
+  
+#section--{{ section.id }} .frame-child-tt {
+  	align-self: stretch;
+  	position: relative;
+  	border-radius: 10px;
+  	max-width: 100%;
+  	overflow: hidden;
+  	max-height: 300px;
+  	flex-shrink: 0;
+  	object-fit: cover;
+    display: flex;
+    justify-content: flex-start;
+}
+#section--{{ section.id }} .brightlink-98-4k-tt {
+  	position: relative;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	max-width: 191px;
+    font-size: 14px;
+    font-family: Montserrat;
+    color: #000;
+}
+#section--{{ section.id }} .add-to-cart-tt {
+  	position: relative;
+    font-size: 16px;
+    font-family: Lato;
+    color: #f9f9fa;
+    font-weight: 400;
+}
+#section--{{ section.id }} .add-to-cart-wrapper-tt {
+  	border-radius: 5px;
+  	background: #4190d2;
+  	width: 225px;
+    height: 39px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 0px;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #f9f9fa;
+  	font-family: Lato;
+    cursor: pointer;
+}
+#section--{{ section.id }} .rectangle-parent-tt {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .header-tt {
+  	width: 100%;
+  	position: relative;
+  	background: #F9F9FA;
+ /* 	border-bottom: 1px solid #c2c2c2;  */
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 0px;
+  	text-align: center;
+  	font-size: 14px;
+  	color: #000;
+  	font-family: Montserrat;
+}
+
+
+  
+</style>
+
+
+{% comment %} ============================= comparison table css =============================== {% endcomment %}
+<style>
+
+
+#section--{{ section.id }}.comparison-table-tt {
+ /* border:2px solid red; */
+   background: #F9F9FA;
+    padding-top: 50px;
+    padding-bottom: 70px;
+}
+/* General table styling */
+#section--{{ section.id }} table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #F9F9FA;
+  max-width: 1200px;
+  margin: auto;
+  table-layout: fixed;
+}
+
+#section--{{ section.id }} table thead{
+  background: #F9F9FA;
+}
+
+#section--{{ section.id }} tbody tr {
+    display: table-row !important;
+}
+#section--{{ section.id }} tbody tr td {
+    background: #F9F9FA !important;
+    text-align: left;
+    font-size: 16px;
+    font-family: Montserrat;
+    color: #636363;
+}
+#section--{{ section.id }} th {
+  border: 1px solid black;
+  text-align: center;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding-bottom:25px;
+}
+#section--{{ section.id }} td {
+  border: 1px solid black;
+  text-align: center;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  background: #F9F9FA;
+  padding: 25px 20px 25px 20px;
+}
+
+#section--{{ section.id }} td:nth-child(1) {
+  border: 1px solid black;
+  text-align: left;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  background: #F9F9FA;
+  padding: 25px 20px 25px 0px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: Montserrat;
+  color: #000;
+/*  width:270px;  */
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+@media screen and (max-width:1000px) {
+{% comment %} ================= product cards ============  {% endcomment %}
+
+#shopify-section-{{ section.id }} {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 50px;
+    padding-bottom: 70px;
+    background-color: #f9f9fa;
+}
+
+#section--{{ section.id }} .frame-child-tt {
+  	align-self: stretch;
+  	position: relative;
+  	border-radius: 10px;
+  	max-width: 100%;
+    width:auto;
+  	overflow: hidden;
+  	max-height: 108.6px;
+    height: 108.6px;
+  	flex-shrink: 0;
+  	object-fit: cover;
+    display: flex;
+    justify-content: flex-start;
+}
+#section--{{ section.id }} .frame-child-tt img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+#section--{{ section.id }} .brightlink-98-4k-tt {
+  	position: relative;
+  	font-weight: 500;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	max-width: 191px;
+    font-size: 10px;
+    font-family: Montserrat;
+    color: #000;
+}
+#section--{{ section.id }} .add-to-cart-tt {
+  	position: relative;
+    font-size: 10px;
+    font-family: Lato;
+    color: #f9f9fa;
+    font-weight: 400;
+}
+#section--{{ section.id }} .add-to-cart-wrapper-tt {
+  	border-radius: 3px;
+  	background: #4190d2;
+    width: 92px;
+    height: 22px;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: center;
+  	justify-content: center;
+  	padding: 0px;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 10px;
+  	color: #f9f9fa;
+  	font-family: Lato;
+    cursor: pointer;
+}
+#section--{{ section.id }} .rectangle-parent-tt {
+  	flex: 1;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 5px;
+}
+#section--{{ section.id }} .header-tt {
+  	width: 100%;
+  	position: relative;
+  	background: #F9F9FA;
+ /* 	border-bottom: 1px solid #c2c2c2;  */
+  	box-sizing: border-box;
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 0px;
+  	text-align: center;
+  	font-size: 14px;
+  	color: #000;
+  	font-family: Montserrat;
+}
+
+
+{% comment %} ============================= comparison table css =============================== {% endcomment %}
+
+
+
+#section--{{ section.id }}.comparison-table-tt {
+ /* border:2px solid blue; */
+  background: #F9F9FA;
+  overflow-x: scroll;
+}
+/* General table styling */
+#section--{{ section.id }} table {
+  border-collapse: collapse;
+  width: 100%;
+  background: #F9F9FA;
+  max-width: 1200px;
+  margin: auto;
+  table-layout: fixed;
+}
+
+#section--{{ section.id }} table thead{
+  background: #F9F9FA;
+}
+
+#section--{{ section.id }} tbody tr {
+    display: table-row !important;
+}
+#section--{{ section.id }} tbody tr td {
+    background: #F9F9FA !important;
+    text-align: left;
+    font-size: 10px;
+    font-family: Montserrat;
+    color: #636363;
+    
+}
+#section--{{ section.id }} th {
+  border: 1px solid black;
+  text-align: center;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  padding: 0px 0px 27px 0px;
+  width:100px;
+  border-top: none;
+}
+#section--{{ section.id }} td {
+  border: 1px solid black;
+  text-align: center;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  background: #F9F9FA;
+  padding: 12px 5px 12px 5px;
+  font-size: 10px;
+}
+
+#section--{{ section.id }} td:nth-child(1) {
+  border: 1px solid black;
+  text-align: left;
+/*  padding: 8px; */
+  border:1px solid #c2c2c2;
+  border-left: none;
+  border-right: none;
+  background: #F9F9FA;
+  padding: 10px 5px 10px 5px;
+  font-size: 10px;
+  font-weight: 500;
+  font-family: Montserrat;
+  color: #000;
+/*  width:270px;  */
+}
+
+
+
+}
+</style>
+
+<div id="section--{{ section.id }}" class="comparison-table-tt">
+
+{% assign metaobject = product.metafields.custom.section_comparison_table.value %}  
+
+{% assign my_product1 = all_products[metaobject.product_1] %}
+{% assign my_product2 = all_products[metaobject.product_2] %}
+{% assign my_product3 = all_products[metaobject.product_3] %}
+
+<table>
+  <thead>
+    <tr>
+      
+      <th></th>
+      <th>
+
+          	<div class="header-tt">
+    		<div class="rectangle-parent-tt">
+  
+              {% if my_product1.metafields.custom.product_specifications.value.custom_image %}
+                <div class="frame-child-tt">
+                {{ my_product1.metafields.custom.product_specifications.value.custom_image | metafield_tag }}  
+                </div>
+                
+              {% else %}
+                <img class="frame-child-tt" alt="" src="{{ my_product1.featured_image | img_url }}">
+              {% endif %}
+      			
+      			
+      			<div class="brightlink-98-4k-tt">{{ my_product1.title | truncatewords:4 }}</div>
+              
+      			<div class="add-to-cart-wrapper-tt">
+                  <form action="/cart/add" data-productid="{{ my_product1.id }}"  method="post"> 
+                   <input type="hidden" name="id" value="{{ my_product1.variants.first.id }}"  />
+        			<button type="submit" class="add-to-cart-tt">Add to Cart</button>
+                  </form>
+      			</div>
+
+              
+    		</div>
+        	</div>
+        
+      </th>
+      <th>
+
+          	<div class="header-tt">
+    		<div class="rectangle-parent-tt">
+      			{% if my_product2.metafields.custom.product_specifications.value.custom_image %}
+                <div class="frame-child-tt">
+                {{ my_product2.metafields.custom.product_specifications.value.custom_image | metafield_tag }}  
+                </div>
+                
+              {% else %}
+                <img class="frame-child-tt" alt="" src="{{ my_product2.featured_image | img_url }}">
+              {% endif %}
+      			
+      			<div class="brightlink-98-4k-tt">{{ my_product2.title | truncatewords:4 }}</div>
+      			<div class="add-to-cart-wrapper-tt">
+        				<div class="add-to-cart-tt">Add to Cart</div>
+      			</div>
+    		</div>
+        	</div>
+
+        
+      </th>
+      <th>
+
+
+          	<div class="header-tt">
+    		<div class="rectangle-parent-tt">
+      			{% if my_product3.metafields.custom.product_specifications.value.custom_image %}
+                <div class="frame-child-tt">
+                {{ my_product3.metafields.custom.product_specifications.value.custom_image | metafield_tag }}  
+                </div>
+                
+              {% else %}
+                <img class="frame-child-tt" alt="" src="{{ my_product3.featured_image | img_url }}">
+              {% endif %}
+      			
+      			<div class="brightlink-98-4k-tt">{{ my_product3.title | truncatewords:4 }}</div>
+      			<div class="add-to-cart-wrapper-tt">
+        				<div class="add-to-cart-tt">Add to Cart</div>
+      			</div>
+    		</div>
+        	</div>
+        
+      </th>
+     
+    </tr>
+  </thead>
+  
+  <tbody>
+
+    {% if metaobject.row_1_label %}
+    <tr class="row-1">
+      <td>{{ metaobject.row_1_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.model }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.model }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.model }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_2_label %}
+    <tr class="row-2">
+      <td>{{ metaobject.row_2_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.dimension }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.dimension }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.dimension }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_3_label %}
+    <tr class="row-3">
+      <td>{{ metaobject.row_3_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.backlight_type }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.backlight_type }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.backlight_type }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_4_label %}
+    <tr class="row-4">
+      <td>{{ metaobject.row_4_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.brightness }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.brightness }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.brightness }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_5_label %}
+    <tr class="row-5">
+      <td>{{ metaobject.row_5_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.contrast_ratio }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.contrast_ratio }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.contrast_ratio }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_6_label %}
+    <tr class="row-6">
+      <td>{{ metaobject.row_6_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.response_time }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.response_time }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.response_time }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_7_label %}
+    <tr class="row-7">
+      <td>{{ metaobject.row_7_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.pixel_pitch }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.pixel_pitch }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.pixel_pitch }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_8_label %}
+    <tr class="row-8">
+      <td>{{ metaobject.row_8_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.row_8_value }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.row_8_value }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.row_8_value }}</td>
+    </tr>
+    {% endif %}
+
+    {% if metaobject.row_9_label %}
+    <tr class="row-9">
+      <td>{{ metaobject.row_9_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.row_9_value }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.row_9_value }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.row_9_value }}</td>
+    </tr>
+    {% endif %}
+    
+    {% if metaobject.row_10_label %}
+    <tr class="row-10">
+      <td>{{ metaobject.row_10_label }}</td>
+      <td>{{ my_product1.metafields.custom.product_specifications.value.row_10_value }}</td>
+      <td>{{ my_product2.metafields.custom.product_specifications.value.row_10_value }}</td>
+      <td>{{ my_product3.metafields.custom.product_specifications.value.row_10_value }}</td>
+    </tr>
+    {% endif %}
+  </tbody>
+  
+</table>
+  
+</div>
+
+{% schema %}
+  {
+    "name": "Comparison Table",
+    "presets":[
+      {
+      "name": "Comparison Table"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

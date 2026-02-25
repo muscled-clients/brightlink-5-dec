@@ -1,0 +1,342 @@
+<style>
+  /* ── Section wrapper ───────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .fb-section {
+    position: relative;
+    padding: 120px 0;
+    background: #0A0E1A;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  /* Optional background image */
+  #shopify-section-{{ section.id }} .fb-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
+  /* ── Layout container (max 1280 px, matches Figma) ─────────────── */
+  #shopify-section-{{ section.id }} .fb-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  /* ── Header block ──────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .fb-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  #shopify-section-{{ section.id }} .fb-eyebrow {
+    display: block;
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin-bottom: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .fb-title {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* ── Cards grid ────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .fb-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+  }
+
+  /* ── Single blog card ──────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .fb-card {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    text-decoration: none;
+    color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+
+  #shopify-section-{{ section.id }} .fb-card:hover {
+    transform: translateY(-4px);
+    opacity: 0.92;
+  }
+
+  /* Thumbnail */
+  #shopify-section-{{ section.id }} .fb-card__thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #1a2035;
+    flex-shrink: 0;
+  }
+
+  #shopify-section-{{ section.id }} .fb-card__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+  }
+
+  #shopify-section-{{ section.id }} .fb-card:hover .fb-card__thumb img {
+    transform: scale(1.04);
+  }
+
+  /* Placeholder when no image uploaded */
+  #shopify-section-{{ section.id }} .fb-card__thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a2035 0%, #0d1526 100%);
+  }
+
+  #shopify-section-{{ section.id }} .fb-card__thumb-placeholder svg {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+  }
+
+  /* Card text body */
+  #shopify-section-{{ section.id }} .fb-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 0 4px;
+  }
+
+  #shopify-section-{{ section.id }} .fb-card__name {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .fb-card__date {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    color: #A0AEC0;
+    margin: 0;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .fb-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 780px) {
+    #shopify-section-{{ section.id }} .fb-section {
+      padding: 80px 0;
+    }
+    #shopify-section-{{ section.id }} .fb-container {
+      padding: 0 24px;
+      gap: 28px;
+    }
+    #shopify-section-{{ section.id }} .fb-title {
+      font-size: 30px;
+    }
+    #shopify-section-{{ section.id }} .fb-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    #shopify-section-{{ section.id }} .fb-section {
+      padding: 60px 0;
+    }
+    #shopify-section-{{ section.id }} .fb-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="fb-section" data-section-id="{{ section.id }}">
+
+  {% if section.settings.background_image != blank %}
+    <img
+      class="fb-bg-img"
+      src="{{ section.settings.background_image | image_url: width: 2200 }}"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      loading="lazy">
+  {% endif %}
+
+  <div class="fb-container">
+
+    <!-- Header -->
+    <div class="fb-header">
+      {% if section.settings.eyebrow != blank %}
+        <span class="fb-eyebrow">{{ section.settings.eyebrow }}</span>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="fb-title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Blog cards grid -->
+    {% if section.blocks.size > 0 %}
+      <div class="fb-grid">
+        {% for block in section.blocks %}
+          <a
+            class="fb-card"
+            href="{{ block.settings.link | default: '#' }}"
+            {{ block.shopify_attributes }}>
+
+            <!-- Thumbnail -->
+            <div class="fb-card__thumb">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 700 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.title | escape }}"
+                  loading="lazy">
+              {% else %}
+                <div class="fb-card__thumb-placeholder">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5"
+                       stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+              {% endif %}
+            </div>
+
+            <!-- Text -->
+            <div class="fb-card__body">
+              {% if block.settings.title != blank %}
+                <p class="fb-card__name">{{ block.settings.title }}</p>
+              {% endif %}
+              {% if block.settings.date != blank %}
+                <p class="fb-card__date">{{ block.settings.date }}</p>
+              {% endif %}
+            </div>
+
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Blogs",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Blogs"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Featured Blogs"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_card",
+      "name": "Blog Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Thumbnail image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Blog title",
+          "default": "Things You Should Know About Video Bandwidth for Streaming"
+        },
+        {
+          "type": "text",
+          "id": "date",
+          "label": "Date",
+          "default": "Jul / 08 / 2025"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Blog post URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Blogs",
+      "blocks": [
+        {
+          "type": "blog_card",
+          "settings": {
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025"
+          }
+        },
+        {
+          "type": "blog_card",
+          "settings": {
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025"
+          }
+        },
+        {
+          "type": "blog_card",
+          "settings": {
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025"
+          }
+        },
+        {
+          "type": "blog_card",
+          "settings": {
+            "title": "Things You Should Know About Video Bandwidth for Streaming",
+            "date": "Jul / 08 / 2025"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

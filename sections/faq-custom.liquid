@@ -1,0 +1,698 @@
+{% if product.metafields.custom.section_faq_custom.value.faq_question_1.value == blank
+  and product.metafields.custom.section_faq_custom.value.faq_answer_1.value == blank
+%}
+  <style>
+    #shopify-section-{{ section.id }} {
+      display: none;
+    }
+  </style>
+{% endif %}
+
+<style>
+  .tab-label-acc.accordion.h1 .icon_with_text, .tab-label-acc.accordion.h1 .plus-minus {
+    cursor:pointer;
+  }
+   .slideshow-container-{{ section.id }} .header-section{
+     padding: 40px 20px;
+     background: #F7F7F7;
+   }
+  .slideshow-container-{{ section.id }} .faq-container-s{
+     padding: 0px;
+   }
+   @media only screen and (max-width: 800px) {
+     .slideshow-container-{{ section.id }} .faq-container-s{
+       display: flex;
+       justify-content: center;
+       align-items: flex-start;
+       gap: 20px;
+       padding: 20px;
+       flex-direction: column !important;
+       max-width: 1200px;
+       margin: auto;
+     }
+     .slideshow-container-{{ section.id }} .faq-info-s{
+       padding-top: 10px !important;
+       width: 100% !important;
+     }
+   #shopify-section-{{ section.id }} {
+      font-size: 1rem;
+     }
+
+   }
+</style>
+
+<div class="slideshow-container-{{ section.id }} section-standard">
+  <!-- Width According to theme class -->
+  <div class="contain-site-width testimonial_slider">
+    <!-- Width According to theme class -->
+    {% if section.settings.sub_heading != blank %}
+      <div class="header-section">
+        <div class="sub_heading">
+          <h1>{{ section.settings.sub_heading }}</h1>
+        </div>
+        <div class="sub_text">
+          {{ section.settings.sub_text }}
+        </div>
+      </div>
+    {% endif %}
+    <!-- <i class="fa c" aria-hidden="true"></i> -->
+
+    <div class="faq-container-s">
+      {% if section.settings.headingS or section.settings.desc %}
+        <div class="faq-info-s">
+          <div class="heading">
+            <h1>{{ section.settings.headingS }}</h1>
+          </div>
+          <div class="sub_text">
+            {{ section.settings.desc }}
+          </div>
+        </div>
+      {% endif %}
+      <div class="faq-s">
+        {% for block in section.blocks %}
+          <div
+            class="tab"
+            {% if block == section.blocks[0] %}
+              style="border-top: none;"
+            {% endif %}
+          >
+            <div
+              for="tab{{ forloop.index }}"
+              class="tab-label-acc accordion h1"
+              style="color:{{section.settings.faq-text-color}};"
+            >
+              <div class="icon_with_text">
+                <h3>{{ block.settings.title | escape }}</h3>
+              </div>
+              <div class="plus-minus">
+                <span class="plus">{% render 'plus' %}</span>
+                <span class="minus">{% render 'minus' %}</span>
+              </div>
+            </div>
+            <div class="panel" style="color:{{section.settings.faq-text-color}};">{{ block.settings.faqstext }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('#search-input').forEach((elem)=>{
+    elem.addEventListener('input', (event) => {
+      const searchQuery = event.target.value.toLowerCase();
+  
+      // Select both .tab and .faq-item elements
+      const allItems = document.querySelectorAll('.tab, .faq-item');
+  
+      allItems.forEach((item) => {
+        if (item.textContent.toLowerCase().includes(searchQuery)) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  })
+</script>
+
+<style>
+    .faq-container-s{
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 40px;
+  /*     padding: 0px; */
+      max-width: 1200px;
+      margin: auto;
+    }
+    .faq-info-s{
+      padding-top: 50px;
+      width: 450px;
+    }
+    .header-section{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 250px;
+    }
+   .header-section .sub_heading h1{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 0;
+      text-align: center;
+      color: #000000;
+    }
+   .header-section .heading h1{
+      font-style: normal;
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 48px;
+      margin: 10px 0px 0px 0px;
+      /* identical to box height */
+      text-align: center;
+      color: #000000;
+    }
+    .header-section .sub_text p{
+      font-style: normal;
+      font-weight: 300;
+      font-size: 24px;
+      line-height: 29px;
+      text-align: center;
+      margin: 10px 0px 0px 0px;
+      color: rgba(0, 0, 0, 0.5);
+    }
+   {% comment %} .search-bar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 35px;
+      gap: 200px;
+      width: 353px;
+      height: 52px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+    } {% endcomment %}
+    .search-input {
+  /*     background-image: url('https://cdn.shopify.com/s/files/1/0702/0134/4280/files/Outline.svg?v=1673036292');
+      background-position: 8px center;
+      background-size: 20px 20px;
+      background-repeat: no-repeat;  */
+
+      padding: 10px 40px 10px 40px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 200%;
+      /* identical to box height, or 32px */
+  {% comment %}     text-align: center; {% endcomment %}
+      color: rgba(0, 0, 0, 0.5);
+    }
+    .input_search{
+      position: relative;
+      margin-top: 50px;
+    }
+
+    .input_search svg.search{
+      position: absolute;
+      left: 25px;
+      top: 30%;
+    }
+    .input_search svg.arrow_right_svg{
+      position: absolute;
+      right: 30px;
+      top: 20%;
+    }
+    .search-icon {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    .arrow-icon {
+      font-size: 20px;
+      margin-left: 10px;
+    }
+
+  #shopify-section-{{ section.id }}{
+  {% comment %}   background-color: {{section.settings.section_bg_color}}; {% endcomment %}
+  }
+  #shopify-section-{{ section.id }} .plus-minus,
+  #shopify-section-{{ section.id }} .icon_with_text svg{
+    fill:{{section.settings.faq-text-color}};
+  }
+
+    #shopify-section-{{ section.id }} .icon_with_text h3{
+      margin: 0;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 24px !important;
+      line-height: 29px;
+      color: #000000;
+    }
+  #shopify-section-{{ section.id }} .icon_with_text{
+    display: flex;
+    align-items: center;
+  /*   gap: 15px; */
+    font-size: 25px;
+    font-weight: 600;
+  }
+  #shopify-section-{{ section.id }} header h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0rem;
+  }
+    #shopify-section-{{ section.id }} header h1 {
+      text-align: center;
+      margin: 0px;
+      color: black;
+    }
+    #shopify-section-{{ section.id }} header p {
+     font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+
+  color: rgba(0, 0, 0, 0.5);
+    }
+
+  #shopify-section-{{ section.id }} {
+    margin-block: 50px;
+  }
+  #shopify-section-{{ section.id }} .plus-minus span svg{
+     height: 22px;
+     width: 22px;
+       }
+  #shopify-section-{{ section.id }} .tab-label-acc.accordion.active{
+  /*      padding-top: 10px; */
+       border-bottom: 0px;
+
+  }
+    #shopify-section-{{ section.id }} .tab-label-acc.accordion {
+       padding-top: 10px;
+       border-bottom: 0px;
+       padding-block: 20px;
+
+  }
+  #shopify-section-{{ section.id }} .tab-label-acc.accordion .plus{
+       display: block;
+  }
+  #shopify-section-{{ section.id }} .tab-label-acc.accordion .minus{
+    display: none;
+  }
+  #shopify-section-{{ section.id }} .tab-label-acc.accordion.active .minus{
+    display: block !important;
+  }
+  #shopify-section-{{ section.id }} .tab-label-acc.accordion.active .plus{
+    display: none !important;
+  }
+  #shopify-section-{{ section.id }} .heading-m{
+    margin-bottom:30px;
+  }
+  #shopify-section-{{ section.id }} .tab-label-acc{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #shopify-section-{{ section.id }} .faq-s{
+    padding: 10px;
+    background-color: {{section.settings.faq_h-bg}};
+  /*border: 1px solid {{ section.settings.border_color }}; */
+    border-radius: {{section.settings.border_radius}}px;
+  }
+  #shopify-section-{{ section.id }} .faq-s h3{
+    font-size:23px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  #search-input {
+      margin-top: 3px;
+      font-family: 'Montserrat';
+  }
+  @media screen and (min-width:769px) {
+    #shopify-section-{{ section.id }} .faq-s{
+      width: {{section.settings.faq_width_dsk}}%;
+  <!--     max-width: {{section.settings.faq_width_dsk}}%; -->
+      margin-inline: auto;
+      max-width: 1200px;
+      margin-inline: auto;
+  <!--     padding: 90px;
+      padding-top: 45px; -->
+    }
+    #shopify-section-{{ section.id }} .faq {
+      border-radius: 3px;
+      overflow: hidden;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @media screen and (max-width:768px) {
+    #shopify-section-{{ section.id }} .faq-s{
+      width: {{section.settings.faq_width_mob}}%;
+      max-width: {{section.settings.faq_width_mob}}%;
+      margin-inline: auto;
+    }
+    #shopify-section-{{ section.id }} .faq {
+      border-radius: 3px;
+      overflow: hidden;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      border-bottom: 1px solid #e8eaf1;
+    }
+  }
+  #shopify-section-{{ section.id }} p.accordion {
+    font-size: 16px !important;
+    font-weight: bold !important;
+  }
+  #shopify-section-{{ section.id }} .tab{
+    border-top: 1px solid {{ section.settings.border_color }};
+  }
+  #shopify-section-{{ section.id }} .tab:last-child{
+    border-bottom: 1px solid {{ section.settings.border_color }};
+  }
+  #shopify-section-{{ section.id }} .panel{
+    padding: 0px 20px 0px 0px !important;
+  }
+  #shopify-section-{{ section.id }} p.accordion {
+    padding: 10px 20px 10px 20px !important;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    margin-bottom: 0px;
+  }
+
+  #shopify-section-{{ section.id }} div.panel {
+    padding: 0;
+    background-color: {{section.settings.faq_h-bg}};
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.4s ease-in-out;
+    opacity: 0;
+    margin-bottom:0px;
+    padding-top: 10px;
+    font-size:16px !important;
+    color: black;
+    line-height: 25px;
+  }
+  #shopify-section-{{ section.id }} div.panel.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+  #shopify-section-{{ section.id }} div.panel.show p{
+    opacity: 1;
+    max-height: 500px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 200%;
+  color: rgba(0, 0, 0, 0.5);
+  }
+  @media (max-width: 640px) {
+     #shopify-section-{{ section.id }} .plus-minus {
+      position: relative;
+      top: 4px;
+     }
+    #shopify-section-{{ section.id }} .faq-s h3{
+      font-size:14px;
+      font-family: 'Montserrat', sans-serif;
+     }
+  #shopify-section-{{ section.id }} div.panel.show p{
+    opacity: 1;
+    max-height: 500px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px !important;
+  line-height: 200%;
+  color: rgba(0, 0, 0, 0.5);
+  }
+  .input_search svg.search {
+      position: absolute;
+      left: 25px;
+      top: 30%;
+      width: 16.68px;
+      height: 16.68px;
+  }
+  .search-bar {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 200px;
+      width: 230px;
+      height: 34px;
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+  }
+  .input_search svg.arrow_right_svg {
+      position: absolute;
+      right: 20px;
+      top: 20%;
+  }
+  #search-input {
+      margin-top: 3px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 200%;
+      color: rgba(0, 0, 0, 0.5);
+      color: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.5);
+      border-radius: 10px;
+  }
+  .input_search {
+      position: relative;
+      margin-top: 10px;
+     }
+  #shopify-section-{{ section.id }}  .header-section .sub_text p {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-align: center;
+      color: rgba(0, 0, 0, 0.5);
+  }
+  #shopify-section-{{ section.id }} .header-section .heading h1 {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 24px;
+  text-align: center;
+  color: #000000;
+  }
+  #shopify-section-{{ section.id }} .header-section .sub_heading h1 {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-align: center;
+  color: #000000;
+  }
+  }
+    .input_search svg.arrow_right_svg{
+      position: absolute;
+      right: 30px;
+      top: 40%;
+    }
+</style>
+<!-- // Ref  - http://stackoverflow.com/questions/37745154/only-open-one-accordion-tab-at-one-time -->
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+  var acc = document.getElementsByClassName("accordion");
+  var panel = document.getElementsByClassName('panel');
+  for (var i = 0; i < acc.length; i++) {
+      acc[i].onclick = function() {
+          var setClasses = !this.classList.contains('active');
+          setClass(acc, 'active', 'remove');
+          setClass(panel, 'show', 'remove');
+
+          if (setClasses) {
+              this.classList.toggle("active");
+              this.nextElementSibling.classList.toggle("show");
+          }
+      }
+  }
+  function setClass(els, className, fnName) {
+      for (var i = 0; i < els.length; i++) {
+          els[i].classList[fnName](className);
+      }
+  }
+  });
+</script>
+{% comment %}
+  {
+           "label": "Section background color",
+     "type":"color",
+  "id":"section_bg_color"
+        },
+{% endcomment %}
+{% schema %}
+{
+"name": "faq custom",
+ "settings": [
+         {
+             "label": "Sub Heading",
+		     "type":"text",
+			 "id":"sub_heading",
+             "default": "FAQs"
+          },
+         {
+             "label": "Heading",
+		     "type":"richtext",
+			 "id":"headingS"
+
+          },
+          {
+             "label": "Sub Text",
+		     "type":"richtext",
+			 "id":"sub_text",
+             "default": "<p>Have questions? We’re here to help</p>"
+          },
+           {
+            "label": "Description",
+		     "type":"richtext",
+            "id":"desc",
+            "default": "<p>Have questions? We’re here to help</p>"
+          },
+          {
+             "label": "Section Title",
+		     "type":"text",
+			 "id":"title"
+          },
+          {
+             "label": "Tabs Background Color",
+		     "type":"color",
+			 "id":"faq_h-bg"
+          },
+          {
+             "label": "Text color",
+		     "type":"color",
+			 "id":"faq-text-color"
+          },
+          {
+             "label": "Border Color",
+		     "type":"color",
+			 "id":"border_color"
+          },
+          {
+             "type": "range",
+             "id": "border_radius",
+             "label": "Border Radius",
+             "min": 1,
+             "max": 50,
+              "unit": "px",
+             "step": 1,
+             "default": 25
+          },
+
+          {
+            "type": "range",
+            "id": "faq_width_dsk",
+            "label": "Faq Section Width Desktop",
+            "min": 1,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 60
+          },
+          {
+           "type": "range",
+            "id": "faq_width_mob",
+            "label": "Faq Section Width Mobile",
+            "min": 1,
+            "max": 100,
+            "unit": "%",
+            "step": 1,
+            "default": 90
+          }
+      ],
+"blocks": [
+    {
+      "type": "block",
+      "name": "FAQ's +",
+      "settings": [
+
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Heading"
+          },
+          {
+            "type": "richtext",
+            "id": "faqstext",
+            "label": "Text"
+          }
+        ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "faq custom"
+    }
+  ]
+}
+{% endschema %}
+
+<!-- D4 Custom CSS -->
+
+<style>
+    .faq-container-s .faq-info-s .heading h1 {
+      font-size: 40px;
+      font-weight: 600;
+      font-family: Lato;
+      color: #454545;
+      line-height: initial;
+      max-width:477px;
+    }
+    .faq-container-s .faq-info-s .sub_text p {
+      position: relative;
+      font-size: 16px;
+      line-height: 200%;
+      font-family: Montserrat;
+      white-space: pre-wrap;
+      color: rgba(0, 0, 0, 0.5);
+    }
+      #shopify-section-{{ section.id }} .icon_with_text h3{
+      font-size: 20px !important;
+      font-family: Montserrat;
+      color: #000;
+    }
+    #shopify-section-{{ section.id }} div.panel.show p{
+    opacity: 1;
+    max-height: 500px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px !important;
+    line-height: 200%;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  @media screen and (max-width:767px){
+    .faq-container-s .faq-info-s .heading h1 {
+      font-size: 16px;
+      font-weight: 600;
+      font-family: Lato;
+      color: #454545;
+      line-height: initial;
+      max-width:477px;
+    }
+    .faq-container-s .faq-info-s .sub_text p {
+      position: relative;
+      font-size: 14px;
+      line-height: 200%;
+      font-family: Montserrat;
+      white-space: pre-wrap;
+      color: rgba(0, 0, 0, 0.5);
+    }
+      #shopify-section-{{ section.id }} .icon_with_text h3{
+      font-size: 14px !important;
+      font-family: Montserrat;
+      color: #000;
+    }
+    #shopify-section-{{ section.id }} div.panel.show p{
+    opacity: 1;
+    max-height: 500px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px !important;
+    line-height: 200%;
+    color: rgba(0, 0, 0, 0.5);
+  }
+  }
+</style>

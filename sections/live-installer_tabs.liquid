@@ -1,0 +1,264 @@
+<style>
+  @media screen and (min-width: 700px) {
+  .tab-content.current{
+        display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center;
+  }
+  }
+  @media only screen and (max-width: 600px){
+.tab-content .tab-content_item {
+    min-height: auto !important;
+    margin: 0 0% 7% 0;
+}
+  }
+  </style>
+
+<div id="section__{{ section.id }}" class="installer_tabs_wrapper section__{{ section.id }}">
+  <div class="container">
+    <ul class="tabs">
+      <li class="tab-link current" data-tab="tab-1">USA</li>
+      <li class="tab-link" data-tab="tab-2">Canada</li>
+    </ul>
+
+    <div id="tab-1" class="tab-content tab-content--use current ssss">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'usa' -%}
+            <div class="tab-content_item tab-content_item{{ forloop.index }} tab-content-{{ block.type }}">
+              <div class="tab_content_wrap">
+                {% if block.settings.logo != blank %}
+                  <div class="content_image">
+                    <img src="{{ block.settings.logo | img_url:"200x" }}" alt="">
+                  </div>
+                {% endif %}
+                {% if block.settings.type != blank %}
+                  <div class="content_type"><b>Type:-</b> {{ block.settings.type }}</div>
+                {% endif %}
+                {% if block.settings.address != blank %}
+                  <div class="content_address">
+                    {{ block.settings.address }}
+                  </div>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <div class="content_email"><b>Email:-</b> {{ block.settings.email }}</div>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <div class="content_phone"><b>Phone:-</b> {{ block.settings.phone }}</div>
+                {% endif %}
+                {% if block.settings.years_in_business != blank %}
+                  <div class="content_years_in_business">
+                    <b>Years in Business:-</b> {{ block.settings.years_in_business }}
+                  </div>
+                {% endif %}
+                {% if block.settings.hours != blank %}
+                  <div class="content_hours"><b>Hours:-</b> {{ block.settings.hours }}</div>
+                {% endif %}
+                {% if block.settings.website != blank %}
+                  <div class="content_website"><b>Website:-</b> {{ block.settings.website }}</div>
+                {% endif %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+    <div id="tab-2" class="tab-content tab-content--canada">
+      {%- for block in section.blocks -%}
+        {%- case block.type -%}
+          {%- when 'canada' -%}
+            <div class="tab-content_item tab-content_item{{ forloop.index }} tab-content-{{ block.type }}">
+              <div class="tab_content_wrap">
+                {% if block.settings.logo != blank %}
+                  <div class="content_image">
+                    <img src="{{ block.settings.logo | img_url:"200x" }}" alt="">
+                  </div>
+                {% endif %}
+                {% if block.settings.type != blank %}
+                  <div class="content_type"><b>Type:-</b> {{ block.settings.type }}</div>
+                {% endif %}
+                {% if block.settings.address != blank %}
+                  <div class="content_address">
+                    {{ block.settings.address }}
+                  </div>
+                {% endif %}
+                {% if block.settings.email != blank %}
+                  <div class="content_email"><b>Email:-</b> {{ block.settings.email }}</div>
+                {% endif %}
+                {% if block.settings.phone != blank %}
+                  <div class="content_phone"><b>Phone:-</b> {{ block.settings.phone }}</div>
+                {% endif %}
+                {% if block.settings.years_in_business != blank %}
+                  <div class="content_years_in_business">
+                    <b>Years in Business:-</b> {{ block.settings.years_in_business }}
+                  </div>
+                {% endif %}
+                {% if block.settings.hours != blank %}
+                  <div class="content_hours"><b>Hours:-</b> {{ block.settings.hours }}</div>
+                {% endif %}
+                {% if block.settings.website != blank %}
+                  <div class="content_website"><b>Website:-</b> {{ block.settings.website }}</div>
+                {% endif %}
+              </div>
+            </div>
+        {%- endcase -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+<style>
+    ul.tabs{
+      margin: 0px;
+      padding: 0px;
+      list-style: none;
+    }
+    ul.tabs li {
+      background: none;
+      color: #222;
+      display: inline-block;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    ul.tabs li.current{
+      background: #ededed;
+      color: #222;
+    }
+
+    .tab-content {
+      display: none;
+      background: #ededed;
+      padding: 45px;
+    }
+    .tab-content_item {
+      border: 2px solid;
+      padding: 45px 32px;
+      width: 22%;
+      display: block;
+      margin: 0 2% 2% 0;
+      float:left;
+      min-height:605px;
+    }
+    .tab-content.current{
+      display: block;
+      float:left;
+      width:100%;
+    }
+    .content_website {
+    font-size: 9px;
+  }
+   .content_email {
+    font-size: 9px;
+  }
+</style>
+{% schema %}
+{
+  "name": "Live Installer Tab",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "usa",
+      "name": "USA",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "type",
+            "label": "Type"
+          },
+          {
+            "type": "richtext",
+            "id": "address",
+            "label": "Address",
+            "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          },
+          {
+            "type": "text",
+            "id": "email",
+            "label": "Email"
+          },
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone"
+          },
+          {
+            "type": "text",
+            "id": "years_in_business",
+            "label": "Years in Business"
+          },
+          {
+            "type": "text",
+            "id": "hours",
+            "label": "Hours"
+          },
+          {
+            "type": "text",
+            "id": "website",
+            "label": "Website"
+          }
+        ]
+      },
+      {
+        "type": "canada",
+        "name": "Canada",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "type",
+            "label": "Type"
+          },
+          {
+            "type": "richtext",
+            "id": "address",
+            "label": "Address",
+            "default": "<p>A short sentence describing what someone will receive by subscribing</p>"
+          },
+          {
+            "type": "text",
+            "id": "email",
+            "label": "Email"
+          },
+          {
+            "type": "text",
+            "id": "phone",
+            "label": "Phone"
+          },
+          {
+            "type": "text",
+            "id": "years_in_business",
+            "label": "Years in Business"
+          },
+          {
+            "type": "text",
+            "id": "hours",
+            "label": "Hours"
+          },
+          {
+            "type": "text",
+            "id": "website",
+            "label": "Website"
+          }
+        ]
+      }
+  ],
+  "presets": [
+    {
+      "category": "Text",
+      "name": "Live Installer Tab",
+      "blocks": [
+      ]
+    }
+  ]
+}
+{% endschema %}

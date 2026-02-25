@@ -1,0 +1,45 @@
+<section data-section-id="{{ section.id }}" data-section-type="page">
+ {% if section.settings.title or section.settings.content %} 
+  <div class="container container--narrow">
+    <header class="page__header page__header--centered page__header--stack">
+      {% if section.settings.title %}    
+        <h1 class="page__title heading h1">{{ page.title }}</h1>
+      {%- endif -%} 
+      {% if section.settings.content %}
+        {%- if page.content != blank and page.template_suffix == 'contact' or page.template_suffix == 'team' -%}
+          <div class="page__description rte">
+            {{ page.content }}
+          </div>
+        {%- endif -%}
+      {%- endif -%}      
+    </header>
+	{% if section.settings.content %}
+      {%- if page.content != blank and page.template_suffix != 'contact' and page.template_suffix != 'team' -%}
+        <div class="page__content rte">
+          {{ page.content }}
+        </div>
+      {%- endif -%}
+	{%- endif -%}
+  </div>
+{%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "title",
+      "label": "Show Title",
+      "default": true
+    },
+	{
+      "type": "checkbox",
+      "id": "content",
+      "label": "Show content",
+      "default": true
+    }	
+  ]
+}
+{% endschema %}

@@ -1,0 +1,520 @@
+{{ 'investment-config.css' | asset_url | stylesheet_tag }}
+
+<section class="investment-config" id="investment-config">
+  <div class="investment-config__container">
+    <div class="investment-config__header">
+      <div class="investment-config__header-text">
+        <span class="investment-config__label">{{ section.settings.label | default: 'INVESTMENT' }}</span>
+        <h2 class="investment-config__title">{{ section.settings.title | default: 'Configure Your System' }}</h2>
+      </div>
+      <p class="investment-config__subtitle">{{ section.settings.subtitle | default: 'Transparent pricing for professional installations' }}</p>
+    </div>
+
+    <div class="investment-config__content">
+      <!-- Left Card - Main Pricing -->
+      {% assign main_product = product %}
+      {% if main_product %}
+        {% assign product_info = main_product.title | split: 'COB LED' | first | strip %}
+        {% assign info_words = product_info | split: ' ' %}
+
+        {%- comment -%} Product name: build up to the size word (contains ") {%- endcomment -%}
+        {% assign main_title = '' %}
+        {% assign found_size = false %}
+        {% for w in info_words %}
+          {% unless found_size %}
+            {% if main_title == blank %}
+              {% assign main_title = w %}
+            {% else %}
+              {% assign main_title = main_title | append: ' ' | append: w %}
+            {% endif %}
+            {% if w contains '"' %}
+              {% assign found_size = true %}
+            {% endif %}
+          {% endunless %}
+        {% endfor %}
+        {% unless found_size %}
+          {% assign main_title = product_info | truncate: 40 %}
+        {% endunless %}
+
+        {%- comment -%} Extract pitch: first word containing "mm" {%- endcomment -%}
+        {% assign main_pitch = '' %}
+        {% for w in info_words %}
+          {% assign cw = w | remove: '(' | remove: ')' | remove: ',' %}
+          {% if cw contains 'mm' and main_pitch == blank %}
+            {% assign main_pitch = cw %}
+          {% endif %}
+        {% endfor %}
+
+        {%- comment -%} Extract resolution {%- endcomment -%}
+        {% assign main_resolution = '' %}
+        {% assign lower_info = product_info | downcase %}
+        {% if lower_info contains 'full 4k' %}
+          {% assign main_resolution = 'Full 4K' %}
+        {% elsif lower_info contains '4k' %}
+          {% assign main_resolution = '4K' %}
+        {% elsif lower_info contains '1080p' %}
+          {% assign main_resolution = '1080p' %}
+        {% endif %}
+
+        {%- comment -%} Extract pixel count: number before "Million Pixels" {%- endcomment -%}
+        {% assign main_pixels = '' %}
+        {% assign mp_parts = product_info | split: ' Million Pixels' %}
+        {% if mp_parts.size == 1 %}{% assign mp_parts = product_info | split: ' million Pixels' %}{% endif %}
+        {% if mp_parts.size == 1 %}{% assign mp_parts = product_info | split: ' million pixels' %}{% endif %}
+        {% if mp_parts.size > 1 %}
+          {% assign bmp_words = mp_parts[0] | strip | split: ' ' %}
+          {% assign main_pixels = bmp_words | last | remove: '(' | remove: ')' %}
+        {% endif %}
+
+        {%- comment -%} Format pixels to M (e.g., 8,064,000 → 8.06M) {%- endcomment -%}
+        {% assign pixels_display = '' %}
+        {% if main_pixels != blank %}
+          {% if main_pixels contains '.' %}
+            {% assign pixels_display = main_pixels | append: 'M' %}
+          {% else %}
+            {% assign px_num = main_pixels | remove: ',' | plus: 0 %}
+            {% if px_num > 100000 %}
+              {% assign px_hund = px_num | divided_by: 10000 %}
+              {% assign px_m = px_hund | divided_by: 100.0 %}
+              {% assign pixels_display = px_m | append: 'M' %}
+            {% else %}
+              {% assign pixels_display = main_pixels %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+
+        {%- comment -%} Build specs line: "8.06M Pixels | .9mm Pitch | 4K" {%- endcomment -%}
+        {% capture main_desc %}{% if pixels_display != blank %}{{ pixels_display }} Pixels{% endif %}{% if main_pitch != blank %}{% if pixels_display != blank %} | {% endif %}{{ main_pitch }} Pitch{% endif %}{% if main_resolution != blank %}{% if main_pitch != blank or pixels_display != blank %} | {% endif %}{{ main_resolution }}{% endif %}{% endcapture %}
+        {% assign main_desc = main_desc | strip %}
+        {% if main_desc == blank %}
+          {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
+        {% endif %}
+
+        {%- comment -%} Pricing {%- endcomment -%}
+        {% assign main_current_price = main_product.price | money %}
+        {% if main_product.compare_at_price > main_product.price %}
+          {% assign main_original_price = main_product.compare_at_price | money %}
+          {% assign savings = main_product.compare_at_price | minus: main_product.price | times: 100 | divided_by: main_product.compare_at_price %}
+          {% assign main_discount = 'SAVE ' | append: savings | append: '%' %}
+        {% else %}
+          {% assign main_original_price = '' %}
+          {% assign main_discount = '' %}
+        {% endif %}
+      {% else %}
+        {% assign main_title = 'Brightlink Pro Spectrum 217"' %}
+        {% assign main_desc = '8.2M Pixels | 1.25mm Pitch | Full 4K' %}
+        {% assign main_current_price = '$149,000' %}
+        {% assign main_original_price = '$179,000' %}
+        {% assign main_discount = 'SAVE 17%' %}
+      {% endif %}
+      <div class="investment-config__card">
+        <div class="investment-config__card-upper">
+          <div class="investment-config__card-upper-frame">
+            <div class="investment-config__product-frame">
+              <div class="investment-config__product-info">
+                <span class="investment-config__card-label">{{ section.settings.card_label | default: 'COMPLETE SYSTEM' }}</span>
+                <h3 class="investment-config__product-name">{{ main_title }}</h3>
+                <p class="investment-config__product-specs">{{ main_desc }}</p>
+              </div>
+            </div>
+            {% if main_original_price != '' %}
+            <div class="investment-config__price-row">
+              <span class="investment-config__original-price">{{ main_original_price }}</span>
+              <span class="investment-config__discount-badge">{{ main_discount }}</span>
+            </div>
+            {% endif %}
+            <div class="investment-config__current-price">{{ main_current_price }}</div>
+          </div>
+          <p class="investment-config__price-note">{{ section.settings.price_note | default: 'USD | Shipping: 10-12 weeks' }}</p>
+        </div>
+
+        <div class="investment-config__card-lower">
+          <div class="investment-config__includes">
+            <h4 class="investment-config__includes-title">{{ section.settings.includes_title | default: 'Complete System Includes:' }}</h4>
+          <div class="investment-config__includes-grid">
+            <div class="investment-config__includes-col">
+              {% if section.settings.include_1 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_1 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_2 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_2 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_3 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_3 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_4 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_4 }}</span>
+                </div>
+              {% endif %}
+            </div>
+            <div class="investment-config__includes-col">
+              {% if section.settings.include_5 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_5 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_6 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_6 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_7 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_7 }}</span>
+                </div>
+              {% endif %}
+              {% if section.settings.include_8 != blank %}
+                <div class="investment-config__include-item">
+                  <svg class="investment-config__check-icon" xmlns="http://www.w3.org/2000/svg" width="17" height="13" viewBox="0 0 17 13" fill="none">
+                    <path d="M16.6443 0.355708C17.1186 0.829985 17.1186 1.60021 16.6443 2.07449L6.93109 11.7877C6.45681 12.262 5.68659 12.262 5.21231 11.7877L0.355708 6.93109C-0.118569 6.45681 -0.118569 5.68659 0.355708 5.21231C0.829985 4.73803 1.60021 4.73803 2.07449 5.21231L6.0736 9.20762L14.9293 0.355708C15.4036 -0.118569 16.1738 -0.118569 16.6481 0.355708H16.6443Z" fill="#0A84FF"/>
+                  </svg>
+                  <span>{{ section.settings.include_8 }}</span>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+          </div>
+
+          <div class="investment-config__buttons">
+            <a href="{{ section.settings.primary_button_link | default: '#' }}" class="investment-config__btn investment-config__btn--primary">
+              {{ section.settings.primary_button_text | default: 'CALCULATE MY PROJECT' }}
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" viewBox="0 0 14 12" fill="none">
+                <path d="M13.707 6.70897C14.0977 6.31832 14.0977 5.68391 13.707 5.29326L8.70674 0.292985C8.31609 -0.0976617 7.68168 -0.0976617 7.29103 0.292985C6.90038 0.683632 6.90038 1.31804 7.29103 1.70869L10.5881 5.00262H1.00006C0.4469 5.00262 0 5.44952 0 6.00268C0 6.55583 0.4469 7.00273 1.00006 7.00273H10.585L7.29416 10.2967C6.90351 10.6873 6.90351 11.3217 7.29416 11.7124C7.6848 12.103 8.31921 12.103 8.70986 11.7124L13.7101 6.71209L13.707 6.70897Z" fill="#0A84FF"/>
+              </svg>
+            </a>
+            <a href="{{ section.settings.secondary_button_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="investment-config__btn investment-config__btn--secondary">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none">
+                <path d="M4.75 0.75C4.75 0.334375 4.41563 0 4 0C3.58437 0 3.25 0.334375 3.25 0.75V2H2C0.896875 2 0 2.89687 0 4V4.5V6V14C0 15.1031 0.896875 16 2 16H12C13.1031 16 14 15.1031 14 14V6V4.5V4C14 2.89687 13.1031 2 12 2H10.75V0.75C10.75 0.334375 10.4156 0 10 0C9.58438 0 9.25 0.334375 9.25 0.75V2H4.75V0.75ZM1.5 6H12.5V14C12.5 14.275 12.275 14.5 12 14.5H2C1.725 14.5 1.5 14.275 1.5 14V6Z" fill="white"/>
+              </svg>
+              {{ section.settings.secondary_button_text | default: 'SCHEDULE CONSULTATION' }}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Side - Add-on Cards -->
+      <div class="investment-config__addons">
+        <!-- Add-on Card 1: Vacuum Tool -->
+        {% assign addon1 = section.settings.addon1_product %}
+        {% if addon1 %}
+          {% assign addon1_title = addon1.title %}
+          {% assign addon1_desc = addon1.description | strip_html | truncate: 120 %}
+          {% assign addon1_price = addon1.price | money %}
+        {% else %}
+          {% assign addon1_title = 'BL-VT PRO VACUUM TOOL' %}
+          {% assign addon1_desc = 'Professional LED vacuum tool for front maintenance and module replacement. Essential for service teams.' %}
+          {% assign addon1_price = '$249' %}
+        {% endif %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <path d="M4.07411 2.12946L0 10.2857H16.7143V0H7.52946C6.06696 0 4.73304 0.827679 4.07411 2.12946ZM19.2857 10.2857H36L31.9259 2.12946C31.267 0.827679 29.933 0 28.4705 0H19.2857V10.2857ZM36 12.8571H0V30.8571C0 33.6937 2.30625 36 5.14286 36H30.8571C33.6937 36 36 33.6937 36 30.8571V12.8571Z" fill="#0A84FF"/>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ addon1_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ addon1_desc }}</p>
+              </div>
+              <span class="investment-config__addon-price">{{ addon1_price }}</span>
+            </div>
+            {% if addon1 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon1.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon1_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
+          </div>
+
+        <!-- Add-on Card 2: Extended Warranty -->
+        {% assign addon2 = section.settings.addon2_product %}
+        {% if addon2 %}
+          {% assign addon2_title = addon2.title %}
+          {% assign addon2_desc = addon2.description | strip_html | truncate: 120 %}
+          {% assign addon2_price = addon2.price | money %}
+        {% else %}
+          {% assign addon2_title = 'EXTENDED WARRANTY' %}
+          {% assign addon2_desc = 'Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.' %}
+          {% assign addon2_price = '$4,500' %}
+        {% endif %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="34" height="36" viewBox="0 0 34 36" fill="none">
+                      <path d="M16.9678 0C17.293 0 17.6183 0.0706991 17.9152 0.205027L31.2278 5.85389C32.7832 6.51139 33.9427 8.04556 33.9356 9.89788C33.9003 16.9112 31.0157 29.7431 18.8343 35.5758C17.6536 36.1414 16.282 36.1414 15.1014 35.5758C2.91991 29.7431 0.0353817 16.9112 3.21574e-05 9.89788C-0.00703776 8.04556 1.15243 6.51139 2.70781 5.85389L16.0275 0.205027C16.3174 0.0706991 16.6426 0 16.9678 0ZM16.9678 4.7227V31.447C26.7243 26.7243 29.3472 16.2679 29.4109 9.99686L16.9678 4.7227Z" fill="#0A84FF"/>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ addon2_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ addon2_desc }}</p>
+              </div>
+              <span class="investment-config__addon-price">{{ addon2_price }}</span>
+            </div>
+            {% if addon2 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon2.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon2_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
+          </div>
+
+        <!-- Add-on Card 3: Spare Module Kit -->
+        {% assign addon3 = section.settings.addon3_product %}
+        {% if addon3 %}
+          {% assign addon3_title = addon3.title %}
+          {% assign addon3_desc = addon3.description | strip_html | truncate: 120 %}
+          {% assign addon3_price = addon3.price | money %}
+        {% else %}
+          {% assign addon3_title = 'SPARE MODULE KIT' %}
+          {% assign addon3_desc = 'Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.' %}
+          {% assign addon3_price = '$8,900' %}
+        {% endif %}
+          <div class="investment-config__addon-card">
+            <div class="investment-config__addon-content">
+              <div class="investment-config__addon-upper">
+                <div class="investment-config__addon-frame">
+                  <div class="investment-config__addon-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                      <path d="M4.07411 2.12946L0 10.2857H16.7143V0H7.52946C6.06696 0 4.73304 0.827679 4.07411 2.12946ZM19.2857 10.2857H36L31.9259 2.12946C31.267 0.827679 29.933 0 28.4705 0H19.2857V10.2857ZM36 12.8571H0V30.8571C0 33.6937 2.30625 36 5.14286 36H30.8571C33.6937 36 36 33.6937 36 30.8571V12.8571Z" fill="#0A84FF"/>
+                    </svg>
+                  </div>
+                  <h4 class="investment-config__addon-title">{{ addon3_title }}</h4>
+                </div>
+                <p class="investment-config__addon-desc">{{ addon3_desc }}</p>
+              </div>
+              <span class="investment-config__addon-price">{{ addon3_price }}</span>
+            </div>
+            {% if addon3 %}
+              <button type="button" class="investment-config__addon-btn js-section-add-to-cart" data-variant-id="{{ addon3.selected_or_first_available_variant.id }}">
+                {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% else %}
+              <button type="button" class="investment-config__addon-btn" disabled>
+                {{ section.settings.addon3_btn_text | default: 'ADD TO ORDER' }}
+              </button>
+            {% endif %}
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Investment Config",
+  "tag": "section",
+  "class": "investment-config-section",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "INVESTMENT"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Configure Your System"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Transparent pricing for professional installations"
+    },
+    {
+      "type": "header",
+      "content": "Product Card"
+    },
+    {
+      "type": "text",
+      "id": "card_label",
+      "label": "Card Label",
+      "default": "COMPLETE SYSTEM"
+    },
+    {
+      "type": "text",
+      "id": "price_note",
+      "label": "Price Note",
+      "default": "USD | Shipping: 10-12 weeks"
+    },
+    {
+      "type": "header",
+      "content": "System Includes"
+    },
+    {
+      "type": "text",
+      "id": "includes_title",
+      "label": "Includes Section Title",
+      "default": "Complete System Includes:"
+    },
+    {
+      "type": "text",
+      "id": "include_1",
+      "label": "Include Item 1",
+      "default": "64 premium cabinets (8×8 array)"
+    },
+    {
+      "type": "text",
+      "id": "include_2",
+      "label": "Include Item 2",
+      "default": "Complete cable package + spares"
+    },
+    {
+      "type": "text",
+      "id": "include_3",
+      "label": "Include Item 3",
+      "default": "Service tools (suction + vacuum)"
+    },
+    {
+      "type": "text",
+      "id": "include_4",
+      "label": "Include Item 4",
+      "default": "4-year comprehensive warranty"
+    },
+    {
+      "type": "text",
+      "id": "include_5",
+      "label": "Include Item 5",
+      "default": "NovaStar H2 controller ($8,500 value)"
+    },
+    {
+      "type": "text",
+      "id": "include_6",
+      "label": "Include Item 6",
+      "default": "Professional mounting system"
+    },
+    {
+      "type": "text",
+      "id": "include_7",
+      "label": "Include Item 7",
+      "default": "5% spare modules included"
+    },
+    {
+      "type": "text",
+      "id": "include_8",
+      "label": "Include Item 8",
+      "default": "Lifetime technical support"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary Button Text",
+      "default": "CALCULATE MY PROJECT"
+    },
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_button_text",
+      "label": "Secondary Button Text",
+      "default": "SCHEDULE CONSULTATION"
+    },
+    {
+      "type": "url",
+      "id": "secondary_button_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 1: Vacuum Tool"
+    },
+    {
+      "type": "text",
+      "id": "addon1_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "product",
+      "id": "addon1_product",
+      "label": "Select Product for Add to Cart"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 2: Extended Warranty"
+    },
+    {
+      "type": "text",
+      "id": "addon2_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "product",
+      "id": "addon2_product",
+      "label": "Select Product for Add to Cart"
+    },
+    {
+      "type": "header",
+      "content": "Add-on 3: Spare Module Kit"
+    },
+    {
+      "type": "text",
+      "id": "addon3_btn_text",
+      "label": "Button Text",
+      "default": "ADD TO ORDER"
+    },
+    {
+      "type": "product",
+      "id": "addon3_product",
+      "label": "Select Product for Add to Cart"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Investment Config"
+    }
+  ]
+}
+{% endschema %}

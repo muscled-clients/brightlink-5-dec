@@ -1,0 +1,229 @@
+.feature-badges {
+  position: relative;
+  margin-bottom: 120px;
+  padding: 0;
+ background: rgba(0, 0, 0, 0.00);
+
+}
+
+@media screen and (max-width: 768px) {
+  .feature-badges {
+    margin-bottom: 50px;
+  }
+}
+
+.feature-badges__container {
+  position: relative;
+  z-index: 1;
+  width: 1280px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 120px 60px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  box-sizing: border-box;
+}
+
+.feature-badges__wrapper {
+  display: contents;
+}
+
+.feature-badges__grid {
+  display: flex;
+  width: 1280px;
+  max-width: 100%;
+  padding: 40px 0;
+  align-items: center;
+  gap: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.00);
+}
+
+.feature-badges__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 19px;
+  flex: 1 0 0;
+  padding: 40px;
+  border-radius: 10px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.feature-badges__item:hover {
+  background: rgba(15, 23, 42, 0.8);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 40px rgba(10, 132, 255, 0.25),
+    0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.feature-badges__item:hover .feature-badges__icon {
+  color: #0A84FF;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.feature-badges__item:hover .feature-badges__title {
+  color: #0A84FF;
+  text-shadow: 0 0 20px rgba(10, 132, 255, 0.5);
+}
+
+.feature-badges__item:hover .feature-badges__text {
+  color: #0A84FF;
+}
+
+.feature-badges__icon {
+  display: flex;
+  width: 48px;
+  padding: 12px 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 26px;
+  background: rgba(212, 175, 55, 0.20);
+  color: #D4AF37;
+  box-sizing: border-box;
+  transition: color 0.4s ease, background 0.4s ease;
+}
+
+/* Frame 2: Title + Text */
+.feature-badges__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  align-self: stretch;
+}
+
+.feature-badges__title {
+  height: 28px;
+  align-self: stretch;
+  color: #FFF;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  margin: 0;
+  transition: color 0.4s ease, text-shadow 0.4s ease;
+}
+
+.feature-badges__text {
+  height: 20px;
+  align-self: stretch;
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  transition: color 0.4s ease;
+}
+
+.feature-badges__footer {
+  color: #A0AEC0;
+  text-align: center;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  margin: 0;
+}
+
+/* Hide dots on desktop */
+.feature-badges__dots {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .feature-badges__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feature-badges__container {
+    max-width: calc(100% - 32px);
+    gap: 30px;
+  }
+
+  .feature-badges__wrapper {
+    display: block;
+    position: relative;
+  }
+
+  .feature-badges__grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 0;
+    padding: 30px 0 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 0;
+  }
+
+  .feature-badges__grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .feature-badges__item {
+    flex: 0 0 100%;
+    scroll-snap-align: center;
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Show dots on mobile */
+  .feature-badges__dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    border-radius: 30px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .feature-badges__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.35);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .feature-badges__dot--active {
+    background: #3b82f6;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-badges__container {
+    max-width: calc(100% - 24px);
+  }
+
+  .feature-badges__footer {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}

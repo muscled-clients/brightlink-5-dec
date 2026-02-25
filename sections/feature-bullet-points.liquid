@@ -1,0 +1,339 @@
+{% if product.metafields.custom.section_feature_bullet_points.value.bullet_point_1 == blank %}
+	<style>
+		#shopify-section-{{ section.id }} {
+			display: none;
+		}
+	</style>
+{% endif %}
+
+<style>
+#section--{{ section.id }} .bullet-and-explanation-z {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+#section--{{ section.id }}  .features-z {
+  	align-self: stretch;
+  	position: relative;
+}
+#section--{{ section.id }} .frame-child-z {
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #000;
+  	width: 10px;
+  	height: 10px;
+}
+#section--{{ section.id }} .support-edid-management-z {
+  	position: relative;
+}
+#section--{{ section.id }} .ellipse-parent-z {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .frame-group-z {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #636363;
+}
+#section--{{ section.id }} .features-parent-z {
+  	background-color: #f9f9fa;
+  	max-width: 900px;
+    width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 35px 0px;
+  	box-sizing: border-box;
+  	gap: 50px;
+    margin:auto;
+}
+#section--{{ section.id }} .my-feature-image-z {
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+#section--{{ section.id }} .rectangle-icon-z {
+  	position: relative;
+  	max-width: 450px;
+    width: 450px;
+ /* 	height: 350px;  */
+}
+#section--{{ section.id }} .rectangle-parent-z {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 20px;
+}
+#section--{{ section.id }} .frame-container-z {
+  	display: flex;
+  	flex-direction: row;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+}
+#section--{{ section.id }} .frame-wrapper-z {
+  	background-color: #f9f9fa;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	padding: 40px 0px;
+  	box-sizing: border-box;
+  	text-align: left;
+  	font-size: 16px;
+  	color: #000;
+    max-width: 900px;
+}
+#section--{{ section.id }}.frame-parent-z {
+  	position: relative;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: center;
+  	text-align: center;
+  	font-size: 32px;
+  	color: #333;
+  	font-family: Montserrat;
+    background-color: #f9f9fa;
+}
+
+
+@media screen and (max-width:768px) {
+  #section--{{ section.id }} .bullet-and-explanation-z {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+}
+#section--{{ section.id }}  .features-z {
+  	align-self: stretch;
+  	position: relative;
+}
+#section--{{ section.id }} .frame-child-z {
+  	position: relative;
+  	border-radius: 50%;
+  	background-color: #000;
+  	width: 10px;
+  	height: 10px;
+}
+#section--{{ section.id }} .support-edid-management-z {
+  	position: relative;
+    width:100%;
+}
+#section--{{ section.id }} .ellipse-parent-z {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .frame-group-z {
+  	align-self: stretch;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	gap: 24px;
+  	text-align: left;
+  	font-size: 14px;
+  	color: #636363;
+}
+#section--{{ section.id }} .features-parent-z {
+  	background-color: white;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	padding: 35px 20px;
+  	box-sizing: border-box;
+  	gap: 50px;
+}
+#section--{{ section.id }} .my-feature-image-z {
+  width:100%;
+  height:auto;
+  object-fit:cover;
+}
+#section--{{ section.id }} .rectangle-icon-z {
+  	position: relative;
+  	max-width: 335px;
+    width: 335px;
+ /* 	height: 350px;  */
+}
+#section--{{ section.id }} .rectangle-parent-z {
+  	display: flex;
+  	flex-direction: column;
+  	align-items: center;
+  	justify-content: flex-start;
+  	gap: 10px;
+}
+#section--{{ section.id }} .frame-container-z {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+#section--{{ section.id }} .frame-wrapper-z {
+  	background-color: white;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    text-align: center;
+  	font-size: 14px;
+  	color: #000;
+}
+#section--{{ section.id }}.frame-parent-z {
+  	position: relative;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  	align-items: flex-start;
+  	justify-content: flex-start;
+  	text-align: center;
+  	font-size: 27.2px;
+  	color: #333;
+  	font-family: Montserrat;
+}
+}
+
+</style>
+
+
+
+
+  	<div id="section--{{ section.id }}" class="frame-parent-z">
+    		<div class="features-parent-z">
+      			<div class="features-z">Features</div>
+      			<div class="frame-group-z">
+
+				{% assign metaobject = product.metafields.custom.section_feature_bullet_points.value %}
+        				<div class="ellipse-parent-z">
+						{% if metaobject.bullet_point_1 != blank %}
+                          <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_1 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_2 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_2 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_3 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_3 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_4 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_4 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_5 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_5 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_6 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_6 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_7 != blank %}
+                          <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_7 }}</div>
+                          </div>
+						{% endif %}
+						{% if metaobject.bullet_point_8 != blank %}
+                            <div class="bullet-and-explanation-z">
+                            <div class="frame-child-z">
+          					</div>
+          					<div class="support-edid-management-z">{{ metaobject.bullet_point_8 }}</div>
+                          </div>
+						{% endif %}
+          					
+                            
+        				</div>
+                    
+
+      			</div>
+    		</div>
+			{% if metaobject.image_1 != blank or metaobject.image_2 != blank %}
+    		<div class="frame-wrapper-z">
+      			<div class="frame-container-z">
+
+        				<div class="rectangle-parent-z">
+                          <div class="rectangle-icon-z">
+                            <img class="my-feature-image-z" alt="" src="{{ metaobject.image_1 | img_url:"450x" }}">
+                          </div>
+          					
+          					<div class="support-edid-management-z">{{ metaobject.image_1_title }}</div>
+        				</div>
+                        <div class="rectangle-parent-z">
+                          <div class="rectangle-icon-z">
+                            <img class="my-feature-image-z" alt="" src="{{ metaobject.image_2 | img_url:"450x" }}">
+                          </div>
+          					
+          					<div class="support-edid-management-z">{{ metaobject.image_2_title }}</div>
+        				</div>
+
+        				
+      			</div>
+    		</div>
+		{% endif %}
+  	</div>
+
+
+
+
+
+
+{% schema %}
+  {
+    "name": "feature-bullet-points",
+    "presets":[
+      {
+        "name":"feature-bullet-points"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
