@@ -615,11 +615,13 @@
     text-align: left;
   }
 
-  .pd-specs-table__value {
+  .pd-specs-table__value,
+  .pd-specs-table__value:nth-child(2),
+  .pd-specs-table__value:last-child {
     font-size: 13px;
     word-break: break-word;
     text-align: right;
-    padding-right: 0;
+    padding-right: 8px;
   }
 }
 
