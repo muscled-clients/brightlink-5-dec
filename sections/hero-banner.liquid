@@ -6,19 +6,18 @@
   }
  #shopify-section-{{ section.id }} .d5-video-banner{
     width: 100%;
-    height: 650px;
+    height: 550px;
     position: relative;
-    overflow: hidden;
+    margin-bottom: 100px;
   }
-  #shopify-section-{{ section.id }} .overlay-video-d5{
+  .overlay-video-d5{
     display: block;
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.65) 58%, rgba(0, 0, 0, 0.85) 100%);
-    z-index: 1;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 40.03%, rgba(0, 0, 0, 0.63) 61.02%, rgba(0, 0, 0, 0.70) 100%);
   }
  #shopify-section-{{ section.id }} .d5-video-padding{
     display: flex;
@@ -26,9 +25,7 @@
     justify-content: flex-start;
     width: 100%;
     height: 100%;
-    padding: 0 80px;
-    position: relative;
-    z-index: 2;
+    padding: 0 40px;
   }
  #shopify-section-{{ section.id }} .d5-video-tag{
     position: absolute;
@@ -37,76 +34,47 @@
     top: 0;
     left: 0;
   }
- #shopify-section-{{ section.id }} .d5-video-tag img,
- #shopify-section-{{ section.id }} .d5-video-tag video{
+ #shopify-section-{{ section.id }} .d5-video-tag video, #shopify-section-{{ section.id }} .d5-video-tag img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
   }
  #shopify-section-{{ section.id }} .d5-video-content{
-    max-width: 640px;
+    max-width: 637px;
     position: relative;
-  }
-#shopify-section-{{ section.id }} .d5-video-content .tagline-d5 {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 6px 14px;
-  margin-bottom: 16px;
-  color: #D4AF37;
-  font-family: "Inter", "Open Sans", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-  text-transform: uppercase;
-  border: 1px solid #D4AF37;
-  border-radius: 999px;
-  background: transparent;
-}
-
- #shopify-section-{{ section.id }} .d5-video-content .heading-d5{
-    color: #FFFFFF;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 64px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
+    zindex: 1;
   }
  #shopify-section-{{ section.id }} .d5-video-content .subtext-d5{
-    color: #D1D5DB;
-    font-family: "Inter", "Open Sans", sans-serif;
+    color: #FFF;
+    font-family: "Open Sans";
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 24px;
-    margin-top: 16px;
-    max-width: 520px;
+    line-height: normal;
+    margin-bottom: 16px;
+  }
+ #shopify-section-{{ section.id }} .d5-video-content .heading-d5{
+    color: #FFF;
+    font-family: "Open Sans";
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
   }
  #shopify-section-{{ section.id }} .d5-video-content .banner-atc-d5{
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #FFFFFF;
+    display: block;
+    color: #FFF;
     text-align: center;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 16px;
+    font-family: "Open Sans";
+    font-size: 15px;
     font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    padding: 24px 80px;
-    background: #006AD4;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 132, 255, 0.30);
+    font-weight: 700;
+    line-height: normal;
+    padding: 14px 48px;
+    background: #4190D2;
     width: max-content;
     margin-top: 32px;
-  }
-  #shopify-section-{{ section.id }} .d5-video-content .banner-atc-d5 img{
-    width: 18px;
-    height: 18px;
-    display: block;
   }
   @media (max-width: 768px){
   #shopify-section-{{ section.id }} .d5-video-content{
@@ -114,23 +82,22 @@
   }
   #shopify-section-{{ section.id }} .d5-video-banner{
     height: auto;
-    min-height: 520px;
   }  
   #shopify-section-{{ section.id }} .d5-video-padding{
     padding: 54px 20px 57px;
   }
   #shopify-section-{{ section.id }} .overlay-video-d5{
-    background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.72) 58%, rgba(0, 0, 0, 0.85) 100%);
-  }
-  #shopify-section-{{ section.id }} .d5-video-content .heading-d5{
-    font-size: 36px;
+    background: linear-gradient(270deg, rgba(0, 0, 0, 0.00) 40.03%, rgba(0, 0, 0, 0.72) 61.02%, rgba(0, 0, 0, 0.80) 100%);
   }
   #shopify-section-{{ section.id }} .d5-video-content .subtext-d5{
     font-size: 14px;   
-    line-height: 22px;
+    margin-bottom: 10px;
+  }
+  #shopify-section-{{ section.id }} .d5-video-content .heading-d5{
+    font-size: 32px;
   }
   #shopify-section-{{ section.id }} .d5-video-content .banner-atc-d5{
-    padding: 16px 40px;
+    padding: 12px 32px;
     margin-top: 24px;
   }
   @media (max-width: 380px) {
@@ -143,112 +110,66 @@
 </style>
 
 <div class="d5-video-banner">
-  <div class="d5-video-tag">
-    {%- if section.settings.background_type == 'video' and section.settings.video_url != blank -%}
-      {%- comment -%}Autoplay muted looping background video{%- endcomment -%}
-      <video
-        id="hero-video-{{ section.id }}"
-        src="{{ section.settings.video_url }}"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-        poster="{% if section.settings.video_fallback != blank %}{{ section.settings.video_fallback | image_url: width: 2000 }}{% endif %}"
-        aria-hidden="true">
-      </video>
-      {%- if section.settings.video_fallback != blank -%}
-        <noscript>
-          <img src="{{ section.settings.video_fallback | image_url: width: 2000 }}" alt="{{ section.settings.video_fallback.alt | escape }}">
-        </noscript>
-      {%- endif -%}
-    {%- elsif section.settings.background_image != blank -%}
-      <img src="{{ section.settings.background_image | image_url: width: 2000 }}" alt="{{ section.settings.background_image.alt | escape }}">
-    {%- endif -%}
-  </div>
-  <div class="overlay-video-d5"></div>
   <div class="d5-video-padding">
+    <div class="d5-video-tag">
+     {{ section.settings.video | video_tag: autoplay: "true", loop: "true", muted: "true", playsinline: "true" }}
+      <!-- <img id="fallback-image-d5" src="{{ section.settings.poster | image_url: width: '1440px' }}"> -->
+    </div>
+    <div class="overlay-video-d5"></div>
     <div class="d5-video-content">
-      <p class="tagline-d5">{{ section.settings.tagline }}</p>
-      <p class="heading-d5">{{ section.settings.heading }}</p>
       <p class="subtext-d5">{{ section.settings.subtext }}</p>
-      <a class="banner-atc-d5" href="{{ section.settings.btn-url }}">
-        <span>{{ section.settings.btn-txt }}</span>
-        {% if section.settings.btn_arrow != blank %}
-          <img src="{{ section.settings.btn_arrow | image_url: width: 36 }}" alt="{{ section.settings.btn_arrow.alt | escape }}">
-        {% endif %}
-      </a>
+      <p class="heading-d5">{{ section.settings.heading }}</p>
+      <a class="banner-atc-d5" href="{{ section.settings.btn-url }}">{{ section.settings.btn-txt }}</a>
     </div>
   </div>
 </div>
-<script>
-  (function () {
-    var video = document.getElementById('hero-video-{{ section.id }}');
-    if (!video) return;
-    // Make sure autoplay fires even after Shopify Theme Editor re-renders
-    video.play().catch(function () {});
-  })();
-</script>
+<!-- <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const video = document.querySelector('.d5-video-tag video');
+    const fallbackImage = document.getElementById('fallback-image-d5');
+    
+    if (video) {
+      video.style.display = 'none'; // Initially hide the video
+      
+      video.addEventListener('canplaythrough', function () {
+        fallbackImage.style.display = 'none'; // Hide fallback image once video is fully loaded
+        video.style.display = 'block'; // Display video once fully loaded
+      });
+    }
+  });
+
+</script> -->
 {% schema %}
   {
     "name": "Hero Banner",
     "settings": [
       {
-        "type": "select",
-        "id": "background_type",
-        "label": "Background type",
-        "options": [
-          { "value": "image", "label": "Image" },
-          { "value": "video", "label": "Video" }
-        ],
-        "default": "image"
+        "type": "video",
+        "id": "video",
+        "label": "Video"
       },
       {
         "type": "image_picker",
-        "id": "background_image",
-        "label": "Background image",
-        "info": "Used when background type is set to Image"
-      },
-      {
-        "type": "text",
-        "id": "video_url",
-        "label": "Background video URL (.mp4)",
-        "info": "Upload your video to Shopify Files (Settings → Files) and paste the URL here. Used when background type is set to Video."
-      },
-      {
-        "type": "image_picker",
-        "id": "video_fallback",
-        "label": "Video fallback image",
-        "info": "Shown while the video loads or on devices that block autoplay"
-      },
-      {
-        "type": "text",
-        "id": "tagline",
-        "label": "Tagline",
-        "default": "Lorem ipsum dolor"
+        "id": "poster",
+        "label": "Poster Image"
       },
       {
         "type": "text",
         "id": "subtext",
         "label": "Subtext Text",
-        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer facilisis ex vitae metus porttitor, amet tempus lorem pulvinar consectetur adipiscing elit."
+        "default": "Brightlink Interactive Displays"
       },
       {
         "type": "liquid",
         "id": "heading",
         "label": "Heading",
-        "default": "High-Performance LED Video Walls"
+        "default": "Transforming Spaces With Stunning LED Video Walls"
       },
       {
         "type": "text",
         "id": "btn-txt",
         "label": "Button Label",
-        "default": "Order Now"
-      },
-      {
-        "type": "image_picker",
-        "id": "btn_arrow",
-        "label": "Button Arrow Image"
+        "default": "Shop Now"
       },
       {
         "type": "url",

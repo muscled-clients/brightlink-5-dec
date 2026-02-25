@@ -1,319 +1,345 @@
-<style>
-  #shopify-section-{{ section.id }} .featured-products {
-    position: relative;
-    padding: 120px 0;
-    color: #FFFFFF;
-  }
-  #shopify-section-{{ section.id }} .featured-products__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: #0A0E1A;
-  }
-  #shopify-section-{{ section.id }} .featured-products__bg-image {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-  }
-  #shopify-section-{{ section.id }} .featured-products__bg-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(10, 14, 26, 0.9) 0%, rgba(10, 14, 26, 0.8) 100%);
-  }
-  #shopify-section-{{ section.id }} .featured-products__container {
-    position: relative;
-    z-index: 1;
-    {% comment %} max-width: 1440px; {% endcomment %}
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    {% comment %} flex-direction: column; {% endcomment %}
-    {% comment %} gap: 40px; {% endcomment %}
-  display: flex;
-width: 1350px;
-flex-direction: column;
-justify-content: center;
-{% comment %} align-items: center; {% endcomment %}
-gap: 120px;
-  }
+{%- capture section_settings -%}
+{
+  "autoPlay": {{ section.settings.autoplay | json }},
+  "prevNextButtons": false,
+  "pageDots": {% if section.blocks.size > 1 %}true{% else %}false{% endif %},
+  "setGallerySize": {% if section.settings.section_size == 'preserve_ratio' %}true{% else %}false{% endif %},
+  "adaptiveHeight": {% if section.settings.section_size == 'preserve_ratio' %}true{% else %}false{% endif %},
+  "transitionEffect": {{ section.settings.carousel_effect | json }},
+  "cycleSpeed": {{ section.settings.cycle_speed | times: 1000 | json }}
+}
+{%- endcapture -%}
 
-  #shopify-section-{{ section.id }} .featured-products__eyebrow {
-    display: inline-flex;
-    align-items: center;
-    color: #D4AF37;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.7px;
-    text-transform: uppercase;
-  }
-  #shopify-section-{{ section.id }} .featured-products__title {
-    color: #FFFFFF;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 48px;
-    font-weight: 700;
-    letter-spacing: -2px;
-    margin-top: 8px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 24px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__controls {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin-top: 8px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__nav {
-    width: 40px;
-    height: 40px;
-    border-radius: 999px;
-    border: 1px solid rgba(10, 132, 255, 0.25);
-    background: #0A0E1A;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 0;
-    
-  }
-  #shopify-section-{{ section.id }} .featured-products__nav img {
-    width: 40px;
-    height: 40px;
-    display: block;
-  }
-  #shopify-section-{{ section.id }} .featured-products__viewport {
-    overflow: hidden;
-  }
-  #shopify-section-{{ section.id }} .featured-products__track {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
-    padding-bottom: 4px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__track::-webkit-scrollbar {
-    display: none;
-  }
-  #shopify-section-{{ section.id }} .featured-products__card {
-    flex: 0 0 240px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 16px;
-    border-radius: 8px;
-    border: 1px solid rgba(10, 132, 255, 0.25);
-    background: #0A0E1A;
-    color: #FFFFFF;
-    text-decoration: none;
-    scroll-snap-align: start;
-  }
-  #shopify-section-{{ section.id }} .featured-products__image {
-    width: 100%;
-    padding: 16px;
-    border-radius: 6px;
-    background: #FFFFFF;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 140px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__image img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-  }
-  #shopify-section-{{ section.id }} .featured-products__card-title {
-    color: #FFFFFF;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-  }
-  #shopify-section-{{ section.id }} .featured-products__card-desc {
-    color: #A0AEC0;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 18px;
-  }
-  #shopify-section-{{ section.id }} .featured-products__card-price {
-    color: #FFFFFF;
-    font-family: "Inter", "Open Sans", sans-serif;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal;
-  }
-  @media (max-width: 900px) {
-    #shopify-section-{{ section.id }} .featured-products {
-      padding: 80px 0;
-    }
-    #shopify-section-{{ section.id }} .featured-products__title {
-      font-size: 36px;
-      letter-spacing: -1px;
-    }
-    #shopify-section-{{ section.id }} .featured-products__header {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  }
-  @media (max-width: 600px) {
-    #shopify-section-{{ section.id }} .featured-products__card {
-      flex-basis: 220px;
-    }
-  }
-</style>
+<section class="section_{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="slideshow" data-section-settings='{{ section_settings }}'>
+  <div {% unless section.settings.edge_to_edge %}class="container container--flush"{% endunless %}>
+    <div class="slideshow slideshow--{{ section.settings.section_size | replace: '_', '-' }} {% if section.settings.edge_to_edge %}slideshow--edge2edge{% endif %}" style="color: {{ section.blocks.first.settings.text_color }}">
+      {%- for block in section.blocks -%}
+        {%- if block.settings.mobile_image -%}
+          {%- capture mobile_size -%}{{ block.settings.mobile_image.width | at_most: 600 }}x{{ block.settings.mobile_image.height | at_most: 800 }}{%- endcapture -%}
+          {%- capture bgset -%}{{ block.settings.mobile_image | img_url: mobile_size, crop: 'center' }} [--phone] | {{ block.settings.image | img_url: '800x' }} 800w, {{ block.settings.image | img_url: '1000x' }} 1000w, {{ block.settings.image | img_url: '1200x' }} 1200w, {{ block.settings.image | img_url: '1400x' }} 1400w, {{ block.settings.image | img_url: '1600x' }} 1600w, {{ block.settings.image | img_url: '1800x' }} 1800w{%- endcapture -%}
+        {%- else -%}
+          {%- capture mobile_size -%}{{ block.settings.image.width | at_most: 600 }}x{{ block.settings.image.height | at_most: 800 }}{%- endcapture -%}
+          {%- capture bgset -%}{{ block.settings.image | img_url: mobile_size, crop: 'center' }} [--phone] | {{ block.settings.image | img_url: '800x' }} 800w, {{ block.settings.image | img_url: '1000x' }} 1000w, {{ block.settings.image | img_url: '1200x' }} 1200w, {{ block.settings.image | img_url: '1400x' }} 1400w, {{ block.settings.image | img_url: '1600x' }} 1600w, {{ block.settings.image | img_url: '1800x' }} 1800w{%- endcapture -%}
+        {%- endif -%}
 
-<section class="featured-products" data-section-id="{{ section.id }}">
-  <div class="featured-products__bg">
-    {% if section.settings.background_image != blank %}
-      <img class="featured-products__bg-image" src="{{ section.settings.background_image | image_url: width: 2200 }}" alt="{{ section.settings.background_image.alt | escape }}">
-    {% endif %}
-    <div class="featured-products__bg-overlay"></div>
-  </div>
-  <div class="featured-products__container">
-    <div class="featured-products__header">
-      <div>
-        <span class="featured-products__eyebrow">{{ section.settings.eyebrow }}</span>
-        <h2 class="featured-products__title">{{ section.settings.title }}</h2>
-      </div>
-      <div class="featured-products__controls">
-        <button class="featured-products__nav featured-products__nav--prev" type="button" aria-label="Previous">
-          {% if section.settings.arrow_left != blank %}
-            <img src="{{ section.settings.arrow_left | image_url: width: 40 }}" alt="{{ section.settings.arrow_left.alt | escape }}">
-          {% endif %}
-        </button>
-        <button class="featured-products__nav featured-products__nav--next" type="button" aria-label="Next">
-          {% if section.settings.arrow_right != blank %}
-            <img src="{{ section.settings.arrow_right | image_url: width: 40 }}" alt="{{ section.settings.arrow_right.alt | escape }}">
-          {% endif %}
-        </button>
-      </div>
-    </div>
-    <div class="featured-products__viewport">
-      <div class="featured-products__track">
-        {% for block in section.blocks %}
-          <a class="featured-products__card" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
-            <div class="featured-products__image">
-              {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | image_url: width: 400 }}" alt="{{ block.settings.image.alt | escape }}">
-              {% endif %}
-            </div>
-            <div>
-              <div class="featured-products__card-title">{{ block.settings.title }}</div>
-              <div class="featured-products__card-desc">{{ block.settings.description }}</div>
-              <div class="featured-products__card-price">{{ block.settings.price }}</div>
-            </div>
+        {%- capture slide_inner -%}
+          <div class="slideshow__slide-inner slideshow__slide-inner--{{ block.settings.content_position | replace: '_', '-' }} lazyload image--fade-in" {% if block.settings.image and section.settings.section_size != 'preserve_ratio' %}data-bgset="{{ bgset }}" data-sizes="auto"{% endif %}>
+            {%- unless block.settings.image -%}
+              {%- capture placeholder -%}{% cycle 'lifestyle-1', 'lifestyle-2' %}{%- endcapture -%}
+
+              {%- if section.settings.section_size == 'preserve_ratio' -%}
+                {{- placeholder | placeholder_svg_tag: 'slideshow__image-placeholder' -}}
+              {%- else -%}
+                <div class="slideshow__placeholder">
+                  {{- placeholder | placeholder_svg_tag: 'slideshow__image-placeholder' -}}
+                </div>
+              {%- endif -%}
+            {%- endunless -%}
+
+            {%- if block.settings.image and section.settings.section_size == 'preserve_ratio' -%}
+              {%- capture supported_sizes -%}{%- render 'image-size', sizes: '800,900,1000,1100,1200,1300,1400,1600,1800,2000,2200,2400,2600', image: block.settings.image -%}{%- endcapture -%}
+              {%- assign image_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+              <div class="aspect-ratio {% if block.settings.mobile_image %}hidden-phone{% endif %}" style="padding-bottom: {{ 100.0 | divided_by: block.settings.image.aspect_ratio }}%">
+                <img class="slideshow__image lazyload image--fade-in" alt="{{ block.settings.image.alt | escape }}" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto">
+
+                <noscript>
+                  <img src="{{ block.settings.image | img_url: '1200x' }}" alt="{{ block.settings.image.alt | escape }}">
+                </noscript>
+              </div>
+
+              {%- if block.settings.mobile_image -%}
+                {%- capture supported_sizes -%}{%- render 'image-size', sizes: '600,700,800,900,1000,1100,1200', image: block.settings.mobile_image -%}{%- endcapture -%}
+                {%- assign image_url = block.settings.mobile_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+                <div class="aspect-ratio hidden-tablet-and-up" style="padding-bottom: {{ 100.0 | divided_by: block.settings.mobile_image.aspect_ratio }}%">
+                  <img class="slideshow__image lazyload image--fade-in" alt="{{ block.settings.mobile_image.alt | escape }}" data-src="{{ image_url }}" data-widths="[{{ supported_sizes }}]" data-sizes="auto">
+
+                  <noscript>
+                    <img src="{{ block.settings.mobile_image | img_url: '800x' }}" alt="{{ block.settings.mobile_image.alt | escape }}">
+                  </noscript>
+                </div>
+              {%- endif -%}
+            {%- endif -%}
+
+            {%- capture slide_content -%}
+              {%- if block.settings.title != blank -%}
+                <h2 class="slideshow__title heading h1">{{ block.settings.title | newline_to_br }}</h2>
+              {%- endif -%}
+
+              {%- if block.settings.content != blank -%}
+                <p class="slideshow__content">{{ block.settings.content | escape | newline_to_br }}</p>
+              {%- endif -%}
+
+              {%- if block.settings.link != blank and block.settings.button_text != blank -%}
+                <a href="{{ block.settings.link }}" class="slideshow__button button">{{ block.settings.button_text | escape }}</a>
+              {%- endif -%}
+            {%- endcapture -%}
+
+            {%- if slide_content != blank -%}
+              <div class="slideshow__content-wrapper">
+                <div class="container">
+                  {{ slide_content }}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+
+          <style>
+            #block-{{ block.id }} {
+              color: {{ block.settings.text_color }};
+            }
+
+            #block-{{ block.id }} .button {
+              color: {{ block.settings.button_text_color }};
+              background: {{ block.settings.button_background }};
+            }
+
+            #block-{{ block.id }} .button:hover {
+              background: {{ block.settings.button_background | color_modify: 'alpha', 0.8 }};
+            }
+
+            {%- if block.settings.show_overlay -%}
+              #block-{{ block.id }}.slideshow__slide--overlay::before {
+                {%- assign overlay_opacity = block.settings.overlay_opacity | divided_by: 100.0 -%}
+                background: linear-gradient(to bottom, rgba(0, 0, 0, 0), {{ '#000000' | color_modify: 'alpha', overlay_opacity }});
+              }
+            {%- endif -%}
+          </style>
+
+          {%- if block.settings.image and section.settings.section_size != 'preserve_ratio' -%}
+            <noscript>
+              <style>
+                #block-{{ block.id }} .slideshow__slide-inner {
+                  background-image: url({{ block.settings.image | img_url: '1400x' }})
+                }
+              </style>
+            </noscript>
+          {%- endif -%}
+        {%- endcapture -%}
+
+        {%- if block.settings.link != blank and block.settings.button_text == blank -%}
+          <a href="{{ block.settings.link }}" class="slideshow__slide {% if block.settings.show_overlay %}slideshow__slide--overlay{% endif %} {% if forloop.first %}is-selected{% endif %}" id="block-{{ block.id }}" data-block-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            {{- slide_inner -}}
           </a>
-        {% endfor %}
-      </div>
+        {%- else -%}
+          <div class="slideshow__slide {% if block.settings.show_overlay %}slideshow__slide--overlay{% endif %} {% if forloop.first %}is-selected{% endif %}" id="block-{{ block.id }}" data-block-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            {{- slide_inner -}}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
   </div>
 </section>
 
-<script>
-  (function () {
-    var section = document.querySelector('[data-section-id="{{ section.id }}"]');
-    if (!section) return;
-    var track = section.querySelector('.featured-products__track');
-    var prev = section.querySelector('.featured-products__nav--prev');
-    var next = section.querySelector('.featured-products__nav--next');
-    if (!track || !prev || !next) return;
-    var card = track.querySelector('.featured-products__card');
-    var gap = 0;
-    if (window.getComputedStyle) {
-      var styles = window.getComputedStyle(track);
-      gap = parseInt(styles.gap || '0', 10) || 0;
-    }
-    var scrollAmount = (card ? card.offsetWidth : 240) + gap;
-    prev.addEventListener('click', function () {
-      track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    });
-    next.addEventListener('click', function () {
-      track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    });
-  })();
-</script>
-
 {% schema %}
 {
-  "name": "Featured Products",
-  "max_blocks": 10,
+  "name": "Slideshow",
+  "max_blocks": 6,
   "settings": [
     {
-      "type": "image_picker",
-      "id": "background_image",
-      "label": "Background Image"
+      "type": "checkbox",
+      "id": "edge_to_edge",
+      "label": "Full-width",
+      "default": false
     },
     {
-      "type": "text",
-      "id": "eyebrow",
-      "label": "Eyebrow",
-      "default": "Featured Products"
+      "type": "select",
+      "id": "section_size",
+      "label": "Image size",
+      "options": [
+        {
+          "value": "preserve_ratio",
+          "label": "Original image ratio"
+        },
+        {
+          "value": "small",
+          "label": "Small"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "large",
+          "label": "Large"
+        }
+      ],
+      "default": "preserve_ratio"
     },
     {
-      "type": "text",
-      "id": "title",
-      "label": "Title",
-      "default": "Featured Products"
+      "type": "select",
+      "id": "carousel_effect",
+      "label": "Transition effect",
+      "options": [
+        {
+          "value": "fade",
+          "label": "Fade"
+        },
+        {
+          "value": "slide",
+          "label": "Slide"
+        }
+      ],
+      "default": "slide"
     },
     {
-      "type": "image_picker",
-      "id": "arrow_left",
-      "label": "Arrow Left"
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto rotate between slides",
+      "default": true
     },
     {
-      "type": "image_picker",
-      "id": "arrow_right",
-      "label": "Arrow Right"
+      "type": "range",
+      "id": "cycle_speed",
+      "min": 3,
+      "max": 8,
+      "step": 1,
+      "unit": "sec",
+      "label": "Change slides every",
+      "default": 5
     }
   ],
   "blocks": [
     {
-      "type": "product_card",
-      "name": "Product Card",
+      "type": "image",
+      "name": "Slide",
       "settings": [
         {
           "type": "image_picker",
           "id": "image",
-          "label": "Image"
+          "label": "Image",
+          "info": "2160 x 720px .jpg recommended"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image",
+          "info": "750 x 1100px .jpg recommended. If none is set, desktop image will be used."
+        },
+        {
+          "type": "checkbox",
+          "id": "show_overlay",
+          "label": "Show overlay",
+          "info": "Increase text readability on busy images.",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Overlay opacity",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "unit": "%",
+          "default": 30
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#ffffff"
         },
         {
           "type": "text",
           "id": "title",
-          "label": "Title",
-          "default": "Interactive Flat Panel"
+          "label": "Heading",
+          "default": "Slide title"
         },
         {
           "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Brightlink 98\" 4K LG Interactive Display with Stand - Android 11.0 Smart OS - Windows 11 OPS Included - Wireless Screen Mirroring Built-in 4K professional camera - 8-array microphones"
+          "id": "content",
+          "label": "Content",
+          "default": "Tell your story"
+        },
+        {
+          "type": "select",
+          "id": "content_position",
+          "label": "Content position",
+          "info": "On mobile, content is always centered.",
+          "options": [
+            {
+              "value": "top_left",
+              "label": "Top left"
+            },
+            {
+              "value": "top_center",
+              "label": "Top center"
+            },
+            {
+              "value": "top_right",
+              "label": "Top right"
+            },
+            {
+              "value": "middle_left",
+              "label": "Middle left"
+            },
+            {
+              "value": "middle_center",
+              "label": "Middle center"
+            },
+            {
+              "value": "middle_right",
+              "label": "Middle right"
+            },
+            {
+              "value": "bottom_left",
+              "label": "Bottom left"
+            },
+            {
+              "value": "bottom_center",
+              "label": "Bottom center"
+            },
+            {
+              "value": "bottom_right",
+              "label": "Bottom right"
+            }
+          ],
+          "default": "middle_center"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "color",
+          "id": "button_background",
+          "label": "Background",
+          "default": "#ffffff"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Text",
+          "default": "#000000"
         },
         {
           "type": "text",
-          "id": "price",
-          "label": "Price",
-          "default": "$7,997.00"
+          "id": "button_text",
+          "label": "Text",
+          "default": "Button"
         },
         {
           "type": "url",
           "id": "link",
-          "label": "Link"
+          "label": "Link",
+          "info": "If no text is set for button, the whole image becomes clickable."
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Featured Products"
+      "category": "Image",
+      "name": "Slideshow",
+      "blocks": [
+        {
+          "type": "image"
+        },
+        {
+          "type": "image"
+        }
+      ]
     }
   ]
 }
