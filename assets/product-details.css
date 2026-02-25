@@ -284,8 +284,9 @@
 
 .product-details__features-image {
   border-radius: 16px;
-  border: 2px solid #0A84FF;
+  border: 1px solid #0A84FF;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .product-details__features-image img {
