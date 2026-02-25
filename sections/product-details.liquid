@@ -325,6 +325,8 @@
                   {% assign video_id = video_url | split: 'v=' | last | split: '&' | first %}
                   {% if video_url contains 'youtu.be' %}
                     {% assign video_id = video_url | split: 'youtu.be/' | last | split: '?' | first %}
+                  {% elsif video_url contains '/shorts/' %}
+                    {% assign video_id = video_url | split: '/shorts/' | last | split: '?' | first %}
                   {% endif %}
 
                   <img
