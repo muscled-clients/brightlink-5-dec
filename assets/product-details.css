@@ -615,11 +615,11 @@
 }
 
 /* ========== LINKS ========== */
-.product-details a {
+.product-details a:not(.product-details__download-btn) {
   color: #4190D2;
   text-decoration: none;
 }
 
-.product-details a:hover {
+.product-details a:not(.product-details__download-btn):hover {
   opacity: 0.85;
 }
