@@ -570,8 +570,14 @@
 @media screen and (max-width: 768px) {
   .product-details__download-item {
     flex-direction: column;
+    height: auto;
+    padding: 20px;
     align-items: flex-start;
     gap: 15px;
+  }
+
+  .product-details__download-item-name {
+    font-size: 18px;
   }
 
   .product-details__download-btn {
