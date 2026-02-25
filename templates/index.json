@@ -99,7 +99,7 @@
           "settings": {
             "position": "wide_bottom",
             "title": "LED Video Walls",
-            "description": "Lorem ipsum dolor sit amet",
+            "description": "Stunning large-format displays for immersive visual experiences",
             "button_label": "Shop Now",
             "image": "shopify://shop_images/709da93b58a882c4e95393e37603a5f05c57ab88.png",
             "link": ""
@@ -110,7 +110,7 @@
           "settings": {
             "position": "small_right",
             "title": "HDMI & HDBaseT",
-            "description": "Lorem ipsum dolor sit amet",
+            "description": "Reliable signal distribution for seamless AV connectivity",
             "button_label": "Shop Now",
             "image": "shopify://shop_images/f0c7ab204f2356a8edb426a1f6070a7b60f732dc.png",
             "link": ""
@@ -121,7 +121,7 @@
           "settings": {
             "position": "small_left",
             "title": "Matrix Switchers",
-            "description": "Lorem ipsum dolor sit amet",
+            "description": "Effortless multi-source routing for any display setup",
             "button_label": "Shop Now",
             "image": "shopify://shop_images/f46d68cb3c43bba113b1648129c593062ad2c2c5.png",
             "link": ""
@@ -132,7 +132,7 @@
           "settings": {
             "position": "large_left",
             "title": "LCD Video Walls",
-            "description": "Lorem ipsum dolor sit amet",
+            "description": "Crystal-clear tiled displays for high-impact environments",
             "button_label": "Shop Now",
             "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
             "link": ""
@@ -640,28 +640,28 @@
           "type": "feature_card",
           "settings": {
             "title": "4-Year Warranty",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+            "description": "Every product is backed by our industry-leading 4-year warranty, giving you confidence and peace of mind with your investment."
           }
         },
         "feature_card_pt6QTh": {
           "type": "feature_card",
           "settings": {
-            "title": "4-Year Warranty",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+            "title": "Expert Support",
+            "description": "Our dedicated technical team provides hands-on guidance from design consultation through installation and beyond."
           }
         },
         "feature_card_iiDLcq": {
           "type": "feature_card",
           "settings": {
-            "title": "4-Year Warranty",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+            "title": "Made for Professionals",
+            "description": "Engineered for 24/7 commercial use in corporate, education, government, and house of worship environments."
           }
         },
         "feature_card_LrEnPc": {
           "type": "feature_card",
           "settings": {
-            "title": "4-Year Warranty",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+            "title": "Trusted by Thousands",
+            "description": "Join thousands of organizations across North America that rely on Brightlink for their AV infrastructure."
           }
         }
       },
