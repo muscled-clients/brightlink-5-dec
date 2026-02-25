@@ -597,20 +597,26 @@
   }
 
   .pd-specs-table tbody {
-    padding: 0 20px 15px 20px;
+    padding: 0 8px 15px 8px;
   }
 
   .pd-specs-accordion--open .pd-specs-accordion__content {
-    padding: 16px;
+    padding: 10px;
   }
 
   .pd-specs-accordion__title {
     font-size: 16px;
   }
 
-  .pd-specs-table__label,
+  .pd-specs-table__label {
+    font-size: 13px;
+    white-space: normal;
+    word-break: break-word;
+  }
+
   .pd-specs-table__value {
-    font-size: 14px;
+    font-size: 13px;
+    word-break: break-word;
   }
 }
 
