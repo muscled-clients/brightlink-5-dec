@@ -636,7 +636,7 @@
         "downloads_EcUVWi": {
           "type": "downloads",
           "settings": {
-            "title": "Download"
+            "title": "Download1"
           }
         }
       },
@@ -648,9 +648,7 @@
         "downloads_EcUVWi"
       ],
       "name": "Product Details",
-      "settings": {
-        "title": ""
-      }
+      "settings": {}
     },
     "knowledge_center_3QHTWy": {
       "type": "knowledge-center",
