@@ -642,9 +642,9 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
-            "card_subtitle": "True 4K Resolution",
-            "card_desc": "3840 x 2160 active pixels"
+            "card_title": "7M PIXELS",
+            "card_subtitle": "3/4 4K Resolution",
+            "card_desc": "4320 x 1620 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -829,7 +829,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
+        "subheading": "Precision-engineered 9×6 cabinet array delivering 7 million pixels across 227 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -882,14 +882,14 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/image_1_1.png",
-        "metric1_value": "36x",
+        "subtitle": "227 inches of immersive visual excellence",
+        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
+        "metric1_value": "10x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "4x",
+        "metric2_value": "180x",
         "metric2_label": "Equivalent",
-        "metric2_desc": "to 17' diagonal display",
+        "metric2_desc": "to 17\" diagonal display",
         "metric3_value": "141",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD 1080p input cards",
+            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
             "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -1339,7 +1339,7 @@
         "card_label": "COMPLETE SYSTEM",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "64 premium cabinets (8×8 array)",
+        "include_1": "54premium cabinets (9×6 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
