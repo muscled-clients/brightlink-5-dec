@@ -62,8 +62,11 @@
         <!-- Specs + Heading Frame -->
         <div class="hero-video-wall__heading-frame">
           <!-- Product Specs Line -->
+          {% assign meta_specs = product.metafields.custom.product_specs_line.value %}
           <p class="hero-video-wall__specs-line" id="hero-specs-line">
-            {%- if default_config -%}
+            {%- if meta_specs != blank -%}
+              {{ meta_specs }}
+            {%- elsif default_config -%}
               {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
             {%- endif -%}
           </p>
