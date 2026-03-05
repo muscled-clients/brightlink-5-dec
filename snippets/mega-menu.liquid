@@ -18,37 +18,19 @@
 
 <div id="{{ index }}" class="mega-menu {% if is_floating %}mega-menu--floating{% endif %}" data-type="menu" aria-hidden="true" role="list" {{ mega_menu_block.shopify_attributes }}>
   {%- capture mega_menu_inner -%}
-    {%- assign should_center = false -%}
-
-    {%- unless is_floating -%}
-      {%- assign should_center = true -%}
-    {%- endunless -%}
-
-    {%- assign has_two_images = false -%}
-
-    {%- if mega_menu_block.settings.image_1 != blank and mega_menu_block.settings.image_2 != blank -%}
-      {%- assign has_two_images = true -%}
-    {%- endif -%}
-
-    {%- assign mega_menu_classes = '' -%}
-
-    {%- if should_center and mega_menu.links.size <= 4 -%}
-      {%- if has_two_images -%}
-        {%- assign mega_menu_classes = 'mega-menu__inner--center' -%}
-      {%- else -%}
-        {%- assign mega_menu_classes = 'mega-menu__inner--center mega-menu__inner--large' -%}
-      {%- endif -%}
-    {%- endif -%}
-
-    <div class="mega-menu__inner {{ mega_menu_classes }}">
+    <div class="mega-menu__inner">
       {%- if mega_menu.links.size > 0 -%}
         {%- capture mega_menu_columns -%}
           {%- for link in mega_menu.links -%}
             <div class="mega-menu__column">
-              <a href="{{ link.url }}" class="mega-menu__title heading">{{ link.title }}</a>
-
+              <a href="{{ link.url }}" class="mega-menu__title heading">{{ link.title }}
+                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10" fill="none">
+                <path d="M6.1 5L1.1 0L0 1.1L3.9 5L0 8.9L1.1 10L6.1 5Z" fill="white"/>
+                </svg>
+              </a>
               {%- if link.links.size > 0 -%}
                 <ul class="mega-menu__linklist" role="list">
+                  <span class="ctm-subheading">{{ link.title }} </span>
                   {%- for sub_link in link.links -%}
                     <li class="mega-menu__item">
                       <a href="{{ sub_link.url }}" class="mega-menu__link link">{{ sub_link.title }}</a>
@@ -59,44 +41,10 @@
             </div>
           {%- endfor -%}
         {%- endcapture -%}
-
-        {%- if is_floating -%}
-          {%- comment -%}
-          IMPLEMENTATION NOTE: 230 is the size in pixel of a given column (it's 170 + 60 of margin). In order to avoid setting it in JS or
-                               having very complex HTML structure to achieve positioning, I used this trick.
-          {%- endcomment -%}
-          <div class="mega-menu__column-list" style="width: {{ 230 | times: mega_menu.links.size }}px">
-            {{- mega_menu_columns -}}
-          </div>
-        {%- else -%}
+        
+        <div class="mega-menu__column-list">
           {{- mega_menu_columns -}}
-        {%- endif -%}
-      {%- endif -%}
-
-      {%- if mega_menu_block.settings.image_1 != blank -%}
-        <a href="{{ mega_menu_block.settings.image_1_link | default: '#' }}" class="mega-menu__promo">
-          <div class="mega-menu__image-wrapper">
-            <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: mega_menu_block.settings.image_1.aspect_ratio }}%">
-              <img class="lazyload image--fade-in" data-src="{{ mega_menu_block.settings.image_1 | img_url: '550x' }}" alt="{{ mega_menu_block.settings.image_1.alt | escape }}">
-            </div>
-          </div>
-
-          <span class="mega-menu__image-heading heading h4">{{ mega_menu_block.settings.image_1_heading | escape }}</span>
-          <p class="mega-menu__image-text">{{ mega_menu_block.settings.image_1_text | escape }}</p>
-        </a>
-      {%- endif -%}
-
-      {%- if mega_menu_block.settings.image_2 != blank -%}
-        <a href="{{ mega_menu_block.settings.image_2_link | default: '#' }}" class="mega-menu__promo">
-          <div class="mega-menu__image-wrapper">
-            <div class="aspect-ratio" style="padding-bottom: {{ 100.0 | divided_by: mega_menu_block.settings.image_2.aspect_ratio }}%">
-              <img class="lazyload image--fade-in" data-src="{{ mega_menu_block.settings.image_2 | img_url: '550x' }}" alt="{{ mega_menu_block.settings.image_2.alt | escape }}">
-            </div>
-          </div>
-
-          <span class="mega-menu__image-heading heading h4">{{ mega_menu_block.settings.image_2_heading | escape }}</span>
-          <p class="mega-menu__image-text">{{ mega_menu_block.settings.image_2_text | escape }}</p>
-        </a>
+        </div>
       {%- endif -%}
     </div>
   {%- endcapture -%}
@@ -109,3 +57,160 @@
     </div>
   {%- endif -%}
 </div>
+
+<style>
+@media screen and (min-width: 1000px) {
+    .mega-menu {
+        border-top: 1px solid #353535 !important;
+        border-bottom: 1px solid #353535 !important;
+    }
+}
+@media screen and (min-width: 1000px) {
+    .nav-bar__link .icon--nav-triangle {
+        display: none !important;
+    }
+}
+
+  .mega-menu__column-list {
+        display: block !important;
+  }
+ 
+ .mega-menu__linklist {
+    position: absolute;
+    left: 50% !important;
+ }
+.mega-menu__inner {
+    display: flex !important;
+    justify-content:  flex-start;
+    align-items: flex-start;
+    overflow: none !important;
+}
+.mega-menu:not(.mega-menu--floating) .mega-menu__column:first-child {
+    margin-left: 0px !important; 
+}
+  
+.mega-menu__linklist{
+   background-color: white! important;
+    border: none !important;
+    box-shadow: none !important;
+    min-width:auto !important;
+}
+ .mega-menu__column{
+margin:0px!important;
+}
+
+.mega-menu__title{
+  padding:10px 19px !important;
+  margin-right:16px !important;
+  margin-bottom: 0px !important;
+  width: 47% !important;
+  border-right: 1px solid #353535 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400 !important;
+} 
+.mega-menu__title:hover{
+   color: #0A84FF !important;
+  font-family: Inter;
+  margin-right:16px !important;
+  border-radius: 12px !important;
+   background: rgba(10, 132, 255, 0.15) !important;
+}
+
+.nav-bar .nav-bar__linklist .nav-bar__item a:hover{
+     color: #0A84FF !important;
+}
+    .nav-bar::after{
+      background:black !important;
+    }
+
+@media screen and (min-width: 1000px) {
+  .nav-bar {
+    border-bottom: 1px solid var(--border-color);
+    background: var(--header-background) !important;
+  }
+}
+
+.nav-bar .nav-bar__linklist .nav-bar__item a{
+color: #FFF !important;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-transform: capitalize;
+}
+
+.mega-menu{
+  background: var(--header-background) !important;
+}
+.mega-menu__inner{
+  padding:45px 0px !important;
+}
+.mega-menu__linklist{
+   background: var(--header-background) !important;
+   position:absolute !important;
+   top:45px !important;
+}
+
+.mega-menu__linklist:firt-child{
+  display:block !important;
+}
+
+.mega-menu__linklist .mega-menu__item:hover{
+   background: var(--header-background) !important;
+       color: inherit;
+}
+.mega-menu__linklist .mega-menu__item{
+  padding:0px !important;
+  margin:0px 16px;
+}
+.ctm-subheading{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    margin: 0px 16px 32px 16px;
+}
+.nav-dropdown{
+  background: var(--header-background) !important;
+}
+
+
+
+
+
+
+
+
+
+  .mega-menu__column:hover .mega-menu__linklist {
+    display: block;
+  }
+
+  .mega-menu__linklist {
+    display: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+  }
+
+  .mega-menu__linklist .mega-menu__item {
+    padding: 8px 12px;
+  }
+
+  .mega-menu__linklist .mega-menu__item:hover {
+    background-color: #f1f1f1;
+  }
+</style>
