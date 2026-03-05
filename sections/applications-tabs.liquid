@@ -1,0 +1,754 @@
+{{ 'applications-tabs.css' | asset_url | stylesheet_tag }}
+
+<section class="applications-tabs" id="applications-tabs">
+  <div class="applications-tabs__container">
+    <div class="applications-tabs__header">
+      <div class="applications-tabs__header-text">
+        {% if section.settings.label != blank %}
+          <span class="applications-tabs__label">{{ section.settings.label }}</span>
+        {% endif %}
+        <h2 class="applications-tabs__heading">{{ section.settings.title }}</h2>
+      </div>
+      <p class="applications-tabs__subheading">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="applications-tabs__content">
+      <!-- Mobile Dropdown Navigation -->
+      <div class="applications-tabs__dropdown">
+        <select class="applications-tabs__select" aria-label="Select application">
+          {% for block in section.blocks %}
+            <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Tab Navigation -->
+      <div class="applications-tabs__tabs" role="tablist">
+        {% for block in section.blocks %}
+          <button
+            class="applications-tabs__tab {% if forloop.first %}applications-tabs__tab--active{% endif %}"
+            role="tab"
+            aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+            aria-controls="app-panel-{{ block.id }}"
+            data-tab-index="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+          >
+            {% case block.settings.icon %}
+              {% when 'monitor' %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path d="M1.8 1.75V9.625H16.2V1.75H1.8ZM0 1.75C0 0.784766 0.807187 0 1.8 0H16.2C17.1928 0 18 0.784766 18 1.75V9.625C18 10.5902 17.1928 11.375 16.2 11.375H1.8C0.807187 11.375 0 10.5902 0 9.625V1.75ZM3.6 12.25H14.4C14.8978 12.25 15.3 12.641 15.3 13.125C15.3 13.609 14.8978 14 14.4 14H3.6C3.10219 14 2.7 13.609 2.7 13.125C2.7 12.641 3.10219 12.25 3.6 12.25Z" fill="currentColor"/>
+                </svg>
+              {% when 'briefcase' %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="16" viewBox="0 0 12 16" fill="none">
+                  <path d="M1.5 0C0.671875 0 0 0.671875 0 1.5V14.5C0 15.3281 0.671875 16 1.5 16H4.5V13.5C4.5 12.6719 5.17188 12 6 12C6.82812 12 7.5 12.6719 7.5 13.5V16H10.5C11.3281 16 12 15.3281 12 14.5V1.5C12 0.671875 11.3281 0 10.5 0H1.5ZM2 7.5C2 7.225 2.225 7 2.5 7H3.5C3.775 7 4 7.225 4 7.5V8.5C4 8.775 3.775 9 3.5 9H2.5C2.225 9 2 8.775 2 8.5V7.5ZM5.5 7H6.5C6.775 7 7 7.225 7 7.5V8.5C7 8.775 6.775 9 6.5 9H5.5C5.225 9 5 8.775 5 8.5V7.5C5 7.225 5.225 7 5.5 7ZM8 7.5C8 7.225 8.225 7 8.5 7H9.5C9.775 7 10 7.225 10 7.5V8.5C10 8.775 9.775 9 9.5 9H8.5C8.225 9 8 8.775 8 8.5V7.5ZM2.5 3H3.5C3.775 3 4 3.225 4 3.5V4.5C4 4.775 3.775 5 3.5 5H2.5C2.225 5 2 4.775 2 4.5V3.5C2 3.225 2.225 3 2.5 3ZM5 3.5C5 3.225 5.225 3 5.5 3H6.5C6.775 3 7 3.225 7 3.5V4.5C7 4.775 6.775 5 6.5 5H5.5C5.225 5 5 4.775 5 4.5V3.5ZM8.5 3H9.5C9.775 3 10 3.225 10 3.5V4.5C10 4.775 9.775 5 9.5 5H8.5C8.225 5 8 4.775 8 4.5V3.5C8 3.225 8.225 3 8.5 3Z" fill="currentColor"/>
+                </svg>
+              {% when 'video' %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+                  <path d="M2.09115 1.2049C1.81771 1.913 1.66667 2.68672 1.66667 3.50145C1.66667 4.31619 1.81771 5.08991 2.09115 5.79801C2.26302 6.24639 2.05729 6.75491 1.63021 6.93809C1.20312 7.12127 0.71875 6.90255 0.544271 6.45417C0.192708 5.54102 0 4.54311 0 3.50145C0 2.4598 0.192708 1.46189 0.544271 0.548739C0.71875 0.100363 1.20312 -0.115623 1.63021 0.0648212C2.05729 0.245265 2.26302 0.756522 2.09115 1.2049ZM14.4557 0.548739C14.8073 1.46189 15 2.4598 15 3.50145C15 4.54311 14.8073 5.54102 14.4557 6.45417C14.2839 6.90255 13.7969 7.11853 13.3698 6.93809C12.9427 6.75764 12.737 6.24639 12.9089 5.79801C13.1823 5.08991 13.3333 4.31619 13.3333 3.50145C13.3333 2.68672 13.1823 1.913 12.9089 1.2049C12.737 0.756522 12.9427 0.247999 13.3698 0.0648212C13.7969 -0.118357 14.2812 0.100363 14.4557 0.548739ZM9.16667 3.50145C9.16667 4.14941 8.83073 4.71535 8.33333 5.01609V13.1251C8.33333 13.609 7.96094 14 7.5 14C7.03906 14 6.66667 13.609 6.66667 13.1251V5.01609C6.16927 4.71262 5.83333 4.14941 5.83333 3.50145C5.83333 2.53635 6.58073 1.7517 7.5 1.7517C8.41927 1.7517 9.16667 2.53635 9.16667 3.50145ZM4.44271 2.10165C4.26562 2.52815 4.16667 3.00113 4.16667 3.50145C4.16667 4.00178 4.26562 4.47476 4.44271 4.90126C4.6276 5.34417 4.4349 5.86089 4.01302 6.05227C3.59115 6.24365 3.09896 6.04407 2.91667 5.60116C2.64844 4.95594 2.5 4.2451 2.5 3.50145C2.5 2.75781 2.64844 2.04697 2.91667 1.40175C3.10156 0.958838 3.59115 0.756522 4.01302 0.950636C4.4349 1.14475 4.6276 1.65874 4.44271 2.10165ZM12.0833 1.40175C12.3516 2.04697 12.5 2.75781 12.5 3.50145C12.5 4.2451 12.3516 4.95594 12.0833 5.60116C11.8984 6.04407 11.4089 6.24639 10.987 6.05227C10.5651 5.85816 10.3724 5.34417 10.5573 4.90126C10.7344 4.47476 10.8333 4.00178 10.8333 3.50145C10.8333 3.00113 10.7344 2.52815 10.5573 2.10165C10.3724 1.65874 10.5651 1.14202 10.987 0.950636C11.4089 0.759256 11.901 0.958838 12.0833 1.40175Z" fill="currentColor"/>
+                </svg>
+              {% when 'layout' %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+                  <path d="M2.11111 0C0.946701 0 0 0.896875 0 2V11C0 12.1031 0.946701 13 2.11111 13H7.91667L7.56372 14H5.27778C4.69392 14 4.22222 14.4469 4.22222 15C4.22222 15.5531 4.69392 16 5.27778 16H13.7222C14.3061 16 14.7778 15.5531 14.7778 15C14.7778 14.4469 14.3061 14 13.7222 14H11.4363L11.0833 13H16.8889C18.0533 13 19 12.1031 19 11V2C19 0.896875 18.0533 0 16.8889 0H2.11111ZM16.8889 2V11H2.11111V2H16.8889Z" fill="currentColor"/>
+                </svg>
+              {% when 'store' %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="15" height="14" viewBox="0 0 15 14" fill="none">
+                  <path d="M14.6563 2.83828L13.0766 0.358203C12.936 0.136719 12.6851 0 12.4177 0H2.58122C2.31381 0 2.06293 0.136719 1.92233 0.358203L0.339894 2.83828C-0.476136 4.11797 0.246161 5.89805 1.7707 6.10313C1.88098 6.1168 1.99401 6.125 2.10429 6.125C2.82383 6.125 3.46342 5.81328 3.90176 5.33203C4.3401 5.81328 4.97969 6.125 5.69923 6.125C6.41877 6.125 7.05836 5.81328 7.4967 5.33203C7.93505 5.81328 8.57464 6.125 9.29418 6.125C10.0165 6.125 10.6533 5.81328 11.0917 5.33203C11.5327 5.81328 12.1696 6.125 12.8891 6.125C13.0022 6.125 13.1124 6.1168 13.2227 6.10313C14.7528 5.90078 15.4778 4.1207 14.659 2.83828H14.6563ZM13.3357 6.96992H13.333C13.1869 6.98906 13.038 7 12.8864 7C12.5445 7 12.2164 6.94805 11.9104 6.85508V10.5H3.08848V6.85234C2.77972 6.94805 2.44889 7 2.10704 7C1.95541 7 1.80379 6.98906 1.65767 6.96992H1.65492C1.54189 6.95352 1.43161 6.93438 1.32409 6.90703V10.5V12.25C1.32409 13.2152 2.11531 14 3.08848 14H11.9104C12.8836 14 13.6748 13.2152 13.6748 12.25V10.5V6.90703C13.5646 6.93438 13.4543 6.95625 13.3357 6.96992Z" fill="currentColor"/>
+                </svg>
+              {% else %}
+                <svg class="applications-tabs__tab-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                  <path d="M1.8 1.75V9.625H16.2V1.75H1.8ZM0 1.75C0 0.784766 0.807187 0 1.8 0H16.2C17.1928 0 18 0.784766 18 1.75V9.625C18 10.5902 17.1928 11.375 16.2 11.375H1.8C0.807187 11.375 0 10.5902 0 9.625V1.75ZM3.6 12.25H14.4C14.8978 12.25 15.3 12.641 15.3 13.125C15.3 13.609 14.8978 14 14.4 14H3.6C3.10219 14 2.7 13.609 2.7 13.125C2.7 12.641 3.10219 12.25 3.6 12.25Z" fill="currentColor"/>
+                </svg>
+            {% endcase %}
+            {{ block.settings.tab_title }}
+          </button>
+        {% endfor %}
+      </div>
+
+      <!-- Tab Panels -->
+      <div class="applications-tabs__panels">
+        {% for block in section.blocks %}
+          <div
+            class="applications-tabs__panel {% if forloop.first %}applications-tabs__panel--active{% endif %}"
+            role="tabpanel"
+            id="app-panel-{{ block.id }}"
+            data-panel-index="{{ forloop.index0 }}"
+          >
+            <div class="applications-tabs__panel-content">
+              <div class="applications-tabs__left">
+                {% if block.settings.image != blank %}
+                  <div class="applications-tabs__image-wrapper">
+                    <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.heading }}" class="applications-tabs__image" loading="lazy" width="600" height="400">
+                    <div class="applications-tabs__stats-overlay">
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat1_label | default: 'View Distance' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat1_value | default: '10-30 feet' }}</span>
+                      </div>
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat2_label | default: 'Typical Size' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat2_value | default: '150-300"' }}</span>
+                      </div>
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat3_label | default: 'Use Case' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat3_value | default: 'High-Traffic' }}</span>
+                      </div>
+                    </div>
+                  </div>
+                {% else %}
+                  <div class="applications-tabs__image-placeholder">
+                    <div class="applications-tabs__stats-overlay">
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat1_label | default: 'View Distance' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat1_value | default: '10-30 feet' }}</span>
+                      </div>
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat2_label | default: 'Typical Size' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat2_value | default: '150-300"' }}</span>
+                      </div>
+                      <div class="applications-tabs__stat-item">
+                        <span class="applications-tabs__stat-label">{{ block.settings.stat3_label | default: 'Use Case' }}</span>
+                        <span class="applications-tabs__stat-value">{{ block.settings.stat3_value | default: 'High-Traffic' }}</span>
+                      </div>
+                    </div>
+                  </div>
+                {% endif %}
+
+                <div class="applications-tabs__config-card">
+                  <h4 class="applications-tabs__config-title">{{ block.settings.config_title | default: 'Common Configuration' }}</h4>
+                  <div class="applications-tabs__config-grid">
+                    <div class="applications-tabs__config-column">
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config1_label | default: 'Size' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config1_value | default: 'Large LED arrays' }}</span>
+                      </div>
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config3_label | default: 'Brightness' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config3_value | default: '2,500 nits' }}</span>
+                      </div>
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config5_label | default: 'Mounting' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config5_value | default: 'Freestanding or wall-mounted' }}</span>
+                      </div>
+                    </div>
+                    <div class="applications-tabs__config-column">
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config2_label | default: 'Resolution' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config2_value | default: '1.7M to 11.5M pixels' }}</span>
+                      </div>
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config4_label | default: 'Controller' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config4_value | default: 'NovaStar H2/H5' }}</span>
+                      </div>
+                      <div class="applications-tabs__config-row">
+                        <span class="applications-tabs__config-label">{{ block.settings.config6_label | default: 'Integration' }}</span>
+                        <span class="applications-tabs__config-value">{{ block.settings.config6_value | default: 'CMS & scheduling systems' }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="applications-tabs__right">
+                <div class="applications-tabs__right-top">
+                  <h3 class="applications-tabs__content-heading">{{ block.settings.heading }}</h3>
+                  <div class="applications-tabs__text">
+                    <p>{{ block.settings.description }}</p>
+                    <p>{{ block.settings.description2 }}</p>
+                  </div>
+                  <button type="button" class="applications-tabs__read-more" data-read-more>{{ block.settings.read_more_text | default: 'Read More' }}</button>
+                </div>
+
+                <div class="applications-tabs__why-section">
+                  <div class="applications-tabs__why-title">
+                    <svg class="applications-tabs__why-icon-svg" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                      <path d="M10 20C12.6522 20 15.1957 18.9464 17.0711 17.0711C18.9464 15.1957 20 12.6522 20 10C20 7.34784 18.9464 4.8043 17.0711 2.92893C15.1957 1.05357 12.6522 0 10 0C7.34784 0 4.8043 1.05357 2.92893 2.92893C1.05357 4.8043 0 7.34784 0 10C0 12.6522 1.05357 15.1957 2.92893 17.0711C4.8043 18.9464 7.34784 20 10 20ZM14.4141 8.16406L9.41406 13.1641C9.04688 13.5312 8.45312 13.5312 8.08984 13.1641L5.58984 10.6641C5.22266 10.2969 5.22266 9.70312 5.58984 9.33984C5.95703 8.97656 6.55078 8.97266 6.91406 9.33984L8.75 11.1758L13.0859 6.83594C13.4531 6.46875 14.0469 6.46875 14.4102 6.83594C14.7734 7.20312 14.7773 7.79687 14.4102 8.16016L14.4141 8.16406Z" fill="#0A84FF"/>
+                    </svg>
+                    <span class="applications-tabs__why-text">{{ block.settings.why_title | default: 'Why Pro Spectrum?' }}</span>
+                  </div>
+                  <ul class="applications-tabs__features-list">
+                    {% if block.settings.feature1 != blank %}
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                          <path d="M15.4222 0.32959C15.8616 0.769043 15.8616 1.48271 15.4222 1.92217L6.42217 10.9222C5.98272 11.3616 5.26904 11.3616 4.82959 10.9222L0.32959 6.42217C-0.109863 5.98272 -0.109863 5.26904 0.32959 4.82959C0.769043 4.39014 1.48271 4.39014 1.92217 4.82959L5.62764 8.53154L13.8331 0.32959C14.2726 -0.109863 14.9862 -0.109863 15.4257 0.32959H15.4222Z" fill="#0A84FF"/>
+                        </svg>
+                        <span class="applications-tabs__feature-text">{{ block.settings.feature1 }}</span>
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature2 != blank %}
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                          <path d="M15.4222 0.32959C15.8616 0.769043 15.8616 1.48271 15.4222 1.92217L6.42217 10.9222C5.98272 11.3616 5.26904 11.3616 4.82959 10.9222L0.32959 6.42217C-0.109863 5.98272 -0.109863 5.26904 0.32959 4.82959C0.769043 4.39014 1.48271 4.39014 1.92217 4.82959L5.62764 8.53154L13.8331 0.32959C14.2726 -0.109863 14.9862 -0.109863 15.4257 0.32959H15.4222Z" fill="#0A84FF"/>
+                        </svg>
+                        <span class="applications-tabs__feature-text">{{ block.settings.feature2 }}</span>
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature3 != blank %}
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                          <path d="M15.4222 0.32959C15.8616 0.769043 15.8616 1.48271 15.4222 1.92217L6.42217 10.9222C5.98272 11.3616 5.26904 11.3616 4.82959 10.9222L0.32959 6.42217C-0.109863 5.98272 -0.109863 5.26904 0.32959 4.82959C0.769043 4.39014 1.48271 4.39014 1.92217 4.82959L5.62764 8.53154L13.8331 0.32959C14.2726 -0.109863 14.9862 -0.109863 15.4257 0.32959H15.4222Z" fill="#0A84FF"/>
+                        </svg>
+                        <span class="applications-tabs__feature-text">{{ block.settings.feature3 }}</span>
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature4 != blank %}
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                          <path d="M15.4222 0.32959C15.8616 0.769043 15.8616 1.48271 15.4222 1.92217L6.42217 10.9222C5.98272 11.3616 5.26904 11.3616 4.82959 10.9222L0.32959 6.42217C-0.109863 5.98272 -0.109863 5.26904 0.32959 4.82959C0.769043 4.39014 1.48271 4.39014 1.92217 4.82959L5.62764 8.53154L13.8331 0.32959C14.2726 -0.109863 14.9862 -0.109863 15.4257 0.32959H15.4222Z" fill="#0A84FF"/>
+                        </svg>
+                        <span class="applications-tabs__feature-text">{{ block.settings.feature4 }}</span>
+                      </li>
+                    {% endif %}
+                    {% if block.settings.feature5 != blank %}
+                      <li>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
+                          <path d="M15.4222 0.32959C15.8616 0.769043 15.8616 1.48271 15.4222 1.92217L6.42217 10.9222C5.98272 11.3616 5.26904 11.3616 4.82959 10.9222L0.32959 6.42217C-0.109863 5.98272 -0.109863 5.26904 0.32959 4.82959C0.769043 4.39014 1.48271 4.39014 1.92217 4.82959L5.62764 8.53154L13.8331 0.32959C14.2726 -0.109863 14.9862 -0.109863 15.4257 0.32959H15.4222Z" fill="#0A84FF"/>
+                        </svg>
+                        <span class="applications-tabs__feature-text">{{ block.settings.feature5 }}</span>
+                      </li>
+                    {% endif %}
+                  </ul>
+                </div>
+
+                <!-- CTA Box -->
+                <div class="applications-tabs__cta">
+                  <a href="{{ section.settings.primary_btn_link | default: '#order' }}" class="applications-tabs__btn">
+                    {{ section.settings.primary_btn_text | default: 'ORDER NOW' }}
+                  </a>
+                  <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="applications-tabs__btn--secondary">
+                    {{ section.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.applications-tabs');
+  if (!section) return;
+
+  const tabs = section.querySelectorAll('.applications-tabs__tab');
+  const panels = section.querySelectorAll('.applications-tabs__panel');
+  const dropdown = section.querySelector('.applications-tabs__select');
+  let currentIndex = 0;
+
+  function switchToTab(newIndex) {
+    if (newIndex === currentIndex) return;
+
+    tabs.forEach(t => {
+      t.classList.remove('applications-tabs__tab--active');
+      t.setAttribute('aria-selected', 'false');
+    });
+    if (tabs[newIndex]) {
+      tabs[newIndex].classList.add('applications-tabs__tab--active');
+      tabs[newIndex].setAttribute('aria-selected', 'true');
+    }
+
+    panels.forEach(p => {
+      p.classList.remove('applications-tabs__panel--active');
+      p.classList.remove('applications-tabs__panel--slide-left');
+      p.classList.remove('applications-tabs__panel--slide-right');
+    });
+
+    const targetPanel = panels[newIndex];
+    if (targetPanel) {
+      if (newIndex > currentIndex) {
+        targetPanel.classList.add('applications-tabs__panel--slide-right');
+      } else {
+        targetPanel.classList.add('applications-tabs__panel--slide-left');
+      }
+      targetPanel.classList.add('applications-tabs__panel--active');
+    }
+
+    if (dropdown) {
+      dropdown.value = newIndex;
+    }
+
+    currentIndex = newIndex;
+  }
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', function() {
+      const newIndex = parseInt(this.dataset.tabIndex);
+      switchToTab(newIndex);
+    });
+  });
+
+  if (dropdown) {
+    dropdown.addEventListener('change', function() {
+      const newIndex = parseInt(this.value);
+      switchToTab(newIndex);
+    });
+  }
+
+  // Read More toggle functionality
+  const readMoreButtons = section.querySelectorAll('[data-read-more]');
+  readMoreButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const textElement = this.previousElementSibling;
+      if (textElement && textElement.classList.contains('applications-tabs__text')) {
+        const isExpanded = textElement.classList.toggle('applications-tabs__text--expanded');
+        this.textContent = isExpanded ? 'Read Less' : 'Read More';
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Applications Tabs",
+  "tag": "section",
+  "class": "applications-tabs-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "VERSATILE APPLICATIONS"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Built for Every Environment"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings"
+    },
+    {
+      "type": "header",
+      "content": "CTA Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary Button Text",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary Button Text",
+      "default": "BOOK A CALL"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% DEPOSIT)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Application Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Digital Signage"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Tab Icon",
+          "options": [
+            { "value": "monitor", "label": "Monitor" },
+            { "value": "briefcase", "label": "Briefcase" },
+            { "value": "video", "label": "Video" },
+            { "value": "layout", "label": "Layout" },
+            { "value": "store", "label": "Store" }
+          ],
+          "default": "monitor"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Tab Image"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Content Heading",
+          "default": "Executive Boardrooms & Conference Centers"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries."
+        },
+        {
+          "type": "textarea",
+          "id": "description2",
+          "label": "Description 2",
+          "default": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity."
+        },
+        {
+          "type": "text",
+          "id": "read_more_text",
+          "label": "Read More Text",
+          "default": "Read More"
+        },
+        {
+          "type": "header",
+          "content": "Why Section"
+        },
+        {
+          "type": "text",
+          "id": "why_title",
+          "label": "Why Section Title",
+          "default": "Why Pro Spectrum?"
+        },
+        {
+          "type": "text",
+          "id": "feature1",
+          "label": "Feature 1",
+          "default": "Comprehensive coverage for complete peace of mind"
+        },
+        {
+          "type": "text",
+          "id": "feature2",
+          "label": "Feature 2",
+          "default": "Expert technical assistance whenever you need it"
+        },
+        {
+          "type": "text",
+          "id": "feature3",
+          "label": "Feature 3",
+          "default": "5% spare modules included with every system"
+        },
+        {
+          "type": "text",
+          "id": "feature4",
+          "label": "Feature 4",
+          "default": "Front-access maintenance reduces service time by 70%"
+        },
+        {
+          "type": "text",
+          "id": "feature5",
+          "label": "Feature 5",
+          "default": "Silent operation perfect for quiet environments"
+        },
+        {
+          "type": "header",
+          "content": "Stats (if no image)"
+        },
+        {
+          "type": "text",
+          "id": "stat1_label",
+          "label": "Stat 1 Label",
+          "default": "View Distance"
+        },
+        {
+          "type": "text",
+          "id": "stat1_value",
+          "label": "Stat 1 Value",
+          "default": "10-30 feet"
+        },
+        {
+          "type": "text",
+          "id": "stat2_label",
+          "label": "Stat 2 Label",
+          "default": "Brightness"
+        },
+        {
+          "type": "text",
+          "id": "stat2_value",
+          "label": "Stat 2 Value",
+          "default": "150-300+"
+        },
+        {
+          "type": "text",
+          "id": "stat3_label",
+          "label": "Stat 3 Label",
+          "default": "Use Case"
+        },
+        {
+          "type": "text",
+          "id": "stat3_value",
+          "label": "Stat 3 Value",
+          "default": "High-Traffic"
+        },
+        {
+          "type": "header",
+          "content": "Configuration Section"
+        },
+        {
+          "type": "text",
+          "id": "config_title",
+          "label": "Configuration Title",
+          "default": "Common Configuration"
+        },
+        {
+          "type": "text",
+          "id": "config1_label",
+          "label": "Config 1 Label",
+          "default": "Size"
+        },
+        {
+          "type": "text",
+          "id": "config1_value",
+          "label": "Config 1 Value",
+          "default": "4×3 to 12×8 arrays"
+        },
+        {
+          "type": "text",
+          "id": "config2_label",
+          "label": "Config 2 Label",
+          "default": "Resolution"
+        },
+        {
+          "type": "text",
+          "id": "config2_value",
+          "label": "Config 2 Value",
+          "default": "1.7M to 15.8M pixels"
+        },
+        {
+          "type": "text",
+          "id": "config3_label",
+          "label": "Config 3 Label",
+          "default": "Brightness"
+        },
+        {
+          "type": "text",
+          "id": "config3_value",
+          "label": "Config 3 Value",
+          "default": "1000 nits (optional)"
+        },
+        {
+          "type": "text",
+          "id": "config4_label",
+          "label": "Config 4 Label",
+          "default": "Controller"
+        },
+        {
+          "type": "text",
+          "id": "config4_value",
+          "label": "Config 4 Value",
+          "default": "Novastar H2/H5"
+        },
+        {
+          "type": "text",
+          "id": "config5_label",
+          "label": "Config 5 Label",
+          "default": "Mounting"
+        },
+        {
+          "type": "text",
+          "id": "config5_value",
+          "label": "Config 5 Value",
+          "default": "Recessed or freestanding"
+        },
+        {
+          "type": "text",
+          "id": "config6_label",
+          "label": "Config 6 Label",
+          "default": "Integrate"
+        },
+        {
+          "type": "text",
+          "id": "config6_value",
+          "label": "Config 6 Value",
+          "default": "CMS & scheduling systems"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Applications Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Digital Signage",
+            "icon": "monitor",
+            "heading": "Digital Signage",
+            "description": "Pro Spectrum's digital signage solutions bring your content to life with vibrant, high-resolution displays, perfect for any environment requiring dynamic, real-time content updates. Elevate your message and capture attention with unmatched clarity and color.",
+            "description2": "Ideal for retail stores, airports, malls, and digital billboards where visual communication is key. These displays seamlessly blend into public spaces, providing clear, engaging content that draws the eye.",
+            "stat1_label": "View Distance",
+            "stat1_value": "20-50 feet",
+            "stat2_label": "Typical Size",
+            "stat2_value": "200-500\"",
+            "stat3_label": "Use Case",
+            "stat3_value": "Public/Outdoor",
+            "config1_label": "Size",
+            "config1_value": "Large LED arrays",
+            "config2_label": "Resolution",
+            "config2_value": "1.7M to 11.5M pixels",
+            "config3_label": "Brightness",
+            "config3_value": "2,500 nits",
+            "config4_label": "Controller",
+            "config4_value": "NovaStar H2/H5",
+            "config5_label": "Mounting",
+            "config5_value": "Freestanding or wall-mounted",
+            "config6_label": "Integration",
+            "config6_value": "CMS & scheduling systems",
+            "feature1": "24/7 operation with 100,000-hour lifespan",
+            "feature2": "Anti-reflective surface for bright environments",
+            "feature3": "CMS-ready for remote content management",
+            "feature4": "Energy efficient (<190W/m² average)",
+            "feature5": "Impact-resistant COB technology"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Executive Boardrooms",
+            "icon": "briefcase",
+            "heading": "Executive Boardrooms & Conference Centers",
+            "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
+            "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
+            "stat1_label": "View Distance",
+            "stat1_value": "10-30 feet",
+            "stat2_label": "Typical Size",
+            "stat2_value": "150-300\"",
+            "stat3_label": "Use Case",
+            "stat3_value": "High-Traffic",
+            "config1_label": "Size",
+            "config1_value": "4×3 to 12×8 arrays",
+            "config2_label": "Resolution",
+            "config2_value": "1.7M to 11.5M pixels",
+            "config3_label": "Brightness",
+            "config3_value": "1000 nits (optional)",
+            "config4_label": "Controller",
+            "config4_value": "NovaStar H2/H5",
+            "config5_label": "Mounting",
+            "config5_value": "Recessed or freestanding",
+            "config6_label": "Integration",
+            "config6_value": "CMS & scheduling systems",
+            "feature1": "24/7 operation with 100,000-hour lifespan",
+            "feature2": "Anti-reflective surface for bright environments",
+            "feature3": "CMS-ready for remote content management",
+            "feature4": "Energy efficient (<190W/m² average)",
+            "feature5": "Impact-resistant COB technology"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Broadcast Studios",
+            "icon": "video",
+            "heading": "Broadcast Studios",
+            "description": "Designed for real-time, high-definition broadcasts. Pro Spectrum's video walls and displays ensure flawless image quality, delivering exceptional detail and clarity for studio settings, newsrooms, and live broadcasting.",
+            "description2": "Ideal for broadcast sets, control rooms, and live broadcast venues where seamless video feeds and high-definition resolution are essential. Perfect for capturing and broadcasting live events in vibrant, true-to-life quality.",
+            "stat1_label": "View Distance",
+            "stat1_value": "10-30 feet",
+            "stat2_label": "Typical Size",
+            "stat2_value": "150-300\"",
+            "stat3_label": "Use Case",
+            "stat3_value": "Studio/Live Broadcast",
+            "config1_label": "Size",
+            "config1_value": "4×2 to custom arrays",
+            "config2_label": "Resolution",
+            "config2_value": "1.7M to 1.5M pixels",
+            "config3_label": "Brightness",
+            "config3_value": "1,000 nits",
+            "config4_label": "Controller",
+            "config4_value": "NovaStar H2/H5",
+            "config5_label": "Mounting",
+            "config5_value": "Freestanding or wall-mounted",
+            "config6_label": "Integration",
+            "config6_value": "CMS & scheduling systems",
+            "feature1": "24/7 operation with 100,000-hour lifespan",
+            "feature2": "Anti-reflective surface for bright environments",
+            "feature3": "CMS-ready for remote content management",
+            "feature4": "Energy efficient (<190W/m² average)",
+            "feature5": "Impact-resistant COB technology"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Control Centers",
+            "icon": "layout",
+            "heading": "Control Centers",
+            "description": "Maximize operational efficiency with Pro Spectrum's high-performance displays, providing critical, real-time information and monitoring for mission-critical environments such as control rooms and emergency response centers.",
+            "description2": "Ideal for data centers, emergency operation rooms, and monitoring stations where every second counts. These displays provide real-time updates, offering quick insights for better decision-making in high-stakes environments.",
+            "stat1_label": "View Distance",
+            "stat1_value": "5-20 feet",
+            "stat2_label": "Typical Size",
+            "stat2_value": "150-250\"",
+            "stat3_label": "Use Case",
+            "stat3_value": "Critical Operations",
+            "config1_label": "Size",
+            "config1_value": "2×3 to 6×3 arrays",
+            "config2_label": "Resolution",
+            "config2_value": "1.7M to 1.5M pixels",
+            "config3_label": "Brightness",
+            "config3_value": "1,000 nits",
+            "config4_label": "Controller",
+            "config4_value": "NovaStar H2/H5",
+            "config5_label": "Mounting",
+            "config5_value": "Wall-mounted",
+            "config6_label": "Integration",
+            "config6_value": "CMS & scheduling systems",
+            "feature1": "24/7 operation with 100,000-hour lifespan",
+            "feature2": "Anti-reflective surface for bright environments",
+            "feature3": "CMS-ready for remote content management",
+            "feature4": "Energy efficient (<190W/m² average)",
+            "feature5": "Impact-resistant COB technology"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Retail & Hospitality",
+            "icon": "store",
+            "heading": "Retail & Hospitality",
+            "description": "Create inviting atmospheres and immersive experiences with Pro Spectrum's customizable displays, perfect for retail stores, hotels, and restaurants looking to engage customers with stunning visuals.",
+            "description2": "Ideal for retail spaces, hotel lobbies, and restaurant walls where creating a memorable guest experience is key. The sleek design and high-quality visuals create an inviting atmosphere while displaying dynamic content.",
+            "stat1_label": "View Distance",
+            "stat1_value": "10-30 feet",
+            "stat2_label": "Typical Size",
+            "stat2_value": "150-300\"",
+            "stat3_label": "Use Case",
+            "stat3_value": "Guest Experience",
+            "config1_label": "Size",
+            "config1_value": "LED arrays",
+            "config2_label": "Resolution",
+            "config2_value": "0.9M to 1.5M pixels",
+            "config3_label": "Brightness",
+            "config3_value": "1,000 nits",
+            "config4_label": "Controller",
+            "config4_value": "NovaStar H2/H5",
+            "config5_label": "Mounting",
+            "config5_value": "Freestanding or wall-mounted",
+            "config6_label": "Integration",
+            "config6_value": "CMS & scheduling systems",
+            "feature1": "24/7 operation with 100,000-hour lifespan",
+            "feature2": "Anti-reflective surface for bright environments",
+            "feature3": "CMS-ready for remote content management",
+            "feature4": "Energy efficient (<190W/m² average)",
+            "feature5": "Impact-resistant COB technology"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

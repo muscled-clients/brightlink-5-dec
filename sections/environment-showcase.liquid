@@ -1,0 +1,480 @@
+<style>
+  /* ── Section ───────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .es-section {
+    position: relative;
+    padding: 80px 0 100px;
+    background: #0A0E1A;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  /* ── Inner wrapper — full-width, flex-column, gap 40px (Figma) ── */
+  #shopify-section-{{ section.id }} .es-inner {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 0;
+  }
+
+  /* ── Header (vertical, gap 12px, Figma 1440×90) ─────────────────*/
+  #shopify-section-{{ section.id }} .es-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 48px;
+    box-sizing: border-box;
+  }
+
+  #shopify-section-{{ section.id }} .es-eyebrow {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .es-title {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* ── Tab pills bar ─────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .es-tabs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .es-tab {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: transparent;
+    color: rgba(255,255,255,0.65);
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+    white-space: nowrap;
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .es-tab:hover {
+    border-color: rgba(10,132,255,0.5);
+    color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .es-tab.is-active {
+    background: #0A84FF;
+    border-color: #0A84FF;
+    color: #ffffff;
+  }
+
+  /* ── Carousel container (overflow visible so side peeks show) ─── */
+  #shopify-section-{{ section.id }} .es-carousel-wrap {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Track holds ALL slides side by side */
+  #shopify-section-{{ section.id }} .es-track-outer {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1440px;
+    position: relative;
+  }
+
+  #shopify-section-{{ section.id }} .es-track {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 20px 0 24px; /* vertical breathing room for box-shadow */
+  }
+
+  /* ── Each slide ────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .es-slide {
+    flex: 0 0 800px;
+    height: 450px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.10);
+    overflow: hidden;
+    position: relative;
+    opacity: 0.55;
+    cursor: pointer;
+  }
+
+  /* Active (centred) slide — Figma: 1067 × 600, radius 12 */
+  #shopify-section-{{ section.id }} .es-slide.is-active {
+    flex: 0 0 1067px;
+    height: 600px;
+    opacity: 1;
+    cursor: default;
+  }
+
+  #shopify-section-{{ section.id }} .es-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+  }
+
+  /* Image placeholder */
+  #shopify-section-{{ section.id }} .es-slide__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a2540 0%, #0d1526 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .es-slide__placeholder svg {
+    width: 48px;
+    height: 48px;
+    opacity: 0.3;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── Prev / Next arrow buttons ─────────────────────────────────── */
+  #shopify-section-{{ section.id }} .es-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(10,132,255,0.20);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    padding: 0;
+    color: #fff;
+  }
+
+  #shopify-section-{{ section.id }} .es-arrow:hover {
+    background: rgba(10,132,255,0.55);
+    border-color: #0A84FF;
+  }
+
+  #shopify-section-{{ section.id }} .es-arrow--prev {
+    left: clamp(8px, 2vw, 40px);
+  }
+
+  #shopify-section-{{ section.id }} .es-arrow--next {
+    right: clamp(8px, 2vw, 40px);
+  }
+
+  #shopify-section-{{ section.id }} .es-arrow svg {
+    width: 16px;
+    height: 16px;
+    display: block;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 1200px) {
+    #shopify-section-{{ section.id }} .es-slide.is-active {
+      flex: 0 0 800px;
+      height: 450px;
+    }
+    #shopify-section-{{ section.id }} .es-slide {
+      flex: 0 0 560px;
+      height: 315px;
+    }
+  }
+
+  @media (max-width: 860px) {
+    #shopify-section-{{ section.id }} .es-slide.is-active {
+      flex: 0 0 calc(100vw - 96px);
+      height: 340px;
+    }
+    #shopify-section-{{ section.id }} .es-slide {
+      flex: 0 0 calc(100vw - 160px);
+      height: 280px;
+    }
+    #shopify-section-{{ section.id }} .es-title {
+      font-size: 30px;
+    }
+    #shopify-section-{{ section.id }} .es-header {
+      padding: 0 24px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    #shopify-section-{{ section.id }} .es-section {
+      padding: 60px 0 72px;
+    }
+    #shopify-section-{{ section.id }} .es-slide.is-active,
+    #shopify-section-{{ section.id }} .es-slide {
+      flex: 0 0 calc(100vw - 48px);
+      height: 240px;
+    }
+  }
+</style>
+
+<section class="es-section" data-section-id="{{ section.id }}">
+
+  <div class="es-inner">
+
+    <!-- Header -->
+    <div class="es-header">
+      {% if section.settings.eyebrow != blank %}
+        <p class="es-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="es-title">{{ section.settings.title }}</h2>
+      {% endif %}
+
+      <!-- Tab pills (built from blocks) -->
+      {% assign tab_blocks = section.blocks | where: "type", "tab_slide" %}
+      {% if tab_blocks.size > 0 %}
+        <div class="es-tabs" role="tablist">
+          {% for block in tab_blocks %}
+            <button
+              class="es-tab{% if forloop.first %} is-active{% endif %}"
+              type="button"
+              role="tab"
+              data-es-tab="{{ forloop.index0 }}"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              {{ block.shopify_attributes }}>
+              {{ block.settings.tab_label }}
+            </button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Carousel -->
+    <div class="es-carousel-wrap">
+
+      <!-- Prev arrow -->
+      <button class="es-arrow es-arrow--prev" type="button" aria-label="Previous slide">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <polyline points="10 13 5 8 10 3"></polyline>
+        </svg>
+      </button>
+
+      <div class="es-track-outer">
+        <div class="es-track" id="es-track-{{ section.id }}">
+          {% assign slide_index = 0 %}
+          {% for block in tab_blocks %}
+            <div
+              class="es-slide{% if forloop.first %} is-active{% endif %}"
+              data-es-slide="{{ slide_index }}"
+              data-es-tab="{{ forloop.index0 }}"
+              role="tabpanel"
+              tabindex="0">
+              {% if block.settings.image != blank %}
+                <img
+                  src="{{ block.settings.image | image_url: width: 1400 }}"
+                  alt="{{ block.settings.image.alt | default: block.settings.tab_label | escape }}"
+                  loading="lazy">
+              {% else %}
+                <div class="es-slide__placeholder">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                    <polyline points="21 15 16 10 5 21"/>
+                  </svg>
+                </div>
+              {% endif %}
+            </div>
+            {% assign slide_index = slide_index | plus: 1 %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Next arrow -->
+      <button class="es-arrow es-arrow--next" type="button" aria-label="Next slide">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <polyline points="6 3 11 8 6 13"></polyline>
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var root    = document.querySelector('#shopify-section-{{ section.id }}');
+  if (!root) return;
+
+  var track   = root.querySelector('.es-track');
+  var slides  = Array.from(root.querySelectorAll('.es-slide'));
+  var tabs    = Array.from(root.querySelectorAll('.es-tab'));
+  var btnPrev = root.querySelector('.es-arrow--prev');
+  var btnNext = root.querySelector('.es-arrow--next');
+
+  if (!track || slides.length === 0) return;
+
+  var current = 0;
+
+  function getSlideWidth(slide) {
+    return slide.getBoundingClientRect().width;
+  }
+
+  function centreOffset(index) {
+    // scroll so that slide[index] is centred in the viewport
+    var outer     = track.parentElement;
+    var outerW    = outer.offsetWidth;
+    var offset    = 0;
+    var gapPx     = 24; // matches CSS gap
+
+    for (var i = 0; i < index; i++) {
+      offset += slides[i].offsetWidth + gapPx;
+    }
+    var activeW = slides[index].offsetWidth;
+    offset -= (outerW - activeW) / 2;
+    return Math.max(0, offset);
+  }
+
+  function goTo(index) {
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    slides[current].classList.remove('is-active');
+    tabs[current] && tabs[current].classList.remove('is-active');
+    tabs[current] && tabs[current].setAttribute('aria-selected', 'false');
+
+    current = index;
+
+    slides[current].classList.add('is-active');
+    tabs[current] && tabs[current].classList.add('is-active');
+    tabs[current] && tabs[current].setAttribute('aria-selected', 'true');
+
+    track.style.transform = 'translateX(-' + centreOffset(current) + 'px)';
+  }
+
+  // Tabs click
+  tabs.forEach(function (btn, i) {
+    btn.addEventListener('click', function () { goTo(i); });
+  });
+
+  // Side slides click
+  slides.forEach(function (slide, i) {
+    slide.addEventListener('click', function () {
+      if (i !== current) goTo(i);
+    });
+  });
+
+  // Arrows
+  btnPrev && btnPrev.addEventListener('click', function () { goTo(current - 1); });
+  btnNext && btnNext.addEventListener('click', function () { goTo(current + 1); });
+
+  // Keyboard
+  root.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+
+  // Init
+  goTo(0);
+
+  // Recalculate on resize
+  window.addEventListener('resize', function () { goTo(current); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Environment Showcase",
+  "max_blocks": 10,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Where Performance Meets Purpose"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Built for Every Environment"
+    },
+  ],
+  "blocks": [
+    {
+      "type": "tab_slide",
+      "name": "Tab & Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_label",
+          "label": "Tab label",
+          "default": "Digital Signage"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Environment Showcase",
+      "blocks": [
+        {
+          "type": "tab_slide",
+          "settings": { "tab_label": "Digital Signage" }
+        },
+        {
+          "type": "tab_slide",
+          "settings": { "tab_label": "Executive Boardrooms" }
+        },
+        {
+          "type": "tab_slide",
+          "settings": { "tab_label": "Broadcast Studios" }
+        },
+        {
+          "type": "tab_slide",
+          "settings": { "tab_label": "Control Centers" }
+        },
+        {
+          "type": "tab_slide",
+          "settings": { "tab_label": "Retail & Hospitality" }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

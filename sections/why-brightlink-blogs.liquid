@@ -1,0 +1,319 @@
+<style>
+  /* ── Section ───────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .wb-section {
+    position: relative;
+    padding: 80px 0;
+    background: #0A0E1A;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  /* Optional background image */
+  #shopify-section-{{ section.id }} .wb-bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── Container — 1280 px wide, flex column, gap 40 px (Figma) ─── */
+  #shopify-section-{{ section.id }} .wb-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+  }
+
+  /* ── Header ────────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .wb-header {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .wb-eyebrow {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .wb-title {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* ── Cards grid — 4 columns ────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .wb-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+  }
+
+  /* ── Single card (Figma: padding 32px, gap 16px, border-radius 16px) */
+  #shopify-section-{{ section.id }} .wb-card {
+    display: flex;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    flex: 1 0 0;
+    border-radius: 16px;
+    border: 1.005px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 0 40.21px 0 rgba(10, 132, 255, 0.15);
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .wb-card:hover {
+    border-color: rgba(10, 132, 255, 0.40);
+    box-shadow: 0 0 40.21px 0 rgba(10, 132, 255, 0.30);
+  }
+
+  /* Icon wrapper */
+  #shopify-section-{{ section.id }} .wb-card__icon {
+    width: 46px;
+    height: 46px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(10, 132, 255, 0.10);
+  }
+
+  #shopify-section-{{ section.id }} .wb-card__icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* Built-in blue shield SVG fallback */
+  #shopify-section-{{ section.id }} .wb-card__icon svg {
+    width: 22.5px;
+    height: 23.87px;
+    display: block;
+    fill: #0A84FF;
+    flex-shrink: 0;
+  }
+
+  /* Card text body */
+  #shopify-section-{{ section.id }} .wb-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* Title — Figma: Inter 24px 700 #FFF */
+  #shopify-section-{{ section.id }} .wb-card__name {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  /* Description — Figma: #A0AEC0 */
+  #shopify-section-{{ section.id }} .wb-card__desc {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #A0AEC0;
+    margin: 0;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 1100px) {
+    #shopify-section-{{ section.id }} .wb-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 700px) {
+    #shopify-section-{{ section.id }} .wb-section {
+      padding: 60px 0;
+    }
+    #shopify-section-{{ section.id }} .wb-container {
+      padding: 0 24px;
+      gap: 28px;
+    }
+    #shopify-section-{{ section.id }} .wb-title {
+      font-size: 30px;
+    }
+    #shopify-section-{{ section.id }} .wb-grid {
+      grid-template-columns: 1fr;
+    }
+    #shopify-section-{{ section.id }} .wb-card {
+      padding: 24px;
+    }
+  }
+</style>
+
+<section class="wb-section" data-section-id="{{ section.id }}">
+
+  {% if section.settings.background_image != blank %}
+    <img
+      class="wb-bg-img"
+      src="{{ section.settings.background_image | image_url: width: 2200 }}"
+      alt="{{ section.settings.background_image.alt | escape }}"
+      loading="lazy">
+  {% endif %}
+
+  <div class="wb-container">
+
+    <!-- Header -->
+    <div class="wb-header">
+      {% if section.settings.eyebrow != blank %}
+        <p class="wb-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="wb-title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Feature cards -->
+    {% if section.blocks.size > 0 %}
+      <div class="wb-grid">
+        {% for block in section.blocks %}
+          <div class="wb-card" {{ block.shopify_attributes }}>
+
+            <!-- Icon: uploaded image or default blue shield SVG -->
+            <div class="wb-card__icon">
+              {% if block.settings.icon != blank %}
+                <img
+                  src="{{ block.settings.icon | image_url: width: 60 }}"
+                  alt="{{ block.settings.icon.alt | default: block.settings.title | escape }}"
+                  loading="lazy">
+              {% else %}
+                <!-- Figma blue shield Vector (22.5 × 23.87) -->
+                <svg viewBox="0 0 22.5 23.87" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.25 0L0 4.21v7.04c0 6.51 4.79 12.6 11.25 14.08C17.71 23.85 22.5 17.76 22.5 11.25V4.21L11.25 0Z"/>
+                </svg>
+              {% endif %}
+            </div>
+
+            <!-- Text content -->
+            <div class="wb-card__body">
+              {% if block.settings.title != blank %}
+                <p class="wb-card__name">{{ block.settings.title }}</p>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <p class="wb-card__desc">{{ block.settings.description }}</p>
+              {% endif %}
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Brightlink",
+  "max_blocks": 8,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Blogs"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section title",
+      "default": "Why Brightlink"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image (optional)"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image (leave blank for default shield)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card title",
+          "default": "4-Year Warranty"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Card description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Brightlink",
+      "blocks": [
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        },
+        {
+          "type": "feature_card",
+          "settings": {
+            "title": "4-Year Warranty",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque felis in libero maximus, cursus laoreet nisi aliquet."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

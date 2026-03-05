@@ -1,0 +1,2314 @@
+{{ 'product-intelligence.css' | asset_url | stylesheet_tag }}
+
+{% comment %} ============================================
+   PRODUCT INTELLIGENCE METAFIELDS
+   Namespace: custom | Prefix: pic_ (Product Intelligence Content)
+   ============================================ {% endcomment %}
+
+{% comment %} Section Header {% endcomment %}
+{% assign pic_label = product.metafields.custom.pic_label.value | default: section.settings.section_label %}
+{% assign pic_heading = product.metafields.custom.pic_heading.value | default: section.settings.heading %}
+{% assign pic_subheading = product.metafields.custom.pic_subheading.value | default: section.settings.subheading %}
+
+{% comment %} Specifications Tab (JSON) {% endcomment %}
+{% assign pic_specs_display = product.metafields.custom.pic_specs_display.value %}
+{% assign pic_specs_physical = product.metafields.custom.pic_specs_physical.value %}
+{% assign pic_specs_electrical = product.metafields.custom.pic_specs_electrical.value %}
+{% assign pic_specs_environmental = product.metafields.custom.pic_specs_environmental.value %}
+
+{% comment %} Specifications Tab - Download {% endcomment %}
+{% assign pic_specs_download_title = product.metafields.custom.pic_specs_download_title.value %}
+{% assign pic_specs_download_description = product.metafields.custom.pic_specs_download_description.value %}
+{% assign pic_specs_download_file = product.metafields.custom.pic_specs_download_file.value %}
+
+{% comment %} What's Included Tab (Lists) {% endcomment %}
+{% assign pic_included_badges = product.metafields.custom.pic_included_badges.value %}
+{% assign pic_included_titles = product.metafields.custom.pic_included_titles.value %}
+{% assign pic_included_descriptions = product.metafields.custom.pic_included_descriptions.value %}
+
+{% comment %} Features Tab (Lists) {% endcomment %}
+{% assign pic_features_titles = product.metafields.custom.pic_features_titles.value %}
+{% assign pic_features_descriptions = product.metafields.custom.pic_features_descriptions.value %}
+
+{% comment %} Installation Tab - Steps (Lists) {% endcomment %}
+{% assign pic_install_step_numbers = product.metafields.custom.pic_install_step_numbers.value %}
+{% assign pic_install_step_titles = product.metafields.custom.pic_install_step_titles.value %}
+{% assign pic_install_step_descriptions = product.metafields.custom.pic_install_step_descriptions.value %}
+{% assign pic_install_step_durations = product.metafields.custom.pic_install_step_durations.value %}
+
+{% comment %} Installation Tab - Requirements {% endcomment %}
+{% assign pic_install_requirements_heading = product.metafields.custom.pic_install_requirements_heading.value %}
+{% assign pic_install_requirements_titles = product.metafields.custom.pic_install_requirements_titles.value %}
+{% assign pic_install_requirements_descriptions = product.metafields.custom.pic_install_requirements_descriptions.value %}
+
+{% comment %} Installation Tab - Support {% endcomment %}
+{% assign pic_install_support_title = product.metafields.custom.pic_install_support_title.value %}
+{% assign pic_install_support_description = product.metafields.custom.pic_install_support_description.value %}
+{% assign pic_install_support_button = product.metafields.custom.pic_install_support_button.value %}
+
+{% comment %} Support Tab - Header & Resources {% endcomment %}
+{% assign pic_support_heading = product.metafields.custom.pic_support_heading.value %}
+{% assign pic_support_resource_titles = product.metafields.custom.pic_support_resource_titles.value %}
+{% assign pic_support_resource_descriptions = product.metafields.custom.pic_support_resource_descriptions.value %}
+{% assign pic_support_resource_links = product.metafields.custom.pic_support_resource_links.value %}
+{% assign pic_support_resource_files = product.metafields.custom.pic_support_and_resource_files.value %}
+{% assign pic_support_resource_icons = product.metafields.custom.pic_support_resource_icons.value %}
+
+{% comment %} Support Tab - Contact Section (JSON) {% endcomment %}
+{% assign pic_support_contact = product.metafields.custom.pic_support_contact.value %}
+
+{% comment %} Support Tab - Use Case Section {% endcomment %}
+{% comment %} {% assign pic_support_usecase_image = product.metafields.custom.pic_support_usecase_image.value %}
+{% assign pic_support_usecase_title = product.metafields.custom.pic_support_usecase_title.value %}
+{% assign pic_support_usecase_description = product.metafields.custom.pic_support_usecase_description.value %}
+{% assign pic_support_usecase_specs = product.metafields.custom.pic_support_usecase_specs.value %}
+{% assign pic_support_usecase_config = product.metafields.custom.pic_support_usecase_config.value %}
+{% assign pic_support_usecase_features_title = product.metafields.custom.pic_support_usecase_features_title.value %}
+{% assign pic_support_usecase_features = product.metafields.custom.pic_support_usecase_features.value %} {% endcomment %}
+
+{% comment %} Overview Tab {% endcomment %}
+{% assign pic_overview_description = product.metafields.custom.pic_overview_description.value %}
+{% assign pic_overview_image = product.metafields.custom.pic_overview_image.value %}
+{% assign pic_overview_card_titles = product.metafields.custom.pic_overview_card_titles.value %}
+{% assign pic_overview_card_descriptions = product.metafields.custom.pic_overview_card_descriptions.value %}
+
+<section class="product-intelligence {{ section.settings.custom_class }}" id="product-intelligence-{{ section.id }}">
+  <div class="product-intelligence__container">
+    <!-- Header -->
+    <div class="product-intelligence__header">
+      <div class="product-intelligence__header-text">
+        {% if pic_label != blank %}
+          <span class="product-intelligence__label">{{ pic_label }}</span>
+        {% endif %}
+        {% if pic_heading != blank %}
+          <h2 class="product-intelligence__heading">{{ pic_heading }}</h2>
+        {% endif %}
+      </div>
+      {% if pic_subheading != blank %}
+        <p class="product-intelligence__subheading">{{ pic_subheading }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Content -->
+    <div class="product-intelligence__content">
+      <!-- Tab Navigation -->
+      <div class="product-intelligence__tabs" role="tablist">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' or block.type == 'support_tab' %}
+            <button
+              class="product-intelligence__tab {% if forloop.first %}product-intelligence__tab--active{% endif %}"
+              role="tab"
+              aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"
+              aria-controls="panel-{{ block.id }}"
+              data-tab-index="{{ forloop.index0 }}"
+              {{ block.shopify_attributes }}
+            >
+              {% case block.settings.tab_icon %}
+                {% when 'overview' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                    <path d="M8.99922 0C6.47422 0 4.45234 1.15 2.98047 2.51875C1.51797 3.875 0.539844 5.5 0.0773437 6.61562C-0.0257813 6.8625 -0.0257813 7.1375 0.0773437 7.38437C0.539844 8.5 1.51797 10.125 2.98047 11.4812C4.45234 12.85 6.47422 14 8.99922 14C11.5242 14 13.5461 12.85 15.018 11.4812C16.4805 10.1219 17.4586 8.5 17.9242 7.38437C18.0273 7.1375 18.0273 6.8625 17.9242 6.61562C17.4586 5.5 16.4805 3.875 15.018 2.51875C13.5461 1.15 11.5242 0 8.99922 0ZM4.49922 7C4.49922 5.80653 4.97332 4.66193 5.81724 3.81802C6.66115 2.97411 7.80574 2.5 8.99922 2.5C10.1927 2.5 11.3373 2.97411 12.1812 3.81802C13.0251 4.66193 13.4992 5.80653 13.4992 7C13.4992 8.19347 13.0251 9.33807 12.1812 10.182C11.3373 11.0259 10.1927 11.5 8.99922 11.5C7.80574 11.5 6.66115 11.0259 5.81724 10.182C4.97332 9.33807 4.49922 8.19347 4.49922 7ZM8.99922 5C8.99922 6.10313 8.10234 7 6.99922 7C6.77734 7 6.56484 6.9625 6.36484 6.89687C6.19297 6.84062 5.99297 6.95312 5.99922 7.13437C6.00859 7.36875 6.04297 7.60312 6.10234 7.81875C6.53047 9.41875 8.17734 10.3719 9.77734 9.94375C11.3773 9.51562 12.3305 7.86875 11.9023 6.26875C11.5555 5.00625 10.4086 4.13125 9.12734 4.07812C8.94609 4.07187 8.83984 4.26875 8.89609 4.44375C8.96172 4.64375 8.99922 4.85625 8.99922 5Z" fill="currentColor"/>
+                  </svg>
+                {% when 'specs' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
+                    <path d="M7.12971 0.294548C7.59377 0.711735 7.63127 1.41955 7.21409 1.88361L3.83909 5.63361C3.63284 5.8633 3.34221 5.99923 3.03284 6.00392C2.72346 6.00861 2.42815 5.89142 2.20784 5.6758L0.328149 3.8008C-0.107788 3.36017 -0.107788 2.64767 0.328149 2.20705C0.764087 1.76642 1.48127 1.76642 1.91721 2.20705L2.95315 3.24299L5.53596 0.374235C5.95315 -0.0898272 6.66096 -0.127327 7.12502 0.28986L7.12971 0.294548ZM7.12971 7.79455C7.59377 8.21173 7.63127 8.91955 7.21409 9.38361L3.83909 13.1336C3.63284 13.3633 3.34221 13.4992 3.03284 13.5039C2.72346 13.5086 2.42815 13.3914 2.20784 13.1758L0.328149 11.3008C-0.112476 10.8602 -0.112476 10.1477 0.328149 9.71173C0.768774 9.2758 1.48127 9.27111 1.91721 9.71173L2.95315 10.7477L5.53596 7.87892C5.95315 7.41486 6.66096 7.37736 7.12502 7.79455H7.12971ZM10.5 3.00392C10.5 2.17424 11.1703 1.50392 12 1.50392H22.5C23.3297 1.50392 24 2.17424 24 3.00392C24 3.83361 23.3297 4.50392 22.5 4.50392H12C11.1703 4.50392 10.5 3.83361 10.5 3.00392ZM10.5 10.5039C10.5 9.67423 11.1703 9.00392 12 9.00392H22.5C23.3297 9.00392 24 9.67423 24 10.5039C24 11.3336 23.3297 12.0039 22.5 12.0039H12C11.1703 12.0039 10.5 11.3336 10.5 10.5039ZM7.50002 18.0039C7.50002 17.1742 8.17034 16.5039 9.00002 16.5039H22.5C23.3297 16.5039 24 17.1742 24 18.0039C24 18.8336 23.3297 19.5039 22.5 19.5039H9.00002C8.17034 19.5039 7.50002 18.8336 7.50002 18.0039ZM2.25002 15.7539C2.84676 15.7539 3.41906 15.991 3.84101 16.4129C4.26297 16.8349 4.50002 17.4072 4.50002 18.0039C4.50002 18.6007 4.26297 19.173 3.84101 19.5949C3.41906 20.0169 2.84676 20.2539 2.25002 20.2539C1.65329 20.2539 1.08099 20.0169 0.659034 19.5949C0.237077 19.173 2.44007e-05 18.6007 2.44007e-05 18.0039C2.44007e-05 17.4072 0.237077 16.8349 0.659034 16.4129C1.08099 15.991 1.65329 15.7539 2.25002 15.7539Z" fill="currentColor"/>
+                  </svg>
+                {% when 'features' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                    <g clip-path="url(#clip_tab_features)">
+                      <path d="M12.3789 0.703125C12.1719 0.273438 11.7344 0 11.2539 0C10.7734 0 10.3399 0.273438 10.1289 0.703125L7.6172 5.87109L2.00782 6.69922C1.53907 6.76953 1.14845 7.09766 1.00391 7.54688C0.859383 7.99609 0.97657 8.49219 1.31251 8.82422L5.38282 12.8516L4.42188 18.543C4.34376 19.0117 4.53907 19.4883 4.92579 19.7656C5.31251 20.043 5.82423 20.0781 6.2461 19.8555L11.2578 17.1797L16.2695 19.8555C16.6914 20.0781 17.2031 20.0469 17.5899 19.7656C17.9766 19.4844 18.1719 19.0117 18.0938 18.543L17.1289 12.8516L21.1992 8.82422C21.5352 8.49219 21.6563 7.99609 21.5078 7.54688C21.3594 7.09766 20.9727 6.76953 20.5039 6.69922L14.8906 5.87109L12.3789 0.703125Z" fill="currentColor"/>
+                    </g>
+                    <defs><clipPath id="clip_tab_features"><path d="M0 0H22.5V20H0V0Z" fill="white"/></clipPath></defs>
+                  </svg>
+                {% when 'included' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path d="M2.37656 1.24219L0 6H9.75V0H4.39219C3.53906 0 2.76094 0.482812 2.37656 1.24219ZM11.25 6H21L18.6234 1.24219C18.2391 0.482812 17.4609 0 16.6078 0H11.25V6ZM21 7.5H0V18C0 19.6547 1.34531 21 3 21H18C19.6547 21 21 19.6547 21 18V7.5Z" fill="currentColor"/>
+                  </svg>
+                {% when 'installation' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip_tab_install)">
+                      <path d="M3.07032 0.195782C2.69923 -0.0932804 2.17188 -0.0581242 1.83595 0.273907L0.273446 1.83641C-0.0585854 2.16844 -0.0937417 2.69578 0.191415 3.07078L3.31641 7.13328C3.4922 7.36375 3.76954 7.50047 4.0586 7.50047H6.17188L10.4297 11.7583C9.85548 12.8911 10.0391 14.313 10.9883 15.2583L15.3633 19.6333C15.8516 20.1216 16.6445 20.1216 17.1328 19.6333L19.6328 17.1333C20.1211 16.645 20.1211 15.852 19.6328 15.3638L15.2578 10.9888C14.3125 10.0434 12.8906 9.85594 11.7578 10.4302L7.50001 6.17234V4.06297C7.50001 3.77 7.36329 3.49656 7.13282 3.32078L3.07032 0.195782ZM0.777352 15.4731C0.281258 15.9692 8.31718e-06 16.645 8.31718e-06 17.3481C8.31718e-06 18.813 1.18751 20.0005 2.65235 20.0005C3.35548 20.0005 4.03126 19.7192 4.52735 19.2231L9.12891 14.6216C8.82423 13.8052 8.77735 12.9184 8.98829 12.0786L6.57813 9.66844L0.777352 15.4731ZM20 5.62547C20 5.21531 19.957 4.81688 19.875 4.43406C19.7813 3.99656 19.2461 3.88328 18.9297 4.19969L16.4336 6.69578C16.3164 6.81297 16.1563 6.87938 15.9922 6.87938H13.75C13.4063 6.87938 13.125 6.59813 13.125 6.25438V4.00828C13.125 3.84422 13.1914 3.68406 13.3086 3.56688L15.8047 1.07078C16.1211 0.754376 16.0078 0.21922 15.5703 0.12547C15.1836 0.0434383 14.7852 0.000469576 14.375 0.000469576C11.2695 0.000469576 8.75001 2.52 8.75001 5.62547V5.65672L12.082 8.98875C13.4883 8.63328 15.043 9.00828 16.1445 10.1098L16.7578 10.7231C18.6719 9.82469 20 7.87938 20 5.62547ZM2.18751 16.8755C2.18751 16.6268 2.28628 16.3884 2.4621 16.2126C2.63791 16.0367 2.87637 15.938 3.12501 15.938C3.37365 15.938 3.61211 16.0367 3.78792 16.2126C3.96374 16.3884 4.06251 16.6268 4.06251 16.8755C4.06251 17.1241 3.96374 17.3626 3.78792 17.5384C3.61211 17.7142 3.37365 17.813 3.12501 17.813C2.87637 17.813 2.63791 17.7142 2.4621 17.5384C2.28628 17.3626 2.18751 17.1241 2.18751 16.8755Z" fill="currentColor"/>
+                    </g>
+                    <defs><clipPath id="clip_tab_install"><path d="M0 0H20V20H0V0Z" fill="white"/></clipPath></defs>
+                  </svg>
+                {% when 'support' %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip_tab_support)">
+                      <path d="M10 1.875C5.51172 1.875 1.875 5.51172 1.875 10V11.5625C1.875 12.082 1.45703 12.5 0.9375 12.5C0.417969 12.5 0 12.082 0 11.5625V10C0 4.47656 4.47656 0 10 0C15.5234 0 20 4.47656 20 10V15.6289C20 17.5273 18.4609 19.0664 16.5586 19.0664L12.25 19.0625C11.9258 19.6211 11.3203 20 10.625 20H9.375C8.33984 20 7.5 19.1602 7.5 18.125C7.5 17.0898 8.33984 16.25 9.375 16.25H10.625C11.3203 16.25 11.9258 16.6289 12.25 17.1875L16.5625 17.1914C17.4258 17.1914 18.125 16.4922 18.125 15.6289V10C18.125 5.51172 14.4883 1.875 10 1.875ZM5.625 8.125H6.25C6.94141 8.125 7.5 8.68359 7.5 9.375V13.75C7.5 14.4414 6.94141 15 6.25 15H5.625C4.24609 15 3.125 13.8789 3.125 12.5V10.625C3.125 9.24609 4.24609 8.125 5.625 8.125ZM14.375 8.125C15.7539 8.125 16.875 9.24609 16.875 10.625V12.5C16.875 13.8789 15.7539 15 14.375 15H13.75C13.0586 15 12.5 14.4414 12.5 13.75V9.375C12.5 8.68359 13.0586 8.125 13.75 8.125H14.375Z" fill="currentColor"/>
+                    </g>
+                    <defs><clipPath id="clip_tab_support"><path d="M0 0H20V20H0V0Z" fill="white"/></clipPath></defs>
+                  </svg>
+                {% else %}
+                  <svg class="product-intelligence__tab-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                    <path d="M8.99922 0C6.47422 0 4.45234 1.15 2.98047 2.51875C1.51797 3.875 0.539844 5.5 0.0773437 6.61562C-0.0257813 6.8625 -0.0257813 7.1375 0.0773437 7.38437C0.539844 8.5 1.51797 10.125 2.98047 11.4812C4.45234 12.85 6.47422 14 8.99922 14C11.5242 14 13.5461 12.85 15.018 11.4812C16.4805 10.1219 17.4586 8.5 17.9242 7.38437C18.0273 7.1375 18.0273 6.8625 17.9242 6.61562C17.4586 5.5 16.4805 3.875 15.018 2.51875C13.5461 1.15 11.5242 0 8.99922 0ZM4.49922 7C4.49922 5.80653 4.97332 4.66193 5.81724 3.81802C6.66115 2.97411 7.80574 2.5 8.99922 2.5C10.1927 2.5 11.3373 2.97411 12.1812 3.81802C13.0251 4.66193 13.4992 5.80653 13.4992 7C13.4992 8.19347 13.0251 9.33807 12.1812 10.182C11.3373 11.0259 10.1927 11.5 8.99922 11.5C7.80574 11.5 6.66115 11.0259 5.81724 10.182C4.97332 9.33807 4.49922 8.19347 4.49922 7Z" fill="currentColor"/>
+                  </svg>
+              {% endcase %}
+              {{ block.settings.tab_title }}
+            </button>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- Mobile Dropdown -->
+      <div class="product-intelligence__dropdown">
+        <select class="product-intelligence__select" aria-label="Select tab">
+          {% for block in section.blocks %}
+            {% if block.type == 'tab' or block.type == 'specs_tab' or block.type == 'overview_tab' or block.type == 'features_tab' or block.type == 'included_tab' or block.type == 'installation_tab' or block.type == 'support_tab' %}
+              <option value="{{ forloop.index0 }}">{{ block.settings.tab_title }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+
+      <!-- Tab Panels -->
+      <div class="product-intelligence__panels">
+        {% for block in section.blocks %}
+          {% if block.type == 'tab' %}
+            <div
+              class="product-intelligence__panel {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <div class="product-intelligence__panel-content">
+                <!-- Left Side: Text + Feature Cards -->
+                <div class="product-intelligence__left">
+                  <div class="product-intelligence__text">
+                    <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' x 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch - true 4K resolution with HDR support.</p>
+                    <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive.</p>
+                    {% if block.settings.read_more_link != blank %}
+                      <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                    {% endif %}
+                  </div>
+
+                  <!-- Feature Cards -->
+                  {% if block.settings.show_features %}
+                    <div class="product-intelligence__features">
+                      <!-- Feature 1: 4-Year Warranty -->
+                      <div class="product-intelligence__feature-card">
+                        <div class="product-intelligence__feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
+                          </svg>
+                        </div>
+                        <h4 class="product-intelligence__feature-title">4-Year Warranty</h4>
+                        <p class="product-intelligence__feature-desc">Comprehensive coverage</p>
+                      </div>
+
+                      <!-- Feature 2: Lifetime Support -->
+                      <div class="product-intelligence__feature-card">
+                        <div class="product-intelligence__feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12 1c-4.97 0-9 4.03-9 9v7c0 1.66 1.34 3 3 3h3v-8H5v-2c0-3.87 3.13-7 7-7s7 3.13 7 7v2h-4v8h3c1.66 0 3-1.34 3-3v-7c0-4.97-4.03-9-9-9z"/>
+                          </svg>
+                        </div>
+                        <h4 class="product-intelligence__feature-title">Lifetime Support</h4>
+                        <p class="product-intelligence__feature-desc">855-449-4733</p>
+                      </div>
+
+                      <!-- Feature 3: 5% Spare Parts -->
+                      <div class="product-intelligence__feature-card">
+                        <div class="product-intelligence__feature-icon">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+                          </svg>
+                        </div>
+                        <h4 class="product-intelligence__feature-title">5% Spare Parts</h4>
+                        <p class="product-intelligence__feature-desc">Included standard</p>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <!-- Right Side: Image Placeholder -->
+                <div class="product-intelligence__right">
+                  <div class="product-intelligence__image-placeholder">
+                    <span>Add Image via Metafields</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'overview_tab' %}
+            <div
+              class="product-intelligence__panel {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <div class="product-intelligence__panel-content">
+                <!-- Left Side: Text + Feature Cards -->
+                <div class="product-intelligence__left">
+                  <div class="product-intelligence__text product-intelligence__text--truncated">
+                    {% if pic_overview_description != blank %}
+                      {{ pic_overview_description }}
+                    {% else %}
+                      <p>Meet the Brightlink Pro Spectrum COB LED Video Wall in our 217" Diagonal configuration. This 15.75' x 8.86' masterpiece delivers 8,294,400 pixels at 1.25mm pitch —true 4K resolution with HDR support.</p>
+                      <p>The Pro Spectrum represents the pinnacle of COB technology. True pixel-to-LED resolution, high dynamic range, and superior contrast deliver visuals that feel alive. Crystal-clear text, rich blacks, and motion that stays smooth even in fast-paced</p>
+                    {% endif %}
+                    {% if block.settings.read_more_link != blank %}
+                      <a href="{{ block.settings.read_more_link }}" class="product-intelligence__read-more">Read More</a>
+                    {% else %}
+                      <button type="button" class="product-intelligence__read-more product-intelligence__read-more-toggle">Read More</button>
+                    {% endif %}
+                  </div>
+
+                  <!-- Feature Cards -->
+                  {% if block.settings.show_features %}
+                    <div class="product-intelligence__features">
+                      {% if pic_overview_card_titles != blank and pic_overview_card_titles.size > 0 %}
+                        {% for i in (0..pic_overview_card_titles.size) %}
+                          {% if pic_overview_card_titles[i] != blank %}
+                            <div class="product-intelligence__feature-card">
+                              <div class="product-intelligence__feature-icon">
+                                {% case i %}
+                                  {% when 0 %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
+                                      <path d="M11.25 0C11.4656 0 11.6813 0.046875 11.8781 0.135938L20.7047 3.88125C21.736 4.31719 22.5047 5.33438 22.5 6.5625C22.4766 11.2125 20.5641 19.7203 12.4875 23.5875C11.7047 23.9625 10.7953 23.9625 10.0125 23.5875C1.93596 19.7203 0.0234588 11.2125 2.13211e-05 6.5625C-0.00466618 5.33438 0.764084 4.31719 1.79533 3.88125L10.6266 0.135938C10.8188 0.046875 11.0344 0 11.25 0Z" fill="#0A84FF"/>
+                                    </svg>
+                                  {% when 1 %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                      <path d="M3.6857 0.23445C3.24039 -0.112425 2.60758 -0.0702373 2.20445 0.3282L0.329453 2.2032C-0.0689842 2.60164 -0.111172 3.23445 0.231016 3.68445L3.98102 8.55945C4.19195 8.83601 4.52477 9.00008 4.87164 9.00008H7.40758L12.517 14.1095C11.8279 15.4688 12.0482 17.1751 13.1873 18.3095L18.4373 23.5595C19.0232 24.1454 19.9748 24.1454 20.5607 23.5595L23.5607 20.5595C24.1466 19.9735 24.1466 19.0219 23.5607 18.436L18.3107 13.186C17.1763 12.0516 15.4701 11.8266 14.1107 12.5157L9.00133 7.40633V4.87508C9.00133 4.52351 8.83727 4.19539 8.5607 3.98445L3.6857 0.23445ZM0.934141 18.5673C0.338828 19.1626 0.00132834 19.9735 0.00132834 20.8173C0.00132834 22.5751 1.42633 24.0001 3.18414 24.0001C4.02789 24.0001 4.83883 23.6626 5.43414 23.0673L10.956 17.5454C10.5904 16.5657 10.5341 15.5016 10.7873 14.4938L7.89508 11.6016L0.934141 18.5673ZM24.0013 6.75008C24.0013 6.25789 23.9498 5.77976 23.8513 5.32039C23.7388 4.79539 23.0966 4.65945 22.717 5.03914L19.7216 8.03445C19.581 8.17508 19.3888 8.25476 19.192 8.25476H16.5013C16.0888 8.25476 15.7513 7.91726 15.7513 7.50476V4.80945C15.7513 4.61258 15.831 4.42039 15.9716 4.27976L18.967 1.28445C19.3466 0.904763 19.2107 0.262575 18.6857 0.150075C18.2216 0.0516377 17.7435 7.52097e-05 17.2513 7.52097e-05C13.5248 7.52097e-05 10.5013 3.02351 10.5013 6.75008V6.78758L14.4998 10.786C16.1873 10.3595 18.0529 10.8095 19.3748 12.1313L20.1107 12.8673C22.4076 11.7891 24.0013 9.45476 24.0013 6.75008ZM2.62633 20.2501C2.62633 19.9517 2.74485 19.6656 2.95583 19.4546C3.16681 19.2436 3.45296 19.1251 3.75133 19.1251C4.0497 19.1251 4.33584 19.2436 4.54682 19.4546C4.7578 19.6656 4.87633 19.9517 4.87633 20.2501C4.87633 20.5484 4.7578 20.8346 4.54682 21.0456C4.33584 21.2565 4.0497 21.3751 3.75133 21.3751C3.45296 21.3751 3.16681 21.2565 2.95583 21.0456C2.74485 20.8346 2.62633 20.5484 2.62633 20.2501Z" fill="#0A84FF"/>
+                                    </svg>
+                                  {% when 2 %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                                      <path d="M2.37656 1.24219L0 6H9.75V0H4.39219C3.53906 0 2.76094 0.482812 2.37656 1.24219ZM11.25 6H21L18.6234 1.24219C18.2391 0.482812 17.4609 0 16.6078 0H11.25V6ZM21 7.5H0V18C0 19.6547 1.34531 21 3 21H18C19.6547 21 21 19.6547 21 18V7.5Z" fill="#0A84FF"/>
+                                    </svg>
+                                  {% else %}
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
+                                      <path d="M11.25 0C11.4656 0 11.6813 0.046875 11.8781 0.135938L20.7047 3.88125C21.736 4.31719 22.5047 5.33438 22.5 6.5625C22.4766 11.2125 20.5641 19.7203 12.4875 23.5875C11.7047 23.9625 10.7953 23.9625 10.0125 23.5875C1.93596 19.7203 0.0234588 11.2125 2.13211e-05 6.5625C-0.00466618 5.33438 0.764084 4.31719 1.79533 3.88125L10.6266 0.135938C10.8188 0.046875 11.0344 0 11.25 0Z" fill="#0A84FF"/>
+                                    </svg>
+                                {% endcase %}
+                              </div>
+                              <h4 class="product-intelligence__feature-title">{{ pic_overview_card_titles[i] }}</h4>
+                              <p class="product-intelligence__feature-desc">{{ pic_overview_card_descriptions[i] }}</p>
+                            </div>
+                          {% endif %}
+                        {% endfor %}
+                      {% else %}
+                        <!-- Default Feature Cards -->
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="23" height="24" viewBox="0 0 23 24" fill="none">
+                              <path d="M11.25 0C11.4656 0 11.6813 0.046875 11.8781 0.135938L20.7047 3.88125C21.736 4.31719 22.5047 5.33438 22.5 6.5625C22.4766 11.2125 20.5641 19.7203 12.4875 23.5875C11.7047 23.9625 10.7953 23.9625 10.0125 23.5875C1.93596 19.7203 0.0234588 11.2125 2.13211e-05 6.5625C-0.00466618 5.33438 0.764084 4.31719 1.79533 3.88125L10.6266 0.135938C10.8188 0.046875 11.0344 0 11.25 0Z" fill="#0A84FF"/>
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">4-Year Warranty</h4>
+                          <p class="product-intelligence__feature-desc">Comprehensive coverage</p>
+                        </div>
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M3.6857 0.23445C3.24039 -0.112425 2.60758 -0.0702373 2.20445 0.3282L0.329453 2.2032C-0.0689842 2.60164 -0.111172 3.23445 0.231016 3.68445L3.98102 8.55945C4.19195 8.83601 4.52477 9.00008 4.87164 9.00008H7.40758L12.517 14.1095C11.8279 15.4688 12.0482 17.1751 13.1873 18.3095L18.4373 23.5595C19.0232 24.1454 19.9748 24.1454 20.5607 23.5595L23.5607 20.5595C24.1466 19.9735 24.1466 19.0219 23.5607 18.436L18.3107 13.186C17.1763 12.0516 15.4701 11.8266 14.1107 12.5157L9.00133 7.40633V4.87508C9.00133 4.52351 8.83727 4.19539 8.5607 3.98445L3.6857 0.23445ZM0.934141 18.5673C0.338828 19.1626 0.00132834 19.9735 0.00132834 20.8173C0.00132834 22.5751 1.42633 24.0001 3.18414 24.0001C4.02789 24.0001 4.83883 23.6626 5.43414 23.0673L10.956 17.5454C10.5904 16.5657 10.5341 15.5016 10.7873 14.4938L7.89508 11.6016L0.934141 18.5673ZM24.0013 6.75008C24.0013 6.25789 23.9498 5.77976 23.8513 5.32039C23.7388 4.79539 23.0966 4.65945 22.717 5.03914L19.7216 8.03445C19.581 8.17508 19.3888 8.25476 19.192 8.25476H16.5013C16.0888 8.25476 15.7513 7.91726 15.7513 7.50476V4.80945C15.7513 4.61258 15.831 4.42039 15.9716 4.27976L18.967 1.28445C19.3466 0.904763 19.2107 0.262575 18.6857 0.150075C18.2216 0.0516377 17.7435 7.52097e-05 17.2513 7.52097e-05C13.5248 7.52097e-05 10.5013 3.02351 10.5013 6.75008V6.78758L14.4998 10.786C16.1873 10.3595 18.0529 10.8095 19.3748 12.1313L20.1107 12.8673C22.4076 11.7891 24.0013 9.45476 24.0013 6.75008ZM2.62633 20.2501C2.62633 19.9517 2.74485 19.6656 2.95583 19.4546C3.16681 19.2436 3.45296 19.1251 3.75133 19.1251C4.0497 19.1251 4.33584 19.2436 4.54682 19.4546C4.7578 19.6656 4.87633 19.9517 4.87633 20.2501C4.87633 20.5484 4.7578 20.8346 4.54682 21.0456C4.33584 21.2565 4.0497 21.3751 3.75133 21.3751C3.45296 21.3751 3.16681 21.2565 2.95583 21.0456C2.74485 20.8346 2.62633 20.5484 2.62633 20.2501Z" fill="#0A84FF"/>
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">Lifetime Support</h4>
+                          <p class="product-intelligence__feature-desc">855-449-4733</p>
+                        </div>
+                        <div class="product-intelligence__feature-card">
+                          <div class="product-intelligence__feature-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                              <path d="M2.37656 1.24219L0 6H9.75V0H4.39219C3.53906 0 2.76094 0.482812 2.37656 1.24219ZM11.25 6H21L18.6234 1.24219C18.2391 0.482812 17.4609 0 16.6078 0H11.25V6ZM21 7.5H0V18C0 19.6547 1.34531 21 3 21H18C19.6547 21 21 19.6547 21 18V7.5Z" fill="#0A84FF"/>
+                            </svg>
+                          </div>
+                          <h4 class="product-intelligence__feature-title">Spare Parts</h4>
+                          <p class="product-intelligence__feature-desc">Included standard</p>
+                        </div>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+
+                  <!-- CTA Box -->
+                  <div class="product-intelligence__cta">
+                    <a href="{{ block.settings.primary_btn_link | default: '#order' }}" class="product-intelligence__btn">
+                      {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
+                    </a>
+                    <a href="{{ block.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="product-intelligence__btn--secondary">
+                      {{ block.settings.secondary_btn_text | default: 'BOOK A CALL' }}
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Right Side: Image -->
+                <div class="product-intelligence__right">
+                  {% if block.settings.overview_image != blank %}
+                    <img
+                      src="{{ block.settings.overview_image | image_url: width: 600 }}"
+                      alt="{{ pic_heading }}"
+                      class="product-intelligence__image"
+                      loading="lazy"
+                    >
+                  {% else %}
+                    <div class="product-intelligence__image-placeholder">
+                      <span>Add Image via Customizer</span>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'specs_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--specs {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Specifications Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="21" viewBox="0 0 24 21" fill="none">
+                    <path d="M7.12971 0.294548C7.59377 0.711735 7.63127 1.41955 7.21409 1.88361L3.83909 5.63361C3.63284 5.8633 3.34221 5.99923 3.03284 6.00392C2.72346 6.00861 2.42815 5.89142 2.20784 5.6758L0.328149 3.8008C-0.107788 3.36017 -0.107788 2.64767 0.328149 2.20705C0.764087 1.76642 1.48127 1.76642 1.91721 2.20705L2.95315 3.24299L5.53596 0.374235C5.95315 -0.0898272 6.66096 -0.127327 7.12502 0.28986L7.12971 0.294548ZM7.12971 7.79455C7.59377 8.21173 7.63127 8.91955 7.21409 9.38361L3.83909 13.1336C3.63284 13.3633 3.34221 13.4992 3.03284 13.5039C2.72346 13.5086 2.42815 13.3914 2.20784 13.1758L0.328149 11.3008C-0.112476 10.8602 -0.112476 10.1477 0.328149 9.71173C0.768774 9.2758 1.48127 9.27111 1.91721 9.71173L2.95315 10.7477L5.53596 7.87892C5.95315 7.41486 6.66096 7.37736 7.12502 7.79455H7.12971ZM10.5 3.00392C10.5 2.17424 11.1703 1.50392 12 1.50392H22.5C23.3297 1.50392 24 2.17424 24 3.00392C24 3.83361 23.3297 4.50392 22.5 4.50392H12C11.1703 4.50392 10.5 3.83361 10.5 3.00392ZM10.5 10.5039C10.5 9.67423 11.1703 9.00392 12 9.00392H22.5C23.3297 9.00392 24 9.67423 24 10.5039C24 11.3336 23.3297 12.0039 22.5 12.0039H12C11.1703 12.0039 10.5 11.3336 10.5 10.5039ZM7.50002 18.0039C7.50002 17.1742 8.17034 16.5039 9.00002 16.5039H22.5C23.3297 16.5039 24 17.1742 24 18.0039C24 18.8336 23.3297 19.5039 22.5 19.5039H9.00002C8.17034 19.5039 7.50002 18.8336 7.50002 18.0039ZM2.25002 15.7539C2.84676 15.7539 3.41906 15.991 3.84101 16.4129C4.26297 16.8349 4.50002 17.4072 4.50002 18.0039C4.50002 18.6007 4.26297 19.173 3.84101 19.5949C3.41906 20.0169 2.84676 20.2539 2.25002 20.2539C1.65329 20.2539 1.08099 20.0169 0.659034 19.5949C0.237077 19.173 2.44007e-05 18.6007 2.44007e-05 18.0039C2.44007e-05 17.4072 0.237077 16.8349 0.659034 16.4129C1.08099 15.991 1.65329 15.7539 2.25002 15.7539Z" fill="#0A84FF"/>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: 'Specifications' }}</h2>
+              </div>
+
+              <!-- Specifications Content -->
+              <div class="specs-content">
+                <!-- Display Specifications Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">{{ block.settings.display_section_title | default: 'Display Specifications' }}</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Pixel Pitch</td>
+                          <td class="specs-table__value">{{ pic_specs_display.pixel_pitch | default: '1.25mm' }}</td>
+                          <td class="specs-table__label">LED Type</td>
+                          <td class="specs-table__value">{{ pic_specs_display.led_type | default: 'COB (Chip-on-Board)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">LED Packaging</td>
+                          <td class="specs-table__value">{{ pic_specs_display.led_packaging | default: 'TOP' }}</td>
+                          <td class="specs-table__label">LED Configuration</td>
+                          <td class="specs-table__value">{{ pic_specs_display.led_config | default: '1R 1G 1B' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Module Resolution</td>
+                          <td class="specs-table__value">{{ pic_specs_display.module_resolution | default: '320 x 270 pixels (W×H)' }}</td>
+                          <td class="specs-table__label">Cabinet Resolution</td>
+                          <td class="specs-table__value">{{ pic_specs_display.cabinet_resolution | default: '480 × 270 pixels (W×H)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Screen Resolution</td>
+                          <td class="specs-table__value">{{ pic_specs_display.screen_resolution | default: '3840 × 2160 pixels (Full 4K)' }}</td>
+                          <td class="specs-table__label">Total Pixels</td>
+                          <td class="specs-table__value">{{ pic_specs_display.total_pixels | default: '8,294,400' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Scanning Method</td>
+                          <td class="specs-table__value">{{ pic_specs_display.scanning_method | default: 'S45' }}</td>
+                          <td class="specs-table__label">Refresh Rate</td>
+                          <td class="specs-table__value">{{ pic_specs_display.refresh_rate | default: '≥3840Hz' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Drive Mode</td>
+                          <td class="specs-table__value">{{ pic_specs_display.drive_mode | default: '1/43s' }}</td>
+                          <td class="specs-table__label">Brightness</td>
+                          <td class="specs-table__value">{{ pic_specs_display.brightness | default: '600cd/m² (Standard), 1000cd/m² (Optional)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Contrast Ratio</td>
+                          <td class="specs-table__value">{{ pic_specs_display.contrast_ratio | default: '≥8000:1' }}</td>
+                          <td class="specs-table__label">Colors</td>
+                          <td class="specs-table__value">{{ pic_specs_display.colors | default: '281 Trillion' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Gray Scale</td>
+                          <td class="specs-table__value">{{ pic_specs_display.gray_scale | default: '16-bit' }}</td>
+                          <td class="specs-table__label">Color Temperature</td>
+                          <td class="specs-table__value">{{ pic_specs_display.color_temp | default: '3000~9500K (Adjustable)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Luminance Uniformity</td>
+                          <td class="specs-table__value">{{ pic_specs_display.luminance_uniformity | default: '≥98%' }}</td>
+                          <td class="specs-table__label">Chromatic Uniformity</td>
+                          <td class="specs-table__value">{{ pic_specs_display.chromatic_uniformity | default: '±0.003Cx,Cy' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Viewing Angle</td>
+                          <td class="specs-table__value">{{ pic_specs_display.viewing_angle | default: '170° Horizontal / 160° Vertical (>50%)' }}</td>
+                          <td class="specs-table__label">View Distance</td>
+                          <td class="specs-table__value">{{ pic_specs_display.view_distance | default: "2m - 50m (6' - 165')" }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Frame Rate</td>
+                          <td class="specs-table__value">{{ pic_specs_display.frame_rate | default: '50/60Hz' }}</td>
+                          <td class="specs-table__label"></td>
+                          <td class="specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Physical Specifications Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">{{ block.settings.physical_section_title | default: 'Physical Specifications' }}</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Module Size</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.module_size | default: '150mm × 337.5mm (W×H)' }}</td>
+                          <td class="specs-table__label">Module Weight</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.module_weight | default: '340g ±10g' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Cabinet Size</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.cabinet_size | default: '600mm × 337.5mm × 25mm (W×H×D)' }}</td>
+                          <td class="specs-table__label">Cabinet Size (Imperial)</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.cabinet_size_imperial | default: '23.62" × 13.3" × 1"' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Cabinet Weight</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.cabinet_weight | default: '3.78kg (8.3 lbs)' }}</td>
+                          <td class="specs-table__label">Screen Dimensions</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.screen_dimensions | default: "4.8m × 2.7m (15.75' × 8.86')" }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Screen Diagonal</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.screen_diagonal | default: '217 Inches' }}</td>
+                          <td class="specs-table__label">Total Screen Area</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.total_screen_area | default: '12.96m² (141 sq ft)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Cabinet Quantity</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.cabinet_quantity | default: '64 units (8 wide × 8 high)' }}</td>
+                          <td class="specs-table__label">Modules per Cabinet</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.modules_per_cabinet | default: '4 units (1 wide × 4 high)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Cabinet Material</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.cabinet_material | default: 'Die-Cast Aluminum' }}</td>
+                          <td class="specs-table__label">Aspect Ratio</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.aspect_ratio | default: '16:9' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Installation Type</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.installation_type | default: 'Wall mount, stacking, or hanging' }}</td>
+                          <td class="specs-table__label">Service Access</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.service_access | default: '100% front serviceable' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Protection Level</td>
+                          <td class="specs-table__value">{{ pic_specs_physical.protection_level | default: 'IP30' }}</td>
+                          <td class="specs-table__label"></td>
+                          <td class="specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Electrical Specifications Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">{{ block.settings.electrical_section_title | default: 'Electrical Specifications' }}</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Input Voltage</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.input_voltage | default: 'AC 100-240V, 50/60Hz' }}</td>
+                          <td class="specs-table__label">Supply Voltage</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.supply_voltage | default: 'DC 4.2V' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Maximum Current (per module)</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.max_current | default: '4A' }}</td>
+                          <td class="specs-table__label">Peak Power Consumption</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.peak_power | default: '≤350W/m²' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Average Power Consumption</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.avg_power | default: '≤190W/m²' }}</td>
+                          <td class="specs-table__label">Power Interface</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.power_interface | default: 'Three-pole flat connector' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Signal Interface</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.signal_interface | default: 'RJ45 (Ethernet)' }}</td>
+                          <td class="specs-table__label">Control Mode</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.control_mode | default: 'Synchronous or Asynchronous' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Standard Receiver Card</td>
+                          <td class="specs-table__value">{{ pic_specs_electrical.receiver_card | default: 'A10S-PLUS-N / A8S-N / A8S-PRO' }}</td>
+                          <td class="specs-table__label"></td>
+                          <td class="specs-table__value"></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Environmental & Durability Accordion -->
+                <div class="specs-accordion" data-accordion>
+                  <button class="specs-accordion__header" type="button">
+                    <span class="specs-accordion__title">{{ block.settings.environmental_section_title | default: 'Environmental & Durability' }}</span>
+                    <svg class="specs-accordion__icon" xmlns="http://www.w3.org/2000/svg" width="14" height="8" viewBox="0 0 14 8" fill="none">
+                      <path d="M6.29609 7.70859C6.68672 8.09922 7.32109 8.09922 7.71172 7.70859L13.7117 1.70859C14.1023 1.31797 14.1023 0.683594 13.7117 0.292969C13.3211 -0.0976562 12.6867 -0.0976562 12.2961 0.292969L7.00234 5.58672L1.70859 0.296093C1.31797 -0.0945315 0.683594 -0.0945315 0.292969 0.296093C-0.0976562 0.686718 -0.0976562 1.32109 0.292969 1.71172L6.29297 7.71172L6.29609 7.70859Z" fill="#0066CC"/>
+                    </svg>
+                  </button>
+                  <div class="specs-accordion__content">
+                    <table class="specs-table">
+                      <tbody>
+                        <tr>
+                          <td class="specs-table__label">Operating Temperature</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.operating_temp | default: '-20°C to +50°C (-4°F to 122°F)' }}</td>
+                          <td class="specs-table__label">Storage Temperature</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.storage_temp | default: '-40°C to +70°C (-40°F to 158°F)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Operating Humidity</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.operating_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                          <td class="specs-table__label">Storage Humidity</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.storage_humidity | default: '10% - 95% RH (non-condensing)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Lifespan</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.lifespan | default: '≥100,000 hours' }}</td>
+                          <td class="specs-table__label">MTBF</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.mtbf | default: '≥10,000 hours' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Certifications</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.certifications | default: 'CE, RoHS, FCC, CCC, ISO9001' }}</td>
+                          <td class="specs-table__label">Waterproof</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.waterproof | default: 'Yes (sealed modules)' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Dustproof</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.dustproof | default: 'Yes' }}</td>
+                          <td class="specs-table__label">Anti-oxidation</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_oxidation | default: 'Yes' }}</td>
+                        </tr>
+                        <tr>
+                          <td class="specs-table__label">Anti-static</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_static | default: 'Yes' }}</td>
+                          <td class="specs-table__label">Anti-impact</td>
+                          <td class="specs-table__value">{{ pic_specs_environmental.anti_impact | default: 'Yes (COB protective layer)' }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <!-- Download Section -->
+                {% if pic_specs_download_file != blank %}
+                  {% assign file_url = pic_specs_download_file.url %}
+                  {% assign file_name = file_url | split: '/' | last | split: '?' | first %}
+                  <div class="specs-download">
+                    <div class="specs-download__content">
+                      <h3 class="specs-download__title">{{ pic_specs_download_title | default: 'Download Complete Specifications' }}</h3>
+                      <p class="specs-download__text">{{ pic_specs_download_description | default: 'Access detailed technical documentation, CAD files, and integration guides' }}</p>
+                    </div>
+                    <a href="{{ file_url }}" class="specs-download__btn" download="{{ file_name }}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clip-path="url(#clip0_download)">
+                          <path d="M9 1C9 0.446875 8.55313 0 8 0C7.44688 0 7 0.446875 7 1V8.58438L4.70625 6.29063C4.31563 5.9 3.68125 5.9 3.29063 6.29063C2.9 6.68125 2.9 7.31563 3.29063 7.70625L7.29063 11.7063C7.68125 12.0969 8.31563 12.0969 8.70625 11.7063L12.7063 7.70625C13.0969 7.31563 13.0969 6.68125 12.7063 6.29063C12.3156 5.9 11.6812 5.9 11.2906 6.29063L9 8.58438V1ZM2 11C0.896875 11 0 11.8969 0 13V14C0 15.1031 0.896875 16 2 16H14C15.1031 16 16 15.1031 16 14V13C16 11.8969 15.1031 11 14 11H10.8281L9.4125 12.4156C8.63125 13.1969 7.36562 13.1969 6.58437 12.4156L5.17188 11H2ZM13.5 12.75C13.6989 12.75 13.8897 12.829 14.0303 12.9697C14.171 13.1103 14.25 13.3011 14.25 13.5C14.25 13.6989 14.171 13.8897 14.0303 14.0303C13.8897 14.171 13.6989 14.25 13.5 14.25C13.3011 14.25 13.1103 14.171 12.9697 14.0303C12.829 13.8897 12.75 13.6989 12.75 13.5C12.75 13.3011 12.829 13.1103 12.9697 12.9697C13.1103 12.829 13.3011 12.75 13.5 12.75Z" fill="white"/>
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_download">
+                            <rect width="16" height="16" fill="white"/>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                      DOWNLOAD PDF
+                    </a>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          {% elsif block.type == 'features_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--features {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Features & Benefits Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="23" height="20" viewBox="0 0 23 20" fill="none">
+                    <g clip-path="url(#clip0_10_1806)">
+                      <path d="M12.3789 0.703125C12.1719 0.273438 11.7344 0 11.2539 0C10.7734 0 10.3399 0.273438 10.1289 0.703125L7.6172 5.87109L2.00782 6.69922C1.53907 6.76953 1.14845 7.09766 1.00391 7.54688C0.859383 7.99609 0.97657 8.49219 1.31251 8.82422L5.38282 12.8516L4.42188 18.543C4.34376 19.0117 4.53907 19.4883 4.92579 19.7656C5.31251 20.043 5.82423 20.0781 6.2461 19.8555L11.2578 17.1797L16.2695 19.8555C16.6914 20.0781 17.2031 20.0469 17.5899 19.7656C17.9766 19.4844 18.1719 19.0117 18.0938 18.543L17.1289 12.8516L21.1992 8.82422C21.5352 8.49219 21.6563 7.99609 21.5078 7.54688C21.3594 7.09766 20.9727 6.76953 20.5039 6.69922L14.8906 5.87109L12.3789 0.703125Z" fill="#0A84FF"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_10_1806">
+                        <path d="M0 0H22.5V20H0V0Z" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: 'Features & Benefits' }}</h2>
+              </div>
+
+              <!-- Features & Benefits Content -->
+              <div class="features-content">
+                <div class="features-grid">
+                  {% if pic_features_titles and pic_features_titles.size > 0 %}
+                    {% for title in pic_features_titles %}
+                      <div class="features-card">
+                        <div class="features-card__icon">
+                          {% case forloop.index %}
+                            {% when 1 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                                <g clip-path="url(#clip0_10_1814_{{ forloop.index }})">
+                                  <path d="M27.1781 12.5484C29.8266 9.89995 29.8266 5.61089 27.1781 2.96245C24.8344 0.6187 21.1406 0.314012 18.4453 2.24057L18.3703 2.29214C17.6953 2.77495 17.5406 3.71245 18.0235 4.38276C18.5063 5.05307 19.4438 5.21245 20.1141 4.72964L20.1891 4.67808C21.6938 3.60464 23.7516 3.77339 25.0547 5.0812C26.5313 6.55776 26.5313 8.94839 25.0547 10.425L19.7953 15.6937C18.3188 17.1703 15.9281 17.1703 14.4516 15.6937C13.1438 14.3859 12.975 12.3281 14.0485 10.8281L14.1 10.7531C14.5828 10.0781 14.4235 9.14058 13.7531 8.66245C13.0828 8.18433 12.1406 8.33901 11.6625 9.00933L11.611 9.08433C9.67971 11.775 9.9844 15.4687 12.3281 17.8125C14.9766 20.4609 19.2656 20.4609 21.9141 17.8125L27.1781 12.5484ZM2.8219 11.4515C0.173462 14.1 0.173462 18.389 2.8219 21.0375C5.16565 23.3812 8.8594 23.6859 11.5547 21.7593L11.6297 21.7078C12.3047 21.225 12.4594 20.2875 11.9766 19.6171C11.4938 18.9468 10.5563 18.7875 9.88596 19.2703L9.81096 19.3218C8.30627 20.3953 6.24846 20.2265 4.94534 18.9187C3.46877 17.4375 3.46877 15.0468 4.94534 13.5703L10.2047 8.3062C11.6813 6.82964 14.0719 6.82964 15.5485 8.3062C16.8563 9.61401 17.025 11.6718 15.9516 13.1765L15.9 13.2515C15.4172 13.9265 15.5766 14.864 16.2469 15.3421C16.9172 15.8203 17.8594 15.6656 18.3375 14.9953L18.3891 14.9203C20.3203 12.2249 20.0156 8.5312 17.6719 6.18745C15.0235 3.53901 10.7344 3.53901 8.08596 6.18745L2.8219 11.4515Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1814_{{ forloop.index }}">
+                                    <path d="M0 0H30V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 2 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                                <path d="M12.3984 0.243799C13.0969 -0.0796387 13.9031 -0.0796387 14.6016 0.243799L24.8484 4.97817C25.2469 5.16099 25.5 5.55942 25.5 6.00005C25.5 6.44067 25.2469 6.83911 24.8484 7.02192L14.6016 11.7563C13.9031 12.0797 13.0969 12.0797 12.3984 11.7563L2.15156 7.02192C1.75313 6.83442 1.5 6.43599 1.5 6.00005C1.5 5.56411 1.75313 5.16099 2.15156 4.97817L12.3984 0.243799ZM22.3547 9.82505L24.8484 10.9782C25.2469 11.161 25.5 11.5594 25.5 12C25.5 12.4407 25.2469 12.8391 24.8484 13.0219L14.6016 17.7563C13.9031 18.0797 13.0969 18.0797 12.3984 17.7563L2.15156 13.0219C1.75313 12.8344 1.5 12.436 1.5 12C1.5 11.5641 1.75313 11.161 2.15156 10.9782L4.64531 9.82505L11.7703 13.1157C12.8672 13.6219 14.1328 13.6219 15.2297 13.1157L22.3547 9.82505ZM15.2297 19.1157L22.3547 15.825L24.8484 16.9782C25.2469 17.161 25.5 17.5594 25.5 18C25.5 18.4407 25.2469 18.8391 24.8484 19.0219L14.6016 23.7563C13.9031 24.0797 13.0969 24.0797 12.3984 23.7563L2.15156 19.0219C1.75313 18.8344 1.5 18.436 1.5 18C1.5 17.5641 1.75313 17.161 2.15156 16.9782L4.64531 15.825L11.7703 19.1157C12.8672 19.6219 14.1328 19.6219 15.2297 19.1157Z" fill="#0066CC"/>
+                              </svg>
+                            {% when 3 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                                <g clip-path="url(#clip0_10_1832_{{ forloop.index }})">
+                                  <path d="M12 3H18V6H12V3ZM11.25 0C10.0078 0 9 1.00781 9 2.25V6.75C9 7.99219 10.0078 9 11.25 9H13.5V10.5H1.5C0.670312 10.5 0 11.1703 0 12C0 12.8297 0.670312 13.5 1.5 13.5H6V15H3.75C2.50781 15 1.5 16.0078 1.5 17.25V21.75C1.5 22.9922 2.50781 24 3.75 24H11.25C12.4922 24 13.5 22.9922 13.5 21.75V17.25C13.5 16.0078 12.4922 15 11.25 15H9V13.5H21V15H18.75C17.5078 15 16.5 16.0078 16.5 17.25V21.75C16.5 22.9922 17.5078 24 18.75 24H26.25C27.4922 24 28.5 22.9922 28.5 21.75V17.25C28.5 16.0078 27.4922 15 26.25 15H24V13.5H28.5C29.3297 13.5 30 12.8297 30 12C30 11.1703 29.3297 10.5 28.5 10.5H16.5V9H18.75C19.9922 9 21 7.99219 21 6.75V2.25C21 1.00781 19.9922 0 18.75 0H11.25ZM4.5 21V18H10.5V21H4.5ZM19.5 18H25.5V21H19.5V18Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1832_{{ forloop.index }}">
+                                    <path d="M0 0H30V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 4 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M3 1.5C1.34531 1.5 0 2.84531 0 4.5V19.5C0 21.1547 1.34531 22.5 3 22.5H21C22.6547 22.5 24 21.1547 24 19.5V4.5C24 2.84531 22.6547 1.5 21 1.5H3ZM7.125 4.5V7.5H3V4.5H7.125ZM9.75 4.5H13.875V7.5H9.75V4.5ZM21 4.5V7.5H16.875V4.5H21ZM3 10.5H7.125V13.5H3V10.5ZM13.875 10.5V13.5H9.75V10.5H13.875ZM16.875 10.5H21V13.5H16.875V10.5ZM7.125 16.5V19.5H3V16.5H7.125ZM9.75 16.5H13.875V19.5H9.75V16.5ZM21 16.5V19.5H16.875V16.5H21Z" fill="#0066CC"/>
+                              </svg>
+                            {% when 5 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24" fill="none">
+                                <g clip-path="url(#clip0_10_1850_{{ forloop.index }})">
+                                  <path d="M0 4.5C0 2.84531 1.34531 1.5 3 1.5H18C19.6547 1.5 21 2.84531 21 4.5V19.5C21 21.1547 19.6547 22.5 18 22.5H3C1.34531 22.5 0 21.1547 0 19.5V4.5Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1850_{{ forloop.index }}">
+                                    <path d="M0 0H21V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 6 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1859_{{ forloop.index }})">
+                                  <path d="M21 12C21 7.03125 16.9688 3 12 3V21C16.9688 21 21 16.9688 21 12ZM0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1859_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 7 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1868_{{ forloop.index }})">
+                                  <path d="M16.9453 0.0560324C17.1797 0.15447 17.3485 0.365407 17.3953 0.613845L18.3282 5.67166L23.386 6.59978C23.6344 6.64666 23.8453 6.81541 23.9438 7.04978C24.0422 7.28416 24.0141 7.55134 23.8688 7.76228L20.9485 11.9998L23.8688 16.2326C24.0141 16.4435 24.0422 16.7107 23.9438 16.9451C23.8453 17.1795 23.6344 17.3482 23.386 17.3951L18.3282 18.3279L17.3953 23.3857C17.3485 23.6342 17.1797 23.8451 16.9453 23.9435C16.711 24.042 16.4438 24.0138 16.2328 23.8685L12 20.9482L7.76721 23.8685C7.55628 24.0138 7.28909 24.042 7.05471 23.9435C6.82034 23.8451 6.65159 23.6342 6.60471 23.3857L5.6719 18.3279L0.614089 17.3951C0.365652 17.3482 0.154714 17.1795 0.0562765 16.9451C-0.042161 16.7107 -0.014036 16.4435 0.131277 16.2326L3.05159 11.9998L0.131277 7.76697C-0.014036 7.55603 -0.042161 7.28884 0.0562765 7.05447C0.154714 6.82009 0.365652 6.65134 0.614089 6.60447L5.6719 5.67166L6.60471 0.613845C6.65159 0.365407 6.82034 0.15447 7.05471 0.0560324C7.28909 -0.0424051 7.55628 -0.0142801 7.76721 0.131032L12 3.05134L16.2328 0.131032C16.4438 -0.0142801 16.711 -0.0424051 16.9453 0.0560324ZM7.50003 11.9998C7.50003 10.8063 7.97413 9.66172 8.81805 8.8178C9.66196 7.97389 10.8066 7.49978 12 7.49978C13.1935 7.49978 14.3381 7.97389 15.182 8.8178C16.0259 9.66172 16.5 10.8063 16.5 11.9998C16.5 13.1933 16.0259 14.3378 15.182 15.1818C14.3381 16.0257 13.1935 16.4998 12 16.4998C10.8066 16.4998 9.66196 16.0257 8.81805 15.1818C7.97413 14.3378 7.50003 13.1933 7.50003 11.9998ZM18 11.9998C18 10.4085 17.3679 8.88236 16.2427 7.75714C15.1174 6.63192 13.5913 5.99978 12 5.99978C10.4087 5.99978 8.8826 6.63192 7.75739 7.75714C6.63217 8.88236 6.00003 10.4085 6.00003 11.9998C6.00003 13.5911 6.63217 15.1172 7.75739 16.2424C8.8826 17.3676 10.4087 17.9998 12 17.9998C13.5913 17.9998 15.1174 17.3676 16.2427 16.2424C17.3679 15.1172 18 13.5911 18 11.9998Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1868_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 8 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1877_{{ forloop.index }})">
+                                  <path d="M12 0C12.8297 0 13.5 0.670312 13.5 1.5V1.9875C17.8922 2.63906 21.3609 6.1125 22.0125 10.5H22.5C23.3297 10.5 24 11.1703 24 12C24 12.8297 23.3297 13.5 22.5 13.5H22.0125C21.3609 17.8922 17.8875 21.3609 13.5 22.0125V22.5C13.5 23.3297 12.8297 24 12 24C11.1703 24 10.5 23.3297 10.5 22.5V22.0125C6.10781 21.3609 2.63906 17.8922 1.9875 13.5H1.5C0.670312 13.5 0 12.8297 0 12C0 11.1703 0.670312 10.5 1.5 10.5H1.9875C2.63906 6.10781 6.10781 2.63906 10.5 1.9875V1.5C10.5 0.670312 11.1703 0 12 0ZM5.03438 13.5C5.62031 16.2328 7.77187 18.3797 10.5 18.9656V18C10.5 17.1703 11.1703 16.5 12 16.5C12.8297 16.5 13.5 17.1703 13.5 18V18.9656C16.2328 18.3797 18.3797 16.2281 18.9656 13.5H18C17.1703 13.5 16.5 12.8297 16.5 12C16.5 11.1703 17.1703 10.5 18 10.5H18.9656C18.3797 7.76719 16.2328 5.62031 13.5 5.03438V6C13.5 6.82969 12.8297 7.5 12 7.5C11.1703 7.5 10.5 6.82969 10.5 6V5.03438C7.76719 5.62031 5.62031 7.76719 5.03438 10.5H6C6.82969 10.5 7.5 11.1703 7.5 12C7.5 12.8297 6.82969 13.5 6 13.5H5.03438ZM12 10.5C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12C13.5 12.3978 13.342 12.7794 13.0607 13.0607C12.7794 13.342 12.3978 13.5 12 13.5C11.6022 13.5 11.2206 13.342 10.9393 13.0607C10.658 12.7794 10.5 12.3978 10.5 12C10.5 11.6022 10.658 11.2206 10.9393 10.9393C11.2206 10.658 11.6022 10.5 12 10.5Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1877_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 9 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" fill="none">
+                                <path d="M3.42188 1.8279C2.72813 1.40134 1.85625 1.38727 1.14844 1.78571C0.440625 2.18415 0 2.93415 0 3.74977V20.2498C0 21.0654 0.440625 21.8154 1.14844 22.2138C1.85625 22.6123 2.72813 22.5935 3.42188 22.1716L16.9219 13.9216C17.5922 13.5138 18 12.7873 18 11.9998C18 11.2123 17.5922 10.4904 16.9219 10.0779L3.42188 1.8279Z" fill="#0066CC"/>
+                              </svg>
+                            {% when 10 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1895_{{ forloop.index }})">
+                                  <path d="M0 19.5C0 20.3297 0.670312 21 1.5 21H4.06406C4.64062 22.3266 5.9625 23.25 7.5 23.25C9.0375 23.25 10.3594 22.3266 10.9359 21H22.5C23.3297 21 24 20.3297 24 19.5C24 18.6703 23.3297 18 22.5 18H10.9359C10.3594 16.6734 9.0375 15.75 7.5 15.75C5.9625 15.75 4.64062 16.6734 4.06406 18H1.5C0.670312 18 0 18.6703 0 19.5ZM6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5ZM15 12C15 11.6022 15.158 11.2206 15.4393 10.9393C15.7206 10.658 16.1022 10.5 16.5 10.5C16.8978 10.5 17.2794 10.658 17.5607 10.9393C17.842 11.2206 18 11.6022 18 12C18 12.3978 17.842 12.7794 17.5607 13.0607C17.2794 13.342 16.8978 13.5 16.5 13.5C16.1022 13.5 15.7206 13.342 15.4393 13.0607C15.158 12.7794 15 12.3978 15 12ZM16.5 8.25C14.9625 8.25 13.6406 9.17344 13.0641 10.5H1.5C0.670312 10.5 0 11.1703 0 12C0 12.8297 0.670312 13.5 1.5 13.5H13.0641C13.6406 14.8266 14.9625 15.75 16.5 15.75C18.0375 15.75 19.3594 14.8266 19.9359 13.5H22.5C23.3297 13.5 24 12.8297 24 12C24 11.1703 23.3297 10.5 22.5 10.5H19.9359C19.3594 9.17344 18.0375 8.25 16.5 8.25ZM9 6C8.60218 6 8.22064 5.84196 7.93934 5.56066C7.65804 5.27936 7.5 4.89782 7.5 4.5C7.5 4.10218 7.65804 3.72064 7.93934 3.43934C8.22064 3.15804 8.60218 3 9 3C9.39782 3 9.77936 3.15804 10.0607 3.43934C10.342 3.72064 10.5 4.10218 10.5 4.5C10.5 4.89782 10.342 5.27936 10.0607 5.56066C9.77936 5.84196 9.39782 6 9 6ZM12.4359 3C11.8594 1.67344 10.5375 0.75 9 0.75C7.4625 0.75 6.14062 1.67344 5.56406 3H1.5C0.670312 3 0 3.67031 0 4.5C0 5.32969 0.670312 6 1.5 6H5.56406C6.14062 7.32656 7.4625 8.25 9 8.25C10.5375 8.25 11.8594 7.32656 12.4359 6H22.5C23.3297 6 24 5.32969 24 4.5C24 3.67031 23.3297 3 22.5 3H12.4359Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1895_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 11 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1904_{{ forloop.index }})">
+                                  <path d="M12 0C12.2156 0 12.4313 0.046875 12.6281 0.135938L21.4547 3.88125C22.486 4.31719 23.2547 5.33438 23.25 6.5625C23.2266 11.2125 21.3141 19.7203 13.2375 23.5875C12.4547 23.9625 11.5453 23.9625 10.7625 23.5875C2.68596 19.7203 0.773459 11.2125 0.750021 6.5625C0.745334 5.33438 1.51408 4.31719 2.54533 3.88125L11.3766 0.135938C11.5688 0.046875 11.7844 0 12 0ZM12 3.13125V20.85C18.4688 17.7188 20.2078 10.7859 20.25 6.62813L12 3.13125Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1904_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 12 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                                <path d="M6 5.25C6 4.00781 7.00781 3 8.25 3C9.49219 3 10.5 4.00781 10.5 5.25V12.9609C10.5 13.7719 10.8328 14.4563 11.2172 14.9531C11.7094 15.5906 12 16.3828 12 17.25C12 19.3219 10.3219 21 8.25 21C6.17812 21 4.5 19.3219 4.5 17.25C4.5 16.3828 4.79062 15.5906 5.28281 14.9578C5.66719 14.4609 6 13.7766 6 12.9656V5.25ZM8.25 0C5.34844 0 3 2.34844 3 5.25V12.9562C3 12.9609 2.99531 12.9703 2.99062 12.9844C2.98125 13.0125 2.95312 13.0594 2.91094 13.1156C2.025 14.2594 1.5 15.6938 1.5 17.25C1.5 20.9766 4.52344 24 8.25 24C11.9766 24 15 20.9766 15 17.25C15 15.6938 14.475 14.2594 13.5891 13.1203C13.5469 13.0641 13.5188 13.0172 13.5094 12.9891C13.5047 12.975 13.5 12.9656 13.5 12.9609V5.25C13.5 2.34844 11.1516 0 8.25 0ZM8.25 19.5C9.49219 19.5 10.5 18.4922 10.5 17.25C10.5 16.2703 9.87187 15.4359 9 15.1266V12.75C9 12.3375 8.6625 12 8.25 12C7.8375 12 7.5 12.3375 7.5 12.75V15.1266C6.62813 15.4359 6 16.2703 6 17.25C6 18.4922 7.00781 19.5 8.25 19.5ZM24 16.5H22.5V3C22.5 2.17031 21.8297 1.5 21 1.5C20.1703 1.5 19.5 2.17031 19.5 3V16.5H18C17.3953 16.5 16.8469 16.8656 16.6125 17.4281C16.3781 17.9906 16.5094 18.6328 16.9359 19.0641L19.9359 22.0641C20.2172 22.3453 20.5969 22.5047 20.9953 22.5047C21.3937 22.5047 21.7734 22.3453 22.0547 22.0641L25.0547 19.0641C25.4859 18.6328 25.6125 17.9906 25.3781 17.4281C25.1438 16.8656 24.6 16.5 23.9906 16.5H24Z" fill="#0066CC"/>
+                              </svg>
+                            {% when 13 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path d="M12.75 4.50011C9.06563 4.50011 5.94844 6.91417 4.88906 10.2423C6.46406 9.44542 8.24063 9.00011 10.125 9.00011H14.25C14.6625 9.00011 15 9.33761 15 9.75011C15 10.1626 14.6625 10.5001 14.25 10.5001H13.5H10.125C9.34688 10.5001 8.59219 10.5892 7.86563 10.7532C6.65156 11.0298 5.52187 11.522 4.51875 12.1923C1.79531 14.0064 0 17.1048 0 20.6251V21.3751C0 21.9985 0.501562 22.5001 1.125 22.5001C1.74844 22.5001 2.25 21.9985 2.25 21.3751V20.6251C2.25 18.3423 3.22031 16.2892 4.77188 14.8501C5.7 18.3892 8.92031 21.0001 12.75 21.0001H12.7969C18.9891 20.9673 24 14.8642 24 7.34074C24 5.34386 23.6484 3.44542 23.0109 1.73449C22.8891 1.41105 22.4156 1.42511 22.2516 1.7298C21.3703 3.3798 19.6266 4.50011 17.625 4.50011H12.75Z" fill="#0066CC"/>
+                              </svg>
+                            {% when 14 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                                <g clip-path="url(#clip0_10_1931_{{ forloop.index }})">
+                                  <path d="M13.5 1.5C9.71249 1.5 6.67968 3.225 4.47186 5.27812C2.27811 7.3125 0.810925 9.75 0.117175 11.4234C-0.0375122 11.7937 -0.0375122 12.2062 0.117175 12.5766C0.810925 14.25 2.27811 16.6875 4.47186 18.7219C6.67968 20.775 9.71249 22.5 13.5 22.5C17.2875 22.5 20.3203 20.775 22.5281 18.7219C24.7219 16.6828 26.189 14.25 26.8875 12.5766C27.0422 12.2062 27.0422 11.7937 26.8875 11.4234C26.189 9.75 24.7219 7.3125 22.5281 5.27812C20.3203 3.225 17.2875 1.5 13.5 1.5ZM6.74999 12C6.74999 10.2098 7.46115 8.4929 8.72702 7.22703C9.99289 5.96116 11.7098 5.25 13.5 5.25C15.2902 5.25 17.0071 5.96116 18.273 7.22703C19.5388 8.4929 20.25 10.2098 20.25 12C20.25 13.7902 19.5388 15.5071 18.273 16.773C17.0071 18.0388 15.2902 18.75 13.5 18.75C11.7098 18.75 9.99289 18.0388 8.72702 16.773C7.46115 15.5071 6.74999 13.7902 6.74999 12ZM13.5 9C13.5 10.6547 12.1547 12 10.5 12C10.1672 12 9.84843 11.9437 9.54843 11.8453C9.29061 11.7609 8.99061 11.9203 8.99999 12.1922C9.01405 12.5156 9.06093 12.8391 9.14999 13.1625C9.79218 15.5625 12.2625 16.9875 14.6625 16.3453C17.0625 15.7031 18.4875 13.2328 17.8453 10.8328C17.325 8.8875 15.6047 7.57969 13.6922 7.5C13.4203 7.49062 13.2609 7.78594 13.3453 8.04844C13.4437 8.34844 13.5 8.66719 13.5 9Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1931_{{ forloop.index }}">
+                                    <path d="M0 0H27V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% when 15 %}
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <g clip-path="url(#clip0_10_1940_{{ forloop.index }})">
+                                  <path d="M3.68436 0.23445C3.23905 -0.112425 2.60624 -0.0702373 2.20311 0.3282L0.328111 2.2032C-0.0703269 2.60164 -0.112514 3.23445 0.229673 3.68445L3.97967 8.55945C4.19061 8.83601 4.52342 9.00008 4.8703 9.00008H7.40624L12.5156 14.1095C11.8265 15.4688 12.0469 17.1751 13.1859 18.3095L18.4359 23.5595C19.0219 24.1454 19.9734 24.1454 20.5594 23.5595L23.5594 20.5595C24.1453 19.9735 24.1453 19.0219 23.5594 18.436L18.3094 13.186C17.175 12.0516 15.4687 11.8266 14.1094 12.5157L8.99999 7.40633V4.87508C8.99999 4.52351 8.83592 4.19539 8.55936 3.98445L3.68436 0.23445ZM0.932798 18.5673C0.337486 19.1626 -1.44334e-05 19.9735 -1.44334e-05 20.8173C-1.44334e-05 22.5751 1.42499 24.0001 3.1828 24.0001C4.02655 24.0001 4.83749 23.6626 5.4328 23.0673L10.9547 17.5454C10.589 16.5657 10.5328 15.5016 10.7859 14.4938L7.89373 11.6016L0.932798 18.5673ZM24 6.75008C24 6.25789 23.9484 5.77976 23.85 5.32039C23.7375 4.79539 23.0953 4.65945 22.7156 5.03914L19.7203 8.03445C19.5797 8.17508 19.3875 8.25476 19.1906 8.25476H16.5C16.0875 8.25476 15.75 7.91726 15.75 7.50476V4.80945C15.75 4.61258 15.8297 4.42039 15.9703 4.27976L18.9656 1.28445C19.3453 0.904763 19.2094 0.262575 18.6844 0.150075C18.2203 0.0516377 17.7422 7.52097e-05 17.25 7.52097e-05C13.5234 7.52097e-05 10.5 3.02351 10.5 6.75008V6.78758L14.4984 10.786C16.1859 10.3595 18.0515 10.8095 19.3734 12.1313L20.1094 12.8673C22.4062 11.7891 24 9.45476 24 6.75008ZM2.62499 20.2501C2.62499 19.9517 2.74351 19.6656 2.95449 19.4546C3.16547 19.2436 3.45162 19.1251 3.74999 19.1251C4.04835 19.1251 4.3345 19.2436 4.54548 19.4546C4.75646 19.6656 4.87499 19.9517 4.87499 20.2501C4.87499 20.5484 4.75646 20.8346 4.54548 21.0456C4.3345 21.2565 4.04835 21.3751 3.74999 21.3751C3.45162 21.3751 3.16547 21.2565 2.95449 21.0456C2.74351 20.8346 2.62499 20.5484 2.62499 20.2501Z" fill="#0066CC"/>
+                                </g>
+                                <defs>
+                                  <clipPath id="clip0_10_1940_{{ forloop.index }}">
+                                    <path d="M0 0H24V24H0V0Z" fill="white"/>
+                                  </clipPath>
+                                </defs>
+                              </svg>
+                            {% else %}
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0066CC">
+                                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                              </svg>
+                          {% endcase %}
+                        </div>
+                        <div class="features-card__content">
+                          <h4 class="features-card__title">{{ title }}</h4>
+                          {% if pic_features_descriptions[forloop.index0] %}
+                            <p class="features-card__desc">{{ pic_features_descriptions[forloop.index0] }}</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <!-- Fallback hardcoded content -->
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                          <g clip-path="url(#clip0_10_1814)">
+                            <path d="M27.1781 12.5484C29.8266 9.89995 29.8266 5.61089 27.1781 2.96245C24.8344 0.6187 21.1406 0.314012 18.4453 2.24057L18.3703 2.29214C17.6953 2.77495 17.5406 3.71245 18.0235 4.38276C18.5063 5.05307 19.4438 5.21245 20.1141 4.72964L20.1891 4.67808C21.6938 3.60464 23.7516 3.77339 25.0547 5.0812C26.5313 6.55776 26.5313 8.94839 25.0547 10.425L19.7953 15.6937C18.3188 17.1703 15.9281 17.1703 14.4516 15.6937C13.1438 14.3859 12.975 12.3281 14.0485 10.8281L14.1 10.7531C14.5828 10.0781 14.4235 9.14058 13.7531 8.66245C13.0828 8.18433 12.1406 8.33901 11.6625 9.00933L11.611 9.08433C9.67971 11.775 9.9844 15.4687 12.3281 17.8125C14.9766 20.4609 19.2656 20.4609 21.9141 17.8125L27.1781 12.5484ZM2.8219 11.4515C0.173462 14.1 0.173462 18.389 2.8219 21.0375C5.16565 23.3812 8.8594 23.6859 11.5547 21.7593L11.6297 21.7078C12.3047 21.225 12.4594 20.2875 11.9766 19.6171C11.4938 18.9468 10.5563 18.7875 9.88596 19.2703L9.81096 19.3218C8.30627 20.3953 6.24846 20.2265 4.94534 18.9187C3.46877 17.4375 3.46877 15.0468 4.94534 13.5703L10.2047 8.3062C11.6813 6.82964 14.0719 6.82964 15.5485 8.3062C16.8563 9.61401 17.025 11.6718 15.9516 13.1765L15.9 13.2515C15.4172 13.9265 15.5766 14.864 16.2469 15.3421C16.9172 15.8203 17.8594 15.6656 18.3375 14.9953L18.3891 14.9203C20.3203 12.2249 20.0156 8.5312 17.6719 6.18745C15.0235 3.53901 10.7344 3.53901 8.08596 6.18745L2.8219 11.4515Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1814">
+                              <path d="M0 0H30V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Quick Connect Locking Systems</h4>
+                        <p class="features-card__desc">Revolutionize cabinet assembly with our Quick Connect system. Attach and lock cabinets with a simple turn of the mechanism—no screws or bolts required. Designed for efficiency and simplicity in professional installations.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                          <path d="M12.3984 0.243799C13.0969 -0.0796387 13.9031 -0.0796387 14.6016 0.243799L24.8484 4.97817C25.2469 5.16099 25.5 5.55942 25.5 6.00005C25.5 6.44067 25.2469 6.83911 24.8484 7.02192L14.6016 11.7563C13.9031 12.0797 13.0969 12.0797 12.3984 11.7563L2.15156 7.02192C1.75313 6.83442 1.5 6.43599 1.5 6.00005C1.5 5.56411 1.75313 5.16099 2.15156 4.97817L12.3984 0.243799ZM22.3547 9.82505L24.8484 10.9782C25.2469 11.161 25.5 11.5594 25.5 12C25.5 12.4407 25.2469 12.8391 24.8484 13.0219L14.6016 17.7563C13.9031 18.0797 13.0969 18.0797 12.3984 17.7563L2.15156 13.0219C1.75313 12.8344 1.5 12.436 1.5 12C1.5 11.5641 1.75313 11.161 2.15156 10.9782L4.64531 9.82505L11.7703 13.1157C12.8672 13.6219 14.1328 13.6219 15.2297 13.1157L22.3547 9.82505ZM15.2297 19.1157L22.3547 15.825L24.8484 16.9782C25.2469 17.161 25.5 17.5594 25.5 18C25.5 18.4407 25.2469 18.8391 24.8484 19.0219L14.6016 23.7563C13.9031 24.0797 13.0969 24.0797 12.3984 23.7563L2.15156 19.0219C1.75313 18.8344 1.5 18.436 1.5 18C1.5 17.5641 1.75313 17.161 2.15156 16.9782L4.64531 15.825L11.7703 19.1157C12.8672 19.6219 14.1328 19.6219 15.2297 19.1157Z" fill="#0066CC"/>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Ultra-Slim Profile</h4>
+                        <p class="features-card__desc">Industry's slimmest profile at just 25mm (1 inch) deep, weighing only 3.78kg (8.3 lbs) per cabinet. Significantly lighter than conventional LED displays, simplifying installation and reducing labor intensity in space-constrained applications.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 30 24" fill="none">
+                          <g clip-path="url(#clip0_10_1832)">
+                            <path d="M12 3H18V6H12V3ZM11.25 0C10.0078 0 9 1.00781 9 2.25V6.75C9 7.99219 10.0078 9 11.25 9H13.5V10.5H1.5C0.670312 10.5 0 11.1703 0 12C0 12.8297 0.670312 13.5 1.5 13.5H6V15H3.75C2.50781 15 1.5 16.0078 1.5 17.25V21.75C1.5 22.9922 2.50781 24 3.75 24H11.25C12.4922 24 13.5 22.9922 13.5 21.75V17.25C13.5 16.0078 12.4922 15 11.25 15H9V13.5H21V15H18.75C17.5078 15 16.5 16.0078 16.5 17.25V21.75C16.5 22.9922 17.5078 24 18.75 24H26.25C27.4922 24 28.5 22.9922 28.5 21.75V17.25C28.5 16.0078 27.4922 15 26.25 15H24V13.5H28.5C29.3297 13.5 30 12.8297 30 12C30 11.1703 29.3297 10.5 28.5 10.5H16.5V9H18.75C19.9922 9 21 7.99219 21 6.75V2.25C21 1.00781 19.9922 0 18.75 0H11.25ZM4.5 21V18H10.5V21H4.5ZM19.5 18H25.5V21H19.5V18Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1832">
+                              <path d="M0 0H30V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Integrated Power & Network Hub</h4>
+                        <p class="features-card__desc">Streamlined 2-in-1 design eliminates messy ribbon cables and separate power supplies with exposed wires. Enjoy a sleek, all-in-one system that's easier to maintain and ensures a clean, organized setup.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <path d="M3 1.5C1.34531 1.5 0 2.84531 0 4.5V19.5C0 21.1547 1.34531 22.5 3 22.5H21C22.6547 22.5 24 21.1547 24 19.5V4.5C24 2.84531 22.6547 1.5 21 1.5H3ZM7.125 4.5V7.5H3V4.5H7.125ZM9.75 4.5H13.875V7.5H9.75V4.5ZM21 4.5V7.5H16.875V4.5H21ZM3 10.5H7.125V13.5H3V10.5ZM13.875 10.5V13.5H9.75V10.5H13.875ZM16.875 10.5H21V13.5H16.875V10.5ZM7.125 16.5V19.5H3V16.5H7.125ZM9.75 16.5H13.875V19.5H9.75V16.5ZM21 16.5V19.5H16.875V16.5H21Z" fill="#0066CC"/>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Optimized Module Configuration</h4>
+                        <p class="features-card__desc">Only 4 vertical COB modules per cabinet versus typical 8-module designs. This configuration ensures seamless stitching and significantly reduces visible horizontal lines for a cleaner, more cohesive display.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="24" viewBox="0 0 21 24" fill="none">
+                          <g clip-path="url(#clip0_10_1850)">
+                            <path d="M0 4.5C0 2.84531 1.34531 1.5 3 1.5H18C19.6547 1.5 21 2.84531 21 4.5V19.5C21 21.1547 19.6547 22.5 18 22.5H3C1.34531 22.5 0 21.1547 0 19.5V4.5Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1850">
+                              <path d="M0 0H21V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">True Flat LED Modules</h4>
+                        <p class="features-card__desc">Perfectly flat COB modules eliminate warping commonly associated with SMD/GOB versions. This design ensures a uniform, single-level plane, delivering a high-end precision appearance that enhances overall aesthetics.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1859)">
+                            <path d="M21 12C21 7.03125 16.9688 3 12 3V21C16.9688 21 21 16.9688 21 12ZM0 12C0 8.8174 1.26428 5.76516 3.51472 3.51472C5.76516 1.26428 8.8174 0 12 0C15.1826 0 18.2348 1.26428 20.4853 3.51472C22.7357 5.76516 24 8.8174 24 12C24 15.1826 22.7357 18.2348 20.4853 20.4853C18.2348 22.7357 15.1826 24 12 24C8.8174 24 5.76516 22.7357 3.51472 20.4853C1.26428 18.2348 0 15.1826 0 12Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1859">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Superior Contrast Ratios</h4>
+                        <p class="features-card__desc">COB technology offers 8000:1 contrast levels because LED chips mount directly on the circuit board, minimizing pixel distance. This results in deeper blacks and more vibrant colors compared to traditional methods.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1868)">
+                            <path d="M16.9453 0.0560324C17.1797 0.15447 17.3485 0.365407 17.3953 0.613845L18.3282 5.67166L23.386 6.59978C23.6344 6.64666 23.8453 6.81541 23.9438 7.04978C24.0422 7.28416 24.0141 7.55134 23.8688 7.76228L20.9485 11.9998L23.8688 16.2326C24.0141 16.4435 24.0422 16.7107 23.9438 16.9451C23.8453 17.1795 23.6344 17.3482 23.386 17.3951L18.3282 18.3279L17.3953 23.3857C17.3485 23.6342 17.1797 23.8451 16.9453 23.9435C16.711 24.042 16.4438 24.0138 16.2328 23.8685L12 20.9482L7.76721 23.8685C7.55628 24.0138 7.28909 24.042 7.05471 23.9435C6.82034 23.8451 6.65159 23.6342 6.60471 23.3857L5.6719 18.3279L0.614089 17.3951C0.365652 17.3482 0.154714 17.1795 0.0562765 16.9451C-0.042161 16.7107 -0.014036 16.4435 0.131277 16.2326L3.05159 11.9998L0.131277 7.76697C-0.014036 7.55603 -0.042161 7.28884 0.0562765 7.05447C0.154714 6.82009 0.365652 6.65134 0.614089 6.60447L5.6719 5.67166L6.60471 0.613845C6.65159 0.365407 6.82034 0.15447 7.05471 0.0560324C7.28909 -0.0424051 7.55628 -0.0142801 7.76721 0.131032L12 3.05134L16.2328 0.131032C16.4438 -0.0142801 16.711 -0.0424051 16.9453 0.0560324ZM7.50003 11.9998C7.50003 10.8063 7.97413 9.66172 8.81805 8.8178C9.66196 7.97389 10.8066 7.49978 12 7.49978C13.1935 7.49978 14.3381 7.97389 15.182 8.8178C16.0259 9.66172 16.5 10.8063 16.5 11.9998C16.5 13.1933 16.0259 14.3378 15.182 15.1818C14.3381 16.0257 13.1935 16.4998 12 16.4998C10.8066 16.4998 9.66196 16.0257 8.81805 15.1818C7.97413 14.3378 7.50003 13.1933 7.50003 11.9998ZM18 11.9998C18 10.4085 17.3679 8.88236 16.2427 7.75714C15.1174 6.63192 13.5913 5.99978 12 5.99978C10.4087 5.99978 8.8826 6.63192 7.75739 7.75714C6.63217 8.88236 6.00003 10.4085 6.00003 11.9998C6.00003 13.5911 6.63217 15.1172 7.75739 16.2424C8.8826 17.3676 10.4087 17.9998 12 17.9998C13.5913 17.9998 15.1174 17.3676 16.2427 16.2424C17.3679 15.1172 18 13.5911 18 11.9998Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1868">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">High Dynamic Range (HDR)</h4>
+                        <p class="features-card__desc">HDR technology delivers a superior visual experience with enhanced brightness, contrast, and color accuracy. Results in more vivid and realistic images that capture viewer attention in any lighting condition.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1877)">
+                            <path d="M12 0C12.8297 0 13.5 0.670312 13.5 1.5V1.9875C17.8922 2.63906 21.3609 6.1125 22.0125 10.5H22.5C23.3297 10.5 24 11.1703 24 12C24 12.8297 23.3297 13.5 22.5 13.5H22.0125C21.3609 17.8922 17.8875 21.3609 13.5 22.0125V22.5C13.5 23.3297 12.8297 24 12 24C11.1703 24 10.5 23.3297 10.5 22.5V22.0125C6.10781 21.3609 2.63906 17.8922 1.9875 13.5H1.5C0.670312 13.5 0 12.8297 0 12C0 11.1703 0.670312 10.5 1.5 10.5H1.9875C2.63906 6.10781 6.10781 2.63906 10.5 1.9875V1.5C10.5 0.670312 11.1703 0 12 0ZM5.03438 13.5C5.62031 16.2328 7.77187 18.3797 10.5 18.9656V18C10.5 17.1703 11.1703 16.5 12 16.5C12.8297 16.5 13.5 17.1703 13.5 18V18.9656C16.2328 18.3797 18.3797 16.2281 18.9656 13.5H18C17.1703 13.5 16.5 12.8297 16.5 12C16.5 11.1703 17.1703 10.5 18 10.5H18.9656C18.3797 7.76719 16.2328 5.62031 13.5 5.03438V6C13.5 6.82969 12.8297 7.5 12 7.5C11.1703 7.5 10.5 6.82969 10.5 6V5.03438C7.76719 5.62031 5.62031 7.76719 5.03438 10.5H6C6.82969 10.5 7.5 11.1703 7.5 12C7.5 12.8297 6.82969 13.5 6 13.5H5.03438ZM12 10.5C12.3978 10.5 12.7794 10.658 13.0607 10.9393C13.342 11.2206 13.5 11.6022 13.5 12C13.5 12.3978 13.342 12.7794 13.0607 13.0607C12.7794 13.342 12.3978 13.5 12 13.5C11.6022 13.5 11.2206 13.342 10.9393 13.0607C10.658 12.7794 10.5 12.3978 10.5 12C10.5 11.6022 10.658 11.2206 10.9393 10.9393C11.2206 10.658 11.6022 10.5 12 10.5Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1877">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">True High Resolution</h4>
+                        <p class="features-card__desc">Each LED corresponds directly to a pixel, guaranteeing sharp and authentic image quality. This one-to-one relationship ensures every detail renders with precision—vibrant colors and crystal-clear visuals.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="24" viewBox="0 0 18 24" fill="none">
+                          <path d="M3.42188 1.8279C2.72813 1.40134 1.85625 1.38727 1.14844 1.78571C0.440625 2.18415 0 2.93415 0 3.74977V20.2498C0 21.0654 0.440625 21.8154 1.14844 22.2138C1.85625 22.6123 2.72813 22.5935 3.42188 22.1716L16.9219 13.9216C17.5922 13.5138 18 12.7873 18 11.9998C18 11.2123 17.5922 10.4904 16.9219 10.0779L3.42188 1.8279Z" fill="#0066CC"/>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Superior Motion Handling</h4>
+                        <p class="features-card__desc">Experience zero ghosting in fast-moving scenes with our 3840Hz refresh rate. Ideal for high-refresh-rate applications including sports, gaming, broadcast, and live events.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1895)">
+                            <path d="M0 19.5C0 20.3297 0.670312 21 1.5 21H4.06406C4.64062 22.3266 5.9625 23.25 7.5 23.25C9.0375 23.25 10.3594 22.3266 10.9359 21H22.5C23.3297 21 24 20.3297 24 19.5C24 18.6703 23.3297 18 22.5 18H10.9359C10.3594 16.6734 9.0375 15.75 7.5 15.75C5.9625 15.75 4.64062 16.6734 4.06406 18H1.5C0.670312 18 0 18.6703 0 19.5ZM6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5ZM15 12C15 11.6022 15.158 11.2206 15.4393 10.9393C15.7206 10.658 16.1022 10.5 16.5 10.5C16.8978 10.5 17.2794 10.658 17.5607 10.9393C17.842 11.2206 18 11.6022 18 12C18 12.3978 17.842 12.7794 17.5607 13.0607C17.2794 13.342 16.8978 13.5 16.5 13.5C16.1022 13.5 15.7206 13.342 15.4393 13.0607C15.158 12.7794 15 12.3978 15 12ZM16.5 8.25C14.9625 8.25 13.6406 9.17344 13.0641 10.5H1.5C0.670312 10.5 0 11.1703 0 12C0 12.8297 0.670312 13.5 1.5 13.5H13.0641C13.6406 14.8266 14.9625 15.75 16.5 15.75C18.0375 15.75 19.3594 14.8266 19.9359 13.5H22.5C23.3297 13.5 24 12.8297 24 12C24 11.1703 23.3297 10.5 22.5 10.5H19.9359C19.3594 9.17344 18.0375 8.25 16.5 8.25ZM9 6C8.60218 6 8.22064 5.84196 7.93934 5.56066C7.65804 5.27936 7.5 4.89782 7.5 4.5C7.5 4.10218 7.65804 3.72064 7.93934 3.43934C8.22064 3.15804 8.60218 3 9 3C9.39782 3 9.77936 3.15804 10.0607 3.43934C10.342 3.72064 10.5 4.10218 10.5 4.5C10.5 4.89782 10.342 5.27936 10.0607 5.56066C9.77936 5.84196 9.39782 6 9 6ZM12.4359 3C11.8594 1.67344 10.5375 0.75 9 0.75C7.4625 0.75 6.14062 1.67344 5.56406 3H1.5C0.670312 3 0 3.67031 0 4.5C0 5.32969 0.670312 6 1.5 6H5.56406C6.14062 7.32656 7.4625 8.25 9 8.25C10.5375 8.25 11.8594 7.32656 12.4359 6H22.5C23.3297 6 24 5.32969 24 4.5C24 3.67031 23.3297 3 22.5 3H12.4359Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1895">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Simplified Control</h4>
+                        <p class="features-card__desc">Direct pixel driving without complex algorithms enhances system stability and reliability. Reduced processing overhead means faster response times and more consistent performance.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1904)">
+                            <path d="M12 0C12.2156 0 12.4313 0.046875 12.6281 0.135938L21.4547 3.88125C22.486 4.31719 23.2547 5.33438 23.25 6.5625C23.2266 11.2125 21.3141 19.7203 13.2375 23.5875C12.4547 23.9625 11.5453 23.9625 10.7625 23.5875C2.68596 19.7203 0.773459 11.2125 0.750021 6.5625C0.745334 5.33438 1.51408 4.31719 2.54533 3.88125L11.3766 0.135938C11.5688 0.046875 11.7844 0 12 0ZM12 3.13125V20.85C18.4688 17.7188 20.2078 10.7859 20.25 6.62813L12 3.13125Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1904">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Robust Design</h4>
+                        <p class="features-card__desc">COB LED technology features a protective layer that shields chips, making them more resistant to damage. Significantly reduces susceptibility to breakage from impacts or environmental conditions.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1895_heat)">
+                            <path d="M0 19.5C0 20.3297 0.670312 21 1.5 21H4.06406C4.64062 22.3266 5.9625 23.25 7.5 23.25C9.0375 23.25 10.3594 22.3266 10.9359 21H22.5C23.3297 21 24 20.3297 24 19.5C24 18.6703 23.3297 18 22.5 18H10.9359C10.3594 16.6734 9.0375 15.75 7.5 15.75C5.9625 15.75 4.64062 16.6734 4.06406 18H1.5C0.670312 18 0 18.6703 0 19.5ZM6 19.5C6 19.1022 6.15804 18.7206 6.43934 18.4393C6.72064 18.158 7.10218 18 7.5 18C7.89782 18 8.27936 18.158 8.56066 18.4393C8.84196 18.7206 9 19.1022 9 19.5C9 19.8978 8.84196 20.2794 8.56066 20.5607C8.27936 20.842 7.89782 21 7.5 21C7.10218 21 6.72064 20.842 6.43934 20.5607C6.15804 20.2794 6 19.8978 6 19.5ZM15 12C15 11.6022 15.158 11.2206 15.4393 10.9393C15.7206 10.658 16.1022 10.5 16.5 10.5C16.8978 10.5 17.2794 10.658 17.5607 10.9393C17.842 11.2206 18 11.6022 18 12C18 12.3978 17.842 12.7794 17.5607 13.0607C17.2794 13.342 16.8978 13.5 16.5 13.5C16.1022 13.5 15.7206 13.342 15.4393 13.0607C15.158 12.7794 15 12.3978 15 12ZM16.5 8.25C14.9625 8.25 13.6406 9.17344 13.0641 10.5H1.5C0.670312 10.5 0 11.1703 0 12C0 12.8297 0.670312 13.5 1.5 13.5H13.0641C13.6406 14.8266 14.9625 15.75 16.5 15.75C18.0375 15.75 19.3594 14.8266 19.9359 13.5H22.5C23.3297 13.5 24 12.8297 24 12C24 11.1703 23.3297 10.5 22.5 10.5H19.9359C19.3594 9.17344 18.0375 8.25 16.5 8.25ZM9 6C8.60218 6 8.22064 5.84196 7.93934 5.56066C7.65804 5.27936 7.5 4.89782 7.5 4.5C7.5 4.10218 7.65804 3.72064 7.93934 3.43934C8.22064 3.15804 8.60218 3 9 3C9.39782 3 9.77936 3.15804 10.0607 3.43934C10.342 3.72064 10.5 4.10218 10.5 4.5C10.5 4.89782 10.342 5.27936 10.0607 5.56066C9.77936 5.84196 9.39782 6 9 6ZM12.4359 3C11.8594 1.67344 10.5375 0.75 9 0.75C7.4625 0.75 6.14062 1.67344 5.56406 3H1.5C0.670312 3 0 3.67031 0 4.5C0 5.32969 0.670312 6 1.5 6H5.56406C6.14062 7.32656 7.4625 8.25 9 8.25C10.5375 8.25 11.8594 7.32656 12.4359 6H22.5C23.3297 6 24 5.32969 24 4.5C24 3.67031 23.3297 3 22.5 3H12.4359Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1895_heat">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Superior Heat Dissipation</h4>
+                        <p class="features-card__desc">Advanced thermal management significantly enhances lifespan and sustains optimal performance over time. Effective heat dissipation minimizes overheating, ensuring reliable operation in various conditions.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1904_energy)">
+                            <path d="M12 0C12.2156 0 12.4313 0.046875 12.6281 0.135938L21.4547 3.88125C22.486 4.31719 23.2547 5.33438 23.25 6.5625C23.2266 11.2125 21.3141 19.7203 13.2375 23.5875C12.4547 23.9625 11.5453 23.9625 10.7625 23.5875C2.68596 19.7203 0.773459 11.2125 0.750021 6.5625C0.745334 5.33438 1.51408 4.31719 2.54533 3.88125L11.3766 0.135938C11.5688 0.046875 11.7844 0 12 0ZM12 3.13125V20.85C18.4688 17.7188 20.2078 10.7859 20.25 6.62813L12 3.13125Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1904_energy">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Energy Efficiency</h4>
+                        <p class="features-card__desc">Superior energy efficiency compared to traditional LED methods results in lower operating costs. Particularly valuable for large installations where reduced power consumption (≤100W/m² average) significantly decreases expenses.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                          <path d="M6 5.25C6 4.00781 7.00781 3 8.25 3C9.49219 3 10.5 4.00781 10.5 5.25V12.9609C10.5 13.7719 10.8328 14.4563 11.2172 14.9531C11.7094 15.5906 12 16.3828 12 17.25C12 19.3219 10.3219 21 8.25 21C6.17812 21 4.5 19.3219 4.5 17.25C4.5 16.3828 4.79062 15.5906 5.28281 14.9578C5.66719 14.4609 6 13.7766 6 12.9656V5.25ZM8.25 0C5.34844 0 3 2.34844 3 5.25V12.9562C3 12.9609 2.99531 12.9703 2.99062 12.9844C2.98125 13.0125 2.95312 13.0594 2.91094 13.1156C2.025 14.2594 1.5 15.6938 1.5 17.25C1.5 20.9766 4.52344 24 8.25 24C11.9766 24 15 20.9766 15 17.25C15 15.6938 14.475 14.2594 13.5891 13.1203C13.5469 13.0641 13.5188 13.0172 13.5094 12.9891C13.5047 12.975 13.5 12.9656 13.5 12.9609V5.25C13.5 2.34844 11.1516 0 8.25 0ZM8.25 19.5C9.49219 19.5 10.5 18.4922 10.5 17.25C10.5 16.2703 9.87187 15.4359 9 15.1266V12.75C9 12.3375 8.6625 12 8.25 12C7.8375 12 7.5 12.3375 7.5 12.75V15.1266C6.62813 15.4359 6 16.2703 6 17.25C6 18.4922 7.00781 19.5 8.25 19.5ZM24 16.5H22.5V3C22.5 2.17031 21.8297 1.5 21 1.5C20.1703 1.5 19.5 2.17031 19.5 3V16.5H18C17.3953 16.5 16.8469 16.8656 16.6125 17.4281C16.3781 17.9906 16.5094 18.6328 16.9359 19.0641L19.9359 22.0641C20.2172 22.3453 20.5969 22.5047 20.9953 22.5047C21.3937 22.5047 21.7734 22.3453 22.0547 22.0641L25.0547 19.0641C25.4859 18.6328 25.6125 17.9906 25.3781 17.4281C25.1438 16.8656 24.6 16.5 23.9906 16.5H24Z" fill="#0066CC"/>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">Wide Viewing Angles</h4>
+                        <p class="features-card__desc">170° horizontal and 160° vertical viewing angles ensure consistent image quality from various perspectives. Essential for events and public displays where audiences position at different angles.</p>
+                      </div>
+                    </div>
+
+                    <div class="features-card">
+                      <div class="features-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                          <g clip-path="url(#clip0_10_1940)">
+                            <path d="M3.68436 0.23445C3.23905 -0.112425 2.60624 -0.0702373 2.20311 0.3282L0.328111 2.2032C-0.0703269 2.60164 -0.112514 3.23445 0.229673 3.68445L3.97967 8.55945C4.19061 8.83601 4.52342 9.00008 4.8703 9.00008H7.40624L12.5156 14.1095C11.8265 15.4688 12.0469 17.1751 13.1859 18.3095L18.4359 23.5595C19.0219 24.1454 19.9734 24.1454 20.5594 23.5595L23.5594 20.5595C24.1453 19.9735 24.1453 19.0219 23.5594 18.436L18.3094 13.186C17.175 12.0516 15.4687 11.8266 14.1094 12.5157L8.99999 7.40633V4.87508C8.99999 4.52351 8.83592 4.19539 8.55936 3.98445L3.68436 0.23445ZM0.932798 18.5673C0.337486 19.1626 -1.44334e-05 19.9735 -1.44334e-05 20.8173C-1.44334e-05 22.5751 1.42499 24.0001 3.1828 24.0001C4.02655 24.0001 4.83749 23.6626 5.4328 23.0673L10.9547 17.5454C10.589 16.5657 10.5328 15.5016 10.7859 14.4938L7.89373 11.6016L0.932798 18.5673ZM24 6.75008C24 6.25789 23.9484 5.77976 23.85 5.32039C23.7375 4.79539 23.0953 4.65945 22.7156 5.03914L19.7203 8.03445C19.5797 8.17508 19.3875 8.25476 19.1906 8.25476H16.5C16.0875 8.25476 15.75 7.91726 15.75 7.50476V4.80945C15.75 4.61258 15.8297 4.42039 15.9703 4.27976L18.9656 1.28445C19.3453 0.904763 19.2094 0.262575 18.6844 0.150075C18.2203 0.0516377 17.7422 7.52097e-05 17.25 7.52097e-05C13.5234 7.52097e-05 10.5 3.02351 10.5 6.75008V6.78758L14.4984 10.786C16.1859 10.3595 18.0515 10.8095 19.3734 12.1313L20.1094 12.8673C22.4062 11.7891 24 9.45476 24 6.75008ZM2.62499 20.2501C2.62499 19.9517 2.74351 19.6656 2.95449 19.4546C3.16547 19.2436 3.45162 19.1251 3.74999 19.1251C4.04835 19.1251 4.3345 19.2436 4.54548 19.4546C4.75646 19.6656 4.87499 19.9517 4.87499 20.2501C4.87499 20.5484 4.75646 20.8346 4.54548 21.0456C4.3345 21.2565 4.04835 21.3751 3.74999 21.3751C3.45162 21.3751 3.16547 21.2565 2.95449 21.0456C2.74351 20.8346 2.62499 20.5484 2.62499 20.2501Z" fill="#0066CC"/>
+                          </g>
+                          <defs>
+                            <clipPath id="clip0_10_1940">
+                              <path d="M0 0H24V24H0V0Z" fill="white"/>
+                            </clipPath>
+                          </defs>
+                        </svg>
+                      </div>
+                      <div class="features-card__content">
+                        <h4 class="features-card__title">100% Front Serviceable</h4>
+                        <p class="features-card__desc">Complete front-access design for maintenance and module replacement. No need to access the rear of the display—reducing downtime and simplifying service procedures.</p>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'included_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--included {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- What's Included Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                    <path d="M2.37656 1.24219L0 6H9.75V0H4.39219C3.53906 0 2.76094 0.482812 2.37656 1.24219ZM11.25 6H21L18.6234 1.24219C18.2391 0.482812 17.4609 0 16.6078 0H11.25V6ZM21 7.5H0V18C0 19.6547 1.34531 21 3 21H18C19.6547 21 21 19.6547 21 18V7.5Z" fill="#0A84FF"/>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: "What's Included" }}</h2>
+              </div>
+
+              <!-- What's Included Content -->
+              <div class="included-content">
+                <div class="included-grid">
+                  {% if pic_included_titles and pic_included_titles.size > 0 %}
+                    {% for title in pic_included_titles %}
+                      {% assign img_key = 'included_image_' | append: forloop.index %}
+                      <div class="included-card">
+                        <div class="included-card__image">
+                          {% if block.settings[img_key] != blank %}
+                            <img src="{{ block.settings[img_key] | image_url: width: 400 }}" alt="{{ title }}" loading="lazy">
+                          {% else %}
+                            <div class="included-card__placeholder"></div>
+                          {% endif %}
+                        </div>
+                        <div class="included-card__content">
+                          {% if pic_included_badges[forloop.index0] %}
+                            <span class="included-card__badge">{{ pic_included_badges[forloop.index0] }}</span>
+                          {% endif %}
+                          <h4 class="included-card__title">{{ title }}</h4>
+                          {% if pic_included_descriptions[forloop.index0] %}
+                            <p class="included-card__desc">{{ pic_included_descriptions[forloop.index0] }}</p>
+                          {% endif %}
+                        </div>
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <!-- Fallback hardcoded content -->
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_1 != blank %}
+                          <img src="{{ block.settings.included_image_1 | image_url: width: 400 }}" alt="Complete Cabinet Array" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">64 Cabinets</span>
+                        <h4 class="included-card__title">Complete Cabinet Array</h4>
+                        <p class="included-card__desc">23.62" × 13.3" × 1" interlocking cabinets, each with 4 interchangeable COB LED modules. Includes 5% spare modules for extended reliability.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_2 != blank %}
+                          <img src="{{ block.settings.included_image_2 | image_url: width: 400 }}" alt="NovaStar H2 Controller" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">1 Unit</span>
+                        <h4 class="included-card__title">NovaStar H2 Controller</h4>
+                        <p class="included-card__desc">4K video processor with advanced color calibration and HDR support. 3D video capability with dedicated AV control. Includes 4K/60p + 1×4K HDMI 2.0 inputs.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_3 != blank %}
+                          <img src="{{ block.settings.included_image_3 | image_url: width: 400 }}" alt="Rail Mounting System" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">Complete Kit</span>
+                        <h4 class="included-card__title">Rail Mounting System</h4>
+                        <p class="included-card__desc">Professional-grade wall mounting rails and stainless steel brackets for secure installation with precise cabinet alignment tolerances.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_4 != blank %}
+                          <img src="{{ block.settings.included_image_4 | image_url: width: 400 }}" alt="Power & Network Cables" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">Full Set + Spares</span>
+                        <h4 class="included-card__title">Power & Network Cables</h4>
+                        <p class="included-card__desc">All connecting power and network cables including spare units. Pre-measured for 8×8 configuration with segregated cable management.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_5 != blank %}
+                          <img src="{{ block.settings.included_image_5 | image_url: width: 400 }}" alt="Installation & Service Kit" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">2 Tools</span>
+                        <h4 class="included-card__title">Installation & Service Kit</h4>
+                        <p class="included-card__desc">Suction tool for frontal module exchange/repair, plus vacuum tool for precision handling. Essential for front service maintenance.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_6 != blank %}
+                          <img src="{{ block.settings.included_image_6 | image_url: width: 400 }}" alt="Interlocking Connectors" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">Integrated Set</span>
+                        <h4 class="included-card__title">Interlocking Connectors</h4>
+                        <p class="included-card__desc">Precision-engineered 4-pole and 2-pole connecting plates. Enables cabinet-to-cabinet daisy chaining in two axis + power "bus/bars" + spare.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_7 != blank %}
+                          <img src="{{ block.settings.included_image_7 | image_url: width: 400 }}" alt="Technical Documentation" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">Complete Set</span>
+                        <h4 class="included-card__title">Technical Documentation</h4>
+                        <p class="included-card__desc">Full spec sheets, mounting drawings, wiring diagrams, NovaStar manuals, quick start guides, and installation instructions.</p>
+                      </div>
+                    </div>
+
+                    <div class="included-card">
+                      <div class="included-card__image">
+                        {% if block.settings.included_image_8 != blank %}
+                          <img src="{{ block.settings.included_image_8 | image_url: width: 400 }}" alt="Comprehensive Warranty" loading="lazy">
+                        {% else %}
+                          <div class="included-card__placeholder"></div>
+                        {% endif %}
+                      </div>
+                      <div class="included-card__content">
+                        <span class="included-card__badge">4 Years</span>
+                        <h4 class="included-card__title">Comprehensive Warranty</h4>
+                        <p class="included-card__desc">4-year comprehensive warranty covering all components, modules, and system failures. Lifetime technical support included.</p>
+                      </div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'installation_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--installation {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Installation Guide Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_10_1951)">
+                      <path d="M3.07032 0.195782C2.69923 -0.0932804 2.17188 -0.0581242 1.83595 0.273907L0.273446 1.83641C-0.0585854 2.16844 -0.0937417 2.69578 0.191415 3.07078L3.31641 7.13328C3.4922 7.36375 3.76954 7.50047 4.0586 7.50047H6.17188L10.4297 11.7583C9.85548 12.8911 10.0391 14.313 10.9883 15.2583L15.3633 19.6333C15.8516 20.1216 16.6445 20.1216 17.1328 19.6333L19.6328 17.1333C20.1211 16.645 20.1211 15.852 19.6328 15.3638L15.2578 10.9888C14.3125 10.0434 12.8906 9.85594 11.7578 10.4302L7.50001 6.17234V4.06297C7.50001 3.77 7.36329 3.49656 7.13282 3.32078L3.07032 0.195782ZM0.777352 15.4731C0.281258 15.9692 8.31718e-06 16.645 8.31718e-06 17.3481C8.31718e-06 18.813 1.18751 20.0005 2.65235 20.0005C3.35548 20.0005 4.03126 19.7192 4.52735 19.2231L9.12891 14.6216C8.82423 13.8052 8.77735 12.9184 8.98829 12.0786L6.57813 9.66844L0.777352 15.4731ZM20 5.62547C20 5.21531 19.957 4.81688 19.875 4.43406C19.7813 3.99656 19.2461 3.88328 18.9297 4.19969L16.4336 6.69578C16.3164 6.81297 16.1563 6.87938 15.9922 6.87938H13.75C13.4063 6.87938 13.125 6.59813 13.125 6.25438V4.00828C13.125 3.84422 13.1914 3.68406 13.3086 3.56688L15.8047 1.07078C16.1211 0.754376 16.0078 0.21922 15.5703 0.12547C15.1836 0.0434383 14.7852 0.000469576 14.375 0.000469576C11.2695 0.000469576 8.75001 2.52 8.75001 5.62547V5.65672L12.082 8.98875C13.4883 8.63328 15.043 9.00828 16.1445 10.1098L16.7578 10.7231C18.6719 9.82469 20 7.87938 20 5.62547ZM2.18751 16.8755C2.18751 16.6268 2.28628 16.3884 2.4621 16.2126C2.63791 16.0367 2.87637 15.938 3.12501 15.938C3.37365 15.938 3.61211 16.0367 3.78792 16.2126C3.96374 16.3884 4.06251 16.6268 4.06251 16.8755C4.06251 17.1241 3.96374 17.3626 3.78792 17.5384C3.61211 17.7142 3.37365 17.813 3.12501 17.813C2.87637 17.813 2.63791 17.7142 2.4621 17.5384C2.28628 17.3626 2.18751 17.1241 2.18751 16.8755Z" fill="#0A84FF"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_10_1951">
+                        <path d="M0 0H20V20H0V0Z" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: 'Installation' }}</h2>
+              </div>
+
+              <!-- Installation Guide Content -->
+              <div class="installation-content">
+                <!-- Installation Steps -->
+                <div class="installation-steps">
+                  {% if pic_install_step_titles and pic_install_step_titles.size > 0 %}
+                    {% for title in pic_install_step_titles %}
+                      <div class="installation-step">
+                        <div class="installation-step__number">{{ pic_install_step_numbers[forloop.index0] | default: forloop.index }}</div>
+                        <h4 class="installation-step__title">{{ title }}</h4>
+                        {% if pic_install_step_durations[forloop.index0] %}
+                          <span class="installation-step__time">{{ pic_install_step_durations[forloop.index0] }}</span>
+                        {% endif %}
+                        {% if pic_install_step_descriptions[forloop.index0] %}
+                          <p class="installation-step__desc">{{ pic_install_step_descriptions[forloop.index0] }}</p>
+                        {% endif %}
+                      </div>
+                    {% endfor %}
+                  {% else %}
+                    <!-- Fallback hardcoded content -->
+                    <div class="installation-step">
+                      <div class="installation-step__number">1</div>
+                      <h4 class="installation-step__title">Preparation</h4>
+                      <span class="installation-step__time">15 MINUTES</span>
+                      <p class="installation-step__desc">Site preparation, wall mounting rail installation, power/data infrastructure verification.</p>
+                    </div>
+
+                    <div class="installation-step">
+                      <div class="installation-step__number">2</div>
+                      <h4 class="installation-step__title">Cabinet Assembly</h4>
+                      <span class="installation-step__time">75 MINUTES</span>
+                      <p class="installation-step__desc">Quick Connect cabinet linking in 8×8 configuration. Lock mechanisms engage with simple turns.</p>
+                    </div>
+
+                    <div class="installation-step">
+                      <div class="installation-step__number">3</div>
+                      <h4 class="installation-step__title">Connections</h4>
+                      <span class="installation-step__time">20 MINUTES</span>
+                      <p class="installation-step__desc">Integrated power and network hub connections. Organized cable routing through cabinet management.</p>
+                    </div>
+
+                    <div class="installation-step">
+                      <div class="installation-step__number">4</div>
+                      <h4 class="installation-step__title">Calibration</h4>
+                      <span class="installation-step__time">10 MINUTES</span>
+                      <p class="installation-step__desc">NovaStar H2 configuration, color calibration, brightness uniformity adjustment.</p>
+                    </div>
+                  {% endif %}
+                </div>
+
+                <!-- Installation Requirements -->
+                <div class="installation-requirements">
+                  <h3 class="installation-requirements__title">{{ pic_install_requirements_heading | default: 'Installation Requirements' }}</h3>
+                  <div class="installation-requirements__grid">
+                    {% if pic_install_requirements_titles and pic_install_requirements_titles.size > 0 %}
+                      {% for title in pic_install_requirements_titles %}
+                        <div class="installation-requirement">
+                          <div class="installation-requirement__icon">
+                            <i>
+                              {% case forloop.index0 %}
+                                {% when 0 %}
+                                  <!-- Lightning bolt - Power Requirements -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 21 24" fill="none">
+                                    <path d="M16.3781 2.09105C16.6547 1.44886 16.4484 0.698862 15.8812 0.286362C15.3141 -0.126138 14.5406 -0.0886384 14.0109 0.370737L2.01093 10.8707C1.54218 11.2832 1.37343 11.9442 1.59374 12.5254C1.81405 13.1067 2.37655 13.5004 2.99999 13.5004H8.22655L4.62186 21.9098C4.3453 22.552 4.55155 23.302 5.11874 23.7145C5.68593 24.127 6.45937 24.0895 6.98905 23.6301L18.9891 13.1301C19.4578 12.7176 19.6266 12.0567 19.4062 11.4754C19.1859 10.8942 18.6281 10.5051 18 10.5051H12.7734L16.3781 2.09105Z" fill="#0066CC"/>
+                                  </svg>
+                                {% when 1 %}
+                                  <!-- Ruler - Space Requirements -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M8.33906 23.1611C7.4625 24.0377 6.0375 24.0377 5.15625 23.1611L0.839062 18.8393C-0.0375 17.9627 -0.0375 16.5377 0.839062 15.6564L3.21562 13.2799L5.46562 15.5299C5.75625 15.8205 6.23437 15.8205 6.525 15.5299C6.81562 15.2393 6.81562 14.7611 6.525 14.4705L4.275 12.2205L6.21562 10.2799L8.46562 12.5299C8.75625 12.8205 9.23437 12.8205 9.525 12.5299C9.81562 12.2393 9.81562 11.7611 9.525 11.4705L7.275 9.22051L9.21562 7.27988L11.4656 9.52988C11.7562 9.82051 12.2344 9.82051 12.525 9.52988C12.8156 9.23926 12.8156 8.76113 12.525 8.47051L10.275 6.22051L12.2156 4.27988L14.4656 6.52988C14.7562 6.82051 15.2344 6.82051 15.525 6.52988C15.8156 6.23926 15.8156 5.76113 15.525 5.47051L13.275 3.22051L15.6516 0.843945C16.5281 -0.0326172 17.9531 -0.0326172 18.8344 0.843945L23.1516 5.16113C24.0281 6.0377 24.0281 7.4627 23.1516 8.34394L8.33906 23.1611Z" fill="#0066CC"/>
+                                  </svg>
+                                {% when 2 %}
+                                  <!-- Thermometer - Environmental -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 24" fill="none">
+                                    <path d="M7.5 3C6.25781 3 5.25 4.00781 5.25 5.25V12.9609C5.25 13.7719 4.91719 14.4563 4.53281 14.9531C4.04062 15.5906 3.75 16.3828 3.75 17.25C3.75 19.3219 5.42812 21 7.5 21C9.57187 21 11.25 19.3219 11.25 17.25C11.25 16.3828 10.9594 15.5906 10.4672 14.9578C10.0828 14.4609 9.75 13.7766 9.75 12.9656V5.25C9.75 4.00781 8.74219 3 7.5 3ZM2.25 5.25C2.25 2.35313 4.59844 0 7.5 0C10.4016 0 12.75 2.34844 12.75 5.25V12.9609C12.75 12.9656 12.7547 12.975 12.7594 12.9891C12.7688 13.0172 12.7969 13.0641 12.8391 13.1203C13.725 14.2641 14.25 15.6984 14.25 17.25C14.25 20.9766 11.2266 24 7.5 24C3.77344 24 0.75 20.9766 0.75 17.25C0.75 15.6938 1.275 14.2594 2.16094 13.1203C2.20312 13.0641 2.23125 13.0172 2.24062 12.9891C2.24531 12.975 2.25 12.9656 2.25 12.9609V5.25ZM9.75 17.25C9.75 18.4922 8.74219 19.5 7.5 19.5C6.25781 19.5 5.25 18.4922 5.25 17.25C5.25 16.2703 5.87813 15.4359 6.75 15.1266V9.75C6.75 9.3375 7.0875 9 7.5 9C7.9125 9 8.25 9.3375 8.25 9.75V15.1266C9.12187 15.4359 9.75 16.2703 9.75 17.25Z" fill="#0066CC"/>
+                                  </svg>
+                                {% else %}
+                                  <!-- Fallback icon -->
+                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" fill="#0066CC"/>
+                                  </svg>
+                              {% endcase %}
+                            </i>
+                          </div>
+                          <h4 class="installation-requirement__title">{{ title }}</h4>
+                          {% if pic_install_requirements_descriptions[forloop.index0] %}
+                            <p class="installation-requirement__desc">{{ pic_install_requirements_descriptions[forloop.index0] }}</p>
+                          {% endif %}
+                        </div>
+                      {% endfor %}
+                    {% else %}
+                      <div class="installation-requirement">
+                        <div class="installation-requirement__icon">
+                          <i>
+                            <!-- Lightning bolt - Power Requirements -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 21 24" fill="none">
+                              <path d="M16.3781 2.09105C16.6547 1.44886 16.4484 0.698862 15.8812 0.286362C15.3141 -0.126138 14.5406 -0.0886384 14.0109 0.370737L2.01093 10.8707C1.54218 11.2832 1.37343 11.9442 1.59374 12.5254C1.81405 13.1067 2.37655 13.5004 2.99999 13.5004H8.22655L4.62186 21.9098C4.3453 22.552 4.55155 23.302 5.11874 23.7145C5.68593 24.127 6.45937 24.0895 6.98905 23.6301L18.9891 13.1301C19.4578 12.7176 19.6266 12.0567 19.4062 11.4754C19.1859 10.8942 18.6281 10.5051 18 10.5051H12.7734L16.3781 2.09105Z" fill="#0066CC"/>
+                            </svg>
+                          </i>
+                        </div>
+                        <h4 class="installation-requirement__title">Power Requirements</h4>
+                        <p class="installation-requirement__desc">Standard AC 100-240V, 50/60Hz. Maximum draw: 5.6kW (peak). Average consumption: 2.7kW. Dedicated 30A circuit recommended.</p>
+                      </div>
+
+                      <div class="installation-requirement">
+                        <div class="installation-requirement__icon">
+                          <i>
+                            <!-- Ruler - Space Requirements -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                              <path d="M8.33906 23.1611C7.4625 24.0377 6.0375 24.0377 5.15625 23.1611L0.839062 18.8393C-0.0375 17.9627 -0.0375 16.5377 0.839062 15.6564L3.21562 13.2799L5.46562 15.5299C5.75625 15.8205 6.23437 15.8205 6.525 15.5299C6.81562 15.2393 6.81562 14.7611 6.525 14.4705L4.275 12.2205L6.21562 10.2799L8.46562 12.5299C8.75625 12.8205 9.23437 12.8205 9.525 12.5299C9.81562 12.2393 9.81562 11.7611 9.525 11.4705L7.275 9.22051L9.21562 7.27988L11.4656 9.52988C11.7562 9.82051 12.2344 9.82051 12.525 9.52988C12.8156 9.23926 12.8156 8.76113 12.525 8.47051L10.275 6.22051L12.2156 4.27988L14.4656 6.52988C14.7562 6.82051 15.2344 6.82051 15.525 6.52988C15.8156 6.23926 15.8156 5.76113 15.525 5.47051L13.275 3.22051L15.6516 0.843945C16.5281 -0.0326172 17.9531 -0.0326172 18.8344 0.843945L23.1516 5.16113C24.0281 6.0377 24.0281 7.4627 23.1516 8.34394L8.33906 23.1611Z" fill="#0066CC"/>
+                            </svg>
+                          </i>
+                        </div>
+                        <h4 class="installation-requirement__title">Space Requirements</h4>
+                        <p class="installation-requirement__desc">Display: 15.75' × 8.86' (4.8m × 2.7m). Depth: 1" (25mm) + mounting rail. Clearance: 6" front access minimum. Weight: 242kg (534 lbs) total.</p>
+                      </div>
+
+                      <div class="installation-requirement">
+                        <div class="installation-requirement__icon">
+                          <i>
+                            <!-- Thermometer - Environmental -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 24" fill="none">
+                              <path d="M7.5 3C6.25781 3 5.25 4.00781 5.25 5.25V12.9609C5.25 13.7719 4.91719 14.4563 4.53281 14.9531C4.04062 15.5906 3.75 16.3828 3.75 17.25C3.75 19.3219 5.42812 21 7.5 21C9.57187 21 11.25 19.3219 11.25 17.25C11.25 16.3828 10.9594 15.5906 10.4672 14.9578C10.0828 14.4609 9.75 13.7766 9.75 12.9656V5.25C9.75 4.00781 8.74219 3 7.5 3ZM2.25 5.25C2.25 2.35313 4.59844 0 7.5 0C10.4016 0 12.75 2.34844 12.75 5.25V12.9609C12.75 12.9656 12.7547 12.975 12.7594 12.9891C12.7688 13.0172 12.7969 13.0641 12.8391 13.1203C13.725 14.2641 14.25 15.6984 14.25 17.25C14.25 20.9766 11.2266 24 7.5 24C3.77344 24 0.75 20.9766 0.75 17.25C0.75 15.6938 1.275 14.2594 2.16094 13.1203C2.20312 13.0641 2.23125 13.0172 2.24062 12.9891C2.24531 12.975 2.25 12.9656 2.25 12.9609V5.25ZM9.75 17.25C9.75 18.4922 8.74219 19.5 7.5 19.5C6.25781 19.5 5.25 18.4922 5.25 17.25C5.25 16.2703 5.87813 15.4359 6.75 15.1266V9.75C6.75 9.3375 7.0875 9 7.5 9C7.9125 9 8.25 9.3375 8.25 9.75V15.1266C9.12187 15.4359 9.75 16.2703 9.75 17.25Z" fill="#0066CC"/>
+                            </svg>
+                          </i>
+                        </div>
+                        <h4 class="installation-requirement__title">Environmental</h4>
+                        <p class="installation-requirement__desc">Temperature: -20°C to +50°C. Humidity: 10-95% RH (non-condensing). Ventilation: Standard room airflow. Indoor installation recommended.</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                </div>
+
+                <!-- Professional Support CTA -->
+                <div class="installation-support">
+                  <div class="installation-support__content">
+                    <h3 class="installation-support__title">{{ pic_install_support_title | default: 'Need Professional Installation Support?' }}</h3>
+                    <p class="installation-support__desc">{{ pic_install_support_description | default: 'Our certified installation partners provide white-glove service nationwide. Contact us for installer recommendations in your area.' }}</p>
+                  </div>
+                  <a href="{{ block.settings.installer_link }}" class="installation-support__btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <g clip-path="url(#clip0_10_2020)">
+                        <path d="M5.15312 0.768478C4.9125 0.187228 4.27812 -0.122147 3.67188 0.0434781L0.921875 0.793478C0.378125 0.943478 0 1.43723 0 1.99973C0 9.73098 6.26875 15.9997 14 15.9997C14.5625 15.9997 15.0563 15.6216 15.2063 15.0779L15.9563 12.3279C16.1219 11.7216 15.8125 11.0872 15.2312 10.8466L12.2312 9.5966C11.7219 9.3841 11.1313 9.53098 10.7844 9.9591L9.52188 11.4997C7.32188 10.4591 5.54063 8.67785 4.5 6.47785L6.04063 5.21848C6.46875 4.86848 6.61562 4.28098 6.40312 3.7716L5.15312 0.771603V0.768478Z" fill="white"/>
+                      </g>
+                      <defs>
+                        <clipPath id="clip0_10_2020">
+                          <path d="M0 0H16V16H0V0Z" fill="white"/>
+                        </clipPath>
+                      </defs>
+                    </svg>
+                    {{ pic_install_support_button | default: 'FIND AN INSTALLER' }}
+                  </a>
+                </div>
+              </div>
+            </div>
+          {% elsif block.type == 'support_tab' %}
+            <div
+              class="product-intelligence__panel product-intelligence__panel--support {% if forloop.first %}product-intelligence__panel--active{% endif %}"
+              role="tabpanel"
+              id="panel-{{ block.id }}"
+              data-panel-index="{{ forloop.index0 }}"
+            >
+              <!-- Support & Resources Heading -->
+              <div class="specs-heading">
+                <div class="specs-heading__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <g clip-path="url(#clip0_10_2140)">
+                      <path d="M10 1.875C5.51172 1.875 1.875 5.51172 1.875 10V11.5625C1.875 12.082 1.45703 12.5 0.9375 12.5C0.417969 12.5 0 12.082 0 11.5625V10C0 4.47656 4.47656 0 10 0C15.5234 0 20 4.47656 20 10V15.6289C20 17.5273 18.4609 19.0664 16.5586 19.0664L12.25 19.0625C11.9258 19.6211 11.3203 20 10.625 20H9.375C8.33984 20 7.5 19.1602 7.5 18.125C7.5 17.0898 8.33984 16.25 9.375 16.25H10.625C11.3203 16.25 11.9258 16.6289 12.25 17.1875L16.5625 17.1914C17.4258 17.1914 18.125 16.4922 18.125 15.6289V10C18.125 5.51172 14.4883 1.875 10 1.875ZM5.625 8.125H6.25C6.94141 8.125 7.5 8.68359 7.5 9.375V13.75C7.5 14.4414 6.94141 15 6.25 15H5.625C4.24609 15 3.125 13.8789 3.125 12.5V10.625C3.125 9.24609 4.24609 8.125 5.625 8.125ZM14.375 8.125C15.7539 8.125 16.875 9.24609 16.875 10.625V12.5C16.875 13.8789 15.7539 15 14.375 15H13.75C13.0586 15 12.5 14.4414 12.5 13.75V9.375C12.5 8.68359 13.0586 8.125 13.75 8.125H14.375Z" fill="#0A84FF"/>
+                    </g>
+                    <defs>
+                      <clipPath id="clip0_10_2140">
+                        <path d="M0 0H20V20H0V0Z" fill="white"/>
+                      </clipPath>
+                    </defs>
+                  </svg>
+                </div>
+                <h2 class="specs-heading__title">{{ block.settings.tab_title | default: 'Support & Resources' }}</h2>
+              </div>
+
+              <!-- Support & Resources Content -->
+              <div class="support-content">
+                <!-- Resources Grid -->
+                <div class="support-resources">
+                  <div class="support-resources__grid">
+                    {% if pic_support_resource_titles and pic_support_resource_titles.size > 0 %}
+                      {% for title in pic_support_resource_titles %}
+                        {% assign current_index = forloop.index0 %}
+                        {% assign file_url = '' %}
+                        {% assign file_name = '' %}
+                        {% assign file_extension = '' %}
+                        {% assign icon_url = '' %}
+                        {% comment %} Loop through files to find matching index {% endcomment %}
+                        {% for file in pic_support_resource_files %}
+                          {% if forloop.index0 == current_index %}
+                            {% assign file_url = file.url %}
+                            {% assign file_name = file_url | split: '/' | last | split: '?' | first %}
+                            {% assign file_extension = file_name | split: '.' | last | upcase %}
+                            {% break %}
+                          {% endif %}
+                        {% endfor %}
+                        {% comment %} Loop through icons to find matching index {% endcomment %}
+                        {% for icon in pic_support_resource_icons %}
+                          {% if forloop.index0 == current_index %}
+                            {% assign icon_url = icon.src | default: icon | image_url %}
+                            {% break %}
+                          {% endif %}
+                        {% endfor %}
+                        {% if file_url == blank %}{% continue %}{% endif %}
+                        <div class="resource-card" data-file-url="{{ file_url }}" data-card-index="{{ current_index }}">
+                          <div class="resource-card__header">
+                            <div class="resource-card__icon">
+                              {% if icon_url != blank %}
+                                <img src="{{ icon_url }}" alt="{{ title }}">
+                              {% else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                                </svg>
+                              {% endif %}
+                            </div>
+                            {% if file_url != blank %}
+                              <div class="resource-card__download" onclick="downloadResourceFile('{{ file_url }}', '{{ file_name }}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                  <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                                </svg>
+                              </div>
+                            {% endif %}
+                          </div>
+                          <h4 class="resource-card__title">{{ title }}</h4>
+                          {% if pic_support_resource_descriptions[current_index] %}
+                            <p class="resource-card__desc">{{ pic_support_resource_descriptions[current_index] }}</p>
+                          {% endif %}
+                          <div class="resource-card__footer">
+                            {% if file_url != blank %}
+                              <span class="resource-card__badge">{{ file_extension }}</span>
+                              <span class="resource-card__size" data-file-url="{{ file_url }}">Calculating...</span>
+                            {% comment %} {% else %}
+                              <span class="resource-card__badge"></span>
+                              <span class="resource-card__size"></span> {% endcomment %}
+                            {% endif %}
+                          </div>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                </div>
+
+                <!-- Contact Support Section -->
+                <div class="support-contact">
+                  <div class="support-contact__card support-contact__card--phone">
+                    <div class="support-contact__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__number">{{ pic_support_contact.phone.number | default: '855-449-4733' }}</h4>
+                    <p class="support-contact__hours">{{ pic_support_contact.phone.hours | default: 'Monday - Friday: 7AM - 5PM PST' }}</p>
+                    <p class="support-contact__note">{{ pic_support_contact.phone.note | default: 'Press 2 for Technical Support' }}</p>
+                    <a href="tel:{{ pic_support_contact.phone.number | default: '855-449-4733' | remove: '-' | remove: ' ' }}" class="support-contact__btn">CALL NOW</a>
+                  </div>
+
+                  <div class="support-contact__card support-contact__card--email">
+                    <div class="support-contact__icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__email">{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}</h4>
+                    <p class="support-contact__response">{{ pic_support_contact.email.response | default: 'Response within 1-2 hours during business hours' }}</p>
+                    <a href="mailto:{{ pic_support_contact.email.address | default: 'support@brightlinkav.com' }}" class="support-contact__btn support-contact__btn--secondary">SEND EMAIL</a>
+                  </div>
+
+                  <div class="support-contact__card support-contact__card--lifetime">
+                    <div class="support-contact__icon support-contact__icon--gold">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.6 6.62c-1.44 0-2.8.56-3.77 1.53L12 10.66 10.48 12h.01L7.8 14.39c-.64.64-1.49.99-2.4.99-1.87 0-3.39-1.51-3.39-3.38S3.53 8.62 5.4 8.62c.91 0 1.76.35 2.44 1.03l1.13 1 1.51-1.34L9.22 8.2C8.2 7.18 6.84 6.62 5.4 6.62 2.42 6.62 0 9.04 0 12s2.42 5.38 5.4 5.38c1.44 0 2.8-.56 3.77-1.53l2.83-2.5.01.01L13.52 12h-.01l2.69-2.39c.64-.64 1.49-.99 2.4-.99 1.87 0 3.39 1.51 3.39 3.38s-1.52 3.38-3.39 3.38c-.9 0-1.76-.35-2.44-1.03l-1.14-1.01-1.51 1.34 1.27 1.12c1.02 1.01 2.37 1.57 3.82 1.57 2.98 0 5.4-2.41 5.4-5.38s-2.42-5.37-5.4-5.37z"/>
+                      </svg>
+                    </div>
+                    <h4 class="support-contact__title">{{ pic_support_contact.lifetime.title | default: 'Lifetime Technical Support' }}</h4>
+                    <p class="support-contact__desc">{{ pic_support_contact.lifetime.description | default: 'Even after warranty expires, full support continues.' }}</p>
+                    <span class="support-contact__badge">INCLUDED</span>
+                  </div>
+                </div>
+
+                <!-- Use Case Section -->
+                {% comment %} <div class="support-usecase">
+                  <div class="support-usecase__image">
+                    {% if block.settings.usecase_image != blank %}
+                      <img src="{{ block.settings.usecase_image | image_url: width: 600 }}" alt="{{ pic_support_usecase_title }}" class="support-usecase__img" loading="lazy">
+                    {% else %}
+                      <div class="support-usecase__placeholder"></div>
+                    {% endif %}
+                    <div class="support-usecase__specs">
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">View Distance</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.view_distance | default: '6-15 feet' }}</span>
+                      </div>
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">Typical Size</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.typical_size | default: '180-250"' }}</span>
+                      </div>
+                      <div class="support-usecase__spec">
+                        <span class="support-usecase__spec-label">Use Case</span>
+                        <span class="support-usecase__spec-value">{{ pic_support_usecase_specs.use_case | default: 'Premium' }}</span>
+                      </div>
+                    </div>
+                    <div class="support-usecase__config">
+                      <h5 class="support-usecase__config-title">Common Configuration</h5>
+                      <div class="support-usecase__config-grid">
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Size:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.size | default: '6×4 to 10×6 arrays' }}</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Resolution:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.resolution | default: '2.88M to 7.2M pixels' }}</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Brightness:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.brightness | default: '600 nits' }}</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Controller:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.controller | default: 'NovaStar H2/H5' }}</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Mounting:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.mounting | default: 'Flush wall mount' }}</span>
+                        </div>
+                        <div class="support-usecase__config-item">
+                          <span class="support-usecase__config-label">Integration:</span>
+                          <span class="support-usecase__config-value">{{ pic_support_usecase_config.integration | default: 'Corporate AV systems' }}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="support-usecase__content">
+                    <h3 class="support-usecase__title">{{ pic_support_usecase_title | default: 'Executive Boardrooms & Conference Centers' }}</h3>
+                    {% if pic_support_usecase_description != blank %}
+                      {{ pic_support_usecase_description | newline_to_br }}
+                    {% else %}
+                      <p class="support-usecase__text">Transform corporate presentations with unmatched clarity and sophistication. Pro Spectrum's 1.25mm pixel pitch delivers razor-sharp text and graphics visible from close range, while the ultra-slim 25mm profile creates a seamless, architectural presence that complements high-end interiors.</p>
+                      <p class="support-usecase__text">Perfect for Fortune 500 boardrooms where every detail matters —from financial dashboards to video conferencing. The wide 170° viewing angle ensures every stakeholder sees crisp, accurate content regardless of seating position.</p>
+                    {% endif %}
+
+                    <div class="support-usecase__features">
+                      <h4 class="support-usecase__features-title">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        {{ pic_support_usecase_features_title | default: 'Why Pro Spectrum?' }}
+                      </h4>
+                      <ul class="support-usecase__list">
+                        {% if pic_support_usecase_features and pic_support_usecase_features.size > 0 %}
+                          {% for feature in pic_support_usecase_features %}
+                            <li>{{ feature }}</li>
+                          {% endfor %}
+                        {% else %}
+                          <li>Crystal-clear text readability at 6+ feet</li>
+                          <li>Professional aesthetic matches premium spaces</li>
+                          <li>Silent operation (no fan noise)</li>
+                          <li>4K content support for presentations</li>
+                          <li>HDR for realistic video conferencing</li>
+                          <li>Zero flicker for comfortable extended viewing</li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                  </div>
+                </div> {% endcomment %}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const section = document.getElementById('product-intelligence-{{ section.id }}');
+    if (!section) return;
+
+    const tabs = section.querySelectorAll('.product-intelligence__tab');
+    const panels = section.querySelectorAll('.product-intelligence__panel');
+    let currentIndex = 0;
+
+    const dropdown = section.querySelector('.product-intelligence__select');
+
+    // Function to switch tabs
+    function switchToTab(index) {
+      if (index === currentIndex) return;
+
+      // Determine slide direction
+      const slideDirection = index > currentIndex ? 'slide-right' : 'slide-left';
+
+      // Remove active class from all tabs and panels
+      tabs.forEach(t => {
+        t.classList.remove('product-intelligence__tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach(p => {
+        p.classList.remove('product-intelligence__panel--active');
+        p.classList.remove('product-intelligence__panel--slide-right');
+        p.classList.remove('product-intelligence__panel--slide-left');
+      });
+
+      // Add active class to clicked tab and corresponding panel
+      if (tabs[index]) {
+        tabs[index].classList.add('product-intelligence__tab--active');
+        tabs[index].setAttribute('aria-selected', 'true');
+      }
+      if (panels[index]) {
+        panels[index].classList.add('product-intelligence__panel--active');
+        panels[index].classList.add('product-intelligence__panel--' + slideDirection);
+      }
+
+      // Update dropdown
+      if (dropdown) {
+        dropdown.value = index;
+      }
+
+      // Update current index
+      currentIndex = index;
+    }
+
+    // Tab click events
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', function() {
+        switchToTab(index);
+      });
+    });
+
+    // Dropdown change event
+    if (dropdown) {
+      dropdown.addEventListener('change', function() {
+        switchToTab(parseInt(this.value, 10));
+      });
+    }
+
+    // Accordion functionality for specs tab
+    const accordions = section.querySelectorAll('[data-accordion]');
+    accordions.forEach(accordion => {
+      const header = accordion.querySelector('.specs-accordion__header');
+      if (header) {
+        header.addEventListener('click', function() {
+          accordion.classList.toggle('specs-accordion--open');
+        });
+      }
+    });
+
+    // Read More toggle functionality
+    const readMoreToggles = section.querySelectorAll('.product-intelligence__read-more-toggle');
+    readMoreToggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        const left = this.closest('.product-intelligence__left');
+        const textEl = left.querySelector('.product-intelligence__text');
+
+        if (textEl.classList.contains('product-intelligence__text--expanded')) {
+          textEl.classList.remove('product-intelligence__text--expanded');
+          textEl.classList.add('product-intelligence__text--truncated');
+          this.textContent = 'Read More';
+        } else {
+          textEl.classList.remove('product-intelligence__text--truncated');
+          textEl.classList.add('product-intelligence__text--expanded');
+          this.textContent = 'Read Less';
+        }
+      });
+    });
+   // Calculate and display file sizes for resource cards
+    const resourceSizeElements = section.querySelectorAll('.resource-card__size[data-file-url]');
+    resourceSizeElements.forEach((sizeEl) => {
+      const fileUrl = sizeEl.getAttribute('data-file-url');
+      if (fileUrl) {
+        getFileSize(fileUrl)
+          .then((size) => {
+            sizeEl.textContent = size;
+          })
+          .catch(() => {
+            sizeEl.textContent = '';
+          });
+      }
+    });
+  });
+
+  // Function to format file size
+  function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  // Function to get file size from URL
+  async function getFileSize(url) {
+    try {
+      const response = await fetch(url, { method: 'HEAD' });
+      const contentLength = response.headers.get('Content-Length');
+      if (contentLength) {
+        return formatFileSize(parseInt(contentLength, 10));
+      }
+      // If HEAD doesn't return Content-Length, try with GET and abort
+      const getResponse = await fetch(url);
+      const blob = await getResponse.blob();
+      return formatFileSize(blob.size);
+    } catch (error) {
+      console.error('Error getting file size:', error);
+      return '';
+    }
+  }
+
+  // Function to download resource file
+  function downloadResourceFile(fileUrl, fileName) {
+    console.log('download button clicked');
+    if (!fileUrl) return;
+    console.log('download button clicked inside');
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = fileName || fileUrl.split('/').pop().split('?')[0];
+    link.target = '_blank';
+
+    // For cross-origin files, we need to fetch and create blob
+    fetch(fileUrl)
+      .then((response) => response.blob())
+      .then((blob) => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        link.href = blobUrl;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      })
+      .catch((error) => {
+        // Fallback: open in new tab if fetch fails
+        console.error('Download error:', error);
+        window.open(fileUrl, '_blank');
+      });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Product Intelligence",
+  "tag": "section",
+  "class": "product-intelligence-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "PRODUCT INTELLIGENCE CENTER"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Complete Product Intelligence"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Comprehensive specifications, features, and technical documentation in one elegant interface"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 12,
+      "unit": "px",
+      "label": "Label Font Size"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "min": 28,
+      "max": 60,
+      "step": 2,
+      "default": 42,
+      "unit": "px",
+      "label": "Heading Font Size"
+    },
+    {
+      "type": "range",
+      "id": "subheading_font_size",
+      "min": 14,
+      "max": 24,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Subheading Font Size"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#0a0f14"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subheading_color",
+      "label": "Subheading Color",
+      "default": "#a0a0a0"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "header",
+      "content": "Advanced"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Overview"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "overview",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_features",
+          "label": "Show Feature Cards",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "overview_tab",
+      "name": "Overview Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Overview"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "overview",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Overview Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "overview_image",
+          "label": "Overview Image"
+        },
+        {
+          "type": "url",
+          "id": "read_more_link",
+          "label": "Read More Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_features",
+          "label": "Show Feature Cards",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "CTA Buttons"
+        },
+        {
+          "type": "text",
+          "id": "primary_btn_text",
+          "label": "Primary Button Text",
+          "default": "ORDER NOW"
+        },
+        {
+          "type": "url",
+          "id": "primary_btn_link",
+          "label": "Primary Button Link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_btn_text",
+          "label": "Secondary Button Text",
+          "default": "BOOK A CALL"
+        },
+        {
+          "type": "url",
+          "id": "secondary_btn_link",
+          "label": "Secondary Button Link"
+        }
+      ]
+    },
+    {
+      "type": "specs_tab",
+      "name": "Specifications Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Specifications"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "specs",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+      ]
+    },
+    {
+      "type": "features_tab",
+      "name": "Features & Benefits Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Features & Benefits"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "features",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "included_tab",
+      "name": "What's Included Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "What's Included"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "included",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Included Item Images"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_1",
+          "label": "Item 1 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_2",
+          "label": "Item 2 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_3",
+          "label": "Item 3 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_4",
+          "label": "Item 4 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_5",
+          "label": "Item 5 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_6",
+          "label": "Item 6 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_7",
+          "label": "Item 7 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_8",
+          "label": "Item 8 Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "included_image_9",
+          "label": "Item 9 Image"
+        }
+      ]
+    },
+    {
+      "type": "installation_tab",
+      "name": "Installation Guide Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Installation Guide"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "installation",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "url",
+          "id": "installer_link",
+          "label": "Find Installer Link"
+        }
+      ]
+    },
+    {
+      "type": "support_tab",
+      "name": "Support & Resources Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Support & Resources"
+        },
+        {
+          "type": "select",
+          "id": "tab_icon",
+          "label": "Tab Icon",
+          "default": "support",
+          "options": [
+            { "value": "overview", "label": "Overview (Checkmark)" },
+            { "value": "specs", "label": "Specifications (List)" },
+            { "value": "features", "label": "Features (Star)" },
+            { "value": "included", "label": "What's Included (Folder)" },
+            { "value": "installation", "label": "Installation (Tool)" },
+            { "value": "support", "label": "Support (Question)" }
+          ]
+        },
+        {
+          "type": "header",
+          "content": "Use Case Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "usecase_image",
+          "label": "Use Case Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Intelligence",
+      "blocks": [
+        {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview"
+          }
+        },
+        {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs"
+          }
+        },
+        {
+          "type": "features_tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features"
+          }
+        },
+        {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
+        {
+          "type": "installation_tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation"
+          }
+        },
+        {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  #product-intelligence-{{ section.id }} {
+    --pi-bg-color: {{ section.settings.bg_color }};
+    --pi-label-color: {{ section.settings.label_color }};
+    --pi-heading-color: {{ section.settings.heading_color }};
+    --pi-subheading-color: {{ section.settings.subheading_color }};
+    --pi-label-size: {{ section.settings.label_font_size }}px;
+    --pi-heading-size: {{ section.settings.heading_font_size }}px;
+    --pi-subheading-size: {{ section.settings.subheading_font_size }}px;
+    --pi-padding-top: {{ section.settings.padding_top }}px;
+    --pi-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+/* Apply the hover zoom effect to the image in the Overview tab */
+.product-intelligence__right {
+  overflow: hidden; /* This will contain the zoomed image */
+  border-radius: 8px; /* Optional: if you want rounded corners */
+}
+
+.product-intelligence__image {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center center; /* Zoom from the center */
+  display: block; /* Remove extra space below image */
+}
+
+/* Hover effect */
+.product-intelligence__right:hover .product-intelligence__image {
+  transform: scale(1.05); /* 5% zoom - adjust as needed */
+}
+</style>

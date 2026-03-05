@@ -1,0 +1,714 @@
+<style>
+  /* ── Section ───────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .ba-section {
+    position: relative;
+    padding: 80px 0;
+    background: #0A0E1A;
+    color: #ffffff;
+    overflow: hidden;
+  }
+
+  /* Full-bleed background image with dark gradient overlay */
+  #shopify-section-{{ section.id }} .ba-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  #shopify-section-{{ section.id }} .ba-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .ba-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.55) 100%);
+  }
+
+  /* ── Container ─────────────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .ba-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    height: 800px;
+  }
+
+  /* ── Header (centred over full width) ──────────────────────────── */
+  #shopify-section-{{ section.id }} .ba-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-eyebrow {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4AF37;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .ba-title {
+
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    color: #ffffff;
+    margin: 0;
+    max-width: 620px;
+    color: #FFF;
+text-align: center;
+font-size: 48px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: -2px;
+  }
+
+  /* ── Before/After slider ───────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .ba-slider-wrap {
+    width: 100%;
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+    cursor: col-resize;
+    line-height: 0;
+    background: #000;
+  }
+
+  /* Both images stacked, same size */
+  #shopify-section-{{ section.id }} .ba-img-after {
+    display: block;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+  }
+
+  #shopify-section-{{ section.id }} .ba-img-before-clip {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    width: 50%; /* updated by JS */
+  }
+
+  #shopify-section-{{ section.id }} .ba-img-before-clip img {
+    display: block;
+    width: 100%;    /* same natural width as after image */
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* stretch to full slider width so both images align */
+  }
+
+  /* Make "before" image the same rendered width as "after" */
+  #shopify-section-{{ section.id }} .ba-img-before-clip img {
+    width: var(--ba-full-width, 100%);
+    max-width: none;
+  }
+
+  /* Divider line */
+  #shopify-section-{{ section.id }} .ba-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: rgba(255,255,255,0.6);
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+
+  /* Drag handle circle */
+  #shopify-section-{{ section.id }} .ba-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: col-resize;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+    z-index: 10;
+  }
+
+  #shopify-section-{{ section.id }} .ba-handle svg {
+    width: 18px;
+    height: 18px;
+    fill: #333333;
+    flex-shrink: 0;
+  }
+
+  /* Corner labels */
+  #shopify-section-{{ section.id }} .ba-label {
+    position: absolute;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.65);
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #ffffff;
+    white-space: nowrap;
+    backdrop-filter: blur(6px);
+    line-height: 1;
+  }
+
+  #shopify-section-{{ section.id }} .ba-label--left {
+    left: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-label--right {
+    right: 16px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-label__badge {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-label__badge--hdr {
+    background: #006AD4;
+    color: #ffffff;
+  }
+
+  #shopify-section-{{ section.id }} .ba-label__badge--sdr {
+    background: #0A84FF;
+    color: #ffffff;
+  }
+
+  /* ── Product cards row ─────────────────────────────────────────── */
+  #shopify-section-{{ section.id }} .ba-products {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(10, 132, 255, 0.30);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(4px);
+    text-decoration: none;
+    color: #ffffff;
+    min-width: 0;
+    transition: border-color 0.2s;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card:hover {
+    border-color: rgba(10, 132, 255, 0.6);
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__img {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    background: #1a2540;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__name {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+    color: #ffffff;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__desc {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 11.5px;
+    color: #A0AEC0;
+    line-height: 1.45;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__pricing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 2px;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__old-price {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: #A0AEC0;
+    text-decoration: line-through;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__new-price {
+    font-family: 'Inter', 'Open Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+
+  /* + button */
+  #shopify-section-{{ section.id }} .ba-product-card__btn {
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: #006AD4;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__btn:hover {
+    background: #0A84FF;
+  }
+
+  #shopify-section-{{ section.id }} .ba-product-card__btn svg {
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+    flex-shrink: 0;
+  }
+
+  /* ── Responsive ────────────────────────────────────────────────── */
+  @media (max-width: 960px) {
+    #shopify-section-{{ section.id }} .ba-container {
+      padding: 0 32px;
+    }
+    #shopify-section-{{ section.id }} .ba-title {
+      font-size: 32px;
+    }
+    #shopify-section-{{ section.id }} .ba-products {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #shopify-section-{{ section.id }} .ba-section {
+      padding: 60px 0;
+    }
+    #shopify-section-{{ section.id }} .ba-container {
+      padding: 0 20px;
+      gap: 28px;
+    }
+    #shopify-section-{{ section.id }} .ba-title {
+      font-size: 26px;
+    }
+    #shopify-section-{{ section.id }} .ba-products {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<section class="ba-section" data-section-id="{{ section.id }}">
+
+  <!-- Background -->
+  {% if section.settings.background_image != blank %}
+    <div class="ba-bg">
+      <img src="{{ section.settings.background_image | image_url: width: 2200 }}"
+           alt="{{ section.settings.background_image.alt | escape }}" loading="lazy">
+      <div class="ba-bg-overlay"></div>
+    </div>
+  {% else %}
+    <div class="ba-bg">
+      <div class="ba-bg-overlay" style="background:#0A0E1A;"></div>
+    </div>
+  {% endif %}
+
+  <div class="ba-container">
+
+    <!-- Header -->
+    <div class="ba-header">
+      {% if section.settings.eyebrow != blank %}
+        <p class="ba-eyebrow">{{ section.settings.eyebrow }}</p>
+      {% endif %}
+      {% if section.settings.title != blank %}
+        <h2 class="ba-title">{{ section.settings.title }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Before / After Slider -->
+    <div
+      class="ba-slider-wrap"
+      id="ba-slider-{{ section.id }}"
+      aria-label="Before and after image comparison slider">
+
+      <!-- AFTER image (bottom layer, full width) -->
+      {% if section.settings.image_after != blank %}
+        <img
+          class="ba-img-after"
+          src="{{ section.settings.image_after | image_url: width: 1400 }}"
+          alt="{{ section.settings.after_label | default: 'After' | escape }}"
+          draggable="false">
+      {% else %}
+        <div style="width:100%;aspect-ratio:16/9;background:#1a2540;"></div>
+      {% endif %}
+
+      <!-- BEFORE image (clipped left portion) -->
+      <div class="ba-img-before-clip" id="ba-clip-{{ section.id }}">
+        {% if section.settings.image_before != blank %}
+          <img
+            src="{{ section.settings.image_before | image_url: width: 1400 }}"
+            alt="{{ section.settings.before_label | default: 'Before' | escape }}"
+            draggable="false">
+        {% endif %}
+      </div>
+
+      <!-- Divider line -->
+      <div class="ba-divider" id="ba-divider-{{ section.id }}"></div>
+
+      <!-- Drag handle -->
+      <div class="ba-handle" id="ba-handle-{{ section.id }}" role="slider"
+           aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"
+           aria-label="Drag to compare before and after">
+        <!-- Figma: vertical bars icon (|||) -->
+        <svg viewBox="0 0 18 18" aria-hidden="true">
+          <rect x="2"  y="3" width="2.5" height="12" rx="1.2"/>
+          <rect x="7.75" y="3" width="2.5" height="12" rx="1.2"/>
+          <rect x="13.5" y="3" width="2.5" height="12" rx="1.2"/>
+        </svg>
+      </div>
+
+      <!-- Labels -->
+      <span class="ba-label ba-label--left">
+        {{ section.settings.before_label_text | default: 'New Version:' }}
+        <span class="ba-label__badge ba-label__badge--hdr">
+          {{ section.settings.before_badge | default: 'HDR' }}
+        </span>
+      </span>
+      <span class="ba-label ba-label--right">
+        {{ section.settings.after_label_text | default: 'Previous Version:' }}
+        <span class="ba-label__badge ba-label__badge--sdr">
+          {{ section.settings.after_badge | default: 'SDR' }}
+        </span>
+      </span>
+    </div>
+
+    <!-- Product cards -->
+    {% if section.blocks.size > 0 %}
+      <div class="ba-products">
+        {% for block in section.blocks %}
+          <div class="ba-product-card" {{ block.shopify_attributes }}>
+
+            <div class="ba-product-card__img">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 200 }}"
+                     alt="{{ block.settings.image.alt | default: block.settings.name | escape }}"
+                     loading="lazy">
+              {% endif %}
+            </div>
+
+            <div class="ba-product-card__info">
+              {% if block.settings.name != blank %}
+                <p class="ba-product-card__name">{{ block.settings.name }}</p>
+              {% endif %}
+              {% if block.settings.description != blank %}
+                <p class="ba-product-card__desc">{{ block.settings.description }}</p>
+              {% endif %}
+              <div class="ba-product-card__pricing">
+                {% if block.settings.price_old != blank %}
+                  <span class="ba-product-card__old-price">{{ block.settings.price_old }}</span>
+                {% endif %}
+                {% if block.settings.price_new != blank %}
+                  <span class="ba-product-card__new-price">{{ block.settings.price_new }}</span>
+                {% endif %}
+              </div>
+            </div>
+
+            <a class="ba-product-card__btn"
+               href="{{ block.settings.link | default: '#' }}"
+               aria-label="Add {{ block.settings.name | escape }} to cart">
+              <!-- + icon -->
+              <svg viewBox="0 0 14 14" aria-hidden="true">
+                <line x1="7" y1="1" x2="7" y2="13" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+                <line x1="1" y1="7" x2="13" y2="7" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+              </svg>
+            </a>
+
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<script>
+(function () {
+  var sectionEl = document.getElementById('ba-slider-{{ section.id }}');
+  if (!sectionEl) return;
+
+  var clip    = document.getElementById('ba-clip-{{ section.id }}');
+  var divider = document.getElementById('ba-divider-{{ section.id }}');
+  var handle  = document.getElementById('ba-handle-{{ section.id }}');
+  var beforeImg = clip ? clip.querySelector('img') : null;
+
+  if (!clip || !divider || !handle) return;
+
+  var dragging = false;
+  var pct = 50;
+
+  function setPosition(p) {
+    pct = Math.min(100, Math.max(0, p));
+    var pctStr = pct.toFixed(2) + '%';
+
+    clip.style.width = pctStr;
+    divider.style.left = pctStr;
+    handle.style.left = pctStr;
+    handle.setAttribute('aria-valuenow', Math.round(pct));
+
+    // keep before image the same rendered width as the slider container
+    if (beforeImg) {
+      beforeImg.style.width = sectionEl.offsetWidth + 'px';
+    }
+  }
+
+  function getPct(clientX) {
+    var rect = sectionEl.getBoundingClientRect();
+    return ((clientX - rect.left) / rect.width) * 100;
+  }
+
+  // Mouse
+  handle.addEventListener('mousedown', function (e) {
+    e.preventDefault();
+    dragging = true;
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (!dragging) return;
+    setPosition(getPct(e.clientX));
+  });
+  document.addEventListener('mouseup', function () { dragging = false; });
+
+  // Touch
+  handle.addEventListener('touchstart', function (e) {
+    dragging = true;
+  }, { passive: true });
+  document.addEventListener('touchmove', function (e) {
+    if (!dragging) return;
+    setPosition(getPct(e.touches[0].clientX));
+  }, { passive: true });
+  document.addEventListener('touchend', function () { dragging = false; });
+
+  // Keyboard (arrow keys)
+  handle.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft')  setPosition(pct - 2);
+    if (e.key === 'ArrowRight') setPosition(pct + 2);
+  });
+
+  // Init
+  setPosition(50);
+
+  // Re-sync on resize
+  window.addEventListener('resize', function () { setPosition(pct); });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Before & After",
+  "max_blocks": 6,
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "Before & After"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Enjoy Stunning Visuals with Our New HDR Video Walls"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Section background image"
+    },
+    {
+      "type": "header",
+      "content": "Slider images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_before",
+      "label": "Before image (left / HDR)"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_after",
+      "label": "After image (right / SDR)"
+    },
+    {
+      "type": "header",
+      "content": "Slider labels"
+    },
+    {
+      "type": "text",
+      "id": "before_label_text",
+      "label": "Left label text",
+      "default": "New Version:"
+    },
+    {
+      "type": "text",
+      "id": "before_badge",
+      "label": "Left badge text",
+      "default": "HDR"
+    },
+    {
+      "type": "text",
+      "id": "after_label_text",
+      "label": "Right label text",
+      "default": "Previous Version:"
+    },
+    {
+      "type": "text",
+      "id": "after_badge",
+      "label": "Right badge text",
+      "default": "SDR"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Product image"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product name",
+          "default": "Interactive Flat Panel"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Short description",
+          "default": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS..."
+        },
+        {
+          "type": "text",
+          "id": "price_old",
+          "label": "Original price",
+          "default": "$8,997.00"
+        },
+        {
+          "type": "text",
+          "id": "price_new",
+          "label": "Sale price",
+          "default": "$7,997.00"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Product / cart link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Before & After",
+      "blocks": [
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00"
+          }
+        },
+        {
+          "type": "product_card",
+          "settings": {
+            "name": "Interactive Flat Panel",
+            "description": "Brightlink 98\" 4K LG Interactive Display with Stand -Android 11.0 Smart OS...",
+            "price_old": "$8,997.00",
+            "price_new": "$7,997.00"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
