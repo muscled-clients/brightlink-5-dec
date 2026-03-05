@@ -1933,7 +1933,8 @@
 
   /* Specs Tab Responsive */
   .specs-table tr {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    border-bottom: none;
   }
 
   .specs-accordion__header {
@@ -1941,7 +1942,33 @@
   }
 
   .specs-table tbody {
-    padding: 0 20px 15px 20px;
+    padding: 0 8px 15px 8px;
+  }
+
+  .specs-table__label {
+    font-size: 13px;
+    white-space: normal;
+    word-break: break-word;
+    padding-right: 0;
+    padding-bottom: 2px;
+    color: #A0AEC0;
+  }
+
+  .specs-table__value,
+  .specs-table__value:nth-child(2),
+  .specs-table__value:last-child {
+    font-size: 14px;
+    word-break: break-word;
+    text-align: left;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #FFF;
+  }
+
+  .specs-table td {
+    padding: 8px 0 4px 0;
   }
 
   .specs-download {
