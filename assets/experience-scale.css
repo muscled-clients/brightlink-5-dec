@@ -305,17 +305,6 @@
 
 @media (max-width: 768px) {
   .experience-scale__container {
-<<<<<<< HEAD
-    gap: 40px;
-  }
-
-  .experience-scale__header {
-    padding: 40px 20px;
-  }
-
-  .experience-scale__header-text {
-    gap: 16px;
-=======
     gap: 32px;
     position: relative;
   z-index: 2;
@@ -352,33 +341,11 @@
 }
   .experience-scale__header-text {
     gap: 12px;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__label {
     font-family: Inter, sans-serif;
     color: #D4AF37;
-<<<<<<< HEAD
-  }
-
-  .experience-scale__title {
-    font-size: 32px;
-    letter-spacing: -1px;
-    font-family: Inter, sans-serif;
-    color: #FFF;
-  }
-
-  .experience-scale__subtitle {
-    font-size: 16px;
-    line-height: 24px;
-    font-family: Inter, sans-serif;
-    color: #A0AEC0;
-  }
-
-  .experience-scale__content {
-    max-width: calc(100% - 40px);
-    flex-direction: column;
-=======
 text-align: center;
 font-family: Inter;
 font-size: 14px;
@@ -421,7 +388,6 @@ flex-shrink: 0;
     max-width: calc(100% - 40px);
     flex-direction: column;
     gap: 16px;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__display {
@@ -435,11 +401,8 @@ flex-shrink: 0;
     gap: 12px;
     max-width: none;
     margin: 15px 0 30px;
-<<<<<<< HEAD
-=======
             width: 344px;
         margin: 0 auto;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__metric {
@@ -454,22 +417,6 @@ flex-shrink: 0;
 
   /* Show icons on mobile */
   .experience-scale__metric-icon {
-<<<<<<< HEAD
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
-    color: #3b82f6;
-  }
-
-  .experience-scale__metric-value {
-    font-size: 32px;
-  }
-
-  .experience-scale__metric-label {
-    font-size: 12px;
-    letter-spacing: 1px;
-=======
    display: flex;
 width: 40px;
 height: 40px;
@@ -498,14 +445,10 @@ font-size: 16px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
     text-transform: uppercase;
   }
 
   .experience-scale__metric-desc {
-<<<<<<< HEAD
-    font-size: 11px;
-=======
     color: #A0AEC0;
 text-align: center;
 font-family: Inter;
@@ -513,33 +456,11 @@ font-size: 14px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 }
 
 @media (max-width: 480px) {
   .experience-scale__header {
-<<<<<<< HEAD
-    padding: 30px 15px;
-  }
-
-  .experience-scale__label {
-    font-size: 12px;
-    font-family: Inter, sans-serif;
-    color: #D4AF37;
-  }
-
-  .experience-scale__title {
-    font-size: 28px;
-    font-family: Inter, sans-serif;
-    color: #FFF;
-  }
-
-  .experience-scale__subtitle {
-    font-size: 14px;
-    font-family: Inter, sans-serif;
-    color: #A0AEC0;
-=======
     padding: 0px;
   }
 
@@ -576,7 +497,6 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
     font-family: Inter, sans-serif;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__content {
@@ -585,11 +505,8 @@ line-height: normal;
 
   .experience-scale__metrics {
     gap: 10px;
-<<<<<<< HEAD
-=======
             width: 344px;
         margin: 0 auto;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__metric {
@@ -598,17 +515,6 @@ line-height: normal;
 
 
   .experience-scale__metric-value {
-<<<<<<< HEAD
-    font-size: 26px;
-  }
-
-  .experience-scale__metric-label {
-    font-size: 11px;
-  }
-
-  .experience-scale__metric-desc {
-    font-size: 10px;
-=======
    color: #0A84FF;
 font-family: Inter;
 font-size: 24px;
@@ -635,7 +541,6 @@ font-size: 14px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
->>>>>>> origin/COB-Hero-Varient-selector-11-02
   }
 
   .experience-scale__btn {
