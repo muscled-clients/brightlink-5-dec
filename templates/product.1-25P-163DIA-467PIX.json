@@ -253,7 +253,7 @@
         "product_config_RQxibA": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -373,7 +373,7 @@
         "product_config_XQYkMM": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h9-controller-4-year-warranty",
             "diagonal": "294\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "16.59M",
@@ -393,7 +393,7 @@
         "product_config_JiAd4j": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-294-24-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-294-32-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "294\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "5.97M",
@@ -642,9 +642,9 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "4.67M PIXELS",
-            "card_subtitle": "1/2 4K Resolution",
-            "card_desc": "2880 x 1620 active pixels"
+            "card_title": "8.2M PIXELS",
+            "card_subtitle": "True 4K Resolution",
+            "card_desc": "3840 x 2160 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -829,8 +829,8 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 6×6 cabinet array delivering 4.67 million pixels across 163 inches of seamless display surface",
-        "display_image": "shopify://shop_images/COB_6x6_FRONT1.png",
+        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
+        "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
@@ -882,15 +882,15 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "163 inches of immersive visual excellence",
-        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
-        "metric1_value": "6x",
+        "subtitle": "217 inches of immersive visual excellence",
+        "image": "shopify://shop_images/image_1_1.png",
+        "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "90x",
+        "metric2_value": "4x",
         "metric2_label": "Equivalent",
         "metric2_desc": "to 17' diagonal display",
-        "metric3_value": "78",
+        "metric3_value": "141",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
-            "config2": "20× CAT6 Ethernet outputs (1×20-port card)",
-            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
+            "config1": "4× Full HD 1080p input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -1339,7 +1339,7 @@
         "card_label": "COMPLETE SYSTEM",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "36 premium cabinets (6×6 array)",
+        "include_1": "64 premium cabinets (8×8 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
@@ -1548,6 +1548,7 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1555,6 +1556,7 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1562,6 +1564,7 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1576,6 +1579,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "image_width": 800,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",

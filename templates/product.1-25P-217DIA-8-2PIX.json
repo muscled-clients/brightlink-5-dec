@@ -217,10 +217,10 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_69yLdi": {
+    "hero_video_wall_RKdzmK": {
       "type": "hero-video-wall",
       "blocks": {
-        "product_config_db3zep": {
+        "product_config_MKTGeK": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-9mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -230,7 +230,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_4aTcCH": {
+        "product_config_7q9DdV": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-25mm-1-2-4k-4-665-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -240,7 +240,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_JadKid": {
+        "product_config_4wFpQz": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -250,7 +250,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_wHM7qD": {
+        "product_config_RhYpfg": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -260,7 +260,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_dTNCNL": {
+        "product_config_hjNPyH": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-1-25mm-1-2-4k-4-536-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -270,7 +270,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_YCaipj": {
+        "product_config_QB6cFt": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-21-9-1-56mm-1-5-x-1080p-2-903-040-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -280,7 +280,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_khtpcR": {
+        "product_config_M9PDg7": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -290,7 +290,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_BjGnB9": {
+        "product_config_f8tUEe": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -300,7 +300,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_G9LwEj": {
+        "product_config_7yqBcr": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy-copy",
@@ -310,7 +310,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_Arg9qB": {
+        "product_config_nBMRGw": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -320,7 +320,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_MA9Ynk": {
+        "product_config_GCVLiz": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -330,7 +330,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_qWt4q4": {
+        "product_config_9rBfkH": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
@@ -340,7 +340,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_qKGTxA": {
+        "product_config_nCmxT9": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -350,7 +350,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_AL3pN3": {
+        "product_config_da3CFQ": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-25mm-3-4-4k-6-998-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -360,7 +360,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_dNTrRA": {
+        "product_config_yPUj4C": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -370,7 +370,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_gwkHhJ": {
+        "product_config_RtePJ9": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h9-controller-4-year-warranty",
@@ -380,7 +380,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_rrzKp9": {
+        "product_config_BiBa8e": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-25mm-above-4k-9-331-200-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -390,7 +390,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_qFmabN": {
+        "product_config_XaVPAy": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -402,29 +402,29 @@
         }
       },
       "block_order": [
-        "product_config_db3zep",
-        "product_config_4aTcCH",
-        "product_config_JadKid",
-        "product_config_wHM7qD",
-        "product_config_dTNCNL",
-        "product_config_YCaipj",
-        "product_config_khtpcR",
-        "product_config_BjGnB9",
-        "product_config_G9LwEj",
-        "product_config_Arg9qB",
-        "product_config_MA9Ynk",
-        "product_config_qWt4q4",
-        "product_config_qKGTxA",
-        "product_config_AL3pN3",
-        "product_config_dNTrRA",
-        "product_config_gwkHhJ",
-        "product_config_rrzKp9",
-        "product_config_qFmabN"
+        "product_config_MKTGeK",
+        "product_config_7q9DdV",
+        "product_config_4wFpQz",
+        "product_config_RhYpfg",
+        "product_config_hjNPyH",
+        "product_config_QB6cFt",
+        "product_config_M9PDg7",
+        "product_config_f8tUEe",
+        "product_config_7yqBcr",
+        "product_config_nBMRGw",
+        "product_config_GCVLiz",
+        "product_config_9rBfkH",
+        "product_config_nCmxT9",
+        "product_config_da3CFQ",
+        "product_config_yPUj4C",
+        "product_config_RtePJ9",
+        "product_config_BiBa8e",
+        "product_config_XaVPAy"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
+        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY INSTALL",
+            "card_title": "2-4 HOURS",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -642,16 +642,16 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.06M PIXELS",
-            "card_subtitle": "Full 4K Resolution",
-            "card_desc": "4480 x 1800 active pixels"
+            "card_title": "8.2M PIXELS",
+            "card_subtitle": "True 4K Resolution",
+            "card_desc": "3840 x 2160 active pixels"
           }
         },
         "spec_card_AHg3xw": {
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "0.9MM",
+            "card_title": "1.25MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
@@ -707,7 +707,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Weight per cabinet"
+            "card_desc": "Size per cabinet"
           }
         }
       },
@@ -829,7 +829,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 7×5 cabinet array delivering 8.06 million pixels across 180 inches of seamless display surface",
+        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -840,13 +840,13 @@
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
-        "cabinet_visual_sublabel": "640 × 360 pixels per cabinet",
+        "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
         "cabinet_subtitle": "Precision-engineered modular unit",
         "cabinet_dimensions": "600mm × 337.5mm × 25mm",
         "cabinet_imperial": "23.62\" × 13.3\" × 1\"",
         "cabinet_weight": "3.7kg (8.3 lbs)",
-        "cabinet_resolution": "640 × 360 pixels",
+        "cabinet_resolution": "480 × 270 pixels",
         "cabinet_modules": "4 COB modules",
         "connection_image": "shopify://shop_images/div_5.png",
         "connection_title": "Cabinet Connection Detail",
@@ -882,15 +882,15 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "180 inches of immersive visual excellence",
-        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
-        "metric1_value": "6x",
+        "subtitle": "217 inches of immersive visual excellence",
+        "image": "shopify://shop_images/image_1_1.png",
+        "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "84x",
+        "metric2_value": "4x",
         "metric2_label": "Equivalent",
-        "metric2_desc": "to 17\" diagonal display",
-        "metric3_value": "76",
+        "metric2_desc": "to 17' diagonal display",
+        "metric3_value": "141",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
-            "config2": "40× CAT6 Ethernet outputs (2×20-port cards)",
-            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
+            "config1": "4× Full HD 1080p input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -1339,7 +1339,7 @@
         "card_label": "COMPLETE SYSTEM",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "35 premium cabinets (7×5 array)",
+        "include_1": "64 premium cabinets (8×8 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
@@ -1548,6 +1548,7 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1555,6 +1556,7 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1562,6 +1564,7 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1576,6 +1579,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "image_width": 800,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
@@ -1626,7 +1632,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_69yLdi",
+    "hero_video_wall_RKdzmK",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",

@@ -1107,17 +1107,14 @@
         "card1_desc": "Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams.",
         "card1_price": "$249",
         "card1_button": "ADD TO ORDER",
-        "card1_link": "",
         "card2_title": "EXTENDED WARRANTY",
         "card2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
         "card2_price": "+$4,500",
         "card2_button": "ADD PROTECTION",
-        "card2_link": "",
         "card3_title": "SPARE MODULE KIT",
         "card3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
         "card3_price": "+$8,900",
-        "card3_button": "ADD SPARES",
-        "card3_link": ""
+        "card3_button": "ADD SPARES"
       }
     },
     "custom_config_builder_XRyr6Q": {

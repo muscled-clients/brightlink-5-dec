@@ -86,17 +86,7 @@
         "8a8802f9-3ad6-413e-a817-d16919f77c02"
       ],
       "disabled": true,
-      "settings": {
-        "show_contact_info": false,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>Enter your text here</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p>Enter your text here</p>"
-      }
+      "settings": {}
     },
     "16503685744ab65a45": {
       "type": "faq",
@@ -160,17 +150,7 @@
         "1650368574a37cd3a7-8"
       ],
       "disabled": true,
-      "settings": {
-        "show_contact_info": false,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>Enter your text here</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p>Enter your text here</p>"
-      }
+      "settings": {}
     },
     "1650459049332235c8": {
       "type": "faq",
@@ -218,17 +198,7 @@
         "1650459049351cc6d2-8"
       ],
       "disabled": true,
-      "settings": {
-        "show_contact_info": false,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>Enter your text here</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p>Enter your text here</p>"
-      }
+      "settings": {}
     },
     "16504598150398f014": {
       "type": "faq",
@@ -369,17 +339,7 @@
         "97ec25a8-fc7e-4cfd-a7e5-14712ac0aaf8"
       ],
       "disabled": true,
-      "settings": {
-        "show_contact_info": false,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>Enter your text here</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p>Enter your text here</p>"
-      }
+      "settings": {}
     },
     "1650461039b142803a": {
       "type": "faq",
@@ -489,17 +449,7 @@
         "6bf60c63-89ba-4a96-bdec-a668a7205097"
       ],
       "disabled": true,
-      "settings": {
-        "show_contact_info": true,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p>1-855-44 WIRED(94733)</p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p><a href=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
-      }
+      "settings": {}
     },
     "1657641322887abbbf": {
       "type": "faq",
@@ -732,17 +682,7 @@
         "cdf20fbd-fbb3-4816-a07f-54f589c9a59c",
         "b20ac4ee-b653-4fa7-90f7-b4268dff24e2"
       ],
-      "settings": {
-        "show_contact_info": true,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p><a href=\"tel:1-855-449-4733\" target=\"_blank\">1-855-449-4733</a></p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p><a href=\"mailto:support@brightlinkav.com\" target=\"_blank\">support@brightlinkav.com</a></p><p><a href=\"mailto:sales@brightlinkav.com\" target=\"_blank\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
-      }
+      "settings": {}
     }
   },
   "order": [
