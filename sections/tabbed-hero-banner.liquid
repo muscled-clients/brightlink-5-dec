@@ -243,8 +243,9 @@
         {% endif %}
         
         {% if section.settings.default_secondary_button_text != blank %}
-          <a href="{{ section.settings.default_secondary_button_link }}" 
-             class="hero-button hero-button-secondary">
+          <a href="{{ section.settings.default_secondary_button_link }}"
+             class="hero-button hero-button-secondary"
+             target="_blank" rel="noopener noreferrer">
             {{ section.settings.default_secondary_button_text }}
           </a>
         {% endif %}
