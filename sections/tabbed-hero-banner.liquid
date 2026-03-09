@@ -258,7 +258,9 @@
     btn.addEventListener('click', function(e) {
       var href = this.getAttribute('href');
       if (href && href.startsWith('#')) {
-        var target = document.querySelector(href);
+        var id = href.slice(1);
+        // Try exact match first, then partial match (Shopify prepends template ID)
+        var target = document.getElementById(id) || document.querySelector('[id$="__' + id + '"]') || document.querySelector('[id*="' + id + '"]');
         if (target) {
           e.preventDefault();
           var headerHeight = document.querySelector('#shopify-section-header') ? document.querySelector('#shopify-section-header').offsetHeight : 0;
