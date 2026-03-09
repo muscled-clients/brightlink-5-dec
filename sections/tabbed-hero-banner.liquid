@@ -235,8 +235,9 @@
       
       <div class="hero-buttons-container">
         {% if section.settings.default_primary_button_text != blank %}
-          <a href="{{ section.settings.default_primary_button_link }}" 
-             class="hero-button hero-button-primary">
+          <a href="{{ section.settings.default_primary_button_link }}"
+             class="hero-button hero-button-primary"
+             {% if section.settings.default_primary_button_link contains '#' %}data-smooth-scroll="true"{% endif %}>
             {{ section.settings.default_primary_button_text }}
           </a>
         {% endif %}
@@ -252,6 +253,22 @@
   </div>
 </section>
 
+<script>
+  document.querySelectorAll('[data-smooth-scroll="true"]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          var headerHeight = document.querySelector('#shopify-section-header') ? document.querySelector('#shopify-section-header').offsetHeight : 0;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
