@@ -209,6 +209,10 @@
   background: #0a0e1a;
 }
 
+.advanced-spectrum-page .footer {
+  border-top: none;
+}
+
 /* LED template page base styling */
 .advanced-spectrum-page {
   background-color: #0A0E1A;
