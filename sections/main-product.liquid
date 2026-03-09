@@ -400,6 +400,10 @@
   {% endif %}
 {% endfor %}
 
+{% if product.template_suffix == 'pro-spectrum' or product.template_suffix == 'advanced-spectrum' %}
+  {{ 'cob-led-mobile.css' | asset_url | stylesheet_tag }}
+{% endif %}
+
 
 <style>
   
