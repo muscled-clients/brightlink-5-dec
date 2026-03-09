@@ -8,7 +8,7 @@
 
 @media screen and (max-width: 768px) {
   .feature-badges {
-    margin-bottom: 0;
+    margin-bottom: 40px;
   }
 }
 
