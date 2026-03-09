@@ -8,7 +8,6 @@
   margin-bottom: 120px;
   padding: 0;
   font-family: Inter, sans-serif;
-  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -108,23 +107,20 @@ margin: 0;
   border-radius: 17.017px;
   border: 1.064px solid rgba(10, 132, 255, 0.30);
   background: rgba(10, 14, 26, 0.60);
-  box-shadow: 0 0 90px 10px rgba(10, 132, 255, 0.25);
-  height: 840px;
+  box-shadow: 0 0 63.814px 0 rgba(10, 132, 255, 0.20);
+  height: 698px;
   width: 1280px;
-  max-width: 100%;
+  align-self: stretch;
   box-sizing: border-box;
   overflow: hidden; /* Keeps the after element within the border radius */
   margin:0 auto;
-  transform: scale(0.836);
-  transform-origin: center center;
-  margin-top: -60px;
 }
 
 /* Background image as after element with margins */
 .system-configuration__visual::after {
   content: '';
   position: absolute;
-  top: 140px;
+  top: 60px;
   left: 61px;
  width: 1157px;
 height: 578px;
@@ -138,10 +134,9 @@ height: 578px;
 
 
 .system-configuration__display-image {
-  width: calc(100% - 60px);
+  width: 100%;
   height: auto;
   display: block;
-  margin: 80px auto 30px auto;
 }
 
 /* Placeholder */
