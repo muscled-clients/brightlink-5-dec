@@ -15,32 +15,13 @@
                   data-slide-index="{{ forloop.index0 }}"
                   {{ block.shopify_attributes }}
                 >
-                  {% if block.settings.product != blank %}
-                    {% assign slide_product = all_products[block.settings.product] %}
-                    {% if slide_product.featured_image != blank %}
-                      <img
-                        src="{{ slide_product.featured_image | image_url: width: section.settings.image_width }}"
-                        alt="{{ slide_product.featured_image.alt | default: slide_product.title }}"
-                        loading="lazy"
-                        width="{{ section.settings.image_width }}"
-                        height="{{ section.settings.image_height }}"
-                        style="object-fit: {{ section.settings.image_fit }};"
-                      >
-                    {% else %}
-                      <div class="visual-experience__slide-placeholder">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                          <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM5 15h14v3H5z"/>
-                        </svg>
-                      </div>
-                    {% endif %}
-                  {% elsif block.settings.image != blank %}
+                  {% if block.settings.image != blank %}
                     <img
-                      src="{{ block.settings.image | image_url: width: section.settings.image_width }}"
+                      src="{{ block.settings.image | image_url: width: 800 }}"
                       alt="{{ block.settings.image_alt | default: section.settings.heading }}"
                       loading="lazy"
-                      width="{{ section.settings.image_width }}"
-                      height="{{ section.settings.image_height }}"
-                      style="object-fit: {{ section.settings.image_fit }};"
+                      width="800"
+                      height="500"
                     >
                   {% else %}
                     <div class="visual-experience__slide-placeholder">
@@ -60,12 +41,11 @@
                 data-slide-index="{{ forloop.index0 }}"
               >
                 <img
-                  src="{{ image | image_url: width: section.settings.image_width }}"
+                  src="{{ image | image_url: width: 800 }}"
                   alt="{{ image.alt | default: product.title }}"
                   loading="lazy"
-                  width="{{ section.settings.image_width }}"
-                  height="{{ section.settings.image_height }}"
-                  style="object-fit: {{ section.settings.image_fit }};"
+                  width="800"
+                  height="500"
                 >
               </div>
             {% else %}
@@ -121,9 +101,9 @@
 
         <!-- CTA Box -->
         <div class="visual-experience__cta">
-          <button type="button" class="visual-experience__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+          <a href="{{ section.settings.primary_btn_link | default: '#order' }}" class="visual-experience__btn">
             {{ section.settings.primary_btn_text | default: 'ORDER NOW' }}
-          </button>
+          </a>
 
           <div class="visual-experience__cta-footer">
             <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="visual-experience__btn--secondary">
@@ -147,16 +127,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   const slides = section.querySelectorAll('.visual-experience__slide');
   const dots = section.querySelectorAll('.visual-experience__dot');
-  const sliderContainer = section.querySelector('.visual-experience__slides');
 
   if (slides.length <= 1) return;
 
   let currentIndex = 0;
   let autoSlideInterval;
-  let isDragging = false;
-  let startX = 0;
-  let currentX = 0;
-  let dragThreshold = 50; // Minimum drag distance to change slide
 
   function goToSlide(index) {
     slides.forEach(slide => slide.classList.remove('visual-experience__slide--active'));
@@ -172,48 +147,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const next = (currentIndex + 1) % slides.length;
     goToSlide(next);
   }
-
-  function previousSlide() {
-    const prev = (currentIndex - 1 + slides.length) % slides.length;
-    goToSlide(prev);
-  }
-
-  // Mouse drag functionality
-  sliderContainer.addEventListener('mousedown', (e) => {
-    isDragging = true;
-    startX = e.pageX;
-    sliderContainer.style.cursor = 'grabbing';
-    clearInterval(autoSlideInterval);
-  });
-
-  window.addEventListener('mousemove', (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    currentX = e.pageX;
-  });
-
-  window.addEventListener('mouseup', () => {
-    if (!isDragging) return;
-    
-    const dragDistance = currentX - startX;
-    
-    if (Math.abs(dragDistance) > dragThreshold) {
-      if (dragDistance > 0) {
-        previousSlide(); // Dragged right - go to previous slide
-      } else {
-        nextSlide(); // Dragged left - go to next slide
-      }
-    }
-    
-    isDragging = false;
-    sliderContainer.style.cursor = 'grab';
-    startAutoSlide();
-  });
-
-  // Prevent default drag behavior on images
-  sliderContainer.addEventListener('dragstart', (e) => {
-    e.preventDefault();
-  });
 
   // Dot click handlers
   dots.forEach((dot, index) => {
@@ -239,9 +172,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Pause on hover
   section.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
   section.addEventListener('mouseleave', startAutoSlide);
-
-  // Set initial cursor style
-  sliderContainer.style.cursor = 'grab';
 });
 </script>
 
@@ -266,55 +196,6 @@ document.addEventListener('DOMContentLoaded', function() {
       "id": "description",
       "label": "Description",
       "default": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!"
-    },
-    {
-      "type": "header",
-      "content": "Image Settings"
-    },
-    {
-      "type": "range",
-      "id": "image_width",
-      "label": "Image Width (px)",
-      "min": 400,
-      "max": 800,
-      "step": 5,
-      "default": 800,
-      "unit": "px"
-    },
-    {
-      "type": "range",
-      "id": "image_height",
-      "label": "Image Height (px)",
-      "min": 300,
-      "max": 800,
-      "step": 5,
-      "default": 500,
-      "unit": "px"
-    },
-    {
-      "type": "select",
-      "id": "image_fit",
-      "label": "Image Fit",
-      "options": [
-        {
-          "value": "cover",
-          "label": "Cover (crops to fit)"
-        },
-        {
-          "value": "contain",
-          "label": "Contain (shows full image)"
-        },
-        {
-          "value": "fill",
-          "label": "Fill (stretches)"
-        },
-        {
-          "value": "scale-down",
-          "label": "Scale Down"
-        }
-      ],
-      "default": "cover",
-      "info": "Determines how images fit within the container"
     },
     {
       "type": "header",
@@ -355,30 +236,21 @@ document.addEventListener('DOMContentLoaded', function() {
       "name": "Slide",
       "settings": [
         {
-          "type": "product",
-          "id": "product",
-          "label": "Product",
-          "info": "Select a product to show its featured image"
-        },
-        {
           "type": "image_picker",
           "id": "image",
-          "label": "Custom Slide Image",
-          "info": "Upload a custom image (used if no product is selected)"
+          "label": "Slide Image"
         },
         {
           "type": "text",
           "id": "image_alt",
-          "label": "Image Alt Text",
-          "info": "Alternative text for the image (only applies to custom images)"
+          "label": "Image Alt Text"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Visual Experience",
-      "category": "Custom"
+      "name": "Visual Experience"
     }
   ]
 }

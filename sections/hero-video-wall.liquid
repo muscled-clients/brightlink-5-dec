@@ -62,14 +62,22 @@
         <!-- Specs + Heading Frame -->
         <div class="hero-video-wall__heading-frame">
           <!-- Product Specs Line -->
-          {% assign meta_specs = product.metafields.custom.product_specs_line.value %}
-          <p class="hero-video-wall__specs-line" id="hero-specs-line">
-            {%- if meta_specs != blank -%}
-              {{ meta_specs }}
-            {%- elsif default_config -%}
+          {% comment %} <p class="hero-video-wall__specs-line" id="hero-specs-line">
+            {%- if default_config -%}
               {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{ default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
             {%- endif -%}
-          </p>
+          </p> {% endcomment %}
+          {% comment %} Manually Added by d10 {% endcomment %}
+           <!-- Product Specs Line -->
+            {% assign meta_specs = product.metafields.custom.product_specs_line.value %}
+            <p class="hero-video-wall__specs-line" id="hero-specs-line">
+              {%- if meta_specs != blank -%}
+                {{ meta_specs }}
+              {%- elsif default_config -%}
+                {{ default_config.settings.diagonal }} | {{ default_config.settings.pixel_pitch }} Pitch | {{
+  default_config.settings.total_pixels }} Pixels | {{ default_config.settings.aspect_ratio }}
+              {%- endif -%}
+            </p>
 
           <!-- Main Heading -->
           {% if section.settings.main_heading != blank %}
@@ -108,56 +116,56 @@
           <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
         {% endif %}
       </div>
-
-      <!-- Product Configs Data -->
-      <script id="hero-product-configs" type="application/json">
-        [
-          {% assign config_index = 0 %}
-          {% for block in section.blocks %}
-            {% if block.type == 'product_config' %}
-              {% if config_index > 0 %},{% endif %}
-              {
-                "diagonal": {{ block.settings.diagonal | json }},
-                "pixel_pitch": {{ block.settings.pixel_pitch | json }},
-                "total_pixels": {{ block.settings.total_pixels | json }},
-                "aspect_ratio": {{ block.settings.aspect_ratio | json }},
-                {% if block.settings.product != blank %}
-                  {% assign matched_variant = nil %}
-                  {% for variant in block.settings.product.variants %}
-                    {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
-                      {% assign matched_variant = variant %}
-                      {% break %}
-                    {% endif %}
-                  {% endfor %}
-                  {% unless matched_variant %}
-                    {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
-                  {% endunless %}
-                  "price": {{ matched_variant.price | json }},
-                  "compare_price": {{ matched_variant.compare_at_price | json }},
-                  "price_formatted": {{ matched_variant.price | money | json }},
-                  "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
-                  "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
-                  "variant_id": {{ matched_variant.id | json }}
-                {% else %}
-                  "price": null,
-                  "compare_price": null,
-                  "price_formatted": "",
-                  "compare_price_formatted": "",
-                  "product_url": null,
-                  "variant_id": null
-                {% endif %}
-              }
-              {% assign config_index = config_index | plus: 1 %}
-            {% endif %}
-          {% endfor %}
-        ]
-      </script>
     </div>
+
+    <!-- Product Configs Data -->
+    <script id="hero-product-configs" type="application/json">
+      [
+        {% assign config_index = 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'product_config' %}
+            {% if config_index > 0 %},{% endif %}
+            {
+              "diagonal": {{ block.settings.diagonal | json }},
+              "pixel_pitch": {{ block.settings.pixel_pitch | json }},
+              "total_pixels": {{ block.settings.total_pixels | json }},
+              "aspect_ratio": {{ block.settings.aspect_ratio | json }},
+              {% if block.settings.product != blank %}
+                {% assign matched_variant = nil %}
+                {% for variant in block.settings.product.variants %}
+                  {% if variant.title == block.settings.pixel_pitch or variant.option1 == block.settings.pixel_pitch %}
+                    {% assign matched_variant = variant %}
+                    {% break %}
+                  {% endif %}
+                {% endfor %}
+                {% unless matched_variant %}
+                  {% assign matched_variant = block.settings.product.selected_or_first_available_variant %}
+                {% endunless %}
+                "price": {{ matched_variant.price | json }},
+                "compare_price": {{ matched_variant.compare_at_price | json }},
+                "price_formatted": {{ matched_variant.price | money | json }},
+                "compare_price_formatted": {{ matched_variant.compare_at_price | money | json }},
+                "product_url": "{{ block.settings.product.url }}?variant={{ matched_variant.id }}",
+                "variant_id": {{ matched_variant.id | json }}
+              {% else %}
+                "price": null,
+                "compare_price": null,
+                "price_formatted": "",
+                "compare_price_formatted": "",
+                "product_url": null,
+                "variant_id": null
+              {% endif %}
+            }
+            {% assign config_index = config_index | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+      ]
+    </script>
 
     <!-- Bottom Frame: Variant Selector + Buttons -->
     <div class="hero-video-wall__bottom-frame">
-        <!-- Variant Selector Wrapper -->
-        <div class="hero-video-wall__variant-wrapper">
+      <!-- Variant Selector Wrapper -->
+      <div class="hero-video-wall__variant-wrapper">
         <!-- Variant Label -->
         <p class="hero-video-wall__variant-label">{{ section.settings.variant_label | default: 'Select Your Ideal Video Wall' }}</p>
 
@@ -230,7 +238,7 @@
           <!-- View Product Button -->
           <a
             href="{% if default_config.settings.product != blank %}{{ default_config.settings.product.url }}?variant={{ first_matched_variant.id }}{% else %}#{% endif %}"
-            class="hero-video-wall__variant-box hero-video-wall__view-btn"
+            class="hero-video-wall__variant-box hero-video-wall__view-btn inactive"
             id="hero-view-product-btn"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14" fill="none">
@@ -351,7 +359,7 @@
       }
 
       if (match) {
-        // Update dropdown values only
+        // Update all values
         selected.diagonal = match.diagonal;
         selected.pixel_pitch = match.pixel_pitch;
         selected.total_pixels = match.total_pixels;
@@ -362,13 +370,36 @@
         document.getElementById('hero-pixels-value').textContent = match.total_pixels;
         document.getElementById('hero-ratio-value').textContent = match.aspect_ratio;
 
+        // Update price
+        var currentPrice = document.getElementById('hero-current-price');
+        var comparePrice = document.getElementById('hero-compare-price');
+        if (currentPrice && match.price_formatted) {
+          currentPrice.textContent = match.price_formatted;
+        }
+        if (comparePrice) {
+          if (match.compare_price && match.compare_price > match.price) {
+            comparePrice.textContent = match.compare_price_formatted;
+            comparePrice.style.display = '';
+          } else {
+            comparePrice.textContent = '';
+            comparePrice.style.display = 'none';
+          }
+        }
+
+        // Update add-to-cart button variant ID
+        var addToCartBtn = document.querySelector('.js-add-to-cart');
+        if (addToCartBtn && match.variant_id) {
+          addToCartBtn.setAttribute('data-variant-id', match.variant_id);
+        }
+
         // Rebuild dropdowns to update active states
         buildAllDropdowns();
 
-        // Update view product button URL (clicking > redirects to selected product)
+        // Update view product button URL and activate it
         var viewBtn = document.getElementById('hero-view-product-btn');
         if (viewBtn && match.product_url) {
           viewBtn.href = match.product_url;
+          viewBtn.classList.remove('inactive');
         }
       }
     }
@@ -458,32 +489,29 @@
         })
         .then(function (response) {
           if (response.ok) {
-            return response.json();
+            btn.innerHTML = 'Added!';
+            // Dispatch product:added event — the theme handles cart count, mini-cart refresh, and drawer open
+            document.documentElement.dispatchEvent(new CustomEvent('product:added', {
+              bubbles: true,
+              detail: {
+                quantity: 1
+              }
+            }));
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
           } else {
-            throw new Error('Add to cart failed');
+            btn.innerHTML = 'Error';
+            setTimeout(function () {
+              btn.innerHTML = originalText;
+              btn.disabled = false;
+            }, 2000);
           }
         })
-        .then(function (data) {
-          btn.innerHTML = 'Added!';
-          // Dispatch product:added event to trigger theme's cart popup
-          btn.dispatchEvent(new CustomEvent('product:added', {
-            bubbles: true,
-            detail: {
-              variant: data.items ? data.items[0] : data,
-              quantity: 1
-            }
-          }));
-          setTimeout(function () {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }, 2000);
-        })
         .catch(function () {
-          btn.innerHTML = 'Error';
-          setTimeout(function () {
-            btn.innerHTML = originalText;
-            btn.disabled = false;
-          }, 2000);
+          btn.innerHTML = originalText;
+          btn.disabled = false;
         });
       });
     }

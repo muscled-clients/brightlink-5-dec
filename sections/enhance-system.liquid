@@ -20,15 +20,9 @@
           <h3 class="enhance-system__card-title">{{ section.settings.card1_title | default: 'BL-VT PRO VACUUM TOOL' }}</h3>
           <p class="enhance-system__card-desc">{{ section.settings.card1_desc | default: 'Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams.' }}</p>
           <div class="enhance-system__card-price">{{ section.settings.card1_price | default: '$249' }}</div>
-          {% if section.settings.card1_product %}
-            <button type="button" class="enhance-system__card-btn js-section-add-to-cart" data-variant-id="{{ section.settings.card1_product.selected_or_first_available_variant.id }}">
-              {{ section.settings.card1_button | default: 'ADD TO ORDER' }}
-            </button>
-          {% else %}
-            <button type="button" class="enhance-system__card-btn" disabled>
-              {{ section.settings.card1_button | default: 'ADD TO ORDER' }}
-            </button>
-          {% endif %}
+          <a href="{{ section.settings.card1_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card1_button | default: 'ADD TO ORDER' }}
+          </a>
         </div>
 
         <div class="enhance-system__card">
@@ -41,15 +35,9 @@
           <h3 class="enhance-system__card-title">{{ section.settings.card2_title | default: 'EXTENDED WARRANTY' }}</h3>
           <p class="enhance-system__card-desc">{{ section.settings.card2_desc | default: 'Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.' }}</p>
           <div class="enhance-system__card-price">{{ section.settings.card2_price | default: '+$4,500' }}</div>
-          {% if section.settings.card2_product %}
-            <button type="button" class="enhance-system__card-btn js-section-add-to-cart" data-variant-id="{{ section.settings.card2_product.selected_or_first_available_variant.id }}">
-              {{ section.settings.card2_button | default: 'ADD PROTECTION' }}
-            </button>
-          {% else %}
-            <button type="button" class="enhance-system__card-btn" disabled>
-              {{ section.settings.card2_button | default: 'ADD PROTECTION' }}
-            </button>
-          {% endif %}
+          <a href="{{ section.settings.card2_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card2_button | default: 'ADD PROTECTION' }}
+          </a>
         </div>
 
         <div class="enhance-system__card">
@@ -63,15 +51,9 @@
           <h3 class="enhance-system__card-title">{{ section.settings.card3_title | default: 'SPARE MODULE KIT' }}</h3>
           <p class="enhance-system__card-desc">{{ section.settings.card3_desc | default: 'Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.' }}</p>
           <div class="enhance-system__card-price">{{ section.settings.card3_price | default: '+$8,900' }}</div>
-          {% if section.settings.card3_product %}
-            <button type="button" class="enhance-system__card-btn js-section-add-to-cart" data-variant-id="{{ section.settings.card3_product.selected_or_first_available_variant.id }}">
-              {{ section.settings.card3_button | default: 'ADD SPARES' }}
-            </button>
-          {% else %}
-            <button type="button" class="enhance-system__card-btn" disabled>
-              {{ section.settings.card3_button | default: 'ADD SPARES' }}
-            </button>
-          {% endif %}
+          <a href="{{ section.settings.card3_link | default: '#' }}" class="enhance-system__card-btn">
+            {{ section.settings.card3_button | default: 'ADD SPARES' }}
+          </a>
         </div>
       </div>
       <div class="enhance-system__dots" data-dots="enhance-cards">
@@ -169,9 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
       "default": "ADD TO ORDER"
     },
     {
-      "type": "product",
-      "id": "card1_product",
-      "label": "Card 1 Product (Add to Cart)"
+      "type": "url",
+      "id": "card1_link",
+      "label": "Card 1 Button Link"
     },
     {
       "type": "header",
@@ -202,9 +184,9 @@ document.addEventListener('DOMContentLoaded', function() {
       "default": "ADD PROTECTION"
     },
     {
-      "type": "product",
-      "id": "card2_product",
-      "label": "Card 2 Product (Add to Cart)"
+      "type": "url",
+      "id": "card2_link",
+      "label": "Card 2 Button Link"
     },
     {
       "type": "header",
@@ -235,9 +217,9 @@ document.addEventListener('DOMContentLoaded', function() {
       "default": "ADD SPARES"
     },
     {
-      "type": "product",
-      "id": "card3_product",
-      "label": "Card 3 Product (Add to Cart)"
+      "type": "url",
+      "id": "card3_link",
+      "label": "Card 3 Button Link"
     }
   ],
   "presets": [

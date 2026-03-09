@@ -89,11 +89,11 @@
         {% if main_desc == blank %}
           {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
         {% endif %}
-        {% assign meta_specs = main_product.metafields.custom.product_specs_line.value %}
-        {% if meta_specs != blank %}
-          {% assign main_desc = meta_specs %}
-        {% endif %}
-
+        {% comment %} ADDED Manually from Editor d10 {% endcomment %}
+         {% assign meta_specs = main_product.metafields.custom.product_specs_line.value %}
+          {% if meta_specs != blank %}
+            {% assign main_desc = meta_specs %}
+          {% endif %}
         {%- comment -%} Pricing {%- endcomment -%}
         {% assign main_current_price = main_product.price | money %}
         {% if main_product.compare_at_price > main_product.price %}

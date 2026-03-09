@@ -142,38 +142,16 @@
       <div
         class="product-meta__sku product-form__info-item"
       >
-        <span class="shipping-icon">
-          {% if block.settings.icon != blank %}
-                        <img
-                          class="pdp-icon-text-inline__icon"
-                          src="{{ block.settings.icon | image_url: width: 48 }}"
-                          alt="{{ block.settings.text | escape }}"
-                          loading="lazy"
-                          width="18"
-                          height="18"
-                        >
-                      {% endif %}
-          <span class="product-form__info-title text--strong">Shipping Time:</span>
-          <span class="product-meta__sku-number product-form__info-content">
-            {{- product.metafields.custom.shipping_times -}}
-          </span>
-      </span>
+        <span class="product-form__info-title text--strong">Shipping Time:</span>
+        <span class="product-meta__sku-number product-form__info-content">
+          {{- product.metafields.custom.shipping_times -}}
+        </span>
       </div>
     {%- endif -%}
   {% endif %}
 
   {%- if block.settings.show_inventory_quantity and product.template_suffix != 'pre-order' -%}
     <div class="product-form__info-item">
-       {% if block.settings.icon2 != blank %}
-                        <img
-                          class="pdp-icon-text-inline__icon"
-                          src="{{ block.settings.icon | image_url: width: 48 }}"
-                          alt="{{ block.settings.text | escape }}"
-                          loading="lazy"
-                          width="18"
-                          height="18"
-                        >
-                      {% endif %}
       <span class="product-form__info-title text--strong">{{ 'product.form.inventory' | t }}:</span>
 
       <div class="product-form__info-content">
@@ -264,7 +242,7 @@
   {% comment %}============================ description under price on pdp page ==================={% endcomment %}
   {% comment %} <div class="product-info-heading-s">Product Information</div>  {% endcomment %}
   {% comment %}============================sku starts here under product info ==================={% endcomment %}
-  {% comment %} {%- if block.settings.show_sku -%}
+  {%- if block.settings.show_sku -%}
     <div
       class="product-meta__sku product-form__info-item my-sku-s"
       {% if selected_variant.sku == blank %}
@@ -274,7 +252,7 @@
       <span class="product-form__info-title text--strong">{{- 'product.general.sku' | t -}}</span>
       <span class="product-meta__sku-number product-form__info-content">{{ selected_variant.sku }}</span>
     </div>
-  {%- endif -%} {% endcomment %}
+  {%- endif -%}
   {% comment %}============================sku ends here under product info ==================={% endcomment %}
 
   {% if product.metafields.custom.product_description %}

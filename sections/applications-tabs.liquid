@@ -210,9 +210,9 @@
 
                 <!-- CTA Box -->
                 <div class="applications-tabs__cta">
-                  <button type="button" class="applications-tabs__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+                  <a href="{{ section.settings.primary_btn_link | default: '#order' }}" class="applications-tabs__btn">
                     {{ section.settings.primary_btn_text | default: 'ORDER NOW' }}
-                  </button>
+                  </a>
                   <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="applications-tabs__btn--secondary">
                     {{ section.settings.secondary_btn_text | default: 'BOOK A CALL' }}
                   </a>

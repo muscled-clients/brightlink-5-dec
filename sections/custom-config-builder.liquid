@@ -7,6 +7,14 @@
 {% assign cabinet_markup = product.metafields.custom.cabinet_markup.value | default: 3 %}
 {% assign controller_markup = product.metafields.custom.controller_markup.value | default: 1 %}
 
+{% comment %} Get cabinet resolution from metafield (format: "640 × 360 pixels (W×H)") {% endcomment %}
+{% assign pic_specs_display = product.metafields.custom.pic_specs_display.value %}
+{% assign cabinet_resolution_raw = pic_specs_display.cabinet_resolution | default: '480 × 270 pixels (W×H)' %}
+{% assign cabinet_res_parts = cabinet_resolution_raw | split: '×' %}
+{% assign cabinet_pixels_wide = cabinet_res_parts[0] | strip | plus: 0 %}
+{% assign cabinet_res_height_part = cabinet_res_parts[1] | split: 'pixels' | first | strip | plus: 0 %}
+{% assign cabinet_pixels_high = cabinet_res_height_part %}
+
 <section class="custom-config" id="custom-config">
   <div class="custom-config__container">
     <!-- Header - Use metafield data if available, otherwise use section settings -->
@@ -42,7 +50,7 @@
         </div>
         <div class="custom-config__result-row">
           <span class="custom-config__result-label">Physical Size:</span>
-          <span class="custom-config__result-value" id="result-size">15.75' × 8.86' (189" × 106")</span>
+          <span class="custom-config__result-value" id="result-size">15.75' × 8.86'</span>
         </div>
         <div class="custom-config__result-row">
           <span class="custom-config__result-label">Diagonal:</span>
@@ -95,12 +103,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const CABINET_SPECS = {
     widthInches: 23.62,    // Cabinet width in inches (600mm)
     heightInches: 13.3,    // Cabinet height in inches (337.5mm)
-    pixelsWide: 480,       // Pixels per cabinet width
-    pixelsHigh: 270,       // Pixels per cabinet height
+    pixelsWide: {{ cabinet_pixels_wide | default: 480 }},       // Pixels per cabinet width (from metafield)
+    pixelsHigh: {{ cabinet_pixels_high | default: 270 }},       // Pixels per cabinet height (from metafield)
     pricePerCabinet: {{ price_per_cabinet }},  // From product metafield
     controllerCost: 6000,  // Novastar controller cost
-    cabinetMarkup: {{ cabinet_markup }},      // Markup multiplier (3 for PS COB, 4 for AS COB)
-    controllerMarkup: {{ controller_markup }} // Markup multiplier (1 = at cost for PS COB, 4 for AS COB)
+    cabinetMarkup: {{ cabinet_markup }},      // Markup multiplier on cabinet cost (3 for PS COB, 4 for AS COB)
+    controllerMarkup: {{ controller_markup }} // Markup multiplier on controller (1 = at cost for PS COB, 4 for AS COB)
   };
 
   // DOM Elements
@@ -129,8 +137,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Physical size in inches, then convert to feet
     const widthInches = cabinetsWide * CABINET_SPECS.widthInches;
     const heightInches = cabinetsHigh * CABINET_SPECS.heightInches;
-    const widthFeet = (widthInches / 12).toFixed(1);
-    const heightFeet = (heightInches / 12).toFixed(1);
+    const widthFeet = (widthInches / 12).toFixed(2);
+    const heightFeet = (heightInches / 12).toFixed(2);
 
     // Diagonal in inches
     const diagonalInches = Math.sqrt(widthInches * widthInches + heightInches * heightInches);
@@ -141,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update display
     resultResolution.textContent = totalResolution.toLocaleString() + ' pixels';
-    resultSize.textContent = widthFeet + "' × " + heightFeet + "' (" + Math.round(widthInches) + '" × ' + Math.round(heightInches) + '")';
+    resultSize.textContent = widthFeet + "' × " + heightFeet + "'";
     resultDiagonal.textContent = Math.round(diagonalInches) + '"';
     resultCabinets.textContent = totalCabinets + ' units';
     if (CABINET_SPECS.pricePerCabinet > 0) {
