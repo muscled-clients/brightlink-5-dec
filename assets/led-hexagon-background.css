@@ -202,6 +202,32 @@
   z-index: 2;
 }
 
+/* Dark mobile menu on LED and metafield template pages */
+.advanced-spectrum-page .mobile-menu__panel,
+.dark-template-page .mobile-menu__panel {
+  background: #0a0e1a;
+}
+
+.advanced-spectrum-page .mobile-menu,
+.dark-template-page .mobile-menu {
+  color: #ffffff;
+}
+
+.advanced-spectrum-page .mobile-menu__section:not(:last-child),
+.dark-template-page .mobile-menu__section:not(:last-child) {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.advanced-spectrum-page .mobile-menu__help-wrapper,
+.dark-template-page .mobile-menu__help-wrapper {
+  color: #ffffff;
+}
+
+.advanced-spectrum-page .mobile-menu__help-wrapper a,
+.dark-template-page .mobile-menu__help-wrapper a {
+  color: #ffffff;
+}
+
 /* Ensure footer sits above the hexagon background on LED pages */
 .advanced-spectrum-page #shopify-section-footer {
   position: relative;
