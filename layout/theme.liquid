@@ -343,5 +343,34 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </style>
 
+  <script>
+  // Auto-detect dark page background and apply dark mobile menu
+  (function() {
+    function isDarkBackground() {
+      var bg = window.getComputedStyle(document.body).backgroundColor;
+      var match = bg.match(/\d+/g);
+      if (!match) return false;
+      var r = parseInt(match[0]), g = parseInt(match[1]), b = parseInt(match[2]);
+      // Luminance check — dark if average < 80
+      return (r + g + b) / 3 < 80;
+    }
+
+    function applyDarkMenu() {
+      if (isDarkBackground()) {
+        document.body.classList.add('dark-template-page');
+      }
+    }
+
+    // Run on load and whenever menu toggle is clicked
+    document.addEventListener('DOMContentLoaded', function() {
+      applyDarkMenu();
+      var toggles = document.querySelectorAll('[data-action="toggle-menu"]');
+      toggles.forEach(function(btn) {
+        btn.addEventListener('click', applyDarkMenu);
+      });
+    });
+  })();
+  </script>
+
   </body>
 </html>
