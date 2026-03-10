@@ -205,27 +205,40 @@
 /* Dark mobile menu on LED and metafield template pages */
 .advanced-spectrum-page .mobile-menu__panel,
 .dark-template-page .mobile-menu__panel {
-  background: #0a0e1a;
+  background: #0a0e1a !important;
 }
 
 .advanced-spectrum-page .mobile-menu,
 .dark-template-page .mobile-menu {
-  color: #ffffff;
+  color: #ffffff !important;
+}
+
+.advanced-spectrum-page .mobile-menu__nav-link,
+.dark-template-page .mobile-menu__nav-link,
+.advanced-spectrum-page .mobile-menu__nav-list-item,
+.dark-template-page .mobile-menu__nav-list-item,
+.advanced-spectrum-page .mobile-menu__nav-list-toggle,
+.dark-template-page .mobile-menu__nav-list-toggle,
+.advanced-spectrum-page .mobile-menu__back-button,
+.dark-template-page .mobile-menu__back-button {
+  color: #ffffff !important;
+}
+
+.advanced-spectrum-page .mobile-menu__nav-link a,
+.dark-template-page .mobile-menu__nav-link a {
+  color: #ffffff !important;
 }
 
 .advanced-spectrum-page .mobile-menu__section:not(:last-child),
 .dark-template-page .mobile-menu__section:not(:last-child) {
-  border-bottom-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .advanced-spectrum-page .mobile-menu__help-wrapper,
-.dark-template-page .mobile-menu__help-wrapper {
-  color: #ffffff;
-}
-
+.dark-template-page .mobile-menu__help-wrapper,
 .advanced-spectrum-page .mobile-menu__help-wrapper a,
 .dark-template-page .mobile-menu__help-wrapper a {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 /* Ensure footer sits above the hexagon background on LED pages */
