@@ -346,28 +346,29 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script>
   // Auto-detect dark page background and apply dark mobile menu
   (function() {
-    function isDarkBackground() {
-      var style = window.getComputedStyle(document.body);
-      // Check background-color luminance
-      var bg = style.backgroundColor;
+    function isDarkPage() {
+      // Check body background-color luminance
+      var bg = window.getComputedStyle(document.body).backgroundColor;
       var match = bg.match(/\d+/g);
-      if (match) {
-        var r = parseInt(match[0]), g = parseInt(match[1]), b = parseInt(match[2]);
-        if ((r + g + b) / 3 < 80) return true;
+      if (match && (parseInt(match[0]) + parseInt(match[1]) + parseInt(match[2])) / 3 < 80) return true;
+      // Check body background-image (metafield template)
+      var bodyBgImg = document.body.style.backgroundImage;
+      if (bodyBgImg && bodyBgImg !== 'none' && bodyBgImg !== '') return true;
+      // Check .container-bg background-image (default product template with dark section)
+      var containerBg = document.querySelector('.container-bg');
+      if (containerBg) {
+        var cbStyle = window.getComputedStyle(containerBg);
+        if (cbStyle.backgroundImage && cbStyle.backgroundImage !== 'none') return true;
       }
-      // Check if body has a dark background-image (set via inline style)
-      var bgImage = document.body.style.backgroundImage || style.backgroundImage;
-      if (bgImage && bgImage !== 'none') return true;
       return false;
     }
 
     function applyDarkMenu() {
-      if (isDarkBackground()) {
+      if (isDarkPage()) {
         document.body.classList.add('dark-template-page');
       }
     }
 
-    // Run on load and whenever menu toggle is clicked
     document.addEventListener('DOMContentLoaded', function() {
       applyDarkMenu();
       var toggles = document.querySelectorAll('[data-action="toggle-menu"]');
