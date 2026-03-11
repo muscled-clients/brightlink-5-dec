@@ -104,10 +104,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {% comment %} my custom css for product page and footer start {% endcomment %}
 
-    {%- comment -%}LED Template Hexagon Background{%- endcomment -%}
-    {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
-      <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
-    {%- endif -%}
+    {%- comment -%}LED Template Hexagon Background + Dark Menu Styles{%- endcomment -%}
+    <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
 
     {% render 'microdata-schema' %}
 
