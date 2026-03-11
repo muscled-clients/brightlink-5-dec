@@ -404,6 +404,10 @@
   {{ 'cob-led-mobile.css' | asset_url | stylesheet_tag }}
 {% endif %}
 
+{% if product.template_suffix == 'metafield' or section.settings.new-pdp-page %}
+  <script>document.body.classList.add('dark-template-page');</script>
+{% endif %}
+
 
 <style>
   

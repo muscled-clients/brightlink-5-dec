@@ -343,41 +343,5 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </style>
 
-  <script>
-  // Auto-detect dark page background and apply dark mobile menu
-  (function() {
-    function isDarkPage() {
-      // Check body background-color luminance
-      var bg = window.getComputedStyle(document.body).backgroundColor;
-      var match = bg.match(/\d+/g);
-      if (match && (parseInt(match[0]) + parseInt(match[1]) + parseInt(match[2])) / 3 < 80) return true;
-      // Check body background-image (metafield template)
-      var bodyBgImg = document.body.style.backgroundImage;
-      if (bodyBgImg && bodyBgImg !== 'none' && bodyBgImg !== '') return true;
-      // Check .container-bg background-image (default product template with dark section)
-      var containerBg = document.querySelector('.container-bg');
-      if (containerBg) {
-        var cbStyle = window.getComputedStyle(containerBg);
-        if (cbStyle.backgroundImage && cbStyle.backgroundImage !== 'none') return true;
-      }
-      return false;
-    }
-
-    function applyDarkMenu() {
-      if (isDarkPage()) {
-        document.body.classList.add('dark-template-page');
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      applyDarkMenu();
-      var toggles = document.querySelectorAll('[data-action="toggle-menu"]');
-      toggles.forEach(function(btn) {
-        btn.addEventListener('click', applyDarkMenu);
-      });
-    });
-  })();
-  </script>
-
   </body>
 </html>
