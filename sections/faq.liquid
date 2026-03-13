@@ -1,18 +1,22 @@
 {% if template.suffix == 'metafield' %}
 <style>
   #shopify-section-{{ section.id }} .faq__group {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  #shopify-section-{{ section.id }} .faq__item,
+  #shopify-section-{{ section.id }} .faq__item-wrapper,
+  #shopify-section-{{ section.id }} .faq__answer-wrapper {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
   }
   #shopify-section-{{ section.id }} .faq__group-title,
   #shopify-section-{{ section.id }} .faq__question {
-    color: #ffffff;
+    color: #ffffff !important;
+    background: transparent !important;
   }
   #shopify-section-{{ section.id }} .faq__answer {
-    color: rgba(255, 255, 255, 0.8);
-  }
-  #shopify-section-{{ section.id }} .faq__item {
-    border-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8) !important;
   }
 </style>
 {% endif %}
