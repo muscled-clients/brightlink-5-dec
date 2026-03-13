@@ -1,4 +1,21 @@
-
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: var(--hp-section-bg);
+  }
+  #shopify-section-{{ section.id }} .offer-item {
+    background: var(--hp-surface-bg);
+    border-color: var(--hp-border-color);
+    color: var(--hp-text-color);
+  }
+  #shopify-section-{{ section.id }} .offer-item__title {
+    color: var(--hp-text-color);
+  }
+  #shopify-section-{{ section.id }} .offer-item__content,
+  #shopify-section-{{ section.id }} .offer-item__content p,
+  #shopify-section-{{ section.id }} .offer-item__content a {
+    color: var(--hp-text-color) !important;
+  }
+</style>
 
 <section class="section" data-section-id="{{ section.id }}" data-section-type="offers" style="background-color: var(--hp-section-bg); color: var(--hp-text-color);">
   <div class="container">
