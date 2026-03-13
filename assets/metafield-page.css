@@ -127,6 +127,13 @@ body.metafield-page .card__title {
   background: transparent !important;
 }
 
+body.metafield-page .card__collapsible-button .plus-button,
+body.metafield-page .card__collapsible-button .plus-button::before,
+body.metafield-page .card__collapsible-button .plus-button::after {
+  color: #ffffff !important;
+  background: #ffffff !important;
+}
+
 body.metafield-page .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
