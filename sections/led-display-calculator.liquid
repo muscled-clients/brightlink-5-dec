@@ -1,0 +1,1907 @@
+{% comment %}
+  LED Display Calculator Section
+  Combined pixel pitch and screen size calculator
+{% endcomment %}
+
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    background: {{ section.settings.background_gradient_start }} !important;
+    background: linear-gradient(135deg, {{ section.settings.background_gradient_start }} 0%, {{ section.settings.background_gradient_end }} 100%) !important;
+    padding: {{ section.settings.padding_top }}px 0 {{ section.settings.padding_bottom }}px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  #shopify-section-{{ section.id }} .led-calculator-container {
+    max-width: {{ section.settings.max_width }}px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  #shopify-section-{{ section.id }} .led-calculator-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  #shopify-section-{{ section.id }} .led-calculator-header h1 {
+    font-size: {{ section.settings.title_size }}px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1;
+    color: {{ section.settings.title_color }};
+  }
+
+  #shopify-section-{{ section.id }} .led-calculator-header p {
+    font-size: {{ section.settings.subtitle_size }}px;
+    color: {{ section.settings.subtitle_color }};
+  }
+
+  #shopify-section-{{ section.id }} .calculator-section {
+    background: rgba(30, 41, 59, 0.80);
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    border-radius: 16px;
+    border: 1px solid rgba(148, 163, 184, 0.20);
+  }
+
+  #shopify-section-{{ section.id }} .calculator-section:last-child {
+    margin-bottom: 0;
+    padding: 27px 62px;
+  }
+
+  #shopify-section-{{ section.id }} .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  #shopify-section-{{ section.id }} .d4-second-calculator .section-header {
+    margin-bottom: 45px;
+  }
+
+  #shopify-section-{{ section.id }} .d4-second-calculator .left-panel {
+    padding: 20px 9px;
+  }
+
+  #shopify-section-{{ section.id }} .d4-second-calculator .step h3 {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 17px;
+  }
+
+  #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs input {
+    text-align: left;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background: #334155;
+  }
+
+  /* Hide bottom lines on desktop */
+  #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::before,
+  #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::after {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .star-icon {
+    font-size: 28px;
+    margin-right: 12px;
+    display: flex;
+  }
+
+  #shopify-section-{{ section.id }} .section-header h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: {{ section.settings.heading_color }};
+  }
+
+  #shopify-section-{{ section.id }} .calculator-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 37px;
+  }
+
+  #shopify-section-{{ section.id }} .d4-second-calculator .calculator-content {
+    gap: 17px;
+  }
+
+  #shopify-section-{{ section.id }} .left-panel,
+  #shopify-section-{{ section.id }} .right-panel {
+    background: rgba(43, 57, 94, 0.6);
+    border: 1px solid rgba(139, 157, 195, 0.3);
+    border-radius: 15px;
+    padding: 20px 16px 15px 16px;
+  }
+
+  #shopify-section-{{ section.id }} .step {
+    margin-bottom: 0;
+  }
+
+  #shopify-section-{{ section.id }} .step h3 {
+    font-size: 24px;
+    margin-bottom: 11.9px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    line-height: 1.4;
+    color: {{ section.settings.text_color }};
+  }
+
+  /* Pixel Pitch Calculator Styles */
+  #shopify-section-{{ section.id }} .unit-selector {
+    margin-bottom: 32px;
+  }
+
+  #shopify-section-{{ section.id }} .unit-selector p,
+  #shopify-section-{{ section.id }} .distance-inputs p {
+    font-size: 14px;
+    color: {{ section.settings.label_color }};
+    margin-bottom: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .button-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .unit-btn {
+    flex: 1;
+    padding: 30px 20px;
+    background: transparent;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    color: #Fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0;
+  }
+
+  #shopify-section-{{ section.id }} .unit-btn.active {
+    background: #3B82F633;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .unit-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .input-group {
+    display: flex;
+    gap: 10px;
+  }
+
+  #shopify-section-{{ section.id }} .input-group .input-wrapper {
+    flex: 1;
+  }
+
+  #shopify-section-{{ section.id }} .input-group input {
+    width: 100%;
+  }
+
+  #shopify-section-{{ section.id }} .input-unit-label {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .input-group.hidden {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"] {
+    flex: 1;
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"]::placeholder {
+    color: #8b9dc3;
+  }
+
+  #shopify-section-{{ section.id }} input[type="number"]:focus {
+    outline: none;
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .application-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  #shopify-section-{{ section.id }} .option-card {
+    padding: 13px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 1px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  /* Hide checkboxes on desktop */
+  #shopify-section-{{ section.id }} .option-checkbox {
+    display: none;
+  }
+
+  #shopify-section-{{ section.id }} .option-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 48%;
+  }
+
+  #shopify-section-{{ section.id }} .option-card:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .option-card.selected {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: {{ section.settings.accent_color }};
+  }
+
+  #shopify-section-{{ section.id }} .option-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .option-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .pitch-range {
+    font-size: 12px;
+    color: #60A5FA;
+    /* background: rgba(59, 130, 246, 0.2); */
+    /* padding: 2px 8px; */
+    border-radius: 4px;
+  }
+
+  #shopify-section-{{ section.id }} .option-card p {
+    font-size: 13px;
+    color: #8b9dc3;
+    line-height: 1.4;
+  }
+
+  /* Screen Size Calculator Styles */
+  #shopify-section-{{ section.id }} .aspect-ratio-inputs {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  #shopify-section-{{ section.id }} .aspect-ratio-inputs input {
+    width: 80px;
+    padding: 12px 15px;
+    background: rgba(43, 57, 94, 0.8);
+    border: 2px solid rgba(139, 157, 195, 0.3);
+    border-radius: 10px;
+    color: {{ section.settings.text_color }};
+    font-size: 16px;
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .ratio-separator {
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  #shopify-section-{{ section.id }} .info-icon {
+    font-size: 14px;
+    color: {{ section.settings.label_color }};
+    cursor: help;
+  }
+
+  #shopify-section-{{ section.id }} .preset-ratios {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  #shopify-section-{{ section.id }} .preset-btn {
+    padding: 10px 15px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    color: #fff;
+    border: 1px solid #475569;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+  }
+
+  #shopify-section-{{ section.id }} .preset-btn:hover {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.5);
+  }
+
+  #shopify-section-{{ section.id }} .preset-btn.selected {
+    background: rgba(59, 130, 246, 0.2);
+    /* border-color: #3b82f6; */
+    color: #ffffff;
+    border: 1px solid #475569;
+    background: rgba(59, 130, 246, 0.20);
+  }
+
+  #shopify-section-{{ section.id }} .dimension-hint {
+    font-size: 14px;
+    color: #93C5FD;
+    padding: 13px 40px;
+    line-height: normal;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(59, 130, 246, 0.30);
+    background: rgba(59, 130, 246, 0.10);
+  }
+
+  #shopify-section-{{ section.id }} .dimension-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-label {
+    flex: 0 0 130px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-label span:first-child {
+    font-size: 16px;
+    color: {{ section.settings.text_color }};
+    line-height: normal;
+    /* margin-bottom: 4px; */
+  }
+
+  #shopify-section-{{ section.id }} .dimension-desc {
+    font-size: 12px;
+    color: {{ section.settings.label_color }};
+    line-height: normal;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row input {
+    flex: 1;
+    padding: 12px 15px;
+    /* background: rgba(43, 57, 94, 0.8); */
+    /* border: 2px solid rgba(139, 157, 195, 0.3); */
+    /* border-radius: 10px; */
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background: #334155;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row select {
+    padding: 12px 15px;
+    /* background: rgba(43, 57, 94, 0.8); */
+    /* border: 2px solid rgba(139, 157, 195, 0.3); */
+    /* border-radius: 10px; */
+    color: #ffffff;
+    font-size: 16px;
+    cursor: pointer;
+    min-width: 100px;
+    border-radius: 4px;
+    border: 1px solid #475569;
+    background: #334155;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row select option {
+    background: #2a3f5f;
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row input:focus,
+  #shopify-section-{{ section.id }} .dimension-row select:focus {
+    outline: none;
+    border-color: {{ section.settings.accent_color }};
+    background: rgba(59, 130, 246, 0.1);
+  }
+
+  #shopify-section-{{ section.id }} .dimension-row input.user-input {
+    color: {{ section.settings.result_color }};
+    font-weight: 600;
+  }
+
+  /* Recommendation Section */
+  #shopify-section-{{ section.id }} .recommendation-section {
+    text-align: center;
+  }
+
+  #shopify-section-{{ section.id }} .recommendation-section h3 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: {{ section.settings.text_color }};
+  }
+
+  #shopify-section-{{ section.id }} .recommendation-box {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 17px;
+    background: rgba(43, 57, 94, 0.9);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  #shopify-section-{{ section.id }} .result-value {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fbbf24;
+    line-height: 100%;
+    margin-bottom: 7px;
+    transition: all 0.3s ease;
+  }
+
+  #shopify-section-{{ section.id }} .result-label {
+    font-size: 16px;
+    color: {{ section.settings.subtitle_color }};
+    line-height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    #shopify-section-{{ section.id }} .led-calculator-container {
+      padding-inline: 24px;
+    }
+
+    #shopify-section-{{ section.id }} .calculator-section {
+      padding: 40px 18px;
+    }
+    #shopify-section-{{ section.id }} .calculator-content {
+      grid-template-columns: 1fr;
+      margin-bottom: 26px;
+      gap: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .recommendation-section h3 {
+      text-align: left;
+      font-size: 20px;
+      line-height: 30.659px;
+      margin-bottom: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .recommendation-box {
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+      margin: 0;
+      padding-block: 17px;
+    }
+
+    #shopify-section-{{ section.id }} .result-value {
+      font-size: 26px;
+      line-height: normal;
+      margin-bottom: 1px;
+    }
+
+    #shopify-section-{{ section.id }} .result-label {
+      font-size: 13.14px;
+      line-height: normal;
+    }
+
+    #shopify-section-{{ section.id }} .step h3 {
+      font-size: 20px;
+      line-height: 30.659px;
+    }
+
+    #shopify-section-{{ section.id }} .calculator-section:last-child {
+      padding: 38px 5px 35px 5px;
+    }
+    
+    #shopify-section-{{ section.id }} .d4-second-calculator .section-header {
+      margin-bottom: 9px;
+    padding-inline: 20px;
+    align-items: normal;
+    }
+
+    #shopify-section-{{ section.id }} .application-options {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    #shopify-section-{{ section.id }} .option-card:last-child {
+      grid-column: auto;
+      max-width: none;
+    }
+
+    #shopify-section-{{ section.id }} .left-panel,
+    #shopify-section-{{ section.id }} .right-panel {
+      padding: 0;
+      background: none;
+      border: none;
+      margin: 0 0;
+    }
+
+    #shopify-section-{{ section.id }} .button-group {
+      /* flex-direction: column; */
+      gap: 13px;
+    }
+
+    #shopify-section-{{ section.id }} .unit-selector {
+      margin-bottom: 18px;
+    }
+
+    #shopify-section-{{ section.id }} .unit-btn {
+      width: 100%;
+      text-align: center;
+      padding: 18px 18px;
+      line-height: normal;
+      font-size: 14px;
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+    }
+
+    #shopify-section-{{ section.id }} .input-group {
+      /* flex-direction: column; */
+      gap: 13px;
+    }
+
+    /* Mobile distance input wrapper styling */
+    #shopify-section-{{ section.id }} .distance-inputs .input-wrapper {
+      position: relative;
+      flex: 1;
+      border-radius: 6.57px;
+    border: 0 solid #E5E7EB;
+    background: #1E293B;
+    text-align: center;
+    }
+
+    #shopify-section-{{ section.id }} .distance-inputs .input-wrapper input[type="number"] {
+      width: 100%;
+      padding: 18px;
+      padding-bottom: 0;
+      font-size: 16px;
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    /* Unit label styling */
+    #shopify-section-{{ section.id }} .input-unit-label {
+      display: block;
+      color: #8b9dc3;
+      font-size: 13px;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 8px;
+      padding-bottom: 16px;
+      position: relative;
+    }
+
+    /* Divider line between input and unit label */
+    #shopify-section-{{ section.id }} .input-unit-label::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80%;
+      height: 1px;
+      background: #475569;
+    }
+
+    /* Other mobile input styling (non-distance inputs) */
+    #shopify-section-{{ section.id }} input[type="number"]:not(.distance-inputs input) {
+      width: 100%;
+      padding: 18px;
+      font-size: 16px;
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+    }
+
+    #shopify-section-{{ section.id }} .option-card {
+      padding: 15px;
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* Mobile checkbox styling */
+    #shopify-section-{{ section.id }} .option-checkbox {
+      display: block;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      background: transparent;
+      flex-shrink: 0;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    /* Filled checkbox when selected */
+    #shopify-section-{{ section.id }} .option-card.selected .option-checkbox {
+      background: #3b82f6;
+      border-color: #3b82f6;
+    }
+
+    /* Checkmark inside filled checkbox */
+    #shopify-section-{{ section.id }} .option-card.selected .option-checkbox::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 6px;
+      height: 6px;
+      background: #ffffff;
+      border-radius: 50%;
+    }
+
+    /* Option content wrapper */
+    #shopify-section-{{ section.id }} .option-content {
+      flex: 1;
+    }
+
+    #shopify-section-{{ section.id }} .option-header h4 {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    #shopify-section-{{ section.id }} .pitch-range {
+      font-size: 13px;
+      line-height: normal;
+    }
+
+    #shopify-section-{{ section.id }} .option-card p {
+      display: none;
+    }
+
+    #shopify-section-{{ section.id }} .dimension-hint {
+          margin-bottom: 14px;
+    padding: 0;
+    color: #9CA3AF;
+    font-family: Inter;
+    font-size: 13.14px;
+    font-style: normal;
+    font-weight: 400;
+    background: none;
+    border: none;
+    line-height: 17.52px;
+    border-radius: 0;
+    }
+
+    #shopify-section-{{ section.id }} .dimension-desc {
+      display: none;
+    }
+    
+    #shopify-section-{{ section.id }} .option-header {
+      margin-bottom: 0;
+    }
+
+    #shopify-section-{{ section.id }} .led-calculator-header h1 {
+      font-size: 28px;
+    }
+    
+    #shopify-section-{{ section.id }} .section-header h2 {
+      color: #FFF;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 30.659px;
+    }
+
+    #shopify-section-{{ section.id }} .d4-second-calculator .left-panel {
+      padding: 10px 4px;
+    }
+
+    #shopify-section-{{ section.id }} .d4-second-calculator .step h3 {
+      color: #FFF;
+    font-family: Inter;
+    font-size: 17.52px;
+    font-style: normal;
+    /* font-weight: 500; */
+    line-height: 26.279px;
+    }
+
+    #shopify-section-{{ section.id }} .preset-btn {
+          border-radius: 6.57px;
+    border: 0 solid #E5E7EB;
+    background: #1E293B;
+      color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 13.14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    padding-block: 7px;
+    }
+
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs input {
+      border-radius: 6.57px;
+      border: 0 solid #E5E7EB;
+      background: #1E293B;
+      margin-bottom: 8px;
+    }
+
+    /* Show bottom lines on mobile - override desktop hiding */
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::before,
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::after {
+      display: block;
+    }
+
+    /* Add bottom lines to aspect ratio inputs on mobile using ::before and ::after */
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::before {
+      content: '';
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      width: calc(50% - 15px);
+      height: 1px;
+      background: #475569;
+    }
+
+    #shopify-section-{{ section.id }} .d4-second-calculator .aspect-ratio-inputs::after {
+      content: '';
+      position: absolute;
+      bottom: 12px;
+      right: 0;
+      width: calc(50% - 15px);
+      height: 1px;
+      background: #475569;
+    }
+
+    #shopify-section-{{ section.id }} .recommendation-box {
+      margin: 0 10px;
+      padding: 20px;
+    }
+
+    #shopify-section-{{ section.id }} .dimension-row {
+      /* flex-direction: column; */
+      align-items: center;
+    }
+
+    .dimension-row > div,
+.dimension-row > input,
+.dimension-row > select {
+  flex: 1;
+}
+    
+  }
+{%- endstyle -%}
+
+<div class="led-calculator-container">
+  {% if section.settings.show_header %}
+    <header class="led-calculator-header">
+      <h1>{{ section.settings.main_title }}</h1>
+      <p>{{ section.settings.main_subtitle }}</p>
+    </header>
+  {% endif %}
+
+  <!-- Pixel Pitch Calculator -->
+  <div class="calculator-section">
+    <div class="section-header">
+      <span class="star-icon"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+  <path d="M13.723 1.34229C13.4745 0.82666 12.9495 0.498535 12.373 0.498535C11.7964 0.498535 11.2761 0.82666 11.023 1.34229L8.0089 7.54385L1.27765 8.5376C0.715146 8.62197 0.246396 9.01572 0.0729584 9.55478C-0.100479 10.0938 0.0401457 10.6892 0.443271 11.0876L5.32765 15.9204L4.17452 22.7501C4.08077 23.3126 4.31515 23.8845 4.77921 24.2173C5.24327 24.5501 5.85733 24.5923 6.36358 24.3251L12.3776 21.1142L18.3917 24.3251C18.898 24.5923 19.512 24.5548 19.9761 24.2173C20.4401 23.8798 20.6745 23.3126 20.5808 22.7501L19.423 15.9204L24.3073 11.0876C24.7105 10.6892 24.8558 10.0938 24.6776 9.55478C24.4995 9.01572 24.0355 8.62197 23.473 8.5376L16.737 7.54385L13.723 1.34229Z" fill="#60A5FA"/>
+</svg></span>
+      <h2>{{ section.settings.pixel_section_title }}</h2>
+    </div>
+
+    <div class="calculator-content">
+      <div class="left-panel">
+        <div class="step">
+          <h3>{{ section.settings.pixel_step1_title }}</h3>
+          <div class="unit-selector">
+            <p>{{ section.settings.unit_label }}</p>
+            <div class="button-group">
+              <button class="unit-btn active" data-unit="feet">{{ section.settings.feet_button_text }}</button>
+              <button class="unit-btn" data-unit="meters">{{ section.settings.meters_button_text }}</button>
+            </div>
+          </div>
+          <div class="distance-inputs">
+            <p>{{ section.settings.distance_label }}</p>
+            <div class="input-group" id="feet-inches-group">
+              <div class="input-wrapper">
+                <input type="number" id="feet-input" placeholder="{{ section.settings.feet_placeholder }}" min="0">
+                <span class="input-unit-label">Feet</span>
+              </div>
+              <div class="input-wrapper">
+                <input type="number" id="inches-input" placeholder="{{ section.settings.inches_placeholder }}" min="0" step="0.1">
+                <span class="input-unit-label">Inches</span>
+              </div>
+            </div>
+            <div class="input-group hidden" id="meters-cm-group">
+              <div class="input-wrapper">
+                <input type="number" id="meters-input" placeholder="{{ section.settings.meters_placeholder }}" min="0">
+                <span class="input-unit-label">Meters</span>
+              </div>
+              <div class="input-wrapper">
+                <input type="number" id="cm-input" placeholder="{{ section.settings.cm_placeholder }}" min="0" step="1">
+                <span class="input-unit-label">Centimeters</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="step">
+          <h3>{{ section.settings.pixel_step2_title }}</h3>
+          <div class="application-options">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'application_type' %}
+                  <div class="option-card" data-type="{{ block.settings.data_type }}" {{ block.shopify_attributes }}>
+                    <div class="option-checkbox"></div>
+                    <div class="option-content">
+                      <div class="option-header">
+                        <h4>{{ block.settings.title }}</h4>
+                        <span class="pitch-range">{{ block.settings.pitch_range }}</span>
+                      </div>
+                      <p>{{ block.settings.description }}</p>
+                    </div>
+                  </div>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommendation-section">
+      <h3>{{ section.settings.pixel_step3_title }}</h3>
+      <div class="recommendation-box">
+        <div class="result-value" id="pixel-result-value">--</div>
+        <div class="result-label">{{ section.settings.pixel_result_label }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Screen Size Calculator -->
+  <div class="calculator-section d4-second-calculator">
+    <div class="section-header">
+      <span class="star-icon"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none">
+  <path d="M13.723 1.34229C13.4745 0.82666 12.9495 0.498535 12.373 0.498535C11.7964 0.498535 11.2761 0.82666 11.023 1.34229L8.0089 7.54385L1.27765 8.5376C0.715146 8.62197 0.246396 9.01572 0.0729584 9.55478C-0.100479 10.0938 0.0401457 10.6892 0.443271 11.0876L5.32765 15.9204L4.17452 22.7501C4.08077 23.3126 4.31515 23.8845 4.77921 24.2173C5.24327 24.5501 5.85733 24.5923 6.36358 24.3251L12.3776 21.1142L18.3917 24.3251C18.898 24.5923 19.512 24.5548 19.9761 24.2173C20.4401 23.8798 20.6745 23.3126 20.5808 22.7501L19.423 15.9204L24.3073 11.0876C24.7105 10.6892 24.8558 10.0938 24.6776 9.55478C24.4995 9.01572 24.0355 8.62197 23.473 8.5376L16.737 7.54385L13.723 1.34229Z" fill="#60A5FA"/>
+</svg></span>
+      <h2>{{ section.settings.screen_section_title }}</h2>
+    </div>
+
+    <div class="calculator-content">
+      <div class="left-panel">
+        <div class="step">
+          <h3>{{ section.settings.screen_step1_title }} <span class="info-icon">{{ section.settings.info_icon }}</span></h3>
+          <div class="aspect-ratio-inputs">
+            <input type="number" id="screen-aspect-width" placeholder="{{ section.settings.aspect_width_placeholder }}" value="{{ section.settings.default_aspect_width }}" min="1">
+            <span class="ratio-separator">:</span>
+            <input type="number" id="screen-aspect-height" placeholder="{{ section.settings.aspect_height_placeholder }}" value="{{ section.settings.default_aspect_height }}" min="1">
+          </div>
+          <div class="preset-ratios">
+            {% for block in section.blocks %}
+              {% case block.type %}
+                {% when 'preset_ratio' %}
+                  <button class="preset-btn" data-width="{{ block.settings.width }}" data-height="{{ block.settings.height }}" {{ block.shopify_attributes }}>
+                    {{ block.settings.label }}
+                  </button>
+              {% endcase %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <div class="step">
+          <h3>{{ section.settings.screen_step2_title }}</h3>
+          <p class="dimension-hint">{{ section.settings.dimension_hint }}</p>
+          
+          <div class="dimension-input-group">
+            <div class="dimension-row">
+              <div class="dimension-label">
+                <span>{{ section.settings.diagonal_label }}</span>
+                <span class="dimension-desc">{{ section.settings.diagonal_desc }}</span>
+              </div>
+              <input type="number" id="screen-diagonal-input" placeholder="{{ section.settings.diagonal_placeholder }}" step="0.1">
+              <select id="screen-diagonal-unit">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+            
+            <div class="dimension-row">
+              <div class="dimension-label">
+                <span>{{ section.settings.width_label }}</span>
+                <span class="dimension-desc">{{ section.settings.width_desc }}</span>
+              </div>
+              <input type="number" id="screen-width-input" placeholder="{{ section.settings.width_placeholder }}" step="0.1">
+              <select id="screen-width-unit">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+            
+            <div class="dimension-row">
+              <div class="dimension-label">
+                <span>{{ section.settings.height_label }}</span>
+                <span class="dimension-desc">{{ section.settings.height_desc }}</span>
+              </div>
+              <input type="number" id="screen-height-input" placeholder="{{ section.settings.height_placeholder }}" step="0.1">
+              <select id="screen-height-unit">
+                <option value="inches">{{ section.settings.inches_unit }}</option>
+                <option value="feet">{{ section.settings.feet_unit }}</option>
+                <option value="cm">{{ section.settings.cm_unit }}</option>
+                <option value="meters">{{ section.settings.meters_unit }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="recommendation-section">
+      <h3>{{ section.settings.screen_step3_title }}</h3>
+      <div class="recommendation-box">
+        <div class="result-value" id="screen-result-value">--</div>
+        <div class="result-label" id="screen-result-label">{{ section.settings.screen_default_result_label }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const sectionId = '{{ section.id }}';
+  
+  // Pixel Pitch Calculator JavaScript
+  const EXCEL_OPTIMAL_DATA = {
+    0.7: { meters: 1.8, feet: 5.7 },
+    0.9: { meters: 2.3, feet: 7.4 },
+    1.25: { meters: 3.1, feet: 10.3 },
+    1.56: { meters: 3.9, feet: 12.8 },
+    1.875: { meters: 4.7, feet: 15.4 },
+    2: { meters: 5.0, feet: 16.4 },
+    2.5: { meters: 6.3, feet: 20.5 },
+    3: { meters: 7.5, feet: 24.6 },
+    3.91: { meters: 9.8, feet: 32.1 },
+    5: { meters: 12.5, feet: 41.0 },
+    8: { meters: 20.0, feet: 65.6 },
+    10: { meters: 25.0, feet: 82.0 },
+    20: { meters: 50.0, feet: 164.0 }
+  };
+
+  const PIXEL_PITCHES = [0.7, 0.9, 1.25, 1.56, 1.875, 2, 2.5, 3, 3.91, 5, 8, 10, 20];
+
+  const APPLICATION_RANGES = {
+    'home-theaters': { min: 0.7, max: 0.9 },
+    'control-rooms': { min: 0.9, max: 1.875 },
+    'retail-displays': { min: 1.875, max: 3.91 },
+    'conference-rooms': { min: 1.56, max: 2.5 },
+    'events-venues': { min: 3.9, max: 20 }
+  };
+
+  let currentUnit = 'feet';
+  let selectedApplication = null;
+
+  function calculatePixelPitch(distanceValue, unit = 'feet') {
+    let distanceMeters, distanceFeet;
+    
+    if (unit === 'feet') {
+      distanceMeters = distanceValue * 0.3048;
+      distanceFeet = distanceValue;
+    } else if (unit === 'meters') {
+      distanceMeters = distanceValue;
+      distanceFeet = distanceValue * 3.28084;
+    }
+    
+    const tolerance = 0.05;
+    
+    for (const [pitch, data] of Object.entries(EXCEL_OPTIMAL_DATA)) {
+      if (Math.abs(data.meters - distanceMeters) < tolerance) {
+        return parseFloat(pitch);
+      }
+      if (Math.abs(data.feet - distanceFeet) < tolerance) {
+        return parseFloat(pitch);
+      }
+    }
+    
+    const calculatedPitch = distanceMeters / 2.5;
+    
+    let closestPitch = PIXEL_PITCHES[0];
+    let minDiff = Math.abs(PIXEL_PITCHES[0] - calculatedPitch);
+    
+    for (const pitch of PIXEL_PITCHES) {
+      const diff = Math.abs(pitch - calculatedPitch);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestPitch = pitch;
+      }
+    }
+    
+    return closestPitch;
+  }
+
+  function getTotalDistance() {
+    let totalDistance = 0;
+    
+    if (currentUnit === 'feet') {
+      const feet = parseFloat(document.getElementById('feet-input').value) || 0;
+      const inches = parseFloat(document.getElementById('inches-input').value) || 0;
+      totalDistance = feet + (inches / 12);
+    } else {
+      const meters = parseFloat(document.getElementById('meters-input').value) || 0;
+      const cm = parseFloat(document.getElementById('cm-input').value) || 0;
+      totalDistance = meters + (cm / 100);
+    }
+    
+    return totalDistance;
+  }
+
+  function updatePixelRecommendation() {
+    const distance = getTotalDistance();
+    
+    if (distance > 0) {
+      let pixelPitch = calculatePixelPitch(distance, currentUnit === 'feet' ? 'feet' : 'meters');
+      
+      if (selectedApplication && APPLICATION_RANGES[selectedApplication]) {
+        const range = APPLICATION_RANGES[selectedApplication];
+        
+        if (pixelPitch < range.min) {
+          pixelPitch = range.min;
+        } else if (pixelPitch > range.max) {
+          pixelPitch = range.max;
+        }
+        
+        const validPitches = PIXEL_PITCHES.filter(p => p >= range.min && p <= range.max);
+        if (validPitches.length > 0) {
+          let closest = validPitches[0];
+          let minDiff = Math.abs(validPitches[0] - pixelPitch);
+          
+          for (const pitch of validPitches) {
+            const diff = Math.abs(pitch - pixelPitch);
+            if (diff < minDiff) {
+              minDiff = diff;
+              closest = pitch;
+            }
+          }
+          pixelPitch = closest;
+        }
+      }
+      
+      document.getElementById('pixel-result-value').textContent = pixelPitch + 'mm';
+    } else {
+      document.getElementById('pixel-result-value').textContent = '--';
+    }
+  }
+
+  // Unit selector buttons
+  const unitButtons = document.querySelectorAll('#shopify-section-' + sectionId + ' .unit-btn');
+  unitButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      unitButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      currentUnit = this.dataset.unit;
+      
+      const feetInchesGroup = document.getElementById('feet-inches-group');
+      const metersCmGroup = document.getElementById('meters-cm-group');
+      
+      if (currentUnit === 'feet') {
+        feetInchesGroup.classList.remove('hidden');
+        metersCmGroup.classList.add('hidden');
+      } else {
+        feetInchesGroup.classList.add('hidden');
+        metersCmGroup.classList.remove('hidden');
+      }
+      
+      updatePixelRecommendation();
+    });
+  });
+
+  // Application type cards
+  const optionCards = document.querySelectorAll('#shopify-section-' + sectionId + ' .option-card');
+  optionCards.forEach(card => {
+    card.addEventListener('click', function() {
+      optionCards.forEach(c => c.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      selectedApplication = this.dataset.type;
+      updatePixelRecommendation();
+    });
+  });
+
+  // Distance input listeners
+  const pixelInputs = document.querySelectorAll('#shopify-section-' + sectionId + ' .input-group input[type="number"]');
+  pixelInputs.forEach(input => {
+    input.addEventListener('input', updatePixelRecommendation);
+    input.addEventListener('change', updatePixelRecommendation);
+  });
+
+  // Screen Size Calculator JavaScript
+  const TO_INCHES = {
+    'inches': 1,
+    'feet': 12,
+    'cm': 0.393701,
+    'meters': 39.3701
+  };
+
+  function calculateScreenDimensions(aspectRatioWidth, aspectRatioHeight, knownValue, knownDimension, unit = 'inches') {
+    const aspectRatioDiagonal = Math.sqrt(aspectRatioWidth ** 2 + aspectRatioHeight ** 2);
+    
+    let diagonal, width, height;
+    
+    if (knownDimension === 'diagonal') {
+      diagonal = knownValue;
+      const factor = diagonal / aspectRatioDiagonal;
+      width = aspectRatioWidth * factor;
+      height = aspectRatioHeight * factor;
+    } else if (knownDimension === 'width') {
+      width = knownValue;
+      const factor = width / aspectRatioWidth;
+      diagonal = aspectRatioDiagonal * factor;
+      height = aspectRatioHeight * factor;
+    } else if (knownDimension === 'height') {
+      height = knownValue;
+      const factor = height / aspectRatioHeight;
+      diagonal = aspectRatioDiagonal * factor;
+      width = aspectRatioWidth * factor;
+    }
+    
+    return {
+      diagonal: Math.round(diagonal * 10) / 10,
+      width: Math.round(width * 10) / 10,
+      height: Math.round(height * 10) / 10,
+      unit: unit
+    };
+  }
+
+  function convertUnits(value, fromUnit, toUnit) {
+    const valueInInches = value * TO_INCHES[fromUnit];
+    return valueInInches / TO_INCHES[toUnit];
+  }
+
+  function updateScreenCalculations(triggeredBy) {
+    const aspectWidth = parseFloat(document.getElementById('screen-aspect-width').value) || 16;
+    const aspectHeight = parseFloat(document.getElementById('screen-aspect-height').value) || 9;
+    
+    const diagonalInput = document.getElementById('screen-diagonal-input');
+    const widthInput = document.getElementById('screen-width-input');
+    const heightInput = document.getElementById('screen-height-input');
+    
+    const diagonalUnit = document.getElementById('screen-diagonal-unit').value;
+    const widthUnit = document.getElementById('screen-width-unit').value;
+    const heightUnit = document.getElementById('screen-height-unit').value;
+    
+    let knownValue, knownDimension, inputUnit;
+    
+    if (triggeredBy === 'diagonal' && diagonalInput.value) {
+      knownValue = parseFloat(diagonalInput.value);
+      knownDimension = 'diagonal';
+      inputUnit = diagonalUnit;
+    } else if (triggeredBy === 'width' && widthInput.value) {
+      knownValue = parseFloat(widthInput.value);
+      knownDimension = 'width';
+      inputUnit = widthUnit;
+    } else if (triggeredBy === 'height' && heightInput.value) {
+      knownValue = parseFloat(heightInput.value);
+      knownDimension = 'height';
+      inputUnit = heightUnit;
+    } else {
+      document.getElementById('screen-result-value').textContent = '--';
+      document.getElementById('screen-result-label').textContent = '{{ section.settings.screen_default_result_label }}';
+      return;
+    }
+    
+    const result = calculateScreenDimensions(aspectWidth, aspectHeight, knownValue, knownDimension, inputUnit);
+    
+    if (triggeredBy !== 'diagonal') {
+      const diagonalConverted = convertUnits(result.diagonal, inputUnit, diagonalUnit);
+      diagonalInput.value = Math.round(diagonalConverted * 10) / 10;
+      diagonalInput.classList.remove('user-input');
+    } else {
+      diagonalInput.classList.add('user-input');
+    }
+    
+    if (triggeredBy !== 'width') {
+      const widthConverted = convertUnits(result.width, inputUnit, widthUnit);
+      widthInput.value = Math.round(widthConverted * 10) / 10;
+      widthInput.classList.remove('user-input');
+    } else {
+      widthInput.classList.add('user-input');
+    }
+    
+    if (triggeredBy !== 'height') {
+      const heightConverted = convertUnits(result.height, inputUnit, heightUnit);
+      heightInput.value = Math.round(heightConverted * 10) / 10;
+      heightInput.classList.remove('user-input');
+    } else {
+      heightInput.classList.add('user-input');
+    }
+    
+    const diagonalInInches = convertUnits(result.diagonal, inputUnit, 'inches');
+    const widthInInches = convertUnits(result.width, inputUnit, 'inches');
+    const heightInInches = convertUnits(result.height, inputUnit, 'inches');
+    
+    document.getElementById('screen-result-value').textContent = Math.round(diagonalInInches * 10) / 10 + '"';
+    document.getElementById('screen-result-label').textContent = 
+      'W: ' + Math.round(widthInInches * 10) / 10 + '" × H: ' + Math.round(heightInInches * 10) / 10 + '"';
+  }
+
+  // Aspect ratio inputs
+  const aspectWidth = document.getElementById('screen-aspect-width');
+  const aspectHeight = document.getElementById('screen-aspect-height');
+  
+  if (aspectWidth && aspectHeight) {
+    aspectWidth.addEventListener('input', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+    
+    aspectHeight.addEventListener('input', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  }
+
+  // Preset ratio buttons
+  const presetButtons = document.querySelectorAll('#shopify-section-' + sectionId + ' .preset-btn');
+  presetButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      presetButtons.forEach(btn => btn.classList.remove('selected'));
+      this.classList.add('selected');
+      
+      const width = this.dataset.width;
+      const height = this.dataset.height;
+      
+      // Convert resolution values to proper aspect ratios
+      let aspectW, aspectH;
+      
+      // Define known aspect ratios for common resolutions
+      const aspectRatioMap = {
+        '1920x1200': [16, 10],
+        '3440x1440': [21, 9], 
+        '4x3': [4, 3],
+        '3840x2160': [16, 9],
+        '1920x1080': [16, 9],
+        '1280x720': [16, 9]
+      };
+      
+      const resolutionKey = width + 'x' + height;
+      if (aspectRatioMap[resolutionKey]) {
+        aspectW = aspectRatioMap[resolutionKey][0];
+        aspectH = aspectRatioMap[resolutionKey][1];
+      } else {
+        // Fallback to GCD simplification for unknown ratios
+        function gcd(a, b) {
+          return b === 0 ? a : gcd(b, a % b);
+        }
+        const divisor = gcd(parseInt(width), parseInt(height));
+        aspectW = parseInt(width) / divisor;
+        aspectH = parseInt(height) / divisor;
+      }
+      
+      document.getElementById('screen-aspect-width').value = aspectW;
+      document.getElementById('screen-aspect-height').value = aspectH;
+      
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  });
+
+  // Dimension inputs
+  const diagonalInput = document.getElementById('screen-diagonal-input');
+  const widthInput = document.getElementById('screen-width-input');
+  const heightInput = document.getElementById('screen-height-input');
+  
+  if (diagonalInput) {
+    diagonalInput.addEventListener('input', function() {
+      if (this.value) {
+        widthInput.value = '';
+        heightInput.value = '';
+        updateScreenCalculations('diagonal');
+      }
+    });
+  }
+  
+  if (widthInput) {
+    widthInput.addEventListener('input', function() {
+      if (this.value) {
+        diagonalInput.value = '';
+        heightInput.value = '';
+        updateScreenCalculations('width');
+      }
+    });
+  }
+  
+  if (heightInput) {
+    heightInput.addEventListener('input', function() {
+      if (this.value) {
+        diagonalInput.value = '';
+        widthInput.value = '';
+        updateScreenCalculations('height');
+      }
+    });
+  }
+
+  // Unit selectors
+  const unitSelectors = document.querySelectorAll('#shopify-section-' + sectionId + ' .dimension-row select');
+  unitSelectors.forEach(selector => {
+    selector.addEventListener('change', function() {
+      const triggeredBy = document.querySelector('#shopify-section-' + sectionId + ' .dimension-row input:not(:placeholder-shown)');
+      if (triggeredBy) {
+        const id = triggeredBy.id;
+        if (id.includes('diagonal')) updateScreenCalculations('diagonal');
+        else if (id.includes('width')) updateScreenCalculations('width');
+        else if (id.includes('height')) updateScreenCalculations('height');
+      }
+    });
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "LED Display Calculator",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "main_title",
+      "label": "Main Title",
+      "default": "LED Display Calculator"
+    },
+    {
+      "type": "text",
+      "id": "main_subtitle",
+      "label": "Main Subtitle",
+      "default": "Calculate optimal pixel pitch and screen dimensions for your project"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Maximum Width",
+      "min": 800,
+      "max": 1600,
+      "step": 20,
+      "default": 1240,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "label": "Title Font Size",
+      "min": 24,
+      "max": 72,
+      "step": 4,
+      "default": 48,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "subtitle_size",
+      "label": "Subtitle Font Size",
+      "min": 14,
+      "max": 24,
+      "step": 2,
+      "default": 18,
+      "unit": "px"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_start",
+      "label": "Background Gradient Start",
+      "default": "#1e3c72"
+    },
+    {
+      "type": "color",
+      "id": "background_gradient_end",
+      "label": "Background Gradient End",
+      "default": "#2a5298"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "subtitle_color",
+      "label": "Subtitle Color",
+      "default": "#a8c5e5"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#8b9dc3"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "color",
+      "id": "result_color",
+      "label": "Result Color",
+      "default": "#fbbf24"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Section Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Section Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 10,
+      "default": 40,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Pixel Pitch Calculator Settings"
+    },
+    {
+      "type": "text",
+      "id": "pixel_icon",
+      "label": "Pixel Calculator Icon",
+      "default": "⭐"
+    },
+    {
+      "type": "text",
+      "id": "pixel_section_title",
+      "label": "Pixel Calculator Title",
+      "default": "Pixel Pitch Calculator"
+    },
+    {
+      "type": "text",
+      "id": "pixel_step1_title",
+      "label": "Step 1 Title",
+      "default": "1. Enter Viewing Distance"
+    },
+    {
+      "type": "text",
+      "id": "unit_label",
+      "label": "Unit Selection Label",
+      "default": "Select Unit"
+    },
+    {
+      "type": "text",
+      "id": "feet_button_text",
+      "label": "Feet Button Text",
+      "default": "Feet & Inches"
+    },
+    {
+      "type": "text",
+      "id": "meters_button_text",
+      "label": "Meters Button Text",
+      "default": "Meters & Centimeters"
+    },
+    {
+      "type": "text",
+      "id": "distance_label",
+      "label": "Distance Label",
+      "default": "Enter Distance"
+    },
+    {
+      "type": "text",
+      "id": "feet_placeholder",
+      "label": "Feet Placeholder",
+      "default": "Feet"
+    },
+    {
+      "type": "text",
+      "id": "inches_placeholder",
+      "label": "Inches Placeholder",
+      "default": "Inches"
+    },
+    {
+      "type": "text",
+      "id": "meters_placeholder",
+      "label": "Meters Placeholder",
+      "default": "Meters"
+    },
+    {
+      "type": "text",
+      "id": "cm_placeholder",
+      "label": "Centimeters Placeholder",
+      "default": "Centimeters"
+    },
+    {
+      "type": "text",
+      "id": "pixel_step2_title",
+      "label": "Step 2 Title",
+      "default": "2. Select Application Type"
+    },
+    {
+      "type": "text",
+      "id": "pixel_step3_title",
+      "label": "Step 3 Title",
+      "default": "3. Get Recommendation"
+    },
+    {
+      "type": "text",
+      "id": "pixel_result_label",
+      "label": "Pixel Result Label",
+      "default": "Optimal Pixel Pitch"
+    },
+    {
+      "type": "header",
+      "content": "Screen Size Calculator Settings"
+    },
+    {
+      "type": "text",
+      "id": "screen_icon",
+      "label": "Screen Calculator Icon",
+      "default": "⭐"
+    },
+    {
+      "type": "text",
+      "id": "screen_section_title",
+      "label": "Screen Calculator Title",
+      "default": "Screen Size Calculator"
+    },
+    {
+      "type": "text",
+      "id": "screen_step1_title",
+      "label": "Step 1 Title",
+      "default": "1. Choose Aspect Ratio"
+    },
+    {
+      "type": "text",
+      "id": "info_icon",
+      "label": "Info Icon",
+      "default": "ⓘ"
+    },
+    {
+      "type": "text",
+      "id": "aspect_width_placeholder",
+      "label": "Aspect Width Placeholder",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "aspect_height_placeholder",
+      "label": "Aspect Height Placeholder",
+      "default": "9"
+    },
+    {
+      "type": "text",
+      "id": "default_aspect_width",
+      "label": "Default Aspect Width",
+      "default": "16"
+    },
+    {
+      "type": "text",
+      "id": "default_aspect_height",
+      "label": "Default Aspect Height",
+      "default": "9"
+    },
+    {
+      "type": "text",
+      "id": "screen_step2_title",
+      "label": "Step 2 Title",
+      "default": "2. Enter Any Known Dimension"
+    },
+    {
+      "type": "text",
+      "id": "dimension_hint",
+      "label": "Dimension Hint",
+      "default": "Enter any measurement you know - the other two will be calculated automatically"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_label",
+      "label": "Diagonal Label",
+      "default": "Diagonal"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_desc",
+      "label": "Diagonal Description",
+      "default": "Like TV size (55\", 75\")"
+    },
+    {
+      "type": "text",
+      "id": "diagonal_placeholder",
+      "label": "Diagonal Placeholder",
+      "default": "55"
+    },
+    {
+      "type": "text",
+      "id": "width_label",
+      "label": "Width Label",
+      "default": "Width"
+    },
+    {
+      "type": "text",
+      "id": "width_desc",
+      "label": "Width Description",
+      "default": "Horizontal screen size"
+    },
+    {
+      "type": "text",
+      "id": "width_placeholder",
+      "label": "Width Placeholder",
+      "default": "47.9"
+    },
+    {
+      "type": "text",
+      "id": "height_label",
+      "label": "Height Label",
+      "default": "Height"
+    },
+    {
+      "type": "text",
+      "id": "height_desc",
+      "label": "Height Description",
+      "default": "Vertical screen size"
+    },
+    {
+      "type": "text",
+      "id": "height_placeholder",
+      "label": "Height Placeholder",
+      "default": "27.0"
+    },
+    {
+      "type": "text",
+      "id": "inches_unit",
+      "label": "Inches Unit Label",
+      "default": "inches"
+    },
+    {
+      "type": "text",
+      "id": "feet_unit",
+      "label": "Feet Unit Label",
+      "default": "feet"
+    },
+    {
+      "type": "text",
+      "id": "cm_unit",
+      "label": "Centimeters Unit Label",
+      "default": "cm"
+    },
+    {
+      "type": "text",
+      "id": "meters_unit",
+      "label": "Meters Unit Label",
+      "default": "meters"
+    },
+    {
+      "type": "text",
+      "id": "screen_step3_title",
+      "label": "Step 3 Title",
+      "default": "3. Get Recommendation"
+    },
+    {
+      "type": "text",
+      "id": "screen_default_result_label",
+      "label": "Default Result Label",
+      "default": "Enter dimensions above"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "application_type",
+      "name": "Application Type",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Home Theaters"
+        },
+        {
+          "type": "text",
+          "id": "pitch_range",
+          "label": "Pitch Range",
+          "default": "0.7mm - 0.9mm"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description",
+          "default": "Premium home cinema rooms requiring ultra-fine detail"
+        },
+        {
+          "type": "text",
+          "id": "data_type",
+          "label": "Data Type (for calculations)",
+          "default": "home-theaters",
+          "info": "Use: home-theaters, control-rooms, retail-displays, conference-rooms, or events-venues"
+        }
+      ]
+    },
+    {
+      "type": "preset_ratio",
+      "name": "Preset Ratio",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Button Label",
+          "default": "4K Ultra HD (3840×2160) 16:9"
+        },
+        {
+          "type": "text",
+          "id": "width",
+          "label": "Resolution Width",
+          "default": "3840"
+        },
+        {
+          "type": "text",
+          "id": "height",
+          "label": "Resolution Height",
+          "default": "2160"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LED Display Calculator",
+      "blocks": [
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Home Theaters",
+            "pitch_range": "0.7mm - 0.9mm",
+            "description": "Premium home cinema rooms requiring ultra-fine detail",
+            "data_type": "home-theaters"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Control Rooms",
+            "pitch_range": "0.9mm - 1.875mm",
+            "description": "Security, monitoring, and command centers",
+            "data_type": "control-rooms"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Retail Displays",
+            "pitch_range": "1.825mm - 3.9mm",
+            "description": "Stores, lobbies, and commercial displays",
+            "data_type": "retail-displays"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Conference Rooms",
+            "pitch_range": "1.56mm - 2.5mm",
+            "description": "Professional presentation arenas with easy text readability",
+            "data_type": "conference-rooms"
+          }
+        },
+        {
+          "type": "application_type",
+          "settings": {
+            "title": "Events Venues",
+            "pitch_range": "3.9mm - 10mm+",
+            "description": "Large venues and outdoor events",
+            "data_type": "events-venues"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "4K Ultra HD (3840×2160) 16:9",
+            "width": "3840",
+            "height": "2160"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "Full HD (1920×1080) 16:9",
+            "width": "1920",
+            "height": "1080"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "HD-Ready (1280×720) 16:9",
+            "width": "1280",
+            "height": "720"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "WUXGA (1920×1200) 16:10",
+            "width": "1920",
+            "height": "1200"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "UWQHD (3440×1440) 21:9",
+            "width": "3440",
+            "height": "1440"
+          }
+        },
+        {
+          "type": "preset_ratio",
+          "settings": {
+            "label": "NTSC/PAL 4:3",
+            "width": "4",
+            "height": "3"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

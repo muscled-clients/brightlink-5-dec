@@ -1,0 +1,88 @@
+{% comment %}
+  LED Template - Page-Level Hexagon Pattern Background
+
+  This creates a fixed hexagon pattern that covers the entire page.
+  The pattern uses JavaScript to dynamically generate hexagons with
+  different glow effects (blue, strong blue, and gold accents).
+
+  Usage: {% render 'led-hexagon-background' %}
+
+  Note: This should be rendered once at the page level, typically
+  right after the opening <main> tag in the LED template.
+{% endcomment %}
+
+<!-- Hexagon Pattern Background Container -->
+<div class="led-hexagon-bg" id="ledHexagonBg" aria-hidden="true">
+  <div class="led-hexagon-bg__grid" id="ledHexagonGrid"></div>
+  <div class="led-hexagon-bg__overlay"></div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // Prevent multiple initializations
+  const grid = document.getElementById('ledHexagonGrid');
+  if (!grid || grid.dataset.initialized === 'true') return;
+  grid.dataset.initialized = 'true';
+
+  // Configuration
+  const config = {
+    rows: 30,
+    hexPerRow: 25,
+    // Pattern values:
+    // 0 = subtle outline (default)
+    // 1 = filled
+    // 2 = blue glow
+    // 3 = strong blue glow
+    // 4 = gold glow (rare accent)
+    patterns: [
+      [0, 0, 2, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 2, 0],
+      [0, 1, 0, 0, 0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0],
+      [1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 3, 0],
+      [0, 0, 1, 0, 0, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 1, 0, 0],
+      [0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1],
+      [0, 0, 0, 3, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 2, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0, 1, 0, 0, 2],
+      [0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+    ]
+  };
+
+  // Class mapping for pattern values
+  const classMap = {
+    1: 'led-hexagon-bg__hex--filled',
+    2: 'led-hexagon-bg__hex--glow',
+    3: 'led-hexagon-bg__hex--glow-strong',
+    4: 'led-hexagon-bg__hex--glow-gold'
+  };
+
+  // Use DocumentFragment for better performance
+  const fragment = document.createDocumentFragment();
+
+  // Generate hexagon grid
+  for (let i = 0; i < config.rows; i++) {
+    const row = document.createElement('div');
+    row.className = 'led-hexagon-bg__row';
+
+    const patternRow = config.patterns[i % config.patterns.length];
+
+    for (let j = 0; j < config.hexPerRow; j++) {
+      const hex = document.createElement('div');
+      hex.className = 'led-hexagon-bg__hex';
+
+      // Apply pattern class based on value
+      const patternValue = patternRow[j % patternRow.length];
+      if (classMap[patternValue]) {
+        hex.classList.add(classMap[patternValue]);
+      }
+
+      row.appendChild(hex);
+    }
+
+    fragment.appendChild(row);
+  }
+
+  // Append all at once for better performance
+  grid.appendChild(fragment);
+})();
+</script>

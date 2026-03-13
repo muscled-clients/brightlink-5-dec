@@ -1,0 +1,252 @@
+{{ 'contact-discussion.css' | asset_url | stylesheet_tag }}
+
+<section class="contact-discussion" id="contact-discussion">
+  <div class="contact-discussion__container">
+    <div class="contact-discussion__header">
+      <div class="contact-discussion__header-text">
+        <span class="contact-discussion__label">{{ section.settings.label | default: 'READY TO TRANSFORM YOUR SPACE?' }}</span>
+        <h2 class="contact-discussion__title">{{ section.settings.title | default: "Let's Discuss Your Project" }}</h2>
+      </div>
+      <p class="contact-discussion__subtitle">{{ section.settings.subtitle | default: 'Talk to our LED specialists about your specific requirements' }}</p>
+    </div>
+    <div class="contact-discussion__content">
+
+    <div class="contact-discussion__cards-wrapper">
+      <div class="contact-discussion__cards" data-slider="cards">
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-frame1">
+            <div class="contact-discussion__card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 35 35" fill="none">
+                <path d="M11.0421 1.64879C10.5265 0.403286 9.16718 -0.259644 7.86811 0.0952575L1.9754 1.70236C0.810248 2.02378 0 3.08179 0 4.28712C0 20.8537 13.4327 34.2864 29.9992 34.2864C31.2046 34.2864 32.2626 33.4761 32.584 32.311L34.1911 26.4183C34.546 25.1192 33.8831 23.7598 32.6376 23.2442L26.2092 20.5657C25.1177 20.1104 23.8521 20.4251 23.1088 21.3425L20.4035 24.6437C15.6893 22.4139 11.8725 18.597 9.64262 13.8829L12.9439 11.1843C13.8613 10.4343 14.176 9.17539 13.7206 8.0839L11.0421 1.65549V1.64879Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="contact-discussion__card-title">{{ section.settings.call_title | default: 'Call Us Now' }}</h3>
+          </div>
+          <div class="contact-discussion__card-frame2">
+            <p class="contact-discussion__card-phone">{{ section.settings.phone_number | default: '855-449-4733' }}</p>
+            <p class="contact-discussion__card-info">{{ section.settings.phone_availability | default: 'Mon-Fri 7AM-5PM PST' }}</p>
+          </div>
+          <div class="contact-discussion__card-frame3">
+            <a href="tel:{{ section.settings.phone_number | default: '855-449-4733' | remove: '-' }}" class="contact-discussion__card-btn">
+              {{ section.settings.call_button_text | default: 'CALL NOW' }}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-frame1">
+            <div class="contact-discussion__card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="26" viewBox="0 0 35 26" fill="none">
+                <path d="M3.2142 0C1.4397 0 0 1.4397 0 3.21421C0 4.22534 0.475434 5.17621 1.28568 5.78557L15.8567 16.7139C16.6201 17.283 17.6647 17.283 18.4281 16.7139L32.9992 5.78557C33.8094 5.17621 34.2849 4.22534 34.2849 3.21421C34.2849 1.4397 32.8452 0 31.0706 0H3.2142ZM0 7.49981V21.428C0 23.7918 1.92183 25.7136 4.28561 25.7136H29.9992C32.363 25.7136 34.2849 23.7918 34.2849 21.428V7.49981L19.7138 18.4281C18.187 19.5732 16.0978 19.5732 14.5711 18.4281L0 7.49981Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="contact-discussion__card-title">{{ section.settings.email_title | default: 'Email Our Team' }}</h3>
+          </div>
+          <div class="contact-discussion__card-frame2">
+            <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-email">{{ section.settings.email_address | default: 'support@brightlinkav.com' }}</a>
+            <p class="contact-discussion__card-info">{{ section.settings.email_response | default: 'Same day response time' }}</p>
+          </div>
+          <div class="contact-discussion__card-frame3">
+            <a href="mailto:{{ section.settings.email_address | default: 'support@brightlinkav.com' }}" class="contact-discussion__card-btn">
+              {{ section.settings.email_button_text | default: 'SEND EMAIL' }}
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-discussion__card">
+          <div class="contact-discussion__card-frame1">
+            <div class="contact-discussion__card-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="34" viewBox="0 0 30 35" fill="none">
+                <path d="M6.42841 2.1428V4.28561H3.21421C1.4397 4.28561 0 5.7253 0 7.49981V10.714H29.9992V7.49981C29.9992 5.7253 28.5596 4.28561 26.785 4.28561H23.5708V2.1428C23.5708 0.957565 22.6133 0 21.428 0C20.2428 0 19.2852 0.957565 19.2852 2.1428V4.28561H10.714V2.1428C10.714 0.957565 9.75645 0 8.57121 0C7.38598 0 6.42841 0.957565 6.42841 2.1428ZM29.9992 12.8568H0V31.0706C0 32.8452 1.4397 34.2849 3.21421 34.2849H26.785C28.5596 34.2849 29.9992 32.8452 29.9992 31.0706V12.8568Z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="contact-discussion__card-title">{{ section.settings.demo_title | default: 'Schedule Demo' }}</h3>
+          </div>
+          <div class="contact-discussion__card-frame2">
+            <p class="contact-discussion__card-highlight">{{ section.settings.demo_subtitle | default: 'See Pro Spectrum In Person' }}</p>
+            <p class="contact-discussion__card-info">{{ section.settings.demo_info | default: 'Virtual or in-person tours' }}</p>
+          </div>
+          <div class="contact-discussion__card-frame3">
+            <a href="{{ section.settings.demo_button_link | default: '#' }}" class="contact-discussion__card-btn">
+              {{ section.settings.demo_button_text | default: 'BOOK APPOINTMENT' }}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-discussion__dots" data-dots="cards">
+        <button class="contact-discussion__dot contact-discussion__dot--active" data-index="0" aria-label="Slide 1"></button>
+        <button class="contact-discussion__dot" data-index="1" aria-label="Slide 2"></button>
+        <button class="contact-discussion__dot" data-index="2" aria-label="Slide 3"></button>
+      </div>
+    </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const section = document.querySelector('.contact-discussion');
+  if (!section) return;
+
+  function initSlider(sliderSelector, dotsSelector) {
+    const slider = section.querySelector(sliderSelector);
+    const dotsContainer = section.querySelector(dotsSelector);
+    if (!slider || !dotsContainer) return;
+
+    const dots = dotsContainer.querySelectorAll('.contact-discussion__dot');
+    const items = slider.children;
+
+    // Update dots on scroll
+    slider.addEventListener('scroll', function() {
+      const scrollLeft = slider.scrollLeft;
+      const itemWidth = slider.offsetWidth;
+      const activeIndex = Math.round(scrollLeft / itemWidth);
+
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('contact-discussion__dot--active', index === activeIndex);
+      });
+    });
+
+    // Click on dots to navigate
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', function() {
+        const itemWidth = slider.offsetWidth;
+        slider.scrollTo({
+          left: index * itemWidth,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  // Initialize cards slider
+  initSlider('[data-slider="cards"]', '[data-dots="cards"]');
+});
+</script>
+
+{% schema %}
+{
+  "name": "Contact Discussion",
+  "tag": "section",
+  "class": "contact-discussion-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Section"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Section Label",
+      "default": "READY TO TRANSFORM YOUR SPACE?"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Let's Discuss Your Project"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "Talk to our LED specialists about your specific requirements"
+    },
+    {
+      "type": "header",
+      "content": "Call Us Card"
+    },
+    {
+      "type": "text",
+      "id": "call_title",
+      "label": "Call Card Title",
+      "default": "Call Us Now"
+    },
+    {
+      "type": "text",
+      "id": "phone_number",
+      "label": "Phone Number",
+      "default": "855-449-4733"
+    },
+    {
+      "type": "text",
+      "id": "phone_availability",
+      "label": "Availability",
+      "default": "Mon-Fri 7AM-5PM PST"
+    },
+    {
+      "type": "text",
+      "id": "call_button_text",
+      "label": "Call Button Text",
+      "default": "CALL NOW"
+    },
+    {
+      "type": "header",
+      "content": "Email Card"
+    },
+    {
+      "type": "text",
+      "id": "email_title",
+      "label": "Email Card Title",
+      "default": "Email Our Team"
+    },
+    {
+      "type": "text",
+      "id": "email_address",
+      "label": "Email Address",
+      "default": "support@brightlinkav.com"
+    },
+    {
+      "type": "text",
+      "id": "email_response",
+      "label": "Response Time",
+      "default": "Same day response time"
+    },
+    {
+      "type": "text",
+      "id": "email_button_text",
+      "label": "Email Button Text",
+      "default": "SEND EMAIL"
+    },
+    {
+      "type": "header",
+      "content": "Demo Card"
+    },
+    {
+      "type": "text",
+      "id": "demo_title",
+      "label": "Demo Card Title",
+      "default": "Schedule Demo"
+    },
+    {
+      "type": "text",
+      "id": "demo_subtitle",
+      "label": "Demo Subtitle",
+      "default": "See Pro Spectrum In Person"
+    },
+    {
+      "type": "text",
+      "id": "demo_info",
+      "label": "Demo Info",
+      "default": "Virtual or in-person tours"
+    },
+    {
+      "type": "text",
+      "id": "demo_button_text",
+      "label": "Demo Button Text",
+      "default": "BOOK APPOINTMENT"
+    },
+    {
+      "type": "url",
+      "id": "demo_button_link",
+      "label": "Demo Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Discussion"
+    }
+  ]
+}
+{% endschema %}
