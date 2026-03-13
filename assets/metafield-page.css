@@ -16,18 +16,18 @@ body.metafield-page .page-content {
   color: #ffffff !important;
 }
 
-/* Common text elements */
-body.metafield-page h1,
-body.metafield-page h2,
-body.metafield-page h3,
-body.metafield-page h4,
-body.metafield-page h5,
-body.metafield-page h6,
-body.metafield-page p,
-body.metafield-page span,
-body.metafield-page li,
-body.metafield-page label,
-body.metafield-page div {
+/* Common text elements — scoped to #main to exclude header */
+body.metafield-page #main h1,
+body.metafield-page #main h2,
+body.metafield-page #main h3,
+body.metafield-page #main h4,
+body.metafield-page #main h5,
+body.metafield-page #main h6,
+body.metafield-page #main p,
+body.metafield-page #main span,
+body.metafield-page #main li,
+body.metafield-page #main label,
+body.metafield-page #main div {
   color: #ffffff !important;
 }
 
