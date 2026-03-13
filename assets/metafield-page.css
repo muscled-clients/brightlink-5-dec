@@ -4,14 +4,16 @@
    ============================================================ */
 
 body.metafield-page {
-  background: #0a0e1a;
-  color: #ffffff;
+  background: #0a0e1a !important;
+  color: #ffffff !important;
 }
 
 /* All section containers */
-body.metafield-page .shopify-section {
-  background: #0a0e1a;
-  color: #ffffff;
+body.metafield-page .shopify-section,
+body.metafield-page .container,
+body.metafield-page .page-content {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
 }
 
 /* Common text elements */
@@ -24,29 +26,110 @@ body.metafield-page h6,
 body.metafield-page p,
 body.metafield-page span,
 body.metafield-page li,
-body.metafield-page a {
+body.metafield-page label,
+body.metafield-page div {
   color: #ffffff;
 }
 
-/* Override light backgrounds on cards and containers */
+/* Cards and wrappers */
 body.metafield-page .card,
-body.metafield-page .card__section {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.1);
+body.metafield-page .card__section,
+body.metafield-page .product-block-list__wrapper,
+body.metafield-page .product-block-list__item {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Product image area */
+body.metafield-page .product-gallery,
+body.metafield-page .product-gallery__carousel-wrapper,
+body.metafield-page .product-gallery__thumbnail-list,
+body.metafield-page .product-gallery__thumbnail,
+body.metafield-page .aspect-ratio {
+  background: transparent !important;
+}
+
+/* Product title and meta */
+body.metafield-page .product-meta__title,
+body.metafield-page .product-meta__vendor,
+body.metafield-page .product-meta__sku {
+  color: #ffffff !important;
+}
+
+/* Price */
+body.metafield-page .price {
+  color: #ffffff !important;
+}
+
+body.metafield-page .price--compare {
+  color: #ff6b6b !important;
+}
+
+/* Variant selectors */
+body.metafield-page .product-form__option,
+body.metafield-page .product-form__variants,
+body.metafield-page .block-swatch-list {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.metafield-page .product-form__option-name,
+body.metafield-page .product-form__selected-value,
+body.metafield-page .product-form__info-title {
+  color: #ffffff !important;
+}
+
+/* Dropdowns / selects */
+body.metafield-page select,
+body.metafield-page .select__select {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Quantity selector */
+body.metafield-page .quantity-selector,
+body.metafield-page .quantity-selector__button,
+body.metafield-page .quantity-selector__value {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Installer / request zone box */
+body.metafield-page .my-request-zone-parent {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
 }
 
 /* Breadcrumb */
 body.metafield-page .breadcrumb__link,
-body.metafield-page .breadcrumb__item {
-  color: rgba(255, 255, 255, 0.6);
+body.metafield-page .breadcrumb__item,
+body.metafield-page .page__sub-header {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Accordion blocks in main product info */
+body.metafield-page .card__collapsible-button,
+body.metafield-page .card__title {
+  color: #ffffff !important;
+  background: transparent !important;
 }
 
 /* Keep accent links blue */
-body.metafield-page a:not(.button):not(.btn) {
-  color: #4190D2;
+body.metafield-page .breadcrumb__link {
+  color: #4190D2 !important;
 }
 
-/* Override any white/light backgrounds */
-body.metafield-page .container {
-  background: #0a0e1a;
+/* Separator lines */
+body.metafield-page .card__separator {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Shipping info */
+body.metafield-page .shipping-us-parent,
+body.metafield-page .shipping-us-price,
+body.metafield-page .shipping-estimated-delivery {
+  color: #ffffff !important;
 }
