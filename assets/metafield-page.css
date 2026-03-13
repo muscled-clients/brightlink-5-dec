@@ -200,6 +200,49 @@ body.metafield-page .block-swatch__item-text.block-swatch-value-s {
   color: #fff !important;
 }
 
+/* ============================================================
+   FAQ section (faq.liquid — About Us, Support, Returns, etc.)
+   ============================================================ */
+body.metafield-page .faq,
+body.metafield-page .faq__group-list {
+  background: transparent !important;
+}
+
+body.metafield-page .faq__group {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.metafield-page .faq__group-title {
+  color: #ffffff !important;
+}
+
+body.metafield-page .faq__item,
+body.metafield-page .faq__item-wrapper {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.metafield-page .faq__question {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+body.metafield-page .faq__answer,
+body.metafield-page .faq__answer-wrapper {
+  color: rgba(255, 255, 255, 0.8) !important;
+  background: transparent !important;
+}
+
+/* Plus/minus toggle icon */
+body.metafield-page .plus-button::before,
+body.metafield-page .plus-button::after {
+  background: #ffffff !important;
+}
+
+/* ============================================================
+   Footer stays dark
+   ============================================================ */
 /* Footer stays dark */
 body.metafield-page footer,
 body.metafield-page .footer,
