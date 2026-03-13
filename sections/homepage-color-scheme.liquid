@@ -1,0 +1,41 @@
+<style>
+  body.template-index {
+    {%- if section.settings.color_scheme == 'light' -%}
+      --hp-section-bg: #ffffff;
+      --hp-surface-bg: #f5f5f5;
+      --hp-text-color: #000000;
+      --hp-border-color: #e0e0e0;
+    {%- else -%}
+      --hp-section-bg: #0A0E1A;
+      --hp-surface-bg: #111827;
+      --hp-text-color: #ffffff;
+      --hp-border-color: #1e2a3a;
+    {%- endif -%}
+  }
+  body.template-index #main {
+    background-color: var(--hp-section-bg, #0A0E1A);
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Homepage Color Scheme",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "options": [
+        { "value": "dark", "label": "Dark (#0a0e1a)" },
+        { "value": "light", "label": "Light (White)" }
+      ],
+      "default": "dark"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Homepage Color Scheme"
+    }
+  ]
+}
+{% endschema %}

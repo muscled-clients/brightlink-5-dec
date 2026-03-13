@@ -1,21 +1,21 @@
 <style>
   #shopify-section-{{ section.id }} {
-    background-color: #0A0E1A;
+    background-color: var(--hp-section-bg);
   }
   #shopify-section-{{ section.id }} .section__title,
   #shopify-section-{{ section.id }} .section__action-link {
-    color: #ffffff !important;
+    color: var(--hp-text-color) !important;
   }
   #shopify-section-{{ section.id }} .product-item {
-    background: #111827 !important;
+    background: var(--hp-surface-bg) !important;
   }
   #shopify-section-{{ section.id }} .product-item::after {
-    box-shadow: 1px 0 #1e2a3a, 0 1px #1e2a3a;
+    box-shadow: 1px 0 var(--hp-border-color), 0 1px var(--hp-border-color);
   }
   #shopify-section-{{ section.id }} .product-item__title,
   #shopify-section-{{ section.id }} .product-item__vendor,
   #shopify-section-{{ section.id }} .price {
-    color: #ffffff !important;
+    color: var(--hp-text-color) !important;
   }
 </style>
 
