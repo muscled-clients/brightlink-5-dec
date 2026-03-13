@@ -1,0 +1,52 @@
+/* ============================================================
+   Metafield Product Page — Global Dark Theme
+   Background: #0a0e1a | Text: #ffffff
+   ============================================================ */
+
+body.metafield-page {
+  background: #0a0e1a;
+  color: #ffffff;
+}
+
+/* All section containers */
+body.metafield-page .shopify-section {
+  background: #0a0e1a;
+  color: #ffffff;
+}
+
+/* Common text elements */
+body.metafield-page h1,
+body.metafield-page h2,
+body.metafield-page h3,
+body.metafield-page h4,
+body.metafield-page h5,
+body.metafield-page h6,
+body.metafield-page p,
+body.metafield-page span,
+body.metafield-page li,
+body.metafield-page a {
+  color: #ffffff;
+}
+
+/* Override light backgrounds on cards and containers */
+body.metafield-page .card,
+body.metafield-page .card__section {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Breadcrumb */
+body.metafield-page .breadcrumb__link,
+body.metafield-page .breadcrumb__item {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Keep accent links blue */
+body.metafield-page a:not(.button):not(.btn) {
+  color: #4190D2;
+}
+
+/* Override any white/light backgrounds */
+body.metafield-page .container {
+  background: #0a0e1a;
+}
