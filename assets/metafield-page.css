@@ -131,6 +131,17 @@ body.metafield-page .card__collapsible-button .plus-button {
   color: #ffffff !important;
 }
 
+body.metafield-page .card__collapsible-button .plus-button::before,
+body.metafield-page .card__collapsible-button .plus-button::after {
+  background-color: #ffffff !important;
+}
+
+body.metafield-page .card__collapsible-button svg path,
+body.metafield-page .card__collapsible-button svg circle,
+body.metafield-page .card__collapsible-button svg rect {
+  fill: #ffffff !important;
+}
+
 body.metafield-page .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
