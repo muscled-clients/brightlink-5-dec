@@ -206,3 +206,53 @@ body.metafield-page .footer,
 body.metafield-page .footer__wrapper {
   background: #0a0e1a !important;
 }
+
+/* ============================================================
+   Product Intelligence section (tabs: Features, Spec, Downloads...)
+   Override inline CSS variables set by section settings
+   ============================================================ */
+body.metafield-page .product-intelligence {
+  background-color: #0a0e1a !important;
+  --pi-bg-color: #0a0e1a;
+  --pi-heading-color: #ffffff;
+  --pi-label-color: #4190D2;
+  --pi-subheading-color: rgba(255, 255, 255, 0.7);
+}
+
+body.metafield-page .product-intelligence__heading,
+body.metafield-page .product-intelligence__label {
+  color: #ffffff !important;
+}
+
+body.metafield-page .product-intelligence__subheading {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* Tab bar */
+body.metafield-page .product-intelligence__tabs {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.metafield-page .product-intelligence__tab {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.metafield-page .product-intelligence__tab--active {
+  color: #ffffff !important;
+}
+
+/* Panel content */
+body.metafield-page .product-intelligence__panel,
+body.metafield-page .product-intelligence__panel-content,
+body.metafield-page .product-intelligence__container {
+  background: transparent !important;
+}
+
+/* All text inside panels */
+body.metafield-page .product-intelligence__text,
+body.metafield-page .product-intelligence__feature-title,
+body.metafield-page .product-intelligence__feature-desc,
+body.metafield-page .product-intelligence__read-more {
+  color: #ffffff !important;
+}
