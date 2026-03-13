@@ -12101,7 +12101,7 @@ shopify-payment-terms {
   text-align: center;
   border-radius: 3px;
   list-style: none;
-  background: var(--secondary-background);
+  background: #0a0e1a;
   border: 1px solid var(--border-color);
   font-size: calc(var(--default-text-font-size) + 1px);
 }
