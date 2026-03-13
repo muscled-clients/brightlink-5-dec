@@ -142,6 +142,11 @@ body.metafield-page .card__collapsible-button svg rect {
   fill: #ffffff !important;
 }
 
+body.metafield-page svg.d8-icon-close path {
+  fill: #ffffff !important;
+  fill-opacity: 1 !important;
+}
+
 body.metafield-page .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
