@@ -102,6 +102,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
     {%- endif -%}
 
+    {%- comment -%}Metafield Product Page Dark Theme{%- endcomment -%}
+    {%- if template.suffix == 'metafield' -%}
+      <link rel="stylesheet" href="{{ 'metafield-page.css' | asset_url }}">
+    {%- endif -%}
+
     {% render 'microdata-schema' %}
 
     <script>
