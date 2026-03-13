@@ -105,7 +105,7 @@ body.metafield-page #main .quantity-selector__value {
 }
 
 body.metafield-page #main .my-request-zone-parent {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: transparent !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
