@@ -1,3 +1,20 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: #0A0E1A;
+  }
+  #shopify-section-{{ section.id }} .promo-block {
+    background-color: #111827 !important;
+    color: #ffffff !important;
+    border: 1px solid #1e2a3a;
+    border-radius: 6px;
+  }
+  #shopify-section-{{ section.id }} .promo-block__heading,
+  #shopify-section-{{ section.id }} .promo-block__content,
+  #shopify-section-{{ section.id }} .promo-block__cta {
+    color: #ffffff !important;
+  }
+</style>
+
 <section class="section" data-section-id="{{ section.id }}" data-section-type="promo-block" style="background-color: #0A0E1A; color: #ffffff;">
   <div class="container">
     {%- capture block_list -%}
