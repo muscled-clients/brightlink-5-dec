@@ -1,0 +1,928 @@
+{{ 'system-configuration.css' | asset_url | stylesheet_tag }}
+
+{% comment %} Get LED template data from product metafield {% endcomment %}
+{% assign led_data = product.metafields.custom.led_template_data.value %}
+{% assign config_data = led_data.system_config %}
+
+<section
+  id="system-configuration-{{ section.id }}"
+  class="system-configuration {{ section.settings.custom_class }}"
+>
+  <div class="system-configuration__container">
+    <!-- Header Section - Use metafield data if available, otherwise use section settings -->
+    {% assign config_title = config_data.title | default: section.settings.heading %}
+    {% assign config_description = config_data.description | default: section.settings.subheading %}
+
+    <div class="system-configuration__header">
+      <div class="system-configuration__header-text">
+        {% if section.settings.section_label != blank %}
+          <span class="system-configuration__label">{{ section.settings.section_label }}</span>
+        {% endif %}
+        {% if config_title != blank %}
+          <h2 class="system-configuration__heading">{{ config_title }}</h2>
+        {% endif %}
+      </div>
+      {% if config_description != blank %}
+        <p class="system-configuration__subheading">{{ config_description }}</p>
+      {% endif %}
+    </div>
+
+    <!-- Main Visual Area - Use metafield image if available -->
+    {% assign config_display_image = config_data.display_image %}
+    {% assign cabinet_specs = config_data.cabinet_specs %}
+
+    <div class="system-configuration__visual">
+      <!-- Desktop Image -->
+      {% if config_display_image != blank %}
+        <img
+          src="{{ config_display_image }}"
+          alt="LED Video Wall Configuration"
+          class="system-configuration__display-image system-configuration__display-image--desktop"
+          loading="lazy"
+        >
+      {% elsif section.settings.display_image != blank %}
+        <img
+          src="{{ section.settings.display_image | image_url: width: 1200 }}"
+          alt="LED Video Wall Configuration"
+          class="system-configuration__display-image system-configuration__display-image--desktop"
+          loading="lazy"
+        >
+      {% else %}
+        <div class="system-configuration__display-placeholder system-configuration__display-placeholder--desktop">
+          <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <circle cx="8.5" cy="8.5" r="1.5"></circle>
+            <polyline points="21 15 16 10 5 21"></polyline>
+          </svg>
+          <span>Upload Display Image</span>
+        </div>
+      {% endif %}
+      
+      <!-- Mobile Image -->
+      {% if section.settings.mobile_image != blank %}
+        <img
+          src="{{ section.settings.mobile_image | image_url: width: 400 }}"
+          alt="LED Video Wall Configuration - Mobile"
+          class="system-configuration__display-image system-configuration__display-image--mobile"
+          loading="lazy"
+          width="400"
+          height="auto"
+        >
+      {% else %}
+        {% if config_display_image != blank %}
+          <img
+            src="{{ config_display_image }}"
+            alt="LED Video Wall Configuration"
+            class="system-configuration__display-image system-configuration__display-image--mobile"
+            loading="lazy"
+            width="400"
+            height="auto"
+          >
+        {% elsif section.settings.display_image != blank %}
+          <img
+            src="{{ section.settings.display_image | image_url: width: 400 }}"
+            alt="LED Video Wall Configuration"
+            class="system-configuration__display-image system-configuration__display-image--mobile"
+            loading="lazy"
+            width="400"
+            height="auto"
+          >
+        {% else %}
+          <div class="system-configuration__display-placeholder system-configuration__display-placeholder--mobile">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <circle cx="8.5" cy="8.5" r="1.5"></circle>
+              <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
+            <span>Upload Mobile Image</span>
+          </div>
+        {% endif %}
+      {% endif %}
+      
+      <!-- Heading/Subheading Container 1 -->
+      {% if section.settings.info1_heading != blank or section.settings.info1_subheading != blank %}
+      <div class="system-configuration__info-container system-configuration__info-container--1">
+        {% if section.settings.info1_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info1_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info1_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info1_subheading }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      
+      <!-- Heading/Subheading Container 2 -->
+      {% if section.settings.info2_heading != blank or section.settings.info2_subheading != blank %}
+      <div class="system-configuration__info-container system-configuration__info-container--2">
+        {% if section.settings.info2_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info2_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info2_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info2_subheading }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+      
+      <!-- Heading/Subheading Container 3 -->
+      {% if section.settings.info3_heading != blank or section.settings.info3_subheading != blank %}
+      <div class="system-configuration__info-container system-configuration__info-container--3">
+        {% if section.settings.info3_heading != blank %}
+          <h3 class="system-configuration__info-heading">{{ section.settings.info3_heading }}</h3>
+        {% endif %}
+        {% if section.settings.info3_subheading != blank %}
+          <p class="system-configuration__info-subheading">{{ section.settings.info3_subheading }}</p>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+
+    <!-- Detail Cards Section -->
+    <div class="system-configuration__cards">
+      <!-- Cabinet Detail Card -->
+      <div class="system-configuration__card system-configuration__card--cabinet">
+        <div class="system-configuration__card-header">
+          <div class="system-configuration__card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+  <g clip-path="url(#clip0_10_832)">
+    <path d="M10.9922 0.26709C11.6438 0.0327148 12.3563 0.0327148 13.0125 0.26709L22.0125 3.48272C23.2031 3.90928 24 5.03897 24 6.30928V17.6905C24 18.9562 23.2031 20.0905 22.0078 20.5171L13.0078 23.7327C12.3562 23.9671 11.6437 23.9671 10.9875 23.7327L1.9875 20.5171C0.796875 20.0905 0 18.9608 0 17.6905V6.30928C0 5.04365 0.796875 3.90928 1.99219 3.48272L10.9922 0.26709ZM12 3.09365L3.85781 5.9999L12 8.90615L20.1422 5.9999L12 3.09365ZM13.5 20.3718L21 17.6952V8.88272L13.5 11.5593V20.3718Z" fill="#0A84FF"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_10_832">
+      <path d="M0 0H24V24H0V0Z" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
+          </div>
+          <div class="system-configuration__card-titles">
+            <h3 class="system-configuration__card-title">{{ section.settings.cabinet_title }}</h3>
+            <p class="system-configuration__card-subtitle">{{ section.settings.cabinet_subtitle }}</p>
+          </div>
+        </div>
+
+        <div class="system-configuration__card-body">
+          <div class="system-configuration__card-image">
+            <!-- Image Box Container with labels inside -->
+            <div class="system-configuration__cabinet-images-box">
+              {% if section.settings.cabinet_image != blank or section.settings.cabinet_image_2 != blank %}
+                <div class="system-configuration__cabinet-images-row">
+                  {% if section.settings.cabinet_image != blank %}
+                    <img
+                      src="{{ section.settings.cabinet_image | image_url: width: 269 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                  {% if section.settings.cabinet_image_2 != blank %}
+                    <img
+                      src="{{ section.settings.cabinet_image_2 | image_url: width: 269 }}"
+                      alt="Individual Cabinet"
+                      loading="lazy"
+                    >
+                  {% endif %}
+                </div>
+                 <!-- Labels inside the box -->
+              <div class="labels">
+              <span class="system-configuration__cabinet-label">{{ section.settings.cabinet_visual_label | default: '4 COB Modules' }}</span>
+              <span class="system-configuration__cabinet-sublabel">{{ section.settings.cabinet_visual_sublabel | default: '480 × 270 pixels per cabinet' }}</span>
+             </div>
+              {% else %}
+                <!-- Placeholder modules -->
+              
+                <div class="system-configuration__cabinet-images-row">
+                  <div class="system-configuration__cabinet-module-placeholder"></div>
+                  <div class="system-configuration__cabinet-module-placeholder"></div>
+                </div>
+              {% endif %}
+             
+          
+          </div>
+          </div>
+
+          <div class="system-configuration__specs-table">
+            <div class="system-configuration__spec-row">
+              <span class="system-configuration__spec-label">Dimensions</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.dimensions | default: section.settings.cabinet_dimensions }}</span>
+            </div>
+            <div class="system-configuration__spec-row">
+              <span class="system-configuration__spec-label">Imperial</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.imperial | default: section.settings.cabinet_imperial }}</span>
+            </div>
+            <div class="system-configuration__spec-row">
+              <span class="system-configuration__spec-label">Weight</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.weight | default: section.settings.cabinet_weight }}</span>
+            </div>
+            <div class="system-configuration__spec-row">
+              <span class="system-configuration__spec-label">Resolution</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.resolution | default: section.settings.cabinet_resolution }}</span>
+            </div>
+            <div class="system-configuration__spec-row">
+              <span class="system-configuration__spec-label">Module Count</span>
+              <span class="system-configuration__spec-value">{{ cabinet_specs.modules | default: section.settings.cabinet_modules }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Connection Detail Card -->
+      <div class="system-configuration__card system-configuration__card--connection">
+        <div class="system-configuration__card-header">
+          <div class="system-configuration__card-icon">
+           <svg class="cabinet-svg" xmlns="http://www.w3.org/2000/svg" width="29" height="23" viewBox="0 0 29 23" fill="none">
+  <path d="M26.3426 11.5713C28.991 8.9229 28.991 4.63384 26.3426 1.9854C23.9988 -0.358351 20.3051 -0.663039 17.6098 1.26352L17.5348 1.31509C16.8598 1.7979 16.7051 2.7354 17.1879 3.40571C17.6707 4.07602 18.6082 4.2354 19.2785 3.75259L19.3535 3.70102C20.8582 2.62759 22.916 2.79634 24.2191 4.10415C25.6957 5.58071 25.6957 7.97134 24.2191 9.4479L18.9598 14.7167C17.4832 16.1932 15.0926 16.1932 13.616 14.7167C12.3082 13.4088 12.1395 11.351 13.2129 9.85102L13.2645 9.77602C13.7473 9.10102 13.5879 8.16352 12.9176 7.6854C12.2473 7.20727 11.3051 7.36196 10.827 8.03227L10.7754 8.10728C8.84414 10.7979 9.14883 14.4917 11.4926 16.8354C14.141 19.4838 18.4301 19.4838 21.0785 16.8354L26.3426 11.5713ZM1.98633 10.4745C-0.662109 13.1229 -0.662109 17.412 1.98633 20.0604C4.33008 22.4042 8.02383 22.7088 10.7191 20.7823L10.7941 20.7307C11.4691 20.2479 11.6238 19.3104 11.141 18.6401C10.6582 17.9698 9.7207 17.8104 9.05039 18.2932L8.97539 18.3448C7.4707 19.4182 5.41289 19.2495 4.10977 17.9417C2.6332 16.4604 2.6332 14.0698 4.10977 12.5932L9.36914 7.32915C10.8457 5.85259 13.2363 5.85259 14.7129 7.32915C16.0207 8.63696 16.1895 10.6948 15.116 12.1995L15.0645 12.2745C14.5816 12.9495 14.741 13.887 15.4113 14.3651C16.0816 14.8432 17.0238 14.6885 17.502 14.0182L17.5535 13.9432C19.4848 11.2479 19.1801 7.55415 16.8363 5.2104C14.1879 2.56196 9.89883 2.56196 7.25039 5.2104L1.98633 10.4745Z" fill="#0A84FF"/>
+</svg>
+          </div>
+          <div class="system-configuration__card-titles">
+            <h3 class="system-configuration__card-title">{{ section.settings.connection_title }}</h3>
+            <p class="system-configuration__card-subtitle">{{ section.settings.connection_subtitle }}</p>
+          </div>
+        </div>
+
+        <div class="system-configuration__card-body">
+          <!-- Connection Image/Visual Area -->
+          <div class="system-configuration__card-image">
+            <!-- Image Box Container with labels inside -->
+            <div class="system-configuration__connection-images-box">
+              {% if section.settings.connection_image != blank %}
+                <img
+                  src="{{ section.settings.connection_image | image_url: width: 400 }}"
+                  alt="Cabinet Connection"
+                  loading="lazy"
+                >
+              {% else %}
+                <!-- Lock Visual Placeholder -->
+                <div class="system-configuration__lock-icon-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                  </svg>
+                  <span class="system-configuration__lock-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="12" height="12">
+                      <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                    </svg>
+                  </span>
+                </div>
+              {% endif %}
+              <!-- Labels inside the box -->
+              <div class="labels">
+              <span class="system-configuration__cabinet-label">{{ section.settings.connection_visual_label }}</span>
+              <span class="system-configuration__cabinet-sublabel">{{ section.settings.connection_visual_sublabel }}</span>
+            </div>
+          </div>
+          </div>
+
+          <!-- Features List -->
+          <div class="system-configuration__features">
+            <div class="system-configuration__feature">
+              <div class="system-configuration__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="system-configuration__feature-text">
+                <span class="system-configuration__feature-title">{{ section.settings.feature_1_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_1_desc }}</span>
+              </div>
+            </div>
+
+            <div class="system-configuration__feature">
+              <div class="system-configuration__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="system-configuration__feature-text">
+                <span class="system-configuration__feature-title">{{ section.settings.feature_2_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_2_desc }}</span>
+              </div>
+            </div>
+
+            <div class="system-configuration__feature">
+              <div class="system-configuration__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="system-configuration__feature-text">
+                <span class="system-configuration__feature-title">{{ section.settings.feature_3_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_3_desc }}</span>
+              </div>
+            </div>
+
+            <div class="system-configuration__feature">
+              <div class="system-configuration__feature-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+              </div>
+              <div class="system-configuration__feature-text">
+                <span class="system-configuration__feature-title">{{ section.settings.feature_4_title }}</span>
+                <span class="system-configuration__feature-desc">{{ section.settings.feature_4_desc }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="system-configuration__cta-section">
+      <h3 class="system-configuration__cta-heading">{{ section.settings.cta_heading }}</h3>
+      <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
+
+      <div class="system-configuration__cta-box">
+        {% if section.settings.price_text != blank %}
+          <div class="system-configuration__price">
+            {{ section.settings.price_text }}
+          </div>
+        {% endif %}
+
+        <div class="system-configuration__cta-buttons">
+          {% if section.settings.primary_btn_text != blank %}
+            <button type="button" class="system-configuration__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
+              {{ section.settings.primary_btn_text }}
+            </button>
+          {% endif %}
+          {% if section.settings.secondary_btn_text != blank %}
+            <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="system-configuration__btn--secondary">
+              {{ section.settings.secondary_btn_text }}
+            </a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  #system-configuration-{{ section.id }} {
+    --sc-bg-color: {{ section.settings.bg_color }};
+    --sc-label-color: {{ section.settings.label_color }};
+    --sc-accent-color: {{ section.settings.accent_color }};
+    --sc-padding-top: {{ section.settings.padding_top }}px;
+    --sc-padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  
+  /* Additional CSS for the info containers - DESKTOP */
+  #system-configuration-{{ section.id }} .system-configuration__info-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7.442px;
+    position: absolute;
+    z-index: 10;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__info-container--1 {
+    top: 50px;
+    left: 574px;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__info-container--2 {
+    top: 291px;
+    right: 24px;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__info-container--3 {
+   bottom: 106.56px;
+    right: 90px;
+  }
+  
+ 
+
+  #system-configuration-{{ section.id }}  .labels{
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+  
+  }
+
+ #system-configuration-{{ section.id }} .system-configuration__card-subtitle{
+color: #A0AEC0;
+font-family: Inter, sans-serif;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 20px; /* 142.857% */
+
+}
+  #system-configuration-{{ section.id }} .system-configuration__info-heading {
+    color: #0A84FF;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 2px;
+    align-self: stretch;
+    margin: 0;
+    text-transform: uppercase;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__info-subheading {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    align-self: stretch;
+    margin: 0;
+  }
+  
+
+  #system-configuration-{{ section.id }} .system-configuration__card-header{
+  border-bottom:none!important;
+  }
+
+  /* Ensure visual area is positioned relative for absolute positioning of containers */
+  #system-configuration-{{ section.id }} .system-configuration__visual {
+    position: relative;
+  }
+  
+  /* Image styling */
+  #system-configuration-{{ section.id }} .system-configuration__display-image {
+    width: calc(100% - 60px);
+    height: auto;
+    display: block;
+    margin: 110px auto 30px auto;
+  }
+  
+  /* Show desktop image by default, hide mobile */
+  #system-configuration-{{ section.id }} .system-configuration__display-image--desktop {
+    display: block;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__display-image--mobile {
+    display: none;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__display-placeholder--desktop {
+    display: flex;
+  }
+  
+  #system-configuration-{{ section.id }} .system-configuration__display-placeholder--mobile {
+    display: none;
+  }
+  
+  /* MOBILE STYLES */
+  @media (max-width: 767px) {
+    #system-configuration-{{ section.id }} .system-configuration__visual {
+      display: flex;
+      height: 209.194px;
+      width:345px;
+      padding: 18px 17px 16.257px 16px;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      box-sizing: border-box;
+      position: relative;
+    }
+    
+    /* Mobile image container */
+    #system-configuration-{{ section.id }} .system-configuration__display-image--desktop {
+      display: none;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__display-image--mobile {
+      display: block;
+      width: 180px;
+      height: 147.188px;
+      aspect-ratio: 180.00/147.19;
+      position: absolute;
+      top: 30.3px;
+      left: 46px;
+      object-fit: cover;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__display-placeholder--desktop {
+      display: none;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__display-placeholder--mobile {
+      display: flex;
+      width: 180px;
+      height: 147.188px;
+      aspect-ratio: 180.00/147.19;
+      position: absolute;
+      top: 12.3px;
+      left: 45px;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.1);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__display-placeholder--mobile svg {
+      width: 24px;
+      height: 24px;
+      color: rgba(255, 255, 255, 0.3);
+      margin-bottom: 8px;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__display-placeholder--mobile span {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 10px;
+    }
+    
+    /* Mobile info containers */
+    #system-configuration-{{ section.id }} .system-configuration__info-container {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+      position: absolute;
+      z-index: 10;
+    }
+    
+   #system-configuration-{{ section.id }} .system-configuration__info-container--1 {
+        top: 16px;
+        left: 120px;
+        right: auto;
+        bottom: auto;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__info-container--2 {
+      top: 76px;
+      right: 25px;
+      left: auto;
+      bottom: auto;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__info-container--3 {
+      right: 22px;
+        bottom: 30px;
+      top: auto;
+      left: auto;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__info-heading {
+      color: #0A84FF;
+      text-align: center;
+      font-family: Inter, sans-serif;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      letter-spacing: 0.572px;
+      align-self: stretch;
+      margin: 0;
+      text-transform: uppercase;
+    }
+    
+    #system-configuration-{{ section.id }} .system-configuration__info-subheading {
+      color: #FFF;
+      text-align: center;
+      font-family: Inter, sans-serif;
+      font-size: 8px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      align-self: stretch;
+      margin: 0;
+    }
+  }
+
+
+
+</style>
+
+{% schema %}
+{
+  "name": "System Configuration",
+  "tag": "section",
+  "class": "system-configuration-wrapper",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Content"
+    },
+    {
+      "type": "text",
+      "id": "section_label",
+      "label": "Section Label",
+      "default": "SYSTEM ARCHITECTURE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "System Configuration"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface"
+    },
+    {
+      "type": "header",
+      "content": "Display Visual"
+    },
+    {
+      "type": "image_picker",
+      "id": "display_image",
+      "label": "Desktop LED Wall Image",
+      "info": "Recommended size: 1200x600px"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile LED Wall Image (Optional)",
+      "info": "Upload a different image for mobile. If not set, desktop image will be used. Recommended size: 400x327px"
+    },
+    {
+      "type": "header",
+      "content": "Info Containers"
+    },
+    {
+      "type": "text",
+      "id": "info1_heading",
+      "label": "Container 1 Heading",
+      "default": "PIXEL PERFECT"
+    },
+    {
+      "type": "text",
+      "id": "info1_subheading",
+      "label": "Container 1 Subheading",
+      "default": "Precision Alignment"
+    },
+    {
+      "type": "text",
+      "id": "info2_heading",
+      "label": "Container 2 Heading",
+      "default": "SEAMLESS"
+    },
+    {
+      "type": "text",
+      "id": "info2_subheading",
+      "label": "Container 2 Subheading",
+      "default": "Zero Bezel Gap"
+    },
+    {
+      "type": "text",
+      "id": "info3_heading",
+      "label": "Container 3 Heading",
+      "default": "MODULAR"
+    },
+    {
+      "type": "text",
+      "id": "info3_subheading",
+      "label": "Container 3 Subheading",
+      "default": "Easy Assembly"
+    },
+    {
+      "type": "header",
+      "content": "Cabinet Detail Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "cabinet_image",
+      "label": "Cabinet Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "cabinet_image_2",
+      "label": "Cabinet Image 2"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_visual_label",
+      "label": "Visual Label",
+      "default": "4 COB Modules"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_visual_sublabel",
+      "label": "Visual Sublabel",
+      "default": "480 × 270 pixels per cabinet"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_title",
+      "label": "Cabinet Title",
+      "default": "Individual Cabinet Detail"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_subtitle",
+      "label": "Cabinet Subtitle",
+      "default": "Precision-engineered modular unit"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_dimensions",
+      "label": "Dimensions",
+      "default": "600mm × 337.5mm × 25mm"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_imperial",
+      "label": "Imperial",
+      "default": "23.62\" × 13.3\" × 1\""
+    },
+    {
+      "type": "text",
+      "id": "cabinet_weight",
+      "label": "Weight",
+      "default": "3.7kg (8.3 lbs)"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_resolution",
+      "label": "Resolution",
+      "default": "480 × 270 pixels"
+    },
+    {
+      "type": "text",
+      "id": "cabinet_modules",
+      "label": "Module Count",
+      "default": "4 COB modules"
+    },
+    {
+      "type": "header",
+      "content": "Connection Detail Card"
+    },
+    {
+      "type": "image_picker",
+      "id": "connection_image",
+      "label": "Connection Image"
+    },
+    {
+      "type": "text",
+      "id": "connection_title",
+      "label": "Connection Title",
+      "default": "Cabinet Connection Detail"
+    },
+    {
+      "type": "text",
+      "id": "connection_subtitle",
+      "label": "Connection Subtitle",
+      "default": "Quick Connect locking mechanism"
+    },
+    {
+      "type": "text",
+      "id": "connection_visual_label",
+      "label": "Visual Label",
+      "default": "Quick Connect Locking"
+    },
+    {
+      "type": "text",
+      "id": "connection_visual_sublabel",
+      "label": "Visual Sublabel",
+      "default": "Tool-free installation system"
+    },
+    {
+      "type": "header",
+      "content": "Connection Features"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_title",
+      "label": "Feature 1 Title",
+      "default": "Precision Alignment"
+    },
+    {
+      "type": "text",
+      "id": "feature_1_desc",
+      "label": "Feature 1 Description",
+      "default": "Self-aligning mechanical system ensures perfect cabinet registration"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_title",
+      "label": "Feature 2 Title",
+      "default": "Secure Locking"
+    },
+    {
+      "type": "text",
+      "id": "feature_2_desc",
+      "label": "Feature 2 Description",
+      "default": "Patented quick-release mechanism with safety lock indicators"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_title",
+      "label": "Feature 3 Title",
+      "default": "Hot-Swappable"
+    },
+    {
+      "type": "text",
+      "id": "feature_3_desc",
+      "label": "Feature 3 Description",
+      "default": "Replace cabinets without powering down the entire system"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_title",
+      "label": "Feature 4 Title",
+      "default": "Cable Management"
+    },
+    {
+      "type": "text",
+      "id": "feature_4_desc",
+      "label": "Feature 4 Description",
+      "default": "Integrated routing channels for clean professional installations"
+    },
+    {
+      "type": "header",
+      "content": "CTA Section"
+    },
+    {
+      "type": "text",
+      "id": "cta_heading",
+      "label": "CTA Heading",
+      "default": "Get Your LED Specifications in 60 Seconds"
+    },
+    {
+      "type": "text",
+      "id": "cta_subheading",
+      "label": "CTA Subheading",
+      "default": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences"
+    },
+    {
+      "type": "text",
+      "id": "price_text",
+      "label": "Price Text",
+      "default": "$19,250.00 (30% Deposit)"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Button 1 Text",
+      "default": "ORDER NOW"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Button 1 Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Button 2 Text",
+      "default": "Book A Call"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Button 2 Link"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#0a0f14"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label Color",
+      "default": "#FFD700"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent Color",
+      "default": "#3498db"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 40,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Top"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 40,
+      "max": 150,
+      "step": 10,
+      "default": 80,
+      "unit": "px",
+      "label": "Padding Bottom"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class"
+    }
+  ],
+  "presets": [
+    {
+      "name": "System Configuration"
+    }
+  ]
+}
+{% endschema %}

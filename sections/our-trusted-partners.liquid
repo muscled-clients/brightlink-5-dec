@@ -1,0 +1,173 @@
+{% style %}
+	#shopify-section-{{ section.id }} .partners {
+		position: relative;
+		padding: 120px 0;
+		color: #FFFFFF;
+        background: #000000;
+    }
+	#shopify-section-{{ section.id }} .partners__container {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 80px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 40px;
+	}
+	#shopify-section-{{ section.id }} .partners__eyebrow {
+		color: #D4AF37;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.7px;
+		text-transform: uppercase;
+	}
+	#shopify-section-{{ section.id }} .partners__title {
+		color: #FFFFFF;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 32px;
+		font-weight: 700;
+		line-height: 40px;
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .partners__grid {
+		width: 100%;
+		display: grid;
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+		gap: 0;
+		border: 1px solid rgba(255, 255, 255, 0.10);
+		background: rgba(0, 0, 0, 0.2);
+	}
+	#shopify-section-{{ section.id }} .partners__card {
+		min-height: 140px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 24px;
+		border-right: 1px solid rgba(255, 255, 255, 0.08);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		background: rgba(0, 0, 0, 0.1);
+		transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+	}
+	#shopify-section-{{ section.id }} .partners__card:hover {
+		transform: translateY(-4px);
+		border-color: rgba(10, 132, 255, 0.7);
+		box-shadow: 0 0 24px rgba(10, 132, 255, 0.4);
+	}
+	#shopify-section-{{ section.id }} .partners__card:nth-child(4n) {
+		border-right: none;
+	}
+	#shopify-section-{{ section.id }} .partners__card:nth-last-child(-n+4) {
+		border-bottom: none;
+	}
+	#shopify-section-{{ section.id }} .partners__logo {
+		max-width: 150px;
+		width: 100%;
+		height: auto;
+		display: block;
+		opacity: 0.95;
+	}
+	@media (max-width: 1100px) {
+		#shopify-section-{{ section.id }} .partners__container {
+			padding: 0 40px;
+		}
+		#shopify-section-{{ section.id }} .partners__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+		#shopify-section-{{ section.id }} .partners__card:nth-child(2n) {
+			border-right: none;
+		}
+		#shopify-section-{{ section.id }} .partners__card:nth-last-child(-n+2) {
+			border-bottom: none;
+		}
+	}
+	@media (max-width: 680px) {
+		#shopify-section-{{ section.id }} .partners {
+			padding: 80px 0;
+		}
+		#shopify-section-{{ section.id }} .partners__container {
+			padding: 0 20px;
+			gap: 24px;
+		}
+		#shopify-section-{{ section.id }} .partners__title {
+			font-size: 28px;
+			line-height: 36px;
+		}
+		#shopify-section-{{ section.id }} .partners__grid {
+			grid-template-columns: 1fr;
+		}
+		#shopify-section-{{ section.id }} .partners__card {
+			border-right: none;
+		}
+		#shopify-section-{{ section.id }} .partners__card:not(:last-child) {
+			border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		}
+	}
+{% endstyle %}
+
+<section class="partners" data-section-id="{{ section.id }}">
+	<div class="partners__container">
+		{% if section.settings.eyebrow != blank %}
+			<div class="partners__eyebrow">{{ section.settings.eyebrow }}</div>
+		{% endif %}
+		<h2 class="partners__title">{{ section.settings.title }}</h2>
+		<div class="partners__grid">
+			{% for block in section.blocks %}
+				<div class="partners__card" {{ block.shopify_attributes }}>
+					{% if block.settings.logo != blank %}
+						<img class="partners__logo" src="{{ block.settings.logo | image_url: width: 240 }}" alt="{{ block.settings.logo.alt | escape }}">
+					{% endif %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Trusted Partners",
+	"max_blocks": 8,
+	"settings": [
+		{
+			"type": "text",
+			"id": "eyebrow",
+			"label": "Eyebrow",
+			"default": "Our Valued Partners"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Our Trusted Clients"
+		}
+	],
+	"blocks": [
+		{
+			"type": "logo",
+			"name": "Partner Logo",
+			"settings": [
+				{
+					"type": "image_picker",
+					"id": "logo",
+					"label": "Logo"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Trusted Partners",
+			"blocks": [
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"},
+				{"type": "logo"}
+			]
+		}
+	]
+}
+{% endschema %}

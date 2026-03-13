@@ -1,1 +1,583 @@
-{"sections":{"hero_banner_YLmRPr":{"type":"hero-banner","settings":{"video":"shopify:\/\/files\/videos\/brightlink_av_banner_video (1080p).mp4","subtext":"Brightlink Large Scale Video Walls","heading":"Transforming Spaces With Stunning LED Video Walls","btn-txt":"Shop Now","btn-url":"shopify:\/\/collections\/video-walls"}},"slideshow":{"type":"slideshow","blocks":{"12c71a93-6bfe-4268-b2c5-57b39909385c":{"type":"image","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/bl-christmas-banner.jpg","mobile_image":"shopify:\/\/shop_images\/bl-christmas-banner.jpg","show_overlay":false,"overlay_opacity":30,"text_color":"#ffffff","title":"","content":"","content_position":"bottom_left","button_background":"#ff0000","button_text_color":"#ffffff","button_text":"SHOP NOW!","link":"shopify:\/\/collections\/black-friday-deals"}},"b0cb2789-5ace-4473-8be3-1a79d08b366c":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/LED-walls88-BANNER.jpg","mobile_image":"shopify:\/\/shop_images\/LED-walls88-BANNER.jpg","show_overlay":true,"overlay_opacity":21,"text_color":"#4190d2","title":"Brightlink Small Pitch LED Wall","content":"Any size from 108\" to 500\" +","content_position":"top_left","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Shop Now","link":"shopify:\/\/collections\/gob-indoor-micro-pitch-led-video-walls"}},"9e21621c-7b58-4ffe-b156-3395fcf3192c":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/Front-side44442.png","mobile_image":"shopify:\/\/shop_images\/Front-side2222_9d25ead1-50de-4ba1-962d-3e9b411986b4.png","show_overlay":false,"overlay_opacity":30,"text_color":"#4190d2","title":"Brightlink Interactive Displays","content":"Commercial Grade 4k Displays with Windows OS - 55, 65, 86, 98\" Sizes","content_position":"top_left","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Shop Now","link":"shopify:\/\/collections\/interactive-flat-panel"}},"slide-2":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/video-wall.jpg","mobile_image":"shopify:\/\/shop_images\/video-wall-1700.jpg","show_overlay":false,"overlay_opacity":30,"text_color":"#4190d2","title":"BrightLink LCD Video Wall Sets","content":"","content_position":"top_left","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Show Now","link":"shopify:\/\/collections\/video-wall-sets"}},"4ffad8f8-2ba4-41b9-9f03-553cf239dfbe":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/HDMI-1400.jpg","mobile_image":"shopify:\/\/shop_images\/HDMI-1400.jpg","show_overlay":false,"overlay_opacity":30,"text_color":"{{ shop.brand.colors.primary[0].background }}","title":"Brightlink Premium HDMI Cables","content":"Brightlink Premium 6', 15', 25', 50' & 100' HDMI and Fiber HDMI Cables","content_position":"middle_left","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"SHOP NOW","link":"https:\/\/brightlinkav.com\/collections\/hdmi-cables-1\/HDMI-CABLES"}},"slide-1":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/2160x720.jpg","mobile_image":"shopify:\/\/shop_images\/1100-750.jpg","show_overlay":false,"overlay_opacity":30,"text_color":"#4190d2","title":"BrightLink 8x8 HDBaseT Matrix <br>4K@ 60hz HDR10 4:4:4 POE RX","content":"","content_position":"top_left","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Shop Now","link":"shopify:\/\/products\/brightlink-8x8-hdbaset-18gbps-150m-matrix-cec-up-to-492ft-150m-via-cat-5e-6-7-up-to-4k2k-60hz-4-4-4"}}},"block_order":["12c71a93-6bfe-4268-b2c5-57b39909385c","b0cb2789-5ace-4473-8be3-1a79d08b366c","9e21621c-7b58-4ffe-b156-3395fcf3192c","slide-2","4ffad8f8-2ba4-41b9-9f03-553cf239dfbe","slide-1"],"settings":{"edge_to_edge":false,"section_size":"preserve_ratio","carousel_effect":"slide","autoplay":true,"cycle_speed":5}},"1649252187120e07e2":{"type":"offers","blocks":{"164925218767066472-0":{"type":"offer","settings":{"title":"HDMI","content":"<p><a href=\"\/collections\/hdmi\" title=\"HDMI\">Shop all<\/a><\/p>"}},"164925218767066472-1":{"type":"offer","settings":{"title":"Matrix Switchers","content":"<p><a href=\"\/collections\/matrix-switchers\" title=\"MATRIX SWITCHERS\">Shop all<\/a><\/p>"}},"21f5444a-a378-4ee5-ba6d-d63a96970846":{"type":"offer","settings":{"title":"Video Walls","content":"<p><a href=\"\/collections\/video-walls\" title=\"VIDEO WALLS\">Shop all<\/a><\/p>"}},"70163970-30c5-45bc-8a22-ea2dcc014c32":{"type":"offer","settings":{"title":"Control App","content":"<p><a href=\"https:\/\/brightlink-av.myshopify.com\/pages\/control-app\" title=\"https:\/\/brightlink-av.myshopify.com\/pages\/control-app\">Shop all<\/a><\/p>"}}},"block_order":["164925218767066472-0","164925218767066472-1","21f5444a-a378-4ee5-ba6d-d63a96970846","70163970-30c5-45bc-8a22-ea2dcc014c32"],"settings":{"items_per_row":4,"stack_mobile":false}},"16492530616aecbde7":{"type":"promotion-list","blocks":{"16492530611fd2b9d9-0":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/BL-EXT-IP-4KVW-TX-Back-angle_7.png","show_overlay":false,"overlay_opacity":35,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"NEW IN","content":"Brighthlink HDMI Over\nIP Extenders with Video\nWall","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#6f42ef","button_text":"","button_link":"shopify:\/\/products\/brightlink-4k-hdmi-over-ip-receiver-poe-for-source-input-device-part-of-brightlink-s-any-size-hdmi-over-ip-matrix-system-with-app-control-video-walls-up-to-8x16-displays-h-264-up-to-400ft-120m-over-cat6-and-usb-kvm-extension-receiver-only"}},"16492530611fd2b9d9-1":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/32X32-FRONT-ANGLE_1.png","show_overlay":false,"overlay_opacity":50,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"SALE","content":"Brightlink 18x18, 32x32,\n72x72 Professional\nModular Matrix","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#fc2a68","button_text":"","button_link":"shopify:\/\/collections\/32-hdmi-in-32-hdbaset-out-1"}},"16492530611fd2b9d9-2":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/49-img_1.png","show_overlay":false,"overlay_opacity":50,"stretch_image":false,"background":"#ececec","text_color":"#000000","title":"MUST HAVE","content":"Brightlink Video Wall\nDisplays and A\/V\nDistribution Systems","content_position":"middle_left","button_background":"#ffffff","button_text_color":"#26c1ce","button_text":"","button_link":"shopify:\/\/collections\/featured-collection"}}},"block_order":["16492530611fd2b9d9-0","16492530611fd2b9d9-1","16492530611fd2b9d9-2"],"settings":{"expand_items":false,"section_size":"medium","stack_mobile":false}},"featured-collection":{"type":"featured-collection","settings":{"collection":"featured-collection","title":"Featured collection","products_count":12,"layout":"vertical","stack_products":false,"show_quick_buy":false,"link_title":"View all","link_url":""}},"1649253065b5c37fdc":{"type":"image-with-text-overlay","settings":{"image":"shopify:\/\/shop_images\/1100-750.jpg","title":"With Brightlink you buy quality","content":"<p>Best quality, best price and best support<\/p>","content_position":"left","container_width":"container--extra-narrow","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Learn More about Us","link":"shopify:\/\/pages\/about-us","show_image_overlay":true,"color":"#4190d2"}},"1649255295fc71f591":{"type":"collection-with-image","settings":{"collection":"interactive-flat-panel","products_count":12,"show_quick_buy":false,"background":"#ececec","text_color":"#000000","title":"interactive flat Panel","content":"Brightlink's Interactive panel uses the newest technologies","button_background":"#4190d2","button_text_color":"#ffffff","button_text":"Shop Now","button_link":"shopify:\/\/collections\/interactive-flat-panel"}},"16494220438a45d148":{"type":"custom_text-with-icons","blocks":{"1649422043660c14e9-0":{"type":"item","settings":{"icon":"bi-delivery","custom_icon":"shopify:\/\/shop_images\/Shipping.png","title":"Fast free shipping*","content":"<p>*On most in stock items for USA orders.<\/p>"}},"1649422043660c14e9-1":{"type":"item","disabled":true,"settings":{"icon":"bi-returns","custom_icon":"shopify:\/\/shop_images\/Returns.png","title":"30 Days Returns*","content":"<p>*On most in stock items <\/p>"}},"1649422043660c14e9-2":{"type":"item","settings":{"icon":"bi-customer-support","custom_icon":"shopify:\/\/shop_images\/Secure_Payments.png","title":"Secure Payment*","content":""}}},"block_order":["1649422043660c14e9-0","1649422043660c14e9-1","1649422043660c14e9-2"],"settings":{"stack_mobile":false,"title":"Why choose us"}},"blog-posts":{"type":"blog-posts","settings":{"blog":"news","blog_posts_count":3,"title":"Blog posts","link_title":"View all","show_category":true,"show_author":true,"show_date":true,"show_excerpt":false,"stack_mobile":false}},"1649256439108e0b94":{"type":"judgeme_carousel_section","settings":{"maxwidth":1440}},"1649247497e551faac":{"type":"logo-list","blocks":{"16492474970ee22a66-0":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Mobile_Alabama.png","link":"https:\/\/www.cityofmobile.org\/","text":"<p>City of Mobile Alabama<\/p>"}},"16492474970ee22a66-1":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/New_Tech_Solutions.png","link":"http:\/\/www.newtechsolutions.com\/","text":"<p>For more than 15 years NTS has been providing IT products, Service and infrastructure management to federal customers worldwide. We have proudly served hundreds of agencies and sub agencies with large procurements and complex solutions.<\/p>"}},"16492474970ee22a66-2":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Clippard_4C_Logo.png","link":"https:\/\/clippard.com\/","text":""}},"16492474970ee22a66-3":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Moxies.png","link":"https:\/\/us.moxies.com\/","text":"<p>At Moxie's we focus on quality food made with fresh ingredients. Our restaurants and menus are inspired by the communities we are part of, from the team we hire to the food we make, it’s an expression of the neighborhoods we inhabit.<\/p>"}},"16492474970ee22a66-4":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/The_Reynolds_Company.png","link":"https:\/\/www.reynoldsonline.com\/","text":"<p>The Reynolds Company is proud of our team and processes in our goal to become the premier Industrial and Commercial electrical supplier throughout Texas and Louisiana<\/p>"}},"16492474970ee22a66-5":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Sea_Corp.png","link":"https:\/\/www.seacorp.com\/","text":"<p>Systems Engineering Associates Corporation (SEA CORP) is a veteran-owned business based in Middletown, RI. Founded in 1981, we have been providing services to the Navy for over 35 years.<\/p>"}},"7ac38e85-ad00-4610-9ea6-f36084351269":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/NASA.png","link":"https:\/\/www.nasa.gov\/about\/index.html","text":"<p>The National Aeronautics and Space Administration<\/p>"}},"abaa9730-b831-4c28-bbd3-8f18cb970338":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/MicroAge.png","link":"https:\/\/microage.com\/","text":"<p>At MicroAge, our experts partner with you to prepare for whatever comes next. That partnership starts with more than four decades of industry experience and deep knowledge and certifications across technologies and verticals to discover new approaches, lasting results, and relationships built on trust.<\/p>"}},"12fbee50-d9d4-423e-9a10-08a1b8b49d11":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Peppermill.png","link":"https:\/\/www.peppermillreno.com\/","text":"<p>Peppermill Reno Resort<br\/>Experience the eco-conscious Peppermill Resort Spa Casino, Reno’s Premier AAA Four Diamond resort<\/p>"}},"e0b0682b-c1ac-4079-84cf-ec5b16947d57":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Exelon.png","link":"https:\/\/www.exeloncorp.com\/locations\/power-plants\/dresden-generating-station","text":"<p>Dresden Generating Station’s two nuclear reactors generate more than 1,800 megawatts of zero-emissions energy<\/p>"}},"8cce11a3-80cf-4899-9532-779144e2f1fd":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Pafe_Pictures.png","link":"https:\/\/www.pacepictures.com\/","text":"<p>Pace Pictures is a full-service sound and picture finishing facility. It offers a range of post services including color grading, editorial finishing, visual effects, titling, sound design, sound mixing, media management and related services, available individually, or as turnkey solutions.<\/p>"}},"e1e66e26-2659-472a-bb02-d4f76661c1ae":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/L3HARRIS.png","link":"https:\/\/www.l3t.com\/mapps\/en\/index.html","text":"<p>L3 MAPPS is a leading global supplier of control and simulation solutions for the marine, power generation and space sectors.<\/p>"}},"444ec77b-f5c5-4a90-a292-ec98d16e4b67":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Costco.png","link":"https:\/\/www.costco.com\/","text":"<p>Costco Wholesale Electronics \/ TV department<\/p>"}},"e2641973-5c47-473e-8d58-87002cd1355a":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Graybar.png","link":"https:\/\/www.graybar.com\/","text":"<p>Graybar, a Fortune 500 company, specializes in supply chain management services, and is a leading North American distributor of high quality components, equipment, and materials. We  serve the construction market, the commercial, institutional, and government (CIG) market, and the industrial and utility markets.<\/p>"}},"7502846a-bd08-4066-a3c3-3b193ad4e386":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Port_Canaveral.png","link":"https:\/\/www.portcanaveral.com\/","text":"<p>As the gateway to Central Florida, Port Canaveral provides facilities for shippers who seek to save time and money as benefits of its proximity to major markets and efficient transportation links. <\/p>"}},"9da20214-962e-4755-855e-34e347c71639":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Knite.png","link":"https:\/\/knitec.com\/","text":"<p>KNITEC, INC. IS THE LARGEST AND MOST RESPONSIVE TURN-KEY COMMERCIAL \/ HOSPITALITY \/ PROFESSIONAL TELEVISION DEALER IN THE COUNTRY<\/p>"}},"6485b93d-0bbf-41fc-9df8-982a9b4276f1":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Bostons_Pizza.png","link":"","text":"<p> If you’re looking for a reason not to cook, need a place to watch the game with friends, or you’re spending time with family, we’ve made sure there’s something for everybody.<\/p>"}},"24bca2fc-3d4b-45b1-8a25-1719d510c5d3":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Federal_Aviation_Administration.png","link":"https:\/\/www.faa.gov\/","text":"<p>FEDERAL AVIATION ADMINISTRATION<\/p>"}},"7a36ed71-7534-4321-9e06-fb175c5bba85":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/ITEC.png","link":"https:\/\/www.itec.com\/","text":"<p>Since 1985, and with the help of our clients, ITEC Entertainment has grown to become a global industry leader of worldwide entertainment solutions. Founded in the theme park capital of the world, we established our roots by providing innovative entertainment design and production solutions that ignite the dreams of hundreds of millions of people all over the world.<\/p>"}},"32f10c39-d91d-4799-bf54-e0f996e9b120":{"type":"logo","settings":{"image":"shopify:\/\/shop_images\/Princess_Cruises.png","link":"https:\/\/www.princess.com\/","text":"<p>Choosing a cruise line that allows you to experience the most at every stop along the way is priority one. Discover what makes each port unique through the insights of local experts and crew members who sail with us to over 380 destinations.<\/p>"}}},"block_order":["16492474970ee22a66-0","16492474970ee22a66-1","16492474970ee22a66-2","16492474970ee22a66-3","16492474970ee22a66-4","16492474970ee22a66-5","7ac38e85-ad00-4610-9ea6-f36084351269","abaa9730-b831-4c28-bbd3-8f18cb970338","12fbee50-d9d4-423e-9a10-08a1b8b49d11","e0b0682b-c1ac-4079-84cf-ec5b16947d57","8cce11a3-80cf-4899-9532-779144e2f1fd","e1e66e26-2659-472a-bb02-d4f76661c1ae","444ec77b-f5c5-4a90-a292-ec98d16e4b67","e2641973-5c47-473e-8d58-87002cd1355a","7502846a-bd08-4066-a3c3-3b193ad4e386","9da20214-962e-4755-855e-34e347c71639","6485b93d-0bbf-41fc-9df8-982a9b4276f1","24bca2fc-3d4b-45b1-8a25-1719d510c5d3","7a36ed71-7534-4321-9e06-fb175c5bba85","32f10c39-d91d-4799-bf54-e0f996e9b120"],"settings":{"title":"Our Trusted Clients","link_title":"View All","link":"shopify:\/\/pages\/ourcustomers"}},"newsletter":{"type":"newsletter","disabled":true,"settings":{"title":"Be the first to know","content":"<p>Get all the latest information on Events, Sales and Offers.<br\/>Sign up for newsletter today.<\/p>","show_text_bg":true,"text_bg":"shopify:\/\/shop_images\/Subscription-Banner.jpg","background":"#1e2d7d","text":"#ffffff"}}},"order":["hero_banner_YLmRPr","slideshow","1649252187120e07e2","16492530616aecbde7","featured-collection","1649253065b5c37fdc","1649255295fc71f591","16494220438a45d148","blog-posts","1649256439108e0b94","1649247497e551faac","newsletter"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_YLmRPr": {
+      "type": "hero-banner",
+      "settings": {
+        "video": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
+        "subtext": "Brightlink Large Scale Video Walls",
+        "heading": "Transforming Spaces With Stunning LED Video Walls",
+        "btn-txt": "Shop Now",
+        "btn-url": "shopify://collections/video-walls"
+      }
+    },
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "12c71a93-6bfe-4268-b2c5-57b39909385c": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/bl-christmas-banner.jpg",
+            "mobile_image": "shopify://shop_images/bl-christmas-banner.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#ffffff",
+            "title": "",
+            "content": "",
+            "content_position": "bottom_left",
+            "button_background": "#ff0000",
+            "button_text_color": "#ffffff",
+            "button_text": "SHOP NOW!",
+            "link": "shopify://collections/black-friday-deals"
+          }
+        },
+        "b0cb2789-5ace-4473-8be3-1a79d08b366c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/LED-walls88-BANNER.jpg",
+            "mobile_image": "shopify://shop_images/LED-walls88-BANNER.jpg",
+            "show_overlay": true,
+            "overlay_opacity": 21,
+            "text_color": "#4190d2",
+            "title": "Brightlink Small Pitch LED Wall",
+            "content": "Any size from 108\" to 500\" +",
+            "content_position": "top_left",
+            "button_background": "#4190d2",
+            "button_text_color": "#ffffff",
+            "button_text": "Shop Now",
+            "link": "shopify://collections/gob-indoor-micro-pitch-led-video-walls"
+          }
+        },
+        "9e21621c-7b58-4ffe-b156-3395fcf3192c": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Front-side44442.png",
+            "mobile_image": "shopify://shop_images/Front-side2222_9d25ead1-50de-4ba1-962d-3e9b411986b4.png",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#4190d2",
+            "title": "Brightlink Interactive Displays",
+            "content": "Commercial Grade 4k Displays with Windows OS - 55, 65, 86, 98\" Sizes",
+            "content_position": "top_left",
+            "button_background": "#4190d2",
+            "button_text_color": "#ffffff",
+            "button_text": "Shop Now",
+            "link": "shopify://collections/interactive-flat-panel"
+          }
+        },
+        "slide-2": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/video-wall.jpg",
+            "mobile_image": "shopify://shop_images/video-wall-1700.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#4190d2",
+            "title": "BrightLink LCD Video Wall Sets",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4190d2",
+            "button_text_color": "#ffffff",
+            "button_text": "Show Now",
+            "link": "shopify://collections/video-wall-sets"
+          }
+        },
+        "4ffad8f8-2ba4-41b9-9f03-553cf239dfbe": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/HDMI-1400.jpg",
+            "mobile_image": "shopify://shop_images/HDMI-1400.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "{{ shop.brand.colors.primary[0].background }}",
+            "title": "Brightlink Premium HDMI Cables",
+            "content": "Brightlink Premium 6', 15', 25', 50' & 100' HDMI and Fiber HDMI Cables",
+            "content_position": "middle_left",
+            "button_background": "#4190d2",
+            "button_text_color": "#ffffff",
+            "button_text": "SHOP NOW",
+            "link": "https://brightlinkav.com/collections/hdmi-cables-1/HDMI-CABLES"
+          }
+        },
+        "slide-1": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2160x720.jpg",
+            "mobile_image": "shopify://shop_images/1100-750.jpg",
+            "show_overlay": false,
+            "overlay_opacity": 30,
+            "text_color": "#4190d2",
+            "title": "BrightLink 8x8 HDBaseT Matrix <br>4K@ 60hz HDR10 4:4:4 POE RX",
+            "content": "",
+            "content_position": "top_left",
+            "button_background": "#4190d2",
+            "button_text_color": "#ffffff",
+            "button_text": "Shop Now",
+            "link": "shopify://products/brightlink-8x8-hdbaset-18gbps-150m-matrix-cec-up-to-492ft-150m-via-cat-5e-6-7-up-to-4k2k-60hz-4-4-4"
+          }
+        }
+      },
+      "block_order": [
+        "12c71a93-6bfe-4268-b2c5-57b39909385c",
+        "b0cb2789-5ace-4473-8be3-1a79d08b366c",
+        "9e21621c-7b58-4ffe-b156-3395fcf3192c",
+        "slide-2",
+        "4ffad8f8-2ba4-41b9-9f03-553cf239dfbe",
+        "slide-1"
+      ],
+      "settings": {
+        "edge_to_edge": false,
+        "section_size": "preserve_ratio",
+        "carousel_effect": "slide",
+        "autoplay": true,
+        "cycle_speed": 5
+      }
+    },
+    "1649252187120e07e2": {
+      "type": "offers",
+      "blocks": {
+        "164925218767066472-0": {
+          "type": "offer",
+          "settings": {
+            "title": "HDMI",
+            "content": "<p><a href=\"/collections/hdmi\" title=\"HDMI\">Shop all</a></p>"
+          }
+        },
+        "164925218767066472-1": {
+          "type": "offer",
+          "settings": {
+            "title": "Matrix Switchers",
+            "content": "<p><a href=\"/collections/matrix-switchers\" title=\"MATRIX SWITCHERS\">Shop all</a></p>"
+          }
+        },
+        "21f5444a-a378-4ee5-ba6d-d63a96970846": {
+          "type": "offer",
+          "settings": {
+            "title": "Video Walls",
+            "content": "<p><a href=\"/collections/video-walls\" title=\"VIDEO WALLS\">Shop all</a></p>"
+          }
+        },
+        "70163970-30c5-45bc-8a22-ea2dcc014c32": {
+          "type": "offer",
+          "settings": {
+            "title": "Control App",
+            "content": "<p><a href=\"https://brightlink-av.myshopify.com/pages/control-app\" title=\"https://brightlink-av.myshopify.com/pages/control-app\">Shop all</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "164925218767066472-0",
+        "164925218767066472-1",
+        "21f5444a-a378-4ee5-ba6d-d63a96970846",
+        "70163970-30c5-45bc-8a22-ea2dcc014c32"
+      ],
+      "settings": {
+        "items_per_row": 4,
+        "stack_mobile": false
+      }
+    },
+    "16492530616aecbde7": {
+      "type": "promotion-list",
+      "blocks": {
+        "16492530611fd2b9d9-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/BL-EXT-IP-4KVW-TX-Back-angle_7.png",
+            "show_overlay": false,
+            "overlay_opacity": 35,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "NEW IN",
+            "content": "Brighthlink HDMI Over\nIP Extenders with Video\nWall",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#6f42ef",
+            "button_text": "",
+            "button_link": "shopify://products/brightlink-4k-hdmi-over-ip-receiver-poe-for-source-input-device-part-of-brightlink-s-any-size-hdmi-over-ip-matrix-system-with-app-control-video-walls-up-to-8x16-displays-h-264-up-to-400ft-120m-over-cat6-and-usb-kvm-extension-receiver-only"
+          }
+        },
+        "16492530611fd2b9d9-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/32X32-FRONT-ANGLE_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "SALE",
+            "content": "Brightlink 18x18, 32x32,\n72x72 Professional\nModular Matrix",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#fc2a68",
+            "button_text": "",
+            "button_link": "shopify://collections/32-hdmi-in-32-hdbaset-out-1"
+          }
+        },
+        "16492530611fd2b9d9-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/49-img_1.png",
+            "show_overlay": false,
+            "overlay_opacity": 50,
+            "stretch_image": false,
+            "background": "#ececec",
+            "text_color": "#000000",
+            "title": "MUST HAVE",
+            "content": "Brightlink Video Wall\nDisplays and A/V\nDistribution Systems",
+            "content_position": "middle_left",
+            "button_background": "#ffffff",
+            "button_text_color": "#26c1ce",
+            "button_text": "",
+            "button_link": "shopify://collections/featured-collection"
+          }
+        }
+      },
+      "block_order": [
+        "16492530611fd2b9d9-0",
+        "16492530611fd2b9d9-1",
+        "16492530611fd2b9d9-2"
+      ],
+      "settings": {
+        "expand_items": false,
+        "section_size": "medium",
+        "stack_mobile": false
+      }
+    },
+    "featured-collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "featured-collection",
+        "title": "Featured collection",
+        "products_count": 12,
+        "layout": "vertical",
+        "stack_products": false,
+        "show_quick_buy": false,
+        "link_title": "View all",
+        "link_url": ""
+      }
+    },
+    "1649253065b5c37fdc": {
+      "type": "image-with-text-overlay",
+      "settings": {
+        "image": "shopify://shop_images/1100-750.jpg",
+        "title": "With Brightlink you buy quality",
+        "content": "<p>Best quality, best price and best support</p>",
+        "content_position": "left",
+        "container_width": "container--extra-narrow",
+        "button_background": "#4190d2",
+        "button_text_color": "#ffffff",
+        "button_text": "Learn More about Us",
+        "link": "shopify://pages/about-us",
+        "show_image_overlay": true,
+        "color": "#4190d2"
+      }
+    },
+    "1649255295fc71f591": {
+      "type": "collection-with-image",
+      "settings": {
+        "collection": "interactive-flat-panel",
+        "products_count": 12,
+        "show_quick_buy": false,
+        "background": "#ececec",
+        "text_color": "#000000",
+        "title": "interactive flat Panel",
+        "content": "Brightlink's Interactive panel uses the newest technologies",
+        "button_background": "#4190d2",
+        "button_text_color": "#ffffff",
+        "button_text": "Shop Now",
+        "button_link": "shopify://collections/interactive-flat-panel"
+      }
+    },
+    "16494220438a45d148": {
+      "type": "custom_text-with-icons",
+      "blocks": {
+        "1649422043660c14e9-0": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-delivery",
+            "custom_icon": "shopify://shop_images/Shipping.png",
+            "title": "Fast free shipping*",
+            "content": "<p>*On most in stock items for USA orders.</p>"
+          }
+        },
+        "1649422043660c14e9-1": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "bi-returns",
+            "custom_icon": "shopify://shop_images/Returns.png",
+            "title": "30 Days Returns*",
+            "content": "<p>*On most in stock items </p>"
+          }
+        },
+        "1649422043660c14e9-2": {
+          "type": "item",
+          "settings": {
+            "icon": "bi-customer-support",
+            "custom_icon": "shopify://shop_images/Secure_Payments.png",
+            "title": "Secure Payment*",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "1649422043660c14e9-0",
+        "1649422043660c14e9-1",
+        "1649422043660c14e9-2"
+      ],
+      "settings": {
+        "stack_mobile": false,
+        "title": "Why choose us"
+      }
+    },
+    "blog-posts": {
+      "type": "blog-posts",
+      "settings": {
+        "blog": "news",
+        "blog_posts_count": 3,
+        "title": "Blog posts",
+        "link_title": "View all",
+        "show_category": true,
+        "show_author": true,
+        "show_date": true,
+        "show_excerpt": false,
+        "stack_mobile": false
+      }
+    },
+    "1649256439108e0b94": {
+      "type": "judgeme_carousel_section",
+      "settings": {
+        "maxwidth": 1440
+      }
+    },
+    "1649247497e551faac": {
+      "type": "logo-list",
+      "blocks": {
+        "16492474970ee22a66-0": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Mobile_Alabama.png",
+            "link": "https://www.cityofmobile.org/",
+            "text": "<p>City of Mobile Alabama</p>"
+          }
+        },
+        "16492474970ee22a66-1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/New_Tech_Solutions.png",
+            "link": "http://www.newtechsolutions.com/",
+            "text": "<p>For more than 15 years NTS has been providing IT products, Service and infrastructure management to federal customers worldwide. We have proudly served hundreds of agencies and sub agencies with large procurements and complex solutions.</p>"
+          }
+        },
+        "16492474970ee22a66-2": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Clippard_4C_Logo.png",
+            "link": "https://clippard.com/",
+            "text": ""
+          }
+        },
+        "16492474970ee22a66-3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Moxies.png",
+            "link": "https://us.moxies.com/",
+            "text": "<p>At Moxie's we focus on quality food made with fresh ingredients. Our restaurants and menus are inspired by the communities we are part of, from the team we hire to the food we make, it’s an expression of the neighborhoods we inhabit.</p>"
+          }
+        },
+        "16492474970ee22a66-4": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/The_Reynolds_Company.png",
+            "link": "https://www.reynoldsonline.com/",
+            "text": "<p>The Reynolds Company is proud of our team and processes in our goal to become the premier Industrial and Commercial electrical supplier throughout Texas and Louisiana</p>"
+          }
+        },
+        "16492474970ee22a66-5": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Sea_Corp.png",
+            "link": "https://www.seacorp.com/",
+            "text": "<p>Systems Engineering Associates Corporation (SEA CORP) is a veteran-owned business based in Middletown, RI. Founded in 1981, we have been providing services to the Navy for over 35 years.</p>"
+          }
+        },
+        "7ac38e85-ad00-4610-9ea6-f36084351269": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/NASA.png",
+            "link": "https://www.nasa.gov/about/index.html",
+            "text": "<p>The National Aeronautics and Space Administration</p>"
+          }
+        },
+        "abaa9730-b831-4c28-bbd3-8f18cb970338": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/MicroAge.png",
+            "link": "https://microage.com/",
+            "text": "<p>At MicroAge, our experts partner with you to prepare for whatever comes next. That partnership starts with more than four decades of industry experience and deep knowledge and certifications across technologies and verticals to discover new approaches, lasting results, and relationships built on trust.</p>"
+          }
+        },
+        "12fbee50-d9d4-423e-9a10-08a1b8b49d11": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Peppermill.png",
+            "link": "https://www.peppermillreno.com/",
+            "text": "<p>Peppermill Reno Resort<br/>Experience the eco-conscious Peppermill Resort Spa Casino, Reno’s Premier AAA Four Diamond resort</p>"
+          }
+        },
+        "e0b0682b-c1ac-4079-84cf-ec5b16947d57": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Exelon.png",
+            "link": "https://www.exeloncorp.com/locations/power-plants/dresden-generating-station",
+            "text": "<p>Dresden Generating Station’s two nuclear reactors generate more than 1,800 megawatts of zero-emissions energy</p>"
+          }
+        },
+        "8cce11a3-80cf-4899-9532-779144e2f1fd": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Pafe_Pictures.png",
+            "link": "https://www.pacepictures.com/",
+            "text": "<p>Pace Pictures is a full-service sound and picture finishing facility. It offers a range of post services including color grading, editorial finishing, visual effects, titling, sound design, sound mixing, media management and related services, available individually, or as turnkey solutions.</p>"
+          }
+        },
+        "e1e66e26-2659-472a-bb02-d4f76661c1ae": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/L3HARRIS.png",
+            "link": "https://www.l3t.com/mapps/en/index.html",
+            "text": "<p>L3 MAPPS is a leading global supplier of control and simulation solutions for the marine, power generation and space sectors.</p>"
+          }
+        },
+        "444ec77b-f5c5-4a90-a292-ec98d16e4b67": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Costco.png",
+            "link": "https://www.costco.com/",
+            "text": "<p>Costco Wholesale Electronics / TV department</p>"
+          }
+        },
+        "e2641973-5c47-473e-8d58-87002cd1355a": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Graybar.png",
+            "link": "https://www.graybar.com/",
+            "text": "<p>Graybar, a Fortune 500 company, specializes in supply chain management services, and is a leading North American distributor of high quality components, equipment, and materials. We  serve the construction market, the commercial, institutional, and government (CIG) market, and the industrial and utility markets.</p>"
+          }
+        },
+        "7502846a-bd08-4066-a3c3-3b193ad4e386": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Port_Canaveral.png",
+            "link": "https://www.portcanaveral.com/",
+            "text": "<p>As the gateway to Central Florida, Port Canaveral provides facilities for shippers who seek to save time and money as benefits of its proximity to major markets and efficient transportation links. </p>"
+          }
+        },
+        "9da20214-962e-4755-855e-34e347c71639": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Knite.png",
+            "link": "https://knitec.com/",
+            "text": "<p>KNITEC, INC. IS THE LARGEST AND MOST RESPONSIVE TURN-KEY COMMERCIAL / HOSPITALITY / PROFESSIONAL TELEVISION DEALER IN THE COUNTRY</p>"
+          }
+        },
+        "6485b93d-0bbf-41fc-9df8-982a9b4276f1": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Bostons_Pizza.png",
+            "link": "",
+            "text": "<p> If you’re looking for a reason not to cook, need a place to watch the game with friends, or you’re spending time with family, we’ve made sure there’s something for everybody.</p>"
+          }
+        },
+        "24bca2fc-3d4b-45b1-8a25-1719d510c5d3": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Federal_Aviation_Administration.png",
+            "link": "https://www.faa.gov/",
+            "text": "<p>FEDERAL AVIATION ADMINISTRATION</p>"
+          }
+        },
+        "7a36ed71-7534-4321-9e06-fb175c5bba85": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/ITEC.png",
+            "link": "https://www.itec.com/",
+            "text": "<p>Since 1985, and with the help of our clients, ITEC Entertainment has grown to become a global industry leader of worldwide entertainment solutions. Founded in the theme park capital of the world, we established our roots by providing innovative entertainment design and production solutions that ignite the dreams of hundreds of millions of people all over the world.</p>"
+          }
+        },
+        "32f10c39-d91d-4799-bf54-e0f996e9b120": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/Princess_Cruises.png",
+            "link": "https://www.princess.com/",
+            "text": "<p>Choosing a cruise line that allows you to experience the most at every stop along the way is priority one. Discover what makes each port unique through the insights of local experts and crew members who sail with us to over 380 destinations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "16492474970ee22a66-0",
+        "16492474970ee22a66-1",
+        "16492474970ee22a66-2",
+        "16492474970ee22a66-3",
+        "16492474970ee22a66-4",
+        "16492474970ee22a66-5",
+        "7ac38e85-ad00-4610-9ea6-f36084351269",
+        "abaa9730-b831-4c28-bbd3-8f18cb970338",
+        "12fbee50-d9d4-423e-9a10-08a1b8b49d11",
+        "e0b0682b-c1ac-4079-84cf-ec5b16947d57",
+        "8cce11a3-80cf-4899-9532-779144e2f1fd",
+        "e1e66e26-2659-472a-bb02-d4f76661c1ae",
+        "444ec77b-f5c5-4a90-a292-ec98d16e4b67",
+        "e2641973-5c47-473e-8d58-87002cd1355a",
+        "7502846a-bd08-4066-a3c3-3b193ad4e386",
+        "9da20214-962e-4755-855e-34e347c71639",
+        "6485b93d-0bbf-41fc-9df8-982a9b4276f1",
+        "24bca2fc-3d4b-45b1-8a25-1719d510c5d3",
+        "7a36ed71-7534-4321-9e06-fb175c5bba85",
+        "32f10c39-d91d-4799-bf54-e0f996e9b120"
+      ],
+      "settings": {
+        "title": "Our Trusted Clients",
+        "link_title": "View All",
+        "link": "shopify://pages/ourcustomers"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "disabled": true,
+      "settings": {
+        "title": "Be the first to know",
+        "content": "<p>Get all the latest information on Events, Sales and Offers.<br/>Sign up for newsletter today.</p>",
+        "show_text_bg": true,
+        "text_bg": "shopify://shop_images/Subscription-Banner.jpg",
+        "background": "#1e2d7d",
+        "text": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "hero_banner_YLmRPr",
+    "slideshow",
+    "1649252187120e07e2",
+    "16492530616aecbde7",
+    "featured-collection",
+    "1649253065b5c37fdc",
+    "1649255295fc71f591",
+    "16494220438a45d148",
+    "blog-posts",
+    "1649256439108e0b94",
+    "1649247497e551faac",
+    "newsletter"
+  ]
+}

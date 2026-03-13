@@ -97,6 +97,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
 
+    {%- comment -%}LED Template Hexagon Background{%- endcomment -%}
+    {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
+      <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
+    {%- endif -%}
+
     {% render 'microdata-schema' %}
 
     <script>
@@ -221,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% render 'wsg-custom' %}
 </head>
 <body
-    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}"
+    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}{% if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' %} advanced-spectrum-page{% endif %}"
     data-instant-intensity="viewport"
   >
     <!-- Google Tag Manager (noscript) -->
@@ -256,12 +261,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     {% section 'header' %}
 
     <main id="main" role="main">
+      {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
+        {% render 'led-hexagon-background' %}
+      {%- endif -%}
       {{ content_for_layout }}
     </main>
-    {% section 'newsletter' %}
-    {% section 'static-text-with-icons' %}
-    {% section 'footer' %}
-
+    {%- unless template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
+      {% section 'newsletter' %}
+      {% section 'static-text-with-icons' %}
+      
+    {%- endunless -%}
+{% section 'footer' %}
     <ul hidden>
       <li id="a11y-new-window-message">{{ 'general.accessibility.new_window' | t }}</li>
     </ul>
@@ -273,6 +283,58 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 {% style %}
   {% render 'font-face' %}
-{% endstyle %}          
+{% endstyle %}
+
+<!-- Sticky Call Now Button -->
+<a href="tel:+18554494733" class="sticky-call-button">
+  <span class="call-icon">📞</span>
+  <span class="call-text">Call Now</span>
+</a>
+
+<style>
+.sticky-call-button {
+  position: fixed;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-color: #007bff; /* Button color */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50px 0 0 50px; /* Rounded left side, straight right side */
+  z-index: 99999;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+.sticky-call-button:hover {
+  background-color: #0056b3; /* Hover color */
+  padding-right: 20px;
+}
+
+.call-icon {
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+.call-text {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Hide text on small screens, show icon only */
+@media (max-width: 767px) {
+  .call-text {
+    display: none;
+  }
+  .sticky-call-button {
+    padding: 10px;
+    border-radius: 50%;
+  }
+}
+</style>
+
   </body>
 </html>

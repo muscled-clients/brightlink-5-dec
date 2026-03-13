@@ -13831,3 +13831,15 @@ shopify-payment-terms {
 .product-gallery__thumbnail-list{
   justify-content: flex-start !important;
 }
+
+.announcement-bar {
+  position: fixed !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+}
+/* Add top margin to body to prevent content from hiding behind the bar */
+body {
+  padding-top: 40px; /* Adjust based on your bar height */
+}
+
