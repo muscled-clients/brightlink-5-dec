@@ -256,6 +256,13 @@ body.metafield-page .tabs-wrapper {
   background: #0d1224 !important;
 }
 
+/* Sticky tabs container */
+body.metafield-page .main-tabs-container,
+body.metafield-page .main-tabs-container.sticky {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 /* ============================================================
    Product Intelligence section (tabs: Features, Spec, Downloads...)
    Override inline CSS variables set by section settings
