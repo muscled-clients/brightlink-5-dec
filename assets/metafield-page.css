@@ -208,6 +208,55 @@ body.metafield-page .footer__wrapper {
 }
 
 /* ============================================================
+   Accordion Tab2 section (Features / Spec / Downloads / Video / FAQ)
+   Override inline #shopify-section-{id} ID selectors
+   ============================================================ */
+
+/* Section wrapper and accordion panel background */
+body.metafield-page .shopify-section:has(section.accordion),
+body.metafield-page section.accordion,
+body.metafield-page .accordion {
+  background: #0a0e1a !important;
+  background-color: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* Headings inside accordion */
+body.metafield-page .accordion h2,
+body.metafield-page .accordion-downloads h2 {
+  color: #ffffff !important;
+}
+
+/* Feature list text */
+body.metafield-page .accordion-features li,
+body.metafield-page .accordion-features .img-container .label {
+  color: #ffffff !important;
+}
+
+/* Spec table cells */
+body.metafield-page .accordion-spec td,
+body.metafield-page .accordion-spec th {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.metafield-page .accordion-spec table {
+  background: transparent !important;
+}
+
+/* Downloads list items */
+body.metafield-page .accordion-downloads li {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: #4190D2 !important;
+  color: #ffffff !important;
+}
+
+/* Tab navigation bar */
+body.metafield-page .tabs-wrapper {
+  background: #0d1224 !important;
+}
+
+/* ============================================================
    Product Intelligence section (tabs: Features, Spec, Downloads...)
    Override inline CSS variables set by section settings
    ============================================================ */
