@@ -1,0 +1,494 @@
+{%- assign large_card = '' -%}
+{%- assign small_left_card = '' -%}
+{%- assign small_right_card = '' -%}
+{%- assign wide_card = '' -%}
+
+{%- for block in section.blocks -%}
+	{%- case block.settings.position -%}
+		{%- when 'large_left' -%}
+			{%- capture large_card -%}{{ block.id }}{%- endcapture -%}
+		{%- when 'small_left' -%}
+			{%- capture small_left_card -%}{{ block.id }}{%- endcapture -%}
+		{%- when 'small_right' -%}
+			{%- capture small_right_card -%}{{ block.id }}{%- endcapture -%}
+		{%- when 'wide_bottom' -%}
+			{%- capture wide_card -%}{{ block.id }}{%- endcapture -%}
+	{%- endcase -%}
+{%- endfor -%}
+
+{% style %}
+	#shopify-section-{{ section.id }} .categories {
+		position: relative;
+		padding: 120px 0;
+		color: #FFFFFF;
+	}
+	#shopify-section-{{ section.id }} .categories__bg {
+		position: absolute;
+		inset: 0;
+		z-index: 0;
+	}
+	#shopify-section-{{ section.id }} .categories__bg img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.55;
+	}
+	#shopify-section-{{ section.id }} .categories__container {
+		position: relative;
+		z-index: 1;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 0 72px;
+	}
+
+	/* ── Header ── */
+	#shopify-section-{{ section.id }} .categories__header {
+		margin-bottom: 40px;
+	}
+	#shopify-section-{{ section.id }} .categories__eyebrow {
+		color: #D4AF37;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: normal;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		height: 20px;
+		display: flex;
+		align-items: center;
+	}
+	#shopify-section-{{ section.id }} .categories__title {
+		color: #FFFFFF;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 48px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+		letter-spacing: -2px;
+		margin-top: 8px;
+	}
+
+	/* ── Outer grid: large left + right column ── */
+	#shopify-section-{{ section.id }} .categories__grid {
+		display: grid;
+		grid-template-columns: 632px 1fr;
+		gap: 24px;
+		align-items: start;
+	}
+
+	/* ── Right column: 2 small cards + 1 wide card ── */
+	#shopify-section-{{ section.id }} .categories__right {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 24px;
+	}
+
+	/* ── Shared card base ── */
+	#shopify-section-{{ section.id }} .categories__card {
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.10);
+		background: rgba(10, 14, 26, 0.60);
+		box-shadow: 0 0 40.21px 0 rgba(10, 132, 255, 0.15);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		color: #FFFFFF;
+		text-decoration: none;
+		transition: box-shadow 0.3s ease, border-color 0.3s ease;
+		overflow: hidden;
+	}
+	#shopify-section-{{ section.id }} .categories__card:hover {
+		border-color: rgba(10, 132, 255, 0.40);
+		box-shadow: 0 0 60px 0 rgba(10, 132, 255, 0.28);
+	}
+
+	/* ── Large left card (632 × 632) ── */
+	#shopify-section-{{ section.id }} .categories__card--large {
+		width: 632px;
+		height: 632px;
+		padding: 80px 0;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 40px;
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .categories__card--large .categories__card-content {
+		align-items: center;
+		text-align: center;
+		padding: 0 40px;
+	}
+	#shopify-section-{{ section.id }} .categories__card--large .categories__card-title {
+		font-size: 32px;
+		font-weight: 700;
+		line-height: normal;
+	}
+	#shopify-section-{{ section.id }} .categories__card--large .categories__image {
+		width: 100%;
+		flex: 1;
+		display: flex;
+		align-items: flex-end;
+		justify-content: center;
+		overflow: hidden;
+	}
+	#shopify-section-{{ section.id }} .categories__card--large .categories__image img {
+		max-width: 90%;
+		height: auto;
+		display: block;
+	}
+
+	/* ── Small top cards (308 × 308) ── */
+	#shopify-section-{{ section.id }} .categories__card--small {
+		height: 308px;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 20px;
+		text-align: center;
+		padding: 24px 20px;
+	}
+	#shopify-section-{{ section.id }} .categories__card--small .categories__card-content {
+		align-items: center;
+		text-align: center;
+	}
+	#shopify-section-{{ section.id }} .categories__card--small .categories__card-title {
+		color: #FFFFFF;
+		text-shadow: 0 4.021px 4.021px rgba(0, 0, 0, 0.25);
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 40px;
+	}
+	#shopify-section-{{ section.id }} .categories__card--small .categories__image {
+		width: 155.372px;
+		height: 100.322px;
+		flex-shrink: 0;
+		aspect-ratio: 127 / 82;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#shopify-section-{{ section.id }} .categories__card--small .categories__image img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		display: block;
+	}
+
+	/* ── Wide bottom card (full right width × 308) ── */
+	#shopify-section-{{ section.id }} .categories__card--wide {
+		grid-column: 1 / -1;
+		height: 308px;
+		padding: 0 40px;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 24px;
+		text-align: left;
+	}
+	#shopify-section-{{ section.id }} .categories__card--wide .categories__card-content {
+		align-items: flex-start;
+		text-align: left;
+	}
+	#shopify-section-{{ section.id }} .categories__card--wide .categories__card-title {
+		color: #FFFFFF;
+		text-shadow: 0 4.021px 4.021px rgba(0, 0, 0, 0.25);
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 24px;
+		font-style: normal;
+		font-weight: 600;
+		line-height: 40px;
+	}
+	#shopify-section-{{ section.id }} .categories__card--wide .categories__image {
+		flex-shrink: 0;
+		max-width: 45%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	#shopify-section-{{ section.id }} .categories__card--wide .categories__image img {
+		max-width: 100%;
+		height: auto;
+		border-radius: 8px;
+		display: block;
+	}
+
+	/* ── Shared card content block ── */
+	#shopify-section-{{ section.id }} .categories__card-content {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	#shopify-section-{{ section.id }} .categories__card-title {
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-weight: 600;
+	}
+	#shopify-section-{{ section.id }} .categories__card-desc {
+		color: #A0AEC0;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	/* ── Shop Now button ── */
+	#shopify-section-{{ section.id }} .categories__button {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 12px 24px;
+		gap: 10px;
+		border-radius: 8px;
+		border: 1px solid rgba(10, 132, 255, 0.30);
+		background: rgba(10, 132, 255, 0.10);
+		color: #0A84FF;
+		font-family: "Inter", "Open Sans", sans-serif;
+		font-size: 12px;
+		font-weight: 600;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: background 0.2s ease, border-color 0.2s ease;
+	}
+	#shopify-section-{{ section.id }} .categories__button:hover {
+		background: rgba(10, 132, 255, 0.20);
+		border-color: rgba(10, 132, 255, 0.60);
+	}
+
+	/* ── Responsive ── */
+	@media (max-width: 1300px) {
+		#shopify-section-{{ section.id }} .categories__grid {
+			grid-template-columns: 1fr;
+		}
+		#shopify-section-{{ section.id }} .categories__card--large {
+			width: 100%;
+			height: auto;
+			min-height: 500px;
+		}
+		#shopify-section-{{ section.id }} .categories__container {
+			padding: 0 32px;
+		}
+	}
+	@media (max-width: 768px) {
+		#shopify-section-{{ section.id }} .categories {
+			padding: 80px 0;
+		}
+		#shopify-section-{{ section.id }} .categories__title {
+			font-size: 32px;
+			letter-spacing: -1px;
+		}
+		#shopify-section-{{ section.id }} .categories__right {
+			grid-template-columns: 1fr;
+		}
+		#shopify-section-{{ section.id }} .categories__card--wide {
+			height: auto;
+			flex-direction: column;
+			padding: 24px;
+			text-align: center;
+		}
+		#shopify-section-{{ section.id }} .categories__card--wide .categories__card-content {
+			align-items: center;
+			text-align: center;
+		}
+		#shopify-section-{{ section.id }} .categories__card--wide .categories__image {
+			max-width: 100%;
+		}
+		#shopify-section-{{ section.id }} .categories__container {
+			padding: 0 20px;
+		}
+	}
+{% endstyle %}
+
+<section class="categories" data-section-id="{{ section.id }}">
+	<div class="categories__bg">
+		{% if section.settings.background_image != blank %}
+			<img src="{{ section.settings.background_image | image_url: width: 2200 }}" alt="{{ section.settings.background_image.alt | escape }}">
+		{% endif %}
+	</div>
+
+	<div class="categories__container">
+		<div class="categories__header">
+			{% if section.settings.eyebrow != blank %}
+				<div class="categories__eyebrow">{{ section.settings.eyebrow }}</div>
+			{% endif %}
+			<h2 class="categories__title">{{ section.settings.title }}</h2>
+		</div>
+
+		<div class="categories__grid">
+
+			<!-- Large Left Card -->
+			<div class="categories__left">
+				{%- for block in section.blocks -%}
+					{%- if block.id == large_card -%}
+						<a class="categories__card categories__card--large" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+							<div class="categories__card-content">
+								<div class="categories__card-title">{{ block.settings.title }}</div>
+								<div class="categories__card-desc">{{ block.settings.description }}</div>
+								<span class="categories__button">{{ block.settings.button_label }}</span>
+							</div>
+							<div class="categories__image">
+								{% if block.settings.image != blank %}
+									<img src="{{ block.settings.image | image_url: width: 1000 }}" alt="{{ block.settings.image.alt | escape }}">
+								{% endif %}
+							</div>
+						</a>
+					{%- endif -%}
+				{%- endfor -%}
+			</div>
+
+			<!-- Right Column: 2 small cards + 1 wide card -->
+			<div class="categories__right">
+
+				<!-- Small Top-Left Card -->
+				{%- for block in section.blocks -%}
+					{%- if block.id == small_left_card -%}
+						<a class="categories__card categories__card--small" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+							<div class="categories__card-content">
+								<div class="categories__card-title">{{ block.settings.title }}</div>
+								<div class="categories__card-desc">{{ block.settings.description }}</div>
+								<span class="categories__button">{{ block.settings.button_label }}</span>
+							</div>
+							<div class="categories__image">
+								{% if block.settings.image != blank %}
+									<img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | escape }}">
+								{% endif %}
+							</div>
+						</a>
+					{%- endif -%}
+				{%- endfor -%}
+
+				<!-- Small Top-Right Card -->
+				{%- for block in section.blocks -%}
+					{%- if block.id == small_right_card -%}
+						<a class="categories__card categories__card--small" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+							<div class="categories__card-content">
+								<div class="categories__card-title">{{ block.settings.title }}</div>
+								<div class="categories__card-desc">{{ block.settings.description }}</div>
+								<span class="categories__button">{{ block.settings.button_label }}</span>
+							</div>
+							<div class="categories__image">
+								{% if block.settings.image != blank %}
+									<img src="{{ block.settings.image | image_url: width: 520 }}" alt="{{ block.settings.image.alt | escape }}">
+								{% endif %}
+							</div>
+						</a>
+					{%- endif -%}
+				{%- endfor -%}
+
+				<!-- Wide Bottom Card -->
+				{%- for block in section.blocks -%}
+					{%- if block.id == wide_card -%}
+						<a class="categories__card categories__card--wide" href="{{ block.settings.link }}" {{ block.shopify_attributes }}>
+							<div class="categories__card-content">
+								<div class="categories__card-title">{{ block.settings.title }}</div>
+								<div class="categories__card-desc">{{ block.settings.description }}</div>
+								<span class="categories__button">{{ block.settings.button_label }}</span>
+							</div>
+							<div class="categories__image">
+								{% if block.settings.image != blank %}
+									<img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.image.alt | escape }}">
+								{% endif %}
+							</div>
+						</a>
+					{%- endif -%}
+				{%- endfor -%}
+
+			</div>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+{
+	"name": "Categories",
+	"max_blocks": 8,
+	"settings": [
+		{
+			"type": "image_picker",
+			"id": "background_image",
+			"label": "Background Image"
+		},
+		{
+			"type": "text",
+			"id": "eyebrow",
+			"label": "Eyebrow",
+			"default": "Categories"
+		},
+		{
+			"type": "text",
+			"id": "title",
+			"label": "Heading",
+			"default": "Shop Across Categories"
+		}
+	],
+	"blocks": [
+		{
+			"type": "category",
+			"name": "Category Card",
+			"settings": [
+				{
+					"type": "select",
+					"id": "position",
+					"label": "Position",
+					"options": [
+						{
+							"value": "large_left",
+							"label": "Large Left"
+						},
+						{
+							"value": "small_left",
+							"label": "Small Top Left"
+						},
+						{
+							"value": "small_right",
+							"label": "Small Top Right"
+						},
+						{
+							"value": "wide_bottom",
+							"label": "Wide Bottom"
+						}
+					],
+					"default": "small_left"
+				},
+				{
+					"type": "text",
+					"id": "title",
+					"label": "Title",
+					"default": "LCD Video Walls"
+				},
+				{
+					"type": "text",
+					"id": "description",
+					"label": "Description",
+					"default": "Lorem ipsum dolor sit amet"
+				},
+				{
+					"type": "text",
+					"id": "button_label",
+					"label": "Button Label",
+					"default": "Shop Now"
+				},
+				{
+					"type": "image_picker",
+					"id": "image",
+					"label": "Image"
+				},
+				{
+					"type": "url",
+					"id": "link",
+					"label": "Button Link"
+				}
+			]
+		}
+	],
+	"presets": [
+		{
+			"name": "Categories"
+		}
+	]
+}
+{% endschema %}
