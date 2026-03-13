@@ -1,5 +1,30 @@
 {%- assign blog = section.settings.blog -%}
 
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: #0A0E1A;
+  }
+  #shopify-section-{{ section.id }} .section__title,
+  #shopify-section-{{ section.id }} .section__action-link {
+    color: #ffffff !important;
+  }
+  #shopify-section-{{ section.id }} .article-item {
+    background: #111827;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  #shopify-section-{{ section.id }} .article-item__title,
+  #shopify-section-{{ section.id }} .article-item__meta,
+  #shopify-section-{{ section.id }} .article-item__meta-item,
+  #shopify-section-{{ section.id }} .article-item__excerpt,
+  #shopify-section-{{ section.id }} .article-item__excerpt p {
+    color: #ffffff !important;
+  }
+  #shopify-section-{{ section.id }} .article-item__title.link {
+    color: #ffffff !important;
+  }
+</style>
+
 <section class="section" data-section-id="{{ section.id }}" data-section-type="blog-posts">
   <div class="container">
     {%- if section.settings.title != blank -%}
