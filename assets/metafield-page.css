@@ -1,22 +1,28 @@
 /* ============================================================
-   Metafield Product Page — Global Dark Theme
+   Metafield Product Page — Dark Theme
+   Scoped to #main only — header and footer are unaffected
    Background: #0a0e1a | Text: #ffffff
    ============================================================ */
 
+/* Page body background */
 body.metafield-page {
   background: #0a0e1a !important;
-  color: #ffffff !important;
 }
 
-/* All section containers except header */
-body.metafield-page .shopify-section:not(.shopify-section__header),
-body.metafield-page .container,
-body.metafield-page .page-content {
+/* All content sections inside #main */
+body.metafield-page #main {
   background: #0a0e1a !important;
   color: #ffffff !important;
 }
 
-/* Common text elements — scoped to #main to exclude header */
+body.metafield-page #main .shopify-section,
+body.metafield-page #main .container,
+body.metafield-page #main .page-content {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* Common text elements */
 body.metafield-page #main h1,
 body.metafield-page #main h2,
 body.metafield-page #main h3,
@@ -35,136 +41,124 @@ body.metafield-page #main div {
    Main product section (main-product.liquid)
    ============================================================ */
 
-/* Cards and wrappers */
-body.metafield-page .card,
-body.metafield-page .card__section,
-body.metafield-page .product-block-list__wrapper,
-body.metafield-page .product-block-list__item {
+body.metafield-page #main .card,
+body.metafield-page #main .card__section,
+body.metafield-page #main .product-block-list__wrapper,
+body.metafield-page #main .product-block-list__item {
   background: transparent !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Product image borders */
-body.metafield-page .product-gallery,
-body.metafield-page .product-gallery__carousel-wrapper,
-body.metafield-page .product-gallery__thumbnail-list,
-body.metafield-page .product-gallery__thumbnail,
-body.metafield-page .aspect-ratio {
+body.metafield-page #main .product-gallery,
+body.metafield-page #main .product-gallery__carousel-wrapper,
+body.metafield-page #main .product-gallery__thumbnail-list,
+body.metafield-page #main .product-gallery__thumbnail,
+body.metafield-page #main .aspect-ratio {
   background: transparent !important;
 }
 
-body.metafield-page .product-gallery__carousel-wrapper img {
+body.metafield-page #main .product-gallery__carousel-wrapper img {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body.metafield-page .product-gallery__thumbnail-list .product-gallery__thumbnail {
+body.metafield-page #main .product-gallery__thumbnail-list .product-gallery__thumbnail {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Price */
-body.metafield-page .price {
+body.metafield-page #main .price {
   color: #ffffff !important;
 }
 
-body.metafield-page .price--compare {
+body.metafield-page #main .price--compare {
   color: #ff6b6b !important;
 }
 
-/* Variant selector borders */
-body.metafield-page .block-swatch-list-parent-s {
+body.metafield-page #main .block-swatch-list-parent-s {
   border-top-color: rgba(255, 255, 255, 0.15) !important;
   border-bottom-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-body.metafield-page .block-swatch.block-swatch-s {
+body.metafield-page #main .block-swatch.block-swatch-s {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-body.metafield-page .product-form__option,
-body.metafield-page .product-form__variants,
-body.metafield-page .block-swatch-list {
+body.metafield-page #main .product-form__option,
+body.metafield-page #main .product-form__variants,
+body.metafield-page #main .block-swatch-list {
   background: transparent !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Dropdowns / selects */
-body.metafield-page select,
-body.metafield-page .select__select {
+body.metafield-page #main select,
+body.metafield-page #main .select__select {
   background: #1a2035 !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Quantity selector */
-body.metafield-page .quantity-selector,
-body.metafield-page .quantity-selector__button,
-body.metafield-page .quantity-selector__value {
+body.metafield-page #main .quantity-selector,
+body.metafield-page #main .quantity-selector__button,
+body.metafield-page #main .quantity-selector__value {
   background: #1a2035 !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Installer / request zone box */
-body.metafield-page .my-request-zone-parent {
+body.metafield-page #main .my-request-zone-parent {
   background: rgba(255, 255, 255, 0.05) !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
 }
 
-/* Breadcrumb */
-body.metafield-page .breadcrumb__item,
-body.metafield-page .page__sub-header {
+body.metafield-page #main .breadcrumb__item,
+body.metafield-page #main .page__sub-header {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-body.metafield-page .breadcrumb__link {
+body.metafield-page #main .breadcrumb__link {
   color: #4190D2 !important;
 }
 
-/* Accordion blocks */
-body.metafield-page .card__collapsible-button,
-body.metafield-page .card__title {
+body.metafield-page #main .card__collapsible-button,
+body.metafield-page #main .card__title {
   color: #ffffff !important;
   background: transparent !important;
 }
 
-body.metafield-page .card__collapsible-button .plus-button {
+body.metafield-page #main .card__collapsible-button .plus-button {
   color: #ffffff !important;
 }
 
-body.metafield-page .card__collapsible-button .plus-button::before,
-body.metafield-page .card__collapsible-button .plus-button::after {
+body.metafield-page #main .card__collapsible-button .plus-button::before,
+body.metafield-page #main .card__collapsible-button .plus-button::after {
   background-color: #ffffff !important;
 }
 
-body.metafield-page .card__collapsible-button svg path,
-body.metafield-page .card__collapsible-button svg circle,
-body.metafield-page .card__collapsible-button svg rect {
-  fill: #ffffff !important;
-}
-
-body.metafield-page svg.d8-icon-close path {
+body.metafield-page #main .card__collapsible-button svg path,
+body.metafield-page #main .card__collapsible-button svg circle,
+body.metafield-page #main .card__collapsible-button svg rect,
+body.metafield-page #main svg.d8-icon-close path {
   fill: #ffffff !important;
   fill-opacity: 1 !important;
 }
 
-body.metafield-page .card__separator {
+body.metafield-page #main .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* ATC button — keep blue */
-body.metafield-page .my-add-to-cart-btn-s button {
+body.metafield-page #main .my-add-to-cart-btn-s button {
   background-color: #4190d2 !important;
   color: #fff !important;
 }
 
-/* Swatch item text — keep blue */
-body.metafield-page .block-swatch__item-text.block-swatch-value-s {
+body.metafield-page #main .block-swatch__item-text.block-swatch-value-s {
   background-color: #4190d2 !important;
   color: #fff !important;
 }
 
-/* Plus/minus toggle icon for faq.liquid */
-body.metafield-page .plus-button::before,
-body.metafield-page .plus-button::after {
+/* ============================================================
+   faq.liquid — plus/minus toggle icon
+   ============================================================ */
+body.metafield-page #main .plus-button::before,
+body.metafield-page #main .plus-button::after {
   background: #ffffff !important;
 }
