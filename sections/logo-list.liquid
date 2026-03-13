@@ -1,3 +1,17 @@
+
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: #0A0E1A;
+  }
+  #shopify-section-{{ section.id }} .section__title,
+  #shopify-section-{{ section.id }} .section__action-link,
+  #shopify-section-{{ section.id }} .quick-links__link {
+    color: #ffffff !important;
+  }
+  #shopify-section-{{ section.id }} .quick-links__link img {
+    filter: brightness(0) invert(1);
+  }
+</style>
 <section class="section" data-section-id="{{ section.id }}" data-section-type="logo-list">
   <div class="container">
     {%- if section.settings.title != blank -%}
