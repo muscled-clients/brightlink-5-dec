@@ -201,6 +201,18 @@ body.metafield-page .block-swatch__item-text.block-swatch-value-s {
 }
 
 /* ============================================================
+   FAQ Heading section (faq-heading.liquid)
+   ============================================================ */
+body.metafield-page .faq-parent-s {
+  background-color: #0a0e1a !important;
+}
+
+body.metafield-page .faq-parent-s .faq-s,
+body.metafield-page .faq-parent-s .have-questions-were {
+  color: #ffffff !important;
+}
+
+/* ============================================================
    FAQ section (faq.liquid — About Us, Support, Returns, etc.)
    ============================================================ */
 body.metafield-page .faq,
