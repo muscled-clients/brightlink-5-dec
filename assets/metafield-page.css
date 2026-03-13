@@ -8,8 +8,8 @@ body.metafield-page {
   color: #ffffff !important;
 }
 
-/* All section containers */
-body.metafield-page .shopify-section,
+/* All section containers except header */
+body.metafield-page .shopify-section:not(.shopify-section__header),
 body.metafield-page .container,
 body.metafield-page .page-content {
   background: #0a0e1a !important;
