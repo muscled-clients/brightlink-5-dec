@@ -10,7 +10,7 @@
 }
 {%- endcapture -%}
 
-<section class="section_{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="slideshow" data-section-settings='{{ section_settings }}'>
+<section class="section_{{ section.id }}" data-section-id="{{ section.id }}" data-section-type="slideshow" data-section-settings='{{ section_settings }}' style="background-color: #0A0E1A;">
   <div {% unless section.settings.edge_to_edge %}class="container container--flush"{% endunless %}>
     <div class="slideshow slideshow--{{ section.settings.section_size | replace: '_', '-' }} {% if section.settings.edge_to_edge %}slideshow--edge2edge{% endif %}" style="color: {{ section.blocks.first.settings.text_color }}">
       {%- for block in section.blocks -%}
