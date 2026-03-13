@@ -201,6 +201,25 @@ body.metafield-page .block-swatch__item-text.block-swatch-value-s {
 }
 
 /* ============================================================
+   d8-faq-custom-section (Downloads tab FAQ accordion)
+   ============================================================ */
+body.metafield-page .faq-container-ss {
+  background: transparent !important;
+}
+
+body.metafield-page .faq-container-ss details > summary {
+  color: #ffffff !important;
+}
+
+body.metafield-page .faq-container-ss .faq-content {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.metafield-page .faq-container-ss .faq-item {
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ============================================================
    FAQ Heading section (faq-heading.liquid)
    ============================================================ */
 body.metafield-page .faq-parent-s {
