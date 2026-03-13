@@ -16,7 +16,7 @@ body.metafield-page .page-content {
   color: #ffffff !important;
 }
 
-/* Common text elements */
+/* Common text elements — !important needed to beat inline ID selectors */
 body.metafield-page h1,
 body.metafield-page h2,
 body.metafield-page h3,
@@ -28,7 +28,7 @@ body.metafield-page span,
 body.metafield-page li,
 body.metafield-page label,
 body.metafield-page div {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 /* Cards and wrappers */
@@ -49,6 +49,15 @@ body.metafield-page .aspect-ratio {
   background: transparent !important;
 }
 
+/* Product image border */
+body.metafield-page .product-gallery__carousel-wrapper img {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.metafield-page .product-gallery__thumbnail-list .product-gallery__thumbnail {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
 /* Product title and meta */
 body.metafield-page .product-meta__title,
 body.metafield-page .product-meta__vendor,
@@ -63,6 +72,38 @@ body.metafield-page .price {
 
 body.metafield-page .price--compare {
   color: #ff6b6b !important;
+}
+
+/* Product info custom classes from main-product.liquid inline style */
+body.metafield-page .product-info-heading-s {
+  color: #ffffff !important;
+}
+
+body.metafield-page .product-description-s {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Variant swatch custom classes */
+body.metafield-page .block-swatch-sku-s {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.metafield-page .block-swatch-price-s {
+  color: #ffffff !important;
+}
+
+body.metafield-page .my-compare-at-price-s {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Variant selector borders */
+body.metafield-page .block-swatch-list-parent-s {
+  border-top-color: rgba(255, 255, 255, 0.15) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+body.metafield-page .block-swatch.block-swatch-s {
+  border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* Variant selectors */
@@ -96,6 +137,17 @@ body.metafield-page .quantity-selector__value {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Shipping info */
+body.metafield-page .shipping-us-parent,
+body.metafield-page .shipping-us-price,
+body.metafield-page .shipping-estimated-delivery {
+  color: #ffffff !important;
+}
+
+body.metafield-page .shipping-estimated-delivery {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
 /* Installer / request zone box */
 body.metafield-page .my-request-zone-parent {
   background: rgba(255, 255, 255, 0.05) !important;
@@ -103,11 +155,19 @@ body.metafield-page .my-request-zone-parent {
   color: #ffffff !important;
 }
 
+body.metafield-page .my-request-zone-installers-description {
+  color: #ffffff !important;
+}
+
 /* Breadcrumb */
-body.metafield-page .breadcrumb__link,
 body.metafield-page .breadcrumb__item,
 body.metafield-page .page__sub-header {
   color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Keep accent links blue */
+body.metafield-page .breadcrumb__link {
+  color: #4190D2 !important;
 }
 
 /* Accordion blocks in main product info */
@@ -117,19 +177,32 @@ body.metafield-page .card__title {
   background: transparent !important;
 }
 
-/* Keep accent links blue */
-body.metafield-page .breadcrumb__link {
-  color: #4190D2 !important;
-}
-
 /* Separator lines */
 body.metafield-page .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Shipping info */
-body.metafield-page .shipping-us-parent,
-body.metafield-page .shipping-us-price,
-body.metafield-page .shipping-estimated-delivery {
-  color: #ffffff !important;
+/* SKU and price parent in swatch */
+body.metafield-page .sku-and-price-parent .block-swatch-sku-s,
+body.metafield-page .sku-and-price-parent .block-swatch-price-s {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ATC button — keep original blue */
+body.metafield-page .my-add-to-cart-btn-s button {
+  background-color: #4190d2 !important;
+  color: #fff !important;
+}
+
+/* Swatch item text — keep blue bg */
+body.metafield-page .block-swatch__item-text.block-swatch-value-s {
+  background-color: #4190d2 !important;
+  color: #fff !important;
+}
+
+/* Footer stays dark */
+body.metafield-page footer,
+body.metafield-page .footer,
+body.metafield-page .footer__wrapper {
+  background: #0a0e1a !important;
 }
