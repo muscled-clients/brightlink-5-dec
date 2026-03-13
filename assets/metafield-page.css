@@ -16,7 +16,7 @@ body.metafield-page .page-content {
   color: #ffffff !important;
 }
 
-/* Common text elements — !important needed to beat inline ID selectors */
+/* Common text elements */
 body.metafield-page h1,
 body.metafield-page h2,
 body.metafield-page h3,
@@ -31,6 +31,10 @@ body.metafield-page div {
   color: #ffffff !important;
 }
 
+/* ============================================================
+   Main product section (main-product.liquid)
+   ============================================================ */
+
 /* Cards and wrappers */
 body.metafield-page .card,
 body.metafield-page .card__section,
@@ -40,7 +44,7 @@ body.metafield-page .product-block-list__item {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* Product image area */
+/* Product image borders */
 body.metafield-page .product-gallery,
 body.metafield-page .product-gallery__carousel-wrapper,
 body.metafield-page .product-gallery__thumbnail-list,
@@ -49,20 +53,12 @@ body.metafield-page .aspect-ratio {
   background: transparent !important;
 }
 
-/* Product image border */
 body.metafield-page .product-gallery__carousel-wrapper img {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
 body.metafield-page .product-gallery__thumbnail-list .product-gallery__thumbnail {
   border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-/* Product title and meta */
-body.metafield-page .product-meta__title,
-body.metafield-page .product-meta__vendor,
-body.metafield-page .product-meta__sku {
-  color: #ffffff !important;
 }
 
 /* Price */
@@ -72,28 +68,6 @@ body.metafield-page .price {
 
 body.metafield-page .price--compare {
   color: #ff6b6b !important;
-}
-
-/* Product info custom classes from main-product.liquid inline style */
-body.metafield-page .product-info-heading-s {
-  color: #ffffff !important;
-}
-
-body.metafield-page .product-description-s {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-/* Variant swatch custom classes */
-body.metafield-page .block-swatch-sku-s {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-body.metafield-page .block-swatch-price-s {
-  color: #ffffff !important;
-}
-
-body.metafield-page .my-compare-at-price-s {
-  color: rgba(255, 255, 255, 0.6) !important;
 }
 
 /* Variant selector borders */
@@ -106,18 +80,11 @@ body.metafield-page .block-swatch.block-swatch-s {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Variant selectors */
 body.metafield-page .product-form__option,
 body.metafield-page .product-form__variants,
 body.metafield-page .block-swatch-list {
   background: transparent !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-body.metafield-page .product-form__option-name,
-body.metafield-page .product-form__selected-value,
-body.metafield-page .product-form__info-title {
-  color: #ffffff !important;
 }
 
 /* Dropdowns / selects */
@@ -137,26 +104,10 @@ body.metafield-page .quantity-selector__value {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* Shipping info */
-body.metafield-page .shipping-us-parent,
-body.metafield-page .shipping-us-price,
-body.metafield-page .shipping-estimated-delivery {
-  color: #ffffff !important;
-}
-
-body.metafield-page .shipping-estimated-delivery {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
 /* Installer / request zone box */
 body.metafield-page .my-request-zone-parent {
   background: rgba(255, 255, 255, 0.05) !important;
   border-color: rgba(255, 255, 255, 0.15) !important;
-  color: #ffffff !important;
-}
-
-body.metafield-page .my-request-zone-installers-description {
-  color: #ffffff !important;
 }
 
 /* Breadcrumb */
@@ -165,224 +116,35 @@ body.metafield-page .page__sub-header {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
-/* Keep accent links blue */
 body.metafield-page .breadcrumb__link {
   color: #4190D2 !important;
 }
 
-/* Accordion blocks in main product info */
+/* Accordion blocks */
 body.metafield-page .card__collapsible-button,
 body.metafield-page .card__title {
   color: #ffffff !important;
   background: transparent !important;
 }
 
-/* Separator lines */
 body.metafield-page .card__separator {
   border-color: rgba(255, 255, 255, 0.1) !important;
 }
 
-/* SKU and price parent in swatch */
-body.metafield-page .sku-and-price-parent .block-swatch-sku-s,
-body.metafield-page .sku-and-price-parent .block-swatch-price-s {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* ATC button — keep original blue */
+/* ATC button — keep blue */
 body.metafield-page .my-add-to-cart-btn-s button {
   background-color: #4190d2 !important;
   color: #fff !important;
 }
 
-/* Swatch item text — keep blue bg */
+/* Swatch item text — keep blue */
 body.metafield-page .block-swatch__item-text.block-swatch-value-s {
   background-color: #4190d2 !important;
   color: #fff !important;
 }
 
-/* ============================================================
-   d8-faq-custom-section (Downloads tab FAQ accordion)
-   ============================================================ */
-body.metafield-page .faq-container-ss {
-  background: transparent !important;
-}
-
-body.metafield-page .faq-container-ss details > summary {
-  color: #ffffff !important;
-}
-
-body.metafield-page .faq-container-ss .faq-content {
-  color: rgba(255, 255, 255, 0.8) !important;
-}
-
-body.metafield-page .faq-container-ss .faq-item {
-  border-color: rgba(255, 255, 255, 0.15) !important;
-}
-
-/* ============================================================
-   FAQ Heading section (faq-heading.liquid)
-   ============================================================ */
-body.metafield-page .faq-parent-s {
-  background-color: #0a0e1a !important;
-}
-
-body.metafield-page .faq-parent-s .faq-s,
-body.metafield-page .faq-parent-s .have-questions-were {
-  color: #ffffff !important;
-}
-
-/* ============================================================
-   FAQ section (faq.liquid — About Us, Support, Returns, etc.)
-   ============================================================ */
-body.metafield-page .faq,
-body.metafield-page .faq__group-list {
-  background: transparent !important;
-}
-
-body.metafield-page .faq__group {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-body.metafield-page .faq__group-title {
-  color: #ffffff !important;
-}
-
-body.metafield-page .faq__item,
-body.metafield-page .faq__item-wrapper {
-  background: transparent !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-body.metafield-page .faq__question {
-  color: #ffffff !important;
-  background: transparent !important;
-}
-
-body.metafield-page .faq__answer,
-body.metafield-page .faq__answer-wrapper {
-  color: rgba(255, 255, 255, 0.8) !important;
-  background: transparent !important;
-}
-
-/* Plus/minus toggle icon */
+/* Plus/minus toggle icon for faq.liquid */
 body.metafield-page .plus-button::before,
 body.metafield-page .plus-button::after {
   background: #ffffff !important;
-}
-
-/* ============================================================
-   Footer stays dark
-   ============================================================ */
-/* Footer stays dark */
-body.metafield-page footer,
-body.metafield-page .footer,
-body.metafield-page .footer__wrapper {
-  background: #0a0e1a !important;
-}
-
-/* ============================================================
-   Accordion Tab2 section (Features / Spec / Downloads / Video / FAQ)
-   Override inline #shopify-section-{id} ID selectors
-   ============================================================ */
-
-/* Section wrapper and accordion panel background */
-body.metafield-page .shopify-section:has(section.accordion),
-body.metafield-page section.accordion,
-body.metafield-page .accordion {
-  background: #0a0e1a !important;
-  background-color: #0a0e1a !important;
-  color: #ffffff !important;
-}
-
-/* Headings inside accordion */
-body.metafield-page .accordion h2,
-body.metafield-page .accordion-downloads h2 {
-  color: #ffffff !important;
-}
-
-/* Feature list text */
-body.metafield-page .accordion-features li,
-body.metafield-page .accordion-features .img-container .label {
-  color: #ffffff !important;
-}
-
-/* Spec table cells */
-body.metafield-page .accordion-spec td,
-body.metafield-page .accordion-spec th {
-  color: #ffffff !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-body.metafield-page .accordion-spec table {
-  background: transparent !important;
-}
-
-/* Downloads list items */
-body.metafield-page .accordion-downloads li {
-  background-color: rgba(255, 255, 255, 0.05) !important;
-  border-color: #4190D2 !important;
-  color: #ffffff !important;
-}
-
-/* Tab navigation bar */
-body.metafield-page .tabs-wrapper {
-  background: #0d1224 !important;
-}
-
-/* Sticky tabs container */
-body.metafield-page .main-tabs-container,
-body.metafield-page .main-tabs-container.sticky {
-  background: #0d1224 !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-/* ============================================================
-   Product Intelligence section (tabs: Features, Spec, Downloads...)
-   Override inline CSS variables set by section settings
-   ============================================================ */
-body.metafield-page .product-intelligence {
-  background-color: #0a0e1a !important;
-  --pi-bg-color: #0a0e1a;
-  --pi-heading-color: #ffffff;
-  --pi-label-color: #4190D2;
-  --pi-subheading-color: rgba(255, 255, 255, 0.7);
-}
-
-body.metafield-page .product-intelligence__heading,
-body.metafield-page .product-intelligence__label {
-  color: #ffffff !important;
-}
-
-body.metafield-page .product-intelligence__subheading {
-  color: rgba(255, 255, 255, 0.7) !important;
-}
-
-/* Tab bar */
-body.metafield-page .product-intelligence__tabs {
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
-}
-
-body.metafield-page .product-intelligence__tab {
-  color: rgba(255, 255, 255, 0.6) !important;
-}
-
-body.metafield-page .product-intelligence__tab--active {
-  color: #ffffff !important;
-}
-
-/* Panel content */
-body.metafield-page .product-intelligence__panel,
-body.metafield-page .product-intelligence__panel-content,
-body.metafield-page .product-intelligence__container {
-  background: transparent !important;
-}
-
-/* All text inside panels */
-body.metafield-page .product-intelligence__text,
-body.metafield-page .product-intelligence__feature-title,
-body.metafield-page .product-intelligence__feature-desc,
-body.metafield-page .product-intelligence__read-more {
-  color: #ffffff !important;
 }

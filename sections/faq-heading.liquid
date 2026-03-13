@@ -12,7 +12,7 @@
     font-weight: 600;
     font-size: 40px;
     font-family: Lato;
-    color: #000;
+    color: {% if template.suffix == 'metafield' %}#ffffff{% else %}#000{% endif %};
     text-align: center;
     line-height: normal;
 }
@@ -22,7 +22,7 @@
   	font-weight: 300;
   	font-family: Montserrat;
     line-height: normal;
-    color: #000;
+    color: {% if template.suffix == 'metafield' %}#ffffff{% else %}#000{% endif %};
 }
 .faq-parent-s {
   	width: 100%;
@@ -31,7 +31,7 @@
   	align-items: center;
   	justify-content: center;
   	gap: 20px;
-    background-color: #f7f7f7;
+    background-color: {% if template.suffix == 'metafield' %}#0a0e1a{% else %}#f7f7f7{% endif %};
     min-height:250px;
     margin-top: 85px;
 }
@@ -41,7 +41,7 @@
     font-weight: 600;
     font-size: 16px;
     font-family: Lato;
-    color: #000;
+    color: {% if template.suffix == 'metafield' %}#ffffff{% else %}#000{% endif %};
     text-align: center;
     line-height: normal;
 }
@@ -51,7 +51,7 @@
   	font-weight: 300;
   	font-family: Montserrat;
     line-height: normal;
-    color: #000;
+    color: {% if template.suffix == 'metafield' %}#ffffff{% else %}#000{% endif %};
 }
 .faq-parent-s {
   	width: 100%;
@@ -60,7 +60,7 @@
   	align-items: center;
   	justify-content: center;
   	gap: 10px;
-    background-color: #f7f7f7;
+    background-color: {% if template.suffix == 'metafield' %}#0a0e1a{% else %}#f7f7f7{% endif %};
     min-height:125px;
     margin-top: 80px;
 }
