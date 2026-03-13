@@ -4267,6 +4267,11 @@ img.lazyload[data-sizes=auto] {
     vertical-align: top;
   }
 
+  .featured-collection__content {
+    border: 1px solid white;
+    border-radius: 4px;
+  }
+
   .featured-collection__header {
     width: 455px;
     padding: 20px 30px;
