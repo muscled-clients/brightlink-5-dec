@@ -163,3 +163,16 @@ body.metafield-page #main .plus-button::before,
 body.metafield-page #main .plus-button::after {
   background: #ffffff !important;
 }
+
+/* ============================================================
+   Accordion expand/close icon & PDF icon (snippets used across templates)
+   ============================================================ */
+body.metafield-page #main svg.d8-icon-close path,
+body.metafield-page #main .d8-product-info__accordion svg path {
+  fill: #ffffff !important;
+  fill-opacity: 1 !important;
+}
+
+body.metafield-page #main .icon svg path[stroke="black"] {
+  stroke: #ffffff !important;
+}
