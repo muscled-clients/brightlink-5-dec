@@ -109,6 +109,20 @@ body.collection-page #main .collection__layout-label {
    Sidebar / desktop filters
    ============================================================ */
 
+/* Sidebar card wrapper */
+body.collection-page #main .layout__section--secondary .card {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .card__title--small {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .card__separator {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
 body.collection-page #main .collection__filter-group {
   background: transparent !important;
   border-color: rgba(255, 255, 255, 0.1) !important;
@@ -131,15 +145,55 @@ body.collection-page #main .collection__filter-item-active {
   color: #4190D2 !important;
 }
 
-/* price range inputs */
-body.collection-page #main .price-range__input {
+/* Active filter tags (desktop sidebar) */
+body.collection-page #main .collection__active-filter-item {
   background: #1a2035 !important;
   color: #ffffff !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* checkboxes / filter values */
-body.collection-page #main .collection__filter-value-label {
+/* Checkboxes */
+body.collection-page #main .checkbox {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+body.collection-page #main .checkbox-wrapper {
+  background: transparent !important;
+}
+
+body.collection-page #main .collection__filter-checkbox-list li,
+body.collection-page #main .collection__filter-checkbox {
+  background: transparent !important;
+}
+
+/* price range inputs */
+body.collection-page #main .input-prefix {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .input-prefix__field {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .input-prefix__value {
+  background: #1a2035 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* price range slider track */
+body.collection-page #main .range-group {
+  background: transparent !important;
+}
+
+/* filter value labels */
+body.collection-page #main .collection__filter-value-label,
+body.collection-page #main .collection__filter-checkbox-list label {
   color: rgba(255, 255, 255, 0.8) !important;
 }
 
