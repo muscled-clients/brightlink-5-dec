@@ -206,11 +206,24 @@ body.collection-page #main input[type="range"].range::-moz-range-thumb {
 }
 
 body.collection-page #main input[type="range"].range::-webkit-slider-runnable-track {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: transparent !important;
 }
 
 body.collection-page #main input[type="range"].range::-moz-range-track {
-  background: rgba(255, 255, 255, 0.2) !important;
+  background: transparent !important;
+}
+
+/* Track: outside handles = muted, between handles = white */
+body.collection-page #main .range-group::before {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) var(--range-min),
+    #ffffff var(--range-min),
+    #ffffff var(--range-max),
+    rgba(255, 255, 255, 0.2) var(--range-max),
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
 }
 
 /* filter value labels */
