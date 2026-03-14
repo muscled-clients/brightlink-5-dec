@@ -272,6 +272,18 @@ body.collection-page #main .collection__mobile-active-filters-results {
 }
 
 /* ============================================================
+   Product list area — main card wrapper
+   ============================================================ */
+
+body.collection-page #main .collection__dynamic-part.card,
+body.collection-page #main .product-list,
+body.collection-page #main .product-list--collection,
+body.collection-page #main .layout__section,
+body.collection-page #main .layout {
+  background: transparent !important;
+}
+
+/* ============================================================
    Product cards
    ============================================================ */
 
@@ -291,6 +303,16 @@ body.collection-page #main .price {
 
 body.collection-page #main .price--compare {
   color: #ff6b6b !important;
+}
+
+/* ============================================================
+   Recently viewed section
+   ============================================================ */
+
+body.collection-page #main .scroller,
+body.collection-page #main .scroller__inner,
+body.collection-page #main .product-list--scrollable {
+  background: transparent !important;
 }
 
 /* ============================================================
