@@ -1,3 +1,20 @@
+<style>
+  #shopify-section-{{ section.id }} {
+    background-color: var(--hp-section-bg, #0A0E1A);
+  }
+  #shopify-section-{{ section.id }} .section__title,
+  #shopify-section-{{ section.id }} .text-with-icons__title,
+  #shopify-section-{{ section.id }} .text-with-icons__content,
+  #shopify-section-{{ section.id }} .text-with-icons__content p,
+  #shopify-section-{{ section.id }} .text-with-icons__content a {
+    color: var(--hp-text-color, #ffffff) !important;
+  }
+  #shopify-section-{{ section.id }} .text-with-icons__icon-wrapper svg {
+    stroke: var(--hp-text-color, #ffffff);
+    fill: none;
+  }
+</style>
+
 <section class="section section--tight custom-text-with-icons-wrap" data-section-id="{{ section.id }}" data-section-type="custom-text-with-icons">
   <div class="container container--flush">
      {%- if section.settings.title != blank -%}

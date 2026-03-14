@@ -9,6 +9,12 @@
  */
 {
   "sections": {
+    "homepage_color_scheme": {
+      "type": "homepage-color-scheme",
+      "settings": {
+        "color_scheme": "dark"
+      }
+    },
     "hero_banner_YLmRPr": {
       "type": "hero-banner",
       "settings": {
@@ -306,7 +312,7 @@
           "type": "item",
           "settings": {
             "icon": "bi-delivery",
-            "custom_icon": "shopify://shop_images/Shipping.png",
+            "custom_icon": "shopify://shop_images/Icon_1.png",
             "title": "Fast free shipping*",
             "content": "<p>*On most in stock items for USA orders.</p>"
           }
@@ -325,7 +331,7 @@
           "type": "item",
           "settings": {
             "icon": "bi-customer-support",
-            "custom_icon": "shopify://shop_images/Secure_Payments.png",
+            "custom_icon": "shopify://shop_images/Icon_2.png",
             "title": "Secure Payment*",
             "content": ""
           }
@@ -567,6 +573,7 @@
     }
   },
   "order": [
+    "homepage_color_scheme",
     "hero_banner_YLmRPr",
     "slideshow",
     "1649252187120e07e2",
