@@ -1,0 +1,253 @@
+/* ============================================================
+   Collection Page — Dark Theme
+   Scoped to #main only — header and footer are unaffected
+   Background: #0a0e1a | Text: #ffffff
+   ============================================================ */
+
+/* Page body background */
+body.collection-page {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* All content sections inside #main */
+body.collection-page #main {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+body.collection-page #main .shopify-section,
+body.collection-page #main .container,
+body.collection-page #main .page-content {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* Common text elements */
+body.collection-page #main h1,
+body.collection-page #main h2,
+body.collection-page #main h3,
+body.collection-page #main h4,
+body.collection-page #main h5,
+body.collection-page #main h6,
+body.collection-page #main p,
+body.collection-page #main span,
+body.collection-page #main li,
+body.collection-page #main label,
+body.collection-page #main div {
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Collection header / card wrapper
+   ============================================================ */
+
+body.collection-page #main .card,
+body.collection-page #main .card__section,
+body.collection-page #main .card__header {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .collection__title {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .collection__description,
+body.collection-page #main .collection__products-count {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ============================================================
+   Toolbar — sort, layout, display pickers
+   ============================================================ */
+
+body.collection-page #main .collection__toolbar {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .value-picker-button {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .value-picker {
+  background: #0d1224 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .value-picker__inner,
+body.collection-page #main .value-picker__header {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .value-picker__title,
+body.collection-page #main .value-picker__choice-item {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .value-picker__choice-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.collection-page #main .collection__layout-button {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.collection-page #main .collection__layout-button.is-selected {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .collection__layout-label {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ============================================================
+   Sidebar / desktop filters
+   ============================================================ */
+
+body.collection-page #main .collection__filter-group {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .collection__filter-group-name {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+body.collection-page #main .collection__filter-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.collection-page #main .collection__filter-link.is-active {
+  color: #4190D2 !important;
+}
+
+body.collection-page #main .collection__filter-item-active {
+  color: #4190D2 !important;
+}
+
+/* price range inputs */
+body.collection-page #main .price-range__input {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* checkboxes / filter values */
+body.collection-page #main .collection__filter-value-label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ============================================================
+   Mobile filter drawer
+   ============================================================ */
+
+body.collection-page .drawer {
+  background: #0d1224 !important;
+}
+
+body.collection-page .collection-drawer__header {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer__title {
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer__section-title {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ============================================================
+   Active filter tags (mobile)
+   ============================================================ */
+
+body.collection-page #main .collection__mobile-active-filter-item {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .collection__mobile-active-filters-results {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ============================================================
+   Product cards
+   ============================================================ */
+
+body.collection-page #main .product-item {
+  background: transparent !important;
+}
+
+body.collection-page #main .product-item__info,
+body.collection-page #main .product-item__title,
+body.collection-page #main .product-item__vendor {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .price {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .price--compare {
+  color: #ff6b6b !important;
+}
+
+/* ============================================================
+   Pagination
+   ============================================================ */
+
+body.collection-page #main .pagination__item {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .pagination__item.is-current {
+  background: #4190D2 !important;
+  border-color: #4190D2 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Breadcrumb
+   ============================================================ */
+
+body.collection-page #main .breadcrumb__item {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.collection-page #main .breadcrumb__link {
+  color: #4190D2 !important;
+}
+
+/* ============================================================
+   Recently viewed section
+   ============================================================ */
+
+body.collection-page #main .section__title {
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   SVG icons
+   ============================================================ */
+
+body.collection-page #main svg path,
+body.collection-page #main svg circle,
+body.collection-page #main svg rect,
+body.collection-page #main svg polyline,
+body.collection-page #main svg line {
+  stroke: currentColor !important;
+}
+
+body.collection-page #main .icon svg path[fill]:not([fill="none"]) {
+  fill: #ffffff !important;
+}
