@@ -152,6 +152,13 @@ body.collection-page #main .collection__active-filter-item {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
+/* Clear all button */
+body.collection-page #main .collection__clear-filter,
+body.collection-page #main .button--transparent {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
 /* Checkboxes */
 body.collection-page #main .checkbox {
   background: #1a2035 !important;
