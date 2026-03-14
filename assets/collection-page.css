@@ -188,7 +188,15 @@ body.collection-page #main .input-prefix__value {
 
 /* price range slider track and handles */
 body.collection-page #main .range-group {
-  background: transparent !important;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) var(--range-min),
+    #ffffff var(--range-min),
+    #ffffff var(--range-max),
+    rgba(255, 255, 255, 0.2) var(--range-max),
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
 }
 
 body.collection-page #main input[type="range"].range {
@@ -213,18 +221,6 @@ body.collection-page #main input[type="range"].range::-moz-range-track {
   background: transparent !important;
 }
 
-/* Track: outside handles = muted, between handles = white */
-body.collection-page #main .range-group::before {
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.2) var(--range-min),
-    #ffffff var(--range-min),
-    #ffffff var(--range-max),
-    rgba(255, 255, 255, 0.2) var(--range-max),
-    rgba(255, 255, 255, 0.2) 100%
-  ) !important;
-}
 
 /* filter value labels */
 body.collection-page #main .collection__filter-value-label,
