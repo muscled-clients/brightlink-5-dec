@@ -271,6 +271,17 @@ body.collection-page #main .collection__mobile-active-filters-results {
   color: rgba(255, 255, 255, 0.6) !important;
 }
 
+/* Quick view button */
+body.collection-page #main .button--ternary {
+  color: #ffffff !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset !important;
+}
+
+body.collection-page #main .button--ternary:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
 /* ============================================================
    Product list area — main card wrapper
    ============================================================ */
