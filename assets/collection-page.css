@@ -89,6 +89,15 @@ body.collection-page #main .value-picker__choice-item {
   color: #ffffff !important;
 }
 
+body.collection-page #main .value-picker__close {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .value-picker__close svg,
+body.collection-page #main .value-picker__close svg path {
+  fill: #ffffff !important;
+}
+
 body.collection-page #main .value-picker__choice-item:hover {
   background: rgba(255, 255, 255, 0.08) !important;
 }
