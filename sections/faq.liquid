@@ -1,3 +1,33 @@
+{% if template.suffix == 'metafield' %}
+<style>
+  #shopify-section-{{ section.id }} .faq__group {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  #shopify-section-{{ section.id }} .faq__item,
+  #shopify-section-{{ section.id }} .faq__item-wrapper,
+  #shopify-section-{{ section.id }} .faq__answer-wrapper {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  #shopify-section-{{ section.id }} .faq__group-title,
+  #shopify-section-{{ section.id }} .faq__question {
+    color: #ffffff !important;
+    background: transparent !important;
+  }
+  #shopify-section-{{ section.id }} .faq__answer {
+    color: rgba(255, 255, 255, 0.8) !important;
+  }
+  #shopify-section-{{ section.id }} .text-with-icons__icon-wrapper svg,
+  #shopify-section-{{ section.id }} .text-with-icons__icon-wrapper svg path,
+  #shopify-section-{{ section.id }} .text-with-icons__icon-wrapper svg circle,
+  #shopify-section-{{ section.id }} .text-with-icons__icon-wrapper svg rect {
+    stroke: #ffffff !important;
+    fill: none !important;
+    color: #ffffff !important;
+  }
+</style>
+{% endif %}
 <div class="container container--flush container--narrow">
   <div class="faq" itemscope itemtype="https://schema.org/FAQPage">
     <div class="faq__group-list">
