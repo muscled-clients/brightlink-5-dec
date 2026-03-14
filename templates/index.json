@@ -312,7 +312,7 @@
           "type": "item",
           "settings": {
             "icon": "bi-delivery",
-            "custom_icon": "shopify://shop_images/Shipping.png",
+            "custom_icon": "shopify://shop_images/Icon_1.png",
             "title": "Fast free shipping*",
             "content": "<p>*On most in stock items for USA orders.</p>"
           }
@@ -331,7 +331,7 @@
           "type": "item",
           "settings": {
             "icon": "bi-customer-support",
-            "custom_icon": "shopify://shop_images/Secure_Payments.png",
+            "custom_icon": "shopify://shop_images/Icon_2.png",
             "title": "Secure Payment*",
             "content": ""
           }
