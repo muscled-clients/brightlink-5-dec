@@ -351,6 +351,60 @@ body.collection-page #main .section__title {
 }
 
 /* ============================================================
+   Quick view modal
+   ============================================================ */
+
+body.collection-page .modal__dialog {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog h1,
+body.collection-page .modal__dialog h2,
+body.collection-page .modal__dialog h3,
+body.collection-page .modal__dialog p,
+body.collection-page .modal__dialog span,
+body.collection-page .modal__dialog div,
+body.collection-page .modal__dialog label {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog .card,
+body.collection-page .modal__dialog .card__section {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Quantity selector */
+body.collection-page .modal__dialog .quantity-selector,
+body.collection-page .modal__dialog .quantity-selector__button,
+body.collection-page .modal__dialog .quantity-selector__value {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Installer finder box */
+body.collection-page .modal__dialog .my-request-zone-parent {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Price */
+body.collection-page .modal__dialog .price {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog .price--compare {
+  color: #ff6b6b !important;
+}
+
+/* Close button */
+body.collection-page .modal__close svg {
+  fill: #ffffff !important;
+}
+
+/* ============================================================
    Flickity scroller prev/next arrow buttons
    ============================================================ */
 
