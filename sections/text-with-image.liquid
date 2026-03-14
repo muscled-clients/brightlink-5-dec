@@ -168,8 +168,22 @@
     margin-top:{{ section.settings.margin-top-m }}px;
     margin-bottom:{{ section.settings.margin-bottom-m }}px;
 }
-}  
+}
 </style>
+
+{% if template.suffix == 'metafield' %}
+<style>
+  #section--{{ section.id }} .celebrate-moments-together-parent {
+    background-color: #0a0e1a !important;
+    color: #ffffff !important;
+  }
+  #section--{{ section.id }} .celebrate-moments-together,
+  #section--{{ section.id }} .discover-the-missing,
+  #section--{{ section.id }} * {
+    color: #ffffff !important;
+  }
+</style>
+{% endif %}
 
 
    
