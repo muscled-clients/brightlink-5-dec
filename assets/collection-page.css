@@ -186,9 +186,31 @@ body.collection-page #main .input-prefix__value {
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 
-/* price range slider track */
+/* price range slider track and handles */
 body.collection-page #main .range-group {
   background: transparent !important;
+}
+
+body.collection-page #main input[type="range"].range {
+  background: transparent !important;
+}
+
+body.collection-page #main input[type="range"].range::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.collection-page #main input[type="range"].range::-moz-range-thumb {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.collection-page #main input[type="range"].range::-webkit-slider-runnable-track {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main input[type="range"].range::-moz-range-track {
+  background: rgba(255, 255, 255, 0.2) !important;
 }
 
 /* filter value labels */
