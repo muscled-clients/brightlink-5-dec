@@ -22,22 +22,7 @@
 {% endif %}
 {% endstyle %}
 
-{% if template.suffix == 'metafield' %}
-<style>
-  #shopify-section-{{ section.id }} {
-    background: #0a0e1a !important;
-    color: #ffffff !important;
-  }
-  #shopify-section-{{ section.id }} h1,
-  #shopify-section-{{ section.id }} h2,
-  #shopify-section-{{ section.id }} h3,
-  #shopify-section-{{ section.id }} p,
-  #shopify-section-{{ section.id }} span,
-  #shopify-section-{{ section.id }} div {
-    color: #ffffff !important;
-  }
-</style>
-{% endif %}
+
 <section class="section {% if section.settings.show_text_bg  %} custom_bg_wrap {% endif %} {% if section.settings.background != settings.background %}section--isolated section--tight1{% endif %} section--text-centered" data-section-id="{{ section.id }}" data-section-type="newsletter">
   <div class="container container--giga-narrow">
     {%- if section.settings.title != blank -%}
