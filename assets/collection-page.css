@@ -355,16 +355,16 @@ body.collection-page #main .section__title {
    ============================================================ */
 
 body.collection-page #main .flickity-prev-next-button {
-  background: #1a2035 !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: #ffffff !important;
+  border: none !important;
 }
 
 body.collection-page #main .flickity-prev-next-button:hover {
-  background: #4190D2 !important;
+  background: #e0e0e0 !important;
 }
 
 body.collection-page #main .flickity-prev-next-button svg {
-  fill: #ffffff !important;
+  fill: #000000 !important;
 }
 
 /* ============================================================
