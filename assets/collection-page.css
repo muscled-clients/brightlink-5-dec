@@ -400,8 +400,14 @@ body.collection-page .modal__dialog .price--compare {
 }
 
 /* Close button */
-body.collection-page .modal__close svg {
+body.collection-page .modal__close {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__close svg,
+body.collection-page .modal__close svg path {
   fill: #ffffff !important;
+  color: #ffffff !important;
 }
 
 /* ============================================================
