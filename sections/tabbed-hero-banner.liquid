@@ -235,16 +235,17 @@
       
       <div class="hero-buttons-container">
         {% if section.settings.default_primary_button_text != blank %}
-          <a href="{{ section.settings.default_primary_button_link | default: '#led-display-calculator' }}"
+          <a href="{{ section.settings.default_primary_button_link }}"
              class="hero-button hero-button-primary"
-             {% unless section.settings.default_primary_button_link %}onclick="event.preventDefault(); document.getElementById('led-display-calculator').scrollIntoView({behavior: 'smooth'});"{% endunless %}>
+             {% if section.settings.default_primary_button_link contains '#' %}data-smooth-scroll="true"{% endif %}>
             {{ section.settings.default_primary_button_text }}
           </a>
         {% endif %}
         
         {% if section.settings.default_secondary_button_text != blank %}
-          <a href="{{ section.settings.default_secondary_button_link }}" 
-             class="hero-button hero-button-secondary">
+          <a href="{{ section.settings.default_secondary_button_link }}"
+             class="hero-button hero-button-secondary"
+             target="_blank" rel="noopener noreferrer">
             {{ section.settings.default_secondary_button_text }}
           </a>
         {% endif %}
@@ -253,6 +254,24 @@
   </div>
 </section>
 
+<script>
+  document.querySelectorAll('[data-smooth-scroll="true"]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var href = this.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        var id = href.slice(1);
+        // Try exact match first, then partial match (Shopify prepends template ID)
+        var target = document.getElementById(id) || document.querySelector('[id$="__' + id + '"]') || document.querySelector('[id*="' + id + '"]');
+        if (target) {
+          e.preventDefault();
+          var headerHeight = document.querySelector('#shopify-section-header') ? document.querySelector('#shopify-section-header').offsetHeight : 0;
+          var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
 
 {% schema %}
 {
