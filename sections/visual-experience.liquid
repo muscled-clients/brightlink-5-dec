@@ -129,10 +129,13 @@
             <a href="{{ section.settings.secondary_btn_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="visual-experience__btn--secondary">
               {{ section.settings.secondary_btn_text | default: 'BOOK A CALL' }}
             </a>
-            {% if section.settings.price_text != blank %}
-              <span class="visual-experience__divider"></span>
-              <span class="visual-experience__price">{{ section.settings.price_text }}</span>
-            {% endif %}
+            <span class="visual-experience__divider"></span>
+            <span class="visual-experience__price">
+              {% if product.compare_at_price > product.price %}
+                <span class="visual-experience__compare-price">{{ product.compare_at_price | money }}</span>
+              {% endif %}
+              {{ product.price | money }}
+            </span>
           </div>
         </div>
       </div>

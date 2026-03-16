@@ -143,11 +143,12 @@
 
     <!-- CTA Section -->
     <div class="technical-specs__cta">
-      {% if section.settings.price_text != blank %}
-        <div class="technical-specs__price">
-          {{ section.settings.price_text }}
-        </div>
-      {% endif %}
+      <div class="technical-specs__price">
+        {% if product.compare_at_price > product.price %}
+          <span class="technical-specs__compare-price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        {{ product.price | money }}
+      </div>
 
       <div class="technical-specs__cta-buttons">
         {% if section.settings.button_1_text != blank %}

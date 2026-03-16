@@ -93,13 +93,19 @@
         {% endunless %}
       {% endif %}
 
-      <!-- Price (static) -->
-      {% assign price_product = section.settings.button_1_product | default: default_config.settings.product %}
+      <!-- Price (dynamic from matched variant) -->
       <div class="hero-video-wall__price-wrapper">
-        {% if price_product != blank %}
-          <span class="hero-video-wall__current-price" id="hero-current-price">{{ price_product.price | money }}</span>
-          {% if price_product.compare_at_price > price_product.price %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ price_product.compare_at_price | money }}</span>
+        {% if first_matched_variant %}
+          <span class="hero-video-wall__current-price" id="hero-current-price">{{ first_matched_variant.price | money }}</span>
+          {% if first_matched_variant.compare_at_price > first_matched_variant.price %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ first_matched_variant.compare_at_price | money }}</span>
+          {% else %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
+          {% endif %}
+        {% elsif product %}
+          <span class="hero-video-wall__current-price" id="hero-current-price">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ product.compare_at_price | money }}</span>
           {% else %}
             <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
           {% endif %}

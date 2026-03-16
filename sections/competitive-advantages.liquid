@@ -989,11 +989,12 @@
     </div>
 
     <div class="competitive-advantages__cta">
-      {% if section.settings.price_text != blank %}
-        <div class="competitive-advantages__price">
-          {{ section.settings.price_text }}
-        </div>
-      {% endif %}
+      <div class="competitive-advantages__price">
+        {% if product.compare_at_price > product.price %}
+          <span class="competitive-advantages__compare-price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+        {{ product.price | money }}
+      </div>
 
       <div class="competitive-advantages__buttons">
         {% if section.settings.button_text != blank %}

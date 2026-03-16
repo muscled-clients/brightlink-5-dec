@@ -329,11 +329,12 @@
       <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
 
       <div class="system-configuration__cta-box">
-        {% if section.settings.price_text != blank %}
-          <div class="system-configuration__price">
-            {{ section.settings.price_text }}
-          </div>
-        {% endif %}
+        <div class="system-configuration__price">
+          {% if product.compare_at_price > product.price %}
+            <span class="system-configuration__compare-price">{{ product.compare_at_price | money }}</span>
+          {% endif %}
+          {{ product.price | money }}
+        </div>
 
         <div class="system-configuration__cta-buttons">
           {% if section.settings.primary_btn_text != blank %}

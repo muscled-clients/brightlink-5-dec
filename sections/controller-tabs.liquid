@@ -267,9 +267,12 @@
 
                     <!-- CTA Box -->
                     <div class="controller-tabs__cta">
-                      {% if block.settings.price_text != blank %}
-                        <span class="controller-tabs__price">{{ block.settings.price_text }}</span>
-                      {% endif %}
+                      <span class="controller-tabs__price">
+                        {% if product.compare_at_price > product.price %}
+                          <span class="controller-tabs__compare-price">{{ product.compare_at_price | money }}</span>
+                        {% endif %}
+                        {{ product.price | money }}
+                      </span>
                       <button type="button" class="controller-tabs__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
                         {{ block.settings.primary_btn_text | default: 'ORDER NOW' }}
                       </button>
