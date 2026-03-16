@@ -94,8 +94,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     {{ content_for_header }}
 
+    {%- comment -%}Hide terms checkbox until JS unchecks it, preventing the checked flash{%- endcomment -%}
+    <style>.mini-cart input[type="checkbox"] { visibility: hidden; } .mini-cart input[type="checkbox"].terms-ready { visibility: visible; }</style>
+
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
     <link rel="stylesheet" href="{{ 'custom.css' | asset_url }}">
+
+
+    {% comment %} my custom css for product page and footer start {% endcomment %}
+
+       <link rel="stylesheet" href="{{ 'product-metafields-custom.css.liquid' | asset_url }}">
+
+    {% comment %} my custom css for product page and footer start {% endcomment %}
 
     {%- comment -%}LED Template Hexagon Background{%- endcomment -%}
     {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
