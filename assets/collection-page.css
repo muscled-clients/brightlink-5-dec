@@ -1,0 +1,541 @@
+/* ============================================================
+   Collection Page — Dark Theme
+   Scoped to #main only — header and footer are unaffected
+   Background: #0a0e1a | Text: #ffffff
+   ============================================================ */
+
+/* Page body background */
+body.collection-page {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* All content sections inside #main */
+body.collection-page #main {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+body.collection-page #main .shopify-section,
+body.collection-page #main .container,
+body.collection-page #main .page-content {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+/* Common text elements */
+body.collection-page #main h1,
+body.collection-page #main h2,
+body.collection-page #main h3,
+body.collection-page #main h4,
+body.collection-page #main h5,
+body.collection-page #main h6,
+body.collection-page #main p,
+body.collection-page #main span,
+body.collection-page #main li,
+body.collection-page #main label,
+body.collection-page #main div {
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Collection header / card wrapper
+   ============================================================ */
+
+body.collection-page #main .card,
+body.collection-page #main .card__section,
+body.collection-page #main .card__header {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .collection__title {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .collection__description,
+body.collection-page #main .collection__products-count {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+/* ============================================================
+   Toolbar — sort, layout, display pickers
+   ============================================================ */
+
+body.collection-page #main .collection__toolbar {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .value-picker-button {
+  background: transparent !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .value-picker {
+  background: #0d1224 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .value-picker__inner,
+body.collection-page #main .value-picker__header {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .value-picker__title,
+body.collection-page #main .value-picker__choice-item {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .value-picker__close {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .value-picker__close svg,
+body.collection-page #main .value-picker__close svg path {
+  fill: #ffffff !important;
+}
+
+body.collection-page #main .value-picker__choice-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.collection-page #main .collection__layout-button {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.collection-page #main .collection__layout-button.is-selected {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .collection__layout-label {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* ============================================================
+   Sidebar / desktop filters
+   ============================================================ */
+
+/* Sidebar card wrapper */
+body.collection-page #main .layout__section--secondary .card {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .card__title--small {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .card__separator {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .collection__filter-group {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page #main .collection__filter-group-name {
+  color: #ffffff !important;
+  background: transparent !important;
+}
+
+body.collection-page #main .collection__filter-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+body.collection-page #main .collection__filter-link.is-active {
+  color: #4190D2 !important;
+}
+
+body.collection-page #main .collection__filter-item-active {
+  color: #4190D2 !important;
+}
+
+/* Active filter tags (desktop sidebar) */
+body.collection-page #main .collection__active-filter-item {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Clear all button */
+body.collection-page #main .collection__clear-filter,
+body.collection-page #main .button--transparent {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Checkboxes */
+body.collection-page #main .checkbox {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #ffffff !important;
+}
+
+body.collection-page #main .checkbox-wrapper {
+  background: transparent !important;
+}
+
+body.collection-page #main .collection__filter-checkbox-list li,
+body.collection-page #main .collection__filter-checkbox {
+  background: transparent !important;
+}
+
+/* price range inputs */
+body.collection-page #main .input-prefix {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .input-prefix__field {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .input-prefix__value {
+  background: #1a2035 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* price range slider track and handles */
+body.collection-page #main .range-group {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) var(--range-min),
+    #ffffff var(--range-min),
+    #ffffff var(--range-max),
+    rgba(255, 255, 255, 0.2) var(--range-max),
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+}
+
+body.collection-page #main input[type="range"].range {
+  background: transparent !important;
+}
+
+body.collection-page #main input[type="range"].range::-webkit-slider-thumb {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.collection-page #main input[type="range"].range::-moz-range-thumb {
+  background: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+body.collection-page #main input[type="range"].range::-webkit-slider-runnable-track {
+  background: transparent !important;
+}
+
+body.collection-page #main input[type="range"].range::-moz-range-track {
+  background: transparent !important;
+}
+
+
+/* filter value labels */
+body.collection-page #main .collection__filter-value-label,
+body.collection-page #main .collection__filter-checkbox-list label {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ============================================================
+   Mobile filter drawer
+   ============================================================ */
+
+body.collection-page .drawer {
+  background: #0d1224 !important;
+}
+
+body.collection-page .drawer__inner {
+  background: #0d1224 !important;
+}
+
+body.collection-page .collection-drawer {
+  background: #0d1224 !important;
+}
+
+body.collection-page .collection-drawer__inner {
+  background: #0d1224 !important;
+}
+
+body.collection-page .collection-drawer__header {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer__title {
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer__section-title {
+  color: rgba(255, 255, 255, 0.5) !important;
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page .collection-drawer__footer {
+  background: #0d1224 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* All text inside mobile drawer */
+body.collection-page .collection-drawer h1,
+body.collection-page .collection-drawer h2,
+body.collection-page .collection-drawer h3,
+body.collection-page .collection-drawer p,
+body.collection-page .collection-drawer span,
+body.collection-page .collection-drawer div,
+body.collection-page .collection-drawer label,
+body.collection-page .collection-drawer li,
+body.collection-page .collection-drawer button {
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer .collection__filter-group {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.collection-page .collection-drawer .checkbox {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+body.collection-page .collection-drawer .input-prefix {
+  background: #1a2035 !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page .collection-drawer .input-prefix__field {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+}
+
+body.collection-page .collection-drawer .input-prefix__value {
+  background: #1a2035 !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.collection-page .collection-drawer .range-group {
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.2) var(--range-min),
+    #ffffff var(--range-min),
+    #ffffff var(--range-max),
+    rgba(255, 255, 255, 0.2) var(--range-max),
+    rgba(255, 255, 255, 0.2) 100%
+  ) !important;
+}
+
+body.collection-page .collection-drawer input[type="range"].range::-webkit-slider-thumb {
+  background: #ffffff !important;
+}
+
+body.collection-page .collection-drawer input[type="range"].range::-moz-range-thumb {
+  background: #ffffff !important;
+}
+
+/* ============================================================
+   Active filter tags (mobile)
+   ============================================================ */
+
+body.collection-page #main .collection__mobile-active-filter-item {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .collection__mobile-active-filters-results {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Quick view button */
+body.collection-page #main .button--ternary {
+  color: #ffffff !important;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset !important;
+}
+
+body.collection-page #main .button--ternary:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Product list area — main card wrapper
+   ============================================================ */
+
+body.collection-page #main .collection__dynamic-part.card,
+body.collection-page #main .product-list,
+body.collection-page #main .product-list--collection,
+body.collection-page #main .layout__section,
+body.collection-page #main .layout {
+  background: transparent !important;
+}
+
+/* ============================================================
+   Product cards
+   ============================================================ */
+
+body.collection-page #main .product-item {
+  background: transparent !important;
+}
+
+body.collection-page #main .product-item__info,
+body.collection-page #main .product-item__title,
+body.collection-page #main .product-item__vendor {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .price {
+  color: #ffffff !important;
+}
+
+body.collection-page #main .price--compare {
+  color: #ff6b6b !important;
+}
+
+/* ============================================================
+   Recently viewed section
+   ============================================================ */
+
+body.collection-page #main .scroller,
+body.collection-page #main .scroller__inner,
+body.collection-page #main .product-list--scrollable {
+  background: transparent !important;
+}
+
+/* ============================================================
+   Pagination
+   ============================================================ */
+
+body.collection-page #main .pagination__item {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.collection-page #main .pagination__item.is-current {
+  background: #4190D2 !important;
+  border-color: #4190D2 !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Breadcrumb
+   ============================================================ */
+
+body.collection-page #main .breadcrumb__item {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+body.collection-page #main .breadcrumb__link {
+  color: #4190D2 !important;
+}
+
+/* ============================================================
+   Recently viewed section
+   ============================================================ */
+
+body.collection-page #main .section__title {
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Quick view modal
+   ============================================================ */
+
+body.collection-page .modal__dialog {
+  background: #0a0e1a !important;
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog h1,
+body.collection-page .modal__dialog h2,
+body.collection-page .modal__dialog h3,
+body.collection-page .modal__dialog p,
+body.collection-page .modal__dialog span,
+body.collection-page .modal__dialog div,
+body.collection-page .modal__dialog label {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog .card,
+body.collection-page .modal__dialog .card__section {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Quantity selector */
+body.collection-page .modal__dialog .quantity-selector,
+body.collection-page .modal__dialog .quantity-selector__button,
+body.collection-page .modal__dialog .quantity-selector__value {
+  background: #1a2035 !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Installer finder box */
+body.collection-page .modal__dialog .my-request-zone-parent {
+  background: transparent !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Price */
+body.collection-page .modal__dialog .price {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__dialog .price--compare {
+  color: #ff6b6b !important;
+}
+
+/* Close button */
+body.collection-page .modal__close {
+  color: #ffffff !important;
+}
+
+body.collection-page .modal__close svg,
+body.collection-page .modal__close svg path {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   Flickity scroller prev/next arrow buttons
+   ============================================================ */
+
+body.collection-page #main .flickity-prev-next-button {
+  background: #ffffff !important;
+  border: none !important;
+}
+
+body.collection-page #main .flickity-prev-next-button:hover {
+  background: #e0e0e0 !important;
+}
+
+body.collection-page #main .flickity-prev-next-button svg {
+  fill: #000000 !important;
+}
+
+/* ============================================================
+   SVG icons
+   ============================================================ */
+
+body.collection-page #main svg path,
+body.collection-page #main svg circle,
+body.collection-page #main svg rect,
+body.collection-page #main svg polyline,
+body.collection-page #main svg line {
+  stroke: currentColor !important;
+}
+
+body.collection-page #main .icon svg path[fill]:not([fill="none"]) {
+  fill: #ffffff !important;
+}
