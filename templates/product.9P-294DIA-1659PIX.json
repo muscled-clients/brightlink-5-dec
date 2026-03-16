@@ -1549,7 +1549,6 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
-            "product": "test-brightlink-av-new-large-scale-163-max-spectrum-led-display-high-definition-1-875mm-small-pitch-16-9-ration-2-073-600-pixels-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1557,7 +1556,6 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1565,7 +1563,6 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1580,9 +1577,6 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability.",
-        "image_width": 570,
-        "image_height": 395,
-        "image_fit": "contain",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
