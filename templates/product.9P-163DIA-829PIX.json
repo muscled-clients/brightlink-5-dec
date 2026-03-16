@@ -253,7 +253,7 @@
         "product_config_VANDm7": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -303,7 +303,7 @@
         "product_config_WemJJc": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy-copy",
             "diagonal": "190\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "4.06M",
@@ -511,25 +511,25 @@
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/6x6_FRONT1_SCREEN.png",
-            "slide_title": "Brightlink Pro Spectrum 163\"/.9mm",
-            "slide_description": "(FUll 4k 8,294,400 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
+            "slide_image": "shopify://shop_images/image_8.png",
+            "slide_title": "Real-Time Financial Data at Scale",
+            "slide_description": "Mission-critical market visualization with zero latency"
           }
         },
         "slide_YTbLzi": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/6x6_BACK1.png",
-            "slide_title": "Brightlink Pro Spectrum 163\"/.9mm",
-            "slide_description": "(FUll 4k 8,294,400 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
+            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
+            "slide_title": "Immersive Entertainment",
+            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
         },
         "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/6x6_FRONT2.png",
-            "slide_title": "Brightlink Pro Spectrum 163\"/.9mm",
-            "slide_description": "(FUll 4k 8,294,400 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
+            "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
+            "slide_title": "Corporate Communications",
+            "slide_description": "Professional displays for boardrooms and lobbies"
           }
         }
       },
@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY INSTALL",
+            "card_title": "1 DAY",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -643,7 +643,7 @@
           "settings": {
             "icon_type": "grid",
             "card_title": "8.29M PIXELS",
-            "card_subtitle": "Full 4K Resolution",
+            "card_subtitle": "True 4K Resolution",
             "card_desc": "3840 x 2160 active pixels"
           }
         },
@@ -707,7 +707,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Weight per cabinet"
+            "card_desc": "Size per cabinet"
           }
         }
       },
@@ -829,7 +829,7 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 6×6 cabinet array delivering 8.29 million pixels across 163 inches of seamless display surface",
+        "subheading": "Precision-engineered 6×6 cabinet array delivering 8.2 million pixels across 163 inches of seamless display surface",
         "display_image": "shopify://shop_images/COB_6x6_FRONT1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
@@ -840,7 +840,7 @@
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
-        "cabinet_visual_sublabel": "640 × 360 pixels per cabinet",
+        "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
         "cabinet_subtitle": "Precision-engineered modular unit",
         "cabinet_dimensions": "600mm × 337.5mm × 25mm",
@@ -887,10 +887,10 @@
         "metric1_value": "6x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "90x",
+        "metric2_value": "86x",
         "metric2_label": "Equivalent",
         "metric2_desc": "to 17\" diagonal display",
-        "metric3_value": "78",
+        "metric3_value": "76",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
+            "config1": "4× Full HD 1080p input cards",
             "config2": "40× CAT6 Ethernet outputs (2×20-port cards)",
-            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
