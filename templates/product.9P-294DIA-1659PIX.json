@@ -217,10 +217,10 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_Xm9pRV": {
+    "hero_video_wall_pRqPhU": {
       "type": "hero-video-wall",
       "blocks": {
-        "product_config_q7K2nV": {
+        "product_config_Wtkd3z": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-9mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -230,7 +230,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_r8L3oW": {
+        "product_config_PzbmAP": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-25mm-1-2-4k-4-665-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -240,7 +240,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_s9M4pX": {
+        "product_config_8wDdRF": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -250,27 +250,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_RiMqiB": {
+        "product_config_kNTK4i": {
           "type": "product_config",
           "settings": {
-            "product": "",
-            "diagonal": "163\"",
-            "pixel_pitch": "0.9mm",
-            "total_pixels": "8.29M",
-            "aspect_ratio": "16:9"
-          }
-        },
-        "product_config_t0N5qY": {
-          "type": "product_config",
-          "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_u1O6rZ": {
+        "product_config_Xh7zW3": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-1-25mm-1-2-4k-4-536-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -280,7 +270,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_v2P7sA": {
+        "product_config_KhTjTJ": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-21-9-1-56mm-1-5-x-1080p-2-903-040-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -290,7 +280,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_w3Q8tB": {
+        "product_config_zByPib": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -300,17 +290,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_x4R9uC": {
+        "product_config_UchbCR": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
+            "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "6.35M",
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_y5S0vD": {
+        "product_config_P3tAJc": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -320,7 +310,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_z6T1wE": {
+        "product_config_KPie9a": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -330,17 +320,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_a7U2xF": {
+        "product_config_A8LJPy": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-2-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller",
+            "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "217\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "8.20M",
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_b8V3yG": {
+        "product_config_mjMKcm": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
@@ -350,7 +340,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_c9W4zH": {
+        "product_config_6Tmbci": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -360,7 +350,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_d0X5aI": {
+        "product_config_WD7q8z": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-25mm-3-4-4k-6-998-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -370,7 +360,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_e1Y6bJ": {
+        "product_config_fz8tJ4": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -380,7 +370,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_f2Z7cK": {
+        "product_config_MDdVd4": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h9-controller-4-year-warranty",
@@ -390,7 +380,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_g3A8dL": {
+        "product_config_mxDGH7": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-25mm-above-4k-9-331-200-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -400,7 +390,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_h4B9eM": {
+        "product_config_N8Fk9q": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -412,30 +402,29 @@
         }
       },
       "block_order": [
-        "product_config_q7K2nV",
-        "product_config_r8L3oW",
-        "product_config_s9M4pX",
-        "product_config_RiMqiB",
-        "product_config_t0N5qY",
-        "product_config_u1O6rZ",
-        "product_config_v2P7sA",
-        "product_config_w3Q8tB",
-        "product_config_x4R9uC",
-        "product_config_y5S0vD",
-        "product_config_z6T1wE",
-        "product_config_a7U2xF",
-        "product_config_b8V3yG",
-        "product_config_c9W4zH",
-        "product_config_d0X5aI",
-        "product_config_e1Y6bJ",
-        "product_config_f2Z7cK",
-        "product_config_g3A8dL",
-        "product_config_h4B9eM"
+        "product_config_Wtkd3z",
+        "product_config_PzbmAP",
+        "product_config_8wDdRF",
+        "product_config_kNTK4i",
+        "product_config_Xh7zW3",
+        "product_config_KhTjTJ",
+        "product_config_zByPib",
+        "product_config_UchbCR",
+        "product_config_P3tAJc",
+        "product_config_KPie9a",
+        "product_config_A8LJPy",
+        "product_config_mjMKcm",
+        "product_config_6Tmbci",
+        "product_config_WD7q8z",
+        "product_config_fz8tJ4",
+        "product_config_MDdVd4",
+        "product_config_mxDGH7",
+        "product_config_N8Fk9q"
       ],
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
+        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
@@ -466,31 +455,31 @@
         "custom_class": ""
       }
     },
-    "trusted_leaders_Vy7mNQ": {
+    "trusted_leaders_HxDhib": {
       "type": "trusted-leaders",
       "blocks": {
-        "company_Gk3pRs": {
+        "company_FyNxNy": {
           "type": "company",
           "settings": {
             "company_name": "SpaceX",
             "company_link": ""
           }
         },
-        "company_Hl4qSt": {
+        "company_Jd9M3r": {
           "type": "company",
           "settings": {
             "company_name": "University of Hawaii",
             "company_link": ""
           }
         },
-        "company_Im5rTu": {
+        "company_3EiYAE": {
           "type": "company",
           "settings": {
             "company_name": "Epic Games",
             "company_link": ""
           }
         },
-        "company_Jn6sUv": {
+        "company_athRmC": {
           "type": "company",
           "settings": {
             "company_name": "City of Mesa",
@@ -499,10 +488,10 @@
         }
       },
       "block_order": [
-        "company_Gk3pRs",
-        "company_Hl4qSt",
-        "company_Im5rTu",
-        "company_Jn6sUv"
+        "company_FyNxNy",
+        "company_Jd9M3r",
+        "company_3EiYAE",
+        "company_athRmC"
       ],
       "name": "Trusted Leaders",
       "settings": {
@@ -516,10 +505,10 @@
         "custom_class": ""
       }
     },
-    "product_showcase_Dw8nOP": {
+    "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_Kp7tWx": {
+        "slide_3AqnPF": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify://shop_images/image_8.png",
@@ -527,7 +516,7 @@
             "slide_description": "Mission-critical market visualization with zero latency"
           }
         },
-        "slide_Lq8uXy": {
+        "slide_YTbLzi": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
@@ -535,7 +524,7 @@
             "slide_description": "Crystal clear visuals for the ultimate viewing experience"
           }
         },
-        "slide_Mr9vYz": {
+        "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
@@ -545,9 +534,9 @@
         }
       },
       "block_order": [
-        "slide_Kp7tWx",
-        "slide_Lq8uXy",
-        "slide_Mr9vYz"
+        "slide_3AqnPF",
+        "slide_YTbLzi",
+        "slide_j9d3Vx"
       ],
       "name": "Product Showcase",
       "settings": {
@@ -568,14 +557,14 @@
         "custom_class": ""
       }
     },
-    "competitive_advantages_Fx9oPQ": {
+    "competitive_advantages_CEETTB": {
       "type": "competitive-advantages",
       "blocks": {
-        "card_Ns0wZa": {
+        "card_AbG6rc": {
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY INSTALL",
+            "card_title": "2-4 HOURS",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -586,7 +575,7 @@
             "footer_desc": "Minimize operational disruption and reduce installation costs by 70%"
           }
         },
-        "card_Ot1xAb": {
+        "card_kDtYc6": {
           "type": "card",
           "settings": {
             "icon_type": "layers",
@@ -601,7 +590,7 @@
             "footer_desc": "Perfect image integrity for mission-critical applications and premium presentations"
           }
         },
-        "card_Pu2yBc": {
+        "card_FMYPTY": {
           "type": "card",
           "settings": {
             "icon_type": "infinity",
@@ -618,9 +607,9 @@
         }
       },
       "block_order": [
-        "card_Ns0wZa",
-        "card_Ot1xAb",
-        "card_Pu2yBc"
+        "card_AbG6rc",
+        "card_kDtYc6",
+        "card_FMYPTY"
       ],
       "name": "Competitive Advantages",
       "settings": {
@@ -646,28 +635,28 @@
         "custom_class": ""
       }
     },
-    "technical_specs_Gy0pQR": {
+    "technical_specs_9TtCQU": {
       "type": "technical-specs",
       "blocks": {
-        "spec_card_Qv3zCd": {
+        "spec_card_6WbGyW": {
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "16.59M PIXELS",
-            "card_subtitle": "1/2x 8K Resolution",
-            "card_desc": "16,588,800 active pixels"
+            "card_title": "8.2M PIXELS",
+            "card_subtitle": "True 4K Resolution",
+            "card_desc": "3840 x 2160 active pixels"
           }
         },
-        "spec_card_Rw4aDE": {
+        "spec_card_AHg3xw": {
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "0.9MM",
+            "card_title": "1.25MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
         },
-        "spec_card_Sx5bEf": {
+        "spec_card_3LQE7H": {
           "type": "spec_card",
           "settings": {
             "icon_type": "refresh",
@@ -676,7 +665,7 @@
             "card_desc": "Zero flicker, smooth motion"
           }
         },
-        "spec_card_Ty6cFg": {
+        "spec_card_HGKmnt": {
           "type": "spec_card",
           "settings": {
             "icon_type": "brightness",
@@ -685,7 +674,7 @@
             "card_desc": "HDR-capable, adjustable"
           }
         },
-        "spec_card_Uz7dGh": {
+        "spec_card_hVBBB6": {
           "type": "spec_card",
           "settings": {
             "icon_type": "contrast",
@@ -694,7 +683,7 @@
             "card_desc": "Deep blacks, vivid colors"
           }
         },
-        "spec_card_Va8eHi": {
+        "spec_card_4Bq8ia": {
           "type": "spec_card",
           "settings": {
             "icon_type": "view",
@@ -703,7 +692,7 @@
             "card_desc": "Consistent from all positions"
           }
         },
-        "spec_card_Wb9fIj": {
+        "spec_card_6xdNfG": {
           "type": "spec_card",
           "settings": {
             "icon_type": "layers",
@@ -712,25 +701,25 @@
             "card_desc": "Industry's thinnest at 1 inch"
           }
         },
-        "spec_card_Xc0gJk": {
+        "spec_card_4ALMrk": {
           "type": "spec_card",
           "settings": {
             "icon_type": "weight",
-            "card_title": "3.78KG / 8.3LB",
+            "card_title": "3.78KG 8.3LB",
             "card_subtitle": "Lightweight Design",
             "card_desc": "Size per cabinet"
           }
         }
       },
       "block_order": [
-        "spec_card_Qv3zCd",
-        "spec_card_Rw4aDE",
-        "spec_card_Sx5bEf",
-        "spec_card_Ty6cFg",
-        "spec_card_Uz7dGh",
-        "spec_card_Va8eHi",
-        "spec_card_Wb9fIj",
-        "spec_card_Xc0gJk"
+        "spec_card_6WbGyW",
+        "spec_card_AHg3xw",
+        "spec_card_3LQE7H",
+        "spec_card_HGKmnt",
+        "spec_card_hVBBB6",
+        "spec_card_4Bq8ia",
+        "spec_card_6xdNfG",
+        "spec_card_4ALMrk"
       ],
       "name": "Technical Specs",
       "settings": {
@@ -755,10 +744,10 @@
         "custom_class": ""
       }
     },
-    "product_intelligence_Hz1qRS": {
+    "product_intelligence_i3x89A": {
       "type": "product-intelligence",
       "blocks": {
-        "overview_tab_Yd1hKl": {
+        "overview_tab_Pa8cLd": {
           "type": "overview_tab",
           "settings": {
             "tab_title": "Overview",
@@ -772,28 +761,28 @@
             "secondary_btn_link": ""
           }
         },
-        "specs_tab_Ze2iLm": {
+        "specs_tab_y4igie": {
           "type": "specs_tab",
           "settings": {
             "tab_title": "Specifications",
             "tab_icon": "specs"
           }
         },
-        "features_tab_Af3jMn": {
+        "features_tab_wEjVQ8": {
           "type": "features_tab",
           "settings": {
             "tab_title": "Features & Benefits",
             "tab_icon": "features"
           }
         },
-        "included_tab_Bg4kNo": {
+        "included_tab_i7Qmne": {
           "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
             "tab_icon": "included"
           }
         },
-        "installation_tab_Ch5lOp": {
+        "installation_tab_rCMbMm": {
           "type": "installation_tab",
           "settings": {
             "tab_title": "Installation Guide",
@@ -801,7 +790,7 @@
             "installer_link": ""
           }
         },
-        "support_tab_Di6mPq": {
+        "support_tab_CePUQe": {
           "type": "support_tab",
           "settings": {
             "tab_title": "Support & Resources",
@@ -810,12 +799,12 @@
         }
       },
       "block_order": [
-        "overview_tab_Yd1hKl",
-        "specs_tab_Ze2iLm",
-        "features_tab_Af3jMn",
-        "included_tab_Bg4kNo",
-        "installation_tab_Ch5lOp",
-        "support_tab_Di6mPq"
+        "overview_tab_Pa8cLd",
+        "specs_tab_y4igie",
+        "features_tab_wEjVQ8",
+        "included_tab_i7Qmne",
+        "installation_tab_rCMbMm",
+        "support_tab_CePUQe"
       ],
       "name": "Product Intelligence",
       "settings": {
@@ -834,30 +823,30 @@
         "custom_class": ""
       }
     },
-    "system_configuration_Ia2rST": {
+    "system_configuration_HNRj7k": {
       "type": "system-configuration",
       "name": "System Configuration",
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered cabinet array delivering 16.59 million pixels across 294 inches of seamless display surface",
-        "display_image": "shopify://shop_images/image_2_1.png",
-        "info1_heading": "PIXEL PERFECT",
-        "info1_subheading": "Precision Alignment",
-        "info2_heading": "SEAMLESS",
-        "info2_subheading": "Zero Bezel Gap",
-        "info3_heading": "MODULAR",
-        "info3_subheading": "Easy Assembly",
-        "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
+        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
+        "display_image": "shopify://shop_images/New_Project_1.png",
+        "mobile_image": "shopify://shop_images/image_2_3.png",
+        "info1_heading": "8 CABINETS WIDE",
+        "info1_subheading": "4,800mm (15.75 feet)",
+        "info2_heading": "8 CABINETS HIGH",
+        "info2_subheading": "2,700mm (8.86 feet)",
+        "info3_heading": "217\" DIAGONAL",
+        "info3_subheading": "8,294,400 TOTAL PIXELS",
+        "cabinet_image": "shopify://shop_images/Frame_1410111166_2.png",
         "cabinet_visual_label": "4 COB Modules",
-        "cabinet_visual_sublabel": "640 x 360 pixels per cabinet",
+        "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
         "cabinet_subtitle": "Precision-engineered modular unit",
-        "cabinet_dimensions": "600mm x 337.5mm x 25mm",
-        "cabinet_imperial": "23.62\" x 13.3\" x 1\"",
+        "cabinet_dimensions": "600mm × 337.5mm × 25mm",
+        "cabinet_imperial": "23.62\" × 13.3\" × 1\"",
         "cabinet_weight": "3.7kg (8.3 lbs)",
-        "cabinet_resolution": "640 x 360 pixels",
+        "cabinet_resolution": "480 × 270 pixels",
         "cabinet_modules": "4 COB modules",
         "connection_image": "shopify://shop_images/div_5.png",
         "connection_title": "Cabinet Connection Detail",
@@ -887,48 +876,48 @@
         "custom_class": ""
       }
     },
-    "experience_scale_Jb3sUV": {
+    "experience_scale_gDgaxe": {
       "type": "experience-scale",
       "name": "Experience Scale",
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "294 inches of immersive visual excellence",
-        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
-        "metric1_value": "12x",
+        "subtitle": "217 inches of immersive visual excellence",
+        "image": "shopify://shop_images/image_1_1.png",
+        "metric1_value": "36x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "183x",
-        "metric2_label": "Equivalent",
-        "metric2_desc": "to 17\" diagonal display",
-        "metric3_value": "157",
-        "metric3_label": "sq ft",
-        "metric3_desc": "of visual real estate",
+        "metric2_value": "4x",
+        "metric2_label": "EQUIVALENT TO",
+        "metric2_desc": "110\" commercial displays",
+        "metric3_value": "141 sq ft",
+        "metric3_label": "COVERS",
+        "metric3_desc": "square",
         "cta_text": "Configure Your Display",
         "cta_link": "",
-        "info1_heading": "Pixel Perfect",
-        "info1_subheading": "Crystal clear visuals at any distance",
-        "info2_heading": "Seamless Integration",
-        "info2_subheading": "Fits any space perfectly",
-        "info3_heading": "Professional Grade",
-        "info3_subheading": "Commercial reliability"
+        "info1_heading": "15.75 feet",
+        "info1_subheading": "(4.8 meters)",
+        "info2_heading": "8.86 feet",
+        "info2_subheading": "(2.7 meters)",
+        "info3_heading": "217\"",
+        "info3_subheading": "diagonal"
       }
     },
-    "controller_tabs_Kc4tWX": {
+    "controller_tabs_PkVE8q": {
       "type": "controller-tabs",
       "blocks": {
-        "tab_Ej7nQr": {
+        "tab_ykXrFa": {
           "type": "tab",
           "settings": {
             "tab_title": "Overview",
             "icon": "overview",
             "layout_type": "detailed",
             "simple_title": "",
-            "image": "shopify://shop_images/ChatGPT_Image_Mar_3_2026_07_12_45_PM.png",
+            "image": "shopify://shop_images/9c60d0523fa3bf389b0fb337ddd1ae621ba4a66a.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The NovaStar H9 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 65 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
+            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards.",
             "read_more_link": "",
-            "feature1": "65 million pixel processing capacity",
+            "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
             "feature3": "HDR10 and HLG support",
             "feature4": "10-bit color processing",
@@ -936,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
-            "config2": "80× CAT6 Ethernet outputs (4×20-port cards)",
-            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
+            "config1": "4× Full HD 1080p input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -950,7 +939,7 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_Fk8oRs": {
+        "tab_dbEQGP": {
           "type": "tab",
           "settings": {
             "tab_title": "Complex Integration",
@@ -959,7 +948,7 @@
             "simple_title": "",
             "image": "shopify://shop_images/image_5_1.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The H Series integrates splice processing and display control through module mainframe connectivity, offering a simplified All-in-One structure. This reduces equipment failure rates and improves operation and maintenance.",
+            "description": "The H Series integrates splice processing and display control through module mainframe connectivity, offering a simplified All-in-One structure.",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -983,7 +972,7 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_Gl9pSt": {
+        "tab_gn7jTA": {
           "type": "tab",
           "settings": {
             "tab_title": "True 4k",
@@ -992,7 +981,7 @@
             "simple_title": "True 4K Resolution",
             "image": "shopify://shop_images/image_3_3.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The H Series provides true 4K (4K x 2K @ 60Hz, RGB 4:4:4, 10bit) signal collection, processing, and output, ensuring ultra-high resolution displays for professional-grade environments.",
+            "description": "The H Series provides true 4K (4K x 2K @ 60Hz, RGB 4:4:4, 10bit) signal collection, processing, and output.",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -1016,7 +1005,7 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_Hm0qTu": {
+        "tab_rbUgTX": {
           "type": "tab",
           "settings": {
             "tab_title": "60fps Processing",
@@ -1025,7 +1014,7 @@
             "simple_title": "Smooth 60FPS Processing",
             "image": "shopify://shop_images/image_3_4.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The system supports input and output signal processing at full 60FPS, ensuring smooth visuals with no lag or frame loss. This delivers a flawless display experience.",
+            "description": "The system supports input and output signal processing at full 60FPS, ensuring smooth visuals with no lag or frame loss.",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -1049,40 +1038,41 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_In1rUv": {
-          "type": "tab",
+        "tab_slider_YB8tqP": {
+          "type": "tab_slider",
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
             "layout_type": "simple",
-            "simple_title": "",
-            "image": "shopify://shop_images/image_5_2.png",
+            "simple_title": "High Image Quality  Rebuild Original Vision",
+            "image": "shopify://shop_images/image_3_5.png",
+            "image_2": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
+            "description": "The H Series supports HDR and wide color gamut transmission, ensuring vibrant and detailed colors with excellent contrast.",
             "read_more_link": "",
-            "feature1": "26 million pixel processing capacity",
-            "feature2": "Up to 32 layers and multiple screens",
-            "feature3": "HDR10 and HLG support",
-            "feature4": "Hot-swappable modular I/O design",
-            "feature5": "10-bit color processing",
-            "feature6": "Web-based control interface",
+            "feature1": "",
+            "feature2": "",
+            "feature3": "",
+            "feature4": "",
+            "feature5": "",
+            "feature6": "",
             "feature7": "",
-            "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD (1080p) input cards",
-            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
-            "config4": "1× Preview card for real-time monitoring",
+            "config_title": "",
+            "config1": "",
+            "config2": "",
+            "config3": "",
+            "config4": "",
             "config5": "",
-            "button_text": "VIEW FULL CONTROLLER SPECS",
+            "button_text": "",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
-            "primary_btn_text": "ORDER NOW",
+            "price_text": "",
+            "primary_btn_text": "",
             "primary_btn_link": "",
-            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_text": "",
             "secondary_btn_link": ""
           }
         },
-        "tab_Jo2sVw": {
+        "tab_yNLLwF": {
           "type": "tab",
           "settings": {
             "tab_title": "Flexibility",
@@ -1091,7 +1081,7 @@
             "simple_title": "",
             "image": "shopify://shop_images/image_4_1.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The H Series supports numerous layers with an unrestricted arrangement. Each output display/board provides 16 layers (up to 18 layers maximum per port). The layers can freely cross different output loading areas while keeping layer size the same. Layers can be in any position, overlapped, or unlimited scaled. It supports functions such as image capture, layer configuration, layer flip, and more. This all helps you realize your creativity and create a captivating visual effect.",
+            "description": "The H Series supports numerous layers with an unrestricted arrangement. Each output display/board provides 16 layers (up to 18 layers maximum per port).",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -1117,33 +1107,33 @@
         }
       },
       "block_order": [
-        "tab_Ej7nQr",
-        "tab_Fk8oRs",
-        "tab_Gl9pSt",
-        "tab_Hm0qTu",
-        "tab_In1rUv",
-        "tab_Jo2sVw"
+        "tab_ykXrFa",
+        "tab_dbEQGP",
+        "tab_gn7jTA",
+        "tab_rbUgTX",
+        "tab_slider_YB8tqP",
+        "tab_yNLLwF"
       ],
       "name": "Controller Tabs",
       "settings": {
         "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
-        "title": "NovaStar H9 Controller",
+        "title": "NovaStar H2 Controller",
         "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
         "badge_text": "Authorized NovaStar Partner"
       }
     },
-    "applications_tabs_Ld5uYZ": {
+    "applications_tabs_mzRTEp": {
       "type": "applications-tabs",
       "blocks": {
-        "tab_Kp3tWx": {
+        "tab_A6xxmE": {
           "type": "tab",
           "settings": {
             "tab_title": "Digital Signage",
             "icon": "monitor",
-            "image": "shopify://shop_images/Rectangle_4_1.png",
+            "image": "shopify://shop_images/Rectangle_4_7.png",
             "heading": "Digital Signage",
-            "description": "Pro Spectrum's digital signage solutions bring your content to life with vibrant, high-resolution displays, perfect for any environment requiring dynamic, real-time content updates. Elevate your message and capture attention with unmatched clarity and color.",
-            "description2": "Ideal for retail stores, airports, malls, and digital billboards where visual communication is key. These displays seamlessly blend into public spaces, providing clear, engaging content that draws the eye.",
+            "description": "Pro Spectrum's digital signage solutions bring your content to life with vibrant, high-resolution displays.",
+            "description2": "Ideal for retail stores, airports, malls, and digital billboards.",
             "read_more_text": "Read More",
             "why_title": "Why Pro Spectrum?",
             "feature1": "24/7 operation with 100,000-hour lifespan",
@@ -1151,11 +1141,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "Rec Viewing",
+            "stat1_label": "View Distance",
             "stat1_value": "20-50 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "200-500\"",
-            "stat3_label": "Environment",
+            "stat3_label": "Use Case",
             "stat3_value": "Public/Outdoor",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1172,15 +1162,15 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Lq4uXy": {
+        "tab_baDmNY": {
           "type": "tab",
           "settings": {
             "tab_title": "Executive Boardrooms",
             "icon": "briefcase",
-            "image": "shopify://shop_images/Rectangle_4_2.png",
+            "image": "shopify://shop_images/Rectangle_4_8.png",
             "heading": "Executive Boardrooms & Conference Centers",
-            "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
-            "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
+            "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays.",
+            "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces.",
             "read_more_text": "Read More",
             "why_title": "Why Pro Spectrum?",
             "feature1": "24/7 operation with 100,000-hour lifespan",
@@ -1188,11 +1178,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "Rec Viewing",
+            "stat1_label": "View Distance",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Environment",
+            "stat3_label": "Use Case",
             "stat3_value": "High-Traffic",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1209,15 +1199,15 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Mr5vYz": {
+        "tab_xiBRJt": {
           "type": "tab",
           "settings": {
             "tab_title": "Broadcast Studios",
             "icon": "video",
-            "image": "shopify://shop_images/Rectangle_4_3.png",
+            "image": "shopify://shop_images/Rectangle_4_9.png",
             "heading": "Broadcast Studios",
-            "description": "Designed for real-time, high-definition broadcasts. Pro Spectrum's video walls and displays ensure flawless image quality, delivering exceptional detail and clarity for studio settings, newsrooms, and live broadcasting.",
-            "description2": "Ideal for broadcast sets, control rooms, and live broadcast venues where seamless video feeds and high-definition resolution are essential. Perfect for capturing and broadcasting live events in vibrant, true-to-life quality.",
+            "description": "Designed for real-time, high-definition broadcasts with flawless image quality.",
+            "description2": "Ideal for broadcast sets, control rooms, and live broadcast venues.",
             "read_more_text": "Read More",
             "why_title": "Why Pro Spectrum?",
             "feature1": "24/7 operation with 100,000-hour lifespan",
@@ -1225,11 +1215,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "Rec Viewing",
+            "stat1_label": "View Distance",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Environment",
+            "stat3_label": "Use Case",
             "stat3_value": "Studio/Live Broadcast",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1246,15 +1236,15 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Ns6wZa": {
+        "tab_QqhJ7N": {
           "type": "tab",
           "settings": {
             "tab_title": "Control Centers",
             "icon": "layout",
-            "image": "shopify://shop_images/Rectangle_4_4.png",
+            "image": "shopify://shop_images/Rectangle_4_10.png",
             "heading": "Control Centers",
-            "description": "Maximize operational efficiency with Pro Spectrum's high-performance displays, providing critical, real-time information and monitoring for mission-critical environments such as control rooms and emergency response centers.",
-            "description2": "Ideal for data centers, emergency operation rooms, and monitoring stations where every second counts. These displays provide real-time updates, offering quick insights for better decision-making in high-stakes environments.",
+            "description": "Maximize operational efficiency with high-performance displays for mission-critical environments.",
+            "description2": "Ideal for data centers, emergency operation rooms, and monitoring stations.",
             "read_more_text": "Read More",
             "why_title": "Why Pro Spectrum?",
             "feature1": "24/7 operation with 100,000-hour lifespan",
@@ -1262,11 +1252,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "Rec Viewing",
+            "stat1_label": "View Distance",
             "stat1_value": "5-20 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-250\"",
-            "stat3_label": "Environment",
+            "stat3_label": "Use Case",
             "stat3_value": "Critical Operations",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1283,15 +1273,15 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Ot7xAb": {
+        "tab_PQJgQF": {
           "type": "tab",
           "settings": {
             "tab_title": "Retail & Hospitality",
             "icon": "store",
-            "image": "shopify://shop_images/Rectangle_4_5.png",
+            "image": "shopify://shop_images/Rectangle_4_11.png",
             "heading": "Retail & Hospitality",
-            "description": "Create inviting atmospheres and immersive experiences with Pro Spectrum's customizable displays, perfect for retail stores, hotels, and restaurants looking to engage customers with stunning visuals.",
-            "description2": "Ideal for retail spaces, hotel lobbies, and restaurant walls where creating a memorable guest experience is key. The sleek design and high-quality visuals create an inviting atmosphere while displaying dynamic content.",
+            "description": "Create inviting atmospheres and immersive experiences with customizable displays.",
+            "description2": "Ideal for retail spaces, hotel lobbies, and restaurant walls.",
             "read_more_text": "Read More",
             "why_title": "Why Pro Spectrum?",
             "feature1": "24/7 operation with 100,000-hour lifespan",
@@ -1299,11 +1289,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "Rec Viewing",
+            "stat1_label": "View Distance",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Environment",
+            "stat3_label": "Use Case",
             "stat3_value": "Guest Experience",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1322,11 +1312,11 @@
         }
       },
       "block_order": [
-        "tab_Kp3tWx",
-        "tab_Lq4uXy",
-        "tab_Mr5vYz",
-        "tab_Ns6wZa",
-        "tab_Ot7xAb"
+        "tab_A6xxmE",
+        "tab_baDmNY",
+        "tab_xiBRJt",
+        "tab_QqhJ7N",
+        "tab_PQJgQF"
       ],
       "name": "Applications Tabs",
       "settings": {
@@ -1340,7 +1330,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "investment_config_Me6vAB": {
+    "investment_config_XArH8k": {
       "type": "investment-config",
       "name": "Investment Config",
       "settings": {
@@ -1350,11 +1340,11 @@
         "card_label": "COMPLETE SYSTEM",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "Premium cabinets in optimized array",
+        "include_1": "64 premium cabinets (8×8 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
-        "include_5": "NovaStar H9 controller ($8,500 value)",
+        "include_5": "NovaStar H2 controller ($8,500 value)",
         "include_6": "Professional mounting system",
         "include_7": "5% spare modules included",
         "include_8": "Lifetime technical support",
@@ -1363,14 +1353,14 @@
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "",
+        "addon1_product": "brightlink-bl-vt-pro-led-display-vacuum-tool-effortless-front-maintenance-for-led-video-walls",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_product": "",
+        "addon2_product": "1-year-extended-warranty",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_product": ""
+        "addon3_product": "brightlink-s-new-large-scale-138-14-x-500mm-x-1000mm-panel-3-91mm-pitch-led-display-16-9-ration-3-91mm-458-752-pixels-hd-1080p-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller-mounts-4-year-warranty"
       }
     },
-    "custom_config_builder_Nf7wBC": {
+    "custom_config_builder_KRqknj": {
       "type": "custom-config-builder",
       "name": "Custom Config Builder",
       "settings": {
@@ -1386,10 +1376,10 @@
         "payment_link": ""
       }
     },
-    "knowledge_center_Og8xCD": {
+    "knowledge_center_KDhAHL": {
       "type": "knowledge-center",
       "blocks": {
-        "faq_category_Pu8yBc": {
+        "faq_category_XqVaNG": {
           "type": "faq_category",
           "settings": {
             "title": "About Brightlink",
@@ -1402,25 +1392,25 @@
             "question_3": "Where is Brightlink located and operated?",
             "answer_3": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better.",
             "question_4": "Does Brightlink have a physical showroom?",
-            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action and speak with our experts.",
+            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action.",
             "question_5": "Who are Brightlink's typical customers?",
             "answer_5": "Our customers range from small businesses to large corporations, including retail stores, event venues, churches, and entertainment facilities.",
             "question_6": "",
             "answer_6": ""
           }
         },
-        "faq_category_Qv9zCd": {
+        "faq_category_pC9gtf": {
           "type": "faq_category",
           "settings": {
             "title": "Product & Technical",
             "category": "product",
             "icon": "monitor",
             "question_1": "What types of LED displays does Brightlink offer?",
-            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions for various applications.",
+            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions.",
             "question_2": "What is the pixel pitch and why does it matter?",
-            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality for closer viewing distances.",
+            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality.",
             "question_3": "How long do Brightlink LED displays last?",
-            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance and care.",
+            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1429,18 +1419,18 @@
             "answer_6": ""
           }
         },
-        "faq_category_Rw0aDe": {
+        "faq_category_UeFRJz": {
           "type": "faq_category",
           "settings": {
             "title": "Installation & Setup",
             "category": "support",
             "icon": "tool",
             "question_1": "Do you provide installation services?",
-            "answer_1": "Yes, we offer professional installation services to ensure your LED display is set up correctly and optimally.",
+            "answer_1": "Yes, we offer professional installation services.",
             "question_2": "What are the power requirements?",
-            "answer_2": "Power requirements vary by display size and model. Our team will provide specific requirements during the consultation process.",
+            "answer_2": "Power requirements vary by display size and model.",
             "question_3": "How long does installation take?",
-            "answer_3": "Installation time depends on the project scope, but most standard installations can be completed within 1-3 days.",
+            "answer_3": "Most standard installations can be completed within 1-3 days.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1449,18 +1439,18 @@
             "answer_6": ""
           }
         },
-        "faq_category_Sx1bEf": {
+        "faq_category_UtPc8f": {
           "type": "faq_category",
           "settings": {
             "title": "Support & Warranty",
             "category": "support",
             "icon": "headphones",
             "question_1": "What warranty do you offer?",
-            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years depending on the product line.",
+            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years.",
             "question_2": "How do I get technical support?",
-            "answer_2": "Our technical support team is available via phone, email, and live chat to assist with any issues or questions.",
+            "answer_2": "Our technical support team is available via phone, email, and live chat.",
             "question_3": "Do you offer on-site support?",
-            "answer_3": "Yes, we provide on-site support services for complex issues that cannot be resolved remotely.",
+            "answer_3": "Yes, we provide on-site support services for complex issues.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1469,18 +1459,18 @@
             "answer_6": ""
           }
         },
-        "faq_category_Ty2cFg": {
+        "faq_category_U6XgRr": {
           "type": "faq_category",
           "settings": {
             "title": "Shipping & Delivery",
             "category": "shipping",
             "icon": "truck",
             "question_1": "How long does shipping take?",
-            "answer_1": "Shipping times vary based on location and product availability. Standard delivery is typically 2-4 weeks for custom orders.",
+            "answer_1": "Standard delivery is typically 2-4 weeks for custom orders.",
             "question_2": "Do you ship internationally?",
-            "answer_2": "Yes, we ship to most countries worldwide. International shipping times and costs vary by destination.",
+            "answer_2": "Yes, we ship to most countries worldwide.",
             "question_3": "How is the product packaged for shipping?",
-            "answer_3": "All products are carefully packaged in protective materials and custom crating to ensure safe delivery.",
+            "answer_3": "All products are carefully packaged in protective materials and custom crating.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1489,18 +1479,18 @@
             "answer_6": ""
           }
         },
-        "faq_category_Uz3dGh": {
+        "faq_category_BPNzMX": {
           "type": "faq_category",
           "settings": {
             "title": "Payment & Financing",
             "category": "payment",
             "icon": "credit-card",
             "question_1": "What payment methods do you accept?",
-            "answer_1": "We accept major credit cards, bank transfers, and various financing options for qualified customers.",
+            "answer_1": "We accept major credit cards, bank transfers, and various financing options.",
             "question_2": "Do you offer financing options?",
-            "answer_2": "Yes, we offer flexible financing plans to help make your LED display investment more manageable.",
+            "answer_2": "Yes, we offer flexible financing plans.",
             "question_3": "Is a deposit required?",
-            "answer_3": "A deposit is typically required for custom orders. The amount varies based on the project scope.",
+            "answer_3": "A deposit is typically required for custom orders.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1509,18 +1499,18 @@
             "answer_6": ""
           }
         },
-        "faq_category_Va4eHi": {
+        "faq_category_WkzkyF": {
           "type": "faq_category",
           "settings": {
             "title": "Business & Partnerships",
             "category": "partnerships",
             "icon": "handshake",
             "question_1": "Do you offer reseller programs?",
-            "answer_1": "Yes, we have partnership programs for resellers and integrators. Contact us for more information.",
+            "answer_1": "Yes, we have partnership programs for resellers and integrators.",
             "question_2": "Can I become a Brightlink dealer?",
-            "answer_2": "We welcome qualified dealers to join our network. Please reach out to our partnership team for requirements.",
+            "answer_2": "We welcome qualified dealers to join our network.",
             "question_3": "Do you offer bulk discounts?",
-            "answer_3": "Yes, we offer competitive pricing for bulk orders and long-term partnership agreements.",
+            "answer_3": "Yes, we offer competitive pricing for bulk orders.",
             "question_4": "",
             "answer_4": "",
             "question_5": "",
@@ -1531,13 +1521,13 @@
         }
       },
       "block_order": [
-        "faq_category_Pu8yBc",
-        "faq_category_Qv9zCd",
-        "faq_category_Rw0aDe",
-        "faq_category_Sx1bEf",
-        "faq_category_Ty2cFg",
-        "faq_category_Uz3dGh",
-        "faq_category_Va4eHi"
+        "faq_category_XqVaNG",
+        "faq_category_pC9gtf",
+        "faq_category_UeFRJz",
+        "faq_category_UtPc8f",
+        "faq_category_U6XgRr",
+        "faq_category_BPNzMX",
+        "faq_category_WkzkyF"
       ],
       "name": "Knowledge Center",
       "settings": {
@@ -1553,40 +1543,46 @@
         "filter_partnerships": "Partnerships"
       }
     },
-    "visual_experience_Ph9yDE": {
+    "visual_experience_wMKFfe": {
       "type": "visual-experience",
       "blocks": {
-        "slide_Wb5fIj": {
+        "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "test-brightlink-av-new-large-scale-163-max-spectrum-led-display-high-definition-1-875mm-small-pitch-16-9-ration-2-073-600-pixels-gob-protection-slim-mount-led-cabinets-for-indoor-fixed-installs-c-w-novastar-controller",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
         },
-        "slide_Xc6gJk": {
+        "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
         },
-        "slide_Yd7hKl": {
+        "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
         }
       },
       "block_order": [
-        "slide_Wb5fIj",
-        "slide_Xc6gJk",
-        "slide_Yd7hKl"
+        "slide_EpgMCX",
+        "slide_EUNEyn",
+        "slide_nFdytN"
       ],
       "name": "Visual Experience",
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
-        "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability.",
+        "image_width": 570,
+        "image_height": 395,
+        "image_fit": "contain",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
@@ -1594,7 +1590,7 @@
         "price_text": "$19,250.00 (30% DEPOSIT)"
       }
     },
-    "contact_discussion_Qi0zEF": {
+    "contact_discussion_FhbiMV": {
       "type": "contact-discussion",
       "name": "Contact Discussion",
       "settings": {
@@ -1616,7 +1612,7 @@
         "demo_button_link": ""
       }
     },
-    "feature_badges_Rj1aFG": {
+    "feature_badges_QYYeLV": {
       "type": "feature-badges",
       "name": "Feature Badges",
       "settings": {
@@ -1630,47 +1626,6 @@
         "feature4_text": "CE, RoHS, FCC, ISO9001",
         "footer_text": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
       }
-    },
-    "b8deed9e-0e81-4c1b-806c-3c7469277430": {
-      "type": "custom_text-with-icons",
-      "blocks": {
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-delivery",
-            "custom_icon": "shopify://shop_images/Shipping.png",
-            "title": "Fast free shipping*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-returns",
-            "custom_icon": "shopify://shop_images/Returns.png",
-            "title": "30 Days Returns*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-customer-support",
-            "custom_icon": "shopify://shop_images/Secure_Payments.png",
-            "title": "Secure Payment*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3"
-      ],
-      "settings": {
-        "stack_mobile": false,
-        "title": "Why choose us"
-      }
     }
   },
   "order": [
@@ -1678,22 +1633,21 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_Xm9pRV",
-    "trusted_leaders_Vy7mNQ",
-    "product_showcase_Dw8nOP",
-    "competitive_advantages_Fx9oPQ",
-    "technical_specs_Gy0pQR",
-    "product_intelligence_Hz1qRS",
-    "system_configuration_Ia2rST",
-    "experience_scale_Jb3sUV",
-    "controller_tabs_Kc4tWX",
-    "applications_tabs_Ld5uYZ",
-    "investment_config_Me6vAB",
-    "custom_config_builder_Nf7wBC",
-    "knowledge_center_Og8xCD",
-    "visual_experience_Ph9yDE",
-    "contact_discussion_Qi0zEF",
-    "feature_badges_Rj1aFG",
-    "b8deed9e-0e81-4c1b-806c-3c7469277430"
+    "hero_video_wall_pRqPhU",
+    "trusted_leaders_HxDhib",
+    "product_showcase_K3JKfg",
+    "competitive_advantages_CEETTB",
+    "technical_specs_9TtCQU",
+    "product_intelligence_i3x89A",
+    "system_configuration_HNRj7k",
+    "experience_scale_gDgaxe",
+    "controller_tabs_PkVE8q",
+    "applications_tabs_mzRTEp",
+    "investment_config_XArH8k",
+    "custom_config_builder_KRqknj",
+    "knowledge_center_KDhAHL",
+    "visual_experience_wMKFfe",
+    "contact_discussion_FhbiMV",
+    "feature_badges_QYYeLV"
   ]
 }

@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY INSTALL",
+            "card_title": "1 DAY",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -643,8 +643,8 @@
           "settings": {
             "icon_type": "grid",
             "card_title": "8.06M PIXELS",
-            "card_subtitle": "Full 4K Resolution",
-            "card_desc": "4480 x 1800 active pixels"
+            "card_subtitle": "True 4K Resolution",
+            "card_desc": "3840 x 2160 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -707,7 +707,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Weight per cabinet"
+            "card_desc": "Size per cabinet"
           }
         }
       },
@@ -925,9 +925,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
+            "config1": "4× Full HD 1080p input cards",
             "config2": "40× CAT6 Ethernet outputs (2×20-port cards)",
-            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",

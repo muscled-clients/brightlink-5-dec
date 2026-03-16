@@ -17,7 +17,7 @@
           "settings": {
             "show_vendor": false,
             "show_sku": false,
-            "show_reviews_badge": true,
+            "show_reviews_badge": false,
             "show_share_buttons": false
           }
         },
@@ -26,16 +26,36 @@
           "settings": {
             "show_sku": true,
             "show_shipping_info": true,
+            "icon": "shopify://shop_images/div_1c282ff4-fdf7-40e0-beac-a578bbb5a2b6.png",
             "selector_mode": "dropdown",
             "color_mode": "variant_image",
-            "show_quantity_selector": true,
+            "show_quantity_selector": false,
             "show_taxes_included": false,
             "show_inventory_quantity": true,
+            "icon2": "shopify://shop_images/div_1c282ff4-fdf7-40e0-beac-a578bbb5a2b6.png",
             "low_inventory_threshold": 53
+          }
+        },
+        "divider_line_UTcWqd": {
+          "type": "divider_line",
+          "settings": {
+            "line_color": "#ba22a9",
+            "line_width": 100,
+            "line_thickness": 3
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "display_mode": "view_more",
+            "desription_title": "Product Information",
+            "title": "",
+            "text": ""
           }
         },
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -44,7 +64,7 @@
             "title-font-size-mobile": 14,
             "show_product_desc": false,
             "content-name-space": "",
-            "content": "<p>{{ product.metafields.custom.block_product_information.value.accordian_product_information_content | metafield_tag }}</p>",
+            "content": "{{ product.metafields.custom.block_product_information.value.accordian_product_information_content | metafield_tag }}",
             "meta-content-image": "{{ product.metafields.custom.block_product_information.value.accordion_product_information_image.value }}",
             "content-font-size": 16,
             "content-font-size-mobile": 14
@@ -52,6 +72,7 @@
         },
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -67,6 +88,7 @@
         },
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -82,6 +104,7 @@
         },
         "09949fdd-86ca-430b-8a35-54fe50f22c9c": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -97,12 +120,14 @@
         },
         "download_accordion_WThxdX": {
           "type": "download-accordion",
+          "disabled": true,
           "settings": {
             "title": "Downloads"
           }
         },
         "57b5eef3-3db5-4acf-a56e-e6d9cd7f7737": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "metafield",
             "title-name-space": "",
@@ -118,6 +143,7 @@
         },
         "fd62c6b7-26f4-4374-b874-a66dd71682ce": {
           "type": "accordian",
+          "disabled": true,
           "settings": {
             "data-type": "customizer",
             "title-name-space": "",
@@ -140,6 +166,7 @@
         },
         "59761649-86b3-44c5-800a-493acb77417c": {
           "type": "custom-fbt",
+          "disabled": true,
           "settings": {
             "title": "Frequently Bought Together",
             "products": "{{ product.metafields.custom.block_frequently_bought_together.value.product_list.value }}"
@@ -154,15 +181,6 @@
             "amazon_link": "https://www.google.com",
             "distributor_logo2": "shopify://shop_images/Rectangle_2344.png",
             "amazon_link2": "https://www.google.com"
-          }
-        },
-        "description": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "display_mode": "view_more",
-            "title": "",
-            "text": ""
           }
         },
         "2c653889-de9a-4870-89e9-ec8bdfc610d7": {
@@ -214,11 +232,20 @@
             "page": "",
             "display_mode": "show_all"
           }
+        },
+        "text_qQELdj": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "content": "<p>{{ product.metafields.custom.product_description | metafield_tag }}</p>"
+          }
         }
       },
       "block_order": [
         "product_meta",
         "variant_selector",
+        "divider_line_UTcWqd",
+        "description",
         "3f15d1e3-29ed-48c5-ac58-5c8adca50770",
         "adc4100e-fe3c-4f33-b4f1-d8b7ac9c3c5c",
         "ed9fbd09-1abb-4ab4-a62f-931138cd6494",
@@ -229,19 +256,175 @@
         "buy_buttons",
         "59761649-86b3-44c5-800a-493acb77417c",
         "d6ced4ca-4de2-4334-a445-3390c3abf8b1",
-        "description",
         "2c653889-de9a-4870-89e9-ec8bdfc610d7",
         "04b69ffe-0002-411a-a1e0-6f4790447db6",
         "97650900-1f05-4d17-be1a-a0767123954f",
-        "4402ac48-14de-4fd3-9ff6-caf849577038"
+        "4402ac48-14de-4fd3-9ff6-caf849577038",
+        "text_qQELdj"
       ],
       "settings": {
         "new-pdp-page": true,
+        "bg_image": "shopify://shop_images/bg-product.png",
         "image_size": "small",
         "enable_video_looping": true,
         "enable_image_zoom": true,
         "zoom_effect": "outside",
         "carousel_effect": "slide"
+      }
+    },
+    "product_trusted_6e7QXQ": {
+      "type": "product-trusted",
+      "blocks": {
+        "trusted_item_8fMPXU": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "SpaceX",
+            "url": "#"
+          }
+        },
+        "trusted_item_N8pFCh": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "University of Hawaii",
+            "url": "#"
+          }
+        },
+        "trusted_item_J3gipQ": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "Epic Games",
+            "url": "#"
+          }
+        },
+        "trusted_item_N9GzhU": {
+          "type": "trusted_item",
+          "settings": {
+            "label": "City of Mesa",
+            "url": "#"
+          }
+        }
+      },
+      "block_order": [
+        "trusted_item_8fMPXU",
+        "trusted_item_N8pFCh",
+        "trusted_item_J3gipQ",
+        "trusted_item_N9GzhU"
+      ],
+      "disabled": true,
+      "name": "Product Trusted",
+      "settings": {
+        "heading": "Trusted By Industry Leaders",
+        "max_width": 1200,
+        "padding_y": 110,
+        "bg_color": "#050a12",
+        "text_color": "#b7c4d6",
+        "muted_color": "#6b7c93",
+        "accent_color": "#3caaff",
+        "border_color": "#ffffff0f",
+        "pattern_opacity": 14,
+        "items_opacity": 70
+      }
+    },
+    "trusted_leaders_b4gYEb": {
+      "type": "trusted-leaders",
+      "blocks": {
+        "company_MbTKRH": {
+          "type": "company",
+          "settings": {
+            "company_name": "SpaceX",
+            "company_link": ""
+          }
+        },
+        "company_aMCFwf": {
+          "type": "company",
+          "settings": {
+            "company_name": "University of Hawaii",
+            "company_link": ""
+          }
+        },
+        "company_P9GeyC": {
+          "type": "company",
+          "settings": {
+            "company_name": "Epic Games",
+            "company_link": ""
+          }
+        },
+        "company_AbqGgV": {
+          "type": "company",
+          "settings": {
+            "company_name": "City of Mesa",
+            "company_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "company_MbTKRH",
+        "company_aMCFwf",
+        "company_P9GeyC",
+        "company_AbqGgV"
+      ],
+      "name": "Trusted Leaders",
+      "settings": {
+        "heading": "Trusted By Industry Leaders",
+        "slider_speed": 20,
+        "heading_font_size": 24,
+        "company_font_size": 18,
+        "bg_color": "#0a0f14",
+        "text_color": "#ffffff",
+        "separator_color": "#3a4a5e",
+        "custom_class": ""
+      }
+    },
+    "product_showcase_UJDRXQ": {
+      "type": "product-showcase",
+      "blocks": {
+        "slide_abp8bX": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/image_8_1.png",
+            "slide_title": "Entertainment Venues",
+            "slide_description": "Immersive displays that energize fans & elevate live viewing ."
+          }
+        },
+        "slide_HU3QPk": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/Large-Scale-LED-Video-Wall-5_c84639bd-2033-4f4f-a8a1-c31f20c82694.png",
+            "slide_title": "Immersive Entertainment",
+            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+          }
+        },
+        "slide_EMrqBB": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify://shop_images/Large-Scale-LED-Video-Wall-6_0b8e5710-9a4f-43b4-ac93-1ef9a4e0074b.png",
+            "slide_title": "Corporate Communications",
+            "slide_description": "Professional displays for boardrooms and lobbies"
+          }
+        }
+      },
+      "block_order": [
+        "slide_abp8bX",
+        "slide_HU3QPk",
+        "slide_EMrqBB"
+      ],
+      "name": "Product Showcase",
+      "settings": {
+        "section_label": "PRODUCT SHOWCASE",
+        "heading": "Experience Premium Engineering",
+        "subheading": "Every detail crafted for visual excellence",
+        "autoplay": true,
+        "autoplay_speed": 10,
+        "label_font_size": 12,
+        "heading_font_size": 40,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "dot_color": "#4a5d75",
+        "dot_active_color": "#ffffff",
+        "custom_class": ""
       }
     },
     "1651673745108066c9": {
@@ -364,12 +547,14 @@
         "title": "Why choose us"
       }
     },
-    "recently-viewed-products": {
-      "type": "recently-viewed-products",
-      "disabled": true,
+    "custom_slider_pcr_metafield_AHJeFW": {
+      "type": "custom-slider-pcr-metafield",
+      "name": "Custom Slider Metafield",
       "settings": {
-        "title": "Recently viewed",
-        "show_quick_buy": false
+        "section_label": "VERSATILE APPLICATIONS",
+        "section_heading": "Built for Every Environment",
+        "section_subtitle": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance across diverse professional settings",
+        "wrapper-container-width": 100
       }
     },
     "c175c6e0-d557-480c-8ba5-1443a9670d19": {
@@ -396,23 +581,14 @@
         "8f46583b-4611-4c7f-a6af-44efaaa19b31": {
           "type": "video",
           "settings": {
-            "title": "Video",
-            "section-id": "shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"
+            "title": "Video"
           }
         },
         "29d1c919-1da0-497b-82ac-a44532ca48fd": {
           "type": "faq",
           "disabled": true,
           "settings": {
-            "title": "FAQ",
-            "section-id": "shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"
-          }
-        },
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44": {
-          "type": "static",
-          "settings": {
-            "title": "Faq",
-            "section-id": "shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
+            "title": "FAQ"
           }
         }
       },
@@ -421,11 +597,224 @@
         "5d72e470-00a7-4f81-a2ea-f0dca054d2f8",
         "c23ea137-c627-4180-b349-f608456af033",
         "8f46583b-4611-4c7f-a6af-44efaaa19b31",
-        "29d1c919-1da0-497b-82ac-a44532ca48fd",
-        "6814604b-6991-4cb1-9bf9-8e4d878c2f44"
+        "29d1c919-1da0-497b-82ac-a44532ca48fd"
       ],
+      "disabled": true,
       "settings": {
         "title": ""
+      }
+    },
+    "product_details_tL3YDp": {
+      "type": "product-details",
+      "blocks": {
+        "feaures_n7JkNH": {
+          "type": "feaures",
+          "settings": {
+            "title": "Features"
+          }
+        },
+        "specification_xeGYb4": {
+          "type": "specification",
+          "settings": {
+            "title": "Specifications"
+          }
+        },
+        "whats_included_WK6zAf": {
+          "type": "whats_included",
+          "settings": {
+            "title": "What's Included",
+            "content": "16ea 23.62\" x 13.3\" Interlocking Cabinets each with 4 interchangeable GOB / SMD LED modules;124\n  5% Spare modules included;\n  3 YEAR WARRANTY;\n  All connecting power and network cables including spares;\n  1ea VX600 All-in-One LED Wall Controller;\n  1ea Suction tool for easy frontal exchange / repair of modules;\n  1ea Rail system for mounting to wall.",
+            "image": "shopify://shop_images/Rectangle_4_12.png"
+          }
+        },
+        "video_Vd99c8": {
+          "type": "video",
+          "settings": {
+            "title": "Video"
+          }
+        },
+        "downloads_EcUVWi": {
+          "type": "downloads",
+          "settings": {
+            "title": "Download"
+          }
+        }
+      },
+      "block_order": [
+        "feaures_n7JkNH",
+        "specification_xeGYb4",
+        "whats_included_WK6zAf",
+        "video_Vd99c8",
+        "downloads_EcUVWi"
+      ],
+      "name": "Product Details",
+      "settings": {}
+    },
+    "knowledge_center_3QHTWy": {
+      "type": "knowledge-center",
+      "blocks": {
+        "faq_category_TyzMbp": {
+          "type": "faq_category",
+          "settings": {
+            "title": "About Brightlink",
+            "category": "all",
+            "icon": "info",
+            "question_1": "How long has Brightlink been in business?",
+            "answer_1": "Brightlink has been in business for over 10 years, providing high-quality LED display solutions to customers worldwide.",
+            "question_2": "What makes Brightlink different from competitors?",
+            "answer_2": "Brightlink stands out with our commitment to quality, innovative technology, and exceptional customer support.",
+            "question_3": "Where is Brightlink located and operated?",
+            "answer_3": "Brightlink operates globally with headquarters and showrooms in multiple locations to serve our customers better.",
+            "question_4": "Does Brightlink have a physical showroom?",
+            "answer_4": "Yes, Brightlink has physical showrooms where you can see our LED displays in action and speak with our experts.",
+            "question_5": "Who are Brightlink's typical customers?",
+            "answer_5": "Our customers range from small businesses to large corporations, including retail stores, event venues, churches, and entertainment facilities.",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_REQwgz": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Product & Technical",
+            "category": "product",
+            "icon": "monitor",
+            "question_1": "What types of LED displays does Brightlink offer?",
+            "answer_1": "We offer a wide range of LED displays including indoor, outdoor, rental, and custom solutions for various applications.",
+            "question_2": "What is the pixel pitch and why does it matter?",
+            "answer_2": "Pixel pitch is the distance between LED pixels. Smaller pixel pitch means higher resolution and better image quality for closer viewing distances.",
+            "question_3": "How long do Brightlink LED displays last?",
+            "answer_3": "Our LED displays are designed to last 100,000+ hours of operation with proper maintenance and care.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_UMpMgh": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Installation & Setup",
+            "category": "support",
+            "icon": "tool",
+            "question_1": "Do you provide installation services?",
+            "answer_1": "Yes, we offer professional installation services to ensure your LED display is set up correctly and optimally.",
+            "question_2": "What are the power requirements?",
+            "answer_2": "Power requirements vary by display size and model. Our team will provide specific requirements during the consultation process.",
+            "question_3": "How long does installation take?",
+            "answer_3": "Installation time depends on the project scope, but most standard installations can be completed within 1-3 days.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_wyBFhP": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Support & Warranty",
+            "category": "support",
+            "icon": "headphones",
+            "question_1": "What warranty do you offer?",
+            "answer_1": "We offer comprehensive warranties on all our products, typically ranging from 2-5 years depending on the product line.",
+            "question_2": "How do I get technical support?",
+            "answer_2": "Our technical support team is available via phone, email, and live chat to assist with any issues or questions.",
+            "question_3": "Do you offer on-site support?",
+            "answer_3": "Yes, we provide on-site support services for complex issues that cannot be resolved remotely.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_mTMGCx": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Shipping & Delivery",
+            "category": "shipping",
+            "icon": "truck",
+            "question_1": "How long does shipping take?",
+            "answer_1": "Shipping times vary based on location and product availability. Standard delivery is typically 2-4 weeks for custom orders.",
+            "question_2": "Do you ship internationally?",
+            "answer_2": "Yes, we ship to most countries worldwide. International shipping times and costs vary by destination.",
+            "question_3": "How is the product packaged for shipping?",
+            "answer_3": "All products are carefully packaged in protective materials and custom crating to ensure safe delivery.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_ieX7mH": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Payment & Financing",
+            "category": "payment",
+            "icon": "credit-card",
+            "question_1": "What payment methods do you accept?",
+            "answer_1": "We accept major credit cards, bank transfers, and various financing options for qualified customers.",
+            "question_2": "Do you offer financing options?",
+            "answer_2": "Yes, we offer flexible financing plans to help make your LED display investment more manageable.",
+            "question_3": "Is a deposit required?",
+            "answer_3": "A deposit is typically required for custom orders. The amount varies based on the project scope.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        },
+        "faq_category_bYhnQK": {
+          "type": "faq_category",
+          "settings": {
+            "title": "Business & Partnerships",
+            "category": "partnerships",
+            "icon": "handshake",
+            "question_1": "Do you offer reseller programs?",
+            "answer_1": "Yes, we have partnership programs for resellers and integrators. Contact us for more information.",
+            "question_2": "Can I become a Brightlink dealer?",
+            "answer_2": "We welcome qualified dealers to join our network. Please reach out to our partnership team for requirements.",
+            "question_3": "Do you offer bulk discounts?",
+            "answer_3": "Yes, we offer competitive pricing for bulk orders and long-term partnership agreements.",
+            "question_4": "",
+            "answer_4": "",
+            "question_5": "",
+            "answer_5": "",
+            "question_6": "",
+            "answer_6": ""
+          }
+        }
+      },
+      "block_order": [
+        "faq_category_TyzMbp",
+        "faq_category_REQwgz",
+        "faq_category_UMpMgh",
+        "faq_category_wyBFhP",
+        "faq_category_mTMGCx",
+        "faq_category_ieX7mH",
+        "faq_category_bYhnQK"
+      ],
+      "name": "Knowledge Center",
+      "settings": {
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum",
+        "search_placeholder": "Search for answers...",
+        "filter_all": "All",
+        "filter_product": "Product",
+        "filter_support": "Support",
+        "filter_shipping": "Shipping",
+        "filter_payment": "Payment",
+        "filter_partnerships": "Partnerships"
       }
     },
     "3acf3b7d-451e-4a29-90ab-488fc5d406f9": {
@@ -445,6 +834,7 @@
     },
     "067e33fc-b471-498b-9aac-5d93bbadcb12": {
       "type": "video",
+      "disabled": true,
       "settings": {
         "title": "Seamless LED Video Wall Installation",
         "description": "<p>Watch our step-by-step guide to see just how effortlessly you can set up our LED video walls. No hassle, no fuss – just stunning visuals in minutes!</p>",
@@ -454,6 +844,7 @@
     },
     "f8572bb3-e256-48d7-98a9-b3de46803d68": {
       "type": "d8-faq-custom-section",
+      "disabled": true,
       "settings": {
         "sub_heading": "",
         "headingS": "",
@@ -496,6 +887,7 @@
     },
     "fb1341ff-e3cb-49de-ae4a-4c436324bbdd": {
       "type": "custom-slider-pcr",
+      "disabled": true,
       "settings": {
         "emptySpace": false,
         "bg_img": "{{ product.metafields.custom.section_custom_slider_pcr.value.content_background_image.value }}",
@@ -524,6 +916,7 @@
     },
     "be5fcda4-e747-4686-bf2c-597f15159877": {
       "type": "text-with-image",
+      "disabled": true,
       "settings": {
         "heading": "{{ product.metafields.custom.section_text_with_image.value.heading.value }}",
         "text": "{{ product.metafields.custom.section_text_with_image.value.description | metafield_tag }}",
@@ -538,6 +931,7 @@
     },
     "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136": {
       "type": "product-cards",
+      "disabled": true,
       "settings": {
         "product1": "{{ product.metafields.custom.section_product_cards.value.product_image_1.value }}",
         "product1-title": "{{ product.metafields.custom.section_product_cards.value.product_title_1.value }}",
@@ -558,13 +952,6 @@
       "type": "comparison-table",
       "disabled": true,
       "settings": {}
-    },
-    "8327b273-eeb3-49bf-b10e-565925283e64": {
-      "type": "faq-heading",
-      "settings": {
-        "faq-heading": "FAQ",
-        "faq-text": "Have questions? We’re here to help"
-      }
     },
     "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9": {
       "type": "faq-custom",
@@ -657,7 +1044,15 @@
         "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-separator-1": {
           "type": "separator",
           "settings": {
-            "title": "About Us"
+            "title": "About Us",
+            "icon_image": "shopify://shop_images/download_3.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17-question-1": {
@@ -698,7 +1093,15 @@
         "99cb505d-5eb9-4c32-8956-bb7c3886b8c5": {
           "type": "separator",
           "settings": {
-            "title": "Support"
+            "title": "Support",
+            "icon_image": "shopify://shop_images/download_4.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "3db8fff2-fad6-4a49-a933-9b5cc8f3782d": {
@@ -732,7 +1135,15 @@
         "dea00b71-b735-4a4c-950e-3ed0f67ab53b": {
           "type": "separator",
           "settings": {
-            "title": "Returns"
+            "title": "Returns",
+            "icon_image": "shopify://shop_images/download_5.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "3b5efae3-6e68-4971-93e3-209d72b06a21": {
@@ -745,7 +1156,15 @@
         "e07db189-f696-4664-b0dd-d0a200d0a7ec": {
           "type": "separator",
           "settings": {
-            "title": "Shipping"
+            "title": "Shipping",
+            "icon_image": "shopify://shop_images/download_7.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "264c8238-8595-4753-9b97-5228d709a631": {
@@ -800,7 +1219,15 @@
         "9d4a2ea4-e30f-476b-ba16-19faba2295ae": {
           "type": "separator",
           "settings": {
-            "title": "Payment Methods"
+            "title": "Payment Methods",
+            "icon_image": "shopify://shop_images/download_7.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "7114b4b1-a69e-40bb-b407-6775e44d2375": {
@@ -820,7 +1247,15 @@
         "eab21537-4412-4e29-94dd-9d50b7cf8b0b": {
           "type": "separator",
           "settings": {
-            "title": "Discounts / coupons?"
+            "title": "Discounts / coupons?",
+            "icon_image": "shopify://shop_images/download_8.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "ed89530d-844e-4686-85dc-76dfb08a0cb8": {
@@ -833,7 +1268,15 @@
         "0a43fd82-6145-4785-a04d-87782a5e776b": {
           "type": "separator",
           "settings": {
-            "title": "Distributors"
+            "title": "Distributors",
+            "icon_image": "shopify://shop_images/download_9.png",
+            "icon_color": "#ffd700",
+            "icon_width": 24,
+            "icon_height": 24,
+            "icon_margin_top": 0,
+            "icon_margin_right": 10,
+            "icon_margin_bottom": 0,
+            "icon_margin_left": 0
           }
         },
         "7b953808-534d-4aff-9d49-f24f20616f51": {
@@ -882,16 +1325,11 @@
         "7b953808-534d-4aff-9d49-f24f20616f51",
         "b11407ce-5799-4bc4-9e0c-3ba3b829a62d"
       ],
+      "disabled": true,
       "settings": {
-        "show_contact_info": true,
-        "contact_info_heading": "Any question?",
-        "contact_info_text": "<p>If we still haven't answered your question, you can contact us below and we will get back to you as soon as possible.</p>",
-        "contact_1_icon": "bi-phone",
-        "contact_1_heading": "Customer support",
-        "contact_1_text": "<p><a href=\"tel:1-855-449-4733\" title=\"tel:1-855-449-4733\">1-855-449-4733</a></p>",
-        "contact_2_icon": "bi-email",
-        "contact_2_heading": "Send a message",
-        "contact_2_text": "<p><a href=\"mailto:support@brightlinkav.com\" title=\"mailto:support@brightlinkav.com\">support@brightlinkav.com</a></p><p><a href=\"mailto:sales@brightlinkav.com\" title=\"mailto:sales@brightlinkav.com\">sales@brightlinkav.com</a></p>"
+        "label": "KNOWLEDGE CENTER",
+        "title": "Knowledge Center",
+        "subtitle": "Everything you need to know about Pro Spectrum"
       }
     },
     "product-recommendations": {
@@ -947,6 +1385,7 @@
         "cc6878bc-87d4-4abf-83a8-9a17c1929b9d",
         "6c54bc36-7e9d-4b07-8592-bb4178d798ea"
       ],
+      "disabled": true,
       "settings": {
         "main-heading": "You may also like"
       }
@@ -954,11 +1393,16 @@
   },
   "order": [
     "main",
+    "product_trusted_6e7QXQ",
+    "trusted_leaders_b4gYEb",
+    "product_showcase_UJDRXQ",
     "1651673745108066c9",
     "16506275679eb630d5",
     "1650627394e28c2243",
-    "recently-viewed-products",
+    "custom_slider_pcr_metafield_AHJeFW",
     "c175c6e0-d557-480c-8ba5-1443a9670d19",
+    "product_details_tL3YDp",
+    "knowledge_center_3QHTWy",
     "3acf3b7d-451e-4a29-90ab-488fc5d406f9",
     "63baf964-4391-49c8-8684-83eeda216181",
     "ba731d54-3048-46a8-879c-ceb926f1da3d",
@@ -969,7 +1413,6 @@
     "be5fcda4-e747-4686-bf2c-597f15159877",
     "efcc3d0e-bb2e-4b38-9dc0-3c4d61415136",
     "cf035ead-e5d0-4ea3-9e65-3dc9d2ac0a7b",
-    "8327b273-eeb3-49bf-b10e-565925283e64",
     "0cdca7f8-55e1-4b35-a57b-e9f8f31dafa9",
     "3e27d268-c437-4a2e-96e6-cc76a3f32a17",
     "product-recommendations",

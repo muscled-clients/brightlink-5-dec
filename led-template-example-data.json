@@ -1,0 +1,391 @@
+{
+  "hero": {
+    "series_label": "PRO SPECTRUM SERIES",
+    "tagline": "The Pinnacle of Visual Excellence",
+    "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
+    "metrics": [
+      { "value": "217\"", "label": "Diagonal Display" },
+      { "value": "8.3M", "label": "Total Pixels" },
+      { "value": "1.25mm", "label": "Pixel Pitch" },
+      { "value": "2hrs", "label": "Installation Time" }
+    ]
+  },
+  "technical_specs_header": {
+    "title": "Engineering Excellence",
+    "subtitle": "Every specification designed for uncompromising performance"
+  },
+  "technical_specs": [
+    { "icon": "grid", "value": "8,294,400", "label": "Total Pixels", "detail": "True 4K UHD resolution" },
+    { "icon": "pen", "value": "1.25mm", "label": "Pixel Pitch", "detail": "Ultra-fine detail at any distance" },
+    { "icon": "refresh", "value": "3840Hz", "label": "Refresh Rate", "detail": "Flicker-free performance" },
+    { "icon": "sun", "value": "600 nits", "label": "Brightness", "detail": "Vivid in any lighting" },
+    { "icon": "contrast", "value": "10000:1", "label": "Contrast Ratio", "detail": "Deep blacks, bright whites" },
+    { "icon": "eye", "value": "178", "label": "Viewing Angle", "detail": "Perfect from any position" }
+  ],
+  "experience_scale": {
+    "title": "Experience the Scale",
+    "subtitle": "217 inches of immersive visual excellence",
+    "image": "",
+    "metrics": [
+      { "value": "36x", "label": "Larger", "detail": "than a typical 65\" TV" },
+      { "value": "17'", "label": "Diagonal", "detail": "equivalent display size" },
+      { "value": "141", "label": "sq ft", "detail": "of visual real estate" }
+    ]
+  },
+  "system_config": {
+    "title": "System Configuration",
+    "description": "40 precision-engineered cabinets in an 8x5 array",
+    "display_image": "",
+    "panel_config": {
+      "columns": 8,
+      "rows": 5,
+      "total_cabinets": 40
+    },
+    "cabinet_specs": {
+      "dimensions": "600mm x 337.5mm",
+      "imperial": "23.6\" x 13.3\"",
+      "weight": "5.2 kg (11.5 lbs)",
+      "resolution": "480 x 270 pixels",
+      "modules": "4 COB modules"
+    }
+  },
+  "product_intelligence": {
+    "title": "Product Intelligence",
+    "description": "Everything you need to know about your LED video wall"
+  },
+  "applications": {
+    "title": "Built for Every Environment",
+    "description": "From boardrooms to broadcast studios, Pro Spectrum delivers uncompromising performance",
+    "tabs": [
+      {
+        "tab_title": "Digital Signage",
+        "icon": "monitor",
+        "heading": "Digital Signage & Public Displays",
+        "description": "Captivate audiences with stunning, attention-grabbing displays. High brightness and exceptional contrast ratio ensures your content stands out in any lighting condition.",
+        "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement.",
+        "image": "",
+        "stat1_label": "View Distance",
+        "stat1_value": "10-50 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "150-300\"",
+        "stat3_label": "Environment",
+        "stat3_value": "High-Traffic",
+        "configs": [
+          { "label": "Size", "value": "4x3 to 12x8 arrays" },
+          { "label": "Resolution", "value": "1.7M to 15.8M pixels" },
+          { "label": "Brightness", "value": "600-1000 nits" },
+          { "label": "Controller", "value": "Novastar H2/H5" },
+          { "label": "Mounting", "value": "Wall or freestanding" },
+          { "label": "Integration", "value": "CMS & scheduling" }
+        ],
+        "features": [
+          "24/7 operation with 100,000-hour lifespan",
+          "Anti-reflective surface for bright environments",
+          "CMS-ready for remote content management",
+          "Energy efficient (<190W/m2 average)",
+          "Impact-resistant COB technology",
+          "Wide viewing angles for passing traffic"
+        ]
+      },
+      {
+        "tab_title": "Executive Boardrooms",
+        "icon": "briefcase",
+        "heading": "Executive Boardrooms & Conference Centers",
+        "description": "Impress clients and stakeholders with crystal-clear presentations on a seamless display that eliminates bezels and hotspots.",
+        "description2": "Perfect for board meetings, video conferencing, and executive presentations where image quality matters.",
+        "image": "",
+        "stat1_label": "View Distance",
+        "stat1_value": "6-20 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "120-200\"",
+        "stat3_label": "Environment",
+        "stat3_value": "Professional",
+        "configs": [
+          { "label": "Size", "value": "3x2 to 6x4 arrays" },
+          { "label": "Resolution", "value": "Full HD to 4K" },
+          { "label": "Brightness", "value": "400-600 nits" },
+          { "label": "Controller", "value": "Novastar H2" },
+          { "label": "Mounting", "value": "Flush wall mount" },
+          { "label": "Integration", "value": "Video conferencing" }
+        ],
+        "features": [
+          "Silent operation for quiet environments",
+          "4K resolution for detailed presentations",
+          "HDMI, USB-C, and wireless input options",
+          "Front-access maintenance for easy service",
+          "Low heat emission for comfort",
+          "Seamless integration with room systems"
+        ]
+      },
+      {
+        "tab_title": "Broadcast Studios",
+        "icon": "video",
+        "heading": "Broadcast & Production Studios",
+        "description": "Camera-ready LED walls with high refresh rates for flicker-free video production and virtual sets.",
+        "description2": "Virtual production, news sets, live events, and XR stage backgrounds.",
+        "image": "",
+        "stat1_label": "View Distance",
+        "stat1_value": "8-30 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "180-400\"",
+        "stat3_label": "Environment",
+        "stat3_value": "Broadcast",
+        "configs": [
+          { "label": "Size", "value": "Custom arrays" },
+          { "label": "Resolution", "value": "4K+ capable" },
+          { "label": "Refresh Rate", "value": "3840Hz" },
+          { "label": "Controller", "value": "Novastar H5/H9" },
+          { "label": "Mounting", "value": "Curved or flat" },
+          { "label": "Integration", "value": "Broadcast systems" }
+        ],
+        "features": [
+          "3840Hz refresh rate - no camera flicker",
+          "HDR support for vibrant on-camera colors",
+          "Curved configurations available",
+          "Quick-release panels for fast set changes",
+          "Color calibration for broadcast accuracy",
+          "Low latency for live production"
+        ]
+      },
+      {
+        "tab_title": "Control Centers",
+        "icon": "layout",
+        "heading": "Command & Control Centers",
+        "description": "Mission-critical displays for 24/7 monitoring and operations requiring reliable, always-on performance.",
+        "description2": "Security operations, traffic management, utility monitoring, and emergency response centers.",
+        "image": "",
+        "stat1_label": "View Distance",
+        "stat1_value": "10-40 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "200-500\"",
+        "stat3_label": "Environment",
+        "stat3_value": "24/7 Operations",
+        "configs": [
+          { "label": "Size", "value": "6x3 to 16x6 arrays" },
+          { "label": "Resolution", "value": "Multi-4K" },
+          { "label": "Brightness", "value": "400-600 nits" },
+          { "label": "Controller", "value": "Multi-source" },
+          { "label": "Mounting", "value": "Video wall mount" },
+          { "label": "Integration", "value": "SCADA, VMS" }
+        ],
+        "features": [
+          "24/7 continuous operation rated",
+          "Multi-source windowing capability",
+          "Redundant power and data paths",
+          "Low heat emission for server rooms",
+          "Remote monitoring and diagnostics",
+          "Hot-swappable components"
+        ]
+      },
+      {
+        "tab_title": "Retail & Hospitality",
+        "icon": "store",
+        "heading": "Retail & Hospitality Environments",
+        "description": "Eye-catching displays that drive customer engagement and enhance brand experiences.",
+        "description2": "Retail stores, hotels, restaurants, casinos, and entertainment venues.",
+        "image": "",
+        "stat1_label": "View Distance",
+        "stat1_value": "5-30 feet",
+        "stat2_label": "Typical Size",
+        "stat2_value": "100-250\"",
+        "stat3_label": "Environment",
+        "stat3_value": "Commercial",
+        "configs": [
+          { "label": "Size", "value": "2x2 to 8x5 arrays" },
+          { "label": "Resolution", "value": "HD to 4K" },
+          { "label": "Brightness", "value": "600-1000 nits" },
+          { "label": "Controller", "value": "Novastar H2" },
+          { "label": "Mounting", "value": "Creative installs" },
+          { "label": "Integration", "value": "POS & signage" }
+        ],
+        "features": [
+          "Impact-resistant COB technology",
+          "Wide viewing angles for foot traffic",
+          "Creative shapes and configurations",
+          "Content scheduling support",
+          "Ambient light sensors available",
+          "Easy content updates via cloud"
+        ]
+      }
+    ]
+  },
+  "controller": {
+    "title": "Professional Control Solutions",
+    "description": "Enterprise-grade video processing for demanding applications"
+  },
+  "config_builder": {
+    "title": "Custom Configuration Builder",
+    "description": "Design your perfect LED display setup"
+  },
+  "knowledge_center": {
+    "title": "Knowledge Center",
+    "subtitle": "Everything you need to know about Pro Spectrum",
+    "categories": [
+      {
+        "title": "About Brightlink",
+        "icon": "info",
+        "filter": "all",
+        "questions": [
+          {
+            "question": "How long has Brightlink been in business?",
+            "answer": "Brightlink has been providing high-quality LED display solutions for over 10 years, serving customers worldwide with cutting-edge technology and exceptional support."
+          },
+          {
+            "question": "What makes Brightlink different from competitors?",
+            "answer": "We combine premium quality components with exceptional customer support, industry-leading warranties, and comprehensive installation services. Our Pro Spectrum line features advanced COB technology not found in competing products."
+          },
+          {
+            "question": "Where is Brightlink located?",
+            "answer": "Brightlink operates globally with headquarters in the United States and showrooms in multiple locations where you can see our displays in action."
+          },
+          {
+            "question": "Does Brightlink have a physical showroom?",
+            "answer": "Yes, we have showrooms where you can experience our LED displays firsthand and speak with our experts about your specific needs."
+          }
+        ]
+      },
+      {
+        "title": "Product & Technical",
+        "icon": "monitor",
+        "filter": "product",
+        "questions": [
+          {
+            "question": "What is pixel pitch and why does it matter?",
+            "answer": "Pixel pitch is the distance between LED pixels measured in millimeters. Smaller pitch (like 1.25mm) means higher resolution and sharper images, especially important for close viewing distances. Our Pro Spectrum offers ultra-fine 1.25mm pitch for crystal-clear 4K content."
+          },
+          {
+            "question": "How long do Pro Spectrum displays last?",
+            "answer": "Our displays are rated for 100,000+ hours of operation - that's over 11 years of continuous 24/7 use. With normal business hours usage, you can expect 20+ years of reliable performance."
+          },
+          {
+            "question": "What resolution is available?",
+            "answer": "The Pro Spectrum series supports resolutions from Full HD (1080p) up to true 4K UHD (3840x2160) and beyond, depending on the configuration size. The 217\" model delivers 8.3 million pixels."
+          },
+          {
+            "question": "What is COB technology?",
+            "answer": "COB (Chip-on-Board) technology directly mounts LED chips to the PCB without individual packaging, resulting in better heat dissipation, higher reliability, wider viewing angles, and superior image quality compared to traditional SMD LEDs."
+          },
+          {
+            "question": "What inputs are supported?",
+            "answer": "Pro Spectrum supports HDMI 2.0, DisplayPort 1.4, USB-C, and network streaming. Multiple inputs can be displayed simultaneously with picture-in-picture or multi-window layouts."
+          }
+        ]
+      },
+      {
+        "title": "Installation & Setup",
+        "icon": "tool",
+        "filter": "support",
+        "questions": [
+          {
+            "question": "Do you provide installation services?",
+            "answer": "Yes, we offer professional installation services performed by certified technicians. Installation includes mounting, calibration, and training on system operation."
+          },
+          {
+            "question": "How long does installation take?",
+            "answer": "Most Pro Spectrum installations can be completed in 2-4 hours for standard configurations. Larger or custom installations may require 1-2 days."
+          },
+          {
+            "question": "What are the power requirements?",
+            "answer": "Power requirements vary by display size. A typical 217\" system requires approximately 2.5kW peak power and benefits from a dedicated 20A circuit. We provide detailed electrical specifications during the planning phase."
+          },
+          {
+            "question": "What structural support is needed?",
+            "answer": "The wall or mounting structure must support the total weight of the display. Our 217\" system weighs approximately 450 lbs. We provide engineering specifications and can recommend structural reinforcement if needed."
+          }
+        ]
+      },
+      {
+        "title": "Support & Warranty",
+        "icon": "headphones",
+        "filter": "support",
+        "questions": [
+          {
+            "question": "What warranty do you offer?",
+            "answer": "Pro Spectrum includes a comprehensive 4-year warranty covering all components, labor, and on-site service. Extended warranty options are available for up to 7 years of coverage."
+          },
+          {
+            "question": "How do I get technical support?",
+            "answer": "Our support team is available via phone, email, and live chat during business hours. Emergency support is available 24/7 for critical issues. Lifetime technical support is included with every purchase."
+          },
+          {
+            "question": "Do you offer on-site support?",
+            "answer": "Yes, on-site support is included in your warranty. For issues that cannot be resolved remotely, we dispatch a technician to your location, typically within 24-48 hours."
+          },
+          {
+            "question": "Are spare parts included?",
+            "answer": "Yes, every Pro Spectrum system includes 5% spare modules at no additional cost, allowing immediate replacement if any module needs service."
+          }
+        ]
+      },
+      {
+        "title": "Shipping & Delivery",
+        "icon": "truck",
+        "filter": "shipping",
+        "questions": [
+          {
+            "question": "How long does shipping take?",
+            "answer": "Standard delivery is 2-3 weeks for in-stock configurations. Custom configurations may require 4-6 weeks. Expedited shipping is available for urgent projects."
+          },
+          {
+            "question": "Do you ship internationally?",
+            "answer": "Yes, we ship worldwide. International shipping times and costs vary by destination. We handle all customs documentation and can arrange local installation partners."
+          },
+          {
+            "question": "How is the product packaged?",
+            "answer": "All products are carefully packaged in custom flight cases with foam protection. Each cabinet is individually wrapped and secured to prevent damage during transit."
+          },
+          {
+            "question": "Is shipping insured?",
+            "answer": "Yes, all shipments include full insurance coverage. In the rare event of shipping damage, we provide immediate replacement at no cost."
+          }
+        ]
+      },
+      {
+        "title": "Payment & Financing",
+        "icon": "credit-card",
+        "filter": "payment",
+        "questions": [
+          {
+            "question": "What payment methods do you accept?",
+            "answer": "We accept major credit cards (Visa, MasterCard, Amex), bank wire transfers, ACH payments, and purchase orders from qualified businesses."
+          },
+          {
+            "question": "Do you offer financing?",
+            "answer": "Yes, we offer flexible financing options including 12, 24, 36, and 60-month terms for qualified customers. Apply during checkout or contact our sales team for details."
+          },
+          {
+            "question": "Is a deposit required?",
+            "answer": "A 50% deposit is required for custom orders. Standard configurations can be purchased with credit card at checkout with no deposit required."
+          },
+          {
+            "question": "Do you offer leasing options?",
+            "answer": "Yes, leasing is available through our financing partners, allowing you to preserve capital while enjoying the latest LED technology."
+          }
+        ]
+      },
+      {
+        "title": "Business & Partnerships",
+        "icon": "handshake",
+        "filter": "partnerships",
+        "questions": [
+          {
+            "question": "Do you offer reseller programs?",
+            "answer": "Yes, we have partnership programs for AV integrators, resellers, and dealers. Partners receive special pricing, training, marketing support, and priority technical assistance."
+          },
+          {
+            "question": "Can I become a Brightlink dealer?",
+            "answer": "We welcome qualified dealers to join our network. Requirements include AV industry experience and a commitment to customer service. Contact our partnership team to apply."
+          },
+          {
+            "question": "Do you offer bulk discounts?",
+            "answer": "Yes, volume pricing is available for multi-unit orders and ongoing partnerships. Contact our sales team for a custom quote based on your requirements."
+          },
+          {
+            "question": "Do you work with government and education?",
+            "answer": "Yes, we are registered on GSA Schedule and accept purchase orders from government agencies and educational institutions. Special pricing is available for qualifying organizations."
+          }
+        ]
+      }
+    ]
+  }
+}
