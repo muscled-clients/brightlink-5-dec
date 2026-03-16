@@ -11,6 +11,8 @@
 
 @media screen and (max-width: 768px) {
   .hero-video-wall-section {
+    height: auto;
+    min-height: 100svh;
     margin-bottom: 50px;
   }
 }
@@ -58,7 +60,7 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  margin: 71px 0 112px 80px;
+  margin: 74px 0 74px 80px;
   box-sizing: border-box;
 }
 
@@ -69,6 +71,14 @@
   align-items: flex-start;
   gap: 16px;
   align-self: stretch;
+}
+
+/* Inner content frame: series label + heading */
+.hero-video-wall__top-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 /* Series Label */
@@ -92,6 +102,25 @@
   margin: 0;
 }
 
+/* Specs + Heading Frame */
+.hero-video-wall__heading-frame {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Specs Line */
+.hero-video-wall__specs-line {
+  color: #D1D5DB;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
 /* Main Heading */
 .hero-video-wall__main-heading {
   color: #FFF;
@@ -101,34 +130,6 @@
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
-  margin: 0;
-}
-
-/* Top Content (wraps series label + heading frame) */
-.hero-video-wall__top-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-/* Heading Frame (wraps heading + specs line) */
-.hero-video-wall__heading-frame {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-/* Specs Line (pixel pitch, total pixels, aspect ratio) */
-.hero-video-wall__specs-line {
-  color: #D1D5DB;
-  font-family: Inter, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 24px;
-  letter-spacing: 0.5px;
   margin: 0;
 }
 
@@ -247,8 +248,7 @@
   border-radius: 8px;
   border: 1px solid rgba(0, 106, 212, 0.50);
   background: #0A0E1A;
-  overflow-y: auto;
-  max-height: 200px;
+  overflow: hidden;
 }
 
 .hero-video-wall__dropdown.open {
@@ -337,12 +337,6 @@
   cursor: pointer;
   text-decoration: none;
   transition: all 0.3s ease;
-}
-
-.hero-video-wall__view-btn.inactive {
-  opacity: 0.4;
-  pointer-events: none;
-  cursor: default;
 }
 
 .hero-video-wall__view-btn:hover {
@@ -649,15 +643,18 @@
 @media screen and (max-width: 768px) {
   .hero-video-wall-section {
     min-height: auto;
+    height: auto;
   }
 
   .hero-video-wall__content {
-    padding: 60px 20px 30px;
+    width: 100%;
+    margin: 0;
+    padding: 30px 16px 24px;
+    gap: 12px;
   }
 
-  .hero-video-wall__specs-line {
-    font-size: 12px;
-    line-height: 18px;
+  .hero-video-wall__text-frame {
+    gap: 10px;
   }
 
   .hero-video-wall__series-label {
@@ -666,25 +663,106 @@
     letter-spacing: 1px;
   }
 
+  .hero-video-wall__specs-line {
+    font-size: 12px;
+  }
+
   .hero-video-wall__main-heading {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .hero-video-wall__subheading {
+    width: 100%;
     font-size: 16px;
+    line-height: 22px;
+    margin-top: 4px;
   }
 
   .hero-video-wall__description {
     font-size: 13px;
+    max-width: 100%;
+  }
+
+  .hero-video-wall__price-wrapper {
+    gap: 8px;
+  }
+
+  .hero-video-wall__current-price {
+    font-size: 22px;
+  }
+
+  .hero-video-wall__compare-price {
+    font-size: 22px;
   }
 
   .hero-video-wall__price-badge {
-    font-size: 13px;
+    font-size: 12px;
+  }
+
+  .hero-video-wall__variant-wrapper {
+    padding: 14px 12px;
+    gap: 10px;
+  }
+
+  .hero-video-wall__variant-label {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
+  .hero-video-wall__variant-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .hero-video-wall__variant-box-wrapper {
+    flex: unset;
+    min-width: unset;
+  }
+
+  .hero-video-wall__variant-box {
+    padding: 10px 12px;
+  }
+
+  /* View button spans full width, compact height */
+  .hero-video-wall__view-btn {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 42px;
+    padding: 10px 16px;
+  }
+
+  .hero-video-wall__box-value {
+    font-size: 14px;
+  }
+
+  .hero-video-wall__box-title {
+    font-size: 11px;
+  }
+
+  .hero-video-wall__buttons-frame {
+    gap: 8px;
+  }
+
+  .hero-video-wall__buttons {
+    width: 100%;
+    height: auto;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .hero-video-wall__btn--primary,
+  .hero-video-wall__btn--secondary {
+    padding: 14px 16px;
+    font-size: 14px;
+    flex: 1 1 0;
+    min-width: 0;
+    height: 50px;
+    box-sizing: border-box;
   }
 
   .hero-video-wall__btn {
-    padding: 10px 28px;
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .hero-video-wall__shipping {
@@ -699,23 +777,24 @@
   .hero-video-wall__features_mob {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 16px;
+    gap: 8px;
+    padding: 12px;
     flex-wrap: wrap;
     background-color: rgba(10, 15, 25, 0.95);
   }
 
   .hero-video-wall__features_mob .hero-video-wall__feature-box {
     flex: 1;
-    min-width: calc(50% - 8px);
-    max-width: calc(50% - 8px);
-    padding: 14px 10px;
+    min-width: calc(50% - 6px);
+    max-width: calc(50% - 6px);
+    padding: 12px 8px;
+    height: auto;
     background-color: rgba(15, 20, 35, 0.8);
     border-radius: 10px;
   }
 
   .hero-video-wall__features_mob .hero-video-wall__feature-value {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .hero-video-wall__features_mob .hero-video-wall__feature-label {
@@ -724,24 +803,61 @@
 }
 
 @media screen and (max-width: 480px) {
+  .hero-video-wall__content {
+    padding: 24px 14px 20px;
+    gap: 10px;
+  }
+
   .hero-video-wall__specs-line {
     font-size: 11px;
-    line-height: 16px;
   }
 
   .hero-video-wall__main-heading {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .hero-video-wall__subheading {
     font-size: 14px;
+    line-height: 20px;
   }
 
-  .hero-video-wall__feature-box {
-    min-width: calc(50% - 6px);
+  .hero-video-wall__current-price {
+    font-size: 20px;
+  }
+
+  .hero-video-wall__compare-price {
+    font-size: 20px;
+  }
+
+  .hero-video-wall__variant-label {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .hero-video-wall__variant-box {
+    padding: 8px 10px;
+  }
+
+  .hero-video-wall__box-value {
+    font-size: 13px;
+  }
+
+  .hero-video-wall__box-title {
+    font-size: 10px;
+  }
+
+  .hero-video-wall__btn--primary,
+  .hero-video-wall__btn--secondary {
+    padding: 12px 10px;
+    font-size: 12px;
+    height: 46px;
+  }
+
+  .hero-video-wall__view-btn {
+    height: 38px;
   }
 
   .hero-video-wall__features_mob .hero-video-wall__feature-value {
-    font-size: 20px;
+    font-size: 18px;
   }
 }

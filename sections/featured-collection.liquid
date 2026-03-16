@@ -1,24 +1,3 @@
-<style>
-  #shopify-section-{{ section.id }} {
-    background-color: var(--hp-section-bg);
-  }
-  #shopify-section-{{ section.id }} .section__title,
-  #shopify-section-{{ section.id }} .section__action-link {
-    color: var(--hp-text-color) !important;
-  }
-  #shopify-section-{{ section.id }} .product-item {
-    background: var(--hp-surface-bg) !important;
-  }
-  #shopify-section-{{ section.id }} .product-item::after {
-    box-shadow: 1px 0 var(--hp-border-color), 0 1px var(--hp-border-color);
-  }
-  #shopify-section-{{ section.id }} .product-item__title,
-  #shopify-section-{{ section.id }} .product-item__vendor,
-  #shopify-section-{{ section.id }} .price {
-    color: var(--hp-text-color) !important;
-  }
-</style>
-
 {%- capture section_settings -%}
 {
   "stackable": {% if section.settings.layout == 'vertical' and section.settings.stack_products == false %}false{% else %}true{% endif %},

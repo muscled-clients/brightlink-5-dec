@@ -48,40 +48,17 @@
 </section>
 
 <style>
-  #shopify-section-{{ section.id }} {
-    background-color: #0A0E1A;
-  }
-
   #shopify-section-{{ section.id }} .featured-collection {
-    background-color: #0A0E1A;
+    background-color: {{ section.settings.background }};
   }
 
   #shopify-section-{{ section.id }} .featured-collection__header {
-    color: #ffffff;
-  }
-
-  #shopify-section-{{ section.id }} .featured-collection__title,
-  #shopify-section-{{ section.id }} .featured-collection__text {
-    color: #ffffff !important;
+    color: {{ section.settings.text_color }};
   }
 
   #shopify-section-{{ section.id }} .featured-collection__header .button {
     color: {{ section.settings.button_text_color }};
     background-color: {{ section.settings.button_background }};
-  }
-
-  #shopify-section-{{ section.id }} .product-item {
-    background: #111827 !important;
-  }
-
-  #shopify-section-{{ section.id }} .product-item::after {
-    box-shadow: 1px 0 #1e2a3a, 0 1px #1e2a3a;
-  }
-
-  #shopify-section-{{ section.id }} .product-item__title,
-  #shopify-section-{{ section.id }} .product-item__vendor,
-  #shopify-section-{{ section.id }} .price {
-    color: #ffffff !important;
   }
 </style>
 

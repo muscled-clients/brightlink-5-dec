@@ -328,7 +328,7 @@ th {
   width: 6px;
   height: 6px;
   margin: 0 5px;
-  background: #4190d2;
+  background: rgba(var(--text-color-rgb), 0.8);
   border-radius: 100%;
   cursor: pointer;
   transform: scale(1);
@@ -346,7 +346,7 @@ th {
 
 .flickity-page-dots .dot.is-selected {
   transform: scale(1.35);
-  background: #4190d2;
+  background: var(--heading-color);
 }
 
 /* prev/next buttons */
@@ -4265,11 +4265,6 @@ img.lazyload[data-sizes=auto] {
   .featured-collection__content {
     display: table-cell;
     vertical-align: top;
-  }
-
-  .featured-collection__content {
-    border: 1px solid white;
-    border-radius: 4px;
   }
 
   .featured-collection__header {
@@ -10824,8 +10819,8 @@ shopify-payment-terms {
   width: 12px;
   height: 12px;
   margin: 0 8px;
-  background: #4190d2;
-  border: 3px solid #4190d2;
+  background: #ffffff;
+  border: 3px solid #ffffff;
   transform: none !important;
   transition: background 0.25s ease-in-out;
 }
@@ -12106,7 +12101,7 @@ shopify-payment-terms {
   text-align: center;
   border-radius: 3px;
   list-style: none;
-  background: #0a0e1a;
+  background: var(--secondary-background);
   border: 1px solid var(--border-color);
   font-size: calc(var(--default-text-font-size) + 1px);
 }
@@ -12141,7 +12136,6 @@ shopify-payment-terms {
   margin: 0 auto;
   flex: 1 1 auto;
   font-size: 0;
-  color: white;
 }
 
 .quick-links__image-ie-fix {

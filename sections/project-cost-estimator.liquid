@@ -419,7 +419,7 @@
             {% endif %}
 
             {% if block.settings.button_text != blank %}
-              <a href="{{ block.settings.button_link }}" class="request-quote-btn">
+              <a href="{{ block.settings.button_link }}" class="request-quote-btn" target="_blank" rel="noopener noreferrer">
                 {{ block.settings.button_text }}
               </a>
             {% endif %}
@@ -454,7 +454,7 @@
                 </button>
               {% endif %}
               {% if block.settings.button_text != blank %}
-                <a href="{{ block.settings.button_link }}" class="mobile-request-btn-closed">
+                <a href="{{ block.settings.button_link }}" class="mobile-request-btn-closed" target="_blank" rel="noopener noreferrer">
                   {{ block.settings.button_text }}
                 </a>
               {% endif %}
@@ -478,7 +478,7 @@
 
                 <!-- Full width button when accordion is open -->
                 {% if block.settings.button_text != blank %}
-                  <a href="{{ block.settings.button_link }}" class="mobile-request-btn-open">
+                  <a href="{{ block.settings.button_link }}" class="mobile-request-btn-open" target="_blank" rel="noopener noreferrer">
                     {{ block.settings.button_text }}
                   </a>
                 {% endif %}

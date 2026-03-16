@@ -109,9 +109,9 @@
         "default_title": "Get Your LED Specifications in 60 Seconds",
         "default_subtitle": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
         "default_primary_button_text": "Calculate My Display",
-        "default_primary_button_link": "",
+        "default_primary_button_link": "#led_display_calculator_rb8Eex",
         "default_secondary_button_text": "Talk to Expert",
-        "default_secondary_button_link": ""
+        "default_secondary_button_link": "https://cal.com/tyson-edwards-brightlinkav"
       }
     },
     "led_display_calculator_rb8Eex": {
@@ -294,7 +294,7 @@
             "package_price": "Under $50,000",
             "features": "1.9mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Standard mounting solution|Basic control system|1-year warranty",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://cal.com/tyson-edwards-brightlinkav",
             "is_popular": false,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -307,7 +307,7 @@
             "package_price": "$50,000 - $100,000",
             "features": "1.5mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Premium mounting system|Advanced control system|3-year warranty|Installation included",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://cal.com/tyson-edwards-brightlinkav",
             "is_popular": true,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -320,7 +320,7 @@
             "package_price": "Over $100,000",
             "features": "1.2mm COB LED Display|Custom dimensions|Custom mounting solution|Enterprise control system|5-year warranty|Installation & training|Ongoing support",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://cal.com/tyson-edwards-brightlinkav",
             "is_popular": false,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -412,12 +412,12 @@
         "subtitle": "Get your custom LED specification today",
         "main_button_text": "Get Free Consultation",
         "main_button_icon": "📅",
-        "main_button_link": "",
+        "main_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "mini_title": "Free for $50k+ projects",
         "mini_title_icon": "⭐",
         "request_button_text": "Request Custom Quote",
         "request_button_icon": "📋",
-        "request_button_link": "",
+        "request_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "download_button_text": "Download Complete Guide",
         "download_button_icon": "📥",
         "pdf_file_url": "",
