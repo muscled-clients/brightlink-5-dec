@@ -81,7 +81,7 @@
           {% endif %}
         {% endif %}
 
-        {%- comment -%} Extract aspect ratio from full title (may be after "COB LED") {%- endcomment -%}
+        {%- comment -%} Extract aspect ratio from full title {%- endcomment -%}
         {% assign main_ratio = '' %}
         {% assign full_title_words = main_product.title | split: ' ' %}
         {% for w in full_title_words %}
