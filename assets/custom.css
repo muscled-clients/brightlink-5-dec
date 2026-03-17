@@ -1,3 +1,10 @@
+/* Sticky wrapper: keeps announcement bar + header locked to top on scroll */
+.sticky-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 div#shopify-section-template--15505473208504__16492530616aecbde7 .block-list .promo-block__image-clip .promo-block__image-wrapper,
 div#shopify-section-template--15505472520376__16506275679eb630d5 .block-list .promo-block__image-clip .promo-block__image-wrapper {
   background-position: right calc(100% + -25px);

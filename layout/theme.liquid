@@ -261,14 +261,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#main" class="visually-hidden skip-to-content">{{ 'general.accessibility.skip_to_content' | t }}</a>
     <span class="loading-bar"></span>
 
-    {% section 'announcement-bar' %}
+    <div class="sticky-site-header">
+      {% section 'announcement-bar' %}
 
-    {%- unless request.page_type == 'cart' -%}
-      {%- comment -%}As required by Shopify rules, popup must be removed on cart page to remove distraction{%- endcomment -%}
-      {% section 'popups' %}
-    {%- endunless -%}
+      {%- unless request.page_type == 'cart' -%}
+        {%- comment -%}As required by Shopify rules, popup must be removed on cart page to remove distraction{%- endcomment -%}
+        {% section 'popups' %}
+      {%- endunless -%}
 
-    {% section 'header' %}
+      {% section 'header' %}
+    </div>
 
     <main id="main" role="main">
       {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
