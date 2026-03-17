@@ -582,5 +582,16 @@
         "info": "96 x 96px .png recommended"
       }
     ]
+  },
+  {
+    "name": "COB Pages Background",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "cob_bg_image",
+        "label": "COB Background Image",
+        "info": "Background image for COB/pro-spectrum product pages"
+      }
+    ]
   }
 ]

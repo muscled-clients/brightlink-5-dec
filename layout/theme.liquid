@@ -272,7 +272,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <main id="main" role="main">
       {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
-        {% render 'led-hexagon-background' %}
+        {%- if settings.cob_bg_image != blank -%}
+          <style>
+            .advanced-spectrum-page {
+              background-image: url('{{ settings.cob_bg_image | image_url: width: 2400 }}');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center top;
+              background-attachment: fixed;
+            }
+          </style>
+        {%- endif -%}
       {%- endif -%}
       {{ content_for_layout }}
     </main>
