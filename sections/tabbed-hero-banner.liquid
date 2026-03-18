@@ -264,8 +264,9 @@
         var target = document.getElementById(id) || document.querySelector('[id$="__' + id + '"]') || document.querySelector('[id*="' + id + '"]');
         if (target) {
           e.preventDefault();
-          var stickyBar = document.querySelector('.sticky-site-header') || document.querySelector('#shopify-section-header');
-          var headerHeight = stickyBar ? stickyBar.offsetHeight : 0;
+            var announcementBar = document.querySelector('#shopify-section-announcement-bar');
+          var headerEl = document.querySelector('#shopify-section-header');
+          var headerHeight = (announcementBar ? announcementBar.offsetHeight : 0) + (headerEl ? headerEl.offsetHeight : 0);
           var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
           window.scrollTo({ top: top, behavior: 'smooth' });
         }
