@@ -570,6 +570,7 @@
             "badge_text": "Conference Room",
             "card_title": "Mesa Arizona",
             "card_description": "1.5mm COB LED video wall installation for executive boardroom, improving presentation clarity and client engagement.",
+            "card_image": "shopify://shop_images/Rectangle_4_8.png",
             "show_specs": true,
             "spec_size": "18' × 8'",
             "spec_pitch": "1.5mm pitch"
@@ -581,6 +582,7 @@
             "badge_text": "Control Room",
             "card_title": "Epic.io",
             "card_description": "24/7 operation control center with 1.2mm fine-pitch LED display wall for critical monitoring applications.",
+            "card_image": "shopify://shop_images/Rectangle_4_9.png",
             "show_specs": true,
             "spec_size": "24' × 7'",
             "spec_pitch": "1.2mm pitch"
@@ -592,6 +594,7 @@
             "badge_text": "Retail Display",
             "card_title": "University of Honolulu",
             "card_description": "Custom curved 2.5mm LED display creating an immersive brand experience for customers in flagship store.",
+            "card_image": "shopify://shop_images/Rectangle_4_11.png",
             "show_specs": true,
             "spec_size": "20' × 6' (curved)",
             "spec_pitch": "2.5mm pitch"
