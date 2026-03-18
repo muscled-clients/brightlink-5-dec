@@ -656,7 +656,10 @@
   }
 
   .hero-video-wall__main-heading {
-    font-size: 22px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0;
     max-width: 100%;
   }
 
@@ -802,7 +805,10 @@
   }
 
   .hero-video-wall__main-heading {
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0;
   }
 
   .hero-video-wall__subheading {
