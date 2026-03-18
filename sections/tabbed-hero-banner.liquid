@@ -264,7 +264,8 @@
         var target = document.getElementById(id) || document.querySelector('[id$="__' + id + '"]') || document.querySelector('[id*="' + id + '"]');
         if (target) {
           e.preventDefault();
-          var headerHeight = document.querySelector('#shopify-section-header') ? document.querySelector('#shopify-section-header').offsetHeight : 0;
+          var stickyBar = document.querySelector('.sticky-site-header') || document.querySelector('#shopify-section-header');
+          var headerHeight = stickyBar ? stickyBar.offsetHeight : 0;
           var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
           window.scrollTo({ top: top, behavior: 'smooth' });
         }
