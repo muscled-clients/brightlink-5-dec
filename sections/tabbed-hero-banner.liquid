@@ -265,8 +265,7 @@
         if (target) {
           e.preventDefault();
             var announcementBar = document.querySelector('#shopify-section-announcement-bar');
-          var headerEl = document.querySelector('#shopify-section-header');
-          var headerHeight = (announcementBar ? announcementBar.offsetHeight : 0) + (headerEl ? headerEl.offsetHeight : 0);
+          var headerHeight = announcementBar ? announcementBar.offsetHeight : 0;
           var top = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
           window.scrollTo({ top: top, behavior: 'smooth' });
         }
