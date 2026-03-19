@@ -261,6 +261,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <a href="#main" class="visually-hidden skip-to-content">{{ 'general.accessibility.skip_to_content' | t }}</a>
     <span class="loading-bar"></span>
 
+    <style>
+      /* Sticky wrapper: announcement bar + header locked to top on scroll.
+         The inner #shopify-section-header has its own position:sticky (from enable_sticky_header=true)
+         which conflicts — override to relative so only the wrapper sticks.
+         To revert: remove this <style> block and the wrapper div below. */
+      .sticky-site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .sticky-site-header #shopify-section-header {
+        position: relative !important;
+      }
+    </style>
+
     <div class="sticky-site-header">
       {% section 'announcement-bar' %}
 
