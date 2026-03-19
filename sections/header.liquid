@@ -557,11 +557,11 @@
     #shopify-section-{{ section.id }} {
       position: relative;
       z-index: 5;
-
+  
       {%- if section.settings.enable_sticky_header -%}
         position: -webkit-sticky;
         position: sticky;
-        top: var(--announcement-bar-height, 0px);
+        top: 0;
       {%- endif -%}
     }
   
@@ -685,30 +685,6 @@
 </script>
   <script>
     document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
-
-    /* Ensure announcement bar + header stay sticky and stacked correctly.
-       Works whether or not theme.liquid has the .sticky-site-header wrapper.
-       To revert: remove this block. */
-    (function() {
-      var announcementBar = document.getElementById('shopify-section-announcement-bar');
-      var headerSection = document.getElementById('shopify-section-{{ section.id }}');
-      var wrapper = document.querySelector('.sticky-site-header');
-
-      if (wrapper) {
-        /* If the wrapper div is still in the DOM (theme.liquid not yet synced),
-           make it sticky so both sections stay visible on scroll. */
-        wrapper.style.position = 'sticky';
-        wrapper.style.top = '0';
-        wrapper.style.zIndex = '100';
-        if (headerSection) {
-          headerSection.style.position = 'relative';
-        }
-      } else if (announcementBar && headerSection) {
-        /* No wrapper — sections are direct children of body.
-           Set header top to sit just below the announcement bar. */
-        headerSection.style.top = announcementBar.offsetHeight + 'px';
-      }
-    })();
   </script>
   
   {% schema %}
