@@ -8,6 +8,7 @@
 body.metafield-page {
   background: #0a0e1a !important;
   color: #ffffff !important;
+  overflow-x: hidden; /* Fix: prevents custom-slider-pcr translateX(1000px) from causing horizontal scroll */
 }
 
 /* All content sections inside #main */
