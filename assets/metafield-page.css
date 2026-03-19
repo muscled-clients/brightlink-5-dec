@@ -171,6 +171,16 @@ body.metafield-page #main .plus-button::after {
   background: #ffffff !important;
 }
 
+/* Hide default browser ▶/▼ triangle on <summary> (iOS Safari shows it by default).
+   The accordion already has its own +/− icon via .d8-icon-open / .d8-icon-close.
+   To revert: remove this rule block. */
+body.metafield-page #main summary {
+  list-style: none;
+}
+body.metafield-page #main summary::-webkit-details-marker {
+  display: none;
+}
+
 /* ============================================================
    Accordion expand/close icon & PDF icon (snippets used across templates)
    ============================================================ */
