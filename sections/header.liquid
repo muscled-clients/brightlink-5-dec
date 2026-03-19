@@ -557,14 +557,12 @@
     #shopify-section-{{ section.id }} {
       position: relative;
       z-index: 5;
-      /* Sticky is handled by .sticky-site-header wrapper in theme.liquid.
-         To revert: restore the block below.
-         {%- if section.settings.enable_sticky_header -%}
-           position: -webkit-sticky;
-           position: sticky;
-           top: 0;
-         {%- endif -%}
-      */
+
+      {%- if section.settings.enable_sticky_header -%}
+        position: -webkit-sticky;
+        position: sticky;
+        top: var(--announcement-bar-height, 0px);
+      {%- endif -%}
     }
   
     {%- if section.settings.logo -%}

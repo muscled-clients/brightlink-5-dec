@@ -87,6 +87,13 @@
       background: {{ section.settings.background }};
       color: {{ section.settings.text_color }};
     }
+    /* Sticky announcement bar — sits above the header which sticks at top:var(--announcement-bar-height).
+       To revert: remove these 4 lines. */
+    #shopify-section-{{ section.id }} {
+      position: sticky;
+      top: 0;
+      z-index: 101;
+    }
   </style>
 
   <script>
