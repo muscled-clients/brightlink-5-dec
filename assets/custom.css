@@ -1,3 +1,19 @@
+/* Sticky wrapper: keeps announcement bar + header locked to top on scroll.
+   To revert entirely: remove this block + the override below + the wrapper div in theme.liquid. */
+.sticky-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* The header section has its own position:sticky (enable_sticky_header=true in settings)
+   which conflicts with the outer wrapper and causes the header to hide on scroll.
+   Override to relative so only the wrapper handles stickiness.
+   To revert just this rule: remove it (header will stick at top:0 behind announcement bar). */
+.sticky-site-header #shopify-section-header {
+  position: relative !important;
+}
+
 div#shopify-section-template--15505473208504__16492530616aecbde7 .block-list .promo-block__image-clip .promo-block__image-wrapper,
 div#shopify-section-template--15505472520376__16506275679eb630d5 .block-list .promo-block__image-clip .promo-block__image-wrapper {
   background-position: right calc(100% + -25px);
