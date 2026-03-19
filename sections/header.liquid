@@ -685,6 +685,18 @@
 </script>
   <script>
     document.documentElement.style.setProperty('--header-height', document.getElementById('shopify-section-{{ section.id }}').clientHeight + 'px');
+
+    /* Ensure header sticks below the announcement bar.
+       CSS var(--announcement-bar-height) may be 0 if JS timing is off,
+       so we also set top directly via JS as a reliable fallback.
+       To revert: remove these lines. */
+    (function() {
+      var announcementBar = document.getElementById('shopify-section-announcement-bar');
+      var headerSection = document.getElementById('shopify-section-{{ section.id }}');
+      if (announcementBar && headerSection) {
+        headerSection.style.top = announcementBar.offsetHeight + 'px';
+      }
+    })();
   </script>
   
   {% schema %}
