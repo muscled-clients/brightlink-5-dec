@@ -144,9 +144,6 @@
     <!-- CTA Section -->
     <div class="technical-specs__cta">
       <div class="technical-specs__price">
-        {% if product.compare_at_price > product.price %}
-          <span class="technical-specs__compare-price">{{ product.compare_at_price | money }}</span>
-        {% endif %}
         {{ product.price | money }}
       </div>
 

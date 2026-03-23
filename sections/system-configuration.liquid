@@ -330,9 +330,6 @@
 
       <div class="system-configuration__cta-box">
         <div class="system-configuration__price">
-          {% if product.compare_at_price > product.price %}
-            <span class="system-configuration__compare-price">{{ product.compare_at_price | money }}</span>
-          {% endif %}
           {{ product.price | money }}
         </div>
 

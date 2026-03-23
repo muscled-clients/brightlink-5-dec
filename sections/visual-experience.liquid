@@ -131,9 +131,6 @@
             </a>
             <span class="visual-experience__divider"></span>
             <span class="visual-experience__price">
-              {% if product.compare_at_price > product.price %}
-                <span class="visual-experience__compare-price">{{ product.compare_at_price | money }}</span>
-              {% endif %}
               {{ product.price | money }}
             </span>
           </div>

@@ -97,18 +97,10 @@
       <div class="hero-video-wall__price-wrapper">
         {% if first_matched_variant %}
           <span class="hero-video-wall__current-price" id="hero-current-price">{{ first_matched_variant.price | money }}</span>
-          {% if first_matched_variant.compare_at_price > first_matched_variant.price %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ first_matched_variant.compare_at_price | money }}</span>
-          {% else %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
-          {% endif %}
+          <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
         {% elsif product %}
           <span class="hero-video-wall__current-price" id="hero-current-price">{{ product.price | money }}</span>
-          {% if product.compare_at_price > product.price %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price">{{ product.compare_at_price | money }}</span>
-          {% else %}
-            <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
-          {% endif %}
+          <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
         {% else %}
           <span class="hero-video-wall__current-price" id="hero-current-price"></span>
           <span class="hero-video-wall__compare-price" id="hero-compare-price" style="display:none;"></span>
