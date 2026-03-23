@@ -451,7 +451,8 @@
         "button_bg_color": "#2196f3",
         "button_hover_color": "#1976d2",
         "series_label_color": "#ffd700",
-        "custom_class": ""
+        "custom_class": "",
+        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png"
       }
     },
     "trusted_leaders_HxDhib": {
