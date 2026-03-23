@@ -1107,17 +1107,14 @@
         "card1_desc": "Professional LED module vacuum tool for effortless front maintenance and module replacement. Essential for service teams.",
         "card1_price": "$249",
         "card1_button": "ADD TO ORDER",
-        "card1_link": "",
         "card2_title": "EXTENDED WARRANTY",
         "card2_desc": "Extend comprehensive warranty coverage from 4 years to 7 years. Includes all parts, labor, and priority support.",
         "card2_price": "+$4,500",
         "card2_button": "ADD PROTECTION",
-        "card2_link": "",
         "card3_title": "SPARE MODULE KIT",
         "card3_desc": "Additional 10% spare COB LED modules beyond standard 5%. Recommended for mission-critical installations.",
         "card3_price": "+$8,900",
-        "card3_button": "ADD SPARES",
-        "card3_link": ""
+        "card3_button": "ADD SPARES"
       }
     },
     "custom_config_builder_XRyr6Q": {
@@ -1129,12 +1126,11 @@
         "quote_button_text": "GET CUSTOM QUOTE",
         "quote_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "specs_button_text": "GET LED SPECIFICATIONS",
-        "specs_button_link": "",
+        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173",
         "payment_title": "Flexible Payment Options Available",
         "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
         "payment_link_text": "DISCUSS PAYMENT OPTIONS",
-        "payment_link": "",
-        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173"
+        "payment_link": ""
       }
     },
     "knowledge_center_md4H8X": {

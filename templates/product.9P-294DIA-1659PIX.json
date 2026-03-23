@@ -627,7 +627,6 @@
         "footer_label_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_text": "ORDER NOW",
         "button_link": "",
         "button_2_text": "Book A Call",
@@ -736,7 +735,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_1_text": "ORDER NOW",
         "button_1_link": "",
         "button_2_text": "Book A Call",
@@ -863,7 +861,6 @@
         "feature_4_desc": "Integrated routing channels for clean professional installations",
         "cta_heading": "Get Your LED Specifications in 60 Seconds",
         "cta_subheading": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
-        "price_text": "$19,250.00 (30% Deposit)",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "Book A Call",
@@ -932,7 +929,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -965,7 +961,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -998,7 +993,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1031,7 +1025,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1065,7 +1058,6 @@
             "config5": "",
             "button_text": "",
             "button_link": "",
-            "price_text": "",
             "primary_btn_text": "",
             "primary_btn_link": "",
             "secondary_btn_text": "",
@@ -1098,7 +1090,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1326,8 +1317,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "investment_config_XArH8k": {
@@ -1369,12 +1359,11 @@
         "quote_button_text": "GET CUSTOM QUOTE",
         "quote_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "specs_button_text": "GET LED SPECIFICATIONS",
-        "specs_button_link": "",
+        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173",
         "payment_title": "Flexible Payment Options Available",
         "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
         "payment_link_text": "DISCUSS PAYMENT OPTIONS",
-        "payment_link": "",
-        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173"
+        "payment_link": ""
       }
     },
     "knowledge_center_KDhAHL": {
@@ -1581,8 +1570,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "contact_discussion_FhbiMV": {
