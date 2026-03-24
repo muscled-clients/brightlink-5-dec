@@ -30,6 +30,90 @@
     "165149447399cf87ca": {
       "type": "installer_tabs",
       "blocks": {
+        "usa_kBk8zC": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_WttjNR": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_BCEgGp": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_GAG8Ba": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_eRVEcd": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_Anwaef": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "usa_kmRgMj": {
+          "type": "usa",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
         "usa_fxGcPV": {
           "type": "usa",
           "settings": {
@@ -729,6 +813,13 @@
         }
       },
       "block_order": [
+        "usa_kBk8zC",
+        "usa_WttjNR",
+        "usa_BCEgGp",
+        "usa_GAG8Ba",
+        "usa_eRVEcd",
+        "usa_Anwaef",
+        "usa_kmRgMj",
         "usa_fxGcPV",
         "usa_wwTYyF",
         "usa_4H4mfe",
