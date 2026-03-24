@@ -354,7 +354,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "video_file": "",
+        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "Brightlink Pro Spectrum COB LED Video Wall - Ultra Slim 1\" Cabinets - NovaStar H5 Controller",
@@ -382,8 +382,7 @@
         "button_bg_color": "#2196F3",
         "button_hover_color": "#1976D2",
         "series_label_color": "#FFD700",
-        "custom_class": "",
-        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png"
+        "custom_class": ""
       }
     },
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b": {
