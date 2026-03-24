@@ -30,6 +30,78 @@
     "165149447399cf87ca": {
       "type": "installer_tabs",
       "blocks": {
+        "canada_mAbiVT": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "canada_3enfcn": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "canada_7ziKB6": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "canada_PEKipM": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "canada_gAJQjg": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
+        "canada_PtDPrJ": {
+          "type": "canada",
+          "settings": {
+            "type": "",
+            "address": "<p>A short sentence describing what someone will receive by subscribing</p>",
+            "email": "",
+            "phone": "",
+            "years_in_business": "",
+            "hours": "",
+            "website": ""
+          }
+        },
         "207636ab-d6e2-41e4-842c-596aad2a0f4e": {
           "type": "usa",
           "settings": {
@@ -609,6 +681,12 @@
         }
       },
       "block_order": [
+        "canada_mAbiVT",
+        "canada_3enfcn",
+        "canada_7ziKB6",
+        "canada_PEKipM",
+        "canada_gAJQjg",
+        "canada_PtDPrJ",
         "207636ab-d6e2-41e4-842c-596aad2a0f4e",
         "921642b8-8103-41dd-b64b-be2adabea736",
         "68b377cd-be26-4286-8888-6a3eaafca3fa",
