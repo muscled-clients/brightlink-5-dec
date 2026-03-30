@@ -475,7 +475,7 @@ background: rgba(0, 0, 0, 0.50);
     </clipPath>
   </defs>
 </svg></span>{{ section.settings.phone_label }}</div>
-              <div class="contact-value contact-phone">{{ section.settings.phone_number }}</div>
+              <div class="contact-value contact-phone"><a href="tel:{{ section.settings.phone_link | default: '8554494733' }}" style="color:inherit;text-decoration:none;">{{ section.settings.phone_number }}</a></div>
             </div>
           </div>
         {% endif %}
@@ -976,8 +976,15 @@ background: rgba(0, 0, 0, 0.50);
     {
       "type": "text",
       "id": "phone_number",
-      "label": "Phone Number",
+      "label": "Phone Number (Display)",
       "default": "(855) 44-WIRED"
+    },
+    {
+      "type": "text",
+      "id": "phone_link",
+      "label": "Phone Number (Dialable)",
+      "default": "8554494733",
+      "info": "Digits only, no spaces or dashes — used for the tel: link"
     },
     {
       "type": "text",
