@@ -540,6 +540,8 @@
     .competitive-advantages__cards {
       display: flex;
       flex-wrap: nowrap;
+      justify-content: flex-start !important;
+      align-items: flex-start !important;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
@@ -1333,27 +1335,49 @@
 document.addEventListener("DOMContentLoaded", function() {
   const container = document.querySelector('#ca-slider-{{ section.id }}');
   const dots = document.querySelectorAll('#ca-dots-{{ section.id }} .slider-dot');
-  
+
   if (!container || dots.length === 0) return;
 
-  // Sync dots with scroll
-  container.addEventListener('scroll', function() {
-    const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth;
-    const activeIndex = Math.round(container.scrollLeft / cardWidth);
+  const cards = Array.from(container.querySelectorAll('.competitive-advantages__card'));
+  if (cards.length === 0) return;
 
-    dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === activeIndex);
-    });
+  // Start at card 1 — scroll to its actual position in the container
+  requestAnimationFrame(function() {
+    const containerLeft = container.getBoundingClientRect().left;
+    const card1Left = cards[0].getBoundingClientRect().left;
+    const target = container.scrollLeft + (card1Left - containerLeft);
+    container.scrollLeft = Math.max(0, target);
   });
 
-  // Click dot to scroll
+  // Get the exact scroll position needed to bring a card to the left edge
+  function getScrollTarget(index) {
+    const containerLeft = container.getBoundingClientRect().left;
+    const cardLeft = cards[index].getBoundingClientRect().left;
+    return container.scrollLeft + (cardLeft - containerLeft);
+  }
+
+  // Find which card is currently in view (closest left edge to container)
+  function getActiveIndex() {
+    const containerLeft = container.getBoundingClientRect().left;
+    let best = 0;
+    let bestDist = Infinity;
+    cards.forEach((card, i) => {
+      const dist = Math.abs(card.getBoundingClientRect().left - containerLeft);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    return best;
+  }
+
+  // Sync dots on scroll
+  container.addEventListener('scroll', function() {
+    const active = getActiveIndex();
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === active));
+  }, { passive: true });
+
+  // Click dot → scroll to that card
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth;
-      container.scrollTo({
-        left: cardWidth * index,
-        behavior: 'smooth'
-      });
+      container.scrollTo({ left: getScrollTarget(index), behavior: 'smooth' });
     });
   });
 });
