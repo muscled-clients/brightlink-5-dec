@@ -1338,24 +1338,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Sync dots with scroll
   container.addEventListener('scroll', function() {
-    const scrollPosition = container.scrollLeft;
-    // Card width + Gap (100% card means offsetWidth + 20px gap)
-    const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth + 20;
-    const activeIndex = Math.round(scrollPosition / cardWidth);
+    const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth;
+    const activeIndex = Math.round(container.scrollLeft / cardWidth);
 
     dots.forEach((dot, index) => {
-      if (index === activeIndex) {
-        dot.classList.add('active');
-      } else {
-        dot.classList.remove('active');
-      }
+      dot.classList.toggle('active', index === activeIndex);
     });
   });
 
   // Click dot to scroll
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-      const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth + 20;
+      const cardWidth = container.querySelector('.competitive-advantages__card').offsetWidth;
       container.scrollTo({
         left: cardWidth * index,
         behavior: 'smooth'
