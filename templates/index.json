@@ -116,13 +116,14 @@
         },
         "slide-1": {
           "type": "image",
+          "disabled": true,
           "settings": {
             "image": "shopify://shop_images/2160x720.jpg",
             "mobile_image": "shopify://shop_images/1100-750.jpg",
             "show_overlay": false,
             "overlay_opacity": 30,
             "text_color": "#4190d2",
-            "title": "BrightLink 8x8 HDBaseT Matrix <br>4K@ 60hz HDR10 4:4:4 POE RX",
+            "title": "BrightLink 8x8 HDBaseT Matrix 4K@ 60hz HDR10 4:4:4 POE RX",
             "content": "",
             "content_position": "top_left",
             "button_background": "#4190d2",
