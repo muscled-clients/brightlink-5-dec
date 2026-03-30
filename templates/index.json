@@ -100,8 +100,8 @@
         "4ffad8f8-2ba4-41b9-9f03-553cf239dfbe": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/HDMI-1400.jpg",
-            "mobile_image": "shopify://shop_images/HDMI-1400.jpg",
+            "image": "shopify://shop_images/ChatGPT_Image_Mar_31_2026_01_01_22_AM.png",
+            "mobile_image": "shopify://shop_images/ChatGPT_Image_Mar_31_2026_01_01_22_AM.png",
             "show_overlay": false,
             "overlay_opacity": 30,
             "text_color": "{{ shop.brand.colors.primary[0].background }}",
