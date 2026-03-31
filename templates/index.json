@@ -142,7 +142,7 @@
       ],
       "settings": {
         "edge_to_edge": false,
-        "section_size": "preserve_ratio",
+        "section_size": "medium",
         "carousel_effect": "slide",
         "autoplay": true,
         "cycle_speed": 5
