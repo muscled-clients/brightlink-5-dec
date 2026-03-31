@@ -93,7 +93,7 @@
             "content_position": "top_left",
             "button_background": "#4190d2",
             "button_text_color": "#ffffff",
-            "button_text": "Show Now",
+            "button_text": "Shop Now",
             "link": "shopify://collections/video-wall-sets"
           }
         },
@@ -104,7 +104,7 @@
             "mobile_image": "shopify://shop_images/ChatGPT_Image_Mar_31_2026_01_01_22_AM.png",
             "show_overlay": false,
             "overlay_opacity": 30,
-            "text_color": "{{ shop.brand.colors.primary[0].background }}",
+            "text_color": "#ffffff",
             "title": "Brightlink Premium HDMI Cables",
             "content": "Brightlink Premium 6', 15', 25', 50' & 100' HDMI and Fiber HDMI Cables",
             "content_position": "top_left",
@@ -142,7 +142,7 @@
       ],
       "settings": {
         "edge_to_edge": false,
-        "section_size": "medium",
+        "section_size": "large",
         "carousel_effect": "slide",
         "autoplay": true,
         "cycle_speed": 5
