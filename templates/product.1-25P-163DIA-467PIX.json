@@ -587,14 +587,6 @@
     "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_yrLgip": {
-          "type": "slide",
-          "settings": {
-            "slide_image": "shopify://shop_images/pexels-vecislavas-popa-1571459.jpg",
-            "slide_title": "Test 1",
-            "slide_description": "Test 2"
-          }
-        },
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
@@ -621,7 +613,6 @@
         }
       },
       "block_order": [
-        "slide_yrLgip",
         "slide_3AqnPF",
         "slide_YTbLzi",
         "slide_j9d3Vx"
