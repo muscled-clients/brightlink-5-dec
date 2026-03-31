@@ -107,7 +107,7 @@
             "text_color": "{{ shop.brand.colors.primary[0].background }}",
             "title": "Brightlink Premium HDMI Cables",
             "content": "Brightlink Premium 6', 15', 25', 50' & 100' HDMI and Fiber HDMI Cables",
-            "content_position": "middle_left",
+            "content_position": "top_left",
             "button_background": "#4190d2",
             "button_text_color": "#ffffff",
             "button_text": "SHOP NOW",
