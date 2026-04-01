@@ -303,7 +303,7 @@
         "product_config_QQc4Ck": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy-copy",
+            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "4.06M",
@@ -511,25 +511,25 @@
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/image_8.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
+            "slide_image": "shopify://shop_images/8X8_Front_Panels_Angle1_transparent_f4564857-518c-48f1-a138-b4e9662f4169.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_YTbLzi": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
-            "slide_title": "Immersive Entertainment",
-            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+            "slide_image": "shopify://shop_images/8X8_Back_Angle1_dd997489-1028-4471-b81d-00333f5a89c2.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
-            "slide_title": "Corporate Communications",
-            "slide_description": "Professional displays for boardrooms and lobbies"
+            "slide_image": "shopify://shop_images/8X8_Front_No_Panels_Angle1_transparent_27084aa0-37d7-43a2-ac5f-0fb296ca3296.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         }
       },
