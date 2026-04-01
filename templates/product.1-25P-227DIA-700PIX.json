@@ -424,10 +424,9 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "Brightlink Pro Spectrum COB LED Video Wall - Ultra Slim 1\" Cabinets - NovaStar H5 Controller",
+        "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -452,7 +451,8 @@
         "button_bg_color": "#2196F3",
         "button_hover_color": "#1976D2",
         "series_label_color": "#FFD700",
-        "custom_class": ""
+        "custom_class": "",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4"
       }
     },
     "trusted_leaders_HxDhib": {
@@ -511,17 +511,17 @@
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/image_8.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
+            "slide_image": "shopify://shop_images/6x9_BACK_a458165e-e9c7-4e79-9477-c73faf271370.jpg",
+            "slide_title": "Brightlink Pro Spectrum 227\" 24:9 / 1.25mm",
+            "slide_description": "3/4 4k (6,998,400 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_YTbLzi": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
-            "slide_title": "Immersive Entertainment",
-            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+            "slide_image": "shopify://shop_images/CONFERENCE_ROOM_12x6_13d99d51-ca1a-4f1a-bd85-13c89dd68a70.jpg",
+            "slide_title": "Brightlink Pro Spectrum 227\" 24:9 / 1.25mm",
+            "slide_description": "3/4 4k (6,998,400 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_j9d3Vx": {
@@ -641,9 +641,9 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
-            "card_subtitle": "True 4K Resolution",
-            "card_desc": "3840 x 2160 active pixels"
+            "card_title": "7M PIXELS",
+            "card_subtitle": "3/4 4K Resolution",
+            "card_desc": "4320 x 1620 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -827,15 +827,15 @@
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
-        "display_image": "shopify://shop_images/div_818d295b-df23-4eb8-b25b-71785bc7da44.png",
+        "subheading": "Precision-engineered 9×6 cabinet array delivering 7 million pixels across 227 inches of seamless display surface",
+        "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
         "info2_subheading": "Zero Bezel Gap",
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
-        "cabinet_image": "shopify://shop_images/Frame_1410111166.png",
+        "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -869,7 +869,8 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": ""
+        "custom_class": "",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
       }
     },
     "experience_scale_gDgaxe": {
@@ -878,14 +879,14 @@
       "settings": {
         "label": "IMMERSIVE DISPLAY",
         "title": "Experience the Scale",
-        "subtitle": "217 inches of immersive visual excellence",
-        "image": "shopify://shop_images/image_1_1.png",
-        "metric1_value": "36x",
+        "subtitle": "227 inches of immersive visual excellence",
+        "image": "shopify://shop_images/8X8_Back_Angle1_transparent_a5dba6b1-d522-4174-9978-d5676295b054.png",
+        "metric1_value": "10x",
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
-        "metric2_value": "4x",
+        "metric2_value": "180x",
         "metric2_label": "Equivalent",
-        "metric2_desc": "to 17' diagonal display",
+        "metric2_desc": "to 17\" diagonal display",
         "metric3_value": "141",
         "metric3_label": "sq ft",
         "metric3_desc": "of visual real estate",
@@ -921,9 +922,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD 1080p input cards",
+            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
             "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
@@ -1328,7 +1329,7 @@
         "card_label": "COMPLETE SYSTEM",
         "price_note": "USD | Shipping: 10-12 weeks",
         "includes_title": "Complete System Includes:",
-        "include_1": "64 premium cabinets (8×8 array)",
+        "include_1": "54premium cabinets (9×6 array)",
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
