@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "2-4 HOURS",
+            "card_title": "1 DAY INSTALL",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -641,8 +641,8 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
-            "card_title": "8.2M PIXELS",
-            "card_subtitle": "True 4K Resolution",
+            "card_title": "14.75M PIXELS",
+            "card_subtitle": "1/2 8K Resolution",
             "card_desc": "3840 x 2160 active pixels"
           }
         },
@@ -650,7 +650,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
-            "card_title": "1.25MM",
+            "card_title": "0.9MM",
             "card_subtitle": "Ultra-Fine Pitch",
             "card_desc": "Cinema-grade clarity"
           }
@@ -706,7 +706,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Size per cabinet"
+            "card_desc": "Weight per cabinet"
           }
         }
       },
