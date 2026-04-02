@@ -424,7 +424,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
@@ -1107,7 +1107,7 @@
       "name": "Controller Tabs",
       "settings": {
         "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
-        "title": "NovaStar H2 Controller",
+        "title": "NovaStar H5 Controller",
         "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
         "badge_text": "Authorized NovaStar Partner"
       }
@@ -1333,7 +1333,7 @@
         "include_2": "Complete cable package + spares",
         "include_3": "Service tools (suction + vacuum)",
         "include_4": "4-year comprehensive warranty",
-        "include_5": "NovaStar H2 controller ($8,500 value)",
+        "include_5": "NovaStar H5 controller ($8,500 value)",
         "include_6": "Professional mounting system",
         "include_7": "5% spare modules included",
         "include_8": "Lifetime technical support",

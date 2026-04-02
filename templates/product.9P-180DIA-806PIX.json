@@ -424,10 +424,10 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "Brightlink Pro Spectrum COB LED Video Wall - Ultra Slim 1\" Cabinets - NovaStar H5 Controller",
+        "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -564,7 +564,7 @@
           "type": "card",
           "settings": {
             "icon_type": "clock",
-            "card_title": "1 DAY",
+            "card_title": "1 DAY INSTALL",
             "card_subtitle": "Complete Installation",
             "card_meta": "Industry Standard: 3 Days",
             "feature_1": "Modular panel system with quick-connect technology",
@@ -642,8 +642,8 @@
           "settings": {
             "icon_type": "grid",
             "card_title": "8.06M PIXELS",
-            "card_subtitle": "True 4K Resolution",
-            "card_desc": "3840 x 2160 active pixels"
+            "card_subtitle": "Full 4K Resolution",
+            "card_desc": "4480 x 1800 active pixels"
           }
         },
         "spec_card_AHg3xw": {
@@ -706,7 +706,7 @@
             "icon_type": "weight",
             "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
-            "card_desc": "Size per cabinet"
+            "card_desc": "Weight per cabinet"
           }
         }
       },
@@ -828,14 +828,15 @@
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
         "subheading": "Precision-engineered 7×5 cabinet array delivering 8.06 million pixels across 180 inches of seamless display surface",
-        "display_image": "shopify://shop_images/div_818d295b-df23-4eb8-b25b-71785bc7da44.png",
+        "display_image": "shopify://shop_images/image_2_1.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
         "info2_subheading": "Zero Bezel Gap",
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
-        "cabinet_image": "shopify://shop_images/Frame_1410111166.png",
+        "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "640 × 360 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -921,9 +922,9 @@
             "feature6": "Real-time monitoring and diagnostics",
             "feature7": "",
             "config_title": "Your Configuration Includes:",
-            "config1": "4× Full HD 1080p input cards",
+            "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
             "config2": "40× CAT6 Ethernet outputs (2×20-port cards)",
-            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",

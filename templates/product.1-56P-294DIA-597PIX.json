@@ -397,7 +397,7 @@
             "diagonal": "294\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "5.97M",
-            "aspect_ratio": "24:9"
+            "aspect_ratio": "32:9"
           }
         }
       },
@@ -424,7 +424,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
-        "fallback_image": "shopify://shop_images/Rectangle_34624293_571f3122-920e-440f-a91b-1fee976b67ed.png",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "COB LED Video Wall",
