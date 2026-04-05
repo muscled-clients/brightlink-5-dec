@@ -654,9 +654,9 @@
   
 
   document.querySelectorAll(`[scrollTo]`).forEach((elem) => {
-    
+
     elem.addEventListener("click", (event) => {
-      
+
       sessionStorage.setItem('tabclick', true);
 
       setTimeout(()=>{
@@ -667,10 +667,15 @@
       if(window.innerWidth<768){
         adjustment = 120
       }
-      
+
       let id = event.currentTarget.getAttribute("scrollTo")
       if (id) {
-        const element = document.getElementById(id);
+        let element = document.getElementById(id);
+        // If element not found by exact ID, try finding by UUID suffix (handles template ID changes)
+        if (!element && id.includes('__')) {
+          let uuid = id.split('__').pop();
+          element = document.querySelector('[id$="__' + uuid + '"]');
+        }
         if (element) {
           const rect = element.getBoundingClientRect();
           if(rect.top <= 0 || rect.bottom >= 0){
@@ -698,7 +703,14 @@
     const elements = [...document.querySelectorAll('[scrollTo]')];
     elements.some((elem) => {
       if (elem.getAttribute("scrollTo")) {
-        const items = document.querySelector(`#${elem.getAttribute("scrollTo")}`);
+        let scrollId = elem.getAttribute("scrollTo");
+        let items = document.querySelector(`#${scrollId}`);
+        // Fallback: find by UUID suffix if exact ID not found
+        if (!items && scrollId.includes('__')) {
+          let uuid = scrollId.split('__').pop();
+          items = document.querySelector('[id$="__' + uuid + '"]');
+        }
+        if (!items) return false;
         const viewportHeight = window.innerHeight;
         const elementRect = items.getBoundingClientRect();
     
@@ -731,7 +743,12 @@
         if(lastSection.length>0){
           const lastelem = lastSection[lastSection.length - 1]
           if(lastelem.getAttribute("scrollto")){
-            const main_section = document.querySelector(`#${lastelem.getAttribute("scrollto")}`)
+            let lastScrollId = lastelem.getAttribute("scrollto");
+            let main_section = document.querySelector(`#${lastScrollId}`);
+            if (!main_section && lastScrollId.includes('__')) {
+              let uuid = lastScrollId.split('__').pop();
+              main_section = document.querySelector('[id$="__' + uuid + '"]');
+            }
             if(main_section) {
               const viewportHeight = window.innerHeight;
               const elementRect = main_section.getBoundingClientRect();
