@@ -490,7 +490,7 @@
     position: fixed;
     width: 100%;
     max-width: 100%;
-    top: var(--header-height, 80px);
+    top: calc(var(--header-height, 80px) * var(--header-is-sticky, 0));
     z-index: 999999;
   }
   {% unless tabTitlesExist %}
@@ -506,7 +506,7 @@
       gap: 10px;
     }
     #shopify-section-{{ section.id }} .main-tabs-container.sticky{
-      top: var(--header-height, 60px);
+      top: calc(var(--header-height, 60px) * var(--header-is-sticky, 0));
     }
 
     #shopify-section-{{ section.id }} .tab-button{
@@ -751,12 +751,13 @@
       }
       
       let headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80
-      let top = headerHeight + 50
+      let isSticky = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-is-sticky')) || 0
+      let top = (headerHeight * isSticky) + 50
       if(elem.getAttribute("top")){
         top = elem.getAttribute("top") * 1
       }
       if(window.innerWidth<768){
-        top = headerHeight + 30
+        top = (headerHeight * isSticky) + 30
       }
       const id=elem.getAttribute("sticky") || null
       if(!id)return
