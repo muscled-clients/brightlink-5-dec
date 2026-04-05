@@ -427,7 +427,7 @@
         "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "Brightlink Pro Spectrum COB LED Video Wall - Ultra Slim 1\" Cabinets - NovaStar H9 Controller",
+        "main_heading": "COB LED Video Wall",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -452,85 +452,6 @@
         "button_bg_color": "#2196f3",
         "button_hover_color": "#1976d2",
         "series_label_color": "#ffd700",
-        "custom_class": ""
-      }
-    },
-    "product_intelligence_i3x89A": {
-      "type": "product-intelligence",
-      "blocks": {
-        "overview_tab_Pa8cLd": {
-          "type": "overview_tab",
-          "settings": {
-            "tab_title": "Overview",
-            "tab_icon": "overview",
-            "overview_image": "shopify://shop_images/Picture.png",
-            "read_more_link": "",
-            "show_features": true,
-            "primary_btn_text": "ORDER NOW",
-            "primary_btn_link": "",
-            "secondary_btn_text": "BOOK A CALL",
-            "secondary_btn_link": ""
-          }
-        },
-        "specs_tab_y4igie": {
-          "type": "specs_tab",
-          "settings": {
-            "tab_title": "Specifications",
-            "tab_icon": "specs"
-          }
-        },
-        "features_tab_wEjVQ8": {
-          "type": "features_tab",
-          "settings": {
-            "tab_title": "Features & Benefits",
-            "tab_icon": "features"
-          }
-        },
-        "included_tab_i7Qmne": {
-          "type": "included_tab",
-          "settings": {
-            "tab_title": "What's Included",
-            "tab_icon": "included"
-          }
-        },
-        "installation_tab_rCMbMm": {
-          "type": "installation_tab",
-          "settings": {
-            "tab_title": "Installation Guide",
-            "tab_icon": "installation",
-            "installer_link": ""
-          }
-        },
-        "support_tab_CePUQe": {
-          "type": "support_tab",
-          "settings": {
-            "tab_title": "Support & Resources",
-            "tab_icon": "support"
-          }
-        }
-      },
-      "block_order": [
-        "overview_tab_Pa8cLd",
-        "specs_tab_y4igie",
-        "features_tab_wEjVQ8",
-        "included_tab_i7Qmne",
-        "installation_tab_rCMbMm",
-        "support_tab_CePUQe"
-      ],
-      "name": "Product Intelligence",
-      "settings": {
-        "section_label": "PRODUCT INTELLIGENCE CENTER",
-        "heading": "Complete Product Intelligence",
-        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
-        "label_font_size": 12,
-        "heading_font_size": 42,
-        "subheading_font_size": 16,
-        "bg_color": "#0a0f14",
-        "label_color": "#ffd700",
-        "heading_color": "#ffffff",
-        "subheading_color": "#a0a0a0",
-        "padding_top": 80,
-        "padding_bottom": 80,
         "custom_class": ""
       }
     },
@@ -821,13 +742,92 @@
         "custom_class": ""
       }
     },
+    "product_intelligence_i3x89A": {
+      "type": "product-intelligence",
+      "blocks": {
+        "overview_tab_Pa8cLd": {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "overview_image": "shopify://shop_images/Picture.png",
+            "read_more_link": "",
+            "show_features": true,
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "specs_tab_y4igie": {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs"
+          }
+        },
+        "features_tab_wEjVQ8": {
+          "type": "features_tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features"
+          }
+        },
+        "included_tab_i7Qmne": {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
+        "installation_tab_rCMbMm": {
+          "type": "installation_tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "installer_link": ""
+          }
+        },
+        "support_tab_CePUQe": {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        }
+      },
+      "block_order": [
+        "overview_tab_Pa8cLd",
+        "specs_tab_y4igie",
+        "features_tab_wEjVQ8",
+        "included_tab_i7Qmne",
+        "installation_tab_rCMbMm",
+        "support_tab_CePUQe"
+      ],
+      "name": "Product Intelligence",
+      "settings": {
+        "section_label": "PRODUCT INTELLIGENCE CENTER",
+        "heading": "Complete Product Intelligence",
+        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": ""
+      }
+    },
     "system_configuration_HNRj7k": {
       "type": "system-configuration",
       "name": "System Configuration",
       "settings": {
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
-        "subheading": "Precision-engineered 12x6 cabinet array delivering 16.59 million pixels across 294 inches of seamless display surface",
+        "subheading": "Precision-engineered cabinet array delivering 16.59 million pixels across 294 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
         "mobile_image": "shopify://shop_images/image_2_3.png",
         "info1_heading": "PIXEL PERFECT",
@@ -837,7 +837,6 @@
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "640 x 360 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -871,7 +870,8 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": ""
+        "custom_class": "",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
       }
     },
     "experience_scale_gDgaxe": {
@@ -1540,7 +1540,6 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1548,7 +1547,6 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1556,7 +1554,6 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1571,9 +1568,6 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
-        "image_width": 800,
-        "image_height": 500,
-        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",

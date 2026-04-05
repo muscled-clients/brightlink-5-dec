@@ -490,7 +490,7 @@
     position: fixed;
     width: 100%;
     max-width: 100%;
-    top: 137.33px;
+    top: var(--header-height, 80px);
     z-index: 999999;
   }
   {% unless tabTitlesExist %}
@@ -506,7 +506,7 @@
       gap: 10px;
     }
     #shopify-section-{{ section.id }} .main-tabs-container.sticky{
-      top: 24px;
+      top: var(--header-height, 60px);
     }
 
     #shopify-section-{{ section.id }} .tab-button{
@@ -750,12 +750,13 @@
         }
       }
       
-      let top = 200
+      let headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80
+      let top = headerHeight + 50
       if(elem.getAttribute("top")){
         top = elem.getAttribute("top") * 1
       }
       if(window.innerWidth<768){
-        top = 150
+        top = headerHeight + 30
       }
       const id=elem.getAttribute("sticky") || null
       if(!id)return
