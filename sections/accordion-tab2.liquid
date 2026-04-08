@@ -19,7 +19,7 @@
   }
 
   #shopify-section-{{ section.id }} {
-    background: #f9f9fa;
+    background: #0a0e1a;
   }
   .mega-menu{
     z-index: 9999;
@@ -50,9 +50,9 @@
     align-items: center;
     font-size: 16px;
     font-family: 'Montserrat';
-    color: #636363;
+    color: #ffffff;
 
-    background-color: #f9f9fa;
+    background-color: #0a0e1a;
   }
   #shopify-section-{{ section.id }} .accordion-spec{
     width: 100%;
@@ -67,7 +67,7 @@
     display: none;
   }
   #shopify-section-{{ section.id }} .accordion h2{
-    color: #333;
+    color: #ffffff;
     text-align: center;
     line-height: normal;
     font-size: 32px;
@@ -116,7 +116,7 @@
   }
   #shopify-section-{{ section.id }} .accordion-features .img-container .label{
     margin-top: 15px;
-    color: black;
+    color: #ffffff;
   }
   #shopify-section-{{ section.id }} .accordion-downloads{
     width: 100%;
@@ -124,7 +124,7 @@
     margin: auto;
   }
   #shopify-section-{{ section.id }} .accordion-downloads h2 {
-    color: #333;
+    color: #ffffff;
     text-align: center;
     line-height: normal;
     font-size: 32px;
@@ -144,11 +144,18 @@
     line-height: normal;
     display: flex;
     align-items: center;
-    background-color: white;
+    background-color: transparent;
   }
   #shopify-section-{{ section.id }} .accordion-downloads svg{
     margin-right: 10px;
     min-width: 10px;
+    fill: #ffffff;
+    color: #ffffff;
+  }
+  #shopify-section-{{ section.id }} .accordion-downloads svg path,
+  #shopify-section-{{ section.id }} .accordion-downloads svg rect,
+  #shopify-section-{{ section.id }} .accordion-downloads svg polygon {
+    fill: #ffffff !important;
   }
   #shopify-section-{{ section.id }} .accordion-downloads a{
     padding: 5px 15px;
@@ -177,12 +184,12 @@
     #shopify-section-{{ section.id }} .accordion-spec.type-1 tbody tr td:first-child,
     #shopify-section-{{ section.id }} .accordion-spec.type-2 tbody tr td:first-child {
       font-weight: 500;
-      color: black;
+      color: #ffffff;
     }
     #shopify-section-{{ section.id }} .accordion-spec.type-1 tbody tr:first-child td,
     #shopify-section-{{ section.id }} .accordion-spec.type-5 tbody tr:first-child td{
       font-weight: 600;
-      color: black;
+      color: #ffffff;
       font-size: 18px;
     }
     #shopify-section-{{ section.id }} .accordion-spec.type-3,
@@ -201,7 +208,7 @@
     #shopify-section-{{ section.id }} .accordion-spec.type-4 .special{
 
       font-weight: 400;
-      color: black;
+      color: #ffffff;
       font-size: 20px;
       text-transform: uppercase;
       max-width: 300px;
@@ -439,7 +446,7 @@
 <style>
   #shopify-section-{{ section.id }} .main-tabs-container{
     padding: 0px 15px;
-    background: #F2F2F2;
+    background: #0d1224;
     margin: 40px 0;
     position: relative;
   }
@@ -460,7 +467,7 @@
 
   #shopify-section-{{ section.id }} .tab-button {
     background: transparent;
-    color: #000;
+    color: #ffffff;
     cursor: pointer;
     padding: 16px 20px;
     text-align: center;
@@ -483,7 +490,7 @@
     position: fixed;
     width: 100%;
     max-width: 100%;
-    top: 137.33px;
+    top: calc(var(--header-height, 80px) * var(--header-is-sticky, 0));
     z-index: 999999;
   }
   {% unless tabTitlesExist %}
@@ -499,7 +506,7 @@
       gap: 10px;
     }
     #shopify-section-{{ section.id }} .main-tabs-container.sticky{
-      top: 24px;
+      top: calc(var(--header-height, 60px) * var(--header-is-sticky, 0));
     }
 
     #shopify-section-{{ section.id }} .tab-button{
@@ -647,9 +654,9 @@
   
 
   document.querySelectorAll(`[scrollTo]`).forEach((elem) => {
-    
+
     elem.addEventListener("click", (event) => {
-      
+
       sessionStorage.setItem('tabclick', true);
 
       setTimeout(()=>{
@@ -660,10 +667,15 @@
       if(window.innerWidth<768){
         adjustment = 120
       }
-      
+
       let id = event.currentTarget.getAttribute("scrollTo")
       if (id) {
-        const element = document.getElementById(id);
+        let element = document.getElementById(id);
+        // If element not found by exact ID, try finding by UUID suffix (handles template ID changes)
+        if (!element && id.includes('__')) {
+          let uuid = id.split('__').pop();
+          element = document.querySelector('[id$="__' + uuid + '"]');
+        }
         if (element) {
           const rect = element.getBoundingClientRect();
           if(rect.top <= 0 || rect.bottom >= 0){
@@ -691,7 +703,14 @@
     const elements = [...document.querySelectorAll('[scrollTo]')];
     elements.some((elem) => {
       if (elem.getAttribute("scrollTo")) {
-        const items = document.querySelector(`#${elem.getAttribute("scrollTo")}`);
+        let scrollId = elem.getAttribute("scrollTo");
+        let items = document.querySelector(`#${scrollId}`);
+        // Fallback: find by UUID suffix if exact ID not found
+        if (!items && scrollId.includes('__')) {
+          let uuid = scrollId.split('__').pop();
+          items = document.querySelector('[id$="__' + uuid + '"]');
+        }
+        if (!items) return false;
         const viewportHeight = window.innerHeight;
         const elementRect = items.getBoundingClientRect();
     
@@ -724,7 +743,12 @@
         if(lastSection.length>0){
           const lastelem = lastSection[lastSection.length - 1]
           if(lastelem.getAttribute("scrollto")){
-            const main_section = document.querySelector(`#${lastelem.getAttribute("scrollto")}`)
+            let lastScrollId = lastelem.getAttribute("scrollto");
+            let main_section = document.querySelector(`#${lastScrollId}`);
+            if (!main_section && lastScrollId.includes('__')) {
+              let uuid = lastScrollId.split('__').pop();
+              main_section = document.querySelector('[id$="__' + uuid + '"]');
+            }
             if(main_section) {
               const viewportHeight = window.innerHeight;
               const elementRect = main_section.getBoundingClientRect();
@@ -743,12 +767,14 @@
         }
       }
       
-      let top = 200
+      let headerHeight = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-height')) || 80
+      let isSticky = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-is-sticky')) || 0
+      let top = (headerHeight * isSticky) + 50
       if(elem.getAttribute("top")){
         top = elem.getAttribute("top") * 1
       }
       if(window.innerWidth<768){
-        top = 150
+        top = (headerHeight * isSticky) + 30
       }
       const id=elem.getAttribute("sticky") || null
       if(!id)return

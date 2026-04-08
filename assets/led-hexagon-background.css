@@ -212,6 +212,7 @@
 /* LED template page base styling */
 .advanced-spectrum-page {
   background-color: #0A0E1A;
+  overflow-x: hidden;
 }
 
 /* Ensure all LED template sections appear above the hexagon background */

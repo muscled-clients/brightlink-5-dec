@@ -329,11 +329,9 @@
       <p class="system-configuration__cta-subheading">{{ section.settings.cta_subheading }}</p>
 
       <div class="system-configuration__cta-box">
-        {% if section.settings.price_text != blank %}
-          <div class="system-configuration__price">
-            {{ section.settings.price_text }}
-          </div>
-        {% endif %}
+        <div class="system-configuration__price">
+          {{ product.price | money }}
+        </div>
 
         <div class="system-configuration__cta-buttons">
           {% if section.settings.primary_btn_text != blank %}
@@ -372,8 +370,8 @@
   }
   
   #system-configuration-{{ section.id }} .system-configuration__info-container--1 {
-    top: 50px;
-    left: 574px;
+    top: 37px;
+    left: 544px;
   }
   
   #system-configuration-{{ section.id }} .system-configuration__info-container--2 {
@@ -442,10 +440,9 @@ line-height: 20px; /* 142.857% */
   
   /* Image styling */
   #system-configuration-{{ section.id }} .system-configuration__display-image {
-    width: calc(100% - 60px);
+    width: 100%;
     height: auto;
     display: block;
-    margin: 110px auto 30px auto;
   }
   
   /* Show desktop image by default, hide mobile */
@@ -842,12 +839,6 @@ line-height: 20px; /* 142.857% */
       "id": "cta_subheading",
       "label": "CTA Subheading",
       "default": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences"
-    },
-    {
-      "type": "text",
-      "id": "price_text",
-      "label": "Price Text",
-      "default": "$19,250.00 (30% Deposit)"
     },
     {
       "type": "text",

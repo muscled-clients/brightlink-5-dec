@@ -36,6 +36,15 @@
           {% assign main_title = product_info | truncate: 40 %}
         {% endunless %}
 
+        {%- comment -%} Extract diagonal: word containing " {%- endcomment -%}
+        {% assign main_diagonal = '' %}
+        {% for w in info_words %}
+          {% assign cw = w | remove: '(' | remove: ')' | remove: ',' %}
+          {% if cw contains '"' and main_diagonal == blank %}
+            {% assign main_diagonal = cw %}
+          {% endif %}
+        {% endfor %}
+
         {%- comment -%} Extract pitch: first word containing "mm" {%- endcomment -%}
         {% assign main_pitch = '' %}
         {% for w in info_words %}
@@ -44,17 +53,6 @@
             {% assign main_pitch = cw %}
           {% endif %}
         {% endfor %}
-
-        {%- comment -%} Extract resolution {%- endcomment -%}
-        {% assign main_resolution = '' %}
-        {% assign lower_info = product_info | downcase %}
-        {% if lower_info contains 'full 4k' %}
-          {% assign main_resolution = 'Full 4K' %}
-        {% elsif lower_info contains '4k' %}
-          {% assign main_resolution = '4K' %}
-        {% elsif lower_info contains '1080p' %}
-          {% assign main_resolution = '1080p' %}
-        {% endif %}
 
         {%- comment -%} Extract pixel count: number before "Million Pixels" {%- endcomment -%}
         {% assign main_pixels = '' %}
@@ -83,17 +81,27 @@
           {% endif %}
         {% endif %}
 
-        {%- comment -%} Build specs line: "8.06M Pixels | .9mm Pitch | 4K" {%- endcomment -%}
-        {% capture main_desc %}{% if pixels_display != blank %}{{ pixels_display }} Pixels{% endif %}{% if main_pitch != blank %}{% if pixels_display != blank %} | {% endif %}{{ main_pitch }} Pitch{% endif %}{% if main_resolution != blank %}{% if main_pitch != blank or pixels_display != blank %} | {% endif %}{{ main_resolution }}{% endif %}{% endcapture %}
+        {%- comment -%} Extract aspect ratio from full title {%- endcomment -%}
+        {% assign main_ratio = '' %}
+        {% assign full_title_words = main_product.title | split: ' ' %}
+        {% for w in full_title_words %}
+          {% assign cw = w | remove: '(' | remove: ')' | remove: ',' %}
+          {% if cw contains ':' and main_ratio == blank %}
+            {% assign main_ratio = cw %}
+          {% endif %}
+        {% endfor %}
+
+        {%- comment -%} Build specs line matching hero format: "163" | 0.9mm Pitch | 8.29M Pixels | 16:9" {%- endcomment -%}
+        {% capture main_desc %}{% if main_diagonal != blank %}{{ main_diagonal }}{% endif %}{% if main_pitch != blank %} | {{ main_pitch }} Pitch{% endif %}{% if pixels_display != blank %} | {{ pixels_display }} Pixels{% endif %}{% if main_ratio != blank %} | {{ main_ratio }}{% endif %}{% endcapture %}
         {% assign main_desc = main_desc | strip %}
         {% if main_desc == blank %}
           {% assign main_desc = main_product.description | strip_html | truncate: 80 %}
         {% endif %}
-        {% comment %} ADDED Manually from Editor d10 {% endcomment %}
-         {% assign meta_specs = main_product.metafields.custom.product_specs_line.value %}
-          {% if meta_specs != blank %}
-            {% assign main_desc = meta_specs %}
-          {% endif %}
+        {% assign meta_specs = main_product.metafields.custom.product_specs_line.value %}
+        {% if meta_specs != blank %}
+          {% assign main_desc = meta_specs %}
+        {% endif %}
+
         {%- comment -%} Pricing {%- endcomment -%}
         {% assign main_current_price = main_product.price | money %}
         {% if main_product.compare_at_price > main_product.price %}

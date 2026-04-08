@@ -143,17 +143,15 @@
 
     <!-- CTA Section -->
     <div class="technical-specs__cta">
-      {% if section.settings.price_text != blank %}
-        <div class="technical-specs__price">
-          {{ section.settings.price_text }}
-        </div>
-      {% endif %}
+      <div class="technical-specs__price">
+        {{ product.price | money }}
+      </div>
 
       <div class="technical-specs__cta-buttons">
         {% if section.settings.button_1_text != blank %}
-          <a href="{{ section.settings.button_1_link }}" class="technical-specs__btn">
+          <button type="button" class="technical-specs__btn js-section-add-to-cart" data-variant-id="{{ product.selected_or_first_available_variant.id }}">
             {{ section.settings.button_1_text }}
-          </a>
+          </button>
         {% endif %}
         {% if section.settings.button_2_text != blank %}
           <a href="{{ section.settings.button_2_link | default: 'https://cal.com/tyson-edwards-brightlinkav' }}" class="technical-specs__btn--secondary">
@@ -293,12 +291,6 @@
     {
       "type": "header",
       "content": "CTA Section"
-    },
-    {
-      "type": "text",
-      "id": "price_text",
-      "label": "Price Text",
-      "default": "$19,250.00 (30% Deposit)"
     },
     {
       "type": "text",

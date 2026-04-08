@@ -70,6 +70,7 @@
     "social_snapchat": "",
     "social_fancy": "",
     "favicon": "shopify://shop_images/Brightlink_Logo_323cabf4-ad41-494f-bae8-dd4b495263e2.png",
+    "cob_bg_image": "shopify://shop_images/bg-product.png",
     "checkout_logo_image": "shopify://shop_images/Brightlink-final-logo-698.png",
     "checkout_logo_position": "left",
     "checkout_logo_size": "medium",
@@ -154,7 +155,7 @@
           "mega_menu_KwAyxJ"
         ],
         "settings": {
-          "enable_sticky_header": true,
+          "enable_sticky_header": false,
           "logo": "shopify://shop_images/Brightlink_Logo.png",
           "logo_max_width": 260,
           "mobile_logo_max_width": 80,
@@ -184,7 +185,7 @@
               "wtitle": "Sales Working hours",
               "wcontent": "<p>Monday - Friday: 9:00AM - 5:00PM PST</p><p>12am - 8pm EST </p><p>CALL <a href=\"tel:1-855-449-4733\" title=\"tel:1-855-449-4733\">855-449-4733</a></p>",
               "wtitle1": "Support Working hours",
-              "wcontent1": ""
+              "wcontent1": "<p>Monday - Friday: 5:00AM - 5:00PM PST</p><p>8am - 8pm EST</p>"
             }
           },
           "footer-1": {

@@ -217,10 +217,10 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_Xm9pRV": {
+    "hero_video_wall_pRqPhU": {
       "type": "hero-video-wall",
       "blocks": {
-        "product_config_q7K2nV": {
+        "product_config_Wtkd3z": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-9mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -230,7 +230,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_r8L3oW": {
+        "product_config_PzbmAP": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-25mm-1-2-4k-4-665-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -240,7 +240,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_s9M4pX": {
+        "product_config_8wDdRF": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -250,27 +250,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_RiMqiB": {
+        "product_config_kNTK4i": {
           "type": "product_config",
           "settings": {
-            "product": "",
-            "diagonal": "163\"",
-            "pixel_pitch": "0.9mm",
-            "total_pixels": "8.29M",
-            "aspect_ratio": "16:9"
-          }
-        },
-        "product_config_t0N5qY": {
-          "type": "product_config",
-          "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_u1O6rZ": {
+        "product_config_Xh7zW3": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-1-25mm-1-2-4k-4-536-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -280,7 +270,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_v2P7sA": {
+        "product_config_KhTjTJ": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-21-9-1-56mm-1-5-x-1080p-2-903-040-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -290,7 +280,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_w3Q8tB": {
+        "product_config_zByPib": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -300,17 +290,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_x4R9uC": {
+        "product_config_UchbCR": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
+            "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "190\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "6.35M",
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_y5S0vD": {
+        "product_config_P3tAJc": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy-copy",
@@ -320,7 +310,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_z6T1wE": {
+        "product_config_KPie9a": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -330,17 +320,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_a7U2xF": {
+        "product_config_A8LJPy": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-2-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller",
+            "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "217\"",
             "pixel_pitch": "1.25mm",
             "total_pixels": "8.20M",
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_b8V3yG": {
+        "product_config_mjMKcm": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
@@ -350,7 +340,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_c9W4zH": {
+        "product_config_6Tmbci": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -360,7 +350,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_d0X5aI": {
+        "product_config_WD7q8z": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-25mm-3-4-4k-6-998-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -370,7 +360,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_e1Y6bJ": {
+        "product_config_fz8tJ4": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -380,7 +370,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_f2Z7cK": {
+        "product_config_MDdVd4": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h9-controller-4-year-warranty",
@@ -390,7 +380,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_g3A8dL": {
+        "product_config_mxDGH7": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-25mm-above-4k-9-331-200-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -400,7 +390,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_h4B9eM": {
+        "product_config_N8Fk9q": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -412,25 +402,24 @@
         }
       },
       "block_order": [
-        "product_config_q7K2nV",
-        "product_config_r8L3oW",
-        "product_config_s9M4pX",
-        "product_config_RiMqiB",
-        "product_config_t0N5qY",
-        "product_config_u1O6rZ",
-        "product_config_v2P7sA",
-        "product_config_w3Q8tB",
-        "product_config_x4R9uC",
-        "product_config_y5S0vD",
-        "product_config_z6T1wE",
-        "product_config_a7U2xF",
-        "product_config_b8V3yG",
-        "product_config_c9W4zH",
-        "product_config_d0X5aI",
-        "product_config_e1Y6bJ",
-        "product_config_f2Z7cK",
-        "product_config_g3A8dL",
-        "product_config_h4B9eM"
+        "product_config_Wtkd3z",
+        "product_config_PzbmAP",
+        "product_config_8wDdRF",
+        "product_config_kNTK4i",
+        "product_config_Xh7zW3",
+        "product_config_KhTjTJ",
+        "product_config_zByPib",
+        "product_config_UchbCR",
+        "product_config_P3tAJc",
+        "product_config_KPie9a",
+        "product_config_A8LJPy",
+        "product_config_mjMKcm",
+        "product_config_6Tmbci",
+        "product_config_WD7q8z",
+        "product_config_fz8tJ4",
+        "product_config_MDdVd4",
+        "product_config_mxDGH7",
+        "product_config_N8Fk9q"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -438,7 +427,7 @@
         "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "COB LED Video Wall",
+        "main_heading": "",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -466,31 +455,31 @@
         "custom_class": ""
       }
     },
-    "trusted_leaders_Vy7mNQ": {
+    "trusted_leaders_HxDhib": {
       "type": "trusted-leaders",
       "blocks": {
-        "company_Gk3pRs": {
+        "company_FyNxNy": {
           "type": "company",
           "settings": {
             "company_name": "SpaceX",
             "company_link": ""
           }
         },
-        "company_Hl4qSt": {
+        "company_Jd9M3r": {
           "type": "company",
           "settings": {
             "company_name": "University of Hawaii",
             "company_link": ""
           }
         },
-        "company_Im5rTu": {
+        "company_3EiYAE": {
           "type": "company",
           "settings": {
             "company_name": "Epic Games",
             "company_link": ""
           }
         },
-        "company_Jn6sUv": {
+        "company_athRmC": {
           "type": "company",
           "settings": {
             "company_name": "City of Mesa",
@@ -499,10 +488,10 @@
         }
       },
       "block_order": [
-        "company_Gk3pRs",
-        "company_Hl4qSt",
-        "company_Im5rTu",
-        "company_Jn6sUv"
+        "company_FyNxNy",
+        "company_Jd9M3r",
+        "company_3EiYAE",
+        "company_athRmC"
       ],
       "name": "Trusted Leaders",
       "settings": {
@@ -516,26 +505,26 @@
         "custom_class": ""
       }
     },
-    "product_showcase_Dw8nOP": {
+    "product_showcase_K3JKfg": {
       "type": "product-showcase",
       "blocks": {
-        "slide_Kp7tWx": {
+        "slide_3AqnPF": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/image_8.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
+            "slide_image": "shopify://shop_images/12X6_BACK_70ff3839-9d97-4a3d-94d4-bda631311fbb.jpg",
+            "slide_title": "Brightlink Pro Spectrum 294\" 32:9 / .9mm",
+            "slide_description": "(1/2 x 8k 16,588,800 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
-        "slide_Lq8uXy": {
+        "slide_YTbLzi": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
-            "slide_title": "Immersive Entertainment",
-            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+            "slide_image": "shopify://shop_images/CONFERENCE_ROOM_12x6_13d99d51-ca1a-4f1a-bd85-13c89dd68a70.jpg",
+            "slide_title": "Brightlink Pro Spectrum 294\" 32:9 / .9mm",
+            "slide_description": "(1/2 x 8k 16,588,800 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
-        "slide_Mr9vYz": {
+        "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
             "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
@@ -545,9 +534,9 @@
         }
       },
       "block_order": [
-        "slide_Kp7tWx",
-        "slide_Lq8uXy",
-        "slide_Mr9vYz"
+        "slide_3AqnPF",
+        "slide_YTbLzi",
+        "slide_j9d3Vx"
       ],
       "name": "Product Showcase",
       "settings": {
@@ -568,10 +557,10 @@
         "custom_class": ""
       }
     },
-    "competitive_advantages_Fx9oPQ": {
+    "competitive_advantages_CEETTB": {
       "type": "competitive-advantages",
       "blocks": {
-        "card_Ns0wZa": {
+        "card_AbG6rc": {
           "type": "card",
           "settings": {
             "icon_type": "clock",
@@ -586,7 +575,7 @@
             "footer_desc": "Minimize operational disruption and reduce installation costs by 70%"
           }
         },
-        "card_Ot1xAb": {
+        "card_kDtYc6": {
           "type": "card",
           "settings": {
             "icon_type": "layers",
@@ -601,7 +590,7 @@
             "footer_desc": "Perfect image integrity for mission-critical applications and premium presentations"
           }
         },
-        "card_Pu2yBc": {
+        "card_FMYPTY": {
           "type": "card",
           "settings": {
             "icon_type": "infinity",
@@ -618,9 +607,9 @@
         }
       },
       "block_order": [
-        "card_Ns0wZa",
-        "card_Ot1xAb",
-        "card_Pu2yBc"
+        "card_AbG6rc",
+        "card_kDtYc6",
+        "card_FMYPTY"
       ],
       "name": "Competitive Advantages",
       "settings": {
@@ -638,7 +627,6 @@
         "footer_label_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_text": "ORDER NOW",
         "button_link": "",
         "button_2_text": "Book A Call",
@@ -646,10 +634,10 @@
         "custom_class": ""
       }
     },
-    "technical_specs_Gy0pQR": {
+    "technical_specs_9TtCQU": {
       "type": "technical-specs",
       "blocks": {
-        "spec_card_Qv3zCd": {
+        "spec_card_6WbGyW": {
           "type": "spec_card",
           "settings": {
             "icon_type": "grid",
@@ -658,7 +646,7 @@
             "card_desc": "16,588,800 active pixels"
           }
         },
-        "spec_card_Rw4aDE": {
+        "spec_card_AHg3xw": {
           "type": "spec_card",
           "settings": {
             "icon_type": "ruler",
@@ -667,7 +655,7 @@
             "card_desc": "Cinema-grade clarity"
           }
         },
-        "spec_card_Sx5bEf": {
+        "spec_card_3LQE7H": {
           "type": "spec_card",
           "settings": {
             "icon_type": "refresh",
@@ -676,7 +664,7 @@
             "card_desc": "Zero flicker, smooth motion"
           }
         },
-        "spec_card_Ty6cFg": {
+        "spec_card_HGKmnt": {
           "type": "spec_card",
           "settings": {
             "icon_type": "brightness",
@@ -685,7 +673,7 @@
             "card_desc": "HDR-capable, adjustable"
           }
         },
-        "spec_card_Uz7dGh": {
+        "spec_card_hVBBB6": {
           "type": "spec_card",
           "settings": {
             "icon_type": "contrast",
@@ -694,7 +682,7 @@
             "card_desc": "Deep blacks, vivid colors"
           }
         },
-        "spec_card_Va8eHi": {
+        "spec_card_4Bq8ia": {
           "type": "spec_card",
           "settings": {
             "icon_type": "view",
@@ -703,7 +691,7 @@
             "card_desc": "Consistent from all positions"
           }
         },
-        "spec_card_Wb9fIj": {
+        "spec_card_6xdNfG": {
           "type": "spec_card",
           "settings": {
             "icon_type": "layers",
@@ -712,7 +700,7 @@
             "card_desc": "Industry's thinnest at 1 inch"
           }
         },
-        "spec_card_Xc0gJk": {
+        "spec_card_4ALMrk": {
           "type": "spec_card",
           "settings": {
             "icon_type": "weight",
@@ -723,14 +711,14 @@
         }
       },
       "block_order": [
-        "spec_card_Qv3zCd",
-        "spec_card_Rw4aDE",
-        "spec_card_Sx5bEf",
-        "spec_card_Ty6cFg",
-        "spec_card_Uz7dGh",
-        "spec_card_Va8eHi",
-        "spec_card_Wb9fIj",
-        "spec_card_Xc0gJk"
+        "spec_card_6WbGyW",
+        "spec_card_AHg3xw",
+        "spec_card_3LQE7H",
+        "spec_card_HGKmnt",
+        "spec_card_hVBBB6",
+        "spec_card_4Bq8ia",
+        "spec_card_6xdNfG",
+        "spec_card_4ALMrk"
       ],
       "name": "Technical Specs",
       "settings": {
@@ -747,7 +735,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_1_text": "ORDER NOW",
         "button_1_link": "",
         "button_2_text": "Book A Call",
@@ -755,10 +742,10 @@
         "custom_class": ""
       }
     },
-    "product_intelligence_Hz1qRS": {
+    "product_intelligence_i3x89A": {
       "type": "product-intelligence",
       "blocks": {
-        "overview_tab_Yd1hKl": {
+        "overview_tab_Pa8cLd": {
           "type": "overview_tab",
           "settings": {
             "tab_title": "Overview",
@@ -772,28 +759,28 @@
             "secondary_btn_link": ""
           }
         },
-        "specs_tab_Ze2iLm": {
+        "specs_tab_y4igie": {
           "type": "specs_tab",
           "settings": {
             "tab_title": "Specifications",
             "tab_icon": "specs"
           }
         },
-        "features_tab_Af3jMn": {
+        "features_tab_wEjVQ8": {
           "type": "features_tab",
           "settings": {
             "tab_title": "Features & Benefits",
             "tab_icon": "features"
           }
         },
-        "included_tab_Bg4kNo": {
+        "included_tab_i7Qmne": {
           "type": "included_tab",
           "settings": {
             "tab_title": "What's Included",
             "tab_icon": "included"
           }
         },
-        "installation_tab_Ch5lOp": {
+        "installation_tab_rCMbMm": {
           "type": "installation_tab",
           "settings": {
             "tab_title": "Installation Guide",
@@ -801,7 +788,7 @@
             "installer_link": ""
           }
         },
-        "support_tab_Di6mPq": {
+        "support_tab_CePUQe": {
           "type": "support_tab",
           "settings": {
             "tab_title": "Support & Resources",
@@ -810,12 +797,12 @@
         }
       },
       "block_order": [
-        "overview_tab_Yd1hKl",
-        "specs_tab_Ze2iLm",
-        "features_tab_Af3jMn",
-        "included_tab_Bg4kNo",
-        "installation_tab_Ch5lOp",
-        "support_tab_Di6mPq"
+        "overview_tab_Pa8cLd",
+        "specs_tab_y4igie",
+        "features_tab_wEjVQ8",
+        "included_tab_i7Qmne",
+        "installation_tab_rCMbMm",
+        "support_tab_CePUQe"
       ],
       "name": "Product Intelligence",
       "settings": {
@@ -834,7 +821,7 @@
         "custom_class": ""
       }
     },
-    "system_configuration_Ia2rST": {
+    "system_configuration_HNRj7k": {
       "type": "system-configuration",
       "name": "System Configuration",
       "settings": {
@@ -842,6 +829,7 @@
         "heading": "System Configuration",
         "subheading": "Precision-engineered cabinet array delivering 16.59 million pixels across 294 inches of seamless display surface",
         "display_image": "shopify://shop_images/image_2_1.png",
+        "mobile_image": "shopify://shop_images/image_2_3.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
@@ -849,7 +837,6 @@
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "640 x 360 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -874,7 +861,6 @@
         "feature_4_desc": "Integrated routing channels for clean professional installations",
         "cta_heading": "Get Your LED Specifications in 60 Seconds",
         "cta_subheading": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
-        "price_text": "$19,250.00 (30% Deposit)",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "Book A Call",
@@ -884,10 +870,11 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": ""
+        "custom_class": "",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
       }
     },
-    "experience_scale_Jb3sUV": {
+    "experience_scale_gDgaxe": {
       "type": "experience-scale",
       "name": "Experience Scale",
       "settings": {
@@ -914,10 +901,10 @@
         "info3_subheading": "Commercial reliability"
       }
     },
-    "controller_tabs_Kc4tWX": {
+    "controller_tabs_PkVE8q": {
       "type": "controller-tabs",
       "blocks": {
-        "tab_Ej7nQr": {
+        "tab_ykXrFa": {
           "type": "tab",
           "settings": {
             "tab_title": "Overview",
@@ -943,14 +930,13 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
-        "tab_Fk8oRs": {
+        "tab_dbEQGP": {
           "type": "tab",
           "settings": {
             "tab_title": "Complex Integration",
@@ -976,14 +962,13 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
-        "tab_Gl9pSt": {
+        "tab_gn7jTA": {
           "type": "tab",
           "settings": {
             "tab_title": "True 4k",
@@ -1009,14 +994,13 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
-        "tab_Hm0qTu": {
+        "tab_rbUgTX": {
           "type": "tab",
           "settings": {
             "tab_title": "60fps Processing",
@@ -1042,21 +1026,21 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
-        "tab_In1rUv": {
-          "type": "tab",
+        "tab_slider_YB8tqP": {
+          "type": "tab_slider",
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
             "layout_type": "simple",
             "simple_title": "",
             "image": "shopify://shop_images/image_5_2.png",
+            "image_2": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
             "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
             "read_more_link": "",
@@ -1075,14 +1059,13 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
-        "tab_Jo2sVw": {
+        "tab_yNLLwF": {
           "type": "tab",
           "settings": {
             "tab_title": "Flexibility",
@@ -1108,7 +1091,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1117,12 +1099,12 @@
         }
       },
       "block_order": [
-        "tab_Ej7nQr",
-        "tab_Fk8oRs",
-        "tab_Gl9pSt",
-        "tab_Hm0qTu",
-        "tab_In1rUv",
-        "tab_Jo2sVw"
+        "tab_ykXrFa",
+        "tab_dbEQGP",
+        "tab_gn7jTA",
+        "tab_rbUgTX",
+        "tab_slider_YB8tqP",
+        "tab_yNLLwF"
       ],
       "name": "Controller Tabs",
       "settings": {
@@ -1132,10 +1114,10 @@
         "badge_text": "Authorized NovaStar Partner"
       }
     },
-    "applications_tabs_Ld5uYZ": {
+    "applications_tabs_mzRTEp": {
       "type": "applications-tabs",
       "blocks": {
-        "tab_Kp3tWx": {
+        "tab_A6xxmE": {
           "type": "tab",
           "settings": {
             "tab_title": "Digital Signage",
@@ -1172,7 +1154,7 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Lq4uXy": {
+        "tab_baDmNY": {
           "type": "tab",
           "settings": {
             "tab_title": "Executive Boardrooms",
@@ -1209,7 +1191,7 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Mr5vYz": {
+        "tab_xiBRJt": {
           "type": "tab",
           "settings": {
             "tab_title": "Broadcast Studios",
@@ -1246,7 +1228,7 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Ns6wZa": {
+        "tab_QqhJ7N": {
           "type": "tab",
           "settings": {
             "tab_title": "Control Centers",
@@ -1283,7 +1265,7 @@
             "config6_value": "CMS & scheduling systems"
           }
         },
-        "tab_Ot7xAb": {
+        "tab_PQJgQF": {
           "type": "tab",
           "settings": {
             "tab_title": "Retail & Hospitality",
@@ -1322,11 +1304,11 @@
         }
       },
       "block_order": [
-        "tab_Kp3tWx",
-        "tab_Lq4uXy",
-        "tab_Mr5vYz",
-        "tab_Ns6wZa",
-        "tab_Ot7xAb"
+        "tab_A6xxmE",
+        "tab_baDmNY",
+        "tab_xiBRJt",
+        "tab_QqhJ7N",
+        "tab_PQJgQF"
       ],
       "name": "Applications Tabs",
       "settings": {
@@ -1336,11 +1318,10 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
-    "investment_config_Me6vAB": {
+    "investment_config_XArH8k": {
       "type": "investment-config",
       "name": "Investment Config",
       "settings": {
@@ -1359,37 +1340,37 @@
         "include_7": "5% spare modules included",
         "include_8": "Lifetime technical support",
         "primary_button_text": "CALCULATE MY PROJECT",
-        "primary_button_link": "",
+        "primary_button_link": "https://brightlinkav.com/pages/led-display-calculator",
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "",
+        "addon1_product": "brightlink-bl-vt-pro-led-display-vacuum-tool-effortless-front-maintenance-for-led-video-walls",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_product": "",
+        "addon2_product": "led-video-wall-extended-warranty",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_product": ""
+        "addon3_product": "led-video-wall-10-spare-parts"
       }
     },
-    "custom_config_builder_Nf7wBC": {
+    "custom_config_builder_KRqknj": {
       "type": "custom-config-builder",
       "name": "Custom Config Builder",
       "settings": {
         "title": "Custom Configuration Builder",
         "subtitle": "Configure your perfect LED display setup",
         "quote_button_text": "GET CUSTOM QUOTE",
-        "quote_button_link": "",
+        "quote_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "specs_button_text": "GET LED SPECIFICATIONS",
-        "specs_button_link": "",
+        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173",
         "payment_title": "Flexible Payment Options Available",
         "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
         "payment_link_text": "DISCUSS PAYMENT OPTIONS",
         "payment_link": ""
       }
     },
-    "knowledge_center_Og8xCD": {
+    "knowledge_center_KDhAHL": {
       "type": "knowledge-center",
       "blocks": {
-        "faq_category_Pu8yBc": {
+        "faq_category_XqVaNG": {
           "type": "faq_category",
           "settings": {
             "title": "About Brightlink",
@@ -1409,7 +1390,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Qv9zCd": {
+        "faq_category_pC9gtf": {
           "type": "faq_category",
           "settings": {
             "title": "Product & Technical",
@@ -1429,7 +1410,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Rw0aDe": {
+        "faq_category_UeFRJz": {
           "type": "faq_category",
           "settings": {
             "title": "Installation & Setup",
@@ -1449,7 +1430,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Sx1bEf": {
+        "faq_category_UtPc8f": {
           "type": "faq_category",
           "settings": {
             "title": "Support & Warranty",
@@ -1469,7 +1450,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Ty2cFg": {
+        "faq_category_U6XgRr": {
           "type": "faq_category",
           "settings": {
             "title": "Shipping & Delivery",
@@ -1489,7 +1470,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Uz3dGh": {
+        "faq_category_BPNzMX": {
           "type": "faq_category",
           "settings": {
             "title": "Payment & Financing",
@@ -1509,7 +1490,7 @@
             "answer_6": ""
           }
         },
-        "faq_category_Va4eHi": {
+        "faq_category_WkzkyF": {
           "type": "faq_category",
           "settings": {
             "title": "Business & Partnerships",
@@ -1531,13 +1512,13 @@
         }
       },
       "block_order": [
-        "faq_category_Pu8yBc",
-        "faq_category_Qv9zCd",
-        "faq_category_Rw0aDe",
-        "faq_category_Sx1bEf",
-        "faq_category_Ty2cFg",
-        "faq_category_Uz3dGh",
-        "faq_category_Va4eHi"
+        "faq_category_XqVaNG",
+        "faq_category_pC9gtf",
+        "faq_category_UeFRJz",
+        "faq_category_UtPc8f",
+        "faq_category_U6XgRr",
+        "faq_category_BPNzMX",
+        "faq_category_WkzkyF"
       ],
       "name": "Knowledge Center",
       "settings": {
@@ -1553,24 +1534,24 @@
         "filter_partnerships": "Partnerships"
       }
     },
-    "visual_experience_Ph9yDE": {
+    "visual_experience_wMKFfe": {
       "type": "visual-experience",
       "blocks": {
-        "slide_Wb5fIj": {
+        "slide_EpgMCX": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
         },
-        "slide_Xc6gJk": {
+        "slide_EUNEyn": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
         },
-        "slide_Yd7hKl": {
+        "slide_nFdytN": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
@@ -1579,9 +1560,9 @@
         }
       },
       "block_order": [
-        "slide_Wb5fIj",
-        "slide_Xc6gJk",
-        "slide_Yd7hKl"
+        "slide_EpgMCX",
+        "slide_EUNEyn",
+        "slide_nFdytN"
       ],
       "name": "Visual Experience",
       "settings": {
@@ -1590,11 +1571,10 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
-    "contact_discussion_Qi0zEF": {
+    "contact_discussion_FhbiMV": {
       "type": "contact-discussion",
       "name": "Contact Discussion",
       "settings": {
@@ -1616,7 +1596,7 @@
         "demo_button_link": ""
       }
     },
-    "feature_badges_Rj1aFG": {
+    "feature_badges_QYYeLV": {
       "type": "feature-badges",
       "name": "Feature Badges",
       "settings": {
@@ -1630,47 +1610,6 @@
         "feature4_text": "CE, RoHS, FCC, ISO9001",
         "footer_text": "Join hundreds of satisfied customers who have chosen Brightlink for their professional display solutions"
       }
-    },
-    "b8deed9e-0e81-4c1b-806c-3c7469277430": {
-      "type": "custom_text-with-icons",
-      "blocks": {
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-delivery",
-            "custom_icon": "shopify://shop_images/Shipping.png",
-            "title": "Fast free shipping*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-returns",
-            "custom_icon": "shopify://shop_images/Returns.png",
-            "title": "30 Days Returns*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        },
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3": {
-          "type": "item",
-          "settings": {
-            "icon": "bi-customer-support",
-            "custom_icon": "shopify://shop_images/Secure_Payments.png",
-            "title": "Secure Payment*",
-            "content": "<p>*On most in stock items for USA orders.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-1",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-2",
-        "template--21494022209824__b8deed9e-0e81-4c1b-806c-3c7469277430-item-3"
-      ],
-      "settings": {
-        "stack_mobile": false,
-        "title": "Why choose us"
-      }
     }
   },
   "order": [
@@ -1678,22 +1617,21 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_Xm9pRV",
-    "trusted_leaders_Vy7mNQ",
-    "product_showcase_Dw8nOP",
-    "competitive_advantages_Fx9oPQ",
-    "technical_specs_Gy0pQR",
-    "product_intelligence_Hz1qRS",
-    "system_configuration_Ia2rST",
-    "experience_scale_Jb3sUV",
-    "controller_tabs_Kc4tWX",
-    "applications_tabs_Ld5uYZ",
-    "investment_config_Me6vAB",
-    "custom_config_builder_Nf7wBC",
-    "knowledge_center_Og8xCD",
-    "visual_experience_Ph9yDE",
-    "contact_discussion_Qi0zEF",
-    "feature_badges_Rj1aFG",
-    "b8deed9e-0e81-4c1b-806c-3c7469277430"
+    "hero_video_wall_pRqPhU",
+    "product_intelligence_i3x89A",
+    "trusted_leaders_HxDhib",
+    "product_showcase_K3JKfg",
+    "competitive_advantages_CEETTB",
+    "technical_specs_9TtCQU",
+    "system_configuration_HNRj7k",
+    "experience_scale_gDgaxe",
+    "controller_tabs_PkVE8q",
+    "applications_tabs_mzRTEp",
+    "investment_config_XArH8k",
+    "custom_config_builder_KRqknj",
+    "knowledge_center_KDhAHL",
+    "visual_experience_wMKFfe",
+    "contact_discussion_FhbiMV",
+    "feature_badges_QYYeLV"
   ]
 }

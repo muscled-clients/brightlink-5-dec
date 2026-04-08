@@ -22,7 +22,7 @@
       "settings": {
         "text_width": "narrow",
         "title": "Brightlink AV Preferred Installers",
-        "content": "<p></p>",
+        "content": "",
         "button_text": "Request for Zone",
         "button_link": "shopify://pages/request-for-zone"
       }

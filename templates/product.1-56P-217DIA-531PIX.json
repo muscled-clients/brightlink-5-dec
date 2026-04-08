@@ -253,7 +253,7 @@
         "product_config_QXcNyF": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
@@ -427,7 +427,7 @@
         "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
-        "main_heading": "COB LED Video Wall",
+        "main_heading": "",
         "subheading": "The Pinnacle of Visual Excellence",
         "description": "True 4K resolution. 600 nits brightness. 100,000-hour lifespan. The world's most advanced LED video wall technology.",
         "shipping_text": "",
@@ -449,9 +449,9 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196f3",
-        "button_hover_color": "#1976d2",
-        "series_label_color": "#ffd700",
+        "button_bg_color": "#2196F3",
+        "button_hover_color": "#1976D2",
+        "series_label_color": "#FFD700",
         "custom_class": ""
       }
     },
@@ -511,25 +511,25 @@
         "slide_3AqnPF": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/image_8.png",
-            "slide_title": "Real-Time Financial Data at Scale",
-            "slide_description": "Mission-critical market visualization with zero latency"
+            "slide_image": "shopify://shop_images/8X8_Front_Panels_Angle1_transparent_f4564857-518c-48f1-a138-b4e9662f4169.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_YTbLzi": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene1_Cam1.jpg",
-            "slide_title": "Immersive Entertainment",
-            "slide_description": "Crystal clear visuals for the ultimate viewing experience"
+            "slide_image": "shopify://shop_images/8X8_Back_Angle1_dd997489-1028-4471-b81d-00333f5a89c2.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         },
         "slide_j9d3Vx": {
           "type": "slide",
           "settings": {
-            "slide_image": "shopify://shop_images/Scene2_Cam1.jpg",
-            "slide_title": "Corporate Communications",
-            "slide_description": "Professional displays for boardrooms and lobbies"
+            "slide_image": "shopify://shop_images/8X8_Front_No_Panels_Angle1_transparent_27084aa0-37d7-43a2-ac5f-0fb296ca3296.png",
+            "slide_title": "Brightlink Pro Spectrum 217 \" / 1.56mm",
+            "slide_description": "(Over 1/2 4k 5,308,416 million Pixels) COB LED Video Wall - HRD - Ultra Slim 1\" Cabinets"
           }
         }
       },
@@ -627,7 +627,6 @@
         "footer_label_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_text": "ORDER NOW",
         "button_link": "",
         "button_2_text": "Book A Call",
@@ -736,7 +735,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_1_text": "ORDER NOW",
         "button_1_link": "",
         "button_2_text": "Book A Call",
@@ -838,7 +836,6 @@
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "384 × 216 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -863,7 +860,6 @@
         "feature_4_desc": "Integrated routing channels for clean professional installations",
         "cta_heading": "Get Your LED Specifications in 60 Seconds",
         "cta_subheading": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
-        "price_text": "$19,250.00 (30% Deposit)",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "Book A Call",
@@ -873,7 +869,8 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": ""
+        "custom_class": "",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
       }
     },
     "experience_scale_gDgaxe": {
@@ -932,7 +929,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -965,7 +961,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -998,7 +993,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1031,7 +1025,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1064,7 +1057,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1097,7 +1089,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1325,8 +1316,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "investment_config_9xqzkP": {
@@ -1348,15 +1338,15 @@
         "include_7": "5% spare modules included",
         "include_8": "Lifetime technical support",
         "primary_button_text": "CALCULATE MY PROJECT",
-        "primary_button_link": "",
+        "primary_button_link": "https://brightlinkav.com/pages/led-display-calculator",
         "secondary_button_text": "SCHEDULE CONSULTATION",
         "secondary_button_link": "",
         "addon1_btn_text": "ADD TO ORDER",
-        "addon1_product": "",
+        "addon1_product": "brightlink-bl-vt-pro-led-display-vacuum-tool-effortless-front-maintenance-for-led-video-walls",
         "addon2_btn_text": "ADD TO ORDER",
-        "addon2_product": "",
+        "addon2_product": "led-video-wall-extended-warranty",
         "addon3_btn_text": "ADD TO ORDER",
-        "addon3_product": ""
+        "addon3_product": "led-video-wall-10-spare-parts"
       }
     },
     "custom_config_builder_KRqknj": {
@@ -1366,9 +1356,9 @@
         "title": "Custom Configuration Builder",
         "subtitle": "Configure your perfect LED display setup",
         "quote_button_text": "GET CUSTOM QUOTE",
-        "quote_button_link": "",
+        "quote_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "specs_button_text": "GET LED SPECIFICATIONS",
-        "specs_button_link": "",
+        "specs_pdf": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173",
         "payment_title": "Flexible Payment Options Available",
         "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
         "payment_link_text": "DISCUSS PAYMENT OPTIONS",
@@ -1579,8 +1569,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "contact_discussion_FhbiMV": {
@@ -1627,11 +1616,11 @@
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
     "hero_video_wall_ni6k74",
+    "product_intelligence_i3x89A",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
     "competitive_advantages_CEETTB",
     "technical_specs_9TtCQU",
-    "product_intelligence_i3x89A",
     "system_configuration_HNRj7k",
     "experience_scale_gDgaxe",
     "controller_tabs_PkVE8q",

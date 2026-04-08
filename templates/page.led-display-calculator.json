@@ -109,9 +109,9 @@
         "default_title": "Get Your LED Specifications in 60 Seconds",
         "default_subtitle": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
         "default_primary_button_text": "Calculate My Display",
-        "default_primary_button_link": "",
+        "default_primary_button_link": "#led_display_calculator_rb8Eex",
         "default_secondary_button_text": "Talk to Expert",
-        "default_secondary_button_link": ""
+        "default_secondary_button_link": "https://cal.com/tyson-edwards-brightlinkav"
       }
     },
     "led_display_calculator_rb8Eex": {
@@ -294,7 +294,7 @@
             "package_price": "Under $50,000",
             "features": "1.9mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Standard mounting solution|Basic control system|1-year warranty",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://brightlinkav.com/pages/contact",
             "is_popular": false,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -307,7 +307,7 @@
             "package_price": "$50,000 - $100,000",
             "features": "1.5mm COB LED Display|12.0' x 6.8' (16:9 ratio)|Premium mounting system|Advanced control system|3-year warranty|Installation included",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://brightlinkav.com/pages/contact",
             "is_popular": true,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -320,7 +320,7 @@
             "package_price": "Over $100,000",
             "features": "1.2mm COB LED Display|Custom dimensions|Custom mounting solution|Enterprise control system|5-year warranty|Installation & training|Ongoing support",
             "button_text": "Request Quote",
-            "button_link": "",
+            "button_link": "https://brightlinkav.com/pages/contact",
             "is_popular": false,
             "popular_badge_text": "POPULAR",
             "view_details_text": "View Details"
@@ -412,15 +412,15 @@
         "subtitle": "Get your custom LED specification today",
         "main_button_text": "Get Free Consultation",
         "main_button_icon": "📅",
-        "main_button_link": "",
+        "main_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "mini_title": "Free for $50k+ projects",
         "mini_title_icon": "⭐",
         "request_button_text": "Request Custom Quote",
         "request_button_icon": "📋",
-        "request_button_link": "",
+        "request_button_link": "https://cal.com/tyson-edwards-brightlinkav",
         "download_button_text": "Download Complete Guide",
         "download_button_icon": "📥",
-        "pdf_file_url": "",
+        "pdf_file_url": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide_1_82e7b9da-5b64-498b-a7c3-e2efc504e83e.pdf?v=1773686173",
         "title_font_size": 48,
         "mobile_title_font_size": 32,
         "subtitle_font_size": 18,
@@ -454,7 +454,7 @@
         "contact_title_font_size": 20,
         "mobile_contact_title_font_size": 18,
         "phone_label": "Call Now",
-        "phone_number": "(855) 44-WIRED",
+        "phone_number": "1-855-449-4733",
         "phone_icon": "📞",
         "email": "support@brightlinkav.com",
         "email_icon": "✉️",
@@ -466,7 +466,8 @@
         "show_availability": true,
         "availability_status_text": "Same-day response guaranteed",
         "availability_details": "Mon-Fri: 8AM-6PM CST\nEmergency support: 24/7",
-        "status_color": "#22c55e"
+        "status_color": "#22c55e",
+        "phone_link": "18554494733"
       }
     },
     "led_science_section_3tiayK": {
@@ -570,6 +571,7 @@
             "badge_text": "Conference Room",
             "card_title": "Mesa Arizona",
             "card_description": "1.5mm COB LED video wall installation for executive boardroom, improving presentation clarity and client engagement.",
+            "card_image": "shopify://shop_images/Rectangle_4_8.png",
             "show_specs": true,
             "spec_size": "18' × 8'",
             "spec_pitch": "1.5mm pitch"
@@ -581,6 +583,7 @@
             "badge_text": "Control Room",
             "card_title": "Epic.io",
             "card_description": "24/7 operation control center with 1.2mm fine-pitch LED display wall for critical monitoring applications.",
+            "card_image": "shopify://shop_images/Rectangle_4_9.png",
             "show_specs": true,
             "spec_size": "24' × 7'",
             "spec_pitch": "1.2mm pitch"
@@ -592,6 +595,7 @@
             "badge_text": "Retail Display",
             "card_title": "University of Honolulu",
             "card_description": "Custom curved 2.5mm LED display creating an immersive brand experience for customers in flagship store.",
+            "card_image": "shopify://shop_images/Rectangle_4_11.png",
             "show_specs": true,
             "spec_size": "20' × 6' (curved)",
             "spec_pitch": "2.5mm pitch"

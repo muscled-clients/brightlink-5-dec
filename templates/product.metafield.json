@@ -397,7 +397,7 @@
           "type": "video",
           "settings": {
             "title": "Video",
-            "section-id": "shopify-section-template--21498157367584__067e33fc-b471-498b-9aac-5d93bbadcb12"
+            "section-id": "shopify-section-template--21575614628128__067e33fc-b471-498b-9aac-5d93bbadcb12"
           }
         },
         "29d1c919-1da0-497b-82ac-a44532ca48fd": {
@@ -405,14 +405,14 @@
           "disabled": true,
           "settings": {
             "title": "FAQ",
-            "section-id": "shopify-section-template--21498157367584__f8572bb3-e256-48d7-98a9-b3de46803d68"
+            "section-id": "shopify-section-template--21575614628128__f8572bb3-e256-48d7-98a9-b3de46803d68"
           }
         },
         "6814604b-6991-4cb1-9bf9-8e4d878c2f44": {
           "type": "static",
           "settings": {
             "title": "Faq",
-            "section-id": "shopify-section-template--21498157367584__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
+            "section-id": "shopify-section-template--21575614628128__3e27d268-c437-4a2e-96e6-cc76a3f32a17"
           }
         }
       },

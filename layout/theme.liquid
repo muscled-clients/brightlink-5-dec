@@ -102,6 +102,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <link rel="stylesheet" href="{{ 'led-hexagon-background.css' | asset_url }}">
     {%- endif -%}
 
+    {%- comment -%}Metafield Product Page Dark Theme{%- endcomment -%}
+    {%- if template.suffix == 'metafield' -%}
+      <link rel="stylesheet" href="{{ 'metafield-page.css' | asset_url }}">
+    {%- endif -%}
+
+    {%- comment -%}Collection Page Dark Theme{%- endcomment -%}
+    {%- if template.name == 'collection' -%}
+      <link rel="stylesheet" href="{{ 'collection-page.css' | asset_url }}">
+    {%- endif -%}
+
     {% render 'microdata-schema' %}
 
     <script>
@@ -226,7 +236,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   {% render 'wsg-custom' %}
 </head>
 <body
-    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}{% if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' %} advanced-spectrum-page{% endif %}"
+    class="warehouse--v1 {% if settings.animation_image_zoom %}features--animate-zoom{% endif%} template-{{ request.page_type | handle }} {% if request.page_type contains '/' %}template-{{ request.page_type | split: '/' | last | handle }}{% endif %}{% if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' %} advanced-spectrum-page{% endif %}{% if template.suffix == 'metafield' %} metafield-page{% endif %}{% if template.name == 'collection' %} collection-page{% endif %}"
     data-instant-intensity="viewport"
   >
     <!-- Google Tag Manager (noscript) -->
@@ -262,7 +272,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     <main id="main" role="main">
       {%- if template.suffix == 'advanced-spectrum' or template.suffix == 'pro-spectrum' or template.suffix contains 'DIA-' -%}
-        {% render 'led-hexagon-background' %}
+        {%- if settings.cob_bg_image != blank -%}
+          <style>
+            .advanced-spectrum-page {
+              background-image: url('{{ settings.cob_bg_image | image_url: width: 2400 }}');
+              background-size: cover;
+              background-repeat: no-repeat;
+              background-position: center top;
+              background-attachment: fixed;
+            }
+          </style>
+        {%- endif -%}
       {%- endif -%}
       {{ content_for_layout }}
     </main>

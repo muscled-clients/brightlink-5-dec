@@ -217,10 +217,10 @@
         "stack_mobile": false
       }
     },
-    "hero_video_wall_pRqPhU": {
+    "hero_video_wall_RKdzmK": {
       "type": "hero-video-wall",
       "blocks": {
-        "product_config_Wtkd3z": {
+        "product_config_MKTGeK": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-9mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -230,7 +230,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_PzbmAP": {
+        "product_config_7q9DdV": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-25mm-1-2-4k-4-665-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -240,7 +240,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_8wDdRF": {
+        "product_config_4wFpQz": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-163-1-56mm-1-5x-1080p-2-985-984-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -250,17 +250,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_kNTK4i": {
+        "product_config_RhYpfg": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year",
+            "product": "brightlink-pro-spectrum-180-21-9-9mm-4k-8-064-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
             "diagonal": "180\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "8.06M",
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_Xh7zW3": {
+        "product_config_hjNPyH": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-1-25mm-1-2-4k-4-536-000-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -270,7 +270,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_KhTjTJ": {
+        "product_config_QB6cFt": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-180-21-9-1-56mm-1-5-x-1080p-2-903-040-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -280,7 +280,7 @@
             "aspect_ratio": "21:9"
           }
         },
-        "product_config_zByPib": {
+        "product_config_M9PDg7": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-9mm-above-4k-11-289-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -290,7 +290,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_UchbCR": {
+        "product_config_f8tUEe": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-25mm-6-350-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -300,17 +300,17 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_P3tAJc": {
+        "product_config_7yqBcr": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy-copy-copy",
             "diagonal": "190\"",
             "pixel_pitch": "1.56mm",
             "total_pixels": "4.06M",
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_KPie9a": {
+        "product_config_nBMRGw": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-9mm-1-2-8k-14-745-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
@@ -320,7 +320,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_A8LJPy": {
+        "product_config_GCVLiz": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-25mm-full-4k-8-294-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -330,7 +330,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_mjMKcm": {
+        "product_config_9rBfkH": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-217-1-56mm-over-1-2-4k-5-308-416-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty-copy",
@@ -340,7 +340,7 @@
             "aspect_ratio": "16:9"
           }
         },
-        "product_config_6Tmbci": {
+        "product_config_nCmxT9": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -350,7 +350,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_WD7q8z": {
+        "product_config_da3CFQ": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-25mm-3-4-4k-6-998-400-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -360,7 +360,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_fz8tJ4": {
+        "product_config_yPUj4C": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-227-24-9-1-56mm-1-5-x-1080p-4-478-976-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -370,7 +370,7 @@
             "aspect_ratio": "24:9"
           }
         },
-        "product_config_MDdVd4": {
+        "product_config_RtePJ9": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-9mm-1-2-x-8k-16-588-800-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h9-controller-4-year-warranty",
@@ -380,7 +380,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_mxDGH7": {
+        "product_config_BiBa8e": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-25mm-above-4k-9-331-200-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -390,7 +390,7 @@
             "aspect_ratio": "32:9"
           }
         },
-        "product_config_N8Fk9q": {
+        "product_config_XaVPAy": {
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-294-32-9-1-56mm-3-4-x-4k-5-971-968-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
@@ -402,24 +402,24 @@
         }
       },
       "block_order": [
-        "product_config_Wtkd3z",
-        "product_config_PzbmAP",
-        "product_config_8wDdRF",
-        "product_config_kNTK4i",
-        "product_config_Xh7zW3",
-        "product_config_KhTjTJ",
-        "product_config_zByPib",
-        "product_config_UchbCR",
-        "product_config_P3tAJc",
-        "product_config_KPie9a",
-        "product_config_A8LJPy",
-        "product_config_mjMKcm",
-        "product_config_6Tmbci",
-        "product_config_WD7q8z",
-        "product_config_fz8tJ4",
-        "product_config_MDdVd4",
-        "product_config_mxDGH7",
-        "product_config_N8Fk9q"
+        "product_config_MKTGeK",
+        "product_config_7q9DdV",
+        "product_config_4wFpQz",
+        "product_config_RhYpfg",
+        "product_config_hjNPyH",
+        "product_config_QB6cFt",
+        "product_config_M9PDg7",
+        "product_config_f8tUEe",
+        "product_config_7yqBcr",
+        "product_config_nBMRGw",
+        "product_config_GCVLiz",
+        "product_config_9rBfkH",
+        "product_config_nCmxT9",
+        "product_config_da3CFQ",
+        "product_config_yPUj4C",
+        "product_config_RtePJ9",
+        "product_config_BiBa8e",
+        "product_config_XaVPAy"
       ],
       "name": "Hero Video Wall",
       "settings": {
@@ -452,85 +452,6 @@
         "button_bg_color": "#2196f3",
         "button_hover_color": "#1976d2",
         "series_label_color": "#ffd700",
-        "custom_class": ""
-      }
-    },
-    "product_intelligence_i3x89A": {
-      "type": "product-intelligence",
-      "blocks": {
-        "overview_tab_Pa8cLd": {
-          "type": "overview_tab",
-          "settings": {
-            "tab_title": "Overview",
-            "tab_icon": "overview",
-            "overview_image": "shopify://shop_images/Picture.png",
-            "read_more_link": "",
-            "show_features": true,
-            "primary_btn_text": "ORDER NOW",
-            "primary_btn_link": "",
-            "secondary_btn_text": "BOOK A CALL",
-            "secondary_btn_link": ""
-          }
-        },
-        "specs_tab_y4igie": {
-          "type": "specs_tab",
-          "settings": {
-            "tab_title": "Specifications",
-            "tab_icon": "specs"
-          }
-        },
-        "features_tab_wEjVQ8": {
-          "type": "features_tab",
-          "settings": {
-            "tab_title": "Features & Benefits",
-            "tab_icon": "features"
-          }
-        },
-        "included_tab_i7Qmne": {
-          "type": "included_tab",
-          "settings": {
-            "tab_title": "What's Included",
-            "tab_icon": "included"
-          }
-        },
-        "installation_tab_rCMbMm": {
-          "type": "installation_tab",
-          "settings": {
-            "tab_title": "Installation Guide",
-            "tab_icon": "installation",
-            "installer_link": ""
-          }
-        },
-        "support_tab_CePUQe": {
-          "type": "support_tab",
-          "settings": {
-            "tab_title": "Support & Resources",
-            "tab_icon": "support"
-          }
-        }
-      },
-      "block_order": [
-        "overview_tab_Pa8cLd",
-        "specs_tab_y4igie",
-        "features_tab_wEjVQ8",
-        "included_tab_i7Qmne",
-        "installation_tab_rCMbMm",
-        "support_tab_CePUQe"
-      ],
-      "name": "Product Intelligence",
-      "settings": {
-        "section_label": "PRODUCT INTELLIGENCE CENTER",
-        "heading": "Complete Product Intelligence",
-        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
-        "label_font_size": 12,
-        "heading_font_size": 42,
-        "subheading_font_size": 16,
-        "bg_color": "#0a0f14",
-        "label_color": "#ffd700",
-        "heading_color": "#ffffff",
-        "subheading_color": "#a0a0a0",
-        "padding_top": 80,
-        "padding_bottom": 80,
         "custom_class": ""
       }
     },
@@ -783,7 +704,7 @@
           "type": "spec_card",
           "settings": {
             "icon_type": "weight",
-            "card_title": "3.78KG 8.3LB",
+            "card_title": "3.78KG / 8.3LB",
             "card_subtitle": "Lightweight Design",
             "card_desc": "Size per cabinet"
           }
@@ -821,6 +742,85 @@
         "custom_class": ""
       }
     },
+    "product_intelligence_i3x89A": {
+      "type": "product-intelligence",
+      "blocks": {
+        "overview_tab_Pa8cLd": {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "overview_image": "shopify://shop_images/Picture.png",
+            "read_more_link": "",
+            "show_features": true,
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "specs_tab_y4igie": {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs"
+          }
+        },
+        "features_tab_wEjVQ8": {
+          "type": "features_tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features"
+          }
+        },
+        "included_tab_i7Qmne": {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
+        "installation_tab_rCMbMm": {
+          "type": "installation_tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "installer_link": ""
+          }
+        },
+        "support_tab_CePUQe": {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        }
+      },
+      "block_order": [
+        "overview_tab_Pa8cLd",
+        "specs_tab_y4igie",
+        "features_tab_wEjVQ8",
+        "included_tab_i7Qmne",
+        "installation_tab_rCMbMm",
+        "support_tab_CePUQe"
+      ],
+      "name": "Product Intelligence",
+      "settings": {
+        "section_label": "PRODUCT INTELLIGENCE CENTER",
+        "heading": "Complete Product Intelligence",
+        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": ""
+      }
+    },
     "system_configuration_HNRj7k": {
       "type": "system-configuration",
       "name": "System Configuration",
@@ -828,7 +828,7 @@
         "section_label": "SYSTEM ARCHITECTURE",
         "heading": "System Configuration",
         "subheading": "Precision-engineered 8×8 cabinet array delivering 8.2 million pixels across 217 inches of seamless display surface",
-        "display_image": "shopify://shop_images/New_Project_1.png",
+        "display_image": "shopify://shop_images/div_818d295b-df23-4eb8-b25b-71785bc7da44.png",
         "info1_heading": "PIXEL PERFECT",
         "info1_subheading": "Precision Alignment",
         "info2_heading": "SEAMLESS",
@@ -884,19 +884,19 @@
         "metric1_label": "Larger",
         "metric1_desc": "than a typical 65\" TV",
         "metric2_value": "4x",
-        "metric2_label": "EQUIVALENT TO",
-        "metric2_desc": "110\" commercial displays",
-        "metric3_value": "141 sq ft",
-        "metric3_label": "COVERS",
-        "metric3_desc": "square",
+        "metric2_label": "Equivalent",
+        "metric2_desc": "to 17' diagonal display",
+        "metric3_value": "141",
+        "metric3_label": "sq ft",
+        "metric3_desc": "of visual real estate",
         "cta_text": "Configure Your Display",
         "cta_link": "",
-        "info1_heading": "15.75 feet",
-        "info1_subheading": "(4.8 meters)",
-        "info2_heading": "8.86 feet",
-        "info2_subheading": "(2.7 meters)",
-        "info3_heading": "217\"",
-        "info3_subheading": "diagonal"
+        "info1_heading": "Pixel Perfect",
+        "info1_subheading": "Crystal clear visuals at any distance",
+        "info2_heading": "Seamless Integration",
+        "info2_subheading": "Fits any space perfectly",
+        "info3_heading": "Professional Grade",
+        "info3_subheading": "Commercial reliability"
       }
     },
     "controller_tabs_PkVE8q": {
@@ -909,9 +909,9 @@
             "icon": "overview",
             "layout_type": "detailed",
             "simple_title": "",
-            "image": "shopify://shop_images/9c60d0523fa3bf389b0fb337ddd1ae621ba4a66a.png",
+            "image": "shopify://shop_images/Rectangle_4_6.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards.",
+            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
             "read_more_link": "",
             "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
@@ -1030,36 +1030,35 @@
             "secondary_btn_link": ""
           }
         },
-        "tab_slider_YB8tqP": {
-          "type": "tab_slider",
+        "tab_na9Fwa": {
+          "type": "tab",
           "settings": {
             "tab_title": "Image Quality",
             "icon": "quality",
             "layout_type": "simple",
-            "simple_title": "High Image Quality  Rebuild Original Vision",
-            "image": "shopify://shop_images/image_3_5.png",
-            "image_2": "shopify://shop_images/image_5_2.png",
+            "simple_title": "",
+            "image": "shopify://shop_images/image_5_2.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The H Series supports HDR (High Dynamic Range) and wide color gamut transmission, ensuring vibrant and detailed colors with excellent contrast. It improves details in both light and shadow for better visual experiences.",
+            "description": "Support for HDR, wide color gamut transmission, high contrast, and abundant colors, those all provide more details in both light and shadow.",
             "read_more_link": "",
-            "feature1": "",
-            "feature2": "",
-            "feature3": "",
-            "feature4": "",
-            "feature5": "",
-            "feature6": "",
+            "feature1": "26 million pixel processing capacity",
+            "feature2": "Up to 32 layers and multiple screens",
+            "feature3": "HDR10 and HLG support",
+            "feature4": "Hot-swappable modular I/O design",
+            "feature5": "10-bit color processing",
+            "feature6": "Web-based control interface",
             "feature7": "",
-            "config_title": "",
-            "config1": "",
-            "config2": "",
-            "config3": "",
-            "config4": "",
+            "config_title": "Your Configuration Includes:",
+            "config1": "4× Full HD (1080p) input cards",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
+            "config3": "1× HDMI 2.0 input card (4K@60Hz)",
+            "config4": "1× Preview card for real-time monitoring",
             "config5": "",
-            "button_text": "",
+            "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "primary_btn_text": "",
+            "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
-            "secondary_btn_text": "",
+            "secondary_btn_text": "BOOK A CALL",
             "secondary_btn_link": ""
           }
         },
@@ -1101,7 +1100,7 @@
         "tab_dbEQGP",
         "tab_gn7jTA",
         "tab_rbUgTX",
-        "tab_slider_YB8tqP",
+        "tab_na9Fwa",
         "tab_yNLLwF"
       ],
       "name": "Controller Tabs",
@@ -1120,7 +1119,7 @@
           "settings": {
             "tab_title": "Digital Signage",
             "icon": "monitor",
-            "image": "shopify://shop_images/Rectangle_4_7.png",
+            "image": "shopify://shop_images/Rectangle_4_1.png",
             "heading": "Digital Signage",
             "description": "Pro Spectrum's digital signage solutions bring your content to life with vibrant, high-resolution displays, perfect for any environment requiring dynamic, real-time content updates. Elevate your message and capture attention with unmatched clarity and color.",
             "description2": "Ideal for retail stores, airports, malls, and digital billboards where visual communication is key. These displays seamlessly blend into public spaces, providing clear, engaging content that draws the eye.",
@@ -1131,11 +1130,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "View Distance",
+            "stat1_label": "Rec Viewing",
             "stat1_value": "20-50 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "200-500\"",
-            "stat3_label": "Use Case",
+            "stat3_label": "Environment",
             "stat3_value": "Public/Outdoor",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1157,7 +1156,7 @@
           "settings": {
             "tab_title": "Executive Boardrooms",
             "icon": "briefcase",
-            "image": "shopify://shop_images/Rectangle_4_8.png",
+            "image": "shopify://shop_images/Rectangle_4_2.png",
             "heading": "Executive Boardrooms & Conference Centers",
             "description": "Captivate audiences in high-traffic environments with vibrant, attention-grabbing displays. Pro Spectrum's 8000:1 contrast ratio and 281 trillion colors ensure your content stands out in any lighting condition—from sunlit lobbies to dimly lit galleries.",
             "description2": "Ideal for corporate lobbies, museums, transportation hubs, and public spaces where visual impact drives engagement. The seamless, bezel-free design creates an uninterrupted canvas that elevates brand presence and delivers messages with stunning clarity.",
@@ -1168,11 +1167,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "View Distance",
+            "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Use Case",
+            "stat3_label": "Environment",
             "stat3_value": "High-Traffic",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1194,7 +1193,7 @@
           "settings": {
             "tab_title": "Broadcast Studios",
             "icon": "video",
-            "image": "shopify://shop_images/Rectangle_4_9.png",
+            "image": "shopify://shop_images/Rectangle_4_3.png",
             "heading": "Broadcast Studios",
             "description": "Designed for real-time, high-definition broadcasts. Pro Spectrum's video walls and displays ensure flawless image quality, delivering exceptional detail and clarity for studio settings, newsrooms, and live broadcasting.",
             "description2": "Ideal for broadcast sets, control rooms, and live broadcast venues where seamless video feeds and high-definition resolution are essential. Perfect for capturing and broadcasting live events in vibrant, true-to-life quality.",
@@ -1205,11 +1204,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "View Distance",
+            "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Use Case",
+            "stat3_label": "Environment",
             "stat3_value": "Studio/Live Broadcast",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1231,7 +1230,7 @@
           "settings": {
             "tab_title": "Control Centers",
             "icon": "layout",
-            "image": "shopify://shop_images/Rectangle_4_10.png",
+            "image": "shopify://shop_images/Rectangle_4_4.png",
             "heading": "Control Centers",
             "description": "Maximize operational efficiency with Pro Spectrum's high-performance displays, providing critical, real-time information and monitoring for mission-critical environments such as control rooms and emergency response centers.",
             "description2": "Ideal for data centers, emergency operation rooms, and monitoring stations where every second counts. These displays provide real-time updates, offering quick insights for better decision-making in high-stakes environments.",
@@ -1242,11 +1241,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "View Distance",
+            "stat1_label": "Rec Viewing",
             "stat1_value": "5-20 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-250\"",
-            "stat3_label": "Use Case",
+            "stat3_label": "Environment",
             "stat3_value": "Critical Operations",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1268,7 +1267,7 @@
           "settings": {
             "tab_title": "Retail & Hospitality",
             "icon": "store",
-            "image": "shopify://shop_images/Rectangle_4_11.png",
+            "image": "shopify://shop_images/Rectangle_4_5.png",
             "heading": "Retail & Hospitality",
             "description": "Create inviting atmospheres and immersive experiences with Pro Spectrum's customizable displays, perfect for retail stores, hotels, and restaurants looking to engage customers with stunning visuals.",
             "description2": "Ideal for retail spaces, hotel lobbies, and restaurant walls where creating a memorable guest experience is key. The sleek design and high-quality visuals create an inviting atmosphere while displaying dynamic content.",
@@ -1279,11 +1278,11 @@
             "feature3": "CMS-ready for remote content management",
             "feature4": "Energy efficient (<190W/m² average)",
             "feature5": "Impact-resistant COB technology",
-            "stat1_label": "View Distance",
+            "stat1_label": "Rec Viewing",
             "stat1_value": "10-30 feet",
             "stat2_label": "Typical Size",
             "stat2_value": "150-300\"",
-            "stat3_label": "Use Case",
+            "stat3_label": "Environment",
             "stat3_value": "Guest Experience",
             "config_title": "Common Configuration",
             "config1_label": "Size",
@@ -1538,7 +1537,6 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1546,7 +1544,6 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1554,7 +1551,6 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
-            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1569,9 +1565,6 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
-        "image_width": 800,
-        "image_height": 500,
-        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
@@ -1621,7 +1614,7 @@
     "fe6b2096-c3e1-4f63-bb01-0aacd2c6c13b",
     "f0ca6104-5e4c-461c-8028-a943a7e8d207",
     "1aa828bf-92b5-4f6e-89b0-3326d967d40b",
-    "hero_video_wall_pRqPhU",
+    "hero_video_wall_RKdzmK",
     "product_intelligence_i3x89A",
     "trusted_leaders_HxDhib",
     "product_showcase_K3JKfg",
