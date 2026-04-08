@@ -12,14 +12,10 @@
 /* D4 pdp page */
 /* Desktop view */
   #shopify-section-{{ section.id }} .product-gallery__carousel-wrapper *, #shopify-section-{{ section.id }} .product-gallery__size-limiter{
+    aspect-ratio: 4/3;
     height: auto !important;
     max-width: 100% !important;
     object-fit: contain;
-  }
-  #shopify-section-{{ section.id }} .product-gallery__carousel-wrapper .aspect-ratio,
-  #shopify-section-{{ section.id }} .product-gallery__size-limiter {
-    aspect-ratio: unset !important;
-    padding-bottom: 0 !important;
   }
 
 @media screen and (min-width:1001px) {
