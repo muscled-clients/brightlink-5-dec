@@ -224,9 +224,9 @@
           "type": "product_config",
           "settings": {
             "product": "brightlink-pro-spectrum-190-1-56mm-2x-1080p-4-064-256-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
-            "diagonal": "163\"",
-            "pixel_pitch": "0.9mm",
-            "total_pixels": "8.29M",
+            "diagonal": "190\"",
+            "pixel_pitch": "1.56mm",
+            "total_pixels": "4.06M",
             "aspect_ratio": "16:9"
           }
         },
