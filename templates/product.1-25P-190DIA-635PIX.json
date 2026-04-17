@@ -424,6 +424,7 @@
       "name": "Hero Video Wall",
       "settings": {
         "video_url": "",
+        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4",
         "overlay_opacity": 60,
         "series_label": "PRO SPECTRUM SERIES",
         "main_heading": "",
@@ -448,11 +449,89 @@
         "label_bg_opacity": 40,
         "button_bg_opacity": 40,
         "feature_box_bg_opacity": 40,
-        "button_bg_color": "#2196F3",
-        "button_hover_color": "#1976D2",
-        "series_label_color": "#FFD700",
-        "custom_class": "",
-        "video_file": "shopify://files/videos/brightlink_av_banner_video (1080p).mp4"
+        "button_bg_color": "#2196f3",
+        "button_hover_color": "#1976d2",
+        "series_label_color": "#ffd700",
+        "custom_class": ""
+      }
+    },
+    "product_intelligence_i3x89A": {
+      "type": "product-intelligence",
+      "blocks": {
+        "overview_tab_Pa8cLd": {
+          "type": "overview_tab",
+          "settings": {
+            "tab_title": "Overview",
+            "tab_icon": "overview",
+            "overview_image": "shopify://shop_images/Picture.png",
+            "read_more_link": "",
+            "show_features": true,
+            "primary_btn_text": "ORDER NOW",
+            "primary_btn_link": "",
+            "secondary_btn_text": "BOOK A CALL",
+            "secondary_btn_link": ""
+          }
+        },
+        "specs_tab_y4igie": {
+          "type": "specs_tab",
+          "settings": {
+            "tab_title": "Specifications",
+            "tab_icon": "specs"
+          }
+        },
+        "features_tab_wEjVQ8": {
+          "type": "features_tab",
+          "settings": {
+            "tab_title": "Features & Benefits",
+            "tab_icon": "features"
+          }
+        },
+        "included_tab_i7Qmne": {
+          "type": "included_tab",
+          "settings": {
+            "tab_title": "What's Included",
+            "tab_icon": "included"
+          }
+        },
+        "installation_tab_rCMbMm": {
+          "type": "installation_tab",
+          "settings": {
+            "tab_title": "Installation Guide",
+            "tab_icon": "installation",
+            "installer_link": ""
+          }
+        },
+        "support_tab_CePUQe": {
+          "type": "support_tab",
+          "settings": {
+            "tab_title": "Support & Resources",
+            "tab_icon": "support"
+          }
+        }
+      },
+      "block_order": [
+        "overview_tab_Pa8cLd",
+        "specs_tab_y4igie",
+        "features_tab_wEjVQ8",
+        "included_tab_i7Qmne",
+        "installation_tab_rCMbMm",
+        "support_tab_CePUQe"
+      ],
+      "name": "Product Intelligence",
+      "settings": {
+        "section_label": "PRODUCT INTELLIGENCE CENTER",
+        "heading": "Complete Product Intelligence",
+        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
+        "label_font_size": 12,
+        "heading_font_size": 42,
+        "subheading_font_size": 16,
+        "bg_color": "#0a0f14",
+        "label_color": "#ffd700",
+        "heading_color": "#ffffff",
+        "subheading_color": "#a0a0a0",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "custom_class": ""
       }
     },
     "trusted_leaders_HxDhib": {
@@ -742,85 +821,6 @@
         "custom_class": ""
       }
     },
-    "product_intelligence_i3x89A": {
-      "type": "product-intelligence",
-      "blocks": {
-        "overview_tab_Pa8cLd": {
-          "type": "overview_tab",
-          "settings": {
-            "tab_title": "Overview",
-            "tab_icon": "overview",
-            "overview_image": "shopify://shop_images/Picture.png",
-            "read_more_link": "",
-            "show_features": true,
-            "primary_btn_text": "ORDER NOW",
-            "primary_btn_link": "",
-            "secondary_btn_text": "BOOK A CALL",
-            "secondary_btn_link": ""
-          }
-        },
-        "specs_tab_y4igie": {
-          "type": "specs_tab",
-          "settings": {
-            "tab_title": "Specifications",
-            "tab_icon": "specs"
-          }
-        },
-        "features_tab_wEjVQ8": {
-          "type": "features_tab",
-          "settings": {
-            "tab_title": "Features & Benefits",
-            "tab_icon": "features"
-          }
-        },
-        "included_tab_i7Qmne": {
-          "type": "included_tab",
-          "settings": {
-            "tab_title": "What's Included",
-            "tab_icon": "included"
-          }
-        },
-        "installation_tab_rCMbMm": {
-          "type": "installation_tab",
-          "settings": {
-            "tab_title": "Installation Guide",
-            "tab_icon": "installation",
-            "installer_link": ""
-          }
-        },
-        "support_tab_CePUQe": {
-          "type": "support_tab",
-          "settings": {
-            "tab_title": "Support & Resources",
-            "tab_icon": "support"
-          }
-        }
-      },
-      "block_order": [
-        "overview_tab_Pa8cLd",
-        "specs_tab_y4igie",
-        "features_tab_wEjVQ8",
-        "included_tab_i7Qmne",
-        "installation_tab_rCMbMm",
-        "support_tab_CePUQe"
-      ],
-      "name": "Product Intelligence",
-      "settings": {
-        "section_label": "PRODUCT INTELLIGENCE CENTER",
-        "heading": "Complete Product Intelligence",
-        "subheading": "Comprehensive specifications, features, and technical documentation in one elegant interface",
-        "label_font_size": 12,
-        "heading_font_size": 42,
-        "subheading_font_size": 16,
-        "bg_color": "#0a0f14",
-        "label_color": "#ffd700",
-        "heading_color": "#ffffff",
-        "subheading_color": "#a0a0a0",
-        "padding_top": 80,
-        "padding_bottom": 80,
-        "custom_class": ""
-      }
-    },
     "system_configuration_HNRj7k": {
       "type": "system-configuration",
       "name": "System Configuration",
@@ -836,6 +836,7 @@
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "480 × 270 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -869,8 +870,7 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": "",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
+        "custom_class": ""
       }
     },
     "experience_scale_gDgaxe": {
@@ -910,11 +910,11 @@
             "icon": "overview",
             "layout_type": "detailed",
             "simple_title": "",
-            "image": "shopify://shop_images/H5.png",
+            "image": "shopify://shop_images/9c60d0523fa3bf389b0fb337ddd1ae621ba4a66a_c467b31d-15c5-4a24-ad89-9cf35937a782.png",
             "certified_badge": "CERTIFIED DISTRIBUTOR",
-            "description": "The NovaStar H5 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 39 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
+            "description": "The NovaStar H2 is a powerful, modular video wall splicing processor designed specifically for fine-pitch LED displays. With 26 million pixels of processing capacity and hot-swappable I/O cards, it supports HDMI, DVI, DisplayPort, SDI, VGA, and IP inputs.",
             "read_more_link": "",
-            "feature1": "39 million pixel processing capacity",
+            "feature1": "26 million pixel processing capacity",
             "feature2": "Up to 32 layers and multiple screens",
             "feature3": "HDR10 and HLG support",
             "feature4": "10-bit color processing",
@@ -923,7 +923,7 @@
             "feature7": "",
             "config_title": "Your Configuration Includes:",
             "config1": "4x Full HD 1080p Inputs (1ea H 4xHDMl input card)",
-            "config2": "60× CAT6 Ethernet outputs (3×20-port cards)",
+            "config2": "32× CAT6 Ethernet outputs (2×16-port cards)",
             "config3": "2X Full UHD 4k Inputs (1ea H_2x HDM2 .0 input card)",
             "config4": "1× Preview card for real-time monitoring",
             "config5": "",
@@ -1107,7 +1107,7 @@
       "name": "Controller Tabs",
       "settings": {
         "label": "PROFESSIONAL VIDEO WALL CONTROLLER",
-        "title": "NovaStar H5 Controller",
+        "title": "NovaStar H2 Controller",
         "subtitle": "Enterprise-grade processing power for mission-critical video wall installations",
         "badge_text": "Authorized NovaStar Partner"
       }
@@ -1538,6 +1538,7 @@
         "slide_EpgMCX": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_3_2.png",
             "image_alt": ""
           }
@@ -1545,6 +1546,7 @@
         "slide_EUNEyn": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/image_8.png",
             "image_alt": ""
           }
@@ -1552,6 +1554,7 @@
         "slide_nFdytN": {
           "type": "slide",
           "settings": {
+            "product": "",
             "image": "shopify://shop_images/Without_Drop_Shadow.png",
             "image_alt": ""
           }
@@ -1566,6 +1569,9 @@
       "settings": {
         "heading": "Elevate Your Visual Experience Today",
         "description": "Transform your space with Pro Spectrum's 4K LED Video Wall. Designed for high-traffic environments, it delivers unmatched clarity and reliability. Contact us today to bring stunning visuals to your business!",
+        "image_width": 800,
+        "image_height": 500,
+        "image_fit": "cover",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
