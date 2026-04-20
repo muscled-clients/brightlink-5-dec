@@ -455,6 +455,7 @@
         "mobile_contact_title_font_size": 18,
         "phone_label": "Call Now",
         "phone_number": "1-855-449-4733",
+        "phone_link": "18554494733",
         "phone_icon": "📞",
         "email": "support@brightlinkav.com",
         "email_icon": "✉️",
@@ -466,8 +467,7 @@
         "show_availability": true,
         "availability_status_text": "Same-day response guaranteed",
         "availability_details": "Mon-Fri: 8AM-6PM CST\nEmergency support: 24/7",
-        "status_color": "#22c55e",
-        "phone_link": "18554494733"
+        "status_color": "#22c55e"
       }
     },
     "led_science_section_3tiayK": {
@@ -498,7 +498,7 @@
             "download_description": "Get our comprehensive guide to LED display specifications and installation best practices for your project success.",
             "download_features": "Detailed pixel pitch comparison charts|COB vs. SMD technology comparison|Installation and maintenance guidelines",
             "button_text": "Download PDF Guide",
-            "pdf_url": "",
+            "pdf_url": "https://cdn.shopify.com/s/files/1/0616/2284/5624/files/Brightlink-LED-Specification-Guide.pdf?v=1776702491",
             "download_image": "shopify://shop_images/image_4.png"
           }
         }
