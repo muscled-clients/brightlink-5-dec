@@ -22,7 +22,7 @@
           }
         },
         "8d3f67e0-b759-40d9-9ac0-6cbbc8a6cb9a": {
-          "type": "shopify://apps/skeps-pay-over-time-messaging/blocks/skeps-promo-messaging/60df6040-d30e-4061-9d53-0a8e1b5d727b",
+          "type": "shopify://apps/skeps-test-messaging/blocks/skeps-promo-messaging/60df6040-d30e-4061-9d53-0a8e1b5d727b",
           "settings": {
             "product": "{{product}}"
           }
@@ -343,7 +343,7 @@
         "product_config_pkYKp8": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "227\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "12.44M",
@@ -627,7 +627,6 @@
         "footer_label_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_text": "ORDER NOW",
         "button_link": "",
         "button_2_text": "Book A Call",
@@ -736,7 +735,6 @@
         "subheading_color": "#a0a0a0",
         "padding_top": 80,
         "padding_bottom": 80,
-        "price_text": "$19,250.00 (30% Deposit)",
         "button_1_text": "ORDER NOW",
         "button_1_link": "",
         "button_2_text": "Book A Call",
@@ -862,7 +860,6 @@
         "feature_4_desc": "Integrated routing channels for clean professional installations",
         "cta_heading": "Get Your LED Specifications in 60 Seconds",
         "cta_subheading": "Professional pixel pitch and screen sizing calculator for optimal viewing experiences",
-        "price_text": "$19,250.00 (30% Deposit)",
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "Book A Call",
@@ -931,7 +928,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -964,7 +960,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -997,7 +992,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1030,7 +1024,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1063,7 +1056,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1096,7 +1088,6 @@
             "config5": "",
             "button_text": "VIEW FULL CONTROLLER SPECS",
             "button_link": "",
-            "price_text": "$10,250.00 (30% DEPOSIT)",
             "primary_btn_text": "ORDER NOW",
             "primary_btn_link": "",
             "secondary_btn_text": "BOOK A CALL",
@@ -1324,8 +1315,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "investment_config_9xqzkP": {
@@ -1367,7 +1357,6 @@
         "quote_button_text": "GET CUSTOM QUOTE",
         "quote_button_link": "",
         "specs_button_text": "GET LED SPECIFICATIONS",
-        "specs_button_link": "",
         "payment_title": "Flexible Payment Options Available",
         "payment_info": "NET30 terms for qualified businesses | Leasing options from $2,100/month | Purchase orders accepted",
         "payment_link_text": "DISCUSS PAYMENT OPTIONS",
@@ -1578,8 +1567,7 @@
         "primary_btn_text": "ORDER NOW",
         "primary_btn_link": "",
         "secondary_btn_text": "BOOK A CALL",
-        "secondary_btn_link": "",
-        "price_text": "$19,250.00 (30% DEPOSIT)"
+        "secondary_btn_link": ""
       }
     },
     "contact_discussion_FhbiMV": {
