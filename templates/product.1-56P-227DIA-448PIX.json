@@ -22,7 +22,7 @@
           }
         },
         "8d3f67e0-b759-40d9-9ac0-6cbbc8a6cb9a": {
-          "type": "shopify://apps/skeps-pay-over-time-messaging/blocks/skeps-promo-messaging/60df6040-d30e-4061-9d53-0a8e1b5d727b",
+          "type": "shopify://apps/skeps-test-messaging/blocks/skeps-promo-messaging/60df6040-d30e-4061-9d53-0a8e1b5d727b",
           "settings": {
             "product": "{{product}}"
           }
@@ -343,7 +343,7 @@
         "product_config_J8JCPC": {
           "type": "product_config",
           "settings": {
-            "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h2-controller-4-year-warranty",
+            "product": "brightlink-pro-spectrum-227-24-9-9mm-1-5-x-4k-12-441-600-million-pixels-cob-led-video-wall-hrd-ultra-slim-1-cabinets-novastar-h5-controller-4-year-warranty",
             "diagonal": "227\"",
             "pixel_pitch": "0.9mm",
             "total_pixels": "12.44M",
@@ -836,6 +836,7 @@
         "info3_heading": "MODULAR",
         "info3_subheading": "Easy Assembly",
         "cabinet_image": "shopify://shop_images/frontpanelview1_transparent.png",
+        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png",
         "cabinet_visual_label": "4 COB Modules",
         "cabinet_visual_sublabel": "384 × 216 pixels per cabinet",
         "cabinet_title": "Individual Cabinet Detail",
@@ -869,8 +870,7 @@
         "accent_color": "#3498db",
         "padding_top": 80,
         "padding_bottom": 80,
-        "custom_class": "",
-        "cabinet_image_2": "shopify://shop_images/frontpanelview1_transparent.png"
+        "custom_class": ""
       }
     },
     "experience_scale_gDgaxe": {
